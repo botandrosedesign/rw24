@@ -1,0 +1,16 @@
+login: &login
+  adapter: mysql
+  database: rw24
+  username: root
+  password:
+  socket: /var/run/mysqld/mysqld.sock
+
+development:
+  <<: *login
+
+staging:
+  <<: *login
+  password: ***REMOVED***
+production:
+  <<: *login
+  password: ***REMOVED***
