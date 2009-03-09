@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title><%=h page_title %></title>
+  <%= page_header %>
+  <%= stylesheet_link_tag '/stylesheets/theme/application.css', :media => 'all' %>
+  <!--[if IE 7]>
+    <link href='/stylesheets/theme/ie7.css' type='text/css' />
+  <![endif]-->
+  <link href='/favicon.png' rel='shortcut icon' type='image/x-icon' />
+</head>
+
+<body>
+<div class="outer-container">
+  <div id="countdown">
+    <h4>Friday-Saturday July 24-5, 2009, 7pm</h4>
+  </div>
+  <div id="header_container">
+    <div class="header">
+      <a href="/" id="logo"></a>
+  		<div class="title">
+    		<h1 class="sitename"><%= link_to this_blog.blog_name, this_blog.base_url %></h1>
+    		<div class="slogan"><%= this_blog.blog_subtitle %></div>
+  		</div>
+  		<div class="clear"></div>
+  	</div>
+  </div>
+	<div id="path_container">
+    <div class="path">
+        <ul>
+            <!--><li class="page_item <%= 'current_page_item' if (controller.controller_name == "articles" and controller.action_name == "index") %>">
+                <%= link_to _("Home"), this_blog.base_url %>
+            </li>-->
+            <li class="page_item <%= 'current_page_item' if (controller.action_name != 'index' and controller.action_name != 'view_page') %>">
+                <%= link_to _("Articles"), {:controller => "articles", :action => "archives"} if (controller.controller_name != "index" )%>
+            </li>
+            <li class="page_item <%= 'current_page_item' if (controller.controller_name == "articles" and controller.action_name == "view_page" and params[:name].to_s == 'About') %>">
+                <%= link_to _("About Us"), this_blog.base_url + "/pages/about" %>
+            </li>
+            <li class="page_item <%= 'current_page_item' if (controller.controller_name == "register" and controller.action_name == "view_page" and params[:name].to_s == 'Register') %>">
+                <%= link_to _("Register"), this_blog.base_url + "/pages/register" %>
+            </li>
+            <li class="page_item <%= 'current_page_item' if (controller.controller_name == "volunteer" and controller.action_name == "view_page" and params[:name].to_s == 'Volunteer') %>">
+                <%= link_to _("Volunteer"), this_blog.base_url + "/pages/volunteer" %>
+            </li>
+            <!--><li class="page_item post">
+              <%= link_to _("Write a Post"), this_blog.base_url + "/admin" %>
+            </li>-->
+        </ul>
+    </div>
+  </div>
+  <div id="inner">
+	  <div class="inner-container">
+    	<div class="main">
+      	<div id="content">
+        	<%= @content_for_layout %>
+        	<%= javascript_tag 'show_dates_as_local_time()' %>
+      	</div>
+
+      	<div id="sidebar">
+          
+          <div class="clear"></div>
+      	  
+        	<!-- search comment this when enable live search plugin -->
+        	<%= render :partial => 'shared/search' %>
+
+        	<!-- sidebar components -->
+        	<%= render_sidebars %>
+      	</div>
+      	<br style="clear:both;" />
+    	</div>
+    </div>
+	</div>
+	<div id="footer">
+	  <div id="footer_content">
+  	  <%= link_to this_blog.blog_name, this_blog.base_url, :class => "left" %>
+  	  <div class="right">
+        <%= link_to ('Admin', '/admin', :target => "blank") %>
+  		</div>
+  		<div class="right">
+        <%= _("Powered by %s", link_to ('Typo 5.2', 'http://typosphere.org')) %>
+  		</div>
+  		<div class="right">
+        <%= _("Designed by %s", link_to ('botandrose', 'http://botandrose.com', :target => "blank")) %>
+  		</div>
+  		<div class="clearer"></div>
+  	</div>
+	</div>
+</div>
+
+</body>
+</html>
