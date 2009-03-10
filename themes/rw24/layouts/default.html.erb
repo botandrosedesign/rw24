@@ -1,19 +1,56 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+ 
   <title><%=h page_title %></title>
   <%= page_header %>
-  <%= stylesheet_link_tag '/stylesheets/theme/application.css', :media => 'all' %>
-  <!--[if IE 7]>
-    <link href='/stylesheets/theme/ie7.css' type='text/css' />
-  <![endif]-->
-  <link href='/favicon.png' rel='shortcut icon' type='image/x-icon' />
+  <!--CSS-->
+    <%= stylesheet_link_tag '/stylesheets/theme/application.css', :media => 'all' %>
+    <!--[if IE 7]>
+      <link href='/stylesheets/theme/ie7.css' type='text/css' />
+    <![endif]-->
+  <!--favicon-->
+    <link href='/favicon.png' rel='shortcut icon' type='image/x-icon' />
+  <!--js-->
+    <script src="/javascripts/ajax.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      function update_date() {
+      	var oneMinute = 60 * 1000 
+      	var oneHour = oneMinute * 60
+      	var oneDay = oneHour * 24
+      	var oneYear = oneDay * 365
+
+      	today = new Date().valueOf()
+      	target = new Date('7/24/2009 19:00').valueOf()
+
+      	diff = target - today
+
+      	countdownDays = Math.floor(diff / oneDay)
+      	countdownHours = Math.floor(diff % oneDay / oneHour)
+      	countdownMinutes = Math.floor(diff % oneHour / oneMinute)
+      	countdownSeconds = Math.floor(diff % oneMinute / 1000)
+
+      	$('days').innerHTML = countdownDays < 10 ? '0'+countdownDays.toString() : countdownDays
+      	$('hrs').innerHTML = countdownHours < 10 ? '0'+countdownHours.toString() : countdownHours
+      	$('min').innerHTML = countdownMinutes < 10 ? '0'+countdownMinutes.toString() : countdownMinutes
+      	$('sec').innerHTML = countdownSeconds < 10 ? '0'+countdownSeconds.toString() : countdownSeconds
+      }
+
+      var countdown = self.setInterval("update_date()",1000)
+    </script>
 </head>
 
 <body>
 <div class="outer-container">
   <div id="countdown">
+    <!--><div id="cd">
+    		<div class="cd" id="days">00</div>
+    		<div class="cd" id="hrs">00</div>
+    		<div class="cd" id="min">00</div>
+    		<div class="cd" id="sec">00</div>
+    </div>-->
     <h4>Friday-Saturday July 24-5, 2009, 7pm</h4>
+    <div class="clear"></div>
   </div>
   <div id="header_container">
     <div class="header">
@@ -35,7 +72,7 @@
                 <%= link_to _("Articles"), {:controller => "articles", :action => "archives"} if (controller.controller_name != "index" )%>
             </li>
             <li class="page_item <%= 'current_page_item' if (controller.controller_name == "articles" and controller.action_name == "view_page" and params[:name].to_s == 'About') %>">
-                <%= link_to _("About Us"), this_blog.base_url + "/pages/about" %>
+                <%= link_to _("About RW24"), this_blog.base_url + "/pages/about" %>
             </li>
             <li class="page_item <%= 'current_page_item' if (controller.controller_name == "register" and controller.action_name == "view_page" and params[:name].to_s == 'Register') %>">
                 <%= link_to _("Register"), this_blog.base_url + "/pages/register" %>
@@ -53,20 +90,30 @@
 	  <div class="inner-container">
     	<div class="main">
       	<div id="content">
+      	  <div id="intro">
+      	    <p>The race starts in 
+      	      <span class="cd" id="days">00</span> days, 
+      	      <span class="cd" id="hrs">00</span> hours, 
+      	      <span class="cd" id="min">00</span> minutes, and 
+      	      <span class="cd" id="sec">00</span> seconds.
+      	    </p>
+      	  </div>
+      	  
         	<%= @content_for_layout %>
         	<%= javascript_tag 'show_dates_as_local_time()' %>
       	</div>
 
-      	<div id="sidebar">
+      	  <div id="sidebar">
           
-          <div class="clear"></div>
+            <div class="clear"></div>
       	  
-        	<!-- search comment this when enable live search plugin -->
-        	<%= render :partial => 'shared/search' %>
+          	<!-- search comment this when enable live search plugin -->
+          	<%= render :partial => 'shared/search' %>
 
-        	<!-- sidebar components -->
-        	<%= render_sidebars %>
-      	</div>
+          	<!-- sidebar components -->
+          	<%= render_sidebars %>
+        	</div>
+
       	<br style="clear:both;" />
     	</div>
     </div>
