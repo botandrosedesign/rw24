@@ -134,7 +134,7 @@ li.current_page_item a, li.current_page_item a:hover {font-weight: bold; color: 
 #footer { background: transparent url('../../images/theme/drop_shadow.png') repeat-y center;}
 
 #footer_content {background: #3c3b39 url('../../images/theme/header_bg.jpg') no-repeat top right;  
-  width: 882px; height: 60px; margin: 0 auto; padding: 10px; font-size: .8em; color: white;}
+  width: 882px; height: 40px; margin: 0 auto; padding: 10px; font-size: .8em; color: white;}
 
 #footer a { font-family: "Arial Black", sans-serif; color: white;}
 #footer a:hover {color: black;}
