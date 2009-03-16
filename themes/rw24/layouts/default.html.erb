@@ -9,6 +9,9 @@
     <!--[if IE 7]>
       <link href='/stylesheets/theme/ie7.css' type='text/css' />
     <![endif]-->
+    <!--[if IE 6]>
+      <link href='/stylesheets/theme/ie6.css' type='text/css' />
+    <![endif]-->
   <!--favicon-->
     <link href='/favicon.png' rel='shortcut icon' type='image/x-icon' />
   <!--js-->
@@ -43,12 +46,14 @@
 <body>
 <div class="outer-container">
   <div id="countdown">
-    <!--><div id="cd">
+    <!--
+    <div id="cd">
     		<div class="cd" id="days">00</div>
     		<div class="cd" id="hrs">00</div>
     		<div class="cd" id="min">00</div>
     		<div class="cd" id="sec">00</div>
-    </div>-->
+    </div>
+    -->
     <h4>Friday-Saturday July 24-5, 2009, 7pm</h4>
     <div class="clear"></div>
   </div>
@@ -65,24 +70,28 @@
 	<div id="path_container">
     <div class="path">
         <ul>
-            <!--><li class="page_item <%= 'current_page_item' if (controller.controller_name == "articles" and controller.action_name == "index") %>">
+            <!--
+            <li class="page_item <%= 'current_page_item' if (controller.controller_name == "articles" and controller.action_name == "index") %>">
                 <%= link_to _("Home"), this_blog.base_url %>
-            </li>-->
+            </li>
+            -->
             <li class="page_item <%= 'current_page_item' if (controller.action_name != 'index' and controller.action_name != 'view_page') %>">
                 <%= link_to _("Articles"), {:controller => "articles", :action => "archives"} if (controller.controller_name != "index" )%>
             </li>
             <li class="page_item <%= 'current_page_item' if (controller.controller_name == "articles" and controller.action_name == "view_page" and params[:name].to_s == 'About') %>">
-                <%= link_to _("About RW24"), this_blog.base_url + "/pages/about" %>
+                <%= link_to _("About RW24"), "/pages/about" %>
             </li>
             <li class="page_item <%= 'current_page_item' if (controller.controller_name == "register" and controller.action_name == "view_page" and params[:name].to_s == 'Register') %>">
-                <%= link_to _("Register"), this_blog.base_url + "/pages/register" %>
+                <%= link_to _("Register"), "/pages/register" %>
             </li>
             <li class="page_item <%= 'current_page_item' if (controller.controller_name == "volunteer" and controller.action_name == "view_page" and params[:name].to_s == 'Volunteer') %>">
-                <%= link_to _("Volunteer"), this_blog.base_url + "/pages/volunteer" %>
+                <%= link_to _("Volunteer"), "/pages/volunteer" %>
             </li>
-            <!--><li class="page_item post">
-              <%= link_to _("Write a Post"), this_blog.base_url + "/admin" %>
-            </li>-->
+            <!--
+            <li class="page_item post">
+              <%= link_to _("Write a Post"), "/admin" %>
+            </li>
+            -->
         </ul>
     </div>
   </div>
@@ -120,7 +129,7 @@
 	</div>
 	<div id="footer">
 	  <div id="footer_content">
-  	  <%= link_to this_blog.blog_name, this_blog.base_url, :class => "left" %>
+  	  <%= link_to this_blog.blog_name, "/", :class => "left" %>
   	  <div class="right">
         <%= link_to ('Admin', '/admin', :target => "blank") %>
   		</div>
