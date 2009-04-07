@@ -41,7 +41,7 @@ end
 ActionController::Routing::Routes.draw do |map|
 
   # default
-  map.root :controller  => 'articles', :action => 'index'
+  map.root :controller => 'articles', :action => 'view_page', :name => "about"
   map.admin 'admin', :controller  => 'admin/dashboard', :action => 'index'
 
   # make rss feed urls pretty and let them end in .xml
