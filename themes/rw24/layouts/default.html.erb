@@ -68,9 +68,6 @@
             <li class="page_item <%= 'current_page_item' if (controller.controller_name == "articles" and controller.action_name == "view_page" and params[:name].to_s == 'About') %>">
                 <%= link_to _("About RW24"), "/pages/about" %>
             </li>
-            <li class="page_item <%= 'current_page_item' if (controller.controller_name == "articles" and controller.action_name == "index") %>">
-                <%= link_to _("Blog"), '/articles' %>
-            </li>
             <li class="page_item <%= 'current_page_item' if (controller.controller_name == "register" and controller.action_name == "view_page" and params[:name].to_s == 'Register') %>">
                 <%= link_to _("Register"), "/pages/register" %>
             </li>
@@ -79,6 +76,9 @@
             </li>
             <li class="page_item <%= 'current_page_item' if (controller.controller_name == "sponsor" and controller.action_name == "view_page" and params[:name].to_s == 'Sponsor') %>">
                 <%= link_to _("Sponsor"), "/pages/sponsor" %>
+            </li>
+            <li class="page_item <%= 'current_page_item' if (controller.controller_name == "contact" and controller.action_name == "view_page" and params[:name].to_s == 'Contact') %>">
+                <%= link_to _("Contact"), "/pages/contact" %>
             </li>
             <!--
             <li class="page_item post">
@@ -106,6 +106,14 @@
       	</div>
 
       	  <div id="sidebar">
+      	    <div class="sidebar_content">
+      	      <h3>Of Interest:</h3>
+      	      <ul>
+      	        <li><%= link_to _("Rules"), "/pages/rules" %></li>
+      	        <li><%= link_to _("Blog"), "/articles" %></li>
+      	        <li><%= link_to _("Media"), "/pages/media" %></li>
+      	      </ul>
+      	    </div>   	        
           	<!--<%= render :partial => 'shared/search' %>-->
           	<%= render_sidebars %>
         	</div>
