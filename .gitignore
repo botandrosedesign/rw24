@@ -1,5 +1,6 @@
 log/*.log
-tmp/**/*
+tmp/*
+!tmp/.gitignore
 .DS_Store
 public/cache/**/*
 public/wholesale
