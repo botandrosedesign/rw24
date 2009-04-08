@@ -65,19 +65,19 @@
             <!--<li class="page_item <%= 'current_page_item' if (controller.action_name != 'index' and controller.action_name != 'view_page') %>">
                 <%= link_to _("Articles"), {:controller => "articles", :action => "archives"} if (controller.controller_name != "index" )%>
             </li>-->
-            <li class="page_item <%= 'current_page_item' if (controller.controller_name == "articles" and controller.action_name == "view_page" and params[:name].to_s == 'About') %>">
+            <li class="page_item <%= 'current_page_item' if (params[:name].to_s == 'about') %>">
                 <%= link_to _("About RW24"), "/pages/about" %>
             </li>
-            <li class="page_item <%= 'current_page_item' if (controller.controller_name == "register" and controller.action_name == "view_page" and params[:name].to_s == 'Register') %>">
+            <li class="page_item <%= 'current_page_item' if (params[:name].to_s == 'register') %>">
                 <%= link_to _("Register"), "/pages/register" %>
             </li>
-            <li class="page_item <%= 'current_page_item' if (controller.controller_name == "volunteer" and controller.action_name == "view_page" and params[:name].to_s == 'Volunteer') %>">
+            <li class="page_item <%= 'current_page_item' if (params[:name].to_s == 'volunteer') %>">
                 <%= link_to _("Volunteer"), "/pages/volunteer" %>
             </li>
-            <li class="page_item <%= 'current_page_item' if (controller.controller_name == "sponsor" and controller.action_name == "view_page" and params[:name].to_s == 'Sponsor') %>">
+            <li class="page_item <%= 'current_page_item' if (params[:name].to_s == 'sponsor') %>">
                 <%= link_to _("Sponsor"), "/pages/sponsor" %>
             </li>
-            <li class="page_item <%= 'current_page_item' if (controller.controller_name == "contact" and controller.action_name == "view_page" and params[:name].to_s == 'Contact') %>">
+            <li class="page_item <%= 'current_page_item' if (params[:name].to_s == 'contact') %>">
                 <%= link_to _("Contact"), "/pages/contact" %>
             </li>
             <!--
