@@ -12,4 +12,5 @@ db/data.*
 db/*.sqlite3
 config/deploy.rb
 Capfile
+public/files
 *[~]
