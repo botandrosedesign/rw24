@@ -1,0 +1,15 @@
+/* forms */
+
+fieldset {border:none;}
+.field {margin: 6px 0;}
+  .field label {font-variant: small-caps; font-size: .9em; color: #000;
+    display:block; float: left; width: 120px; text-align: right; padding: 0 10px 0 0;}
+  .field em {color:#666; font-size:.8em; margin: 0 0 0 6px;}
+  .field p {font-size: .8em; text-align: justify; padding:0 10px; margin: 6px 0 ; font-style: italic; color: #666;}
+  .field .dots_bottom {margin: 0 0 6px 0;}
+input, select{float: left; width: 200px;}
+
+input[type="radio"] {width: auto; margin: 2px 2px 0 2px;}
+  input[type="radio"] + p {margin:0 24px 0 0; padding:0; display:block; float:left;}
+  
+input#paypal {width:auto;}

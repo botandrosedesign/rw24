@@ -10,6 +10,8 @@ a {color: #000000; text-decoration: underline; padding: 2px 10px;}
 a:hover {background-color: #F8D634;}
 a img {border: none;}
 
+img {border: 3px double #cccccc;}
+
 a.p {padding: 2px 20px;}
 a.p span {font-weight: bold;}
 
@@ -285,10 +287,3 @@ textarea.styled {width: 280px;}
 #sidebar table tfoot #next a {text-align:center;}
 
 #searchform {padding: 10px;}
-
-/* forms */
-
-fieldset {border:none;}
-.field {margin: 6px 0;}
-label{display:block; float: left; width: 120px; text-align: right; padding: 0 6px 0 0;}
-input, select{float: left; width: 200px;}
