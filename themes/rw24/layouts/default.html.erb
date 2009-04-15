@@ -53,10 +53,16 @@
   <div id="header_container">
     <div class="header">
       <a href="/" id="logo"></a>
-  		<div class="title">
+  		<div class="title left">
     		<h1 class="sitename"><%= link_to this_blog.blog_name, "/" %></h1>
     		<div class="slogan"><%= this_blog.blog_subtitle %></div>
   		</div>
+  	  <p id="intro" class="left">The race starts in
+  	    <span class="cd" id="days">00</span> days, 
+  	    <span class="cd" id="hrs">00</span> hours, 
+  	    <span class="cd" id="min">00</span> minutes, and 
+  	    <span class="cd" id="sec">00</span> seconds.
+  	  </p>
   		<div class="clear"></div>
   	</div>
   </div>
@@ -93,14 +99,7 @@
 	  <div class="inner-container">
     	<div class="main">
       	<div id="content">
-      	  <div id="intro">
-      	    <p>The race starts in 
-      	      <span class="cd" id="days">00</span> days, 
-      	      <span class="cd" id="hrs">00</span> hours, 
-      	      <span class="cd" id="min">00</span> minutes, and 
-      	      <span class="cd" id="sec">00</span> seconds.
-      	    </p>
-      	  </div>
+      	  
       	  
         	<%= @content_for_layout %>
         	<%= javascript_tag 'show_dates_as_local_time()' %>

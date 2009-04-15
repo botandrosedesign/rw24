@@ -73,7 +73,7 @@ blockquote {
 #days, #hrs, #min, #sec {ont-size: 1.3em; }
 
 #countdown {height:36px; width: 900px; margin: 0 auto;}
-#countdown h4 {padding: 18px 0 0 136px;float:left;}
+#countdown h4 {padding: 16px 0 0 136px;float:left;}
 
 #account {position: absolute; z-index: 100; right: 0px; color: #8A9CA1;}
 #account a {margin:3px 6px 0 6px; font-size: 13px; text-decoration: none;}
@@ -120,9 +120,7 @@ li.current_page_item a, li.current_page_item a:hover {font-weight: bold; color: 
     margin-left: 18px;
 }
 
-#intro {padding: 10px; text-align: center; background: #FCF0B3; border: 3px double #cccccc; margin: 0 0 20px 0;
-  -moz-border-radius: 24px; -webkit-border-radius: 24px; -border-radius: 24px;}
-#intro p {font-size: 1.2em;}
+p#intro { color: #fff; padding: 16px 0 0 20px; font-size: .9em; line-height: 1.8; font-family: Arial;}
 
 /* navigation */
 
