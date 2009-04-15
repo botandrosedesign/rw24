@@ -17,9 +17,11 @@ a.p span {font-weight: bold;}
 
 
 body {
-    background: #bbbab8 url('../../images/theme/bg_tile.gif') repeat-y center;
+    background: #fff url('../../images/theme/bg_tile.gif') repeat-y center;
     font: normal 1em "Arial", sans-serif;
 }
+
+#container {width:540px; margin: 10px auto; border:thin dashed grey;}
 
 li {list-style: none;}
 h1, h2, h3 {font-weight: normal; margin:0; padding:0;
@@ -49,7 +51,10 @@ blockquote {
 .clearer, .clear {clear: both; font-size: 0;}
 .left {float: left;}
 .right {float: right;}
+.center{text-align:center;}
 .dots_bottom {border-bottom: 3px dotted #cccccc;}
+
+.black {border-color:#000;}
 
 
 /* structure */
