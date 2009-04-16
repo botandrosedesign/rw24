@@ -16,6 +16,8 @@ class StaticController < ContentController
   end
 
   def deliver_sponsor
-    exit
+    NotificationMailer.deliver_sponsor(params)
+    flash[:notice] = "Thanks for your interest in sponsoring Riverwest24! We'll get in contact with you within the next 24 hours."
+    redirect_to "/"
   end
 end

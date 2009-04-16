@@ -3,26 +3,26 @@
 
   %p &nbsp;
   
-  %form{ :action => "" }
+  %form{ :action => "sponsor/deliver" }
     %fieldset
       .field
-        %label{ :for => "name" } Company Name
-        %input#name{ :type => "text" }
+        %label{ :for => "company_name" } Company Name
+        %input#company_name{ :name => "company_name", :type => "text" }
         .clear
 
       .field
-        %label{ :for => "name" } Contact Name
-        %input#name{ :type => "text" }
+        %label{ :for => "contact_name" } Contact Name
+        %input#contact_name{ :name => "contact_name", :type => "text" }
         .clear
 
       .field
         %label{ :for => "email" } Email
-        %input#name{ :type => "text" }
+        %input#email{ :name => "email", :type => "text" }
         .clear
 
       .field
         %label{ :for => "phone" } Phone
-        %input#phone{ :type => "text" }
+        %input#phone{ :name => "phone", :type => "text" }
         .clear
 
       .field
