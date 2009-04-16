@@ -1,0 +1,164 @@
+#viewpage
+  %h2 Register to Ride
+  
+  %form{ :action => "https://www.paypal.com/cgi-bin/webscr" }
+    %fieldset
+      .field
+        %p A fee of $20 per rider lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        
+        %label{ :for => "name" } team name
+        %input#name{ :type => "text" }
+        .clear
+
+      .field
+        %label{ :for => "email" } email
+        %input#name{ :type => "text" }
+        .clear
+
+      .field
+        %label{ :for => "phone" } phone
+        %input#phone{ :type => "text" }
+        .clear
+
+      .field
+        %label{ :for => "class" } rider class
+        
+        %input#solo{ :name => "class", :value => "Solo", :type => "radio" }
+        %p Solo
+        
+        %input#tandem{ :name => "class", :value => "Tandem", :type => "radio" }
+        %p Tandem
+        
+        %input#teamA{ :name => "class", :value => "Team A", :type => "radio" }
+        %p Team A
+        
+        %input#teamB{ :name => "class", :value => "Team B", :type => "radio" }
+        %p Team B
+        
+        .clear
+
+      #number.field
+        %label{ :for => "number" } no. of riders
+        
+        %input#one{ :name => "number", :value => "1", :type => "radio" }
+        %p 1
+        
+        %input#two{ :name => "number", :value => "2", :type => "radio" }
+        %p 2
+        
+        %input#three{ :name => "number", :value => "3", :type => "radio" }
+        %p 3
+        
+        %input#four{ :name => "number", :value => "4", :type => "radio" }
+        %p 4
+        
+        %input#five{ :name => "number", :value => "5", :type => "radio" }
+        %p 5
+        
+        %input#six{ :name => "number", :value => "6", :type => "radio" }
+        %p 6
+        
+        .clear
+
+      #solo_desc.field
+        .dots_bottom
+
+        %p Solo lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+        .dots_bottom
+
+        %label{ :for => "captain" } captain’s name
+        %input#captain{ :type => "text" }
+        .clear
+
+      #tandem_desc.field
+
+        .dots_bottom
+
+        %p Tandem lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        
+        .dots_bottom
+
+        %label{ :for => "captainT" } captain’s name
+        %input#captainT{ :type => "text" }
+        .clear
+
+        %label{ :for => "rider_twoT" } rider 2
+        %input#rider_twoT{ :type => "text" }
+        .clear
+
+      #teamA_desc.field
+
+        .dots_bottom
+
+        %p Team A lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        
+        .dots_bottom
+
+        %label{ :for => "captainA" } captain’s name
+        %input#captainA{ :type => "text" }
+        .clear
+
+        %label{ :for => "rider_twoA" } rider 2
+        %input#rider_twoA{ :type => "text" }
+        .clear
+
+        %label{ :for => "rider_threeA" } rider 3
+        %input#rider_threeA{ :type => "text" }
+        .clear
+
+        %label{ :for => "rider_fourA" } rider 4
+        %input#rider_fourA{ :type => "text" }
+        .clear
+
+        %label{ :for => "rider_fiveA" } rider 5
+        %input#rider_fiveA{ :type => "text" }
+        .clear
+
+        %label{ :for => "rider_sixA" } rider 6
+        %input#rider_sixA{ :type => "text" }
+        .clear
+
+      #teamB_desc.field
+
+        .dots_bottom
+
+        %p Team B lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+        .dots_bottom
+
+        %label{ :for => "captainB" } captain’s name
+        %input#captainB{ :type => "text" }
+        .clear
+
+        %label{ :for => "rider_twoB" } rider 2
+        %input#rider_twoB{ :type => "text" }
+        .clear
+
+        %label{ :for => "rider_threeB" } rider 3
+        %input#rider_threeB{ :type => "text" }
+        .clear
+
+        %label{ :for => "rider_fourB" } rider 4
+        %input#rider_fourB{ :type => "text" }
+        .clear
+
+        %label{ :for => "rider_fiveB" } rider 5
+        %input#rider_fiveB{ :type => "text" }
+        .clear
+
+        %label{ :for => "rider_sixB" } rider 6
+        %input#rider_sixB{ :type => "text" }
+        .clear
+
+      .dots_bottom.black
+
+      .field.center
+        %strong Total : (3) riders = $60.00
+
+        %input{ :name => "cmd", :value => "_s-xclick", :type => "hidden" }
+        %input{ :name => "hosted_button_id", :value => "4557638", :type => "hidden" }
+        %input{ :name => "currency_code", :value => "USD", :type => "hidden" }
+        %input#paypal.center{ :name => "submit", :src => "https://www.paypal.com/en_US/i/btn/btn_paynow_SM.gif", :border => "0", :type => "image", :alt => "PayPal - The safer, easier way to pay online!" }
+        %img{ :src => "https://www.paypal.com/en_US/i/scr/pixel.gif", :border => "0", :height => "1", :alt => "", :width => "1" }
+        .clear

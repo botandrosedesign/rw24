@@ -1,0 +1,34 @@
+#viewpage
+  %h2 Volunteer to Help
+  
+  %ul
+    %li
+      The RW24 is a not for profit community based event, meaning we need your help.&nbsp; We are looking for people to step up and bring their various skills to pull this event off.&nbsp; If you have any ideas you would like to make happen, please let us know.&nbsp; This event is yours.&nbsp; If you would like to help with one of the many jobs we have already thought of, we would be happy to let you know what we need.
+    %li
+      You can fill out this form and we will put you on the volunteer contact list.&nbsp; There will be dialogue with one of the organizers and a volunteer meeting closer to the event.
+    %li
+      You can also contact Jeremy, the volunteer organizer, at
+      = mail_to "volunteer@riverwest24.com", nil, :class => 'inline'
+      
+  .dots_bottom
+  
+  %form{ :action => "" }
+    %fieldset
+      .field
+        %label{ :for => "name" } Name
+        %input#name{ :type => "text" }
+        .clear
+
+      .field
+        %label{ :for => "email" } Email
+        %input#name{ :type => "text" }
+        .clear
+
+      .field
+        %label{ :for => "phone" } Phone
+        %input#phone{ :type => "text" }
+        .clear
+
+      .field
+        %label &nbsp;
+        %input{ :value => "Submit", :type => "submit" }

@@ -49,6 +49,7 @@ Rails::Initializer.run do |config|
   config.gem 'coderay'
   config.gem 'htmlentities'
   config.gem 'json'
+  config.gem 'haml'
 
   # Force all environments to use the same logger level
   # (by default production uses :info, the others :debug)

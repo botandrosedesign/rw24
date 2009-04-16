@@ -44,6 +44,11 @@ ActionController::Routing::Routes.draw do |map|
   map.root :controller => 'articles', :action => 'view_page', :name => "about"
   map.admin 'admin', :controller  => 'admin/dashboard', :action => 'index'
 
+  # static pages
+  %w( register volunteer sponsor ).each do |page|
+    map.connect page, :controller => 'static', :action => 'dispatch', :name => page
+  end
+
   # make rss feed urls pretty and let them end in .xml
   # this improves caches_page because now apache and webrick will send out the
   # cached feeds with the correct xml mime type.
