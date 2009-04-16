@@ -99,7 +99,12 @@
 	  <div class="inner-container">
     	<div class="main">
       	<div id="content">
-      	  
+      	  <div id="notice">
+      	    <%= flash[:notice] %>
+      	  </div>
+      	  <div id="error">
+      	    <%= flash[:error] %>
+      	  </div>
       	  
         	<%= @content_for_layout %>
         	<%= javascript_tag 'show_dates_as_local_time()' %>

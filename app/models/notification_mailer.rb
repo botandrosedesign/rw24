@@ -1,6 +1,22 @@
 class NotificationMailer < ActionMailer::Base
   helper :mail
   
+  def register
+  end
+  
+  def volunteer(hash)
+    @headers      = {'X-Mailer' => "Typo #{TYPO_VERSION}"}
+    @recipients   = "volunteer@riverwest24.com"
+    @from         = hash[:email]
+    @subject      = "[Riverwest 24] New volunteer: #{hash[:name]}"
+    @body[:name]  = hash[:name]
+    @body[:email] = hash[:email]
+    @body[:phone] = hash[:phone]
+  end
+  
+  def sponsor
+  end
+  
   def article(article, user)
     setup(user, article)
     @subject        = "[#{article.blog.blog_name}] New article: #{article.title}"

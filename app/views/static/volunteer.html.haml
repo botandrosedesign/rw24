@@ -12,21 +12,21 @@
       
   .dots_bottom
   
-  %form{ :action => "" }
+  %form{ :action => "/volunteer/deliver" }
     %fieldset
       .field
         %label{ :for => "name" } Name
-        %input#name{ :type => "text" }
+        %input#name{ :name => "name", :type => "text" }
         .clear
 
       .field
         %label{ :for => "email" } Email
-        %input#name{ :type => "text" }
+        %input#name{ :name => "email", :type => "text" }
         .clear
 
       .field
         %label{ :for => "phone" } Phone
-        %input#phone{ :type => "text" }
+        %input#phone{ :name => "phone", :type => "text" }
         .clear
 
       .field
