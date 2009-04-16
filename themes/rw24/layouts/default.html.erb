@@ -4,6 +4,7 @@
  
   <title><%=h page_title %></title>
   <%= page_header %>
+  <%= yield :js %>
   <!--CSS-->
     <%= stylesheet_link_tag '/stylesheets/theme/application.css', :media => 'all' %>
     <%= stylesheet_link_tag '/stylesheets/theme/form.css', :media => 'all' %>
@@ -16,7 +17,6 @@
   <!--favicon-->
     <link href='/favicon.png' rel='shortcut icon' type='image/x-icon' />
   <!--js-->
-    <script src="/javascripts/ajax.js" type="text/javascript"></script>
     <script type="text/javascript">
       function update_date() {
       	var oneMinute = 60 * 1000 

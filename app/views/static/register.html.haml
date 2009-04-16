@@ -1,3 +1,6 @@
+- content_for :js do
+  = javascript_include_tag 'jquery', 'register_form'
+
 #viewpage
   %h2 Register to Ride
   
@@ -7,56 +10,42 @@
         %p A fee of $20 per rider lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         
         %label{ :for => "name" } team name
-        %input#name{ :type => "text" }
+        %input{ :name => "name", :type => "text" }
         .clear
 
       .field
         %label{ :for => "email" } email
-        %input#name{ :type => "text" }
+        %input{ :name => "email", :type => "text" }
         .clear
 
       .field
         %label{ :for => "phone" } phone
-        %input#phone{ :type => "text" }
+        %input{ :name => "phone", :type => "text" }
         .clear
 
       .field
         %label{ :for => "class" } rider class
         
-        %input#solo{ :name => "class", :value => "Solo", :type => "radio" }
+        %input{ :name => "class", :value => "Solo", :data_div => "#solo_desc", :type => "radio", :checked => "checked" }
         %p Solo
         
-        %input#tandem{ :name => "class", :value => "Tandem", :type => "radio" }
+        %input{ :name => "class", :value => "Tandem", :data_div => "#tandem_desc", :type => "radio" }
         %p Tandem
         
-        %input#teamA{ :name => "class", :value => "Team A", :type => "radio" }
+        %input{ :name => "class", :value => "Team A", :data_div => "#teamA_desc", :type => "radio" }
         %p Team A
         
-        %input#teamB{ :name => "class", :value => "Team B", :type => "radio" }
+        %input{ :name => "class", :value => "Team B", :data_div => "#teamB_desc", :type => "radio" }
         %p Team B
         
         .clear
 
-      #number.field
+      #number.field{ :style => "display: none" }
         %label{ :for => "number" } no. of riders
         
-        %input#one{ :name => "number", :value => "1", :type => "radio" }
-        %p 1
-        
-        %input#two{ :name => "number", :value => "2", :type => "radio" }
-        %p 2
-        
-        %input#three{ :name => "number", :value => "3", :type => "radio" }
-        %p 3
-        
-        %input#four{ :name => "number", :value => "4", :type => "radio" }
-        %p 4
-        
-        %input#five{ :name => "number", :value => "5", :type => "radio" }
-        %p 5
-        
-        %input#six{ :name => "number", :value => "6", :type => "radio" }
-        %p 6
+        - 1.upto(6) do |i|
+          %input{ :name => "number", :value => i, :type => "radio", :checked => i == 3 ? "checked" : nil}
+          %p= i
         
         .clear
 
@@ -68,10 +57,10 @@
         .dots_bottom
 
         %label{ :for => "captain" } captain’s name
-        %input#captain{ :type => "text" }
+        %input{ :name => "captain", :type => "text" }
         .clear
 
-      #tandem_desc.field
+      #tandem_desc.field{ :style => "display: none" }
 
         .dots_bottom
 
@@ -80,14 +69,14 @@
         .dots_bottom
 
         %label{ :for => "captainT" } captain’s name
-        %input#captainT{ :type => "text" }
+        %input{ :name => "captainT", :type => "text" }
         .clear
 
         %label{ :for => "rider_twoT" } rider 2
-        %input#rider_twoT{ :type => "text" }
+        %input{ :name => "rider_twoT", :type => "text" }
         .clear
 
-      #teamA_desc.field
+      #teamA_desc.field{ :style => "display: none" }
 
         .dots_bottom
 
@@ -96,30 +85,16 @@
         .dots_bottom
 
         %label{ :for => "captainA" } captain’s name
-        %input#captainA{ :type => "text" }
+        %input{ :name => "captainA", :type => "text" }
         .clear
 
-        %label{ :for => "rider_twoA" } rider 2
-        %input#rider_twoA{ :type => "text" }
-        .clear
+        - 2.upto(6) do |i|
+          %div{ :id => "teamA_rider_#{i}", :style => i > 3 ? "display: none" : nil}
+            %label{ :for => "rider_#{i}A" }== rider #{i}
+            %input{ :name => "rider_#{i}A", :type => "text" }
+            .clear
 
-        %label{ :for => "rider_threeA" } rider 3
-        %input#rider_threeA{ :type => "text" }
-        .clear
-
-        %label{ :for => "rider_fourA" } rider 4
-        %input#rider_fourA{ :type => "text" }
-        .clear
-
-        %label{ :for => "rider_fiveA" } rider 5
-        %input#rider_fiveA{ :type => "text" }
-        .clear
-
-        %label{ :for => "rider_sixA" } rider 6
-        %input#rider_sixA{ :type => "text" }
-        .clear
-
-      #teamB_desc.field
+      #teamB_desc.field{ :style => "display: none" }
 
         .dots_bottom
 
@@ -128,33 +103,20 @@
         .dots_bottom
 
         %label{ :for => "captainB" } captain’s name
-        %input#captainB{ :type => "text" }
+        %input{ :name => "captainB", :type => "text" }
         .clear
 
-        %label{ :for => "rider_twoB" } rider 2
-        %input#rider_twoB{ :type => "text" }
-        .clear
-
-        %label{ :for => "rider_threeB" } rider 3
-        %input#rider_threeB{ :type => "text" }
-        .clear
-
-        %label{ :for => "rider_fourB" } rider 4
-        %input#rider_fourB{ :type => "text" }
-        .clear
-
-        %label{ :for => "rider_fiveB" } rider 5
-        %input#rider_fiveB{ :type => "text" }
-        .clear
-
-        %label{ :for => "rider_sixB" } rider 6
-        %input#rider_sixB{ :type => "text" }
-        .clear
+        - 2.upto(6) do |i|
+          %div{ :id => "teamB_rider_#{i}",  :style => i > 3 ? "display: none" : nil }
+            %label{ :for => "rider_#{i}B" }== rider #{i}
+            %input{ :name => "rider_#{i}B", :type => "text" }
+            .clear
 
       .dots_bottom.black
 
       .field.center
-        %strong Total : (3) riders = $60.00
+        %strong
+          Total : (<span id="qty">1</span>) riders = $<span id="total">20</span>.00
 
         %input{ :name => "cmd", :value => "_s-xclick", :type => "hidden" }
         %input{ :name => "hosted_button_id", :value => "4557638", :type => "hidden" }
