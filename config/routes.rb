@@ -45,7 +45,7 @@ ActionController::Routing::Routes.draw do |map|
   map.admin 'admin', :controller  => 'admin/dashboard', :action => 'index'
 
   # static pages
-  %w( register volunteer sponsor ).each do |page|
+  %w( register volunteer sponsor thankyou ).each do |page|
     map.connect page, :controller => 'static', :action => 'dispatch', :name => page
     map.connect "#{page}/deliver", :controller => 'static', :action => "deliver_#{page}", :method => :post
   end

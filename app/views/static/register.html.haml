@@ -4,7 +4,7 @@
 #viewpage
   %h2 Register to Ride
   
-  %form{ :action => "https://www.paypal.com/cgi-bin/webscr" }
+  %form{ :action => "/register/deliver" }
     %fieldset
       .field
         %p A fee of $20 per rider lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -118,9 +118,5 @@
         %strong
           Total : (<span id="qty">1</span>) riders = $<span id="total">20</span>.00
 
-        %input{ :name => "cmd", :value => "_s-xclick", :type => "hidden" }
-        %input{ :name => "hosted_button_id", :value => "4557638", :type => "hidden" }
-        %input{ :name => "currency_code", :value => "USD", :type => "hidden" }
-        %input#paypal.center{ :name => "submit", :src => "https://www.paypal.com/en_US/i/btn/btn_paynow_SM.gif", :border => "0", :type => "image", :alt => "PayPal - The safer, easier way to pay online!" }
-        %img{ :src => "https://www.paypal.com/en_US/i/scr/pixel.gif", :border => "0", :height => "1", :alt => "", :width => "1" }
+        %input#paypal.center{ :name => "submit", :src => "/images/paypal.gif", :border => "0", :type => "image", :alt => "PayPal - The safer, easier way to pay online!" }
         .clear
