@@ -30,6 +30,8 @@ class StaticController < ContentController
     end
     
     @form = {
+      :no_shipping => "1",
+      :business => "riverwest24@gmail.com",
       :amount => 0.01,#qty * 20,
       :item_name => "Riverwest 24 Registration - #{params[:class]} Class",
       :cmd => "_xclick",
