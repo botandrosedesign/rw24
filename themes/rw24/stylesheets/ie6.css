@@ -1,2 +1,12 @@
-#logo {background: transparent url('../../images/theme/rw24.gif') no-repeat;top:-40px; left:-34px; width:154px; height:152px;
-  border:3px solid black;}
+#inner, #footer, #path_container, #header_container {background: none;}
+.main {background: #fff;}
+#sidebar {background: #e4e4e4;}
+a#logo{display:none;}
+#countdown h4 {padding-left: 0;}
+.header .title{margin: 0;}
+
+#sidebar ul li {margin: 0; padding: 0;}
+
+input.select {width: 12px; float:left;}
+
+

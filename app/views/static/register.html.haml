@@ -39,16 +39,16 @@
       .field
         %label{ :for => "class" } rider class
         
-        %input{ :name => "class", :value => "Solo", :data_div => "#solo_desc", :type => "radio", :checked => "checked" }
+        %input{ :class => "select", :name => "class", :value => "Solo", :data_div => "#solo_desc", :type => "radio", :checked => "checked" }
         %p Solo
         
-        %input{ :name => "class", :value => "Tandem", :data_div => "#tandem_desc", :type => "radio" }
+        %input{ :class => "select", :name => "class", :value => "Tandem", :data_div => "#tandem_desc", :type => "radio" }
         %p Tandem
         
-        %input{ :name => "class", :value => "Team A", :data_div => "#teamA_desc", :type => "radio" }
+        %input{ :class => "select", :name => "class", :value => "Team A", :data_div => "#teamA_desc", :type => "radio" }
         %p Team A
         
-        %input{ :name => "class", :value => "Team B", :data_div => "#teamB_desc", :type => "radio" }
+        %input{ :class => "select", :name => "class", :value => "Team B", :data_div => "#teamB_desc", :type => "radio" }
         %p Team B
         
         .clear
@@ -57,7 +57,7 @@
         %label{ :for => "number" } no. of riders
         
         - 1.upto(6) do |i|
-          %input{ :name => "number", :value => i, :type => "radio", :checked => i == 3 ? "checked" : nil}
+          %input{ :class => "select", :name => "number", :value => i, :type => "radio", :checked => i == 3 ? "checked" : nil}
           %p= i
         
         .clear
