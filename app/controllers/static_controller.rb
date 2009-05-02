@@ -32,7 +32,8 @@ class StaticController < ContentController
     @form = {
       :no_shipping => "1",
       :business => "riverwest24@gmail.com",
-      :amount => 0.01,#qty * 20,
+      :amount => 0.01,#20
+      :quantity => qty,
       :item_name => "Riverwest 24 Registration - #{params[:class]} Class",
       :cmd => "_xclick",
       :custom => "T:#{params[:name]}, P:#{params[:phone]}, E:#{params[:email]}. #{qty} Riders: #{riders.join(", ")}"

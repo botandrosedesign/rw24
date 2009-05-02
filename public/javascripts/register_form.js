@@ -1,7 +1,7 @@
 jQuery.noConflict()
 
 jQuery(function() {
-  jQuery('input[name=class]:radio').change(function() {
+  jQuery('input[name=class]:radio').click(function() {
   
     // Hide other divs
     jQuery('input[name=class]:not(:checked)').each(function() {
@@ -23,7 +23,7 @@ jQuery(function() {
     calculate_price()    
   })
 
-  jQuery('input[name=number]:radio').change(function() {
+  jQuery('input[name=number]:radio').click(function() {
     var number = parseInt(jQuery('input[name=number]:checked').val())
     for(i=2; i<=6; i++) {
       if(i <= number) {
