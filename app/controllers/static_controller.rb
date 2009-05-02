@@ -13,18 +13,19 @@ class StaticController < ContentController
       when "Solo"
         qty = 1
         riders << params[:captain]
+        abbrev = 'S'
         
       when "Tandem"
         qty = 2
         riders << params[:captainT]
         riders << params[:rider_twoT]
-        
+        abbrev = 'T'
       else
         qty = params[:number].to_i
-        ab = params[:class].chars.to_a.last
-        riders << params[:"captain#{ab}"]
+        abbrev = params[:class].chars.to_a.last
+        riders << params[:"captain#{abbrev}"]
         2.upto(qty) do |i|
-          riders << params[:"rider_#{i}#{ab}"]
+          riders << params[:"rider_#{i}#{abbrev}"]
         end
 
     end
@@ -36,9 +37,9 @@ class StaticController < ContentController
       :quantity => qty,
       :item_name => "Riverwest 24 Registration - #{params[:class]} Class",
       :cmd => "_xclick",
-      :custom => "T:#{params[:name]}, P:#{params[:phone]}, E:#{params[:email]}. #{qty} Riders: #{riders.join(", ")}"
+      :custom => [abbrev, params[:name], riders, params[:email], params[:phone]].flatten.join(', ')
     }
-    
+
     render :layout => false
     
   end
