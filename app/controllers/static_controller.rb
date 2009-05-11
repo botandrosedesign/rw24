@@ -37,7 +37,8 @@ class StaticController < ContentController
       :quantity => qty,
       :item_name => "Riverwest 24 Registration - #{params[:class]} Class",
       :cmd => "_xclick",
-      :custom => [abbrev, params[:name], riders, params[:email], params[:phone]].flatten.join(', ')
+      :custom => [abbrev, params[:name], riders, params[:email], params[:phone]].flatten.join(', '),
+      :return => "http://riverwest24.com/pages/complete"
     }
 
     render :layout => false
