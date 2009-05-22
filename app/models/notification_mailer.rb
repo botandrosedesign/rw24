@@ -6,6 +6,7 @@ class NotificationMailer < ActionMailer::Base
   
   def volunteer(hash)
     @headers      = {'X-Mailer' => "Typo #{TYPO_VERSION}"}
+    @content_type = "text/html"
     @recipients   = "volunteer@riverwest24.com"
     @from         = hash[:email]
     @subject      = "[Riverwest 24] New volunteer: #{hash[:name]}"
@@ -17,6 +18,7 @@ class NotificationMailer < ActionMailer::Base
   
   def sponsor(hash)
     @headers      = {'X-Mailer' => "Typo #{TYPO_VERSION}"}
+    @content_type = "text/html"
     @recipients   = "sponsor@riverwest24.com"
     @from         = hash[:email]
     @subject      = "[Riverwest 24] New sponsor: #{hash[:company_name]}"
