@@ -7,8 +7,9 @@ class Admin::PagesController < Admin::BaseController
   def index
     @search = params[:search] ? params[:search] : {}
     @pages = Page.search_paginate(@search, :page => params[:page], :per_page => 10)
-    @page = Page.new(params[:page])
-    @page.text_filter ||= this_blog.text_filter
+    #WTF
+    #@page = Page.new(params[:page])
+    #@page.text_filter ||= this_blog.text_filter
   end
 
   def show
