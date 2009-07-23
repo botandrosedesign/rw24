@@ -296,16 +296,19 @@ textarea.styled {width: 280px;}
 #board
   a.current{background: #F8D634;}
   table#stats{margin:10px 0;}
-    table#stats tr:hover{background:#F8D634;}
+    /*table#stats tr:hover{background:#F8D634;}*/
       table#stats th{border-bottom: 3px double #000; font-variant: small-caps;}
       table#stats td{padding: 3px; border-bottom: 1px dashed #ccc;}
+        table#stats a.edit{margin: 0px auto -4px auto; display: block;width: 18px; height: 18px; background: transparent url('/images/edit.gif') no-repeat left; padding: 0;}
+        table#stats a.edit:hover{background-position: right;}
+        table#stats td input{width:95%;}
     tr.even{background:#f0f0f0;}
     tr.first{background:#CAE0D0;}
     tr.second{background:#D9E9DD;}
     tr.third{background:#E8F2EB;}
     
 #pad{font-size: 3em; width: 320px; height:480px; text-align: center; font-family: "Arial Black"; border: 1px dashed #ccc;}
-  #pad input{width: 98%; font-size:2em; font-family: "Courier"; text-align:center;}
+  #pad input{width: 98%; font-size:em; font-family: "Courier"; text-align:center;}
   #pad a {width:25%; margin:auto; border: 3px double #ccc; background: #f0f0f0; text-decoration:none;}
     #pad a:hover {background:#fff;}
     a#ok:hover{background: green;}

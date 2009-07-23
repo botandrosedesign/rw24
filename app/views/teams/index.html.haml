@@ -1,47 +1,45 @@
 #board
   %h1 Racer Statistics
-
   %a.inline{:href => "#", :class => "current"} View All
   %a.inline{:href => "#"} Solo
   %a.inline{:href => "#"} Tandem
   %a.inline{:href => "#"} Team A
   %a.inline{:href => "#"} Team B
-
   %table#stats{:width => "100%", :cellspacing => "0", :cellpadding => "0", :border => "0"}
     %col{:width => "10%"}
-    %col{:width => "80%"}
+    %col{:width => "70%"}
     %col{:width => "10%"}
-
+    %col{:width => "10%"}
     %tr
       %th #
       %th.left_align name
       %th laps
-
+      %th &nbsp;
     %tr.first{:class => cycle('even', '')}
       %td.center_align 001
       %td John Doe and a Sow
       %td.center_align 5
-
+      %td.center_align
+        %a.edit{:href => "#"}
     %tr.second
-      %td.center_align 001
-      %td John Doe and a Sow
+      %td.center_align 002
+      %td A Man, A Plan, A Race, Myxlplyx
       %td.center_align 5
-
+      %td
+        %a.edit{:href => "#"}
     %tr.third
-      %td.center_align 001
-      %td John Doe and a Sow
+      %td.center_align 003
+      %td
+        %input{:type => "text"}
+      %td.center_align
+        %input{:type => "text"}
+      %td
+        %input{:type => "submit", :value => "Set"}
+    %tr
+      %td.center_align 004
+      %td Team Arctic Death Squad
       %td.center_align 5
+      %td
+        %a.edit{:href => "#"}
 
-    %tr
-      %td.center_align 001
-      %td John Doe and a Sow
-      %td.center_align 5
-    %tr
-      %td.center_align 001
-      %td John Doe and a Sow
-      %td.center_align 5
-    %tr
-      %td.center_align 001
-      %td John Doe and a Sow
-      %td.center_align 5
   
