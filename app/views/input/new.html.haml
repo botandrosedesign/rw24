@@ -3,14 +3,13 @@
   %head
     = stylesheet_link_tag "theme/application"
     = javascript_include_tag "jquery", "input"
-
-  %body
-    - if flash[:notice]
-      #flash_notice= flash[:notice]
-    - if flash[:error]
-      #flash_error= flash[:error]
-    
+    %meta(name="viewport" content="width=320")
+  %body   
     #pad
+      - if flash[:notice]
+        #flash_notice= flash[:notice]
+      - if flash[:error]
+        #flash_error= flash[:error]
       - form_for @lap, :url => create_input_path do |form|
         = form.text_field :team_number
       - (1..9).to_a.in_groups_of(3) do |triplet|
