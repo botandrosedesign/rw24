@@ -29,6 +29,6 @@
         - if admin?
           %td
             %a.edit{:href => edit_team_path(team)}
-            = link_to "", team, :method => "destroy", :class => "delete"
+            = link_to "", team, :method => "delete", :class => "delete"
 
 = link_to "+ Add Team", new_team_path if admin?
