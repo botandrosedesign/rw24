@@ -1,0 +1,15 @@
+- form_for @team do |form|
+  %fieldset
+    = form.label :name
+    = form.text_field :name
+
+  %fieldset
+    = form.label :number
+    = form.text_field :number
+
+  %fieldset
+    = form.label :team_type
+    = form.select :team_type, Team::TYPES
+
+  %fieldset
+    = form.submit

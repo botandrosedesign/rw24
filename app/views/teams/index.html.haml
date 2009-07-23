@@ -1,45 +1,34 @@
 #board
   %h1 Racer Statistics
-  %a.inline{:href => "#", :class => "current"} View All
-  %a.inline{:href => "#"} Solo
-  %a.inline{:href => "#"} Tandem
-  %a.inline{:href => "#"} Team A
-  %a.inline{:href => "#"} Team B
+  = link_to_current "View All", teams_path, :class => "inline"
+  - Team::TYPES.each do |type|
+    = link_to_current type, teams_path(:filter => type), :class => "inline"
+
   %table#stats{:width => "100%", :cellspacing => "0", :cellpadding => "0", :border => "0"}
     %col{:width => "10%"}
-    %col{:width => "70%"}
+    %col{:width => "13%"}
+    %col{:width => "*"}
     %col{:width => "10%"}
-    %col{:width => "10%"}
+    - if admin?
+      %col{:width => "10%"}
+
     %tr
       %th #
+      %th team
       %th.left_align name
       %th laps
-      %th &nbsp;
-    %tr.first{:class => cycle('even', '')}
-      %td.center_align 001
-      %td John Doe and a Sow
-      %td.center_align 5
-      %td.center_align
-        %a.edit{:href => "#"}
-    %tr.second
-      %td.center_align 002
-      %td A Man, A Plan, A Race, Myxlplyx
-      %td.center_align 5
-      %td
-        %a.edit{:href => "#"}
-    %tr.third
-      %td.center_align 003
-      %td
-        %input{:type => "text"}
-      %td.center_align
-        %input{:type => "text"}
-      %td
-        %input{:type => "submit", :value => "Set"}
-    %tr
-      %td.center_align 004
-      %td Team Arctic Death Squad
-      %td.center_align 5
-      %td
-        %a.edit{:href => "#"}
+      - if admin?
+        %th &nbsp;
 
-  
+    - @teams.each_with_index do |team, index|
+      %tr{:class => "#{number_to_ordinal_english(index+1)}" + cycle(' even', '')}
+        %td.center_align= "%03d" % team.number
+        %td{:nowrap => "nowrap"}=h team.team_type
+        %td=h team.name
+        %td.center_align= team.laps.count
+        - if admin?
+          %td.center_align
+            %a.edit{:href => edit_team_path(team)}
+            = link_to "", team, :method => "destroy", :class => "delete"
+
+= link_to "+ Add Team", new_team_path if admin?

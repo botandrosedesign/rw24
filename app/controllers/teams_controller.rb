@@ -2,12 +2,12 @@ class TeamsController < ContentController
   layout :theme_layout
 
   def index
-    @teams = Team.find(:all)
+    @teams = params[:filter] ? Team.find_all_by_team_type(params[:filter]) : Team.all
   end
 
   # GET /teams/1
   def show
-    @team = Team.find(params[:id])
+    @team = Team.find params[:id]
   end
 
   # GET /teams/new
@@ -17,12 +17,12 @@ class TeamsController < ContentController
 
   # GET /teams/1/edit
   def edit
-    @team = Team.find(params[:id])
+    @team = Team.find params[:id]
   end
 
   # POST /teams
   def create
-    @team = Team.new(params[:team])
+    @team = Team.new params[:team]
 
     if @team.save
       flash[:notice] = 'Team was successfully created.'
@@ -34,19 +34,19 @@ class TeamsController < ContentController
 
   # PUT /teams/1
   def update
-    @team = Team.find(params[:id])
+    @team = Team.find params[:id]
 
-    if @team.update_attributes(params[:team])
+    if @team.update_attributes params[:team]
       flash[:notice] = 'Team was successfully updated.'
-      redirect_to(teams_path) 
+      redirect_to teams_path 
     end
   end
 
   # DELETE /teams/1
   def destroy
-    @team = Team.find(params[:id])
+    @team = Team.find params[:id]
     @team.destroy
 
-    redirect_to(teams_path) 
+    redirect_to teams_path 
   end
 end
