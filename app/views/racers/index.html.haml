@@ -1,0 +1,29 @@
+%table
+  %tr
+    %th reg
+    %th name
+    %th pos
+    %th class
+    %th shirt
+    %th team
+    %th payment received
+    %th type
+    %th email
+    %th phone
+    %th confirmation
+    %th notes
+
+  - @racers.each do |racer|
+    %tr
+      %td= racer.id
+      %td=h racer.name
+      %td= racer.team.number
+      %td= racer.team.team_type
+      %td=h racer.shirt
+      %td=h racer.team.name
+      %td= racer.payment_received_on
+      %td=h racer.payment_type
+      %td=h racer.email
+      %td=h racer.phone
+      %td= racer.confirmed_on
+      %td=h racer.notes

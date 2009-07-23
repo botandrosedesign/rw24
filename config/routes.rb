@@ -51,6 +51,7 @@ ActionController::Routing::Routes.draw do |map|
   end
 
   # stats
+  map.resources :racers
   map.resources :teams, :has_many => :laps
   map.input "input", :method => :get, :controller => "input", :action => "new"
   map.create_input "input/create", :method => :post, :controller => "input", :action => "create"

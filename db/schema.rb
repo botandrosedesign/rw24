@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 79) do
+ActiveRecord::Schema.define(:version => 80) do
 
   create_table "articles_tags", :id => false, :force => true do |t|
     t.integer "article_id"
@@ -134,6 +134,18 @@ ActiveRecord::Schema.define(:version => 79) do
   create_table "profiles_rights", :force => true do |t|
     t.integer "profile_id"
     t.integer "right_id"
+  end
+
+  create_table "racers", :force => true do |t|
+    t.string  "name"
+    t.integer "team_id"
+    t.string  "shirt"
+    t.date    "payment_received_on"
+    t.string  "payment_type"
+    t.string  "email"
+    t.string  "phone"
+    t.date    "confirmed_on"
+    t.string  "notes"
   end
 
   create_table "redirects", :force => true do |t|
