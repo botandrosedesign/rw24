@@ -1,0 +1,40 @@
+#board
+  %h1 Racer Statistics
+  %a.inline{:href => "#", :class => "current"} View All
+  %a.inline{:href => "#"} Solo
+  %a.inline{:href => "#"} Tandem
+  %a.inline{:href => "#"} Team A
+  %a.inline{:href => "#"} Team B
+  %table#stats{:width => "100%", :cellspacing => "0", :cellpadding => "0", :border => "0"}
+    %col{:width => "10%"}
+    %col{:width => "80%"}
+    %col{:width => "10%"}
+    %tr
+      %th #
+      %th.left_align name
+      %th laps
+    %tr.first{:class => cycle('even', '')}
+      %td.center_align 001
+      %td John Doe and a Sow
+      %td.center_align 5
+    %tr.second
+      %td.center_align 001
+      %td John Doe and a Sow
+      %td.center_align 5
+    %tr.third
+      %td.center_align 001
+      %td John Doe and a Sow
+      %td.center_align 5
+    %tr
+      %td.center_align 001
+      %td John Doe and a Sow
+      %td.center_align 5
+    %tr
+      %td.center_align 001
+      %td John Doe and a Sow
+      %td.center_align 5
+    %tr
+      %td.center_align 001
+      %td John Doe and a Sow
+      %td.center_align 5
+  

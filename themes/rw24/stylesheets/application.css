@@ -9,6 +9,8 @@ html {min-height: 100%;}
 a {color: #000000; text-decoration: underline; padding: 2px 10px;}
 a:hover {background-color: #F8D634;}
 a img {border: none;}
+.center_align{text-align: center;}
+.left_align{text-align: left;}
 
 img {border: 3px double #cccccc;}
 
@@ -291,3 +293,20 @@ textarea.styled {width: 280px;}
 #sidebar table tfoot #next a {text-align:center;}
 
 #searchform {padding: 10px;}
+#board
+  a.current{background: #F8D634;}
+  table#stats{margin:10px 0;}
+    table#stats tr:hover{background:#F8D634;}
+      table#stats th{border-bottom: 3px double #000; font-variant: small-caps;}
+      table#stats td{padding: 3px; border-bottom: 1px dashed #ccc;}
+    tr.even{background:#f0f0f0;}
+    tr.first{background:#CAE0D0;}
+    tr.second{background:#D9E9DD;}
+    tr.third{background:#E8F2EB;}
+    
+#pad{font-size: 3em; width: 320px; height:480px; text-align: center; font-family: "Arial Black"; border: 1px dashed #ccc;}
+  #pad input{width: 98%; font-size:2em; font-family: "Courier"; text-align:center;}
+  #pad a {width:25%; margin:auto; border: 3px double #ccc; background: #f0f0f0; text-decoration:none;}
+    #pad a:hover {background:#fff;}
+    a#ok:hover{background: green;}
+    a#cl:hover{background: red;}
