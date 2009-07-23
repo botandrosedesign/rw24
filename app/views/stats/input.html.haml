@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    = stylesheet_link_tag "theme/application"
+    = javascript_include_tag "jquery", "input"
+  %body
+    #pad
+      %form#number_form{:action => "/stats", :method => "post"}
+        %input#team_number{:type => "text", :name => "team_number"}
+      - (1..9).to_a.in_groups_of(3) do |triplet|
+        - triplet.each do |number|
+          %a.number.left{:href => "#", :"data-value" => number.to_s}= number
+        .clear
+      %a#cl.left{:href => "#"} &laquo;
+      %a.number.left{:href => "#", :"data-value" => "0"} 0
+      %a#ok.left{:href => "#"} OK
+      .clear

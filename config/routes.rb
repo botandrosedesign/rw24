@@ -45,9 +45,14 @@ ActionController::Routing::Routes.draw do |map|
   map.admin 'admin', :controller  => 'admin/dashboard', :action => 'index'
 
   # static pages
-  %w( register volunteer sponsor thankyou stats input ).each do |page|
+  %w( register volunteer sponsor thankyou ).each do |page|
     map.connect page, :controller => 'static', :action => 'dispatch', :name => page
     map.connect "#{page}/deliver", :controller => 'static', :action => "deliver_#{page}", :method => :post
+  end
+
+  # stats
+  %w( stats input ).each do |page|
+    map.connect page, :controller => 'stats', :action => page
   end
   
   # make rss feed urls pretty and let them end in .xml
