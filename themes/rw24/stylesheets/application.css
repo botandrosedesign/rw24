@@ -317,7 +317,7 @@ textarea.styled {width: 280px;}
   #pad #flash_notice, #pad #flash_error{display: block; font-variant: small-caps; text-align: center; font-size:.3em;}
     #flash_notice{background: green; color: #fff;}
     #flash_error{background: red; color: #fff;}
-  #pad input{width: 98%; font-size: 2em; font-family: "Courier"; text-align:center;}
+  #pad input{width: 98%; font-size: 1.5em; font-family: "Courier"; text-align:center;}
   #pad a {width:25%; margin:auto; border: 3px double #ccc; background: #f0f0f0; text-decoration:none;}
     #pad a:hover {background:#F8D634;}
     a#ok:hover{background: green; color: #fff;}
