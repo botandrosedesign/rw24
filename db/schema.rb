@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 77) do
+ActiveRecord::Schema.define(:version => 20090723024245) do
 
   create_table "articles_tags", :id => false, :force => true do |t|
     t.integer "article_id"
@@ -96,6 +96,13 @@ ActiveRecord::Schema.define(:version => 77) do
 
   add_index "feedback", ["article_id"], :name => "index_feedback_on_article_id"
   add_index "feedback", ["text_filter_id"], :name => "index_feedback_on_text_filter_id"
+
+  create_table "laps", :force => true do |t|
+    t.integer  "team_id"
+    t.integer  "lap"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "notifications", :force => true do |t|
     t.integer  "content_id"
@@ -187,6 +194,14 @@ ActiveRecord::Schema.define(:version => 77) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "display_name"
+  end
+
+  create_table "teams", :force => true do |t|
+    t.string   "name"
+    t.integer  "number"
+    t.string   "team_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "text_filters", :force => true do |t|

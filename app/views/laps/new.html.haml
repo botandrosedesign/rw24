@@ -4,9 +4,11 @@
     = stylesheet_link_tag "theme/application"
     = javascript_include_tag "jquery", "input"
   %body
+    - if @lap.errors.on :team
+      #flash_error Bad Team #!
     #pad
-      %form#number_form{:action => "/stats", :method => "post"}
-        %input#team_number{:type => "text", :name => "team_number"}
+      - form_for @lap do |form|
+        = form.text_field :team_id
       - (1..9).to_a.in_groups_of(3) do |triplet|
         - triplet.each do |number|
           %a.number.left{:href => "#", :"data-value" => number.to_s}= number

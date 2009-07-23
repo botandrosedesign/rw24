@@ -1,19 +1,19 @@
 $(function() {
   $("a.number").click(function() {
-    var value = $("#team_number").val() + $(this).attr("data-value");
-    $("#team_number").val(value);
+    var value = $("#lap_team_id").val() + $(this).attr("data-value");
+    $("#lap_team_id").val(value);
     return false;
   });
 
   $("a#cl").click(function() {
-    var value = $("#team_number").val();
+    var value = $("#lap_team_id").val();
     value = value.substr(0, value.length - 1);
-    $("#team_number").val(value);
+    $("#lap_team_id").val(value);
     return false;
   });
 
   $("a#ok").click(function() {
-    $("form#number_form").submit();
+    $("form").submit();
     return false;
   });
 });

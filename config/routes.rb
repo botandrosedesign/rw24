@@ -51,10 +51,9 @@ ActionController::Routing::Routes.draw do |map|
   end
 
   # stats
-  %w( stats input ).each do |page|
-    map.connect page, :controller => 'stats', :action => page
-  end
-  
+  map.resources :teams
+  map.resources :laps
+
   # make rss feed urls pretty and let them end in .xml
   # this improves caches_page because now apache and webrick will send out the
   # cached feeds with the correct xml mime type.
