@@ -3,7 +3,7 @@
   %head
     = stylesheet_link_tag "theme/application"
     = javascript_include_tag "jquery", "input"
-    %meta(name="viewport" content="width=320")
+    %meta{:name => "viewport", :content =>" width=320"}
   %body   
     #pad
       - if flash[:notice]
@@ -20,3 +20,13 @@
       %a.number.left{:href => "#", :"data-value" => "0"} 0
       %a#ok.left{:href => "#"} OK
       .clear
+      
+%ul
+  %li
+    number 1
+  %li
+    number 1
+  %li
+    number 1
+  %li
+    number 1

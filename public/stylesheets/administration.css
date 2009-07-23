@@ -836,3 +836,34 @@ div.auto_complete ul strong.highlight {
 #editor {
 	width: 700px;
 }
+
+/*                  */
+
+#board{}
+  #board a.inline{text-decoration: none; border: 1px solid #ccc; -moz-border-radius: 20px; padding: 2px 20px;}
+    #board a:hover {background: #F8D634;}
+  #board a.current{background: #000; color: #fff;}
+  table#stats{margin:10px 0; padding: 10px 0; border-top: 3px double #ccc;}
+    table#stats th{border-bottom: 3px double #000; font-variant: small-caps;}
+    table#stats td{padding: 3px; border-bottom: 1px dashed #ccc; border-right: 1px solid #ccc;}
+      table#stats td.type {color: #666; font-size:.75em;}
+      th.type{color:#666;}
+      table#stats a.edit, table#stats a.delete, a.edit, a.delete {display: inline-block; margin: 0px auto -4px auto; width: 18px; height: 18px; padding: 0;}
+      table#stats a.edit, a.edit{ background: transparent url('/images/edit.gif') no-repeat left;}
+      table#stats a.delete, a.delete{ background: transparent url('/images/delete.gif') no-repeat left;}
+      table#stats a.edit:hover, table#stats a.delete:hover, a.edit:hover, a.delete:hover{background-position: right;}
+      table#stats td input{width:95%;}
+    tr.even{background:#f0f0f0;}
+    tr.first{background:#CAE0D0;}
+    tr.second{background:#D9E9DD;}
+    tr.third{background:#E8F2EB;}
+    
+#pad{font-size: 3em; width: 320px; height:480px; text-align: center; font-family: "Arial Black";}
+  #pad #flash_notice, #pad #flash_error{display: block; font-variant: small-caps; text-align: center; font-size:.3em;}
+    #flash_notice{background: green; color: #fff;}
+    #flash_error{background: red; color: #fff;}
+  #pad input{width: 98%; font-size: 2em; font-family: "Courier"; text-align:center;}
+  #pad a {width:25%; margin:auto; border: 3px double #ccc; background: #f0f0f0; text-decoration:none;}
+    #pad a:hover {background:#F8D634;}
+    a#ok:hover{background: green; color: #fff;}
+    a#cl:hover{background: red;}
