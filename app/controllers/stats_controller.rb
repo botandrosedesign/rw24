@@ -1,5 +1,3 @@
 class StatsController < ContentController
-  def input
-    render :layout => nil
-  end
+  layout :theme_layout, :except => :input
 end
