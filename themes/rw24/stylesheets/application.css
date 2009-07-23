@@ -303,10 +303,10 @@ textarea.styled {width: 280px;}
     table#stats td{padding: 3px; border-bottom: 1px dashed #ccc; border-right: 1px solid #ccc;}
       table#stats td.type {color: #666; font-size:.75em;}
       th.type{color:#666;}
-      table#stats a.edit, table#stats a.delete {display: inline-block; margin: 0px auto -4px auto; width: 18px; height: 18px; padding: 0;}
-      table#stats a.edit{ background: transparent url('/images/edit.gif') no-repeat left;}
-      table#stats a.delete{ background: transparent url('/images/delete.gif') no-repeat left;}
-      table#stats a.edit:hover, table#stats a.delete:hover{background-position: right;}
+      table#stats a.edit, table#stats a.delete, a.edit, a.delete {display: inline-block; margin: 0px auto -4px auto; width: 18px; height: 18px; padding: 0;}
+      table#stats a.edit, a.edit{ background: transparent url('/images/edit.gif') no-repeat left;}
+      table#stats a.delete, a.delete{ background: transparent url('/images/delete.gif') no-repeat left;}
+      table#stats a.edit:hover, table#stats a.delete:hover, a.edit:hover, a.delete:hover{background-position: right;}
       table#stats td input{width:95%;}
     tr.even{background:#f0f0f0;}
     tr.first{background:#CAE0D0;}
