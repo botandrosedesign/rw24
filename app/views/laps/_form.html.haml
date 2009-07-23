@@ -1,0 +1,7 @@
+- form_for [@team, @lap] do |form|
+  %fieldset
+    = form.label :created_at
+    = form.datetime_select :created_at
+
+  %fieldset
+    = form.submit

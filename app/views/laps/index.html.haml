@@ -1,0 +1,13 @@
+%h1== Laps for #{@team.name}
+
+%table
+  %tr
+    %th Lap
+    %th Time
+  - @laps.each_with_index do |lap, index|
+    %tr
+      %td= index+1
+      %td= lap.created_at.to_s(:long)
+      - if admin?
+        %td= link_to "edit", [:edit, @team, lap]
+        %td= link_to "delete", [@team, lap], :method => "delete"

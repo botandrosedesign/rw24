@@ -1,4 +1,6 @@
 class InputController < ApplicationController
+  before_filter :admin_only
+
   layout nil
   
   def new
@@ -15,4 +17,9 @@ class InputController < ApplicationController
     end
     redirect_to input_path
   end
+
+  private
+    def admin_only
+      redirect_to root_path unless current_user.is_a? User and current_user.admin?
+    end
 end

@@ -25,7 +25,7 @@
         %td.center_align= "%03d" % team.number
         %td{:nowrap => "nowrap"}=h team.team_type
         %td=h team.name
-        %td.center_align= team.laps.count
+        %td.center_align= link_to team.laps.count, [team, :laps]
         - if admin?
           %td.center_align
             %a.edit{:href => edit_team_path(team)}
