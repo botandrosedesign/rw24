@@ -1,14 +1,19 @@
 %h1== Laps for #{@team.name}
 
-%table
+%table#laps{:width => "50%", :callspacing => "0", :cellpadding => "0"}
+  %col{:width => "15%"}
+  %col{:width => "*"}
+  - if admin?
+    %col{:width => "6%"}
+    %col{:width => "6%"}
   %tr
     %th Lap
     %th Time
   - last_lap = nil
   - @laps.each_with_index do |lap, index|
-    %tr
-      %td= index+1
-      %td= lap_time(last_lap, lap)
+    %tr{:class => cycle('','even')}
+      %td.center_align= index+1
+      %td.center_align= lap_time(last_lap, lap)
       - if admin?
         %td= link_to "", [:edit, @team, lap], :class => "edit"
         %td= link_to "", [@team, lap], :method => "delete", :class => "delete"

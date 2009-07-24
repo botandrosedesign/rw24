@@ -326,6 +326,11 @@ table#racers{background: #999; margin:auto; padding:.24%; font-size: .9em;}
   table#racers tr td{border-bottom:1px dashed #ccc; padding: 1px 0 1px 4px; background:#fff;}
   table#racers tr.even td{background:#f0f0f0;}
   
+table#laps{margin:auto; padding:.24%; font-size: .9em;}
+  table#racers tr th{font-variant:small-caps; background: #333; border-bottom: 3px double #000; color: #fff; padding: 2px 0 2px 4px;}
+  table#racers tr td{border-bottom:1px dashed #ccc; padding: 1px 0 1px 4px; background:#fff;}
+  table#racers tr.even td{background:#f0f0f0;}
+  
 /* countup */
 p#intro{font-size:.8em; color: #fff; margin: 20px 0 0 10px;}
 p#total{margin:6px 0 0 0;}
