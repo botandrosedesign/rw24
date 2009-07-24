@@ -115,7 +115,7 @@ li.current_page_item a, li.current_page_item a:hover {font-weight: bold; color: 
 /* main */
 
 /* content */
-#content { float: left; width: 600px; min-height:500px; background-color: #FFFFFF; padding: 10px;  border-right: 1px solid #cccccc;}
+#content { float: left; width: 600px; min-height:600px; background-color: #FFFFFF; padding: 10px;  border-right: 1px solid #cccccc;}
 #content .author { font-size: .8em; margin-bottom: 6px; color: grey;
 }
 #content li {
