@@ -1,4 +1,6 @@
 class RacersController < ContentController
+  before_filter :admin_only
+
   layout :theme_layout, :only => :new
 
   def index
@@ -124,4 +126,9 @@ class RacersController < ContentController
 
     redirect_to racers_path 
   end
+
+  private
+    def admin_only
+      redirect_to root_path unless current_user.is_a? User and current_user.admin?
+    end
 end
