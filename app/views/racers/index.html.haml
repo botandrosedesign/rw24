@@ -1,36 +1,48 @@
-%h1 Listing racers
+%head
+  =stylesheet_link_tag '/stylesheets/theme/application.css', :media => 'all'
+%body
+  %h1 Listing racers
 
-= link_to "+ Sign up racer(s)", new_racer_path
+  = link_to "+ Sign up racer(s)", new_racer_path
 
-%table
-  %tr
-    %th name
-    %th pos
-    %th class
-    %th shirt
-    %th team
-    %th payment received
-    %th type
-    %th email
-    %th phone
-    %th confirmation
-    %th notes
-
-  - @racers.each do |racer|
+  %table#racers{:width => "98%", :border => "0", :cellspacing => "0", :cellpadding => "0"}
+    %col{:width => "10%"}
+    %col{:width => "3%"}
+    %col{:width => "5%"}
+    %col{:width => "*"}
+    %col{:width => "15%"}
+    %col{:width => "8%"}
+    %col{:width => "15%"}
+    %col{:width => "10%"}
     %tr
-      %td=h racer.name
-      %td= racer.team.number
-      %td= racer.team.team_type
-      %td=h racer.shirt
-      %td=h racer.team.name
-      %td= racer.payment_received_on
-      %td=h racer.payment_type
-      %td=h racer.email
-      %td=h racer.phone
-      %td= racer.confirmed_on
-      %td=h racer.notes
-      %td
-        = link_to "edit", [:edit, racer]
-        = link_to "delete", racer, :method => "delete"
-        
-= link_to "+ Sign up racer(s)", new_racer_path
+      %th.left_align name
+      %th #
+      %th class
+      //%th shirt
+      %th.left_align team name
+      //%th payment received
+      //%th type
+      %th.left_align email
+      %th phone
+      //%th confirmation
+      %th.left_align notes
+      %th &nbsp;
+
+    - @racers.each do |racer|
+      %tr{:class => cycle('', 'even')}
+        %td.left_align=h racer.name
+        %td.center_align= racer.team.number
+        %td.center_align= racer.team.team_type
+        //%td.center_align=h racer.shirt
+        %td.left_align=h racer.team.name
+        //%td.center_align= racer.payment_received_on
+        //%td.center_align=h racer.payment_type
+        %td.left_align=h racer.email
+        %td.center_align=h racer.phone
+        //%td.center_align= racer.confirmed_on
+        %td.left_align=h racer.notes
+        %td.center_align
+          = link_to "edit", [:edit, racer]
+          = link_to "delete", racer, :method => "delete"
+  
+  = link_to "+ Sign up racer(s)", new_racer_path
