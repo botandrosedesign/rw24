@@ -1,6 +1,8 @@
 class RacersController < ContentController
+  layout :theme_layout, :only => :new
+
   def index
-    @racers = Racer.all(:include => :team)
+    @racers = Racer.all :include => :team, :order => "teams.number DESC"
   end
 
   # GET /racers/1
@@ -20,14 +22,89 @@ class RacersController < ContentController
 
   # POST /racers
   def create
-    @racer = Racer.new params[:racer]
+    team_params = {
+      :name => params[:name],
+      :number => Team.maximum(:number) + 1,
+      :team_type => params[:class]
+    }
+    @team = Team.new team_params
 
-    if @racer.save
-      flash[:notice] = 'Racer was successfully created.'
-      redirect_to racers_path
-    else
-      render :action => "new"
+    case @team.team_type
+      when "Solo" then
+        Racer.create({
+          :name => params[:captain],
+          :team => @team,
+          :payment_received_on => Date.today,
+          :payment_type => "cash",
+          :email => params[:email],
+          :phone => params[:phone],
+          :confirmed_on => Date.today
+        })
+
+      when "Tandem" then
+        Racer.create({
+          :name => params[:captainT],
+          :team => @team,
+          :payment_received_on => Date.today,
+          :payment_type => "cash",
+          :email => params[:email],
+          :phone => params[:phone],
+          :confirmed_on => Date.today
+        })
+        Racer.create({
+          :name => params[:rider_twoT],
+          :team => @team,
+          :payment_received_on => Date.today,
+          :payment_type => "cash",
+          :confirmed_on => Date.today
+        })
+
+      when "Team A" then
+        Racer.create({
+          :name => params[:captainA],
+          :team => @team,
+          :payment_received_on => Date.today,
+          :payment_type => "cash",
+          :email => params[:email],
+          :phone => params[:phone],
+          :confirmed_on => Date.today
+        })
+
+        2.upto(6) do |i|
+          next if params[:"rider_#{i}A"].blank?
+          Racer.create({
+            :name => params[:"rider_#{i}A"],
+            :team => @team,
+            :payment_received_on => Date.today,
+            :payment_type => "cash",
+            :confirmed_on => Date.today
+          })
+        end
+
+      when "Team B" then
+        Racer.create({
+          :name => params[:captainB],
+          :team => @team,
+          :payment_received_on => Date.today,
+          :payment_type => "cash",
+          :email => params[:email],
+          :phone => params[:phone],
+          :confirmed_on => Date.today
+        })
+
+        2.upto(6) do |i|
+          next if params[:"rider_#{i}B"].blank?
+          Racer.create({
+            :name => params[:"rider_#{i}B"],
+            :team => @team,
+            :payment_received_on => Date.today,
+            :payment_type => "cash",
+            :confirmed_on => Date.today
+          })
+        end
     end
+
+    redirect_to racers_path
   end
 
   # PUT /racers/1

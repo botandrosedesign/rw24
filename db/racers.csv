@@ -1,5 +1,4 @@
 reg,name,pos,class,shirt,team,payment received,type,email,phone,confirmation
-
 1,steve whitlow,1,s,l,steve whitlow,5/6/2009,paypal,steve@riverwest24.com,414-791-7705,5/6/2009
 2,troy lucas,2,s,l,T-Roy,5/12/2009,paypal,tlucas@wi.rr.com,414-530-0424,5/29/2009
 3,xav lelpae,3,s,m,Xav Lelpae,5/15/2009,paypal,xleplae@yahoo.com,414-704-5956,5/29/2009
@@ -16,7 +15,7 @@ reg,name,pos,class,shirt,team,payment received,type,email,phone,confirmation
 14,,,b,,Team Arctic Death Squad,6/13/2009,paypal
 15,,,b,,Team Arctic Death Squad,6/13/2009,paypal
 16,,,b,,Team Arctic Death Squad,6/13/2009,paypal
-17,,13,b,,Team Arctic Death Squad,6/13/2009,paypal
+17,,,b,,Team Arctic Death Squad,6/13/2009,paypal
 18,Gary Verhalen,14,s,,John Dillinger,6/15/2009,paypal,Gary.Verhalen@gmail.com,414-221-4230,6/22/2009
 19,Jeff Knitter,15,s,,Captain Jack Sparrow,6/15/2009,paypal,jcknitter@wi.rr.com,414-840-3521,6/22/2009
 20,Marge Vanderbok,16,s,m,Mrs. Nellie Lovett,6/15/2009,paypal,marge.vanderbok@we-energies.com,414-221-2365,6/22/2009
@@ -24,12 +23,12 @@ reg,name,pos,class,shirt,team,payment received,type,email,phone,confirmation
 22,Ryan Santoski,18,s,,Ryan Santoski,6/18/2009,paypal,ryansantoski@gmail.com,920-470-7491,6/22/2009
 23,kevin martin,19,s,m,octopod jelly rod,6/14/2009,locust,martinkm@uwm.edu,414-841-3779,6/26/2009
 24,mary germain,20,s,s,TBA,6/14/2009,locust,germainme@gmail.com,414-324-9809,7/4/2009
-25,rusty olson,21,s,xl,rusty olson,6/14/0209,locust,rockhausguitars@att.net,414-372-9338,6/26/2009
+25,rusty olson,21,s,xl,rusty olson,6/14/2009,locust,rockhausguitars@att.net,414-372-9338,6/26/2009
 26,mary beth olson,22,s,m,mary beth olson,6/14/2009,locust,mrisse@wi.rr.com,414-372-9338,6/26/2009
 27,bertoonga glodowski,23,s,m,bertoonga glodowski,6/14/2009,locust,michael.glodowski@sbcglobal.net,414-444-2282,6/26/2009
 28,mike glodowski,24,s,m,mike glodowski,6/14/2009,locust,michael.glodowski@sbcglobal.net,414-444-2282,6/26/2009
 29,alex engel,25,s,s,Team Alex Engel,6/14/2009,locust,akengel@uwm.edu,414-459-3448,6/26/2009,"phone disc. sent email, tent in backyard?"
-30,Todd Schmiedlin,26,s,,todd,6/24/2009,paypal,artemismaximus@gmail.com,262-960-0435,6/28/2009
+30,Todd Schmiedlin,26,s,s,todd,6/24/2009,paypal,artemismaximus@gmail.com,262-960-0435,6/28/2009
 31,matthew oake,27,b,xl,team roadkill,6/26/2009,paypal,moake@daytonfreight.com,414-828-3265,6/28/2009
 32,Jim,,b,l,"team roadkill
 ",6/26/2009,paypal,,,7/6/2009
@@ -40,7 +39,7 @@ reg,name,pos,class,shirt,team,payment received,type,email,phone,confirmation
 35,sean,,b,xl,"team roadkill
 ",6/26/2009,paypal,seanyto@yahoo.com,,7/4/2009
 36,aaron,,b,l,"team roadkill
-",6/26/2009,paypal,,,,"no email, confirmed via matthew oake"
+",6/26/2009,paypal,,,,no email. confirmed via matthew oake
 37,kerensa edinger,28,b,m,sister my sister,6/27/2009,paypal,kerensa.edinger@gmail.com,414-617-4238,6/28/2009
 38,nichole crust,,b,l,sister my sister,6/27/2009,paypal,nicholecrust@gmail.com,,6/29/2009
 39,leslie vaglica,29,b,,push on hers,6/28/2009,paypal,leslievaglica@gmail.com,414-517-6870,6/28/2009
@@ -50,33 +49,33 @@ reg,name,pos,class,shirt,team,payment received,type,email,phone,confirmation
 43,jill,,b,m,push on hers,6/28/2009,paypal,jillpfellrath@yahoo.com
 44,melody hoffmann,30,s,s,darth vegan,6/29/2009,paypal,melody.hoffmann@gmail.com,414-699-8170
 45,cody jakubowski,31,s,m,stinky pants,6/29/2009,paypal,codyjakubowski@gmail.com,262-389-9045,7/4/2009
-45,adam krause,32,b,s,Build Milwaukee Cooperative,6/30/2009,paypal,keepyrelbowsin@yahoo.com,414-460-1440,7/5/2009
-46,Nathaniel Heuer,,b,l,Build Milwaukee Cooperative,6/30/2009,paypal,njheuer@gmail.com,,7/5/2009
-47,Peyton Covey,,b,l,Build Milwaukee Cooperative,6/30/2009,paypal,peytoncovey@gmail.com,,7/5/2009
-48,Joe Reyes,,b,m,Build Milwaukee Cooperative,6/30/2009,paypal,salgados@sbcglobal.net,,7/5/2009
-49,sue kloepfer,33,s,,SueK,6/29/2009,paypal,sueksock@yahoo.com,414-241-4874,7/4/2009
-50,mark merner,34,s,l,dead man biking,7/2/2009,paypal,mark@merner.com,262-894-9739,7/5/2009
-51,jenna,35,s,,apple,7/4/2009,paypal,jenna.reider@gmail.com,612-702-3777,7/5/2009
-52,Anne Dawidziak,36,b,,53212,7/6/2009,paypal,anmidawidziak@sbcglobal.net,414-688-0528,7/8/2009
-53,,,b,,53212,7/6/2009,paypal
-54,,,b,,53212,7/6/2009,paypal
-55,,,b,,53212,7/6/2009,paypal
-56,,,b,,53212,7/6/2009,paypal
-57,,,b,,53212,7/6/2009,paypal
-58,Manny Wagnitz,37,b,m,Noon in Sullivan,7/6/2009,paypal,goosesrule@gmail.com,608-843-1080,7/8/2009
-59,simon floyd,,b,s,Noon in Sullivan,7/6/2009,paypal,floyd.volks@gmail.com,,7/12/2009
-60,david matoba,,b,l,Noon in Sullivan,7/6/2009,paypal,matoba@wisc.edu,,7/12/2009
-61,andrew petto,,b,m,Noon in Sullivan,7/6/2009,paypal,tehpetto@hotmail.com,,7/12/2009
-62,jonathan kays,,b,,Noon in Sullivan,7/6/2009,paypal,kays@wisc.edu,,7/12/2009
-63,nathanial haack,,b,m,Noon in Sullivan,7/6/2009,paypal,nehaack@gmail.com,608-217-5444,7/12/2009,call for helping w race?
-64,Anthony Berger,38,b,m,The Unholy Rollers,7/7/2009,paypal,tony@madrabbit.ws,414.232.8344,7/8/2009
-65,brian,,b,m,The Unholy Rollers,7/7/2009,paypal,,,7/8/2009
-66,nicole,,b,m,The Unholy Rollers,7/7/2009,paypal,,,7/8/2009
-67,,,b,l,The Unholy Rollers,7/7/2009,paypal,,,7/8/2009
+46,adam krause,32,b,s,Build Milwaukee Cooperative,6/30/2009,paypal,keepyrelbowsin@yahoo.com,414-460-1440,7/5/2009
+47,Nathaniel Heuer,,b,l,Build Milwaukee Cooperative,6/30/2009,paypal,njheuer@gmail.com,,7/5/2009
+48,Peyton Covey,,b,l,Build Milwaukee Cooperative,6/30/2009,paypal,peytoncovey@gmail.com,,7/5/2009
+49,Joe Reyes,,b,m,Build Milwaukee Cooperative,6/30/2009,paypal,salgados@sbcglobal.net,,7/5/2009
+50,sue kloepfer,33,s,,SueK,6/29/2009,paypal,sueksock@yahoo.com,414-241-4874,7/4/2009
+51,mark merner,34,s,l,dead man biking,7/2/2009,paypal,mark@merner.com,262-894-9739,7/5/2009
+52,jenna,35,s,,apple,7/4/2009,paypal,jenna.reider@gmail.com,612-702-3777,7/5/2009
+53,Anne Dawidziak,36,b,,The Fierce Pierce MILFs and DILFs,7/6/2009,paypal,anmidawidziak@sbcglobal.net,414-688-0528,7/8/2009
+54,,,b,,The Fierce Pierce MILFs and DILFs,7/6/2009,paypal
+55,,,b,,The Fierce Pierce MILFs and DILFs,7/6/2009,paypal
+56,,,b,,The Fierce Pierce MILFs and DILFs,7/6/2009,paypal
+57,,,b,,The Fierce Pierce MILFs and DILFs,7/6/2009,paypal
+58,,,b,,The Fierce Pierce MILFs and DILFs,7/6/2009,paypal
+59,Manny Wagnitz,37,b,m,Noon in Sullivan,7/6/2009,paypal,goosesrule@gmail.com,608-843-1080,7/8/2009
+60,simon floyd,,b,s,Noon in Sullivan,7/6/2009,paypal,floyd.volks@gmail.com,,7/12/2009
+61,david matoba,,b,l,Noon in Sullivan,7/6/2009,paypal,matoba@wisc.edu,,7/12/2009
+62,andrew petto,,b,m,Noon in Sullivan,7/6/2009,paypal,tehpetto@hotmail.com,,7/12/2009
+63,jonathan kays,,b,m,Noon in Sullivan,7/6/2009,paypal,kays@wisc.edu,,7/12/2009
+64,nathanial haack,,b,m,Noon in Sullivan,7/6/2009,paypal,nehaack@gmail.com,608-217-5444,7/12/2009,call for helping w race?
+65,Anthony Berger,38,b,m,The Unholy Rollers,7/7/2009,paypal,tony@madrabbit.ws,414.232.8344,7/8/2009
+66,brian,,b,m,The Unholy Rollers,7/7/2009,paypal,,,7/8/2009
+67,nicole,,b,m,The Unholy Rollers,7/7/2009,paypal,,,7/8/2009
 68,,,b,l,The Unholy Rollers,7/7/2009,paypal,,,7/8/2009
 69,,,b,l,The Unholy Rollers,7/7/2009,paypal,,,7/8/2009
-70,nick verban,39,b,l,Sassy Dan,7/8/2009,paypal,nverban@gmail.com,414-530-6232,7/8/2009
-71,ralph?,,b,l,Sassy Dan,7/8/2009,paypal,ralphanz@aol.com,,7/12/2009
+70,,,b,l,The Unholy Rollers,7/7/2009,paypal,,,7/8/2009
+71,nick verban,39,b,l,Sassy Dan,7/8/2009,paypal,nverban@gmail.com,414-530-6232,7/8/2009
+72,ralph?,,b,l,Sassy Dan,7/8/2009,paypal,ralphanz@aol.com,,7/12/2009
 73,al vey,,b,xl,Sassy Dan,7/8/2009,paypal,al_vey@yahoo.com,,7/12/2009
 74,krystal,,b,,Sassy Dan,7/8/2009,paypal,ganzkj@milwaukee.k12.wi.us,,7/12/2009
 75,gloria,,b,,Sassy Dan,7/8/2009,paypal,gloriarend@gmail.com,,7/12/2009
@@ -87,246 +86,256 @@ reg,name,pos,class,shirt,team,payment received,type,email,phone,confirmation
 80,evan pack,42,s,s,team sobelmans,7/9/2009,fuel,epackg29@hotmail.com,414-688-1318,7/9/2009,email bounced back
 81,david hall,43,t,m,Riverwest Tandemic,7/9/2009,check,djhall3@gmail.com,262.498-4372,7/12/2009
 82,kristy jackson,,t,s,Riverwest Tandemic,7/9/2009,check,,262.498-4372,7/12/2009
-83,jacob,44,b,,Jacob's 6 Man Needs to Pay Team,,,jakobleton@yahoo.com
-84,,,b,,Jacob's 6 Man Needs to Pay Team
-85,,,b,,Jacob's 6 Man Needs to Pay Team
-86,,,b,,Jacob's 6 Man Needs to Pay Team
-87,,,b,,Jacob's 6 Man Needs to Pay Team
-88,,,b,,Jacob's 6 Man Needs to Pay Team
-89,victor fetck?,45,s,m,N/A,7/10/2009,cash,grvytrain@live.com,,7/12/2009
-90,bob kloepfer,46,s,xl,Bobstafarian,7/10/2009,cash,bobstafarian@yahoo.com,,7/13/2009
-91,lindsey loberg,47,s,s,lindsey loberg,7/10/2009,cash,lkloberg@gmail.com,,7/13/2009
-92,john downing,48,b,l,born w a moustache,7/9/2009,paypal,jackd8@yahoo.com,414-745-9021,7/13/2009
-93,jeff frane,,b,m,born w a moustache,7/9/2009,paypal,admin@bikejerks.com
-94,mark sirek,,b,m,born w a moustache,7/9/2009,paypal,resultofanxiety@hotmail.com
-95,josh,,b,m,born w a moustache,7/9/2009,paypal,josh@behind-bars.com,,7/15/2009
-96,genevieve,49,b,s,the bellas,7/10/2009,paypal,gamboagenevieve@gmail.com,,7/13/2009
-97,jillian,,b,s,the bellas,7/10/2009,paypal,belladonnamke@gmail.com
-98,julie schmidt,,b,,the bellas,7/10/2009,paypal,julieschmittPT@yahoo.com
-99,leah jepson,,b,l,the bellas,7/10/2009,paypal,ellsiejay@gmail.com
-100,melissa herguth,,b,m,the bellas,7/10/2009,paypal,melissaherguth@gmail.com
-101,rachel arfa,,b,l,the bellas,7/14/2009,paypal,marfa@gmail.com,,7/15/2009
-102,erin ong,50,b,s,the donnas,7/10/2009,paypal,elle86@hotmail.com,,7/13/2009
-103,gina follestad,,b,s,the donnas,7/10/2009,paypal,ginafollstad@gmail.com,,7/13/2009
-104,karen mierow,,b,s,the donnas,7/10/2009,paypal,karen.mierow@gmail.com,,7/13/2009
-105,katie kircher,,b,m,the donnas,7/10/2009,paypal,katekircher@gmail.com,,7/13/2009
-106,michelle kelly,,b,m,the donnas,7/10/2009,paypal,Michelle.Kelly84@gmail.com,,7/13/2009
-107,sarah reuter,,b,l,the donnas,7/10/2009,paypal,sarahnreuter@gmail.com,,7/13/2009
-108,chrissy m,51,b,m,the vixens,7/10/2009,paypal,c_maraviglia@yahoo.com,,7/13/2009
-109,francesca,,b,s,the vixens,7/10/2009,paypal,francescaj@gmail.com,,7/13/2009
-110,jocelyn,,b,s,the vixens,7/10/2009,paypal,jk414@me.com,,7/13/2009
-111,kerry scanlan,,b,s,the vixens,7/10/2009,paypal,zugnru@yahoo.com,,7/13/2009
-112,kp pande,,b,s,the vixens,7/10/2009,paypal,kanupriyap@gmail.com,,7/13/2009
-113,joseph regan,52,s,m,Joe Regan,7/12/2009,paypal,joseph.p.regan@gmail.com,414-378-7003,7/13/2009
-114,stephen zielke,53,s,l,Steve Z,7/12/2009,paypal,stephenzielke@gmail.com,414-731-1805,7/13/2009
-115,jesse sorgasz,54,s,,pedal file,7/12/2009,paypal,jlsorgatz@gmail.com,608-931-0482,7/13/2009
-116,jaime ogas,55,s,xl,Manifest Destiny,7/12/2009,paypal,jaimeogas@hotmail.com,414-702-2909,7/13/2009
-117,jamie brady,56,b,,S.O.S,7/13/2009,paypal,jmeb77@hotmail.com,414.628.7206,7/15/2009
-118,,,b,,S.O.S,7/13/2009,paypal,jenerousbeatings@gmail.com,,7/19/2009
-119,indiana bones,,b,l,S.O.S,7/13/2009,paypal,indiana.bones@brewcitybruisers.com,,7/19/2009
-120,,,b,,S.O.S,7/13/2009,paypal,daveclay@gmail.com,,7/19/2009
-121,,,b,,S.O.S,7/13/2009,paypal,groschopf@gmail.com,,7/19/2009
-,william hippensteel,,b,,S.O.S,7/20/2009,,William.hippensteel@gmail.com,414-788-6318,7/22/2009
-122,CHRISTOPHER OLSON,57,b,,Vice Squad II,7/13/2009,paypal,olsonc76@gmail.com,(414) 803-4821,7/15/2009
-123,,,b,,Vice Squad II,7/13/2009,paypal
-124,,,b,,Vice Squad II,7/13/2009,paypal
-125,,,b,,Vice Squad II,7/13/2009,paypal
-126,,,b,,Vice Squad II,7/13/2009,paypal
-127,,,b,,Vice Squad II,7/13/2009,paypal
-128,vanessa lambrecht,58,s,,Vanessa,7/13/2009,paypal,lambrec7@uwm.edu,920-464-0407,7/15/2009
-129,julian diel,59,s,l,the bron,7/14/2009,paypal,turingtest12@hotmail.com,646-436-7263,7/15/2009
-130,Erin Lee Petersen,60,t,s,cloudy with a chance of meatballs,7/14/2009,paypal,erinleepetersen@gmail.com,414-412-8373,7/15/2009
-131,stephanie bollow,,t,s,cloudy with a chance of meatballs,7/14/2009,paypal, 
-132,Damon White,61,b,,Riverside Roustabouts,7/14/2009,paypal,whitesands328@yahoo.com,414-795-8281,7/15/2009
-133,,,b,,Riverside Roustabouts,7/14/2009,paypal
-134,,,b,,Riverside Roustabouts,7/14/2009,paypal
-135,,,b,,Riverside Roustabouts,7/14/2009,paypal
-136,,,b,,Riverside Roustabouts,7/14/2009,paypal
-137,,,b,,Riverside Roustabouts,7/14/2009,paypal
-138,Paul Nagorski ,62,a,l,Brew City Tall Bikes - Paul,7/14/2009,paypal,speciaized246@yahoo.com,414 897-9691,7/15/2009
-139,Mark,63,a,xl,Brew City Tall Bikes - Mark,7/14/2009,paypal,m2whatsgoingon@yahoo.com,414 207-5503,7/19/2009
-140,Colin Ford,64,s,,godzilla,7/15/2009,paypal,colinford13@gmail.com,414-659-4117,7/15/2009
-141,steven koski,65,s,xl,Steven Koski,7/15/2009,paypal,stevenkoski@gmail.com,414-841-4055,7/15/2009
-142,jason mcdowell,66,s,s,Oh! My taint!,7/15/2009,fuel,littletinyfish@littletinyfish.com,414-550-6141,7/15/2009
-143,elizabeth ruder,67,s,s,elizabeth a ruder,7/15/2009,fuel,earuder@uwm.edu,414-347-3456,7/15/2009
-144,scott van vrede,68,a,s,borg ward berzerkers,7/15/2009,fuel,svicvanvrede@yahoo.com,414-550-6535,7/15/2009,bounced
-145,kevin soens,,a,m,borg ward berzerkers,7/15/2009,fuel
-146,jason czekala,,a,m,borg ward berzerkers,7/15/2009,fuel
-147,grant stamler,,a,m,borg ward berzerkers,7/15/2009,fuel
-148,stephen bilek,69,b,,bus bait,7/21/2009,,SBILEK@journalsentinel.com
-149,,,,,bus bait,7/21/2009
-150,,,,,bus bait,7/21/2009
-151,,,,,bus bait,7/21/2009
-152,josh weis,70,b,,Team Josh,7/15/2009,paypal,Josh_Weis@hotmail.com,414-731-9121,7/19/2009
-153,,,b,,Team Josh,7/15/2009,paypal
-154,,,b,,Team Josh,7/15/2009,paypal
-155,,,b,,Team Josh,7/15/2009,paypal
-156,bruno bustos,71,s,,bruno bustos,7/16/2009,paypal,bustos_bruno@yahoo.com,414-702-7353,7/19/2009
-157,Sarah Ditzenberger,72,s,,Sea Hag,7/16/2009,paypal,fischbergers@yahoo.com,414-263-1991,7/19/2009
-158,frank straka,73,s,s,Straka-Khan,7/16/2009,paypal,fstraka32@yahoo.com,414-510-8297,7/19/2009
-159,james klisch,74,s,,Jim Klisch,7/16/2009,paypal,bigjim1952@msn.com,414-403-0480,7/19/2009
-160,william bunyan,75,t,,Riverwest Allstars,7/16/2009,paypal,bill@riverwest-allstars.org,414-241-3077,7/19/2009
-161,whendee meisch,,t,,Riverwest Allstars,7/16/2009,paypal
-162,mark sheppard,76,s,m,N/A,7/16/2009,paypal,mark.sheppard@gmail.com,262.497.1540,7/19/2009
-163,vince janikowski,77,s,,Vince Janikowski,7/17/2009,paypal,vmjanikowski@aol.com,414-764-0238,7/19/2009
-164,joe stephenson,78,b,m,Littering and...,7/17/2009,paypal,stephejj@gmail.com,414-460-6614,7/19/2009
-165,,,b,,Littering and...,7/17/2009,paypal
-166,,,b,,Littering and...,7/17/2009,paypal
-167,,,b,,Littering and...,7/17/2009,paypal
-168,,,b,,Littering and...,7/17/2009,paypal
-169,,,b,,Littering and...,7/17/2009,paypal
-170,matthew brusky,79,b,,Big Labor on Wheels,7/17/2009,paypal,mattbrusky@gmail.com,414-315-4127,7/19/2009
-171,,,b,,Big Labor on Wheels,7/17/2009,paypal
-172,,,b,,Big Labor on Wheels,7/17/2009,paypal
-173,,,b,,Big Labor on Wheels,7/17/2009,paypal
-174,,,b,,Big Labor on Wheels,7/17/2009,paypal
-175,,,b,,Big Labor on Wheels,7/17/2009,paypal
-176,eric o'gallagher,80,s,,Noodle Pony,7/17/2009,paypal,mwperic@hotmail.com,414-416-4471,7/19/2009
-177,peter mcmullen,81,b,,Big Peter & The Sausage Boys,7/17/2009,paypal,prmcmullen@sbcglobal.net,414-962-6834,7/19/2009
-178,,,b,,Big Peter & The Sausage Boys,7/17/2009,paypal
-179,,,b,,Big Peter & The Sausage Boys,7/17/2009,paypal
-180,,,b,,Big Peter & The Sausage Boys,7/17/2009,paypal
-181,,,b,,Big Peter & The Sausage Boys,7/17/2009,paypal
-182,,,b,,Big Peter & The Sausage Boys,7/17/2009,paypal
-183,caitlin hamer,82,b,,Talonstaff,7/17/2009,paypal,caitabob@gmail.com,414-429-1352,7/19/2009
-184,,,b,,Talonstaff,7/17/2009,paypal
-185,jonathan burks,83,s,,jonathan burks,7/18/2009,paypal,jonburk7@gmail.com,414-732-0543,7/19/2009
-186,jason scuglik,84,s,,jason scuglik,7/18/2009,paypal,j_scuglik@hotmail.com,414-795-4070,7/19/2009
-187,alex dye,85,s,,alex dye,7/18/2009,paypal,alexdye@gmail.com,414-397-2595,7/19/2009
-188,paige graf,86,b,,classic slice cutters,7/18/2009,paypal,paige.graff@att.net,414-213-3253,7/19/2009
-189,,,b,,classic slice cutters,7/18/2009,paypal
-190,,,b,,classic slice cutters,7/18/2009,paypal
-191,,,b,,classic slice cutters,7/18/2009,paypal
-192,,,b,,classic slice cutters,7/18/2009,paypal
-193,,,b,,classic slice cutters,7/18/2009,paypal
-194,mike mikulay,87,t,l,Team Mikulay,7/18/2009,paypal,mikulay@gmail.com,414.839.0708,7/19/2009
-195,,,t,xl,Team Mikulay,7/18/2009,paypal
-196,trevor timm,88,b,,MAGLIA ROSA,7/18/2009,paypal,tjtimm@uwm.edu,414-305-7078,7/19/2009
-197,,,b,,MAGLIA ROSA,7/18/2009,paypal
-198,,,b,,MAGLIA ROSA,7/18/2009,paypal
-199,,,b,,MAGLIA ROSA,7/20/2009,paypal
-200,,,b,,MAGLIA ROSA,7/20/2009,paypal
-201,,,b,,MAGLIA ROSA,7/20/2009,paypal
-202,trevor timm,89,s,,Trevor Merckx,7/18/2009,paypal,tjtimm@uwm.edu,414-305-7078,7/19/2009
-203,ashley janke,90,b,,Lady,7/18/2009,paypal,ajanke282@hotmail.com,920-912-3538,7/19/2009
-204,,,b,,Lady,7/18/2009,paypal
-205,,,b,,Lady,7/18/2009,paypal
-206,,,b,,Lady,7/18/2009,paypal
-207,,,b,,Lady,7/18/2009,paypal
-208,,,b,,Lady,7/18/2009,paypal
-209,andrew clithero,91,b,m,Pirates/Dusters,7/19/2009,paypal,adclithero@gmail.com,414-467-3948,7/19/2009
-210,,,b,,Pirates/Dusters,7/19/2009,paypal
-211,,,b,,Pirates/Dusters,7/19/2009,paypal
-212,,,b,,Pirates/Dusters,7/19/2009,paypal
-213,,,b,,Pirates/Dusters,7/19/2009,paypal
-214,,,b,,Pirates/Dusters,7/19/2009,paypal
-215,george loomans,92,b,,Allen's Way,7/19/2009,paypal,competitiveedge@wi.rr.com,262-363-4951,7/19/2009
-216,,,b,,Allen's Way,7/19/2009,paypal
-217,,,b,,Allen's Way,7/19/2009,paypal
-218,,,b,,Allen's Way,7/19/2009,paypal
-219,,,b,,Allen's Way,7/19/2009,paypal
-220,,,b,,Allen's Way,7/19/2009,paypal
-221,susan scott,93,s,,Susan Scott,7/19/2009,paypal,saltylava66@aol.com,414-264-4761,7/19/2009
-222,chris allen,94,s,xl,Ol Bama,7/20/2009,paypal,jonallen@bzw.blackberry.net
-223,greg allen,95,s,xl,Blind 'Bama Fatts,7/20/2009,paypal,,,,needs to pay
-224,william gehling,97,s,,Monster,7/20/2009,paypal,will.gehling@usbank.com,414-765-6574,7/22/2009
-225,dana schultz,98,b,,the menstrual cycles,7/20/2009,paypal,dana@9to5.org,715-432-4971,7/22/2009
-226,marta weber,,b,,,7/20/2009,,martagotsauce@gmail.com,,7/22/2009
-227,,,b,,,7/20/2009
-228,,,b,,,7/20/2009
-229,,,b,,,7/20/2009
-230,,,b,,,7/20/2009
-231,donald iwen,99,s,,DonEye1,7/20/2009,,don@communicor.com,414-852-8255,7/22/2009
-232,meagan threlkeld,100,b,,Team Funbags,7/20/2009,,penelopeforshort@gmail.com,,7/22/2009
-233,,,b,,,7/20/2009
-234,,,b,,,7/20/2009
-235,,,b,,,7/20/2009
-236,sara spence,101,t,,ian and sarah,7/20/2009,,sara.spence@sbcglobal.net,,7/22/2009
-237,,,t,,,7/20/2009
-238,paul carado,102,s,,paul,7/20/2009,,paul@paulcorrado.info,414-413-6595,7/22/2009
-239,chris madora,103,s,l,maddog madora,7/20/2009,,chrismpd@yahoo.com,414-464-7755,7/22/2009
-240,lindsey loberg,104,s,s,lindsey loberg,7/20/2009,,lkloberg@gmail.com,,7/22/2009
-241,karl schreiber,105,s,l,karl schreiber,7/20/2009,,kfschreiber@gmail.com,414-453-3361,7/22/2009
-242,bob ellquist,106,s,m,hellquist,7/20/2009,,woodenrobots@yahoo.com,414-264-7510,7/22/2009
-243,michael warden,107,s,l,motorhead,7/20/2009,,michael.j.warden@hotmail.com,414-416-6516,7/22/2009
-244,angela livermore,108,b,s,shark weak,7/20/2009,,sumo@milwpc.com,,7/22/2009
-245,alex hansen,,b,s,,,,abuss22@yahoo.com,,7/22/2009
-246,aaron cleveland,,b,s,,,,heather.sewrey.art@gmail.com,,7/22/2009
-247,april busse,,b,m,,,,lucilena_1999@yahoo.com,,7/22/2009
-248,paul setser,,b,l,,,,headsets@wi.rr.com,,7/22/2009
-249,heather sweary,,b,l,,,,acleavland@gmail.com,,7/22/2009
-250,Nickolas Roedel,109,b,m,Lowered Expectations,7/20/2009,,burnfromwithin@gmail.com,,7/22/2009
-251,,,b,m,Lowered Expectations,7/20/2009
-252,,,b,m,Lowered Expectations,7/20/2009
-253,,,b,m,Lowered Expectations,7/20/2009
-254,,,b,xl,Lowered Expectations,7/20/2009
-255,,,b,xl,Lowered Expectations,7/20/2009
-256,jay decora,110,s,,jay decora,7/20/2009,,blatchmo@aol.com,,7/22/2009
-257,sean bryan  ,111,s,,Skol Mate,7/21/2009,,seanbryanphotography@gmail.com,920-740-6448,7/22/2009
-258,Brian Hayes,112,s,,guts,7/21/2009,,bthayes@uwm.edu,262-227-6762,7/22/2009
-259,edmund makowski,113,s,,Ed Makowski,7/21/2009,,spamforeddie@gmail.com,,7/22/0209
-260,julie ruplinger,114,b,,The Better Halves,7/21/2009,,mokshamke@gmail.com,414-897-1638,7/22/2009
-261,,,b,,The Better Halves,7/21/2009
-262,,,b,,The Better Halves,7/21/2009
-263,Jason Schoenemann,115,b,,Pedal Dancers,7/21/2009,,jasonrs5@uwm.edu,,7/22/2009
-264,,,b,,,7/21/2009
-265,,,b,,,7/21/2009
-266,,,b,,,7/21/2009
-267,,,b,,,7/21/2009
-268,,,b,,,7/21/2009,,bikeage77@yahoo.com,,7/22/2009
-269,corey,116,b,s,20s of terror,7/21/2009
-270,trevor,,b,m,20s of terror,7/21/2009
-271,abby,,b,l,20s of terror,7/21/2009
-272,mat,,b,xl,20s of terror
-273,bob,,b,,20s of terror
-274,robert,117,b,s,geared up hellions,7/21/2009,,artisantechnology@mail.com,414-467-7710,7/22/2009
-275,david,,b,xl,geared up hellions,7/21/2009
-276,carlo,,b,,geared up hellions
-277,angela,,b,,geared up hellions
-278,chicago nick,,b,,geared up hellions
-279,david payne,,b,,geared up hellions
-280,kent moritz,118,s,m,Inca Cola,7/21/2009,,kamortiz@msn.com,414-243-4625,7/22/2009
-281,julie janowak,119,b,,Squadra Choklit,7/21/2009,,jjanowak@wi.rr.com,414-491-2257,7/22/2009
-282,,,b,,Squadra Choklit,7/21/2009,,kknoke@milwaukeeballet.org,,7/22/2009
-283,claire moore,120,t,,Blue Whale,,,bodhisattvaj@hotmail.com,414-975-2521,7/22/2009
-284,,,t,,Blue Whale
-285,todd lorbecki,120,s,,todd lorbecki,7/21/2009,,botlegs@hotmail.com,414-454-0109,7/22/2009
-286,brian molstad,121,s,,,7/21/2009,,mc1881@gmail.com
-287,devin yoder,122,b
-288,,,b
-289,,,b
-290,,,b
-291,,,b
-292,,,b
-293,thomas isetts,123,s
-294,,,,,3BR
-295,,,,,3BR
-296,,,,,3BR
-297,,,,,3BR
-298,,,,,3BR
-299,,,,,3BR
-300,,,,,3BR
-301,paul atwater,124,s
-302,kevin sparrow,125,s
-303,sura faraj,126,s
-304,joel van haren,127,b
-305,,,b
-306,,,b
-307,,,b
-308,,,b
-309,dave mangin,128,s
-310,Alyse Pfeil  ,129,b,,menstrual cycles
-311,,,b
-312,,,b
-313,,,b
-314,,,b
-315,,,b
-316,anthony lyons,130,t,,booth st buccaneers
-317,,,t
-318
-319
-320
-321
-322
-323
-324
+83,victor fetck?,45,s,m,team victor,7/10/2009,cash,grvytrain@live.com,,7/12/2009
+84,bob kloepfer,46,s,xl,Bobstafarian,7/10/2009,cash,bobstafarian@yahoo.com,,7/13/2009
+85,lindsey loberg,47,s,s,lindsey loberg,7/10/2009,cash,lkloberg@gmail.com,,7/13/2009
+86,john downing,48,b,l,born w a moustache,7/9/2009,paypal,jackd8@yahoo.com,414-745-9021,7/13/2009
+87,jeff frane,,b,m,born w a moustache,7/9/2009,paypal,admin@bikejerks.com
+88,mark sirek,,b,m,born w a moustache,7/9/2009,paypal,resultofanxiety@hotmail.com
+89,josh,,b,m,born w a moustache,7/9/2009,paypal,josh@behind-bars.com,,7/15/2009
+90,genevieve,49,b,s,the bellas,7/10/2009,paypal,gamboagenevieve@gmail.com,,7/13/2009
+91,jillian,,b,s,the bellas,7/10/2009,paypal,belladonnamke@gmail.com
+92,julie schmidt,,b,l,the bellas,7/10/2009,paypal,julieschmittPT@yahoo.com
+93,leah jepson,,b,l,the bellas,7/10/2009,paypal,ellsiejay@gmail.com
+94,melissa herguth,,b,m,the bellas,7/10/2009,paypal,melissaherguth@gmail.com
+95,rachel arfa,,b,l,the bellas,7/14/2009,paypal,marfa@gmail.com,,7/15/2009
+96,erin ong,50,b,s,the donnas,7/10/2009,paypal,elle86@hotmail.com,,7/13/2009
+97,gina follestad,,b,s,the donnas,7/10/2009,paypal,ginafollstad@gmail.com,,7/13/2009
+98,karen mierow,,b,s,the donnas,7/10/2009,paypal,karen.mierow@gmail.com,,7/13/2009
+99,katie kircher,,b,m,the donnas,7/10/2009,paypal,katekircher@gmail.com,,7/13/2009
+100,michelle kelly,,b,m,the donnas,7/10/2009,paypal,Michelle.Kelly84@gmail.com,,7/13/2009
+101,sarah reuter,,b,l,the donnas,7/10/2009,paypal,sarahnreuter@gmail.com,,7/13/2009
+102,chrissy m,51,b,m,the vixens,7/10/2009,paypal,c_maraviglia@yahoo.com,,7/13/2009
+103,francesca,,b,s,the vixens,7/10/2009,paypal,francescaj@gmail.com,,7/13/2009
+104,jocelyn,,b,s,the vixens,7/10/2009,paypal,jk414@me.com,,7/13/2009
+105,kerry scanlan,,b,s,the vixens,7/10/2009,paypal,zugnru@yahoo.com,,7/13/2009
+106,kp pande,,b,s,the vixens,7/10/2009,paypal,kanupriyap@gmail.com,,7/13/2009
+107,joseph regan,52,s,m,Joe Regan,7/12/2009,paypal,joseph.p.regan@gmail.com,414-378-7003,7/13/2009
+108,stephen zielke,53,s,l,Steve Z,7/12/2009,paypal,stephenzielke@gmail.com,414-731-1805,7/13/2009
+109,jesse sorgasz,54,s,,pedal file,7/12/2009,paypal,jlsorgatz@gmail.com,608-931-0482,7/13/2009
+110,jaime ogas,55,s,xl,Manifest Destiny,7/12/2009,paypal,jaimeogas@hotmail.com,414-702-2909,7/13/2009
+111,jamie brady,56,b,m,S.O.S,7/13/2009,paypal,jmeb77@hotmail.com,414.628.7206,7/15/2009
+112,,,b,m,S.O.S,7/13/2009,paypal,jenerousbeatings@gmail.com,,7/19/2009
+113,indiana bones,,b,l,S.O.S,7/13/2009,paypal,indiana.bones@brewcitybruisers.com,,7/19/2009
+114,,,b,,S.O.S,7/13/2009,paypal,daveclay@gmail.com,,7/19/2009
+115,,,b,,S.O.S,7/13/2009,paypal,groschopf@gmail.com,,7/19/2009
+116,william hippensteel,,b,l,S.O.S,7/20/2009,,William.hippensteel@gmail.com,414-788-6318,7/22/2009
+117,CHRISTOPHER OLSON,57,b,xl,Vice Squad II,7/13/2009,paypal,olsonc76@gmail.com,(414) 803-4821,7/15/2009
+118,,,b,l,Vice Squad II,7/13/2009,paypal
+119,,,b,s,Vice Squad II,7/13/2009,paypal
+120,,,b,l,Vice Squad II,7/13/2009,paypal
+121,,,b,l,Vice Squad II,7/13/2009,paypal
+122,,,b,l,Vice Squad II,7/13/2009,paypal
+123,vanessa lambrecht,58,s,,Vanessa,7/13/2009,paypal,lambrec7@uwm.edu,920-464-0407,7/15/2009
+124,julian diel,59,s,l,the bron,7/14/2009,paypal,turingtest12@hotmail.com,646-436-7263,7/15/2009
+125,Erin Lee Petersen,60,t,s,cloudy with a chance of meatballs,7/14/2009,paypal,erinleepetersen@gmail.com,414-412-8373,7/15/2009
+126,stephanie bollow,,t,s,cloudy with a chance of meatballs,7/14/2009,paypal, 
+127,Damon White,61,b,xl,Riverside Roustabouts,7/14/2009,paypal,whitesands328@yahoo.com,414-795-8281,7/15/2009
+128,,,b,m,Riverside Roustabouts,7/14/2009,paypal
+129,,,b,l,Riverside Roustabouts,7/14/2009,paypal
+130,,,b,l,Riverside Roustabouts,7/14/2009,paypal
+131,,,b,xl,Riverside Roustabouts,7/14/2009,paypal
+132,,,b,m,Riverside Roustabouts,7/14/2009,paypal
+133,Paul Nagorski ,62,s,l,Brew City Tall Bikes - Paul,7/14/2009,paypal,speciaized246@yahoo.com,414 897-9691,7/15/2009
+134,Mark,63,s,xl,Brew City Tall Bikes - Mark,7/14/2009,paypal,m2whatsgoingon@yahoo.com,414 207-5503,7/19/2009
+135,Colin Ford,64,s,m,godzilla,7/15/2009,paypal,colinford13@gmail.com,414-659-4117,7/15/2009
+136,steven koski,65,s,xl,Steven Koski,7/15/2009,paypal,stevenkoski@gmail.com,414-841-4055,7/15/2009
+137,jason mcdowell,66,s,s,Oh! My taint!,7/15/2009,fuel,littletinyfish@littletinyfish.com,414-550-6141,7/15/2009
+138,elizabeth ruder,67,s,s,Conquer by Cowbell,7/15/2009,fuel,earuder@uwm.edu,414-347-3456,7/15/2009
+139,scott van vrede,68,a,s,borg ward berzerkers,7/15/2009,fuel,svicvanvrede@yahoo.com,414-550-6535,7/15/2009,bounced
+140,kevin soens,,a,m,borg ward berzerkers,7/15/2009,fuel
+141,jason czekala,,a,m,borg ward berzerkers,7/15/2009,fuel
+142,grant stamler,,a,m,borg ward berzerkers,7/15/2009,fuel
+143,stephen bilek,69,b,,bus bait,7/21/2009,,SBILEK@journalsentinel.com
+144,,,,,bus bait,7/21/2009
+145,,,,,bus bait,7/21/2009
+146,,,,,bus bait,7/21/2009
+147,josh weis,70,b,m,TJSE ,7/15/2009,paypal,Josh_Weis@hotmail.com,414-731-9121,7/19/2009
+148,,,b,m,TJSE ,7/15/2009,paypal
+149,,,b,s,TJSE ,7/15/2009,paypal
+150,,,b,s,TJSE ,7/15/2009,paypal
+151,bruno bustos,71,s,xl,bruno bustos,7/16/2009,paypal,bustos_bruno@yahoo.com,414-702-7353,7/19/2009
+152,Sarah Ditzenberger,72,s,,Sea Hag,7/16/2009,paypal,fischbergers@yahoo.com,414-263-1991,7/19/2009
+153,frank straka,73,s,s,Straka-Khan,7/16/2009,paypal,fstraka32@yahoo.com,414-510-8297,7/19/2009
+154,james klisch,74,s,xl,Jim Klisch,7/16/2009,paypal,bigjim1952@msn.com,414-403-0480,7/19/2009
+155,william bunyan,75,t,,Riverwest Allstars,7/16/2009,paypal,bill@riverwest-allstars.org,414-241-3077,7/19/2009
+156,whendee meisch,,t,,Riverwest Allstars,7/16/2009,paypal
+157,mark sheppard,76,s,m,N/A,7/16/2009,paypal,mark.sheppard@gmail.com,262.497.1540,7/19/2009
+158,vince janikowski,77,s,,Vince Janikowski,7/17/2009,paypal,vmjanikowski@aol.com,414-764-0238,7/19/2009
+159,joe stephenson,78,b,m,Littering and...,7/17/2009,paypal,stephejj@gmail.com,414-460-6614,7/19/2009
+160,,,b,m,Littering and...,7/17/2009,paypal
+161,,,b,m,Littering and...,7/17/2009,paypal
+162,,,b,m,Littering and...,7/17/2009,paypal
+163,,,b,m,Littering and...,7/17/2009,paypal
+164,,,b,m,Littering and...,7/17/2009,paypal
+165,matthew brusky,79,b,xl,Big Labor on Wheels,7/17/2009,paypal,mattbrusky@gmail.com,414-315-4127,7/19/2009
+166,,,b,l,Big Labor on Wheels,7/17/2009,paypal
+167,,,b,l,Big Labor on Wheels,7/17/2009,paypal
+168,,,b,m,Big Labor on Wheels,7/17/2009,paypal
+169,,,b,s,Big Labor on Wheels,7/17/2009,paypal
+170,,,b,m,Big Labor on Wheels,7/17/2009,paypal
+171,eric o'gallagher,80,s,s,Noodle Pony,7/17/2009,paypal,mwperic@hotmail.com,414-416-4471,7/19/2009
+172,peter mcmullen,81,b,l,Big Peter & The Sausage Boys,7/17/2009,paypal,prmcmullen@sbcglobal.net,414-962-6834,7/19/2009
+173,,,b,m,Big Peter & The Sausage Boys,7/17/2009,paypal
+174,,,b,m,Big Peter & The Sausage Boys,7/17/2009,paypal
+175,,,b,s,Big Peter & The Sausage Boys,7/17/2009,paypal
+176,,,b,s,Big Peter & The Sausage Boys,7/17/2009,paypal
+177,,,b,s,Big Peter & The Sausage Boys,7/17/2009,paypal
+178,caitlin hamer,82,b,m,Talonstaff,7/17/2009,paypal,caitabob@gmail.com,414-429-1352,7/19/2009
+179,,,b,s,Talonstaff,7/17/2009,paypal
+180,jonathan burks,83,s,xl,jonathan burks,7/18/2009,paypal,jonburk7@gmail.com,414-732-0543,7/19/2009
+181,jason scuglik,84,s,,jason scuglik,7/18/2009,paypal,j_scuglik@hotmail.com,414-795-4070,7/19/2009
+182,alex dye,85,s,,alex dye,7/18/2009,paypal,alexdye@gmail.com,414-397-2595,7/19/2009
+183,paige graf,86,b,,classic slice cutters,7/18/2009,paypal,paige.graff@att.net,414-213-3253,7/19/2009
+184,,,b,,classic slice cutters,7/18/2009,paypal
+185,,,b,,classic slice cutters,7/18/2009,paypal
+186,,,b,,classic slice cutters,7/18/2009,paypal
+187,,,b,,classic slice cutters,7/18/2009,paypal
+188,,,b,,classic slice cutters,7/18/2009,paypal
+189,mike mikulay,87,t,l,Team Mikulay,7/18/2009,paypal,mikulay@gmail.com,414.839.0708,7/19/2009
+190,,,t,xl,Team Mikulay,7/18/2009,paypal
+191,trevor timm,88,b,s,MAGLIA ROSA,7/18/2009,paypal,tjtimm@uwm.edu,414-305-7078,7/19/2009
+192,,,b,s,MAGLIA ROSA,7/18/2009,paypal
+193,,,b,l,MAGLIA ROSA,7/18/2009,paypal
+194,,,b,l,MAGLIA ROSA,7/20/2009,paypal
+195,,,b,l,MAGLIA ROSA,7/20/2009,paypal
+196,,,b,m,MAGLIA ROSA,7/20/2009,paypal
+197,trevor timm,89,s,m,Trevor Merckx,7/18/2009,paypal,tjtimm@uwm.edu,414-305-7078,7/19/2009
+198,ashley janke,90,b,,Lady,7/18/2009,paypal,ajanke282@hotmail.com,920-912-3538,7/19/2009
+199,,,b,,Lady,7/18/2009,paypal
+200,,,b,,Lady,7/18/2009,paypal
+201,,,b,,Lady,7/18/2009,paypal
+202,,,b,,Lady,7/18/2009,paypal
+203,,,b,,Lady,7/18/2009,paypal
+204,andrew clithero,91,b,m,Pirates/Dusters,7/19/2009,paypal,adclithero@gmail.com,414-467-3948,7/19/2009
+205,,,b,l,Pirates/Dusters,7/19/2009,paypal
+206,,,b,,Pirates/Dusters,7/19/2009,paypal
+207,,,b,,Pirates/Dusters,7/19/2009,paypal
+208,,,b,,Pirates/Dusters,7/19/2009,paypal
+209,,,b,,Pirates/Dusters,7/19/2009,paypal
+210,george loomans,92,b,,Allen's Way,7/19/2009,paypal,competitiveedge@wi.rr.com,262-363-4951,7/19/2009
+211,,,b,,Allen's Way,7/19/2009,paypal
+212,,,b,,Allen's Way,7/19/2009,paypal
+213,,,b,,Allen's Way,7/19/2009,paypal
+214,,,b,,Allen's Way,7/19/2009,paypal
+215,,,b,,Allen's Way,7/19/2009,paypal
+216,susan scott,93,s,,Susan Scott,7/19/2009,paypal,saltylava66@aol.com,414-264-4761,7/19/2009
+217,chris allen,94,s,xl,Ol Bama,7/20/2009,paypal,jonallen@bzw.blackberry.net
+218,greg allen,95,s,xl,Blind 'Bama Fatts,7/20/2009,paypal,,,,needs to pay
+219,william gehling,97,s,,Monster,7/20/2009,paypal,will.gehling@usbank.com,414-765-6574,7/22/2009
+220,dana schultz,98,b,m,the menstrual cycles,7/20/2009,paypal,dana@9to5.org,715-432-4971,7/22/2009
+221,marta weber,,b,s,the menstrual cycles,7/20/2009,,martagotsauce@gmail.com,,7/22/2009
+222,,,b,m,the menstrual cycles,7/20/2009
+223,,,b,l,the menstrual cycles,7/20/2009
+224,,,b,,the menstrual cycles,7/20/2009
+225,,,b,,the menstrual cycles,7/20/2009
+226,donald iwen,99,s,,DonEye1,7/20/2009,,don@communicor.com,414-852-8255,7/22/2009
+227,meagan threlkeld,100,b,,Team Funbags,7/20/2009,,penelopeforshort@gmail.com,,7/22/2009
+228,,,b,,Team Funbags,7/20/2009
+229,,,b,,Team Funbags,7/20/2009
+230,,,b,,Team Funbags,7/20/2009
+231,sara spence,101,t,,ian and sarah,7/20/2009,,sara.spence@sbcglobal.net,,7/22/2009
+232,,,t,,ian and sarah,7/20/2009
+233,paul carado,102,s,,paul,7/20/2009,,paul@paulcorrado.info,414-413-6595,7/22/2009
+234,chris madora,103,s,l,maddog madora,7/20/2009,,chrismpd@yahoo.com,414-464-7755,7/22/2009
+235,lindsey loberg,104,s,s,lindsey loberg,7/20/2009,,lkloberg@gmail.com,,7/22/2009
+236,karl schreiber,105,s,l,karl schreiber,7/20/2009,,kfschreiber@gmail.com,414-453-3361,7/22/2009
+237,bob ellquist,106,s,m,hellquist,7/20/2009,,woodenrobots@yahoo.com,414-264-7510,7/22/2009
+238,michael warden,107,s,l,MOTORHEAD,7/20/2009,,michael.j.warden@hotmail.com,414-416-6516,7/22/2009
+239,angela livermore,108,b,s,shark weak,7/20/2009,,sumo@milwpc.com,,7/22/2009
+240,alex hansen,,b,s,shark weak,7/20/2009,,abuss22@yahoo.com,,7/22/2009
+241,aaron cleveland,,b,s,shark weak,7/20/2009,,heather.sewrey.art@gmail.com,,7/22/2009
+242,april busse,,b,m,shark weak,7/20/2009,,lucilena_1999@yahoo.com,,7/22/2009
+243,paul setser,,b,l,shark weak,7/20/2009,,headsets@wi.rr.com,,7/22/2009
+244,heather sweary,,b,l,shark weak,7/20/2009,,acleavland@gmail.com,,7/22/2009
+245,Nickolas Roedel,109,b,m,Lowered Expectations,7/20/2009,,burnfromwithin@gmail.com,,7/22/2009
+246,,,b,m,Lowered Expectations,7/20/2009
+247,,,b,m,Lowered Expectations,7/20/2009
+248,,,b,m,Lowered Expectations,7/20/2009
+249,,,b,xl,Lowered Expectations,7/20/2009
+250,,,b,xl,Lowered Expectations,7/20/2009
+251,jay decora,110,s,,jay decora,7/20/2009,,blatchmo@aol.com,,7/22/2009
+252,sean bryan  ,111,s,m,Skol Mate,7/21/2009,,seanbryanphotography@gmail.com,920-740-6448,7/22/2009
+253,Brian Hayes,112,s,,guts,7/21/2009,,bthayes@uwm.edu,262-227-6762,7/22/2009
+254,edmund makowski,113,s,,Ed Makowski,7/21/2009,,spamforeddie@gmail.com,,7/22/2009
+255,julie ruplinger,114,b,,The Better Halves,7/21/2009,,mokshamke@gmail.com,414-897-1638,7/22/2009
+256,,,b,,The Better Halves,7/21/2009
+257,,,b,,The Better Halves,7/21/2009
+258,Jason Schoenemann,115,b,m,Pedal Dancers,7/21/2009,,jasonrs5@uwm.edu,,7/22/2009
+259,,,b,m,Pedal Dancers,7/21/2009
+260,,,b,m,Pedal Dancers,7/21/2009
+261,,,b,m,Pedal Dancers,7/21/2009
+262,,,b,m,Pedal Dancers,7/21/2009
+263,,,b,m,Pedal Dancers,7/21/2009,,bikeage77@yahoo.com,,7/22/2009
+264,corey,116,b,s,20 inches of terror,7/21/2009
+265,trevor,,b,m,20 inches of terror,7/21/2009
+266,abby,,b,l,20 inches of terror,7/21/2009
+267,mat,,b,xl,20 inches of terror
+268,bob,,b,,20 inches of terror
+269,robert,117,b,s,geared up hellions,7/21/2009,,artisantechnology@mail.com,414-467-7710,7/22/2009
+270,david,,b,xl,geared up hellions,7/21/2009
+271,carlo,,b,,geared up hellions,,,,,,owes day of race
+272,angela,,b,,geared up hellions,,,,,,owes day of race
+273,dave payne,,b,,geared up hellions,,,,,,owes day of race
+274,kent moritz,118,s,m,Inca Cola,7/21/2009,,kamortiz@msn.com,414-243-4625,7/22/2009
+275,julie janowak,119,b,m,Squadra Choklit,7/21/2009,,jjanowak@wi.rr.com,414-491-2257,7/22/2009
+276,,,b,m,Squadra Choklit,7/21/2009,,kknoke@milwaukeeballet.org,,7/22/2009
+277,cory,,b,l,Squadra Choklit,,,,,,owes day of race
+278,claire moore,125,t,,Blue Whale,,,bodhisattvaj@hotmail.com,414-975-2521,7/22/2009
+279,,,t,,Blue Whale
+280,todd lorbecki,120,s,,todd lorbecki,7/21/2009,,botlegs@hotmail.com,414-454-0109,7/22/2009
+281,brian molstad,121,s,,Brian MF Molstad,7/21/2009,,mc1881@gmail.com
+282,devin yoder,122,b,,Little Lebowski Urban Achievers,7/23/2009,,devin.yoder@gmail.com
+283,,,b,,Little Lebowski Urban Achievers,7/23/2009
+284,,,b,,Little Lebowski Urban Achievers,7/23/2009
+285,,,b,,Little Lebowski Urban Achievers,7/23/2009
+286,,,b,,Little Lebowski Urban Achievers,7/23/2009
+287,,,b,,Little Lebowski Urban Achievers,7/23/2009
+288,thomas isetts,124,s,,isetts,7/23/2009,,mbdzetts@sbcglobal.net
+289,,123,b,,3BR,7/23/2009
+290,,,b,,3BR,7/23/2009
+291,,,b,,3BR,7/23/2009
+292,,,b,,3BR,7/23/2009
+293,,,b,,3BR,7/23/2009
+294,,,b,,3BR,7/23/2009
+1,joel van haren,127,b,,Dr. Bukosky and Bill Cosby's Cosmetology College's Home Furniture Anniversary Sale,7/23/2009
+2,,,b,,Dr. Bukosky and Bill Cosby's Cosmetology College's Home Furniture Anniversary Sale,7/23/2009
+3,,,b,,Dr. Bukosky and Bill Cosby's Cosmetology College's Home Furniture Anniversary Sale,7/23/2009
+4,,,b,,Dr. Bukosky and Bill Cosby's Cosmetology College's Home Furniture Anniversary Sale,7/23/2009
+5,,,b,,Dr. Bukosky and Bill Cosby's Cosmetology College's Home Furniture Anniversary Sale,7/23/2009
+6,dave mangin,128,s,,mangin
+7,anthony lyons,130,t,,booth st buccaneers,,,anthony.lyons@sbcglobal.net
+8,,,t,,booth st buccaneers
+9,dave mangin,131,s,,Dave Mangin,7/21/2009,,davemangin@hotmail.com,920-328-3824
+10,kevin sparrow,132,s,m,kevin sparrow,7/23/2009,,,414-397-5576
+11,paul atwater,133,s,m,hell on weil st,7/23/2009,,,414-881-7879
+12,sura for change,134,s,s,Sura for Change,7/23/2009,,peaceiscollectivepower@junocom
+13,christopher,135,a,,Clan of the cave bear,7/23/2009
+14,arman,,a,,Clan of the cave bear,7/23/2009
+15,johann,,a,,Clan of the cave bear,7/23/2009
+16,william,,a,,Clan of the cave bear,7/23/2009
+17,alyse pfeil,136,b,,madison menstrual cycles,7/23/2009
+18,,,b,,madison menstrual cycles,7/23/2009
+19,,,b,,madison menstrual cycles,7/23/2009
+20,,,b,,madison menstrual cycles,7/23/2009
+21,,,b,,madison menstrual cycles,7/23/2009
+22,,137,a,,Hero Squad,7/23/2009,,matt.ungerman@gmail.com,414-534-2882
+23,,,a,,Hero Squad,7/23/2009
+24,,,a,,Hero Squad,7/23/2009
+25,,,a,,Hero Squad,7/23/2009
+26,justin dondlinger,138,s,,Chase Sanborn,7/23/2009,,ChaseSanborn@gmail.com
+27,erik molstad,139,s,,erik molstad,7/23/2009,,molstaderik@gmail.com
+28,bernadette watts,140,b,,Team Unicorn Jumping Over Rainbow,7/23/2009,,anton_bot@yahoo.com,414-243-9515
+29,,,b,,Team Unicorn Jumping Over Rainbow,7/23/2009
+30,,,b,,Team Unicorn Jumping Over Rainbow,7/23/2009
+31,aronn corbett,141,b,,the quitters,7/23/2009,,aroncorbett@yahoo.com
+32,,,b,,the quitters,7/23/2009
+33,,,b,,the quitters,7/23/2009
+34,,,b,,the quitters,7/23/2009
+35,,,b,,the quitters,7/23/2009
+36,jacob,44,b,,Jacob's 6 Man Needs to Pay Team,,,jakobleton@yahoo.com
+37,,,b,,Jacob's 6 Man Needs to Pay Team
+38,,,b,,Jacob's 6 Man Needs to Pay Team
+39,,,b,,Jacob's 6 Man Needs to Pay Team
+40,,,b,,Jacob's 6 Man Needs to Pay Team
+41,,,b,,Jacob's 6 Man Needs to Pay Team

@@ -1,6 +1,9 @@
+%h1 Listing racers
+
+= link_to "+ Sign up racer(s)", new_racer_path
+
 %table
   %tr
-    %th reg
     %th name
     %th pos
     %th class
@@ -15,7 +18,6 @@
 
   - @racers.each do |racer|
     %tr
-      %td= racer.id
       %td=h racer.name
       %td= racer.team.number
       %td= racer.team.team_type
@@ -27,3 +29,8 @@
       %td=h racer.phone
       %td= racer.confirmed_on
       %td=h racer.notes
+      %td
+        = link_to "edit", [:edit, racer]
+        = link_to "delete", racer, :method => "delete"
+        
+= link_to "+ Sign up racer(s)", new_racer_path

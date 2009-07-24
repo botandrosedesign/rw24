@@ -1,0 +1,39 @@
+- form_for @racer do |form|
+  %fieldset
+    = form.label :name
+    = form.text_field :name
+
+  %fieldset
+    = form.label :team
+    = form.collection_select :team_id, Team.all, :id, :name
+
+  %fieldset
+    = form.label :shirt
+    = form.text_field :shirt
+
+  %fieldset
+    = form.label :payment_received_on
+    = form.date_select :payment_received_on
+
+  %fieldset
+    = form.label :payment_type
+    = form.text_field :payment_type
+
+  %fieldset
+    = form.label :email
+    = form.text_field :email
+
+  %fieldset
+    = form.label :phone
+    = form.text_field :phone
+
+  %fieldset
+    = form.label :confirmed_on
+    = form.date_select :confirmed_on
+   
+  %fieldset
+    = form.label :notes
+    = form.text_field :notes
+
+  %fieldset
+    = form.submit
