@@ -4,7 +4,7 @@
   - Team::TYPES.each do |type|
     = link_to_current type, teams_path(:filter => type), :class => "inline"
 
-  %p== #{@teams.length} #{params[:filter]} Teams
+  %p#total== #{@teams.length} #{params[:filter]} Teams
 
   %table#stats{:width => "100%", :cellspacing => "0", :cellpadding => "0", :border => "0"}
     %col{:width => "10%"}

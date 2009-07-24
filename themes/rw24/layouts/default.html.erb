@@ -19,7 +19,7 @@
   <!--js-->
     <script type="text/javascript">
       function update_date() {
-      	var oneMinute = 60 * 1000 
+      	var oneMinute = 60 * 1000
       	var oneHour = oneMinute * 60
       	var oneDay = oneHour * 24
       	var oneYear = oneDay * 365
@@ -27,14 +27,14 @@
       	today = new Date().valueOf()
       	target = new Date('7/24/2009 19:00').valueOf()
 
-      	diff = target - today
+      	diff = today - target
 
-      	countdownDays = Math.floor(diff / oneDay)
+      	//countdownDays = Math.floor(diff / oneDay)
       	countdownHours = Math.floor(diff % oneDay / oneHour)
       	countdownMinutes = Math.floor(diff % oneHour / oneMinute)
       	countdownSeconds = Math.floor(diff % oneMinute / 1000)
 
-      	$('days').innerHTML = countdownDays < 10 ? '0'+countdownDays.toString() : countdownDays
+      	//$('days').innerHTML = countdownDays < 10 ? '0'+countdownDays.toString() : countdownDays
       	$('hrs').innerHTML = countdownHours < 10 ? '0'+countdownHours.toString() : countdownHours
       	$('min').innerHTML = countdownMinutes < 10 ? '0'+countdownMinutes.toString() : countdownMinutes
       	$('sec').innerHTML = countdownSeconds < 10 ? '0'+countdownSeconds.toString() : countdownSeconds
@@ -57,8 +57,8 @@
     		<h1 class="sitename"><%= link_to this_blog.blog_name, "/" %></h1>
     		<div class="slogan"><%= this_blog.blog_subtitle %></div>
   		</div>
-  	  <p id="intro" class="left">The race starts in
-  	    <span class="cd" id="days">00</span> days, 
+  	  <p id="intro" class="left">
+  	    <!--><span class="cd" id="days">00</span> days,-->
   	    <span class="cd" id="hrs">00</span> hours, 
   	    <span class="cd" id="min">00</span> minutes, and 
   	    <span class="cd" id="sec">00</span> seconds.

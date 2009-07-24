@@ -124,8 +124,6 @@ li.current_page_item a, li.current_page_item a:hover {font-weight: bold; color: 
     margin-left: 18px;
 }
 
-p#intro { color: #fff; padding: 16px 0 0 20px; font-size: .9em; line-height: 1.8; font-family: Arial;}
-
 /* navigation */
 
 .banner {display: block; margin: 0 0 6px 0;}
@@ -298,7 +296,7 @@ textarea.styled {width: 280px;}
   #board a.inline{text-decoration: none; border: 1px solid #ccc; -moz-border-radius: 20px; padding: 2px 20px;}
     #board a:hover {background: #F8D634;}
   #board a.current{background: #000; color: #fff;}
-  table#stats{margin:10px 0; padding: 10px 0; border-top: 3px double #ccc;}
+  table#stats{margin:3px 0; padding: 10px 0; border-top: 3px double #ccc;}
     table#stats th{border-bottom: 3px double #000; font-variant: small-caps;}
     table#stats td{padding: 3px; border-bottom: 1px dashed #ccc; border-right: 1px solid #ccc;}
       table#stats td.type {color: #666; font-size:.75em;}
@@ -327,3 +325,7 @@ table#racers{background: #999; margin:auto; padding:.24%; font-size: .9em;}
   table#racers tr th{font-variant:small-caps; background: #333; border-bottom: 3px double #000; color: #fff; padding: 2px 0 2px 4px;}
   table#racers tr td{border-bottom:1px dashed #ccc; padding: 1px 0 1px 4px; background:#fff;}
   table#racers tr.even td{background:#f0f0f0;}
+  
+/* countup */
+p#intro{font-size:.8em; color: #fff; margin: 20px 0 0 10px;}
+p#total{margin:6px 0 0 0;}
