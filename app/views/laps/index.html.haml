@@ -4,12 +4,14 @@
   %tr
     %th Lap
     %th Time
+  - last_lap = nil
   - @laps.each_with_index do |lap, index|
     %tr
       %td= index+1
-      %td= lap.created_at.to_s(:short)
+      %td= lap_time(last_lap, lap)
       - if admin?
         %td= link_to "", [:edit, @team, lap], :class => "edit"
         %td= link_to "", [@team, lap], :method => "delete", :class => "delete"
+    - last_lap = lap
 %br
 =link_to "&laquo;&nbsp;Back to the Boards", "/teams"

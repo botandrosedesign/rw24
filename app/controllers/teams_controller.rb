@@ -2,7 +2,7 @@ class TeamsController < ContentController
   layout :theme_layout
 
   def index
-    @teams = params[:filter] ? Team.find_all_by_team_type(params[:filter], :include => :laps) : Team.all(:include => :laps)
+    @teams = params[:filter] ? Team.find_all_by_team_type(params[:filter], :include => :laps, :order => "number") : Team.all(:include => :laps, :order => "number")
     @teams = @teams.sort_by {|t| t.laps.to_a.length * -1 }
   end
 
