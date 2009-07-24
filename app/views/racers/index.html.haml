@@ -1,11 +1,25 @@
 %head
-  =stylesheet_link_tag '/stylesheets/theme/application.css', :media => 'all'
+  = stylesheet_link_tag '/stylesheets/theme/application.css', :media => 'all'
+  = javascript_include_tag "jquery"
+  :javascript
+    $.ajaxSetup({
+      'beforeSend': function(xhr) {
+          xhr.setRequestHeader("Accept", "text/javascript");
+      }
+    });
+    $(function() {
+      $("input:checkbox").click(function() {
+        $.post(this.form.action, $(this.form).serialize(), null, "script");
+      });
+    });
+
 %body
   %h1 Listing racers
 
   = link_to "+ Sign up racer(s)", new_racer_path
 
   %table#racers{:width => "98%", :border => "0", :cellspacing => "0", :cellpadding => "0"}
+    %col{:width => "1%"}
     %col{:width => "10%"}
     %col{:width => "3%"}
     %col{:width => "5%"}
@@ -15,6 +29,7 @@
     %col{:width => "15%"}
     %col{:width => "10%"}
     %tr
+      %th
       %th.left_align name
       %th #
       %th class
@@ -30,6 +45,10 @@
 
     - @racers.each do |racer|
       %tr{:class => cycle('', 'even')}
+        %td
+          - form_for racer do |form|
+            = form.check_box :checked_in
+
         %td.left_align=h racer.name
         %td.center_align= racer.team.number
         %td.center_align= racer.team.team_type
