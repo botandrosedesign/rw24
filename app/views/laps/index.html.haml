@@ -1,5 +1,7 @@
 %h1== Laps for #{@team.name}
 
+= link_to "+ Add lap", [:new, @team, :lap]
+
 %table#laps{:width => "50%", :callspacing => "0", :cellpadding => "0"}
   %col{:width => "15%"}
   %col{:width => "*"}
@@ -18,5 +20,7 @@
         %td= link_to "", [:edit, @team, lap], :class => "edit"
         %td= link_to "", [@team, lap], :method => "delete", :class => "delete"
     - last_lap = lap
-%br
-=link_to "&laquo;&nbsp;Back to the Boards", "/teams"
+
+%p= link_to "+ Add lap", [:new, @team, :lap]
+
+%p= link_to "&laquo;&nbsp;Back to the Boards", "/teams"

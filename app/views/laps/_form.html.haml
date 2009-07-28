@@ -2,7 +2,7 @@
   %fieldset
     %em Server's timezone is on Pacific!!! Subtract two from your hours. Sorry guys. -micah
     = form.label :created_at
-    = form.datetime_select :created_at
+    = form.datetime_select :created_at, {}, :class => "datetime_select"
 
   %fieldset
     = form.submit

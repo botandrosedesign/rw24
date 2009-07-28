@@ -22,14 +22,14 @@
       %th total
       - if admin?
         %th &nbsp;
-    - @teams.each_with_index do |team, index|
+    - @teams.sort_by{|t| t.total_points * -1 }.each_with_index do |team, index|
       %tr{:class => "#{number_to_ordinal_english(index+1)}" + cycle(' even', '')}
         %td.right_align.type{:nowrap => "nowrap"}=h team.team_type
         %td.center_align= "%03d" % team.number
         %td=h team.name
         %td.center_align= link_to team.laps.count, [team, :laps]
-        %td.center_align 00
-        %td.total.center_align 00
+        %td.center_align= "%02d" % team.bonus_points
+        %td.total.center_align= "%02d" % team.total_points
         - if admin?
           %td
             %a.edit{:href => edit_team_path(team)}

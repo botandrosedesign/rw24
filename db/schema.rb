@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 81) do
+ActiveRecord::Schema.define(:version => 82) do
 
   create_table "articles_tags", :id => false, :force => true do |t|
     t.integer "article_id"
@@ -215,6 +215,7 @@ ActiveRecord::Schema.define(:version => 81) do
     t.string   "team_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "bonus_points", :default => 0, :null => false
   end
 
   create_table "text_filters", :force => true do |t|

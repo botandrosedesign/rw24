@@ -12,4 +12,8 @@
     = form.select :team_type, Team::TYPES
 
   %fieldset
+    = form.label :bonus_points
+    = form.text_field :bonus_points
+
+  %fieldset
     = form.submit

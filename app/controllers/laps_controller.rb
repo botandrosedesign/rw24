@@ -8,7 +8,7 @@ class LapsController < ContentController
   end
 
   def new
-    @lap = @team.laps.build
+    @lap = @team.laps.build :created_at => Time.parse("2009-07-25 17:00")
   end
 
   def edit
