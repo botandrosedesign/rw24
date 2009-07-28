@@ -1,34 +1,37 @@
 #board
-  %h3.center_align The leader boards will be back up shortly!
-  %p.center_align We're calculating all the scores and bonuses.
-  /
-    %h1 Team Statistics
-    = link_to_current "View All", teams_path, :class => "inline"
-    - Team::TYPES.each do |type|
-      = link_to_current type, teams_path(:filter => type), :class => "inline"
-    %p#total== #{@teams.length} #{params[:filter]} Teams
-    %table#stats{:width => "100%", :cellspacing => "0", :cellpadding => "0", :border => "0"}
-      %col{:width => "10%"}
+  %h1 Team Statistics
+  = link_to_current "View All", teams_path, :class => "inline"
+  - Team::TYPES.each do |type|
+    = link_to_current type, teams_path(:filter => type), :class => "inline"
+  %p#total== #{@teams.length} #{params[:filter]} Teams
+  %table#stats{:width => "100%", :cellspacing => "0", :cellpadding => "0", :border => "0"}
+    %col{:width => "10%"}
+    %col{:width => "8%"}
+    %col{:width => "*"}
+    %col{:width => "10%"}
+    %col{:width => "10%"}
+    %col{:width => "10%"}
+    - if admin?
       %col{:width => "8%"}
-      %col{:width => "*"}
-      %col{:width => "10%"}
+    %tr
+      %th.right_align.type type
+      %th #
+      %th.left_align name
+      %th laps
+      %th bonus
+      %th total
       - if admin?
-        %col{:width => "8%"}
-      %tr
-        %th.right_align.type type
-        %th #
-        %th.left_align name
-        %th laps
+        %th &nbsp;
+    - @teams.each_with_index do |team, index|
+      %tr{:class => "#{number_to_ordinal_english(index+1)}" + cycle(' even', '')}
+        %td.right_align.type{:nowrap => "nowrap"}=h team.team_type
+        %td.center_align= "%03d" % team.number
+        %td=h team.name
+        %td.center_align= link_to team.laps.count, [team, :laps]
+        %td.center_align 00
+        %td.total.center_align 00
         - if admin?
-          %th &nbsp;
-      - @teams.each_with_index do |team, index|
-        %tr{:class => "#{number_to_ordinal_english(index+1)}" + cycle(' even', '')}
-          %td.right_align.type{:nowrap => "nowrap"}=h team.team_type
-          %td.center_align= "%03d" % team.number
-          %td=h team.name
-          %td.center_align= link_to team.laps.count, [team, :laps]
-          - if admin?
-            %td
-              %a.edit{:href => edit_team_path(team)}
-              = link_to "", team, :method => "delete", :class => "delete"
-    = link_to "+ Add Team", new_team_path if admin?
+          %td
+            %a.edit{:href => edit_team_path(team)}
+            = link_to "", team, :method => "delete", :class => "delete"
+  = link_to "+ Add Team", new_team_path if admin?
