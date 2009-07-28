@@ -106,7 +106,7 @@ h1.sitename a:hover {background:none; text-decoration:none;}
 .path li,.path ul {display: inline;}
 
 li.current_page_item a, li.current_page_item a:hover {font-weight: bold; color: #000000; background: #F8D634;}
-.path a {color: black; text-decoration: none; padding: 0 24px; }
+.path a {color: black; text-decoration: none; padding: 0 48px; }
 .path a:hover {background-color: #F8D634;}
 
 .post {background: transparent url('../../images/theme/post.gif') no-repeat 11px 18px; padding: 0 0 4px 0;}
