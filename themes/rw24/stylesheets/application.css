@@ -335,3 +335,5 @@ table#laps{margin:auto; padding:.24%; font-size: .9em;}
 /* countup */
 p#intro{font-size:.9em; color: #fff; margin: 20px 0 0 10px;}
 p#total{margin:6px 0 0 0;}
+
+select.datetime_select {width:auto;}
