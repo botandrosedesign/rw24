@@ -18,7 +18,7 @@
       %td.center_align= lap_time(last_lap, lap)
       - if admin?
         %td= link_to "", [:edit, @team, lap], :class => "edit"
-        %td= link_to "", [@team, lap], :method => "delete", :class => "delete"
+        %td= link_to "", [@team, lap], :method => "delete", :class => "delete", :confirm => "Are you sure you want to delete this lap?"
     - last_lap = lap
 
 %p= link_to "+ Add lap", [:new, @team, :lap]
