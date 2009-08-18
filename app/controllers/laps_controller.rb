@@ -1,6 +1,7 @@
 class LapsController < ContentController
   layout :theme_layout
 
+  before_filter :admin_only, :except => :index
   before_filter :get_team
 
   def index
@@ -45,5 +46,9 @@ class LapsController < ContentController
   private
     def get_team
       @team = Team.find params[:team_id]
+    end
+
+    def admin_only
+      redirect_to root_path unless current_user.is_a? User and current_user.admin?
     end
 end
