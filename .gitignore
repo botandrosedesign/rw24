@@ -11,4 +11,5 @@ doc/spec/**/*
 db/data.*
 db/*.sqlite3
 public/files
+config/database.yml
 *[~]

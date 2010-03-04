@@ -10,7 +10,7 @@ development:
 
 staging:
   <<: *login
-  password: ***REMOVED***
+
 production:
   <<: *login
   database: riverwe_rw24
