@@ -1,0 +1,114 @@
+body
+  :background #F1F1F1 url('/images/bg.gif') repeat-x top
+  :font normal 13px Futura, Helvetica, Arial, sans-serif
+  :color #202020
+
+a
+  :text-decoration none
+
+p
+  :margin-bottom 9px
+  :line-height 1.4
+  
+ul, ol, li, ul li, ol li, h1, h2, h3, h4, h5, h6
+  :margin 0
+  :padding 0
+h1, h2, h3, h4, h5, h6
+  :color #000
+
+em, i
+  :font-style italic
+b, strong
+  :font-weight bold
+  :color #000
+  
+.right_align
+  :text-align right
+  
+// headers
+
+h1, h2
+  :text-transform uppercase
+  :font-weight bold
+h1
+  :font-size 3.5em
+h2
+  :font-size 2em
+// anchors
+
+a
+  :color= !primaryColor
+  &:hover
+    :color= !secondaryColor
+
+// lists
+
+ul, ol
+  :margin-bottom 16px
+li
+  :padding 0
+ol
+  :list-style none
+  :padding-left 0px
+  :list-style decimal inside
+  ol
+    :padding-left 0px
+ul ol, ol ol
+  :list-style lower-alpha outside
+  :margin-left 24px
+ul
+  li, ul li, ol li
+    :list-style outside square
+    :padding-left 12px
+
+// tables
+
+table
+  :border-collapse none
+  :margin-bottom 6px
+  tr.even
+    :background #ebebeb
+  td
+    :line-height 1.25
+    :vertical-align top
+  // image tables for cms
+  &.right, &[align = "right"]
+    :margin-left 16px
+    td
+      :padding 0px
+  &.left, &[align = "left"]
+    :margin-right 16px
+    td
+      :padding 0px
+
+// forms
+
+.field
+  :margin 0px 0 2px
+label
+  :display inline-block
+  :width 80px
+  :text-align right
+  :margin-right 9px
+  &.reqd
+    :font-weight bold
+    :font-style normal
+  &.opt
+    :color #666
+select
+  :width 130px
+input, select
+  &.text
+    :width 200px
+  &.sm
+    :width 60px
+  &+label
+    :width auto
+    :margin-left 9px
+  &.radio
+    &+label
+      :font-size 1em
+      :text-transform inherit
+      :color #242424
+      :margin-left 0
+  

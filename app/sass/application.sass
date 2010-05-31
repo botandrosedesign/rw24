@@ -1,5 +1,3 @@
-// global
-
 @import constant.sass
 
 @import blueprint.sass
@@ -8,7 +6,7 @@
 @import compass/misc.sass
 @import compass/layout.sass
 @import blueprint/modules/buttons.sass
- 
+
 =blueprint(!body_selector = "body")
   +blueprint-typography(!body_selector)
   +blueprint-utilities
@@ -16,8 +14,159 @@
   +blueprint-interaction
   +blueprint-colors
   
++sticky-footer(64px, "#main", "#footer" )  
+
+@import general.sass
+  
+//  
+  
 .left
   +float-left
 .right
   +float-right  
   
+//
+
+#container
+  :border-top 6px solid #000
+  :min-width 960px
+.container
+  +container
+  :position relative
+  :overflow visible
+  
+// header
+
+#header
+  :background transparent url('/images/header.png') no-repeat bottom
+  :height 165px
+  h1
+    &#logo
+      :margin-top 3px
+      +column(3.5)
+      +replace-text("riverwest24.png")
+      :width 125px
+      a
+        :display block
+        :height 124px
+#title
+  :margin-top 10px 
+  +column(12)
+  :line-height .9
+  h1, h2
+    :display inline-block
+  span
+    :font-size 1.25em
+#countdown
+  +column(7.5, "last")
+  +float-right
+  :background #000 url('/images/countdown-bg.gif') repeat-x bottom 
+  +border-radius-specific("bottom", "left", "12px")
+  +border-radius-specific("bottom", "right", "12px")
+  +box-shadow(3px, #666)
+  :color #fff
+  p
+    :margin 0 0 0 10px
+  #days, #hrs, #min, #sec
+    +column(1.5)
+    :text-align right
+    :line-height .9
+    :margin 3px 12px 10px 0
+  #days
+    +column(2.25)
+    :margin-left 10px
+  b
+    :color #fff
+    :font-size 3.25em
+    :font-weight normal
+    
+// nav
+
+ul#nav
+  +horizontal-list
+  +column(20, "last")
+  :overflow visible
+  li
+    :margin-top 14px
+    :position relative
+    &#about
+      :margin-top 10px
+    &#media
+      :margin-top 8px
+    &#join
+      :margin-top 10px
+    &#contact
+      :margin-top 16px
+    &:hover
+      :background transparent url('/images/transparent-orange.png') repeat 0 0 
+    &:hover ul
+      :background transparent url('/images/transparent-orange.png') repeat 0 0 
+      :display block
+  a
+    :display block
+    :color #fff
+    :text-transform uppercase
+    :font-size 1.25em
+    :font-weight bold
+    :padding 6px 40px
+    &.current
+      :color= !secondaryColor
+  ul
+    :display none
+    :position absolute
+    :right 0px
+    :width 100%
+    :padding-bottom 6px
+    :z-index 2
+    +box-shadow(3px, #999)
+    li
+      :display block
+      :width 100%
+      :padding 0
+      :margin 0
+      &:hover
+        :background none
+    a
+      :width 100%
+      :font-size .9em
+      :text-align center
+      :padding 2px 0
+      &:hover
+        :color #000
+
+// main
+  
+#content
+  +column(17,"first")
+  :padding 10px
+  :background #fff
+  :border 1px solid #DBDBDB
+  +box-shadow(3px,#ccc)
+  +border-radius(3px)
+  :margin-bottom 20px
+  :min-height 400px
+#sidebar
+  +column(6, "last")
+  +float-right
+  :padding 10px
+  
+// footer
+
+#footer
+  :background #303030
+  :border-bottom 6px solid #000
+  :padding-top 6px
+  p
+    :text-transform uppercase
+    :margin 0
+    :text-align center
+    :font-size .85em
+    :color #7B7B7B
+  a
+    :display inline-block
+    :padding 0 10px
+    :color #ACACAC
+    &:hover
+      :color #fff
+
+      

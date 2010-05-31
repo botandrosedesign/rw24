@@ -17,11 +17,81 @@
 
   %body
     #container
-      = yield
-    - if flash[:notice]
-      #flash_notice= flash[:notice]
-    - if flash[:error]
-      #flash_error= flash[:error]
+      #header
+        .container
+          %h1#logo
+            %a{:href => "/"} Riverwest 24
+          #title
+            %h1
+              Riverwest 24
+            %h2 Hour Bike Race
+            %span July 30-31 &bull; 2010 &bull; 7pm-7pm
+          #countdown
+            %p The race starts in:
+            #days
+              %b 000
+              %span days
+            #hrs
+              %b 00
+              %span hrs
+            #min
+              %b 00
+              %span min
+            #sec
+              %b 00
+              %span sec
+          %ul#nav
+            %li
+              = link_to_current "Home", "/"
+            %li#about
+              = link_to_current "About", "/about"
+              %ul
+                %li= link_to "History", "/about/history"
+                %li= link_to "Rules", "/about/rules"
+                %li= link_to "Races Past", "/about/races-past"
+            %li#media
+              = link_to_current "Media", "/media"
+              %ul
+                %li= link_to "Blog", "/media/blog"
+                %li= link_to "Press", "/media/press"
+                %li= link_to "Documentary", "/media/documentary"
+            %li#join
+              = link_to_current "Join", "/join"
+              %ul
+                %li= link_to "Register", "/join/register"
+                %li= link_to "Volunteer", "/join/volunteer"
+                %li= link_to "Sponsor", "/join/sponsor"
+            %li#contact
+              = link_to_current "Contact", "/contact", :id => "contact"
+      #main
+        .container
+          - if flash[:notice]
+            #flash_notice= flash[:notice]
+          - if flash[:error]
+            #flash_error= flash[:error]
+          #content
+            = yield
+          #sidebar
+            = yield :sidebar
+      #footer
+        .container
+          %p
+            = link_to "home", "/" 
+            |
+            = link_to "about", "/" 
+            |
+            = link_to "media", "/" 
+            |
+            = link_to "join", "/" 
+            |
+            = link_to "contact", "/" 
+          %p
+            Riverwest - Milwaukee, WI
+          %p
+            &copy; Copyright 2010 - All Rights Reserved 
+          %p
+            = mail_to "info@riverwest24.com"
+          
 
     = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
     = javascript_include_merged :base
