@@ -1,0 +1,10 @@
+--- 
+javascripts: 
+- base:
+  - application
+stylesheets: 
+- base: 
+  - screen
+  - application
+- ie:
+  - ie

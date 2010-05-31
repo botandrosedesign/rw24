@@ -1,0 +1,19 @@
+login: &login
+  adapter: mysql
+  database: riverwest24
+  username: root
+  password:
+  socket: /var/run/mysqld/mysqld.sock
+
+development:
+  <<: *login
+
+test:
+  <<: *login
+  database: riverwest24_test
+
+staging:
+  <<: *login
+
+production:
+  <<: *login

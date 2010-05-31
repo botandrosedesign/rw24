@@ -1,0 +1,28 @@
+!!!
+%html{html_attrs('en-US')}
+  %head
+    %meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+    %title
+      riverwest24
+      = yield :title
+    %meta(name="keywords" content="")
+    %meta(name="description" content="")
+
+    = stylesheet_link_merged :base
+    = yield :css
+    /[if lte IE 7]
+      = stylesheet_link_merged :ie
+      
+    %link(rel="shortcut icon" href="#{image_path("/favicon.png")}" type="image/png")
+
+  %body
+    #container
+      = yield
+    - if flash[:notice]
+      #flash_notice= flash[:notice]
+    - if flash[:error]
+      #flash_error= flash[:error]
+
+    = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
+    = javascript_include_merged :base
+    = yield :js
