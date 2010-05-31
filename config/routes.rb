@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.root :controller => 'static', :action => 'dispatch', :path => ['index']
+
+  map.connect '*path', :controller => 'static', :action => 'dispatch'
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
