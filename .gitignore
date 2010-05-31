@@ -12,3 +12,6 @@ config/database.yml
 converage/**/*
 public/stylesheets/*.css
 *[~]
+
+public/userfiles/*
+!public/userfiles/.gitignore

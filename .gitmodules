@@ -1,0 +1,3 @@
+[submodule "vendor/adva"]
+	path = vendor/adva
+	url = git@git.botandrose.com:adva.git
