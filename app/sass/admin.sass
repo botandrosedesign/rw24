@@ -1,0 +1,225 @@
+@import constant.sass
+
+@import blueprint.sass
+@import compass/reset.sass
+@import compass/utilities.sass
+@import compass/misc.sass
+@import compass/layout.sass
+@import blueprint/modules/buttons.sass
+
+=blueprint(!body_selector = "body")
+  +blueprint-typography(!body_selector)
+  +blueprint-utilities
+  +blueprint-debug
+  +blueprint-interaction
+  +blueprint-colors
+
+@import general.sass
+
+textarea
+  &.big, &.wysiwyg
+    :width 723px
+    :height 600px !important
+  &.sidebar, #article_sidebar
+    :width 300px !important
+
+//    
+
+.right
+  +float-right
+.left
+  +float-left
+.right_align
+  :text-align right
+
+//    
+
+a
+  :color= !primaryColor
+  +border-radius(0px)
+  :margin 0
+  :padding 0
+  
+label
+  :text-shadow none
+  
+h2
+  :font-size 1.25em
+  :margin-bottom 12px
+  
+h4
+  :color #999999
+  a
+    :margin-top 0px
+
+table, tr, th, td
+  :border-color #181716 !important
+table.list
+  thead, tbody
+    :width 100%
+  td.feature
+    :padding-right 0
+    :width 2%
+
+img[alt="Missing"]
+  :border 1px solid #ccc
+  
+ul, ol
+  :margin 0
+  :padding 0
+  li
+    :background none
+    :padding-left 0px
+    
+.hint 
+  :color #333
+
+//
+
+body
+  :background #fff
+  :color #333
+  :min-width 1050px
+#top
+  :background-color #000
+  :border-color #666
+  :padding-top 0px
+  ul.right 
+    & > li:last-child
+      :margin 0
+  a
+    :font-weight bold !important
+    :font-size 1.1em
+    :padding-top 9px 
+  li
+    :margin-bottom 0px
+    &>ul
+      +box-shadow(0px, transparent)
+      :border none
+      :top 28px
+      :padding-bottom 3px
+      :background-color transparent !important
+      li
+        :border none
+        :margin 0
+        :padding-left 0
+        a
+          :border none
+          :border-top 1px solid #333
+          :padding-top 6px
+          :padding-bottom 6px
+          :font-size 1em
+          &:hover
+            :background-color= !primaryColor
+    &:hover
+      a
+        :background-color #666
+        :color #fff
+  .active
+    &>a, &>a:hover
+      :background #666
+      :color #fff
+
+      
+        
+#header
+  :border-bottom 5px double #ccc
+  :background #ECE9E8
+  
+#main_menu
+  :margin-top -24px
+  li
+    &>a:hover, &.active>a
+      :background #ccc
+      :color #000 !important
+  ul.actions
+    :vertical-align top
+  h4
+    :font-size 1em
+    
+    
+      
+//
+
+.activities
+  h3
+    :font-size 1.5em
+    :margin-top 12px
+    :margin-bottom 0px
+  ul
+    :margin-top 3px
+  li.empty
+    :margin-top 0
+  .activity
+    &.highlight
+      :background-color #ECE9E8 !important
+    &.article_revised
+      :background transparent #{image_url("admin/edit.gif")} no-repeat 6px center
+    &.article_published
+      :background transparent #{image_url("admin/new.gif")} no-repeat 6px center
+    &.article_deleted
+      :background transparent #{image_url("admin/delete.gif")} no-repeat 6px center
+      
+//
+
+#content
+  .actions      
+    a.edit, a.delete, a.preview
+      :display inline-block
+      :width 2px
+      :height 20px
+      :padding 0px 9px
+      :margin 0 5px
+    a.preview
+      :background transparent #{image_url("admin/show.gif")} no-repeat center !important
+    a.edit
+      :background transparent #{image_url("admin/edit.gif")} no-repeat center !important
+    a.delete
+      :background transparent #{image_url("admin/delete.gif")} no-repeat center !important
+      
+//
+
+#sidebar
+  :background #f3f3f3
+  :border-left 3px double #ccc
+  :width 370px
+  select
+    :width auto
+  .tabs
+    :line-height 2.5
+    &>ul
+      :background #ECE9E8
+      li
+        :margin 0
+        &.active
+          a
+            :background #ECE9E8
+    
+input[type="text"], select
+  :background #fff
+  :color #1a1a1a
+  &:focus
+    :border-color= !primaryColor
+    
+p.flash
+  :margin 0
+  &.notice
+    :background none
+    :border 1px solid #051
+    
+label
+  :width auto
+  :display block
+  :text-align left
+    
+// films
+
+.preview
+  :width auto
+  :float left
+  :margin-right 20px
+  label, img, input, object
+    :float left
+    :clear left
+    :margin-bottom 6px
+  

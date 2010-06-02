@@ -50,8 +50,8 @@
         :display block
         :height 124px
 #title
-  :margin-top 10px 
-  +column(12)
+  :margin-top 6px 
+  +column(12.5)
   :line-height .9
   h1, h2
     :display inline-block
@@ -87,16 +87,8 @@ ul#nav
   +column(20, "last")
   :overflow visible
   li
-    :margin-top 14px
+    :margin-top 4px
     :position relative
-    &#about
-      :margin-top 10px
-    &#media
-      :margin-top 8px
-    &#join
-      :margin-top 10px
-    &#contact
-      :margin-top 16px
     &:hover
       :background transparent url('/images/transparent-orange.png') repeat 0 0 
     &:hover ul
@@ -109,8 +101,9 @@ ul#nav
     :font-size 1.25em
     :font-weight bold
     :padding 6px 40px
-    &.current
+    &.current, &.current:hover
       :color= !secondaryColor
+      
   ul
     :display none
     :position absolute
@@ -136,6 +129,9 @@ ul#nav
 
 // main
   
+#main
+  :background transparent url('/images/tire.gif') no-repeat bottom right
+  +container
 #content
   +column(17,"first")
   :padding 10px

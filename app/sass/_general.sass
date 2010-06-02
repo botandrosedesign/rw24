@@ -1,6 +1,6 @@
 body
   :background #F1F1F1 url('/images/bg.gif') repeat-x top
-  :font normal 13px Futura, Helvetica, Arial, sans-serif
+  :font normal 14px Futura, Helvetica, Arial, sans-serif
   :color #202020
 
 a
@@ -9,13 +9,13 @@ a
 p
   :margin-bottom 9px
   :line-height 1.4
+  :text-align justify
   
 ul, ol, li, ul li, ol li, h1, h2, h3, h4, h5, h6
   :margin 0
   :padding 0
 h1, h2, h3, h4, h5, h6
   :color #000
-
 em, i
   :font-style italic
 b, strong
@@ -30,10 +30,30 @@ b, strong
 h1, h2
   :text-transform uppercase
   :font-weight bold
+  :color #000
 h1
   :font-size 3.5em
 h2
   :font-size 2em
+#content
+  h2
+    :margin-top 12px
+    &:first-child
+      :margin-top 0
+h3
+  :font-size 1.4em
+  :margin-bottom 9px
+  :font-weight normal
+  
+blockquote
+  :font-family Georgia, serif
+  :font-size .9em
+  :padding 20px 30px
+  :margin 0 30px 10px 
+  :line-height 1.6
+  :background #f3f3f3
+  :text-align justify
+  
 // anchors
 
 a
@@ -48,9 +68,9 @@ ul, ol
 li
   :padding 0
 ol
+  :list-style decimal inside
   :list-style none
   :padding-left 0px
-  :list-style decimal inside
   ol
     :padding-left 0px
 ul ol, ol ol
@@ -61,9 +81,9 @@ ul
     :list-style outside square
     :padding-left 12px
 
-// tables
+// tables and images
 
-table
+table, img
   :border-collapse none
   :margin-bottom 6px
   tr.even
@@ -80,6 +100,10 @@ table
     :margin-right 16px
     td
       :padding 0px
+      
+#content
+  img
+    +box-shadow(6px, #ccc)
 
 // forms
 
@@ -111,4 +135,21 @@ input, select
       :text-transform inherit
       :color #242424
       :margin-left 0
+      
+// sidebar
+
+#sidebar
+  ul
+    :line-height 1.4
+  li
+    :list-style none
+    a
+      :font-weight bold
+      :color #333
+      :padding-left 16px
+      &.current
+        :color= !primaryColor
+        :background transparent url('/images/arrow-orange.png') no-repeat left center
+      &:hover
+        :color= !primaryColor
   

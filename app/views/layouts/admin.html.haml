@@ -1,0 +1,31 @@
+!!! Strict
+%html{ :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "Content-Type" }
+    %meta{ :name => "generator", :content => "adva-cms - Open source content management platform" }
+    %title
+      adva-cms: Admin
+      = controller.controller_name
+    = stylesheet_link_tag :admin, 			 		 :media => "all",        :cache => 'cache/admin/common'
+    = stylesheet_link_tag :admin_projection, :media => "projection", :cache => 'cache/admin/projection'
+    = stylesheet_link_tag "admin"
+    = stylesheet_link_tag "admin-films"
+    = yield :css
+    = yield :before_javascript_include
+    = javascript_include_tag :common, :admin, :cache => true
+    = javascript_tag "window._auth_token = #{form_authenticity_token.inspect}"
+    = yield :head
+  %body
+    = @menu.build(self).root.render(:id => 'top')
+    = render :partial => 'admin/shared/header'
+    #page
+      = yield :form if @content_for_form
+      .main
+        = @menu.root.find(:main).try(:render, :id => 'main_menu')
+        = render :partial => 'shared/flash'
+        #content
+          = yield
+      #sidebar.right
+        = yield :sidebar
+      = '</form>' if @content_for_form
+      #left.collapsed
