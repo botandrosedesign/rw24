@@ -1,6 +1,6 @@
 login: &login
   adapter: mysql
-  database: riverwest24
+  database: rw24
   username: root
   password:
   socket: /var/run/mysqld/mysqld.sock
@@ -13,7 +13,7 @@ staging:
 
 test:
   <<: *login
-  database: riverwest24_test
+  database: rw24_test
 
 staging:
   <<: *login
