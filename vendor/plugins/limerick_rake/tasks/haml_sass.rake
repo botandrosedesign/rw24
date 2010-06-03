@@ -1,8 +1,8 @@
 # Dan Croak, February 2008
 
-@css_dir   = "#{Rails.root.to_s}/public/stylesheets"
+@css_dir   = "#{RAILS_ROOT}/public/stylesheets"
 @sass_dir  = "#{@css_dir}/sass"
-@views_dir = "#{Rails.root.to_s}/app/views"
+@views_dir = "#{RAILS_ROOT}/app/views"
 
 def convert_css_to_sass(basename)
   system "css2sass #{@css_dir}/#{basename}.css > #{@sass_dir}/#{basename}.sass"
