@@ -8,6 +8,9 @@ login: &login
 development:
   <<: *login
 
+staging:
+  <<: *login
+
 test:
   <<: *login
   database: riverwest24_test
