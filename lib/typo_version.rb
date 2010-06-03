@@ -1,1 +1,0 @@
-TYPO_VERSION = '5.2'

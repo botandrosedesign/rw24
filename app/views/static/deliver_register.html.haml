@@ -1,9 +1,0 @@
-%form#paypal_form{ :action => "https://www.paypal.com/cgi-bin/webscr" }
-  - @form.each do |key, value|
-    = hidden_field_tag key, value
-  
-  = submit_tag "", :style => "display: none"
-  
-  :javascript
-    document.getElementById('paypal_form').submit()
-
