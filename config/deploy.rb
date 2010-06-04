@@ -1,1 +1,1 @@
-set :application, "riverwest24"
+set :application, "rw24"
