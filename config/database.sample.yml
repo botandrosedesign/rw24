@@ -8,9 +8,6 @@ login: &login
 development:
   <<: *login
 
-staging:
-  <<: *login
-
 test:
   <<: *login
   database: rw24_test
