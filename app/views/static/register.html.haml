@@ -1,0 +1,37 @@
+%h2 2010 Registration Form
+%p
+  %strong Things to know before you fill this out:
+%ul
+  %li 
+    You MUST wear a helmet
+  %li 
+    You MUST have a front AND back light while riding at night
+  %li $20/rider
+%hr
+%fieldset
+  %h3 Team Information
+  .field
+    %label Team Name
+    %input.text{:type => "text"}
+  .field
+    %input.radio{:type => "radio"} 
+    %label A Team 
+    %em ( 2-6 Riders / 1 Bicycle )
+  .field
+    %input.radio{:type => "radio"} 
+    %label B Team 
+    %em ( 2-6 Riders / Multiple Bicycles )
+  .field
+    %input.radio{:type => "radio"} 
+    %label Solo 
+    %em ( 1 Rider / 1 Bicycle )
+  .field
+    %input.radio{:type => "radio"} 
+    %label Tandem 
+    %em ( Mulitple Riders / 1 Bicycle )
+
+    
+
+%hr
+%fieldset
+  %h3

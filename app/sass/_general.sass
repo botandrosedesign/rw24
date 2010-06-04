@@ -65,8 +65,11 @@ a
 
 ul, ol
   :margin-bottom 16px
+  :padding-left 20px
 li
   :padding 0
+ul
+  :list-style disc outside
 ol
   :list-style decimal inside
   :list-style none
@@ -76,10 +79,6 @@ ol
 ul ol, ol ol
   :list-style lower-alpha outside
   :margin-left 24px
-ul
-  li, ul li, ol li
-    :list-style outside square
-    :padding-left 12px
 
 // tables and images
 
@@ -132,9 +131,15 @@ input, select
   &.radio
     &+label
       :font-size 1em
+      :font-weight bold
       :text-transform inherit
-      :color #242424
+      :color #000
       :margin-left 0
+      :width 56px
+      :text-align left
+      &+em
+        :font-size .9em
+        :color #333
       
 // sidebar
 
