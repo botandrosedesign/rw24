@@ -7,31 +7,126 @@
   %li 
     You MUST have a front AND back light while riding at night
   %li $20/rider
-%hr
+
 %fieldset
-  %h3 Team Information
+  %h4 Team Information
   .field
     %label Team Name
     %input.text{:type => "text"}
+    %em ( appears on scorecard)
+  
   .field
-    %input.radio{:type => "radio"} 
-    %label A Team 
+    %label{:for => "Ateam"} A Team 
+    %input.radio{:type => "radio", :name => "category", :id => "Ateam"} 
     %em ( 2-6 Riders / 1 Bicycle )
   .field
-    %input.radio{:type => "radio"} 
-    %label B Team 
+    %label{:for => "Bteam"} B Team 
+    %input.radio{:type => "radio", :name => "category", :id => "Bteam"} 
     %em ( 2-6 Riders / Multiple Bicycles )
   .field
-    %input.radio{:type => "radio"} 
-    %label Solo 
+    %label{:for => "Solo"} Solo 
+    %input.radio{:type => "radio", :name => "category", :id => "Solo"} 
     %em ( 1 Rider / 1 Bicycle )
-  .field
-    %input.radio{:type => "radio"} 
-    %label Tandem 
+  .field 
+    %label{:for => "Tandem"} Tandem 
+    %input.radio{:type => "radio", :name => "category", :id => "Tandem"}
     %em ( Mulitple Riders / 1 Bicycle )
 
-    
-
-%hr
 %fieldset
-  %h3
+  %h4 Rider Information
+  .field
+    %input.checkbox{:type => "checkbox", :id => "Rider1", :checked => "true"} 
+    %label{:for => "Rider1"} Rider 1
+    %input.text{:type => "text", :value => "Name (Team Leader)"}
+    %input.text{:type => "text", :value => "Email"}
+  .field
+    %input.checkbox{:type => "checkbox", :id => "Rider2"} 
+    %label{:for => "Rider2"} Rider 2
+    %input.text{:type => "text", :value => "Name"}
+    %input.text{:type => "text", :value => "Email"}
+  .field
+    %input.checkbox{:type => "checkbox", :id => "Rider3"} 
+    %label{:for => "Rider3"} Rider 3
+    %input.text{:type => "text", :value => "Name"}
+    %input.text{:type => "text", :value => "Email"}
+  .field
+    %input.checkbox{:type => "checkbox", :id => "Rider4"} 
+    %label{:for => "Rider4"} Rider 4
+    %input.text{:type => "text", :value => "Name"}
+    %input.text{:type => "text", :value => "Email"}
+  .field
+    %input.checkbox{:type => "checkbox", :id => "Rider5"} 
+    %label{:for => "Rider5"} Rider 5
+    %input.text{:type => "text", :value => "Name"}
+    %input.text{:type => "text", :value => "Email"}
+  .field
+    %input.checkbox{:type => "checkbox", :id => "Rider6"} 
+    %label{:for => "Rider6"} Rider 6
+    %input.text{:type => "text", :value => "Name"}
+    %input.text{:type => "text", :value => "Email"}
+
+%fieldset
+  %h4 Team Leader Contact Information
+  .field
+    %label Address
+    %input.text.lg{:type => "text"}
+  .field
+    %label.opt Line 2
+    %input.text.lg{:type => "text"}
+  .field
+    %label.opt Phone
+    %input.text{:type => "text"}
+    %em xxx-xxx-xxx
+    
+%fieldset
+  %h4 Shirts
+  .field
+    %label Sm
+    %select.sm
+      %option --
+      %option 1
+      %option 2
+      %option 3
+      %option 4
+      %option 5
+      %option 6
+
+    %label Med
+    %select.sm
+      %option --
+      %option 1
+      %option 2
+      %option 3
+      %option 4
+      %option 5
+      %option 6
+
+    %label Lg
+    %select.sm
+      %option --
+      %option 1
+      %option 2
+      %option 3
+      %option 4
+      %option 5
+      %option 6
+
+    %label XLg
+    %select.sm
+      %option --
+      %option 1
+      %option 2
+      %option 3
+      %option 4
+      %option 5
+      %option 6
+%fieldset
+  %hr
+  %p 
+    %strong Registration costs $20 per rider. 
+    500 rider limit. All team members must be signed up before the limit is reached. You will be notified of team number by email. 
+  %p
+    Questions: email 
+    = mail_to "registration@riverwest24.com"
+  %input.submit{:type => "submit", :value => "Continue to Payment"}
+
