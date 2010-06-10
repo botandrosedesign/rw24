@@ -133,14 +133,5 @@
   %input.submit{:type => "submit", :value => "Continue to Payment"}
   
 - content_for :sidebar do
-  %h3 Join
-  %ul
-    %li= link_to_current "Register", "/register"
-    %li= link_to_current "Volunteer", "/join/articles/volunteer"
-    %li= link_to_current "Sponsor", "/join/articles/sponsor"
-
-  %h3 Connect
-  %ul
-    %li= link_to "Follow us on Twitter", "#"
-    %li= link_to "Become a Fan on Facebook", "#"
+  = render "shared/sidebar"
 
