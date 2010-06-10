@@ -41,29 +41,12 @@
               %b 00
               %span sec
           %ul#nav
-            %li
-              = link_to_current "Home", "/"
-            %li#about
-              = link_to_current "About", "/about"
-              %ul
-                %li= link_to_current "Overview", "/about/articles/overview"
-                %li= link_to_current "History", "/about/articles/history"
-                %li= link_to_current "Rules", "/about/articles/rules"
-                %li= link_to_current "FAQ", "/about/articles/faq"
-            %li#media
-              = link_to_current "Media", "/media"
-              %ul
-                %li= link_to_current "Blog", "/media/articles/blog"
-                %li= link_to_current "Press", "/media/articles/press"
-                %li= link_to_current "Documentary", "/media/articles/documentary"
-            %li#join
-              = link_to_current "Join", "/join"
-              %ul
-                %li= link_to_current "Register", "/join/articles/register"
-                %li= link_to_current "Volunteer", "/join/articles/volunteer"
-                %li= link_to_current "Sponsor", "/join/articles/sponsor"
-            %li#contact
-              = link_to_current "Contact", "/contact", :id => "contact"
+            - @site.sections.all.each_with_index do |section, index|
+              %li
+                = link_to_current h(section.title), section_path(section), :if => request.request_uri.starts_with?(section.permalink)
+                %ul
+                  - section.contents.select(&:root?).each do |content|
+                    %li= link_to_current h(content.title), content_path(section, content)
       #main
         .container
           - if flash[:notice]
@@ -77,19 +60,13 @@
       #footer
         .container
           %p
-            = link_to "home", "/" 
-            |
-            = link_to "about", "/" 
-            |
-            = link_to "media", "/" 
-            |
-            = link_to "join", "/" 
-            |
-            = link_to "contact", "/" 
+            - @site.sections.all.each_with_index do |section, index|
+              = link_to h(section.title), section_path(section)
+              = "|" if index < @site.sections.length - 1
           %p
             Riverwest - Milwaukee, WI
           %p
-            &copy; Copyright 2010 - All Rights Reserved 
+            &copy; Copyright #{Date.today.year} - All Rights Reserved 
           %p
             = mail_to "info@riverwest24.com"
           
