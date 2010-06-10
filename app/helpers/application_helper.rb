@@ -22,4 +22,8 @@ module ApplicationHelper
     link_to name, options, html_options
   end
   
+  def content_path(section, content)
+    return article_path(section, content) if content.is_a? Article
+    link_path(section, content)
+  end
 end

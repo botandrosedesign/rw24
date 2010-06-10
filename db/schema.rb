@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090720132900) do
+ActiveRecord::Schema.define(:version => 20091026000906) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -109,7 +109,6 @@ ActiveRecord::Schema.define(:version => 20090720132900) do
     t.integer  "site_id"
     t.integer  "section_id"
     t.string   "type",            :limit => 20
-    t.integer  "position"
     t.string   "permalink"
     t.text     "excerpt_html"
     t.text     "body_html"
@@ -126,6 +125,9 @@ ActiveRecord::Schema.define(:version => 20090720132900) do
     t.datetime "published_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "parent_id"
+    t.integer  "lft",                           :default => 0, :null => false
+    t.integer  "rgt",                           :default => 0, :null => false
   end
 
   create_table "counters", :force => true do |t|
