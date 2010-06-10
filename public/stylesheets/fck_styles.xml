@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Styles>
+  <Style name="Paragraph" element="p" />
   <Style name="Heading 1" element="h2" />
   <Style name="Heading 2" element="h3" />
   <Style name="Heading 3" element="h4" />
