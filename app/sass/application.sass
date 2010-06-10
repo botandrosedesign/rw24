@@ -55,8 +55,11 @@
   :line-height .9
   h1, h2
     :display inline-block
+  h2, span
+    :color #333
   span
     :font-size 1.25em
+    :line-height .8
 #countdown
   +column(7.5, "last")
   +float-right
@@ -71,12 +74,12 @@
     +column(1.5)
     :text-align right
     :line-height .9
-    :margin 3px 12px 10px 0
+    :margin 2px 12px 10px 0
   #day
     +column(2.25)
     :margin-left 10px
   b
-    :color #fff
+    :color= !secondaryColor
     :font-size 3.25em
     :font-weight normal
     

@@ -156,8 +156,10 @@ body
       :background-color #ECE9E8 !important
     &.article_revised
       :background transparent #{image_url("admin/edit.gif")} no-repeat 6px center
-    &.article_published
+    &.article_created
       :background transparent #{image_url("admin/new.gif")} no-repeat 6px center
+    &.article_published
+      :background transparent #{image_url("admin/published.gif")} no-repeat 6px center
     &.article_deleted
       :background transparent #{image_url("admin/delete.gif")} no-repeat 6px center
       
@@ -184,6 +186,8 @@ body
   :background #f3f3f3
   :border-left 3px double #ccc
   :width 370px
+  li a
+    :padding-left 0
   select
     :width auto
   .tabs
