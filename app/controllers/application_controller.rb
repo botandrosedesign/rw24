@@ -10,4 +10,11 @@ class ApplicationController < ActionController::Base
 
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
+
+  private
+    def guess_section
+      permalink = request.request_uri.split("/").second
+      @section = Section.find_by_permalink permalink
+      @section ||= Section.find_by_permalink "home"
+    end
 end
