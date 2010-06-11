@@ -20,7 +20,14 @@ class Registration < ActiveRecord::Base
       :item_name => "Riverwest 24 Registration - #{team.category}",
       :cmd => "_xclick",
       :custom => id,
-      :return => "http://riverwest24.com/join/articles/thanks"
+      :return => "http://riverwest24.com/join/articles/thanks",
+      :notify_url => "http://riverwest24.com/join/registrations/payment",
+      :shopping_url => "http://riverwest24.com",
+      :cancel_return => "http://riverwest24.com",
+      :upload => "1",
+      :currency_code => "USD",
+      :no_note => "1",
+      :address_override => "1"
     }
   end
 end

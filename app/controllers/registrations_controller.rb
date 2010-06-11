@@ -15,4 +15,9 @@ class RegistrationsController < BaseController
       render :show
     end
   end
+
+  def payment
+    @registration = Registration.find params[:custom]
+    @registration.update_attribute :paid, true
+  end
 end
