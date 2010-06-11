@@ -42,7 +42,7 @@
           %ul#nav
             - @site.sections.each_with_index do |section, index|
               %li
-                = link_to_current h(section.title), section_path(section), :if => request.request_uri.starts_with?(section.permalink)
+                = link_to_current h(section.title), section_path(section), :if => request.request_uri.starts_with?("/#{section.permalink}")
                 - next unless section.contents.published.length > 1
                 %ul
                   - section.contents.published.select(&:root?).each do |content|

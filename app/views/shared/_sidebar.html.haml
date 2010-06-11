@@ -2,7 +2,7 @@
   %h3= h @section.title
   %ul
     - @section.contents.published.select(&:root?).each do |content|
-      %li= link_to_current h(content.title), content_path(@section, content)
+      %li= link_to_current h(content.title), content_path(@section, content), :if => content == @article
 
 %h3 Connect
 %ul#connect
