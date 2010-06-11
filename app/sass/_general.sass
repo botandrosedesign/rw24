@@ -133,9 +133,15 @@ fieldset
   :margin 20px 0
 .field
   :margin 0px 0 4px
+  +column(18)
+  :width 100%
   em
     :font-size .9em
     :color #333
+label, input, select, textarea
+  +float-left
+label, em
+  :line-height 1.5
 label
   :display inline-block
   :width 90px
@@ -147,14 +153,18 @@ label
 select
   :width 130px
 input, select
+  :margin-right 6px
   &.text
     :width 200px
   &.sm
     :width 60px
+  &.med
+    :width 160px
   &.lg
     :width 400px
   &+label
-    :width 60px
+    :width auto
+    :margin-left 10px
   &.radio
     &+label
       :font-size 1em
