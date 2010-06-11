@@ -2,6 +2,15 @@ class Registration < ActiveRecord::Base
   has_one :team
   accepts_nested_attributes_for :team
 
+  def self.year
+    2010
+  end
+
+  def initialize(attrs={})
+    attrs[:year] ||= self.class.year
+    super
+  end
+
   def to_paypal_hash
     {
       :no_shipping => "1",
