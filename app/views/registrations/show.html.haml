@@ -35,6 +35,12 @@
 
     %fieldset#rider_information
       %h4 Rider Information
+      %table
+        %tr
+          %th
+          %th Full Name
+          %th Email
+      .field
       - i = 1
       - team_form.fields_for :riders do |rider_form|
         .field

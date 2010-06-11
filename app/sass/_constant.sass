@@ -10,6 +10,9 @@
 =box-shadow( !blur, !color )
   :-moz-box-shadow= 0px 0px !blur !color
   :-webkit-box-shadow= 0px 0px !blur !color
+=box-shadow-specific( !loc1, !loc2, !blur, !color )
+  :-moz-box-shadow= !loc1 !loc2 !blur !color
+  :-webkit-box-shadow= !loc1 !loc2 !blur !color
 =text-shadow(!px, !color)
   :text-shadow= 0px 0px !px !color
 =border-radius( !radius )

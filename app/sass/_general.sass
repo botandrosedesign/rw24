@@ -21,7 +21,8 @@ em, i
 b, strong
   :font-weight bold
   :color #000
-  
+.left_align
+  :text-align left  
 .right_align
   :text-align right
   
@@ -146,13 +147,12 @@ label
   :display inline-block
   :width 90px
   :text-align right
-  :margin-right 9px
   :font-weight bold
   &.opt
     :color #999
 select
   :width 130px
-input, select
+input, select, label
   :margin-right 6px
   &.text
     :width 200px
@@ -184,9 +184,9 @@ input, select
       :font-weight bold
       :color #333
       :padding-left 16px
-      &.current
-        :color= !primaryColor
-        :background transparent url('/images/arrow-orange.png') no-repeat left center
+      &.current, &.current:hover 
+        :color #000
+        :background transparent url('/images/arrow-black.png') no-repeat left center
       &:hover
         :color= !primaryColor
   
