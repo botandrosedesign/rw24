@@ -55,6 +55,7 @@
   :line-height .9
   h1, h2
     :display inline-block
+    :color #fff
   h2
     :margin-right 3px
   span
@@ -63,6 +64,7 @@
     :font-weight bold
     :color #fff
     :text-shadow 0px 0px 3px #000
+    :color= !secondaryColor
     
 #countdown
   +column(7.5, "last")
@@ -71,7 +73,7 @@
   +border-radius-specific("bottom", "left", "12px")
   +border-radius-specific("bottom", "right", "12px")
   +box-shadow(6px, #000)
-  :color= !secondaryColor+#999
+  :color= !primaryColor
   p
     :margin 0 0 0px 10px
   #day, #hrs, #min, #sec
