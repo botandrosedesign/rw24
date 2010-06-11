@@ -34,13 +34,15 @@
         %em ( 2 Riders / 1 Bicycle )
 
     %fieldset#rider_information
-      %h4 Rider Information
-      %table
+      %h4 Rider Information ( rider 1 is the Team Leader )
+      %table{:width => "100%"}
+        %col{:width => "100"}
+        %col{:width => "212"}
+        %col{:width => "*"}
         %tr
           %th
-          %th Full Name
+          %th Name
           %th Email
-      .field
       - i = 1
       - team_form.fields_for :riders do |rider_form|
         .field
