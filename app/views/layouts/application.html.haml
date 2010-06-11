@@ -22,14 +22,13 @@
           %h1#logo
             %a{:href => "/"} Riverwest 24
           #title
-            %h1
-              Riverwest 24
+            %h1 Riverwest 24
             %h2 Hour Bike Race
             %span July 30-31, 2010 | 7pm-7pm
           #countdown
             %p The race starts in:
             #day
-              %b 000
+              %b 00
               %span days
             #hrs
               %b 00
@@ -41,11 +40,11 @@
               %b 00
               %span sec
           %ul#nav
-            - @site.sections.all.each_with_index do |section, index|
+            - @site.sections.each_with_index do |section, index|
               %li
                 = link_to_current h(section.title), section_path(section), :if => request.request_uri.starts_with?(section.permalink)
                 %ul
-                  - section.contents.select(&:root?).each do |content|
+                  - section.contents.published.select(&:root?).each do |content|
                     %li= link_to_current h(content.title), content_path(section, content)
       #main
         .container

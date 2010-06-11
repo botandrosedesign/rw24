@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091026000906) do
+ActiveRecord::Schema.define(:version => 20100611012912) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -151,6 +151,21 @@ ActiveRecord::Schema.define(:version => 20091026000906) do
     t.string  "owner_type"
   end
 
+  create_table "registrations", :force => true do |t|
+    t.boolean  "paid",       :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "riders", :force => true do |t|
+    t.integer  "team_id"
+    t.string   "name"
+    t.string   "email"
+    t.integer  "position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "roles", :force => true do |t|
     t.integer "user_id"
     t.integer "context_id"
@@ -223,6 +238,18 @@ ActiveRecord::Schema.define(:version => 20091026000906) do
 
   create_table "tags", :force => true do |t|
     t.string "name"
+  end
+
+  create_table "teams", :force => true do |t|
+    t.integer  "registration_id"
+    t.string   "name"
+    t.string   "category"
+    t.string   "address"
+    t.string   "line_2"
+    t.string   "phone"
+    t.string   "shirts"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|

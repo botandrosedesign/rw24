@@ -1,6 +1,6 @@
 %h3= h @section.title
 %ul
-  - @section.contents.select(&:root?).each do |content|
+  - @section.contents.published.select(&:root?).each do |content|
     %li= link_to_current h(content.title), content_path(@section, content)
 
 %h3 Connect

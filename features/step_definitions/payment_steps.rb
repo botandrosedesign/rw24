@@ -1,4 +1,4 @@
-Then /^I should see a PayPal link to "([^\"]+)" for "([^\"]+)" at "([$0-9.]+)"$/ do |email, item, fee|
+Then /^I should see a PayPal form for "([^\"]+)" at "([$0-9.]+)"$/ do |item, fee|
   # get the paypal form, params
   paypal_form = Webrat::Scope::FormLocator.new(@_webrat_session, @_webrat_session.dom, 'paypal_form').locate
   action = paypal_form.send :form_action
@@ -15,8 +15,7 @@ Then /^I should see a PayPal link to "([^\"]+)" for "([^\"]+)" at "([$0-9.]+)"$/
 
   # verify appropriate response from paypal
   doc = Nokogiri::HTML agent.page.body
-  doc.css('#purchase-many').text.should == item
+  doc.css('.item-name div').text.should == item
   doc.css('#purchase-summary .price-total').text.should == fee
-  doc.css('#email-address').first[:value].should == email
 end
 

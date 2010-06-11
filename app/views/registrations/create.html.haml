@@ -1,0 +1,10 @@
+%h1 Please wait while we forward you to PayPal
+
+%form#paypal_form{ :action => "https://www.paypal.com/cgi-bin/webscr", :method => "post" }
+  - @registration.to_paypal_hash.each do |key, value|
+    = hidden_field_tag key, value
+  
+  = submit_tag "", :style => "display: none"
+  
+  :javascript
+    document.getElementById('paypal_form').submit()

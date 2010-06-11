@@ -15,6 +15,6 @@ class ApplicationController < ActionController::Base
     def guess_section
       permalink = request.request_uri.split("/").second
       @section = Section.find_by_permalink permalink
-      @section ||= Section.find_by_permalink "home"
+      @section ||= Section.first
     end
 end

@@ -21,4 +21,4 @@ Feature: Team Registration
     And I press "Continue to Payment"
 
     Then I should see "Please wait while we forward you to PayPal"
-    And I should see a PayPal link to "riverwest24@gmail.com" for "Riverwest 24 Registration - A Team" at "$60.00"
+    And I should see a PayPal form for "Riverwest 24 Registration - A Team" at "$60.00"
