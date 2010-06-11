@@ -3,7 +3,7 @@ class RegistrationsController < BaseController
 
   def show
     @registration = Registration.new
-    @registration.team = Team.new
+    @registration.team = Team.new :category => "A Team"
     6.times { @registration.team.riders << Rider.new }
   end
 

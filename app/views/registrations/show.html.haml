@@ -33,19 +33,16 @@
         = team_form.radio_button :category, "Tandem"
         %em ( 2 Riders / 1 Bicycle )
 
-    %fieldset
+    %fieldset#rider_information
       %h4 Rider Information
       - i = 1
       - team_form.fields_for :riders do |rider_form|
         .field
-          %label Rider #{i}
+          %label{ :class => ("opt" if i > 2) } Rider #{i}
           %span.hide_labels
             = rider_form.text_field :name, :label => "Rider #{i} Name"
             = rider_form.text_field :email, :label => "Rider #{i} Email"
         - i += 1
-        /
-          %input.text{:type => "text", :value => "Name (Team Leader)"}
-          %input.text{:type => "text", :value => "Email"}
 
     %fieldset
       %h4 Team Leader Contact Information
