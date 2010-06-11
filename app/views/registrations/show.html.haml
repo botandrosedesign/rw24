@@ -52,13 +52,9 @@
         = team_form.label :line_2, "Line 2", :class => "opt"
         = team_form.text_field :line_2, :class => "lg"
       .field
-        %label City
-        %input.text.med{:type => "text"}
-        %label State
-        %select.sm
-          %option --
-        %label Zip
-        %input.text.sm{:type => "text"}
+        = team_form.text_field :city, :class => "med", :label => true
+        = team_form.select :state, State.abbrevs, { :include_blank => "--" }, :class => "sm", :label => true
+        = team_form.text_field :zip, :class => "sm", :label => true
       .field
         = team_form.text_field :phone, :label => true
         %em xxx-xxx-xxx
