@@ -4,4 +4,11 @@
   <Style name="Heading 1" element="h2" />
   <Style name="Heading 2" element="h3" />
   <Style name="Heading 3" element="h4" />
+  <Style name="Arrow Link" element="a">
+    <Attribute name="class" value="arrow" />
+  </Style>
+  <Style name="Big Button" element="a">
+    <Attribute name="class" value="button" />
+  </Style>  
+  
 </Styles>

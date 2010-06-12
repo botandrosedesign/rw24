@@ -69,6 +69,35 @@ a
   :color= !primaryColor
   &:hover
     :color= !secondaryColor
+  &.button
+    :display block
+    :width 100%
+    :background #999 url('/images/gradient-white.png') repeat-x top
+    //:background-color= !primaryColor
+    :color #1a1a1a
+    :padding 6px 0
+    :font-weight bold
+    :text-transform uppercase
+    :font-size 1.25em
+    :text-align center
+    :border 1px solid #1a1a1a
+    :margin-bottom 20px
+    +box-shadow(3px, #666)
+    +border-radius(6px)
+    &:hover
+      :background= !secondaryColor
+  &.arrow
+    
+    :display inline-block
+    :font-size 1.25em
+    :background transparent url('/images/arrow-orange.png') no-repeat right center
+    :padding-right 12px
+    &:hover
+      :color= !secondaryColor
+      :padding-right 16px
+    strong
+      :color= !primaryColor
+  
 #sidebar ul#connect
   :padding-left 12px
   a
