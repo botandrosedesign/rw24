@@ -70,12 +70,11 @@ a
   &:hover
     :color= !secondaryColor
   &.button
-    :display block
-    :width 100%
-    :background #999 url('/images/gradient-white.png') repeat-x top
-    //:background-color= !primaryColor
+    :width auto
+    :display inline-block
+    :background #f1f1f1 url('/images/gradient-white.png') repeat-x top
     :color #1a1a1a
-    :padding 6px 0
+    :padding 6px 18px
     :font-weight bold
     :text-transform uppercase
     :font-size 1.25em
@@ -87,7 +86,6 @@ a
     &:hover
       :background= !secondaryColor
   &.arrow
-    
     :display inline-block
     :font-size 1.25em
     :background transparent url('/images/arrow-orange.png') no-repeat right center
@@ -97,6 +95,12 @@ a
       :padding-right 16px
     strong
       :color= !primaryColor
+#sidebar
+  a
+    &.button
+      :background-color #999
+      :width 100%
+      :padding 6px 0
   
 #sidebar ul#connect
   :padding-left 12px
