@@ -40,11 +40,13 @@
       %table{:width => "100%"}
         %col{:width => "100"}
         %col{:width => "212"}
+        %col{:width => "210"}
         %col{:width => "*"}
         %tr
           %th
           %th Name
           %th Email
+          %th Shirt Size
       - i = 1
       - team_form.fields_for :riders do |rider_form|
         .field
@@ -52,6 +54,13 @@
           %span.hide_labels
             = rider_form.text_field :name, :label => "Rider #{i} Name"
             = rider_form.text_field :email, :label => "Rider #{i} Email"
+          %select.sm
+            %option --
+            %option Sm
+            %option Med
+            %option Lg
+            %option XLg
+            
         - i += 1
 
     %fieldset
@@ -68,14 +77,7 @@
       .field
         = team_form.text_field :phone, :label => true
         %em xxx-xxx-xxxx
-        
-    - team_form.fields_for :shirts do |shirts_form|
-      %fieldset
-        %h4 Shirts
-        .field
-          - %w(sm med lg xlg).each do |size|
-            = shirts_form.label size.to_sym, size.capitalize, :class => "opt"
-            = shirts_form.select size.to_sym, (1..6).to_a, { :include_blank => "--" }, :class => "sm"
+
 
   %fieldset
     %hr
