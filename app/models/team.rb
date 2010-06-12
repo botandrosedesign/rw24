@@ -17,8 +17,6 @@ class Team < ActiveRecord::Base
     record.errors.add attr, 'count is incorrect.' unless record.allowed_range.include? value.length
   end
 
-  serialize :shirts
-
   def initialize(attrs={})
     attrs.reverse_merge! "category" => "A Team"
     super

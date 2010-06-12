@@ -54,13 +54,7 @@
           %span.hide_labels
             = rider_form.text_field :name, :label => "Rider #{i} Name"
             = rider_form.text_field :email, :label => "Rider #{i} Email"
-          %select.sm
-            %option --
-            %option Sm
-            %option Med
-            %option Lg
-            %option XLg
-            
+            = rider_form.select :shirt, Rider.shirt_sizes, { :include_blank => "--" }, :class => "sm", :label => "Rider #{i} Shirt"
         - i += 1
 
     %fieldset

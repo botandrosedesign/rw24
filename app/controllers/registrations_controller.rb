@@ -21,6 +21,8 @@ class RegistrationsController < BaseController
 
   def payment
     @registration = Registration.find params[:custom]
-    @registration.update_attribute :paid, true
+    @registration.team.riders.each do |rider|
+      rider.update_attributes :paid => true, :payment_method => "PayPal #{params[:txn_id]}"
+    end
   end
 end
