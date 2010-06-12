@@ -89,6 +89,10 @@
     :color #fff
     :font-size 3em
     :font-weight normal
+  span
+    :clear left
+    :display inline-block
+    +float-right
     
 // nav
 
@@ -144,8 +148,9 @@ ul#nav
 // main
   
 #main
-  .container
-    :background transparent url('/images/tire.gif') no-repeat bottom right
+  +container
+  :background transparent url('/images/tire.gif') no-repeat bottom right
+   
 #content
   +column(17,"first")
   :padding 10px
@@ -154,7 +159,7 @@ ul#nav
   +box-shadow( 3px, #ccc)
   +border-radius(3px)
   :margin-bottom 20px
-  :min-height 400px
+  :min-height 360px
 #sidebar
   +column(6, "last")
   +float-right
