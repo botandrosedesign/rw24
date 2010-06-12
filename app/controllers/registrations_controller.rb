@@ -12,6 +12,9 @@ class RegistrationsController < BaseController
     if @registration.save
       render :layout => false
     else
+      until @registration.team.riders.length == 6
+        @registration.team.riders << Rider.new
+      end
       render :show
     end
   end

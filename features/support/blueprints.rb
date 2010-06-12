@@ -12,6 +12,7 @@ Sham.url { "http://#{Faker::Internet.domain_name}/#{Faker::Lorem.words(3).join('
 
 Sham.address { Faker::Address.street_address }
 Sham.city { Faker::Address.city }
+Sham.state { Faker::Address.us_state }
 Sham.zip { Faker::Address.zip_code }
 Sham.phone { Faker::PhoneNumber.phone_number }
 
@@ -61,4 +62,18 @@ end
 
 Tag.blueprint do
   name { Sham.word }
+end
+
+Team.blueprint do
+  name
+  address
+  city
+  state
+  zip
+  phone
+end
+
+Rider.blueprint do
+  name
+  email
 end

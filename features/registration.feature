@@ -25,3 +25,72 @@ Feature: Team Registration
 
     Then I should see "Please wait while we forward you to PayPal"
     And I should see a PayPal form for "Riverwest 24 Registration - A Team" at "$60.00"
+
+  Scenario: B Team signs up with 2 members
+    Given I am on the registration page
+    When I fill in "Team Name" with "Bot and Rose Design"
+    And I choose "B Team"
+
+    And I fill in "Rider 1 Name" with "Micah Geisel"
+    And I fill in "Rider 1 Email" with "micah@botandrose.com"
+    And I fill in "Rider 2 Name" with "Michael Gubitosa"
+    And I fill in "Rider 2 Email" with "gubs@botandrose.com"
+
+    And I fill in "Address" with "625 NW Everett St"
+    And I fill in "Line 2" with "#347"
+    And I fill in "City" with "Portland"
+    And I select "OR" from "State"
+    And I fill in "Zip" with "97209"
+    And I fill in "Phone" with "937.269.2023"
+
+    And I select "1" from "Med"
+    And I select "1" from "Lg"
+    And I press "Continue to Payment"
+
+    Then I should see "Please wait while we forward you to PayPal"
+    And I should see a PayPal form for "Riverwest 24 Registration - B Team" at "$40.00"
+
+  Scenario: Solo signs up with one member
+    Given I am on the registration page
+    When I fill in "Team Name" with "Bot and Rose Design"
+    And I choose "Solo"
+
+    And I fill in "Rider 1 Name" with "Micah Geisel"
+    And I fill in "Rider 1 Email" with "micah@botandrose.com"
+
+    And I fill in "Address" with "625 NW Everett St"
+    And I fill in "Line 2" with "#347"
+    And I fill in "City" with "Portland"
+    And I select "OR" from "State"
+    And I fill in "Zip" with "97209"
+    And I fill in "Phone" with "937.269.2023"
+
+    And I select "1" from "Med"
+    And I press "Continue to Payment"
+
+    Then I should see "Please wait while we forward you to PayPal"
+    And I should see a PayPal form for "Riverwest 24 Registration - Solo" at "$20.00"
+
+  Scenario: Tandem signs up with three members
+    Given I am on the registration page
+    When I fill in "Team Name" with "Bot and Rose Design"
+    And I choose "Tandem"
+
+    And I fill in "Rider 1 Name" with "Micah Geisel"
+    And I fill in "Rider 1 Email" with "micah@botandrose.com"
+    And I fill in "Rider 2 Name" with "Michael Gubitosa"
+    And I fill in "Rider 2 Email" with "gubs@botandrose.com"
+
+    And I fill in "Address" with "625 NW Everett St"
+    And I fill in "Line 2" with "#347"
+    And I fill in "City" with "Portland"
+    And I select "OR" from "State"
+    And I fill in "Zip" with "97209"
+    And I fill in "Phone" with "937.269.2023"
+
+    And I select "1" from "Med"
+    And I select "1" from "Lg"
+    And I press "Continue to Payment"
+
+    Then I should see "Please wait while we forward you to PayPal"
+    And I should see a PayPal form for "Riverwest 24 Registration - Tandem" at "$40.00"

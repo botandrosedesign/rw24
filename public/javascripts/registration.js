@@ -6,5 +6,6 @@ $(function() {
     else { qty = 6 }
 
     $("#rider_information .field").hide().slice(0, qty).show();
-  });
+    $("#rider_information .field").slice(qty).find("input").val("");
+  }).filter(":checked").change();
 })

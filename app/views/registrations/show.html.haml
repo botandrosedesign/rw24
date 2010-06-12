@@ -8,6 +8,8 @@
   %li You MUST have front AND back lights while riding at night.
   %li $20/rider.
 
+= error_messages_for :registration
+
 - form_for @registration do |form|
   - form.fields_for :team do |team_form|
     %fieldset
@@ -65,14 +67,15 @@
         = team_form.text_field :zip, :class => "sm", :label => true
       .field
         = team_form.text_field :phone, :label => true
-        %em xxx-xxx-xxx
+        %em xxx-xxx-xxxx
         
     - team_form.fields_for :shirts do |shirts_form|
       %fieldset
         %h4 Shirts
         .field
           - %w(sm med lg xlg).each do |size|
-            = shirts_form.select size.to_sym, (1..6).to_a, { :include_blank => "--" }, :class => "sm", :label => true
+            = shirts_form.label size.to_sym, size.capitalize, :class => "opt"
+            = shirts_form.select size.to_sym, (1..6).to_a, { :include_blank => "--" }, :class => "sm"
 
   %fieldset
     %hr
