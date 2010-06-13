@@ -70,10 +70,10 @@ Team.blueprint do
   city
   state
   zip
-  phone
 end
 
 Rider.blueprint do
   name
   email
+  phone
 end

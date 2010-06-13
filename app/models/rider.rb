@@ -6,5 +6,11 @@ class Rider < ActiveRecord::Base
   belongs_to :team
   acts_as_list :scope => :team_id
 
-  validates_presence_of :name
+  def team_category=(value)
+    team.update_attribute :category, value
+  end
+
+  def team_name=(value)
+    team.update_attribute :name, value
+  end
 end

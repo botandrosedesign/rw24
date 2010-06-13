@@ -1,5 +1,5 @@
 $(function() {
-  $('input[name="registration[team_attributes][category]"]:radio').change(function() {
+  $('input[name="team[category]"]:radio').change(function() {
     var qty;
     if(this.id.match(/solo$/)) { qty = 1 }
     else if(this.id.match(/tandem$/)) { qty = 2 }
