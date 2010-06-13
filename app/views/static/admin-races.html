@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns='http://www.w3.org/1999/xhtml'> 
+  <head> 
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type' /> 
+    <meta content='adva-cms - Open source content management platform' name='generator' /> 
+    <title> 
+      adva-cms: Admin
+      contents
+    </title> 
+    <link href="/stylesheets/adva_cms/admin/reset.css?1275608703" media="all" rel="stylesheet" type="text/css" /> 
+    <link href="/stylesheets/adva_cms/admin/layout.css?1275608703" media="all" rel="stylesheet" type="text/css" /> 
+    <link href="/stylesheets/adva_cms/admin/common.css?1275608703" media="all" rel="stylesheet" type="text/css" /> 
+    <link href="/stylesheets/adva_cms/admin/header.css?1275608703" media="all" rel="stylesheet" type="text/css" /> 
+    <link href="/stylesheets/adva_cms/admin/top.css?1275608703" media="all" rel="stylesheet" type="text/css" /> 
+    <link href="/stylesheets/adva_cms/admin/sidebar.css?1275608703" media="all" rel="stylesheet" type="text/css" /> 
+    <link href="/stylesheets/adva_cms/admin/forms.css?1275608703" media="all" rel="stylesheet" type="text/css" /> 
+    <link href="/stylesheets/adva_cms/admin/lists.css?1275608703" media="all" rel="stylesheet" type="text/css" /> 
+    <link href="/stylesheets/adva_cms/admin/content.css?1275608703" media="all" rel="stylesheet" type="text/css" /> 
+    <link href="/stylesheets/adva_cms/admin/themes.css?1275608703" media="all" rel="stylesheet" type="text/css" /> 
+    <link href="/stylesheets/adva_cms/admin/helptip.css?1275608703" media="all" rel="stylesheet" type="text/css" /> 
+    <link href="/stylesheets/adva_cms/admin/users.css?1275608703" media="all" rel="stylesheet" type="text/css" /> 
+    <link href="/stylesheets/adva_cms/jquery/jquery-ui.css?1275608703" media="all" rel="stylesheet" type="text/css" /> 
+    <link href="/stylesheets/adva_cms/jquery/jquery.tooltip.css?1275608703" media="all" rel="stylesheet" type="text/css" /> 
+    <link href="/stylesheets/adva_activity/admin/activities.css?1275608703" media="all" rel="stylesheet" type="text/css" /> 
+    <link href="/stylesheets/adva_comments/admin/comments.css?1275608704" media="all" rel="stylesheet" type="text/css" /> 
+    <link href="/stylesheets/has_filter/filter.css?1275608704" media="all" rel="stylesheet" type="text/css" /> 
+    <link href="/stylesheets/adva_cms/admin/projection.css?1275608703" media="projection" rel="stylesheet" type="text/css" /> 
+    <link href="/stylesheets/admin.css?1276378296" media="screen" rel="stylesheet" type="text/css" /> 
+    
+  </head> 
+  <body> 
+    <div id="top"><ul class="main"><li class="item"><a href="/admin/sites/1" id="show_site">Overview</a></li><li class="item active"><a href="/admin/sites/1/sections" id="index_sections">Sections</a><ul id="sections_menu"><li><a class="level_0" href="/admin/sites/1/sections/1/contents">Home</a></li><li><a class="level_0 active" href="/admin/sites/1/sections/2/contents">About</a></li><li><a class="level_0" href="/admin/sites/1/sections/3/contents">Media</a></li><li><a class="level_0" href="/admin/sites/1/sections/4/contents">Join</a></li><li><a class="level_0" href="/admin/sites/1/sections/5/contents">Contact</a></li></ul></li><li class="item"><a href="/admin/sites/1/comments" id="index_comments">Comments</a></li></ul><ul class="right"><li class="item"><a href="/admin/sites/1/edit" id="edit_site">Settings</a></li><li class="item"><a href="/admin/sites/1/users" id="index_users">Users</a></li></ul></div> 
+     <div id="header"> 
+    	<div class="main"> 
+    		<ul id="breadcrumbs"><li><a href="/admin/sites/1" class="show site" id="show_site_1" title="Show">Riverwest24</a></li><li><a href="/admin/sites/1/sections" id="index_sections">Sections</a></li><li><a href="/admin/sites/1/sections" id="section">About</a></li><li class="last">Contents</li></ul> 
+    	</div> 
+    
+    	<div class="right"> 
+    	  
+    			Logged in as: <a href="/admin/sites/1/users/1">gubs</a> &middot;
+    			<a href="/logout" onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method'); m.setAttribute('value', 'delete'); f.appendChild(m);var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', 'zoNDyJDuxhbFHYzwBvNk1VfKCtY1eceOIgrHxZdZVi0='); f.appendChild(s);f.submit();return false;">Logout</a> 
+    		
+    	  
+    			 &middot;
+    	    <a href="http://riverwest24.com" id="go_to_website">Website »</a> 
+    	  
+    	</div> 
+    </div> 
+    <div id='page'> 
+      
+      <div class='main'> 
+        <div id="main_menu"><ul class="left"><li class="item"><h4>About:</h4></li><li class="item active"><a href="/admin/sites/1/sections/2/contents" id="index_contents">Contents</a></li><li class="item"><a href="/admin/sites/1/sections/2/categories" id="index_categories">Categories</a></li><li class="item"><a href="/admin/sites/1/sections/2/edit" id="edit_section">Settings</a></li></ul><ul class="actions"><li class="item"><a href="/admin/sites/1/sections/2/articles/new" id="new_article">New article</a></li><li class="item"><a href="/admin/sites/1/sections/2/links/new" id="new_link">New link</a></li><li class="item"><a href="/admin/sites/1/sections/2/contents" class="reorder" id="reorder_contents">Reorder</a></li></ul></div> 
+        
+          <p id="flash_notice" class="flash notice" style="display: none;"></p> 
+        
+          <p id="flash_error" class="flash error" style="display: none;"></p> 
+        <div id='content'> 
+          
+          
+          <table class="contents list tree" id="articles"> 
+            <thead> 
+              <tr> 
+                <th class="title" scope="col"> 
+                  Title
+                </th> 
+                <th class="published" scope="col"> 
+                  Published
+                </th> 
+                <th class="actions" scope="col"> 
+                </th> 
+              </tr> 
+            </thead> 
+            <tbody> 
+              <tr class="level_0" id="article_2"> 
+                <td class="title"> 
+                  <span title='Published' alt='Published' class='status published'>Published</span><a href="/admin/sites/1/sections/2/articles/2/edit" class="published" id="edit_article_2" title="Edit">Overview</a> 
+                </td> 
+                <td class="published"> 
+                  04 Jun 00:44
+                </td> 
+                <td class="actions"> 
+                  <a href="/about/articles/overview?cl=en" class="preview article" id="show_article_2" title="Show">Preview</a> 
+                  <a href="/admin/sites/1/sections/2/articles/2/edit" class="edit article" id="edit_article_2" title="Edit">Edit</a> 
+                  <a href="/admin/sites/1/sections/2/articles/2" class="delete article" id="delete_article_2" onclick="if (confirm('Are you sure you want to delete this article?')) { var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method'); m.setAttribute('value', 'delete'); f.appendChild(m);var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', 'zoNDyJDuxhbFHYzwBvNk1VfKCtY1eceOIgrHxZdZVi0='); f.appendChild(s);f.submit(); };return false;" title="Delete">Delete</a> 
+                </td> 
+              </tr> 
+              <tr class="alternate level_0" id="article_3"> 
+                <td class="title"> 
+                  <span title='Pending' alt='Pending' class='status pending'>Pending</span><a href="/admin/sites/1/sections/2/articles/3/edit" class="pending" id="edit_article_3" title="Edit">History</a> 
+                </td> 
+                <td class="published"> 
+                </td> 
+                <td class="actions"> 
+                  <a href="/about/articles/history?cl=en" class="preview article" id="show_article_3" title="Show">Preview</a> 
+                  <a href="/admin/sites/1/sections/2/articles/3/edit" class="edit article" id="edit_article_3" title="Edit">Edit</a> 
+                  <a href="/admin/sites/1/sections/2/articles/3" class="delete article" id="delete_article_3" onclick="if (confirm('Are you sure you want to delete this article?')) { var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method'); m.setAttribute('value', 'delete'); f.appendChild(m);var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', 'zoNDyJDuxhbFHYzwBvNk1VfKCtY1eceOIgrHxZdZVi0='); f.appendChild(s);f.submit(); };return false;" title="Delete">Delete</a> 
+                </td> 
+              </tr> 
+              <tr class="level_0" id="article_4"> 
+                <td class="title"> 
+                  <span title='Published' alt='Published' class='status published'>Published</span><a href="/admin/sites/1/sections/2/articles/4/edit" class="published" id="edit_article_4" title="Edit">Rules</a> 
+                </td> 
+                <td class="published"> 
+                  04 Jun 00:48
+                </td> 
+                <td class="actions"> 
+                  <a href="/about/articles/rules?cl=en" class="preview article" id="show_article_4" title="Show">Preview</a> 
+                  <a href="/admin/sites/1/sections/2/articles/4/edit" class="edit article" id="edit_article_4" title="Edit">Edit</a> 
+                  <a href="/admin/sites/1/sections/2/articles/4" class="delete article" id="delete_article_4" onclick="if (confirm('Are you sure you want to delete this article?')) { var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method'); m.setAttribute('value', 'delete'); f.appendChild(m);var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', 'zoNDyJDuxhbFHYzwBvNk1VfKCtY1eceOIgrHxZdZVi0='); f.appendChild(s);f.submit(); };return false;" title="Delete">Delete</a> 
+                </td> 
+              </tr> 
+              <tr class="alternate level_0" id="article_6"> 
+                <td class="title"> 
+                  <span title='Published' alt='Published' class='status published'>Published</span><a href="/admin/sites/1/sections/2/articles/6/edit" class="published" id="edit_article_6" title="Edit">FAQ</a> 
+                </td> 
+                <td class="published"> 
+                  09 Jun 01:56
+                </td> 
+                <td class="actions"> 
+                  <a href="/about/articles/faq?cl=en" class="preview article" id="show_article_6" title="Show">Preview</a> 
+                  <a href="/admin/sites/1/sections/2/articles/6/edit" class="edit article" id="edit_article_6" title="Edit">Edit</a> 
+                  <a href="/admin/sites/1/sections/2/articles/6" class="delete article" id="delete_article_6" onclick="if (confirm('Are you sure you want to delete this article?')) { var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;var m = document.createElement('input'); m.setAttribute('type', 'hidden'); m.setAttribute('name', '_method'); m.setAttribute('value', 'delete'); f.appendChild(m);var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', 'zoNDyJDuxhbFHYzwBvNk1VfKCtY1eceOIgrHxZdZVi0='); f.appendChild(s);f.submit(); };return false;" title="Delete">Delete</a> 
+                </td> 
+              </tr> 
+            </tbody> 
+          </table> 
+        </div> 
+      </div> 
+      <div class='right' id='sidebar'> 
+         	<div class="tabs"> 
+        		<ul> 
+        			<li class="active"><a href="#filters" onclick="return false;">Filter</a></li> 
+        		</ul> 
+        		<div class="tab active" id="tab_filters"> 
+        			<form action="/admin/sites/1/sections/2/contents" class="filters" id="filters" method="get"><fieldset class="set"><select class="selected_filter" id="selected_filter_0" name="filters[][selected]"><option value="title" selected="selected">title</option> 
+        <option value="body">body</option> 
+        <option value="excerpt">excerpt</option> 
+        <option value="tagged">tagged</option> 
+        <option value="state">state</option> 
+        <option value="categorized">categorized</option></select> 
+        <fieldset class="filter filter_title selected" id="filter_title_0"><select id="filter_title_scope_0" name="filters[][title][scope]"> 
+        <option value="contains">contains</option> 
+        <option value="starts_with">starts with</option> 
+        <option value="ends_with">ends with</option> 
+        <option value="is">is</option> 
+        </select> 
+        <input class="text" id="filter_title_query_0" name="filters[][title][query]" type="text" /></fieldset> 
+        <fieldset class="filter filter_body" id="filter_body_0"><select id="filter_body_scope_0" name="filters[][body][scope]"> 
+        <option value="contains">contains</option> 
+        <option value="starts_with">starts with</option> 
+        <option value="ends_with">ends with</option> 
+        <option value="is">is</option> 
+        </select> 
+        <input class="text" id="filter_body_query_0" name="filters[][body][query]" type="text" /></fieldset> 
+        <fieldset class="filter filter_excerpt" id="filter_excerpt_0"><select id="filter_excerpt_scope_0" name="filters[][excerpt][scope]"> 
+        <option value="contains">contains</option> 
+        <option value="starts_with">starts with</option> 
+        <option value="ends_with">ends with</option> 
+        <option value="is">is</option> 
+        </select> 
+        <input class="text" id="filter_excerpt_query_0" name="filters[][excerpt][query]" type="text" /></fieldset> 
+        <fieldset class="filter filter_tagged" id="filter_tagged_0"><input class="text" id="filter_tagged_query_0" name="filters[][tagged]" type="text" value="" /></fieldset> 
+        <fieldset class="filter filter_state" id="filter_state_0"><input class="checkbox" id="filter_state_published_0" name="filters[][state][]" type="checkbox" value="published" /><label for="filter_state_published_0">published</label> 
+        <input class="checkbox" id="filter_state_unpublished_0" name="filters[][state][]" type="checkbox" value="unpublished" /><label for="filter_state_unpublished_0">unpublished</label></fieldset> 
+        <fieldset class="filter filter_categorized" id="filter_categorized_0"></fieldset><span class="controls"><a class="filter_add" href="#">+</a><a class="filter_remove" href="#">-</a></span></fieldset> 
+        <div class="submit"><button>Apply</button></div></form> 
+        		</div> 
+        	</div> 
+      </div> 
+      
+      <div class='collapsed' id='left'></div> 
+    </div> 
+  </body> 
+</html> 

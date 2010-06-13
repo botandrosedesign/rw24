@@ -49,13 +49,18 @@ h2
   
 h4
   :color #000
-  :border-bottom none
   a
     :margin-top 0px
+#main_menu
+  h4
+    :border-bottom none
 
 table, tr, th, td
   :border-color #181716 !important
 table.list
+  th
+    &.center_align
+      :text-align center
   thead, tbody
     :width 100%
   td.feature
@@ -225,18 +230,23 @@ fieldset
     :margin 0
     :display inline-block
 label
+  :line-height 1.75
+  :clear none
+  &+p
+    :float left
+    :display inline-block
+    :line-height 1.75
+    :margin-bottom 0
+#sidebar label
   :width auto
   :display block
   :text-align left
+input.text
+  :padding 2px 8px
+textarea
+  :width 500px
+  :max-width 500px
+  :min-width 500px
+  
     
-// films
-
-.preview
-  :width auto
-  :float left
-  :margin-right 20px
-  label, img, input, object
-    :float left
-    :clear left
-    :margin-bottom 6px
   
