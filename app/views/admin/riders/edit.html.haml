@@ -1,0 +1,3 @@
+%h2 Edit Rider
+- form_for @rider, :url => admin_rider_path(@site, @rider) do |f|
+  = render :partial => 'form', :locals => {:f => f}

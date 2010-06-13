@@ -1,0 +1,31 @@
+%fieldset
+  %h4 
+    =h @rider.team.name
+    \-
+    =h @rider.team_id
+  .field
+    = f.text_field :name, :label => true
+  .field
+    = f.text_field :email, :label => true
+  .field
+    = f.text_field :phone, :label => true
+  .field
+    = f.select :shirt, Rider.shirt_sizes, :label => "Shirt Size"
+
+%fieldset
+  %h4 Payment
+  .field
+    = f.check_box :paid, :label => "Paid?"
+  .field
+    = f.text_field :payment_type, :label => "Type"
+  .field
+    = f.date_select :confirmed_on, :label => "Confirmed"
+
+%fieldset
+  %h4 Additional Information
+  .field
+    = f.text_area :notes, :label => true
+
+%hr
+
+- save_or_cancel_links(f, :cancel_url => admin_riders_path(@site))

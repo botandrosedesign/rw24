@@ -39,7 +39,7 @@ class Team < ActiveRecord::Base
   end
 
   def category_abbrev
-    category[0..0]
+    category[0..0] if category
   end
 
   def to_paypal_hash

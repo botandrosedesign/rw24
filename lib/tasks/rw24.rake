@@ -1,7 +1,7 @@
 require 'fastercsv'
 
 namespace :rw24 do
-  task :import do
+  task :import => :environment do
     FasterCSV.new(File.read("lib/2010_registration.csv"), :headers => true).each do |row|
       Team.find_or_create_by_name(row["team_name"]).update_attribute(:id, row["team_id"])
       team = Team.find row["team_id"]

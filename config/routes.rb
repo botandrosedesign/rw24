@@ -9,4 +9,13 @@ ActionController::Routing::Routes.draw do |map|
     :controller  => "teams",
     :name_prefix => "admin_site_",
     :namespace   => "admin/"
+
+  map.resources :riders, :path_prefix => "admin",
+    :name_prefix => "admin_global_",
+    :namespace   => "admin/"
+
+  map.resources :riders, :path_prefix => "admin/sites/:site_id",
+    :controller  => "riders",
+    :name_prefix => "admin_site_",
+    :namespace   => "admin/"
 end

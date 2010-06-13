@@ -7,7 +7,7 @@ Feature: Admins can manage teams
     When I follow "Races"
     Then I should see 1 team
     And I should see "Bot and Rose Design"
-    And I should see "Micah Geisel"
+    # And I should see "Micah Geisel"
 
   Scenario: An Admin edits a team
     Given a solo team exists with name: "Bot and Rose Design"
