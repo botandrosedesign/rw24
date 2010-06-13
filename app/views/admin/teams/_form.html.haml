@@ -2,7 +2,8 @@
   %h4 Main Information
   .field
     %label POS#
-    %b= @team.id
+    %p
+      %b= @team.id
   .field
     = f.select :category, Team.categories, :class => "sm", :label => true
   .field
