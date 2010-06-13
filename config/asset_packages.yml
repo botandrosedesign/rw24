@@ -1,6 +1,7 @@
 --- 
 javascripts: 
 - base:
+  - google_analytics
   - application
   - countdown
 stylesheets: 
