@@ -1,6 +1,9 @@
 var _gaq = _gaq || [];
+// NEW 
+_gaq.push(['_setAccount', 'UA-16941033-2']);
+_gaq.push(['_trackPageview']);
+// OLD
 _gaq.push(['_setAccount', 'UA-4736643-2']);
-_gaq.push(['_setDomainName', 'www.filmpreservation.org']);
 _gaq.push(['_trackPageview']);
 
 (function() {
