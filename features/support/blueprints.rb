@@ -72,6 +72,11 @@ Team.blueprint do
   zip
 end
 
+Team.blueprint(:solo) do
+  category "Solo"
+  riders { [Rider.make] }
+end
+
 Rider.blueprint do
   name
   email

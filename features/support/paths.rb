@@ -13,6 +13,12 @@ module NavigationHelpers
 
     when /the registration page/
       '/join/registrations'
+
+    when /the admin page/
+      '/admin'
+
+    when /the admin overview page/
+      '/admin/sites/1'
     
     # Add more mappings here.
     # Here is a more fancy example:

@@ -1,5 +1,5 @@
 Before do
-  @site = Site.make
+  @site = Site.make :id => 1
   @home = Page.make :site => @site, :title => "Home"
 
   @admin = User.make :email => "admin@riverwest24.com"
