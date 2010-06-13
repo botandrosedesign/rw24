@@ -8,6 +8,10 @@ class Team < ActiveRecord::Base
     }
   end
 
+  def self.categories
+    ["A Team", "B Team", "Solo", "Tandem"]
+  end
+
   attr_accessor :phone
 
   belongs_to :registration
@@ -32,6 +36,10 @@ class Team < ActiveRecord::Base
 
   def captain
     riders.first
+  end
+
+  def category_abbrev
+    category[0..0]
   end
 
   def to_paypal_hash
