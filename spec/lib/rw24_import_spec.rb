@@ -31,7 +31,7 @@ describe "rake rw24:import" do
     rider.team.attributes.to_hash.reject { |k,v| %w(updated_at created_at).include?(k) }.symbolize_keys.should == {
       :id => 1,
       :name => "T-Roy",
-      :category => "Solo",
+      :category => "Solo (male)",
       :address => nil,
       :line_2 => nil,
       :city => nil,

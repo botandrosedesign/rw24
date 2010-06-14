@@ -1,15 +1,16 @@
 class Team < ActiveRecord::Base
   def self.allowed_ranges
     {
-      :a_team => 2..6,
-      :b_team => 2..6,
-      :solo   => 1..1,
-      :tandem => 2..2
+      :a_team      => 2..6,
+      :b_team      => 2..6,
+      :solo_male   => 1..1,
+      :solo_female => 1..1,
+      :tandem      => 2..2
     }
   end
 
   def self.categories
-    ["A Team", "B Team", "Solo", "Tandem"]
+    ["A Team", "B Team", "Solo (male)", "Solo (female)", "Tandem"]
   end
 
   attr_accessor :phone
@@ -31,7 +32,7 @@ class Team < ActiveRecord::Base
   end
 
   def allowed_range
-    self.class.allowed_ranges[category.underscore.gsub(/ /,'_').to_sym]
+    self.class.allowed_ranges[category.methodize.to_sym]
   end
 
   def captain

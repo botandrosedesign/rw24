@@ -26,8 +26,12 @@
       = form.radio_button :category, "B Team"
       %em ( 2-6 Riders / Multiple Bicycles )
     .field
-      = form.label :category_solo, "Solo"
-      = form.radio_button :category, "Solo"
+      = form.label :category_solo_male, "Solo (male)"
+      = form.radio_button :category, "Solo (male)"
+      %em ( 1 Rider / 1 Bicycle )
+    .field
+      = form.label :category_solo_female, "Solo (female)"
+      = form.radio_button :category, "Solo (female)"
       %em ( 1 Rider / 1 Bicycle )
     .field 
       = form.label :category_tandem, "Tandem"

@@ -12,7 +12,7 @@ Sham.url { "http://#{Faker::Internet.domain_name}/#{Faker::Lorem.words(3).join('
 
 Sham.address { Faker::Address.street_address }
 Sham.city { Faker::Address.city }
-Sham.state { Faker::Address.us_state }
+Sham.state(:unique => false) { Faker::Address.us_state }
 Sham.zip { Faker::Address.zip_code }
 Sham.phone { Faker::PhoneNumber.phone_number }
 
@@ -73,7 +73,7 @@ Team.blueprint do
 end
 
 Team.blueprint(:solo) do
-  category "Solo"
+  category "Solo (male)"
   riders { [Rider.make] }
 end
 

@@ -45,9 +45,27 @@ describe Team do
     end
   end
 
-  context "of category 'Solo'" do
+  context "of category 'Solo (male)'" do
     before do
-      @it.category = "Solo"
+      @it.category = "Solo (male)"
+    end
+
+    [0,2,3,4,5,6,7].each do |i|
+      it "cannot have #{i} riders" do
+        i.times { @it.riders << Rider.make_unsaved }
+        @it.should_not be_valid
+      end
+    end
+
+    it "can have 1 riders" do
+      @it.riders << Rider.make_unsaved
+      @it.should be_valid
+    end
+  end
+
+  context "of category 'Solo (female)'" do
+    before do
+      @it.category = "Solo (female)"
     end
 
     [0,2,3,4,5,6,7].each do |i|
