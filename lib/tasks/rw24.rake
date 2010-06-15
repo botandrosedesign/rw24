@@ -1,5 +1,3 @@
-require 'fastercsv'
-
 namespace :rw24 do
   task :import => :environment do
     FasterCSV.new(File.read("lib/2010_registration.csv"), :headers => true).each do |row|
