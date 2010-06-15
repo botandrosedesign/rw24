@@ -5,7 +5,7 @@ class Admin::TeamsController < Admin::BaseController
   guards_permissions :team
 
   def index
-    @teams = Team.all :order => "name"
+    @teams = Team.all
   end
   
   def show
