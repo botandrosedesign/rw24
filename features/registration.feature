@@ -25,7 +25,20 @@ Feature: Team Registration
     And I press "Continue to Payment"
 
     Then I should see "Please wait while we forward you to PayPal"
-    And I should see a PayPal form for "Riverwest 24 Registration - A Team" at "$60.00"
+    # And I should see a PayPal form for "Riverwest 24 Registration - A Team" at "$60.00"
+    And "micah@botandrose.com" should receive an email
+    And "gubs@botandrose.com" should receive an email
+    And "nick@botandrose.com" should receive an email
+
+    When they open the email
+    Then they should see the email delivered from "register@riverwest24.com"
+    Then they should see "Riverwest 24 2010 - Team signup confirmation" in the email subject
+    And they should see "Micah Geisel" in the email body
+    And they should see "Michael Gubitosa" in the email body
+    And they should see "Nick Hogle" in the email body
+    And they should see /Position: \d+/ in the email body
+    And they should see "Class: A Team" in the email body
+    And they should see "Team: Bot and Rose Design" in the email body
 
   Scenario: B Team signs up with 2 members
     Given I am on the registration page
@@ -50,6 +63,17 @@ Feature: Team Registration
 
     Then I should see "Please wait while we forward you to PayPal"
     And I should see a PayPal form for "Riverwest 24 Registration - B Team" at "$40.00"
+    And "micah@botandrose.com" should receive an email
+    And "gubs@botandrose.com" should receive an email
+
+    When they open the email
+    Then they should see the email delivered from "register@riverwest24.com"
+    Then they should see "Riverwest 24 2010 - Team signup confirmation" in the email subject
+    And they should see "Micah Geisel" in the email body
+    And they should see "Michael Gubitosa" in the email body
+    And they should see /Position: \d+/ in the email body
+    And they should see "Class: B Team" in the email body
+    And they should see "Team: Bot and Rose Design" in the email body
 
   Scenario: Solo (male) signs up with one member
     Given I am on the registration page
@@ -71,6 +95,15 @@ Feature: Team Registration
 
     Then I should see "Please wait while we forward you to PayPal"
     And I should see a PayPal form for "Riverwest 24 Registration - Solo (male)" at "$20.00"
+    And "micah@botandrose.com" should receive an email
+
+    When they open the email
+    Then they should see the email delivered from "register@riverwest24.com"
+    Then they should see "Riverwest 24 2010 - Team signup confirmation" in the email subject
+    And they should see "Micah Geisel" in the email body
+    And they should see /Position: \d+/ in the email body
+    And they should see "Class: Solo (male)" in the email body
+    And they should see "Team: Bot and Rose Design" in the email body
 
   Scenario: Solo (female) signs up with one member
     Given I am on the registration page
@@ -92,8 +125,17 @@ Feature: Team Registration
 
     Then I should see "Please wait while we forward you to PayPal"
     And I should see a PayPal form for "Riverwest 24 Registration - Solo (female)" at "$20.00"
+    And "micah@botandrose.com" should receive an email
 
-  Scenario: Tandem signs up with three members
+    When they open the email
+    Then they should see the email delivered from "register@riverwest24.com"
+    Then they should see "Riverwest 24 2010 - Team signup confirmation" in the email subject
+    And they should see "Micah Geisel" in the email body
+    And they should see /Position: \d+/ in the email body
+    And they should see "Class: Solo (female)" in the email body
+    And they should see "Team: Bot and Rose Design" in the email body
+
+  Scenario: Tandem signs up with two members
     Given I am on the registration page
     When I fill in "Team Name" with "Bot and Rose Design"
     And I choose "Tandem"
@@ -116,3 +158,14 @@ Feature: Team Registration
 
     Then I should see "Please wait while we forward you to PayPal"
     And I should see a PayPal form for "Riverwest 24 Registration - Tandem" at "$40.00"
+    And "micah@botandrose.com" should receive an email
+    And "gubs@botandrose.com" should receive an email
+
+    When they open the email
+    Then they should see the email delivered from "register@riverwest24.com"
+    Then they should see "Riverwest 24 2010 - Team signup confirmation" in the email subject
+    And they should see "Micah Geisel" in the email body
+    And they should see "Michael Gubitosa" in the email body
+    And they should see /Position: \d+/ in the email body
+    And they should see "Class: Tandem" in the email body
+    And they should see "Team: Bot and Rose Design" in the email body

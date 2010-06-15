@@ -95,11 +95,13 @@ Then /^(?:I|they) should see \/([^"]*?)\/ in the email subject$/ do |text|
 end
 
 Then /^(?:I|they) should see "([^"]*?)" in the email body$/ do |text|
-  current_email.body.should include(text)
+  doc = Nokogiri::HTML.parse(current_email.body)
+  doc.text.should include(text)
 end
 
 Then /^(?:I|they) should see \/([^"]*?)\/ in the email body$/ do |text|
-  current_email.body.should =~ Regexp.new(text)
+  doc = Nokogiri::HTML.parse(current_email.body)
+  doc.text.should =~ Regexp.new(text)
 end
 
 Then /^(?:I|they) should see the email delivered from "([^"]*?)"$/ do |text|

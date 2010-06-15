@@ -9,6 +9,7 @@ class TeamsController < BaseController
   def create
     @team = Team.new params[:team]
     if @team.save
+      RegistrationMailer.deliver_registration(@team)
       render :layout => false
     else
       until @team.riders.length == 6

@@ -1,0 +1,35 @@
+%p
+  %strong Names:
+  - @team.riders.each do |rider|
+    %br
+    =h(rider.name)
+
+%p
+  :erb
+    <strong>Position:</strong> <%= @team.id %><br/>
+    <strong>Class:</strong> <%= @team.category %><br/>
+    <strong>Team:</strong> <%= h(@team.name) %>
+
+%p ---
+
+%p Thank you for registering for RW24 2010!  Let us know if there are any changes you need to your information above so that we can update our records.  Find the rider check-in July 30th, and we will give you the goods (t-shirt, bandanna map (mapdanna?), spoke card, meal tickets) so you can get ready for the race.  We STRONGLY encourage you to arrive early, meet your fellow riders, check out our neighborhood, and make a preliminary lap.  Say hello, introduce yourself to strangers.  This race is about community, and our community is strengthened with your help.  Be a friendly human.
+
+%p <strong>Friday July 30th:<br/>12p - 6p:</strong> Rider Check In.  Please report to the corner of Pierce and Clark, just off the 2600 block of N Pierce St.  Sign your waiver (required), receive your manifest (this is what the checkpoints will punch to count your laps) and check out the competition.
+
+%p <strong>6p-8p: REGISTRATION IS CLOSED.</strong> If you don't arrive before 6p to start the race, you will NOT be able to register until 8p.  We suggest/urge/implore you to arrive to register you and/or your team between noon and 6p. You will not be happy when we close the registration tent on the corner of Pierce and Clarke and you can't start the race until we re-open (at starting line) at 8p.
+
+%p <strong>4p-6p:</strong> Dinner will be served to registered riders at Riverwest Co-Op. (733 E Center, 53212)
+
+%p <strong>5:30p:</strong> Rider Meeting. ALL riders must attend.  This is where we will announce any route changes, traffic warnings, and road hazards.  We all know there is pockets of construction in the neighborhood at the moment, and we will be keeping our eye to let you know the day of the race how everything looks.  We will go over the race rules (this is important), bonus checkpoints (so is this), and any other last minute logistics.
+
+%p <strong>6:30p:</strong> Opening Ceremony.
+
+%p <strong>7p:</strong> Race Begins!  We will be releasing pairs (or so) of riders to AS TRAFFIC ALLOWS.  Center Street is a major intersection and we need to stagger everyone every 30 seconds or so.  This is a neighborhood, urban ride...the streets are open to all forms of traffic, not just bicycles.  We want you to ride safe.  Helmets are required for scoring. Lights are required for scoring after dusk.
+
+%p <strong>Saturday, July 31:<br/>7a - 9a:</strong> Breakfast will be served to all registered riders at St. Mary of Czestochowa (3055 N Fratney St, 53212, across the street from ArtBar)
+
+%p <strong>7p:</strong> Race Ends and the final tallying begins. Laps ridden + bonus checkpoint laps = Your final score.  You won't remember your final lap count as well as you will remember the neighborhood cheering you on.  Or the kindness of a glow stick shared with a stranger.  Or a clarinet solo by a neighbor on his porch at 2AM.  Or seeing yourself, pushing harder and riding further than you ever thought you could. RW24 ends up being a lot of different things to a lot of people.  Join us in making it another great community celebration.
+
+%p Questions we havent covered here? Interested in volunteering?<br/>email: #{mail_to "volunteer@riverwest24.com"}
+
+%p See you at the starting line!<br/>#{mail_to "steve@riverwest24.com"}
