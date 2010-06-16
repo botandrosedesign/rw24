@@ -1,3 +1,58 @@
 %h2 New Team
-- form_for @team, :url => admin_teams_path(@site) do |f|
-  = render :partial => 'form', :locals => {:f => f}
+%fieldset
+  %h4 Team Information
+  .field 
+    %label POS#
+    %b ---
+  .field
+    %label Team Name
+    %input.text{:type => "text"}
+  .field
+    %label Category
+    %select
+      %option --
+%fieldset
+  %h4 Team Leader Contact Information
+  .field
+    %label Address
+    %input.text.lg{:type => "text"}
+  .field
+    %label.opt Line 2
+    %input.text.lg{:type => "text"}
+  .field
+    %label City
+    %input.text{:type => "text"}
+    %label State 
+    %select
+      %option --
+    %label Zip
+    %input.text.sm{:type => "text"}
+    
+%fieldset
+  %h4 Rider 1 / Leader
+  .field
+    %label Paid?
+    %input.checkbox{:type => "checkbox"}
+  .field
+    %label Name
+    %input.text{:type => "text"}
+  .field
+    %label Email
+    %input.text{:type => "text"}
+    %label Phone
+    %input.text{:type => "text"}
+
+%fieldset
+  %h4 Rider 2
+  .field
+    %label Paid?
+    %input.checkbox{:type => "checkbox"}
+  .field
+    %label Name
+    %input.text{:type => "text"}
+  .field
+    %label Email
+    %input.text{:type => "text"}
+    %label Phone
+    %input.text{:type => "text"}
+

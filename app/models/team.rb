@@ -27,6 +27,7 @@ class Team < ActiveRecord::Base
   before_save :assign_phone_to_captain
 
   def initialize(attrs={})
+    attrs ||= {}
     attrs.reverse_merge! "category" => "A Team"
     super
   end
