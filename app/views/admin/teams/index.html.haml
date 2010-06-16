@@ -19,6 +19,7 @@
     - @teams.each do |team|
       %tr
         %td.center_align
+          .paid
         %td.center_align= team.id
         %td.center_align=h team.category_abbrev
         %td= link_to h(team.name), edit_admin_team_path(@site, team)
