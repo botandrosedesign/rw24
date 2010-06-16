@@ -1,12 +1,14 @@
 %table.list{:width => "100%"}
   %col{:width => "5%"}
   %col{:width => "5%"}
+  %col{:width => "5%"}
   %col{:width => "*"}
   %col{:width => "10%"}
   %col{:width => "30%"}
   %col{:width => "15%"}
   %thead
     %tr
+      %th.center_align{ :scope => "col"} Paid
       %th.right_align{ :scope => "col"} POS#
       %th.center_align{ :scope => "col"} Class
       %th{ :scope => "col" } Team Name
@@ -16,6 +18,7 @@
   %tbody
     - @teams.each do |team|
       %tr
+        %td.center_align
         %td.center_align= team.id
         %td.center_align=h team.category_abbrev
         %td= link_to h(team.name), edit_admin_team_path(@site, team)
