@@ -11,7 +11,7 @@ namespace :rw24 do
         rider.move_to_top
         rider.name = rider.name[0..-2]
       end
-      rider.save!
+      rider.save
       rider.update_attribute :id, row["id"]
     end
   end

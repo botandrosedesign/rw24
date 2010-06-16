@@ -36,7 +36,6 @@ Feature: Team Registration
     And they should see "Micah Geisel" in the email body
     And they should see "Michael Gubitosa" in the email body
     And they should see "Nick Hogle" in the email body
-    And they should see /Position: \d+/ in the email body
     And they should see "Class: A Team" in the email body
     And they should see "Team: Bot and Rose Design" in the email body
 
@@ -71,7 +70,6 @@ Feature: Team Registration
     Then they should see "Riverwest 24 2010 - Team signup confirmation" in the email subject
     And they should see "Micah Geisel" in the email body
     And they should see "Michael Gubitosa" in the email body
-    And they should see /Position: \d+/ in the email body
     And they should see "Class: B Team" in the email body
     And they should see "Team: Bot and Rose Design" in the email body
 
@@ -101,7 +99,6 @@ Feature: Team Registration
     Then they should see the email delivered from "register@riverwest24.com"
     Then they should see "Riverwest 24 2010 - Team signup confirmation" in the email subject
     And they should see "Micah Geisel" in the email body
-    And they should see /Position: \d+/ in the email body
     And they should see "Class: Solo (male)" in the email body
     And they should see "Team: Bot and Rose Design" in the email body
 
@@ -131,7 +128,6 @@ Feature: Team Registration
     Then they should see the email delivered from "register@riverwest24.com"
     Then they should see "Riverwest 24 2010 - Team signup confirmation" in the email subject
     And they should see "Micah Geisel" in the email body
-    And they should see /Position: \d+/ in the email body
     And they should see "Class: Solo (female)" in the email body
     And they should see "Team: Bot and Rose Design" in the email body
 
@@ -166,6 +162,5 @@ Feature: Team Registration
     Then they should see "Riverwest 24 2010 - Team signup confirmation" in the email subject
     And they should see "Micah Geisel" in the email body
     And they should see "Michael Gubitosa" in the email body
-    And they should see /Position: \d+/ in the email body
     And they should see "Class: Tandem" in the email body
     And they should see "Team: Bot and Rose Design" in the email body
