@@ -1,5 +1,6 @@
 class TeamsController < BaseController
   before_filter :guess_section
+  skip_before_filter :verify_authenticity_token, :only => :payment
 
   def show
     @team = Team.new
@@ -24,5 +25,6 @@ class TeamsController < BaseController
     @team.riders.each do |rider|
       rider.update_attributes :paid => true, :payment_type => "PayPal #{params[:txn_id]}"
     end
+    render :nothing => true
   end
 end

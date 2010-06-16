@@ -35,4 +35,5 @@ Rails::Initializer.run do |config|
   # config.i18n.default_locale = :de
 end
 
+ExceptionNotification::Notifier.sender_address = "steve@riverwest24.com"
 ExceptionNotification::Notifier.exception_recipients = %w(micah@botandrose.com)
