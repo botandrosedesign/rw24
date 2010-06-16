@@ -164,3 +164,9 @@ Feature: Team Registration
     And they should see "Michael Gubitosa" in the email body
     And they should see "Class: Tandem" in the email body
     And they should see "Team: Bot and Rose Design" in the email body
+
+  Scenario: User tries to register when race is full
+    Given 520 riders exist
+    And the "we're full" page exists
+    And I am on the registration page
+    Then I should see "Oh snap!"

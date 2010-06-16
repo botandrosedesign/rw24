@@ -1,5 +1,6 @@
 class TeamsController < BaseController
   before_filter :guess_section
+  before_filter :redirect_if_full, :only => [:show, :create]
   skip_before_filter :verify_authenticity_token, :only => :payment
 
   def show
@@ -27,4 +28,9 @@ class TeamsController < BaseController
     end
     render :nothing => true
   end
+
+  private
+    def redirect_if_full
+      redirect_to "/join/articles/closed" if Rider.count >= 520
+    end
 end
