@@ -39,9 +39,25 @@ a
   +border-radius(0px)
   :margin 0
   :padding 0
-  
 label
+  :width auto
+  &.inline
+    :display inline-block
+    :float left
+label, input
+  :display block
+select, label, input
+  :text-align left
   :text-shadow none
+  :float none
+input, select
+  &+label
+    :margin-left 0
+  &.checkbox
+    :display inline-block
+    :float left
+p#publish_date_wrapper
+  :clear left
   
 h2
   :font-size 1.25em
