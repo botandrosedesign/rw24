@@ -40,7 +40,7 @@
               %b 00
               %span sec
           %ul#nav
-            - @site.sections.each_with_index do |section, index|
+            - @site.sections.select(&:published?).each_with_index do |section, index|
               %li
                 = link_to_current h(section.title), section_path(section), :if => request.request_uri.starts_with?("/#{section.permalink}")
                 - next unless section.contents.published.length > 1
