@@ -4,6 +4,7 @@ class Rider < ActiveRecord::Base
   end
 
   named_scope :shirt, lambda { |size| { :conditions => { :shirt => size } } }
+  named_scope :paid, :conditions => { :paid => true }
 
   belongs_to :team
   acts_as_list :scope => :team_id

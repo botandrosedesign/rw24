@@ -34,8 +34,10 @@
     
 %fieldset
   %h4 Riders
-  .field
-    - @team.riders.each do |rider|
+  - @team.riders.each do |rider|
+    .field
+      - if rider.paid?
+        %span.paid
       %label Rider #{rider.position}
       %p= link_to h(rider.name), edit_admin_rider_path(@site, rider)
 

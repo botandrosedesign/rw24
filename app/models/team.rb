@@ -44,6 +44,14 @@ class Team < ActiveRecord::Base
     category[0..0] if category
   end
 
+  def paid?
+    riders.all?(&:paid?)
+  end
+
+  def partially_paid?
+    not paid? and riders.any?(&:paid)
+  end
+
   def to_paypal_hash
     {
       :no_shipping => "1",
