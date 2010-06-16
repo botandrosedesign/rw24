@@ -12,6 +12,10 @@ test:
   <<: *login
   database: rw24_test
 
+cucumber:
+  <<: *login
+  database: rw24_test
+
 staging:
   <<: *login
 
