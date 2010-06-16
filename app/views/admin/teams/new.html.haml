@@ -1,61 +1,44 @@
-%h2 New Team
-%fieldset
-  %h4 Team Information
-  .field 
-    %label POS#
-    %b ---
-  .field
-    %label Team Name
-    %input.text{:type => "text"}
-  .field
-    %label Category
-    %select
-      %option --
-%fieldset
-  %h4 Team Leader Contact Information
-  .field
-    %label Address
-    %input.text.lg{:type => "text"}
-  .field
-    %label.opt Line 2
-    %input.text.lg{:type => "text"}
-  .field
-    %label City
-    %input.text{:type => "text"}
-    %label State 
-    %select
-      %option --
-    %label Zip
-    %input.text.sm{:type => "text"}
-    
-%fieldset
-  %h4 Rider 1 / Leader
-  .field
-    %label Paid?
-    %input.checkbox{:type => "checkbox"}
-    %label Method
-    %input.text{:type => "text"}
-  .field
-    %label Name
-    %input.text{:type => "text"}
-  .field
-    %label Email
-    %input.text{:type => "text"}
-    %label Phone
-    %input.text{:type => "text"}
+= error_messages_for :team
 
-%fieldset
-  %h4 Rider 2
-  .field
-    %label Paid?
-    %input.checkbox{:type => "checkbox"}
-    %label Method
-    %input.text{:type => "text"}
-  .field
-    %label Name
-    %input.text{:type => "text"}
-  .field
-    %label Email
-    %input.text{:type => "text"}
-    %label Phone
-    %input.text{:type => "text"}
+- form_for @team, :url => admin_teams_path(@site) do |form|
+  %h2 New Team
+
+  %fieldset
+    %h4 Team Information
+    .field
+      = form.text_field :name, :label => "Team Name"
+    .field
+      = form.select :category, Team.categories, :class => "sm", :label => true
+
+  %fieldset
+    %h4 Team Leader Contact Information
+    .field
+      = form.text_field :address, :class => "lg", :label => true
+    .field
+      = form.label :line_2, nil, :class => "opt"
+      = form.text_field :line_2, :class => "lg"
+    .field
+      = form.text_field :city, :class => "med", :label => true
+      = form.select :state, State.abbrevs, { :include_blank => "--" }, :class => "sm", :label => true
+      = form.text_field :zip, :class => "sm", :label => true
+      
+  - i = 1
+  - form.fields_for :riders do |rider_form|
+    %fieldset
+      %h4
+        Rider #{i}
+        = "/ Team Leader" if i == 1
+      .field
+        = rider_form.text_field :name, :label => true
+        = rider_form.select :shirt, Rider.shirt_sizes, { :include_blank => "--" }, :class => "sm", :label => true
+      .field
+        = rider_form.text_field :email, :label => true
+        = rider_form.text_field :phone, :label => true
+      .field
+        = rider_form.check_box :paid, :label => "Paid?"
+        = rider_form.text_field :payment_type, :label => "Type"
+    - i += 1
+
+  %hr
+
+  - save_or_cancel_links(form, :cancel_url => admin_teams_path(@site))

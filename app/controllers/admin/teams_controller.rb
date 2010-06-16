@@ -13,7 +13,8 @@ class Admin::TeamsController < Admin::BaseController
   end
 
   def new
-    @team = Team.new(params[:team])
+    @team = Team.new
+    6.times { @team.riders << Rider.new }
   end
 
   def edit
@@ -26,6 +27,9 @@ class Admin::TeamsController < Admin::BaseController
       flash[:notice] = "The team has been created."
       redirect_to edit_admin_team_path(@site, @team)
     else
+      until @team.riders.length == 6
+        @team.riders << Rider.new
+      end
       flash.now[:error] = "The team could not be created."
       render :action => :new
     end
