@@ -8,6 +8,8 @@ class Rider < ActiveRecord::Base
   belongs_to :team
   acts_as_list :scope => :team_id
 
+  validates_email_format_of :email
+
   def team_category=(value)
     team.update_attribute :category, value
   end
