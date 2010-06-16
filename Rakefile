@@ -9,5 +9,5 @@ require 'rake/rdoctask'
 
 require 'tasks/rails'
 
-
+$:.unshift(File.join(File.dirname(__FILE__), 'vendor', 'gems', 'bard-rake-0.1.3', 'lib'))
 require 'bard/rake'
