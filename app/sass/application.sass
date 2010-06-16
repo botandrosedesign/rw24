@@ -166,6 +166,37 @@ ul#nav
   +float-right
   :padding 10px
   
+// unique
+
+#show
+  :margin 6px 0 12px
+  :display block
+  +float-left
+  a
+    :display inline-block
+    +float-left
+    :padding 6px 12px
+    :background #ccc url('/images/gradient-white.png') repeat-x top
+    :font-size 1.1em
+    :font-weight bold
+    :border 1px solid #ccc
+    :border-right 1px solid #fff
+    :color #1a1a1a
+    &.first
+      +border-radius-specific("top","left",12px)
+      +border-radius-specific("bottom","left",12px)
+    &.last
+      :border-right 1px solid #ccc
+      +border-radius-specific("top","right",12px)
+      +border-radius-specific("bottom","right",12px)
+    &:hover
+      :background-color= !primaryColor
+    &.current
+      :background-color #1a1a1a
+      :color #fff
+      :border-color #1a1a1a
+    
+  
 // footer
 
 #footer
