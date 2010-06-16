@@ -15,8 +15,7 @@ class Team < ActiveRecord::Base
 
   attr_accessor :phone
 
-  belongs_to :registration
-  has_many :riders
+  has_many :riders, :dependent => :destroy
   accepts_nested_attributes_for :riders, :reject_if => lambda { |attrs| attrs["name"].blank? }
 
   validates_presence_of :name, :category
