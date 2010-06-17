@@ -77,6 +77,11 @@ Team.blueprint(:solo) do
   riders { [Rider.make] }
 end
 
+Team.blueprint(:a) do
+  category "A Team"
+  riders { [Rider.make, Rider.make] }
+end
+
 Rider.blueprint do
   name
   email

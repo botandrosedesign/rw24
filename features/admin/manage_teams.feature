@@ -39,7 +39,6 @@ Feature: Admins can manage teams
     And I fill in "Shirt" under "Rider 3" with "M"
 
     And I press "Save"
-    Then what
 
     When I follow "Races"
     Then I should see 1 team

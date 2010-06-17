@@ -1,3 +1,51 @@
 %h2 Edit Team
 - form_for @team, :url => admin_team_path(@site, @team) do |f|
-  = render :partial => 'form', :locals => {:f => f}
+  %fieldset
+    %h4 Main Information
+    .field
+      %label POS#
+      %p
+        %b= @team.id
+    .field
+      = f.select :category, Team.categories, :class => "sm", :label => true
+    .field
+      = f.text_field :name, :label => "Team Name"
+
+  %fieldset
+    %h4 Leader
+    .field
+      %label Name
+      %p
+        %b=h @team.captain.try(:name)
+    .field
+      %label Email
+      %p
+        %b=h @team.captain.try(:email)
+      %label Phone
+      %p
+        %b=h @team.captain.try(:phone)
+    .field
+      = f.text_field :address, :class => "lg", :label => true
+    .field
+      = f.label :line_2, nil, :class => "opt"
+      = f.text_field :line_2, :class => "lg"
+    .field
+      = f.text_field :city, :class => "med", :label => true
+      = f.select :state, State.abbrevs, { :include_blank => "--" }, :class => "sm", :label => true
+      = f.text_field :zip, :class => "sm", :label => true
+      
+  %fieldset
+    %h4 Riders
+    - @team.riders.each do |rider|
+      .field
+        - if rider.paid?
+          %span.paid
+        %label Rider #{rider.position}
+        %p= link_to h(rider.name), edit_admin_rider_path(@site, rider)
+    
+    .field
+      = link_to "Add a rider", new_admin_rider_path(@site, :rider => { :team_id => @team.id })
+
+  %hr
+
+  - save_or_cancel_links(f, :cancel_url => admin_teams_path(@site))
