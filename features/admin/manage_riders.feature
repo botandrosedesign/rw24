@@ -66,3 +66,16 @@ Feature: Admins can manage riders
     When I follow "Races"
     And I follow "Edit" next to "Bot and Rose Design"
     Then I should not see "Micah Geisel"
+
+  Scenario: An admin deletes a rider from a rider page
+    Given a solo team exists with name: "Bot and Rose Design"
+    And a rider exists with name: "Micah Geisel", team: that team
+    And I am logged in as an Admin
+    When I follow "Races"
+    And I follow "Edit" next to "Bot and Rose Design"
+    And I follow "Micah Geisel"
+    And I follow "Delete"
+
+    When I follow "Races"
+    And I follow "Edit" next to "Bot and Rose Design"
+    Then I should not see "Micah Geisel"
