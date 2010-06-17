@@ -1,16 +1,16 @@
 Feature: Admins can manage teams
-
-  Scenario: An Admin views all teams
+  Background:
     Given a solo team exists with name: "Bot and Rose Design"
     And a rider exists with name: "Micah Geisel", team: that team
     And I am logged in as an Admin
+
+  Scenario: An Admin views all teams
     When I follow "Races"
     Then I should see 1 team
     And I should see "Bot and Rose Design"
     # And I should see "Micah Geisel"
 
   Scenario: An admin creates a new team with three members
-    Given I am logged in as an Admin
     When I follow "Races"
     And I follow "New"
 
@@ -41,7 +41,7 @@ Feature: Admins can manage teams
     And I press "Save"
 
     When I follow "Races"
-    Then I should see 1 team
+    Then I should see 2 team
     And I should see "Bot and Rose Design"
     And I should see "1/3"
     And I should see "A"
@@ -49,9 +49,6 @@ Feature: Admins can manage teams
     And I should see "Micah Geisel"
 
   Scenario: An Admin edits a team
-    Given a solo team exists with name: "Bot and Rose Design"
-    And a rider exists with name: "Micah Geisel", team: that team
-    And I am logged in as an Admin
     When I follow "Races"
     And I follow "Edit" next to "Bot and Rose Design"
 
@@ -67,3 +64,17 @@ Feature: Admins can manage teams
     When I follow "Races"
     Then I should see 1 team
     And I should see "Bog and Rat Defeat"
+
+  Scenario: An Admin deletes a team
+    When I follow "Races"
+    And I follow "Delete"
+    Then I should see 0 teams
+    And I should not see "Bot and Rose Design"
+
+  Scenario: An Admin deletes a team from the edit page
+    When I follow "Races"
+    And I follow "Edit" next to "Bot and Rose Design"
+
+    When I follow "Delete"
+    Then I should see 0 teams
+    And I should not see "Bot and Rose Design"

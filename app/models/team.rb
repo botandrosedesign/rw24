@@ -16,6 +16,8 @@ class Team < ActiveRecord::Base
   attr_accessor :phone
 
   has_many :riders, :dependent => :destroy
+  belongs_to :site
+
   accepts_nested_attributes_for :riders, :reject_if => lambda { |attrs| attrs["name"].blank? }
 
   validates_presence_of :name, :category
@@ -24,7 +26,7 @@ class Team < ActiveRecord::Base
     record.errors.add attr, 'count is incorrect.' unless record.allowed_range.include? value.length
   end
 
-  before_save :assign_phone_to_captain
+  before_save :assign_phone_to_captain, :assign_site
 
   def initialize(attrs={})
     attrs ||= {}
@@ -75,5 +77,9 @@ class Team < ActiveRecord::Base
   private
     def assign_phone_to_captain
       captain.phone = self.phone if self.phone
+    end
+
+    def assign_site
+      self.site = Site.first
     end
 end

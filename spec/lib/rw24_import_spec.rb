@@ -15,7 +15,7 @@ describe "rake rw24:import" do
     Rider.count.should == 298
 
     rider = Rider.find(1)
-    rider.attributes.to_hash.reject { |k,v| %w(updated_at created_at).include?(k) }.symbolize_keys.should == {
+    rider.attributes.to_hash.reject { |k,v| %w(site_id updated_at created_at).include?(k) }.symbolize_keys.should == {
       :id => 1,
       :name => "Troy Lucas",
       :team_id => 1,
@@ -28,7 +28,7 @@ describe "rake rw24:import" do
       :notes => nil,
       :confirmed_on => Date.parse("5/24/2010")
     }
-    rider.team.attributes.to_hash.reject { |k,v| %w(updated_at created_at).include?(k) }.symbolize_keys.should == {
+    rider.team.attributes.to_hash.reject { |k,v| %w(site_id updated_at created_at).include?(k) }.symbolize_keys.should == {
       :id => 1,
       :name => "T-Roy",
       :category => "Solo (male)",
@@ -55,7 +55,7 @@ describe "rake rw24:import" do
       :confirmed_on => Date.parse("5/24/2010"),
       :notes => "initial confirmation email bounced back, follow up with phone call to verify?"
     }
-    rider.team.attributes.to_hash.reject { |k,v| %w(updated_at created_at).include?(k) }.symbolize_keys.should == {
+    rider.team.attributes.to_hash.reject { |k,v| %w(site_id updated_at created_at).include?(k) }.symbolize_keys.should == {
       :id => 3,
       :name => "Team Pubic Zirconia",
       :category => "B Team",

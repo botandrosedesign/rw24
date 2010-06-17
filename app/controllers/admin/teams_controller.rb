@@ -50,7 +50,7 @@ class Admin::TeamsController < Admin::BaseController
     @team = Team.find params[:id]
     if @team.destroy
       flash[:notice] = "The team has been destroyed."
-      redirect_to admin_teams_url(@site)
+      redirect_to admin_teams_path(@site)
     else
       flash.now[:error] = "The team could not be destroyed."
       render :action => :edit
