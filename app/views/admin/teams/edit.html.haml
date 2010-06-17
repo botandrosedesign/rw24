@@ -42,6 +42,7 @@
           %span.paid
         %label Rider #{rider.position}
         %p= link_to h(rider.name), edit_admin_rider_path(@site, rider)
+        %p= link_to "Delete", admin_rider_path(@site, rider), :class => 'delete', :confirm => 'Are you sure you want to delete this rider?', :method => :delete
     
     .field
       = link_to "Add a rider", new_admin_rider_path(@site, :rider => { :team_id => @team.id })

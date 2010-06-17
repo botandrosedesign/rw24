@@ -1,5 +1,6 @@
 class Admin::RidersController < Admin::BaseController
   include Admin::RidersHelper
+  include Admin::TeamsHelper
   before_filter :authorize_access
 
   guards_permissions :rider
@@ -46,7 +47,7 @@ class Admin::RidersController < Admin::BaseController
     @rider = Rider.find params[:id]
     if @rider.destroy
       flash[:notice] = "The rider has been destroyed."
-      redirect_to admin_riders_url(@site)
+      redirect_to edit_admin_team_path(@site, @rider.team)
     else
       flash.now[:error] = "The rider could not be destroyed."
       render :action => :edit
