@@ -1,0 +1,155 @@
+--- 
+dependencies: 
+  compass: 
+    group: 
+    - :default
+    version: ~> 0.8
+  ruby-debug: 
+    group: 
+    - :development
+    - :test
+    - :cucumber
+    version: ">= 0"
+  fastercsv: 
+    group: 
+    - :default
+    version: ">= 0"
+  faker: 
+    group: 
+    - :test
+    - :cucumber
+    version: = 0.3.1
+  rails: 
+    group: 
+    - :default
+    version: = 2.3.4
+  haml: 
+    group: 
+    - :default
+    version: ~> 2.2
+  mechanize: 
+    group: 
+    - :cucumber
+    version: ">= 0"
+  machinist: 
+    group: 
+    - :test
+    - :cucumber
+    version: = 1.0.6
+    require: []
+
+  rspec: 
+    group: 
+    - :test
+    - :cucumber
+    version: = 1.2.9
+    require: []
+
+  ruby-mysql: 
+    group: 
+    - :default
+    version: ">= 0"
+  rspec-rails: 
+    group: 
+    - :test
+    - :cucumber
+    version: = 1.2.9
+    require: []
+
+  webrat: 
+    group: 
+    - :cucumber
+    version: = 0.5.3
+    require: []
+
+  bard-rake: 
+    group: 
+    - :default
+    version: ">= 0"
+    require: []
+
+  pickle: 
+    group: 
+    - :cucumber
+    version: = 0.2.1
+    require: []
+
+  cucumber: 
+    group: 
+    - :cucumber
+    version: = 0.4.3
+    require: []
+
+  email_spec: 
+    group: 
+    - :cucumber
+    version: = 0.4.0
+specs: 
+- rake: 
+    version: 0.8.7
+- activesupport: 
+    version: 2.3.4
+- rack: 
+    version: 1.0.1
+- actionpack: 
+    version: 2.3.4
+- actionmailer: 
+    version: 2.3.4
+- activerecord: 
+    version: 2.3.4
+- activeresource: 
+    version: 2.3.4
+- bard-rake: 
+    version: 0.1.3
+- builder: 
+    version: 2.1.2
+- columnize: 
+    version: 0.3.1
+- haml: 
+    version: 2.2.24
+- compass: 
+    version: 0.8.17
+- diff-lcs: 
+    version: 1.1.2
+- polyglot: 
+    version: 0.2.9
+- term-ansicolor: 
+    version: 1.0.4
+- treetop: 
+    version: 1.4.2
+- cucumber: 
+    version: 0.4.3
+- email_spec: 
+    version: 0.4.0
+- faker: 
+    version: 0.3.1
+- fastercsv: 
+    version: 1.5.3
+- linecache: 
+    version: "0.43"
+- machinist: 
+    version: 1.0.6
+- nokogiri: 
+    version: 1.4.2
+- mechanize: 
+    version: 1.0.0
+- pickle: 
+    version: 0.2.1
+- rails: 
+    version: 2.3.4
+- rspec: 
+    version: 1.2.9
+- rspec-rails: 
+    version: 1.2.9
+- ruby-debug-base: 
+    version: 0.10.3
+- ruby-debug: 
+    version: 0.10.3
+- ruby-mysql: 
+    version: 2.9.2
+- webrat: 
+    version: 0.5.3
+hash: f88dddd051ac51ce3f383b6fb84f910f4cdcb296
+sources: 
+- Rubygems: 
+    uri: http://gemcutter.org

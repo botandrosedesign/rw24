@@ -8,11 +8,6 @@ require File.join(File.dirname(__FILE__), 'boot')
 require File.join(File.dirname(__FILE__), '../vendor/adva/engines/adva_cms/boot')
 
 Rails::Initializer.run do |config|
-  config.gem 'haml', :version => '~>2.2'
-  config.gem 'compass', :version => '~>0.8'
-  config.gem 'bard-rake', :version => '>=0.1.3', :lib => false
-  config.gem 'fastercsv'
-
   config.load_paths += %W( #{RAILS_ROOT}/app/mailers )
 
   # Only load the plugins named here, in the order given (default is alphabetical).
