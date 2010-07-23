@@ -1,5 +1,5 @@
 set :application, "rw24"
-role :production, "www@botandrose.com"
+role :production, "www@riverwest24.com:22022"
 
 desc "Clear the static cache"
 task :clear_cache, :roles => :production do
