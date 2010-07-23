@@ -10,6 +10,7 @@ gem "compass", "~>0.8"
 gem "fastercsv"
 
 group :test, :cucumber do
+  gem "autotest-rails"
   gem "rspec",       "1.2.9", :require => false
   gem "rspec-rails", "1.2.9", :require => false
   gem "machinist",   "1.0.6", :require => false
