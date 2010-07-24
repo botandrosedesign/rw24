@@ -12,38 +12,53 @@
       = f.text_field :name, :label => "Team Name"
 
   %fieldset
-    %h4 Leader
-    .field
-      %label Name
-      %p
-        %b=h @team.captain.try(:name)
-    .field
-      %label Email
-      %p
-        %b=h @team.captain.try(:email)
-      %label Phone
-      %p
-        %b=h @team.captain.try(:phone)
-    .field
-      = f.text_field :address, :class => "lg", :label => true
-    .field
-      = f.label :line_2, nil, :class => "opt"
-      = f.text_field :line_2, :class => "lg"
-    .field
-      = f.text_field :city, :class => "med", :label => true
-      = f.select :state, State.abbrevs, { :include_blank => "--" }, :class => "sm", :label => true
-      = f.text_field :zip, :class => "sm", :label => true
-      
-  %fieldset
     %h4 Riders
-    - @team.riders.each do |rider|
-      .field
-        - if rider.paid?
-          %span.paid
-        %label Rider #{rider.position}
-        %p= link_to h(rider.name), edit_admin_rider_path(@site, rider)
-        %p= link_to "Delete", admin_rider_path(@site, rider), :class => 'delete', :confirm => 'Are you sure you want to delete this rider?', :method => :delete
-    
+    - i = 1
+    - f.fields_for :riders do |rider_form|
+      %h3 Rider #{i}
+      %div{ :id => "rider_#{i}" }
+        %fieldset
+          .field
+            = link_to "Delete #{rider_form.object.name}", admin_rider_path(@site, rider_form.object), :method => :delete
+        %fieldset
+          .field
+            = rider_form.text_field :name, :label => true
+          .field
+            = rider_form.text_field :email, :label => true
+          .field
+            = rider_form.text_field :phone, :label => true
+          .field
+            = rider_form.select :shirt, Rider.shirt_sizes, :label => "Shirt Size"
+
+        - if i == 1
+          %fieldset
+            %h4 Leader Fields
+            .field
+              = f.text_field :address, :class => "lg", :label => true
+            .field
+              = f.label :line_2, nil, :class => "opt"
+              = f.text_field :line_2, :class => "lg"
+            .field
+              = f.text_field :city, :class => "med", :label => true
+              = f.select :state, State.abbrevs, { :include_blank => "--" }, :class => "sm", :label => true
+              = f.text_field :zip, :class => "sm", :label => true
+
+        %fieldset
+          %h4 Payment
+          .field
+            = rider_form.check_box :paid, :label => "Paid?"
+          .field
+            = rider_form.text_field :payment_type, :label => "Type"
+          .field
+            = rider_form.date_select :confirmed_on, :label => "Confirmed"
+
+        %fieldset
+          %h4 Additional Information
+          .field
+            = rider_form.text_area :notes, :label => true
+        %hr
+        - i += 1
+
     .field
       = link_to "Add a rider", new_admin_rider_path(@site, :rider => { :team_id => @team.id })
 

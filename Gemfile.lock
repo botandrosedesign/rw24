@@ -71,7 +71,7 @@ dependencies:
   pickle: 
     group: 
     - :cucumber
-    version: = 0.2.1
+    version: = 0.3.0
     require: []
 
   cucumber: 
@@ -143,7 +143,7 @@ specs:
 - mechanize: 
     version: 1.0.0
 - pickle: 
-    version: 0.2.1
+    version: 0.3.0
 - rails: 
     version: 2.3.4
 - rspec: 
@@ -158,7 +158,7 @@ specs:
     version: 2.9.3
 - webrat: 
     version: 0.5.3
-hash: 497aae7594bbdbf7322f9f0ad416015f425c34e8
+hash: ae5724bb2406a2af8fb4e11eb4275af780e2ec69
 sources: 
 - Rubygems: 
     uri: http://gemcutter.org

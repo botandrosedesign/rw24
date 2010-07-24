@@ -20,7 +20,7 @@ end
 group :cucumber do
   gem "cucumber",    "0.4.3", :require => false
   gem "webrat",      "0.5.3", :require => false
-  gem "pickle",      "0.2.1", :require => false
+  gem "pickle",      "0.3.0", :require => false
   gem "email_spec",  "0.4.0"
   gem "mechanize"
 end
