@@ -33,5 +33,5 @@ When /^I uncheck "([^\"]*)" for "([^\"]*)"$/ do |field, label|
 end
 
 def racer_selector(label)
-  "h3:contains('#{label}') + *" 
+  "h1:contains('#{label}') + *" 
 end
