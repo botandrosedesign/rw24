@@ -58,6 +58,7 @@ input, select
     :float left
 p#publish_date_wrapper
   :clear left
+
   
 h2
   :font-size 1.25em
@@ -236,6 +237,8 @@ input[type="text"], select
   :color #1a1a1a
   &:focus
     :border-color= !primaryColor
+select
+  width: 100px
     
 p.flash
   :margin 0
@@ -252,8 +255,11 @@ p.flash
 fieldset
   :padding 10px 0
   :display block
-  :float left
   :width 100%
+  &.half
+    width: 40%
+    +float-left
+    clear: none !important
   fieldset
     :width auto
     :padding 0
@@ -273,10 +279,14 @@ label
   :text-align left
 input.text
   :padding 2px 8px
+  &.xlarge
+    font-size: 2em
+    width: 100%
 textarea
-  :width 500px
-  :max-width 500px
-  :min-width 500px
+  :width 380px
+  :max-width 380px
+  :min-width 380px
+  :height 80px
   
     
   

@@ -9,18 +9,20 @@
     .field
       = f.select :category, Team.categories, :class => "sm", :label => true
     .field
-      = f.text_field :name, :label => "Team Name"
+      = f.text_field :name, :label => "Team Name", :class => "xlarge"
 
   %fieldset
     %h4 Riders
     - i = 1
     - f.fields_for :riders do |rider_form|
-      %h3 Rider #{i}
-      %div{ :id => "rider_#{i}" }
-        %fieldset
-          .field
-            = link_to "Delete #{rider_form.object.name}", admin_rider_path(@site, rider_form.object), :method => :delete
-        %fieldset
+      %br
+      %hr
+      %h1.rider Rider #{i}
+      %div.left{ :id => "rider_#{i}" }
+        .field
+          = link_to "Delete #{rider_form.object.name}", admin_rider_path(@site, rider_form.object), :method => :delete
+        %fieldset.half
+          %h4 Basic Info
           .field
             = rider_form.text_field :name, :label => true
           .field
@@ -31,7 +33,7 @@
             = rider_form.select :shirt, Rider.shirt_sizes, :label => "Shirt Size"
 
         - if i == 1
-          %fieldset
+          %fieldset.half
             %h4 Leader Fields
             .field
               = f.text_field :address, :class => "lg", :label => true
@@ -43,7 +45,7 @@
               = f.select :state, State.abbrevs, { :include_blank => "--" }, :class => "sm", :label => true
               = f.text_field :zip, :class => "sm", :label => true
 
-        %fieldset
+        %fieldset.half
           %h4 Payment
           .field
             = rider_form.check_box :paid, :label => "Paid?"
@@ -52,16 +54,17 @@
           .field
             = rider_form.date_select :confirmed_on, :label => "Confirmed"
 
-        %fieldset
+        %fieldset.half
           %h4 Additional Information
           .field
             = rider_form.text_area :notes, :label => true
-        %hr
         - i += 1
-
+      .clear
+    %br
+    %br
+    %hr
     .field
-      = link_to "Add a rider", new_admin_rider_path(@site, :rider => { :team_id => @team.id })
+      = link_to "+ Add a rider", new_admin_rider_path(@site, :rider => { :team_id => @team.id })
 
   %hr
-
   - save_or_cancel_links(f, :cancel_url => admin_teams_path(@site))
