@@ -1,3 +1,14 @@
+%h3 Live radio broadcast!
+%object#utv962948{ :height => "200", :classid => "clsid:d27cdb6e-ae6d-11cf-96b8-444553540000", :width => "230" }
+  %param{ :name => "flashvars", :value => "autoplay=false&amp;brand=embed&amp;cid=5043682&amp;locale=en_US" }
+  %param{ :name => "allowfullscreen", :value => "true" }
+  %param{ :name => "allowscriptaccess", :value => "always" }
+  %param{ :name => "movie", :value => "http://www.ustream.tv/flash/live/1/5043682" }
+  %embed#utv962948{ :name => "utv_n_989944", :allowfullscreen => "true", :src => "http://www.ustream.tv/flash/live/1/5043682", :allowscriptaccess => "always", :type => "application/x-shockwave-flash", :height => "200", :flashvars => "autoplay=false&amp;brand=embed&amp;cid=5043682&amp;locale=en_US", :width => "230" }
+%a{ :href => "http://www.ustream.tv/", :target => "_blank", :style => "padding: 2px 0px 4px; width: 230px; background: #ffffff; display: block; color: #000000; font-weight: normal; font-size: 10px; text-decoration: underline; text-align: center;" }
+  Streaming Video by Ustream.TV
+
+
 - if @section.contents.published.length > 1
   %h3= h @section.title
   %ul
@@ -7,7 +18,6 @@
 - if @article.try(:permalink) == "home"
   %h3 Are you ready?
   %ul.quicklinks
-    %li= link_to "Register Online", "/join/registrations"
     %li= link_to "Read the Rules", "/about/articles/rules"
     %li= link_to "Suggested Route Map", "/about/articles/rules/#route"
     %li= link_to "Volunteer to help", "/join/articles/volunteer"
@@ -22,7 +32,7 @@
   %li= link_to "Follow us on Twitter", "http://twitter.com/riverwest24", :target => "_blank", :id => "twitter"
   %li= link_to "Become a Fan on Facebook", "http://www.facebook.com/#!/pages/Riverwest24/282766933449?ref=ts", :target => "_blank", :id => "facebook"
 %br
-%p.center_align
-  %img{:src => "/images/photos/tattoo.jpg"}
-  %br
-  %em Photo by Peter DiAntoni
+/%p.center_align
+/  %img{:src => "/images/photos/tattoo.jpg"}
+/  %br
+/  %em Photo by Peter DiAntoni
