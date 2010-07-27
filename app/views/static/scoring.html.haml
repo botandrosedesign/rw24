@@ -1,0 +1,37 @@
+%table
+  %col{:width => "10%"}
+  %col{:width => "10%"}
+  %col{:width => "10%"}
+  %col{:width => "*"}
+  %col{:width => "5%"}
+  %col{:width => "5%"}
+  %tr
+    %th Point Type
+    %th Amount
+    %th POS#
+    %th Team Name
+    %th{:colspan => "2"} Actions
+
+- content_for :sidebar do
+  %h4 Lap Calculator
+  .calculator#laps
+    %label Input Team Number:
+    %input.text{:type => "text"}
+    %input.submit{:type => "submit", :value => "OK"}
+  
+  %h4 Other points
+  .calculator#other  
+    %p
+      %b Select type of points:
+    .field
+      %input.radio{:type => "radio"}
+      %label Bonus
+      %input.radio{:type => "radio"}
+      %label Penalty
+    .field
+      %label Amount of points:
+      %input.text{:type => "text"}
+    .field
+      %label Input Team Number:
+      %input.text{:type => "text"}
+      %input.submit{:type => "submit", :value => "OK"}

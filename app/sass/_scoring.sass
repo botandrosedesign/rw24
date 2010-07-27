@@ -1,0 +1,28 @@
+#sidebar
+  .calculator
+    +float-left
+    margin-bottom: 20px
+    input
+      +float-left
+      display: block
+      &.text
+        font-size: 2.5em
+        width: 70%
+        height: 44px
+      &.submit
+        border: none
+        font-family: Futura
+        font-weight: bold
+        margin: 1px 0 0 0
+        padding: 0
+        width: 20%
+        height: 48px
+        line-height: 2
+        font-size: 1.75em
+        text-align: center
+        background: #fff
+        &:hover
+          background= !primaryColor
+          color: #fff
+    label
+      width: auto
