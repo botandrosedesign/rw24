@@ -1,4 +1,4 @@
-%table
+%table#teams
   %col{:width => "10%"}
   %col{:width => "10%"}
   %col{:width => "10%"}
@@ -6,11 +6,39 @@
   %col{:width => "5%"}
   %col{:width => "5%"}
   %tr
-    %th Point Type
-    %th Amount
-    %th POS#
+    %th.center_align POS#
+    %th.center_align Type
+    %th.center_align Amt
     %th Team Name
-    %th{:colspan => "2"} Actions
+    %th.center_align{:colspan => "2"} Actions
+  %tr
+    %td.center_align 001
+    %td.center_align Lap
+    %td.center_align 1
+    %td Lorem Ipsum Dolor
+    %td.edit= link_to "Edit", "#"
+    %td.delete= link_to "Delete", "#"
+  %tr.even
+    %td.center_align 016
+    %td.center_align Lap
+    %td.center_align 1
+    %td YESSSSSS!
+    %td.edit= link_to "Edit", "#"
+    %td.delete= link_to "Delete", "#"
+  %tr.bonus
+    %td.center_align 056
+    %td.center_align Bonus
+    %td.center_align 5
+    %td Sultry Sluts
+    %td.edit= link_to "Edit", "#"
+    %td.delete= link_to "Delete", "#"
+  %tr.penalty
+    %td.center_align 005
+    %td.center_align Penalty
+    %td.center_align -2
+    %td We Broke the Rules
+    %td.edit= link_to "Edit", "#"
+    %td.delete= link_to "Delete", "#"
 
 - content_for :sidebar do
   %h4 Lap Calculator
