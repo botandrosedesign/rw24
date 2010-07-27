@@ -3,6 +3,7 @@
   = link_to "All", "#", :class => "first current"
   = link_to "A Team", "#", :"data-category" => "A"
   = link_to "B Team", "#", :"data-category" => "B"
+  = link_to "Solo", "#", :"data-category" => "S"
   = link_to "Solo (M)", "#", :"data-category" => "M"
   = link_to "Solo (F)", "#", :"data-category" => "F"
   = link_to "Tandem", "#", :class => "last", :"data-category" => "T"
@@ -27,7 +28,7 @@
         %b Total
   %tbody
     - @teams.each do |team|
-      %tr{ :class => "#{cycle(nil, "even")} category_#{team.category_abbrev_with_gender}" }
+      %tr{ :class => "#{cycle(nil, "even")} #{[team.category_abbrev_with_gender, team.category_abbrev].uniq.join(" ")}" }
         %td.center_align= "%03d" % team.position
         %td.center_align= team.category_abbrev_with_gender
         %td= team.name
@@ -46,7 +47,7 @@
         var category = $(this).attr("data-category");
         if(category) {
           $("#teams tbody tr").hide();
-          $("#teams tbody tr.category_" + category).show()
+          $("#teams tbody tr." + category).show()
             .removeClass("even").filter("tr:odd").addClass("even");
         } else {
           $("#teams tbody tr").show()
