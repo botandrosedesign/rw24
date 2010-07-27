@@ -1,3 +1,11 @@
+- if @article.try(:permalink) == "home"
+  %h3 Are you ready?
+  %ul.quicklinks
+    %li= link_to "Read the Rules", "/about/articles/rules"
+    %li= link_to "Suggested Route Map", "/about/articles/rules/#route"
+    %li= link_to "Volunteer to help", "/join/articles/volunteer"
+    %li= link_to "Become a Sponsor", "/join/articles/sponsor"
+
 %h3 Live radio broadcast!
 %object#utv962948{ :height => "200", :classid => "clsid:d27cdb6e-ae6d-11cf-96b8-444553540000", :width => "230" }
   %param{ :name => "flashvars", :value => "autoplay=false&amp;brand=embed&amp;cid=5043682&amp;locale=en_US" }
@@ -14,14 +22,6 @@
   %ul
     - @section.contents.published.select(&:root?).each do |content|
       %li= link_to_current h(content.title), content_path(@section, content), :if => content == @article
-
-- if @article.try(:permalink) == "home"
-  %h3 Are you ready?
-  %ul.quicklinks
-    %li= link_to "Read the Rules", "/about/articles/rules"
-    %li= link_to "Suggested Route Map", "/about/articles/rules/#route"
-    %li= link_to "Volunteer to help", "/join/articles/volunteer"
-    %li= link_to "Become a Sponsor", "/join/articles/sponsor"
 
 %a.button{:href => "/join/articles/volunteer"}
   Want to Help?
