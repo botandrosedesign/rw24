@@ -31,20 +31,24 @@
       = form.text_field :team_position
       = form.submit "OK"
   
-  %h4 Other Points
+  %h4 Bonus Points
   - form_for @other do |form|
-    .calculator#other
-      %p
-        %b Select type of points:
+    .calculator#bonus
       .field
-        = form.radio_button :category, "Bonus"
-        = form.label :category_bonus, "Bonus"
-        = form.radio_button :category, "Penalty"
-        = form.label :category_penalty, "Penalty"
+        = form.label :team_position, "POS#", :class => "medium"
+        = form.label :qty, "Points", :class => "medium"
       .field
-        = form.label :qty, "Amount of points:"
-        = form.text_field :qty
+        = form.text_field :team_position, :class => "medium"
+        = form.text_field :qty, :class => "medium"
+        = form.submit "OK"
+  
+  %h4 Penalty Points
+  - form_for @other do |form|
+    .calculator#penalty
       .field
-        = form.label :team_position, "Input Team Number:"
-        = form.text_field :team_position
+        = form.label :team_position, "POS#", :class => "medium"
+        = form.label :qty, "Points", :class => "medium"
+      .field
+        = form.text_field :team_position, :class => "medium"
+        = form.text_field :qty, :class => "medium"
         = form.submit "OK"
