@@ -28,7 +28,7 @@
   %tbody
     - @teams.each do |team|
       %tr{ :class => "#{cycle(nil, "even")} category_#{team.category_abbrev_with_gender}" }
-        %td.center_align= "%03d" % team.id
+        %td.center_align= "%03d" % team.position
         %td.center_align= team.category_abbrev_with_gender
         %td= team.name
         %td.center_align --

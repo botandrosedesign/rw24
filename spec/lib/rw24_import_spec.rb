@@ -30,6 +30,7 @@ describe "rake rw24:import" do
     }
     rider.team.attributes.to_hash.reject { |k,v| %w(site_id updated_at created_at).include?(k) }.symbolize_keys.should == {
       :id => 1,
+      :position => 1,
       :name => "T-Roy",
       :category => "Solo (male)",
       :address => nil,
@@ -57,6 +58,7 @@ describe "rake rw24:import" do
     }
     rider.team.attributes.to_hash.reject { |k,v| %w(site_id updated_at created_at).include?(k) }.symbolize_keys.should == {
       :id => 3,
+      :position => 3,
       :name => "Team Pubic Zirconia",
       :category => "B Team",
       :address => nil,

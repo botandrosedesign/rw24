@@ -4,8 +4,7 @@
     %h4 Main Information
     .field
       %label POS#
-      %p
-        %b= @team.id
+      = f.text_field :position, :label => "POS#", :class => "xlarge"
     .field
       = f.select :category, Team.categories, :class => "sm", :label => true
     .field

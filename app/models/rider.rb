@@ -18,4 +18,8 @@ class Rider < ActiveRecord::Base
   def team_name=(value)
     team.update_attribute :name, value
   end
+
+  def team_position
+    team.try(:position)
+  end
 end

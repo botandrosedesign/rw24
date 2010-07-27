@@ -13,18 +13,23 @@ class Team < ActiveRecord::Base
     ["A Team", "B Team", "Solo (male)", "Solo (female)", "Tandem"]
   end
 
+  default_scope :order => "position"
+
   attr_accessor :phone
 
-  has_many :riders, :dependent => :destroy
+  has_many :riders, :dependent => :delete_all
   belongs_to :site
 
   accepts_nested_attributes_for :riders, :reject_if => lambda { |attrs| attrs["name"].blank? }
 
   validates_presence_of :name, :category
   validates_presence_of :address, :city, :state, :zip, :on => :create
+  validates_uniqueness_of :position
   validates_each :riders do |record, attr, value|
     record.errors.add attr, 'count is incorrect.' unless record.allowed_range.include? value.length
   end
+
+  acts_as_list
 
   before_save :assign_phone_to_captain, :assign_site
 
