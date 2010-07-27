@@ -3,6 +3,10 @@ class TeamsController < BaseController
   before_filter :redirect_if_full, :only => [:show, :create]
   skip_before_filter :verify_authenticity_token, :only => :payment
 
+  def index
+    @teams = Team.all
+  end
+
   def show
     @team = Team.new
     6.times { @team.riders << Rider.new }

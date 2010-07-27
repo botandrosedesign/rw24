@@ -1,5 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resource :registrations, :controller => 'teams', :path_prefix => "join", :only => [:show, :create], :collection => { :payment => :post }
+  map.resource :registrations, :controller => "teams", :path_prefix => "join", :only => [:show, :create], :collection => { :payment => :post }
+
+  map.leader_board "leader-board", :controller => "teams", :action => "index"
 
   map.resources :teams, :path_prefix => "admin",
     :name_prefix => "admin_global_",

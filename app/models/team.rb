@@ -46,6 +46,11 @@ class Team < ActiveRecord::Base
     category[0..0] if category
   end
 
+  def category_abbrev_with_gender
+    return category_abbrev unless category_abbrev == "S"
+    category =~ /female/ ? "F" : "M"
+  end
+
   def paid?
     riders.all?(&:paid?)
   end
