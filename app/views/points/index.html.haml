@@ -1,0 +1,50 @@
+%table#teams
+  %col{:width => "10%"}
+  %col{:width => "10%"}
+  %col{:width => "10%"}
+  %col{:width => "*"}
+  %col{:width => "5%"}
+  %col{:width => "5%"}
+  %tr
+    %th.center_align POS#
+    %th.center_align Type
+    %th.center_align Amt
+    %th Team Name
+    %th.center_align{:colspan => "2"} Actions
+  - @points.each do |point|
+    %tr{ :class => "#{cycle(nil, "even")} #{point.category.downcase}" }
+      %td.center_align= "%03d" % point.team_position
+      %td.center_align= point.category
+      %td.center_align= point.qty
+      %td= point.team_name
+      %td.edit= link_to "Edit", "#"
+      %td.delete= link_to "Delete", "#"
+
+- content_for :sidebar do
+  %h4 Lap Logger
+  - form_for @lap do |form|
+    .calculator#laps
+      = form.hidden_field :qty
+      = form.hidden_field :category
+
+      = form.label :team_position, "Input Team Number:"
+      = form.text_field :team_position
+      = form.submit "OK"
+  
+  %h4 Other Points
+  - form_for @other do |form|
+    .calculator#other
+      %p
+        %b Select type of points:
+      .field
+        = form.radio_button :category, "Bonus"
+        = form.label :category_bonus, "Bonus"
+        = form.radio_button :category, "Penalty"
+        = form.label :category_penalty, "Penalty"
+      .field
+        = form.label :qty, "Amount of points:"
+        = form.text_field :qty
+      .field
+        = form.label :team_position, "Input Team Number:"
+        = form.text_field :team_position
+        = form.submit "OK"
