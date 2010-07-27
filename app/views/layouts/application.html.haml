@@ -25,8 +25,9 @@
             %h1 Riverwest 24
             %h2 Hour Bike Race
             %span July 30-31, 2010 | 7pm-7pm
-          #countdown
-            %p The race starts in:
+          #countdown{ :style => "visibility: hidden" }
+            %p.countup The race starts in:
+            %p.countdown{ :style => "display: none" } It's on! The race has been going for:
             #day
               %b 00
               %span days
