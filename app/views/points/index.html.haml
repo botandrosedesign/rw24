@@ -29,7 +29,7 @@
 
       = form.label :team_position, "Input Team Number:"
       = form.text_field :team_position
-      = form.submit "OK"
+      = form.submit "OK", :class => "button"
   
   %h4 Bonus Points
   - form_for @other do |form|
@@ -40,7 +40,7 @@
       .field
         = form.text_field :team_position, :class => "medium"
         = form.text_field :qty, :class => "medium"
-        = form.submit "OK"
+        = form.submit "OK", :class => "button"
   
   %h4 Penalty Points
   - form_for @other do |form|
@@ -51,4 +51,4 @@
       .field
         = form.text_field :team_position, :class => "medium"
         = form.text_field :qty, :class => "medium"
-        = form.submit "OK"
+        = form.submit "OK", :class => "button"
