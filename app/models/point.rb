@@ -59,6 +59,12 @@ class Point < ActiveRecord::Base
     team.try :name
   end
 
+  categories.each do |cat|
+    define_method :"#{cat.downcase}?" do
+      category == cat
+    end
+  end
+
   private
     def ensure_penalties_are_negative
       if category == "Penalty" && self.qty.try(:>, 0)

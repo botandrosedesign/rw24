@@ -20,7 +20,7 @@
 :plain
   <script type="text/x-jquery-template" title="pointRow">
     <tr class="pending" id="<%= self.id %>">
-      <td class="center_align"><%= $.sprintf("%03d", self['point[team_position]']) %></td>
+      <td class="center_align"><%= fixed_number_or_empty(self['point[team_position]']) %></td>
       <td class="center_align sort"><%= self['point[since_start]'] %></td>
       <td class="center_align"><%= self['point[category]'] %></td>
       <td class="center_align"><%= self['point[qty]'] %></td>

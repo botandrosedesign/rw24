@@ -9,7 +9,7 @@
   = link_to "Tandem", "#", :class => "last", :"data-category" => "T"
 .clear
 %p
-  %b 182 Teams
+  %b= pluralize @teams.size, "Team"
 %table#teams{:width => "100%"}
   %col{:width => "8%"}
   %col{:width => "10%"}
@@ -31,14 +31,14 @@
   %tbody
     - @teams.each do |team|
       %tr{ :class => "#{cycle(nil, "even")} #{[team.category_abbrev_with_gender, team.category_abbrev].uniq.join(" ")}" }
-        %td.center_align= "%03d" % team.position
+        %td.center_align= fixed_number_or_empty team.position
         %td.center_align= team.category_abbrev_with_gender
         %td= team.name
-        %td.center_align --
-        %td.center_align --
-        %td.center_align --
+        %td.center_align= fixed_number_or_empty team.laps_total
+        %td.center_align= fixed_number_or_empty team.bonuses_total
+        %td.center_align= fixed_number_or_empty team.penalties_total
         %td.center_align
-          %b --
+          %b= fixed_number_or_empty team.points_total
 
 - content_for "js" do
   :javascript

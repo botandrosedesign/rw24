@@ -17,8 +17,9 @@ class Team < ActiveRecord::Base
 
   attr_accessor :phone
 
-  has_many :riders, :dependent => :delete_all
   belongs_to :site
+  has_many :riders, :dependent => :delete_all
+  has_many :points
 
   accepts_nested_attributes_for :riders, :reject_if => lambda { |attrs| attrs["name"].blank? }
 
@@ -33,10 +34,30 @@ class Team < ActiveRecord::Base
 
   before_save :assign_phone_to_captain, :assign_site
 
+  def self.leader_board
+    all(:include => :points).sort_by(&:points_total).reverse
+  end
+
   def initialize(attrs={})
     attrs ||= {}
     attrs.reverse_merge! "category" => "A Team"
     super
+  end
+
+  def laps_total
+    points.select(&:lap?).sum(&:qty)
+  end
+
+  def bonuses_total
+    points.select(&:bonus?).sum(&:qty)
+  end
+
+  def penalties_total
+    points.select(&:penalty?).sum(&:qty)
+  end
+
+  def points_total
+    points.to_a.sum(&:qty)
   end
 
   def allowed_range

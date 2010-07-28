@@ -26,4 +26,9 @@ module ApplicationHelper
     return article_path(section, content) if content.is_a? Article
     link_path(section, content)
   end
+
+  def fixed_number_or_empty(value)
+    return '---' unless value.nonzero?
+    "%03d" % value 
+  end
 end

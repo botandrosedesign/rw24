@@ -4,7 +4,7 @@ class TeamsController < BaseController
   skip_before_filter :verify_authenticity_token, :only => :payment
 
   def index
-    @teams = Team.all
+    @teams = Team.leader_board
   end
 
   def show

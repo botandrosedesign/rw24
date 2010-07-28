@@ -108,5 +108,11 @@ $(function() {
       sortLoop($el);
     }
   }
+
+  fixed_number_or_empty = function(value) {
+    value = parseInt(value);
+    if(!value > 0) { return "---"; }
+    return $.sprintf("%03d", value);
+  }
 });
 
