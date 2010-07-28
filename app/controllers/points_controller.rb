@@ -4,7 +4,8 @@ class PointsController < BaseController
   def index
     @points = Point.all
     @lap = Point.new_lap
-    @other = Point.new_other
+    @bonus = Point.new_bonus
+    @penalty = Point.new_penalty
 
     respond_to do |format|
       format.html
@@ -13,55 +14,43 @@ class PointsController < BaseController
   end
 
   def new
-    @point = Point.new
-
-    respond_to do |format|
-      format.html
-      format.xml  { render :xml => @point }
-    end
+    @teams = Team.all
+    @point = Point.new(params[:point])
+    render :action => "form", :layout => false
   end
 
   def edit
+    @teams = Team.all
     @point = Point.find(params[:id])
+    render :action => "form", :layout => false
   end
 
   def create
     @point = Point.new(params[:point])
 
-    respond_to do |format|
-      if @point.save
-        flash[:notice] = 'Point was successfully created.'
-        format.html { redirect_to points_path }
-        format.xml  { render :xml => @point, :status => :created, :location => @point }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @point.errors, :status => :unprocessable_entity }
-      end
+    if @point.save
+      render @point
+    else
+      render :text => @point.errors.full_messages.join(", "), :status => 406
     end
   end
 
   def update
     @point = Point.find(params[:id])
 
-    respond_to do |format|
-      if @point.update_attributes(params[:point])
-        flash[:notice] = 'Point was successfully updated.'
-        format.html { redirect_to points_path }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @point.errors, :status => :unprocessable_entity }
-      end
+    if @point.update_attributes(params[:point])
+      render @point
+    else
+      render :text => @point.errors.full_messages.join(", "), :status => 406
     end
   end
 
   def destroy
     @point = Point.find(params[:id])
-    @point.destroy
-
-    respond_to do |format|
-      format.html { redirect_to points_path }
-      format.xml  { head :ok }
+    if @point.destroy
+      head(200)
+    else
+      head(500)
     end
   end
 end

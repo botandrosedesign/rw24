@@ -2,53 +2,70 @@
   %col{:width => "10%"}
   %col{:width => "10%"}
   %col{:width => "10%"}
+  %col{:width => "10%"}
   %col{:width => "*"}
   %col{:width => "5%"}
   %col{:width => "5%"}
-  %tr
-    %th.center_align POS#
-    %th.center_align Type
-    %th.center_align Amt
-    %th Team Name
-    %th.center_align{:colspan => "2"} Actions
-  - @points.each do |point|
-    %tr{ :class => "#{cycle(nil, "even")} #{point.category.downcase}" }
-      %td.center_align= "%03d" % point.team_position
-      %td.center_align= point.category
-      %td.center_align= point.qty
-      %td= point.team_name
-      %td.edit= link_to "Edit", "#"
-      %td.delete= link_to "Delete", "#"
+  %thead
+    %tr
+      %th.center_align POS#
+      %th.center_align When
+      %th.center_align Type
+      %th.center_align Amt
+      %th Team Name
+      %th.center_align{:colspan => "2"} Actions
+  %tbody#points
+    = render @points
+ 
+:plain
+  <script type="text/x-jquery-template" title="pointRow">
+    <tr class="pending" id="<%= self.id %>">
+      <td class="center_align"><%= $.sprintf("%03d", self['point[team_position]']) %></td>
+      <td class="center_align sort"><%= self['point[since_start]'] %></td>
+      <td class="center_align"><%= self['point[category]'] %></td>
+      <td class="center_align"><%= self['point[qty]'] %></td>
+      <td>Saving...</td>
+      <td colspan="2" class="center_align"></td>
+    </tr>
+  </script>
 
 - content_for :sidebar do
   %h4 Lap Logger
-  - form_for @lap do |form|
+  - form_for @lap, :html => { :id => "new_lap", :autocomplete => "off" } do |form|
     .calculator#laps
       = form.hidden_field :qty
       = form.hidden_field :category
+      = form.hidden_field :since_start
 
       = form.label :team_position, "Input Team Number:"
-      = form.text_field :team_position
+      = form.text_field :team_position, :tabindex => 1
       = form.submit "OK", :class => "button"
   
   %h4 Bonus Points
-  - form_for @other do |form|
+  - form_for @bonus, :html => { :id => "new_bonus", :autocomplete => "off" } do |form|
     .calculator#bonus
+      = form.hidden_field :category
+      = form.hidden_field :since_start
       .field
         = form.label :team_position, "POS#", :class => "medium"
         = form.label :qty, "Points", :class => "medium"
       .field
-        = form.text_field :team_position, :class => "medium"
-        = form.text_field :qty, :class => "medium"
+        = form.text_field :team_position, :class => "medium", :tabindex => 11
+        = form.text_field :qty, :class => "medium", :tabindex => 12
         = form.submit "OK", :class => "button"
   
   %h4 Penalty Points
-  - form_for @other do |form|
+  - form_for @penalty, :html => { :id => "new_penalty", :autocomplete => "off" } do |form|
     .calculator#penalty
+      = form.hidden_field :category
+      = form.hidden_field :since_start
       .field
         = form.label :team_position, "POS#", :class => "medium"
         = form.label :qty, "Points", :class => "medium"
       .field
-        = form.text_field :team_position, :class => "medium"
-        = form.text_field :qty, :class => "medium"
+        = form.text_field :team_position, :class => "medium", :tabindex => 21
+        = form.text_field :qty, :class => "medium", :tabindex => 22
         = form.submit "OK", :class => "button"
+
+- content_for :js do
+  = javascript_include_tag "jquery.templates", "jquery.serializeobject", "jquery.ajaxretry", "jquery.sprintf", "jquery.ceebox", "points"

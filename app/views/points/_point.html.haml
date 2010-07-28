@@ -1,0 +1,8 @@
+%tr[point]{ :class => point.category.downcase }
+  %td.center_align= "%03d" % point.team_position
+  %td.center_align.sort= point.since_start
+  %td.center_align= point.category
+  %td.center_align= point.qty
+  %td= point.team_name
+  %td.edit.ceebox= link_to "Edit", [:edit, point], :title => "Edit Score", :rel => "modal: true width:500 height:200"
+  %td.delete= button_to "Delete", point, :method => :delete, :confirm => "Are you sure?"

@@ -32,3 +32,5 @@ end
 
 ExceptionNotification::Notifier.sender_address = "steve@riverwest24.com"
 ExceptionNotification::Notifier.exception_recipients = %w(micah@botandrose.com)
+
+START_TIME = Time.utc(2010, 7, 27, 1, 0, 0)

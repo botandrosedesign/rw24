@@ -1,0 +1,19 @@
+- form_for @point do |form|
+  = hidden_field_tag "backup_id", params[:id]
+  = form.hidden_field :id
+  .field
+    = form.label :team_position, "POS#"
+    = form.select :team_position, options_from_collection_for_select(@teams, :position, :position_and_name, form.object.team_position)
+  .field
+    = form.label :category, "Type"
+    = form.select :category, Point.categories
+  .field
+    = form.label :qty, "Amount"
+    = form.text_field :qty
+  .field
+    = form.label :since_start, "When"
+    = form.text_field :since_start
+    %em Time elapsed since start of the race (ex: 06:24:00)
+  %hr
+  .field
+    = form.submit "Update", :class => "button"

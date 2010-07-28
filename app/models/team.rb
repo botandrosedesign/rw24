@@ -56,6 +56,10 @@ class Team < ActiveRecord::Base
     category =~ /female/ ? "F" : "M"
   end
 
+  def position_and_name
+    "#{position} - #{name}"
+  end
+
   def paid?
     riders.all?(&:paid?)
   end
