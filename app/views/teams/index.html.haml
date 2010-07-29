@@ -40,6 +40,8 @@
         %td.center_align
           %b= fixed_number_or_empty team.points_total
 
+- content_for :sidebar do
+  = render "shared/sidebar"
 - content_for "js" do
   :javascript
     $(function() {
