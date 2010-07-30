@@ -35,7 +35,10 @@ class Team < ActiveRecord::Base
   before_save :assign_phone_to_captain, :assign_site
 
   def self.leader_board
-    all(:include => :points).sort_by(&:points_total).reverse
+    all(:include => :points).sort do |a,b|
+      comp = a.points_total <=> b.points_total
+      comp == 0 ? a.position <=> b.position : comp
+    end.reverse
   end
 
   def initialize(attrs={})
