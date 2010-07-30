@@ -23,7 +23,7 @@ $(function() {
       error: function(xhr, textStatus, errorThrown) {
         $("#"+id).removeClass("pending").addClass("failed")
           .find("td:last-child").html('\
-            <a href="/points/new?id=' + id + '&' + queryString + '" class="ceebox new" title="New Score" rel="modal: true width:500 height:200"></a>\
+            <a href="/points/new?id=' + id + '&' + queryString + '" class="ceebox new" title="New Score" rel="modal: true width:500 height:325"></a>\
             <a href="#" onclick="$(this).parent().parent().remove(); return false;" class="delete"></a>\
           ')
           .prev().html(xhr.responseText);

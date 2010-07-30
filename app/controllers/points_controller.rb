@@ -14,14 +14,14 @@ class PointsController < BaseController
   end
 
   def new
-    @teams = Team.all
     @point = Point.new(params[:point])
+    @point.valid?
     render :action => "form", :layout => false
   end
 
   def edit
-    @teams = Team.all
     @point = Point.find(params[:id])
+    @point.valid?
     render :action => "form", :layout => false
   end
 
