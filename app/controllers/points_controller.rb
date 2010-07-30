@@ -1,5 +1,6 @@
 class PointsController < BaseController
   before_filter :guess_section
+  before_filter :authorize_access
 
   def index
     @points = Point.all
@@ -53,4 +54,14 @@ class PointsController < BaseController
       head(500)
     end
   end
+
+  private
+
+    def authorize_access
+      redirect_to admin_sites_url unless current_user.try(:has_role?, :superuser)
+    end
+
+    def current_user
+      @current_user ||= User.find(cookies[:uid]) rescue nil
+    end
 end
