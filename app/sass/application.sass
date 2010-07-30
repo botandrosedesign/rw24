@@ -117,7 +117,7 @@ ul#nav
     :text-transform uppercase
     :font-size 1.25em
     :font-weight bold
-    :padding 6px 40px
+    :padding 6px 25px
     &.current, &.current:hover
       :color= !secondaryColor
       
@@ -146,6 +146,17 @@ ul#nav
         :color #000
       &.current, &.current:hover
         :color #000
+        
+#race
+  a
+    background: transparent url('/images/star.png') no-repeat left top
+    font-weight: bold
+  &:hover 
+    ul a
+      background: none
+    a
+      background: transparent url('/images/star-white.png') no-repeat left top
+
 
 // main
   
