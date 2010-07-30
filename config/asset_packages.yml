@@ -4,6 +4,14 @@ javascripts:
   - google_analytics
   - application
   - countdown
+- points:
+  - jquery.templates
+  - jquery.serializeobject
+  - jquery.ajaxretry
+  - jquery.sprintf
+  - jquery.ceebox
+  - points
+
 stylesheets: 
 - base: 
   - screen
