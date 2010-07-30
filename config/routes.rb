@@ -3,7 +3,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resource :registrations, :controller => "teams", :path_prefix => "join", :only => [:show, :create], :collection => { :payment => :post }
 
-  map.leader_board "leader-board", :controller => "teams", :action => "index"
+  map.leader_board "leader-board.:format", :controller => "teams", :action => "index", :format => "html"
 
   map.resources :teams, :path_prefix => "admin",
     :name_prefix => "admin_global_",

@@ -10,7 +10,7 @@
 .clear
 %p
   %b#teams_count= pluralize @teams.size, "Team"
-%table#teams{:width => "100%"}
+%table{:width => "100%"}
   %col{:width => "8%"}
   %col{:width => "10%"}
   %col{:width => "*"}
@@ -28,50 +28,10 @@
       %th.center_align{:scope => "col"} Penalty
       %th.center_align{:scope => "col"} 
         %b Total
-  %tbody
-    - @teams.each do |team|
-      %tr{ :class => "#{cycle(nil, "even")} #{[team.category_abbrev_with_gender, team.category_abbrev].uniq.join(" ")}" }
-        %td.center_align= fixed_number_or_empty team.position
-        %td.center_align= team.category_abbrev_with_gender
-        %td= team.name
-        %td.center_align= fixed_number_or_empty team.laps_total
-        %td.center_align= fixed_number_or_empty team.bonuses_total
-        %td.center_align= fixed_number_or_empty team.penalties_total
-        %td.center_align
-          %b= fixed_number_or_empty team.points_total
+  %tbody#teams
+    = render @teams
 
 - content_for :sidebar do
   = render "shared/sidebar"
 - content_for "js" do
-  :javascript
-    (function(){
-      jQuery.fn.tap = function(fn /* [callback_arg], [callback_arg], [...] */) {
-        var args = jQuery.makeArray(arguments);
-        args.unshift();
-
-        fn.apply(this, args);
-        return this;
-      };
-    }());
-    $(function() {
-      $("#show a").click(function() {
-        $(this).siblings().removeClass("current");
-        $(this).addClass("current");
-
-        var category = $(this).attr("data-category");
-        var count;
-        if(category) {
-          $("#teams tbody tr").hide();
-          $("#teams tbody tr." + category).show()
-            .tap(function() { count = this.length; })
-            .removeClass("even").filter("tr:odd").addClass("even");
-        } else {
-          $("#teams tbody tr").show()
-            .tap(function() { count = this.length; })
-            .removeClass("even").filter("tr:odd").addClass("even");
-        }
-        $("#teams_count").html(count + " Teams");
-
-        return false;
-      });
-    });
+  = javascript_include_merged "leader_board"

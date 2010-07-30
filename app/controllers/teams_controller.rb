@@ -5,6 +5,10 @@ class TeamsController < BaseController
 
   def index
     @teams = Team.leader_board
+    respond_to do |format|
+      format.html
+      format.js { render @teams, :layout => false }
+    end
   end
 
   def show
