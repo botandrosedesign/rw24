@@ -32,6 +32,22 @@
     = render @teams
 
 - content_for :sidebar do
+  %h3 Current Leaders
+  #leaders
+    %p
+      %span A Team:
+      %b <br />Blah blah blah 
+    %p
+      %span B Team:
+      %b <br />We rock
+      %b <br />TIED!
+    %p
+      %span Solo:
+      %b <br />Yea, I'm in FIRST
+    %p
+      %span Tandem:
+      %b <br />Twos Better Than One
   = render "shared/sidebar"
+
 - content_for "js" do
   = javascript_include_merged "leader_board"
