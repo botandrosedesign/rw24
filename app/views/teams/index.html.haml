@@ -1,7 +1,7 @@
 %p.center_align.small
   %i Leader Board stays up-to-date automatically - No need to refresh the page 
 %hr
-%h2 2010 Teams
+%h2 2010 Leader Board
 %p#show
   = link_to "All", "#", :class => "first current"
   = link_to "A Team", "#", :"data-category" => "A"
@@ -39,17 +39,21 @@
   #leaders
     %p
       %span A Team:
-      %b <br />Blah blah blah 
+      %br
+      %b#a_leader
     %p
       %span B Team:
-      %b <br />We rock
-      %b <br />TIED!
+      %br
+      %b#b_leader
     %p
       %span Solo:
-      %b <br />Yea, I'm in FIRST
+      %br
+      %b#s_leader
     %p
       %span Tandem:
-      %b <br />Twos Better Than One
+      %br
+      %b#t_leader
+
   = render "shared/sidebar"
 
 - content_for "js" do

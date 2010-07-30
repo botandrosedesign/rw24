@@ -35,6 +35,7 @@ $(function() {
 
   $selected = $("#show a:first-child");
   $selected.click();
+  pickLeaders();
 
   window.setInterval("refreshLeaderBoard()", 30 * 1000);
 });
@@ -42,5 +43,18 @@ $(function() {
 function refreshLeaderBoard() {
   $("#teams").load("/leader-board.js", function() {
     $selected.click();
+    pickLeaders();
   });
+}
+
+function pickLeaders() {
+  var a_leader = $("#teams tr.A").first().find("td:nth-child(3)").text();
+  var b_leader = $("#teams tr.B").first().find("td:nth-child(3)").text();
+  var s_leader = $("#teams tr.S").first().find("td:nth-child(3)").text();
+  var t_leader = $("#teams tr.T").first().find("td:nth-child(3)").text();
+  
+  $("#a_leader").html(a_leader);
+  $("#b_leader").html(b_leader);
+  $("#s_leader").html(s_leader);
+  $("#t_leader").html(t_leader);
 }
