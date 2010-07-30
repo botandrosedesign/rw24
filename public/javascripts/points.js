@@ -1,7 +1,7 @@
 $(function() {
   $("#sidebar form").submit(function() {
     var now = new Date().valueOf();
-    var start = Date.UTC(2010, 6, 27, 1, 0, 0);
+    var start = Date.UTC(2010, 6, 30, 1, 0, 0);
     var since_start = now - start;
     var since_start_formatted = format_time_diff(since_start);
     var id = "point_" + now;
