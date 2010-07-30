@@ -27,8 +27,8 @@ module ApplicationHelper
     link_path(section, content)
   end
 
-  def fixed_number_or_empty(value)
-    return '---' unless value.nonzero?
-    "%03d" % value 
+  def fixed_number_or_empty(value, options = { :size => 2 })
+    return '-' * options[:size] unless value.nonzero?
+    "%0#{options[:size]}d" % value 
   end
 end
