@@ -9,7 +9,7 @@
   = link_to "Tandem", "#", :class => "last", :"data-category" => "T"
 .clear
 %p
-  %b= pluralize @teams.size, "Team"
+  %b#teams_count= pluralize @teams.size, "Team"
 %table#teams{:width => "100%"}
   %col{:width => "8%"}
   %col{:width => "10%"}
@@ -44,20 +44,33 @@
   = render "shared/sidebar"
 - content_for "js" do
   :javascript
+    (function(){
+      jQuery.fn.tap = function(fn /* [callback_arg], [callback_arg], [...] */) {
+        var args = jQuery.makeArray(arguments);
+        args.unshift();
+
+        fn.apply(this, args);
+        return this;
+      };
+    }());
     $(function() {
       $("#show a").click(function() {
         $(this).siblings().removeClass("current");
         $(this).addClass("current");
 
         var category = $(this).attr("data-category");
+        var count;
         if(category) {
           $("#teams tbody tr").hide();
           $("#teams tbody tr." + category).show()
+            .tap(function() { count = this.length; })
             .removeClass("even").filter("tr:odd").addClass("even");
         } else {
           $("#teams tbody tr").show()
+            .tap(function() { count = this.length; })
             .removeClass("even").filter("tr:odd").addClass("even");
         }
+        $("#teams_count").html(count + " Teams");
 
         return false;
       });
