@@ -4,7 +4,7 @@ class Point < ActiveRecord::Base
 
   belongs_to :team
 
-  validates_presence_of :team_id, :message => "doesn't exist"
+  validate :position_must_exist
   validates_inclusion_of :category, :in => CATEGORIES
   validates_numericality_of :qty
 
@@ -77,4 +77,9 @@ class Point < ActiveRecord::Base
         self.qty = self.qty.abs
       end
     end
+
+    def position_must_exist
+      errors.add(:team_position, "doesn't exist") unless team
+    end
+
 end
