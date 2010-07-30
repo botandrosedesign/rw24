@@ -35,24 +35,25 @@
     = render @teams
 
 - content_for :sidebar do
-  %h3 Current Leaders
-  #leaders
-    %p
-      %span A Team:
-      %br
-      %b#a_leader
-    %p
-      %span B Team:
-      %br
-      %b#b_leader
-    %p
-      %span Solo:
-      %br
-      %b#s_leader
-    %p
-      %span Tandem:
-      %br
-      %b#t_leader
+  - if DateTime.now > START_TIME
+    %h3 Current Leaders
+    #leaders
+      %p
+        %span A Team:
+        %br
+        %b#a_leader
+      %p
+        %span B Team:
+        %br
+        %b#b_leader
+      %p
+        %span Solo:
+        %br
+        %b#s_leader
+      %p
+        %span Tandem:
+        %br
+        %b#t_leader
 
   = render "shared/sidebar"
 
