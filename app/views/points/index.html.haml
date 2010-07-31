@@ -3,6 +3,7 @@
   %col{:width => "10%"}
   %col{:width => "10%"}
   %col{:width => "10%"}
+  %col{:width => "10%"}
   %col{:width => "*"}
   %col{:width => "5%"}
   %col{:width => "5%"}
@@ -12,6 +13,7 @@
       %th.center_align When
       %th.center_align Type
       %th.center_align Amt
+      %th.center_align Tot
       %th Team Name
       %th.center_align{:colspan => "2"} Actions
   %tbody.stripe#points
@@ -22,6 +24,7 @@
     <tr class="pending" id="<%= self.id %>">
       <td class="center_align"><%= fixed_number_or_empty(self['point[team_position]']) %></td>
       <td class="center_align sort"><%= self['point[since_start]'] %></td>
+      <td class="center_align"></td>
       <td class="center_align"><%= self['point[category]'] %></td>
       <td class="center_align"><%= self['point[qty]'] %></td>
       <td>Saving...</td>

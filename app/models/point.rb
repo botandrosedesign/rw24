@@ -59,6 +59,10 @@ class Point < ActiveRecord::Base
     team.try :name
   end
 
+  def total_laps
+    Point.count(:conditions => "team_id=#{team_id}")
+  end
+
   categories.each do |cat|
     define_method :"#{cat.downcase}?" do
       category == cat
