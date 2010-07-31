@@ -3,15 +3,10 @@ class PointsController < BaseController
   before_filter :authorize_access
 
   def index
-    @points = Point.all
+    @points = Point.all(:limit => 100)
     @lap = Point.new_lap
     @bonus = Point.new_bonus
     @penalty = Point.new_penalty
-
-    respond_to do |format|
-      format.html
-      format.xml  { render :xml => @points }
-    end
   end
 
   def new
