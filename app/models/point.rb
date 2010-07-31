@@ -60,7 +60,7 @@ class Point < ActiveRecord::Base
   end
 
   def total_laps
-    Point.count(:conditions => "team_id=#{team_id}")
+    Point.count(:conditions => "team_id=#{team_id} AND category='Lap'")
   end
 
   categories.each do |cat|
