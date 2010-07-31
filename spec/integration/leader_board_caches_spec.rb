@@ -1,3 +1,5 @@
+ENV['RAILS_ENV'] = "production"
+
 require 'spec_helper'
 require "rack/test"
 
