@@ -37,7 +37,7 @@ $(function() {
   $selected.click();
   pickLeaders();
 
-  window.setInterval("refreshLeaderBoard()", 60 * 1000);
+  // window.setInterval("refreshLeaderBoard()", 60 * 1000);
 });
 
 function refreshLeaderBoard() {
