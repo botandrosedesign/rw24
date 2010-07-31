@@ -25,7 +25,7 @@
             == #{team.riders.paid.count}/#{team.riders.count}
         %td.center_align= team.position
         %td.center_align=h team.category_abbrev
-        %td= link_to h(team.name), edit_admin_team_path(@site, team)
+        %td= link_to h(team.name), admin_team_path(@site, team)
         %td.center_align= team.riders.count
         %td=h team.captain.name
         %td.actions
