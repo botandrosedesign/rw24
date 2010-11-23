@@ -1,1 +1,1 @@
-rvm --create use ree-1.8.7-2010.02@rw24
+rvm --create use ree@rw24
