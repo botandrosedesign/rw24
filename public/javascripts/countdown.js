@@ -7,11 +7,11 @@ $(function() {
 
     var now = new Date().valueOf();
     // "Sat Jul 31 01:00:00 UTC 2010"
-    var start = new Date(Date.UTC(2010, 6, 31, 0, 0, 0)).valueOf();
+    var start = new Date(Date.UTC(2011, 6, 29, 0, 0, 0)).valueOf();
     // "Sat Aug 01 01:00:00 UTC 2010"
-    var finish = new Date(Date.UTC(2010, 7, 1, 0, 0, 0)).valueOf();
+    var finish = new Date(Date.UTC(2011, 6, 30, 0, 0, 0)).valueOf();
     // "Sat Jul 31 01:00:00 UTC 2011"
-    var next = new Date(Date.UTC(2011, 6, 31, 0, 0, 0)).valueOf();
+    var next = new Date(Date.UTC(2012, 6, 27, 0, 0, 0)).valueOf();
     
     var current = start < now && now < finish
 
