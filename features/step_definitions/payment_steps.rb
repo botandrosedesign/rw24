@@ -15,7 +15,7 @@ Then /^I should see a PayPal form for "([^\"]+)" at "([$0-9.]+)"$/ do |item, fee
 
   # verify appropriate response from paypal
   doc = Nokogiri::HTML agent.page.body
-  doc.css('.item-name div').text.should == item
-  doc.css('#purchase-summary .price-total').text.should == fee
+  doc.css(".items a.autoTooltip").first["title"].should == item
+  doc.css(".items").text.should include("Item total #{fee}")
 end
 
