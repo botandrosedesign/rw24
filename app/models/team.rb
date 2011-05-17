@@ -18,6 +18,7 @@ class Team < ActiveRecord::Base
   attr_accessor :phone
 
   belongs_to :site
+  belongs_to :race
   has_many :riders, :dependent => :delete_all
   has_many :points
 
