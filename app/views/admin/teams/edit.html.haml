@@ -1,5 +1,5 @@
 %h2 Edit Team
-- form_for @team, :url => admin_team_path(@site, @team) do |f|
+- form_for @team, :url => admin_site_race_team_path(@site, @race, @team) do |f|
   %fieldset
     %h4 Main Information
     .field
@@ -19,7 +19,7 @@
       %h1.rider Rider #{i}
       %div.left{ :id => "rider_#{i}" }
         .field
-          = link_to "Delete #{rider_form.object.name}", admin_rider_path(@site, rider_form.object), :method => :delete
+          = link_to "Delete #{rider_form.object.name}", [:admin, @site, @race, @team, rider_form.object], :method => :delete
         %fieldset.half
           %h4 Basic Info
           .field
@@ -63,7 +63,7 @@
     %br
     %hr
     .field
-      = link_to "+ Add a rider", new_admin_rider_path(@site, :rider => { :team_id => @team.id })
+      = link_to "+ Add a rider", [:new, :admin, @site, @race, @team, :rider]
 
   %hr
   - save_or_cancel_links(f, :cancel_url => admin_teams_path(@site))

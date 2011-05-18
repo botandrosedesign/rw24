@@ -1,6 +1,6 @@
 = error_messages_for :team
 
-- form_for @team, :url => admin_teams_path(@site) do |form|
+- form_for @team, :url => [:admin, @site, @race, @team] do |form|
   %h2 New Team
 
   %fieldset

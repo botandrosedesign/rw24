@@ -31,7 +31,7 @@ class Team < ActiveRecord::Base
     record.errors.add attr, 'count is incorrect.' unless record.allowed_range.include? value.length
   end
 
-  acts_as_list
+  acts_as_list :scope => :race_id
 
   before_save :assign_phone_to_captain, :assign_site
 

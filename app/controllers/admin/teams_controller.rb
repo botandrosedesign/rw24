@@ -1,31 +1,32 @@
 class Admin::TeamsController < Admin::BaseController
   include Admin::TeamsHelper
   before_filter :authorize_access
+  before_filter :set_race
 
   guards_permissions :team
 
   def index
-    @teams = Team.all
+    @teams = @race.teams.all
   end
   
   def show
-    @team = Team.find params[:id]
+    @team = @race.teams.find params[:id]
   end
 
   def new
-    @team = Team.new
+    @team = @race.teams.new
     6.times { @team.riders << Rider.new }
   end
 
   def edit
-    @team = Team.find params[:id]
+    @team = @race.teams.find params[:id]
   end
 
   def create
-    @team = Team.new(params[:team])
+    @team = @race.teams.new(params[:team])
     if @team.save
       flash[:notice] = "The team has been created."
-      redirect_to edit_admin_team_path(@site, @team)
+      redirect_to [:edit, :admin, @site, @race, @team]
     else
       until @team.riders.length == 6
         @team.riders << Rider.new
@@ -36,10 +37,10 @@ class Admin::TeamsController < Admin::BaseController
   end
 
   def update
-    @team = Team.find params[:id]
+    @team = @race.teams.find params[:id]
     if @team.update_attributes(params[:team])
       flash[:notice] = "The team has been updated."
-      redirect_to edit_admin_team_path(@site, @team)
+      redirect_to [:edit, :admin, @site, @race, @team]
     else
       flash.now[:error] = "The team could not be updated."
       render :action => :edit
@@ -47,10 +48,10 @@ class Admin::TeamsController < Admin::BaseController
   end
 
   def destroy
-    @team = Team.find params[:id]
+    @team = @race.teams.find params[:id]
     if @team.destroy
       flash[:notice] = "The team has been destroyed."
-      redirect_to admin_teams_path(@site)
+      redirect_to [:admin, @site, @race, :teams]
     else
       flash.now[:error] = "The team could not be destroyed."
       render :action => :edit
@@ -60,7 +61,11 @@ class Admin::TeamsController < Admin::BaseController
   private
 
     def set_menu
-      @menu = Menus::Admin::Races.new
+      @menu = Menus::Admin::Teams.new
+    end
+
+    def set_race
+      @race = Race.find params[:race_id]
     end
 
     def authorize_access

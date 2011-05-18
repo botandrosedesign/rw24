@@ -3,29 +3,31 @@ class Admin::RidersController < Admin::BaseController
   include Admin::TeamsHelper
   before_filter :authorize_access
 
+  before_filter :set_race, :set_team
+
   guards_permissions :rider
 
   def index
-    @riders = Rider.all :order => "name"
+    @riders = @team.riders.all :order => "name"
   end
   
   def show
-    @rider = Rider.find params[:id]
+    @rider = @team.riders.find params[:id]
   end
 
   def new
-    @rider = Rider.new(params[:rider])
+    @rider = @team.riders.build(params[:rider])
   end
 
   def edit
-    @rider = Rider.find params[:id]
+    @rider = @team.riders.find params[:id]
   end
 
   def create
-    @rider = Rider.new(params[:rider])
+    @rider = @team.riders.build(params[:rider])
     if @rider.save
       flash[:notice] = "The rider has been created."
-      redirect_to edit_admin_rider_path(@site, @rider)
+      redirect_to [:edit, :admin, @site, @race, @team, @rider]
     else
       flash.now[:error] = "The rider could not be created."
       render :action => :new
@@ -33,10 +35,10 @@ class Admin::RidersController < Admin::BaseController
   end
 
   def update
-    @rider = Rider.find params[:id]
+    @rider = @team.riders.find params[:id]
     if @rider.update_attributes(params[:rider])
       flash[:notice] = "The rider has been updated."
-      redirect_to edit_admin_rider_path(@site, @rider)
+      redirect_to [:edit, :admin, @site, @race, @team, @rider]
     else
       flash.now[:error] = "The rider could not be updated."
       render :action => :edit
@@ -44,10 +46,10 @@ class Admin::RidersController < Admin::BaseController
   end
 
   def destroy
-    @rider = Rider.find params[:id]
+    @rider = @team.riders.find params[:id]
     if @rider.destroy
       flash[:notice] = "The rider has been destroyed."
-      redirect_to edit_admin_team_path(@site, @rider.team)
+      redirect_to [:edit, :admin, @site, @race, @team]
     else
       flash.now[:error] = "The rider could not be destroyed."
       render :action => :edit
@@ -57,7 +59,15 @@ class Admin::RidersController < Admin::BaseController
   private
 
     def set_menu
-      @menu = Menus::Admin::Races.new
+      @menu = Menus::Admin::Teams.new
+    end
+
+    def set_race
+      @race = Race.find params[:race_id]
+    end
+
+    def set_team
+      @team = @race.teams.find params[:team_id]
     end
 
     def authorize_access
