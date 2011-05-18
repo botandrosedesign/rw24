@@ -65,6 +65,7 @@ Tag.blueprint do
 end
 
 Team.blueprint do
+  race { Race.find_or_create_by_year 2011 }
   name
   address
   city
