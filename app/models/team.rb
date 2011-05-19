@@ -25,7 +25,7 @@ class Team < ActiveRecord::Base
   accepts_nested_attributes_for :riders, :reject_if => lambda { |attrs| attrs["name"].blank? }
 
   validates_presence_of :race, :name, :category
-  validates_uniqueness_of :position
+  validates_uniqueness_of :position, :scope => :race_id
   validates_each :riders do |record, attr, value|
     record.errors.add attr, 'count is incorrect.' unless record.allowed_range.include? value.length
   end
