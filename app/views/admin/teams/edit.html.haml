@@ -66,4 +66,4 @@
       = link_to "+ Add a rider", [:new, :admin, @site, @race, @team, :rider]
 
   %hr
-  - save_or_cancel_links(f, :cancel_url => admin_teams_path(@site))
+  - save_or_cancel_links f, :cancel_url => [:admin, @site, @race, :teams]

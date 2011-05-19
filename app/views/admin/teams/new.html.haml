@@ -42,4 +42,4 @@
 
   %hr
 
-  - save_or_cancel_links(form, :cancel_url => admin_teams_path(@site))
+  - save_or_cancel_links form, :cancel_url => [:admin, @site, @race, :teams]
