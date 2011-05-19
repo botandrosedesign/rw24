@@ -27,7 +27,7 @@
         %td.center_align=h team.category_abbrev
         %td= link_to h(team.name), [:edit, :admin, @site, @race, team]
         %td.center_align= team.riders.count
-        %td=h team.captain.name
+        %td= mail_to team.captain.email, h(team.captain.name)
         %td.actions
           = link_to "Edit", [:edit, :admin, @site, @race, team], :class => "edit"
           = link_to "Delete", [:admin, @site, @race, team], :class => 'delete', :confirm => 'Are you sure you want to delete this team and all its riders?', :method => :delete
