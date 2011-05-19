@@ -38,12 +38,12 @@
       %h3 Totals
       %p
         Teams:
-        %b= Team.count
+        %b= @race.teams.count
         &nbsp;
         Racers:
-        %b= Rider.count
+        %b= @race.riders.count
       %p
         Shirts:
         - Rider.shirt_sizes.each do |size|
           = size
-          %b= Rider.shirt(size).count
+          %b= @race.riders.shirt(size).count
