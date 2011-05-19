@@ -44,14 +44,6 @@
         %b= Rider.count
       %p
         Shirts:
-        S 
-        %b= Rider.shirt("S").count
-        &nbsp;
-        M
-        %b= Rider.shirt("M").count
-        &nbsp;
-        L
-        %b= Rider.shirt("L").count
-        &nbsp;
-        XL
-        %b= Rider.shirt("XL").count
+        - Rider.shirt_sizes.each do |size|
+          = size
+          %b= Rider.shirt(size).count

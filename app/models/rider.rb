@@ -1,6 +1,6 @@
 class Rider < ActiveRecord::Base
   def self.shirt_sizes
-    %w(S M L XL)
+    %w(S M L XL Other)
   end
 
   named_scope :shirt, lambda { |size| { :conditions => { :shirt => size } } }
