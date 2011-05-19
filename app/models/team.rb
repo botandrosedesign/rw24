@@ -14,6 +14,10 @@ class Team < ActiveRecord::Base
   end
 
   default_scope :order => "position"
+  
+  named_scope :by_category, lambda { |category|
+    { :conditions => { :category => category } }
+  }
 
   attr_accessor :phone
 

@@ -36,12 +36,21 @@
   .tabs
     .tab.active
       %h3 Totals
+
       %p
         Teams:
         %b= @race.teams.count
         &nbsp;
         Racers:
         %b= @race.riders.count
+
+      %p
+        %ul
+          - Team.categories.each do |category|
+            %li
+              = category
+              %b= @race.teams.by_category(category).count
+
       %p
         Shirts:
         - Rider.shirt_sizes.each do |size|
