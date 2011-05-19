@@ -64,8 +64,12 @@ Tag.blueprint do
   name { Sham.word }
 end
 
+Race.blueprint do
+  year { Date.today.year }
+end
+
 Team.blueprint do
-  race { Race.find_or_create_by_year 2011 }
+  race { Race.find_by_year Date.today.year }
   name
   address
   city

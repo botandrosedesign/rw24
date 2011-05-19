@@ -5,4 +5,6 @@ Before do
   @admin = User.make :email => "admin@riverwest24.com"
   @admin.roles << Rbac::Role.new( :name => "superuser" )
   @site.users << @admin
+
+  @race = Race.make :year => Date.today.year
 end

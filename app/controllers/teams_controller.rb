@@ -1,10 +1,11 @@
 class TeamsController < BaseController
+  before_filter :set_race
   before_filter :guess_section
   before_filter :redirect_if_full, :only => [:show, :create]
   skip_before_filter :verify_authenticity_token, :only => :payment
 
   def index
-    @teams = Team.leader_board
+    @teams = @race.teams.leader_board
     respond_to do |format|
       format.html
       format.js { render @teams, :layout => false }
@@ -12,12 +13,12 @@ class TeamsController < BaseController
   end
 
   def show
-    @team = Team.new
+    @team = @race.teams.build
     6.times { @team.riders << Rider.new }
   end
 
   def create
-    @team = Team.new params[:team]
+    @team = @race.teams.build params[:team]
     if @team.save
       RegistrationMailer.deliver_registration(@team)
       render :layout => false
@@ -40,5 +41,9 @@ class TeamsController < BaseController
   private
     def redirect_if_full
       redirect_to "/join/articles/closed" if Rider.count >= 520
+    end
+
+    def set_race
+      @race = Race.find_by_year Date.today.year
     end
 end

@@ -1,6 +1,7 @@
 = error_messages_for :team
 
 - form_for @team, :url => [:admin, @site, @race, @team] do |form|
+  = form.hidden_field :race_id
   %h2 New Team
 
   %fieldset

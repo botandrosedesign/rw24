@@ -11,6 +11,7 @@
 = error_messages_for :team
 
 - form_for @team, :url => registrations_path do |form|
+  = form.hidden_field :race_id
   %fieldset
     %h4 Team Information
     .field

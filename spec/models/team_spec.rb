@@ -2,6 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Team do
   before do
+    Race.make
     @it = Team.make_unsaved
   end
 
