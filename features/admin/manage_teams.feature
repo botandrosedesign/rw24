@@ -27,7 +27,7 @@ Feature: Admins can manage teams
     And I fill in "Email" under "Rider 1" with "micah@botandrose.com"
     And I fill in "Phone" under "Rider 1" with "937.269.2023"
     And I fill in "Shirt" under "Rider 1" with "S"
-    And I fill in "Type" under "Rider 1" with "Cash"
+    And I fill in "Payment type" under "Rider 1" with "Cash"
     And I check "Paid?" under "Rider 1"
 
     And I fill in "Name" under "Rider 2" with "Michael Gubitosa"

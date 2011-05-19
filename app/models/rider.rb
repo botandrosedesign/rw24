@@ -9,7 +9,7 @@ class Rider < ActiveRecord::Base
   belongs_to :team
   acts_as_list :scope => :team_id
 
-  validates_email_format_of :email
+  validates_email_format_of :email, :allow_blank => true
 
   def team_category=(value)
     team.update_attribute :category, value

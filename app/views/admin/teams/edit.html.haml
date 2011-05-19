@@ -38,8 +38,7 @@
             .field
               = f.text_field :address, :class => "lg", :label => true
             .field
-              = f.label :line_2, nil, :class => "opt"
-              = f.text_field :line_2, :class => "lg"
+              = f.text_field :line_2, :class => "lg", :label => true
             .field
               = f.text_field :city, :class => "med", :label => true
               = f.select :state, State.abbrevs, { :include_blank => "--" }, :class => "sm", :label => true
@@ -50,7 +49,7 @@
           .field
             = rider_form.check_box :paid, :label => "Paid?"
           .field
-            = rider_form.text_field :payment_type, :label => "Type"
+            = rider_form.text_field :payment_type, :label => true
           .field
             = rider_form.date_select :confirmed_on, :label => "Confirmed"
 

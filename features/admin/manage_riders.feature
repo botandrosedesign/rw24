@@ -21,7 +21,7 @@ Feature: Admins can manage riders
     And I select "S" from "Shirt Size" for "Rider 1"
 
     And I check "Paid?" for "Rider 1"
-    And I fill in "Type" with "Cash" for "Rider 1"
+    And I fill in "Payment type" with "Cash" for "Rider 1"
     And I select "August 1st, 2010" as the "Confirmed" date for "Rider 1"
 
     And I fill in "Notes" with "Rider 1" for "Rider 1"
@@ -32,7 +32,7 @@ Feature: Admins can manage riders
     And I select "M" from "Shirt Size" for "Rider 2"
 
     And I uncheck "Paid?" for "Rider 2"
-    And I fill in "Type" with "Check" for "Rider 2"
+    And I fill in "Payment type" with "Check" for "Rider 2"
     And I select "August 2nd, 2010" as the "Confirmed" date for "Rider 2"
 
     And I fill in "Notes" with "Rider 2" for "Rider 2"
@@ -58,7 +58,7 @@ Feature: Admins can manage riders
     And I select "L" from "Shirt Size"
 
     And I check "Paid?"
-    And I fill in "Type" with "Cash"
+    And I fill in "Payment type" with "Cash"
     And I select "June 19th, 2010" as the "Confirmed" date
 
     And I fill in "Notes" with "this is a test"
@@ -82,7 +82,7 @@ Feature: Admins can manage riders
     And I select "L" from "Shirt Size"
 
     And I check "Paid?"
-    And I fill in "Type" with "Cash"
+    And I fill in "Payment type" with "Cash"
     And I select "June 19th, 2010" as the "Confirmed" date
 
     And I fill in "Notes" with "this is a test"
