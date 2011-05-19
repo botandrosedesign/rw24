@@ -71,6 +71,14 @@ class Team < ActiveRecord::Base
     riders.first
   end
 
+  def lieutenants
+    riders - [captain]
+  end
+
+  def lieutenant_emails
+    lieutenants.collect(&:email).select(&:present?).join(", ")
+  end
+
   def category_abbrev
     category[0..0] if category
   end
