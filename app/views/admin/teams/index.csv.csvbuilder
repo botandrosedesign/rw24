@@ -1,0 +1,9 @@
+csv << ["Pos", "Team Name", "Category", "Address", "Address 2", "City", "State", "Zip",
+  "Pos", "Rider Name", "Shirt", "Email", "Phone", "Paid", "Payment type", "Notes"]
+
+@teams.each do |team|
+  team.riders.each do |rider|
+    csv << [team.position, team.name, team.category, team.address, team.line_2, team.city, team.state, team.zip,
+      rider.position, rider.name, rider.shirt, rider.email, rider.phone, rider.paid, rider.payment_type, rider.notes]
+  end
+end

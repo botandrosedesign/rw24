@@ -8,6 +8,7 @@ gem "ruby-debug", :group => [:development, :test, :cucumber]
 gem "haml", "~>2.2"
 gem "compass", "~>0.8"
 gem "fastercsv"
+gem "csv_builder", "~>1.0"
 
 gem "rspec",       "1.2.9", :require => false
 gem "rspec-rails", "1.2.9", :require => false
