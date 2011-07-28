@@ -204,15 +204,18 @@ table, img
   img
     +box-shadow(6px, #ccc)
     
-#teams    
+#teams  
   th
     :border-bottom 4px solid #1a1a1a
     :padding-bottom 3px
   td
     :padding 6px 10px
     :border-bottom 1px dashed #ccc
-tr.even
-  :background #f1f1f1
+  tr
+    &:nth-child(even)
+      background: #f1f1f1
+    &:hover
+      background: #FFC81F
 
 // forms
 
