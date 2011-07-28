@@ -37,7 +37,7 @@
 // header
 
 #header
-  :background transparent url('/images/tires.png') no-repeat center bottom
+  :background transparent image_url('/images/tires.png') no-repeat center bottom
   :height 165px
   h1
     &#logo
@@ -105,9 +105,9 @@ ul#nav
     :margin-top 4px
     :position relative
     &:hover
-      :background transparent url('/images/transparent-orange.png') repeat 0 0 
+      :background transparent image_url('/images/transparent-orange.png') repeat 0 0 
     &:hover ul
-      :background transparent url('/images/transparent-orange.png') repeat 0 0 
+      :background transparent image_url('/images/transparent-orange.png') repeat 0 0 
       :display block
   a
     :display block
@@ -147,25 +147,25 @@ ul#nav
         
 #race
   a
-    background: transparent url('/images/star.png') no-repeat left top
+    background: transparent image_url('/images/star.png') no-repeat left top
     font-weight: bold
   &:hover 
     ul a
       background: none
     a
-      background: transparent url('/images/star-white.png') no-repeat left top
+      background: transparent image_url('/images/star-white.png') no-repeat left top
       
 #leaders
   b
     padding-left: 18px
-    background: transparent url('/images/star-small.png') no-repeat left 
+    background: transparent image_url('/images/star-small.png') no-repeat left 
 
 
 // main
   
 #main
   +container
-  :background transparent url('/images/tire.gif') no-repeat bottom right
+  :background transparent image_url('/images/tire.gif') no-repeat bottom right
    
 #content
   +column(17,"first")
@@ -191,7 +191,7 @@ ul#nav
     :display inline-block
     +float-left
     :padding 6px 12px
-    :background #ccc url('/images/gradient-white.png') repeat-x top
+    :background #ccc image_url('/images/gradient-white.png') repeat-x top
     :font-size 1.1em
     :font-weight bold
     :border 1px solid #ccc

@@ -1,5 +1,5 @@
 body
-  :background #F1F1F1 url('/images/bg.gif') repeat-x top
+  :background #F1F1F1 image_url('/images/bg.gif') repeat-x top
   :font normal 14px Futura, Helvetica, Arial, sans-serif
   :color #202020
 
@@ -83,7 +83,7 @@ a, input.submit
   &.button
     :width auto
     :display inline-block
-    :background #f1f1f1 url('/images/gradient-white.png') repeat-x top
+    :background #f1f1f1 image_url('/images/gradient-white.png') repeat-x top
     :color #1a1a1a
     :padding 6px 18px
     :font-weight bold
@@ -101,11 +101,11 @@ a, input.submit
   &.arrow
     :display inline-block
     :font-size 1.25em
-    :background transparent url('/images/arrow-orange.png') no-repeat right center
+    :background transparent image_url('/images/arrow-orange.png') no-repeat right center
     :padding-right 12px
     &:hover
       color: $secondaryColor
-      :background-image url('/images/arrow-yellow.png')
+      background-image: image_url('/images/arrow-yellow.png')
     strong
       color: $primaryColor
 #sidebar
@@ -123,7 +123,7 @@ a, input.submit
   :padding-left 12px
   a
     :display inline-block
-    :background transparent url('/images/sprite.png') no-repeat 0 0
+    :background transparent image_url('/images/sprite.png') no-repeat 0 0
     :height 18px
     :margin-bottom 4px
     :padding-left 24px
@@ -156,9 +156,9 @@ ul ol, ol ol
   
 ul.quicklinks
   a
-    :background transparent url('/images/arrow-black.png') no-repeat left center
+    :background transparent image_url('/images/arrow-black.png') no-repeat left center
     &:hover
-      :background-image url('/images/arrow-orange.png')
+      background-image: image_url('/images/arrow-orange.png')
   
 #sidebar
   ul
@@ -172,7 +172,7 @@ ul.quicklinks
     :padding-left 16px
     &.current, &.current:hover 
       :color #000
-      :background transparent url('/images/arrow-black.png') no-repeat left center
+      :background transparent image_url('/images/arrow-black.png') no-repeat left center
     &:hover
       color: $primaryColor
   
