@@ -1,0 +1,52 @@
+mysql2_for_rails_2_3_5
+======================
+
+While trying to run ChiliProject or Redmine with the mysql2 gem, I ran into
+several problems, that are basically already solved. Some of them are part of
+Rails 2.3.10, others are already in mysql2's master branch, but were not yet
+released. Unfortunately I can neither force ChiliProject or Redmine to update to
+a current Rails version nor can I force the autor of the mysql gem to release a
+new version.
+
+This plugin tries to fill this gap. It brings the needed changes and bug fixes
+to any Rails 2.3.5 application. You just need to install this plugin and
+everything else should be handled automatically. While doing so, it should not
+interfere with other people's code. You should be safe to have the plugin
+installed while using other gems or databases.
+
+
+Problems solved by this plugin
+------------------------------
+
+* Various `db:` rake tasks do not work [1]
+* rake db:schema:dump not working properly (struct size differs) [2]
+
+If you are running into other problems, when using mysql2 this plugin and Rails
+2.3.5, that already seem to be solved in newer versions, please drop me a line.
+
+
+You don't need it, if
+---------------------
+
+* you're using the mysql gem in version 2.x - this is for the mysql2 gem in
+  version 0.2.6
+* you're running only in production mode and do not need development rake
+  tasks like db:schema:dump, db:create od db:drop
+
+
+
+[1]: https://rails.lighthouseapp.com/projects/8994/tickets/5592-patch-dont-raise-task-not-supported-by-exception-for-mysql2-adapter-in-2-3-stable
+[2]: https://github.com/brianmario/mysql2/issues/issue/80
+
+
+Licence
+-------
+
+The code in this plugin is just a compilation of other people's contributions.
+See each file to find the original source of the code and find the used licences
+there.
+
+This should be - without waranty - MIT-style for all of them.
+
+* Brian Lopez for the patch in init.rb
+* David Heinemeier Hansson for lib/tasks/databases.rake
