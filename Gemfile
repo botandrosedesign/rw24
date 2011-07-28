@@ -1,7 +1,7 @@
 source "http://rubygems.org"
 
 gem "rails", "2.3.4"
-gem "ruby-mysql"
+gem "mysql2", "~>0.2.7"
 gem "bard-rake", :require => false
 gem "ruby-debug", :group => [:development, :test, :cucumber]
 

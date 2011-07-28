@@ -1,5 +1,5 @@
 login: &login
-  adapter: mysql
+  adapter: mysql2
   database: rw24
   username: root
   password:

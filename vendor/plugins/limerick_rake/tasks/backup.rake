@@ -14,7 +14,7 @@ namespace :backup do
     options   += " -h #{config['host']}"      if config['host']
     options   += " -S #{config['socket']}"    if config['socket']
 
-    raise RuntimeError, "I only work with mysql." unless config['adapter'] == 'mysql'
+    raise RuntimeError, "I only work with mysql." unless config['adapter'].starts_with? 'mysql'
     raise RuntimeError, "Cannot find mysqldump." if mysqldump.blank?
     
     FileUtils.mkdir_p backupdir
