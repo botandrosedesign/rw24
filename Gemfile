@@ -7,6 +7,7 @@ gem "ruby-debug", :group => [:development, :test, :cucumber]
 
 gem "haml"
 gem "compass"
+gem "compass-querystring_cachebuster"
 gem "fastercsv"
 gem "csv_builder", "~>1.0"
 
