@@ -44,6 +44,6 @@ class TeamsController < BaseController
     end
 
     def set_race
-      @race = Race.find_by_year Date.today.year
+      @race = Race.find_by_year params[:year] || Date.today.year
     end
 end
