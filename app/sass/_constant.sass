@@ -1,26 +1,26 @@
 // constant
 
-!blueprint_grid_columns = 24
-!blueprint_grid_width   = 30px
-!blueprint_grid_margin  = 10px
+$blueprint_grid_columns: 24
+$blueprint_grid_width: 30px
+$blueprint_grid_margin: 10px
 
-!primaryColor= #FF6400
-!secondaryColor= #FFC81F
+$primaryColor: #FF6400
+$secondaryColor: #FFC81F
 
-=box-shadow( !blur, !color )
-  :-moz-box-shadow= 0px 0px !blur !color
-  :-webkit-box-shadow= 0px 0px !blur !color
-=box-shadow-specific( !loc1, !loc2, !blur, !color )
-  :-moz-box-shadow= !loc1 !loc2 !blur !color
-  :-webkit-box-shadow= !loc1 !loc2 !blur !color
-=text-shadow(!px, !color)
-  :text-shadow= 0px 0px !px !color
-=border-radius( !radius )
-  :-moz-border-radius= !radius
-  :-webkit-border-radius= !radius
-  :border-radius= !radius
-=border-radius-specific( !location1, !location2, !radius )
-  :-moz-border-radius-#{!location1}#{!location2}= !radius
-  :-webkit-border-#{!location1}-#{!location2}-radius= !radius
-  :border-#{!location1}-#{!location2}-radius= !radius 
+=box-shadow( $blur, $color )
+  -moz-box-shadow: 0px 0px $blur $color
+  -webkit-box-shadow: 0px 0px $blur $color
+=box-shadow-specific( $loc1, $loc2, $blur, $color )
+  -moz-box-shadow: $loc1 $loc2 $blur $color
+  -webkit-box-shadow: $loc1 $loc2 $blur $color
+=text-shadow($px, $color)
+  text-shadow: 0px 0px $px $color
+=border-radius( $radius )
+  -moz-border-radius: $radius
+  -webkit-border-radius: $radius
+  border-radius: $radius
+=border-radius-specific( $location1, $location2, $radius )
+  -moz-border-radius-#{$location1}#{$location2}: $radius
+  -webkit-border-#{$location1}-#{$location2}-radius: $radius
+  border-#{$location1}-#{$location2}-radius: $radius 
   

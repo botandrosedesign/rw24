@@ -16,9 +16,12 @@ GEM
       ZenTest
     bard-rake (0.1.8)
     builder (2.1.2)
+    chunky_png (1.2.0)
     columnize (0.3.1)
-    compass (0.8.17)
-      haml (>= 2.2.0)
+    compass (0.11.5)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
     csv_builder (1.1.7)
       fastercsv
     cucumber (0.4.3)
@@ -31,7 +34,8 @@ GEM
     email_spec (0.4.0)
     faker (0.3.1)
     fastercsv (1.5.3)
-    haml (2.2.24)
+    fssm (0.2.7)
+    haml (3.1.2)
     linecache (0.43)
     machinist (1.0.6)
     mechanize (1.0.0)
@@ -58,6 +62,7 @@ GEM
       ruby-debug-base (~> 0.10.3.0)
     ruby-debug-base (0.10.3)
       linecache (>= 0.3)
+    sass (3.1.5)
     term-ansicolor (1.0.4)
     treetop (1.4.2)
       polyglot (>= 0.2.5)
@@ -71,13 +76,13 @@ PLATFORMS
 DEPENDENCIES
   autotest-rails
   bard-rake
-  compass (~> 0.8)
+  compass
   csv_builder (~> 1.0)
   cucumber (= 0.4.3)
   email_spec (= 0.4.0)
   faker (= 0.3.1)
   fastercsv
-  haml (~> 2.2)
+  haml
   machinist (= 1.0.6)
   mechanize
   mysql2 (~> 0.2.7)

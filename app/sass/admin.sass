@@ -1,14 +1,13 @@
-@import constant.sass
+@import constant
 
-@import blueprint.sass
-@import compass/reset.sass
-@import compass/utilities.sass
-@import compass/misc.sass
-@import compass/layout.sass
-@import blueprint/modules/buttons.sass
+@import blueprint
+@import compass/reset
+@import compass/utilities
+@import compass/layout
+// @import blueprint/modules/buttons
 
-=blueprint(!body_selector = "body")
-  +blueprint-typography(!body_selector)
+=blueprint($body_selector: "body")
+  +blueprint-typography($body_selector)
   +blueprint-utilities
   +blueprint-debug
   +blueprint-interaction
@@ -35,7 +34,7 @@ textarea
 //    
 
 a
-  :color= !primaryColor
+  color: $primaryColor
   +border-radius(0px)
   :margin 0
   :padding 0
@@ -111,7 +110,7 @@ body
     & > li:last-child
       :margin 0
   a
-    :font-weight bold !important
+    font-weight: bold !important
     :font-size 1.1em
     :padding-top 9px 
   li
@@ -133,7 +132,7 @@ body
           :padding-bottom 6px
           :font-size 1em
           &:hover
-            :background-color= !primaryColor
+            background-color: $primaryColor
     &:hover
       a
         :background-color #666
@@ -236,7 +235,7 @@ input[type="text"], select
   :background #fff
   :color #1a1a1a
   &:focus
-    :border-color= !primaryColor
+    border-color: $primaryColor
 select
   width: 100px
     

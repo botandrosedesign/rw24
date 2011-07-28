@@ -5,8 +5,8 @@ gem "mysql2", "~>0.2.7"
 gem "bard-rake", :require => false
 gem "ruby-debug", :group => [:development, :test, :cucumber]
 
-gem "haml", "~>2.2"
-gem "compass", "~>0.8"
+gem "haml"
+gem "compass"
 gem "fastercsv"
 gem "csv_builder", "~>1.0"
 

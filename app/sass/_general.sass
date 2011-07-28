@@ -77,9 +77,9 @@ blockquote
 // anchors
 
 a, input.submit
-  :color= !primaryColor
+  color: $primaryColor
   &:hover
-    :color= !secondaryColor
+    color: $secondaryColor
   &.button
     :width auto
     :display inline-block
@@ -96,7 +96,7 @@ a, input.submit
     +box-shadow(3px, #666)
     +border-radius(6px)
     &:hover
-      :background= !secondaryColor !important
+      background: $secondaryColor !important
       :color #000 !important
   &.arrow
     :display inline-block
@@ -104,10 +104,10 @@ a, input.submit
     :background transparent url('/images/arrow-orange.png') no-repeat right center
     :padding-right 12px
     &:hover
-      :color= !secondaryColor
+      color: $secondaryColor
       :background-image url('/images/arrow-yellow.png')
     strong
-      :color= !primaryColor
+      color: $primaryColor
 #sidebar
   a
     &.button
@@ -174,7 +174,7 @@ ul.quicklinks
       :color #000
       :background transparent url('/images/arrow-black.png') no-repeat left center
     &:hover
-      :color= !primaryColor
+      color: $primaryColor
   
 
 // tables and images
@@ -263,5 +263,3 @@ input, select, label
       
 .fieldWithErrors label
   color: red
-
-  

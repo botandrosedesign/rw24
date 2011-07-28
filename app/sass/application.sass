@@ -1,14 +1,13 @@
-@import constant.sass
+@import constant
 
-@import blueprint.sass
-@import compass/reset.sass
-@import compass/utilities.sass
-@import compass/misc.sass
-@import compass/layout.sass
-@import blueprint/modules/buttons.sass
+@import blueprint
+@import compass/reset
+@import compass/utilities
+@import compass/layout
+// @import blueprint/modules/buttons
 
-=blueprint(!body_selector = "body")
-  +blueprint-typography(!body_selector)
+=blueprint($body_selector: "body")
+  +blueprint-typography($body_selector)
   +blueprint-utilities
   +blueprint-debug
   +blueprint-interaction
@@ -20,7 +19,6 @@
 @import scoring.sass
   
 //  
-  
 .left
   +float-left
 .right
@@ -65,7 +63,7 @@
     :font-weight bold
     :color #fff
     :text-shadow 0px 0px 3px #000
-    :color= !secondaryColor
+    color: $secondaryColor
     
 #countdown
   +column(7.5, "last")
@@ -119,7 +117,7 @@ ul#nav
     :font-weight bold
     :padding 6px 25px
     &.current, &.current:hover
-      :color= !secondaryColor
+      color: $secondaryColor
       
   ul
     :display none
@@ -207,7 +205,7 @@ ul#nav
       +border-radius-specific("top","right",12px)
       +border-radius-specific("bottom","right",12px)
     &:hover
-      :background-color= !primaryColor
+      background-color: $primaryColor
     &.current
       :background-color #1a1a1a
       :color #fff
