@@ -16,5 +16,6 @@ stylesheets:
 - base: 
   - screen
   - application
+  - handheld
 - ie:
   - ie
