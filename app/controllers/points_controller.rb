@@ -5,13 +5,14 @@ class PointsController < BaseController
 
   def index
     @points = @race.points.all :limit => 100
-    @lap = Point.new_lap :race => @race
-    @bonus = Point.new_bonus :race => @race
-    @penalty = Point.new_penalty :race => @race
+    @lap = Point.new_lap
+    @bonus = Point.new_bonus
+    @penalty = Point.new_penalty
   end
 
   def new
-    @point = Point.new(params[:point])
+    @point = Point.new :race => @race
+    @point.attributes = params[:point]
     @point.valid?
     render :action => "form", :layout => false
   end
@@ -23,7 +24,8 @@ class PointsController < BaseController
   end
 
   def create
-    @point = Point.new(params[:point])
+    @point = Point.new :race => @race
+    @point.attributes = params[:point]
 
     if @point.save
       render @point

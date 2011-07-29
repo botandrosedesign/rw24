@@ -36,7 +36,6 @@
   %h4 Lap Logger
   - form_for @lap, :html => { :id => "new_lap", :autocomplete => "off" } do |form|
     .calculator#laps
-      = form.hidden_field :race_id
       = form.hidden_field :qty
       = form.hidden_field :category
       = form.hidden_field :since_start
@@ -48,7 +47,6 @@
   %h4 Bonus Points
   - form_for @bonus, :html => { :id => "new_bonus", :autocomplete => "off" } do |form|
     .calculator#bonus
-      = form.hidden_field :race_id
       = form.hidden_field :category
       = form.hidden_field :since_start
       .field
@@ -62,7 +60,6 @@
   %h4 Penalty Points
   - form_for @penalty, :html => { :id => "new_penalty", :autocomplete => "off" } do |form|
     .calculator#penalty
-      = form.hidden_field :race_id
       = form.hidden_field :category
       = form.hidden_field :since_start
       .field

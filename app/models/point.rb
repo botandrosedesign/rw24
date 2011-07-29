@@ -53,7 +53,7 @@ class Point < ActiveRecord::Base
   end
 
   def team_position=(value)
-    self.team = Team.find_by_position value
+    self.team = Team.first :conditions => { :race_id => race_id, :position => value }
   end
 
   def team_name
@@ -61,7 +61,7 @@ class Point < ActiveRecord::Base
   end
 
   def total_laps
-    Point.count(:conditions => "team_id=#{team_id} AND category='Lap'")
+    Point.count(:conditions => "race_id=#{race.id} AND team_id=#{team_id} AND category='Lap'")
   end
 
   categories.each do |cat|
@@ -86,5 +86,4 @@ class Point < ActiveRecord::Base
     def position_must_exist
       errors.add(:team_position, "doesn't exist") unless team
     end
-
 end
