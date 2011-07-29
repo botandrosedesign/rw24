@@ -12,7 +12,7 @@ module NavigationHelpers
       '/'
 
     when /the registration page/
-      '/join/registrations'
+      '/join/registrations/new'
 
     when /the admin page/
       '/admin'
