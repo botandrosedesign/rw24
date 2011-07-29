@@ -1,7 +1,10 @@
 body
-  :background #F1F1F1 image_url('/images/bg.gif') repeat-x top
-  :font normal 14px Futura, Helvetica, Arial, sans-serif
-  :color #202020
+  font: normal 14px Futura, Helvetica, Arial, sans-serif
+
+.left
+  +float-left
+.right
+  +float-right  
 
 a
   :text-decoration none
@@ -123,17 +126,9 @@ a, input.submit
   :padding-left 12px
   a
     :display inline-block
-    :background transparent image_url('/images/sprite.png') no-repeat 0 0
     :height 18px
     :margin-bottom 4px
     :padding-left 24px
-    &#twitter
-      &:hover
-        :background-position 0 -18px
-    &#facebook
-      :background-position 0 -36px
-      &:hover
-        :background-position 0 -54px
 
 // lists
 
@@ -156,9 +151,9 @@ ul ol, ol ol
   
 ul.quicklinks
   a
-    :background transparent image_url('/images/arrow-black.png') no-repeat left center
+    +sprite-sprite("arrow")
     &:hover
-      background-image: image_url('/images/arrow-orange.png')
+      +sprite-sprite("arrow_hover")
   
 #sidebar
   ul

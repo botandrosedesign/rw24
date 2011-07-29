@@ -6,7 +6,7 @@ gem "bard-rake", :require => false
 gem "ruby-debug", :group => [:development, :test, :cucumber]
 
 gem "haml"
-gem "compass"
+gem "compass", "0.11.1"
 gem "compass-querystring_cachebuster"
 gem "fastercsv"
 gem "csv_builder", "~>1.0"

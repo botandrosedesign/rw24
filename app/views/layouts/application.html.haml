@@ -19,8 +19,7 @@
     #container
       #header
         .container
-          %h1#logo
-            %a{:href => "/"} Riverwest 24
+          %a#logo{:href => "/"}
           #title
             %h1 Riverwest 24
             %h2 Hour Bike Race
@@ -48,12 +47,6 @@
                 %ul
                   - section.contents.published.select(&:root?).each do |content|
                     %li= link_to_current h(content.title), content_path(section, content)
-            /
-              %li#race
-                = link_to "Race 2010", "/leader-board"
-                %ul
-                  %li
-                    = link_to "Leader Board", "/leader-board"
       #main
         .container
           - if flash[:notice]

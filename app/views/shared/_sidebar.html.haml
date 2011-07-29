@@ -16,20 +16,13 @@
 %a{ :href => "http://www.ustream.tv/", :target => "_blank", :style => "padding: 2px 0px 4px; width: 230px; background: #ffffff; display: block; color: #000000; font-weight: normal; font-size: 10px; text-decoration: underline; text-align: center;" }
   Streaming Video by Ustream.TV
 
-
 - if @section.contents.published.length > 1
   %h3= h @section.title
   %ul
     - @section.contents.published.select(&:root?).each do |content|
       %li= link_to_current h(content.title), content_path(@section, content), :if => content == @article
 
-
 %h3 Connect
 %ul#connect
-  %li= link_to "Follow us on Twitter", "http://twitter.com/riverwest24", :target => "_blank", :id => "twitter"
-  %li= link_to "Become a Fan on Facebook", "http://www.facebook.com/#!/pages/Riverwest24/282766933449?ref=ts", :target => "_blank", :id => "facebook"
-%br
-/%p.center_align
-/  %img{:src => "/images/photos/tattoo.jpg"}
-/  %br
-/  %em Photo by Peter DiAntoni
+  %li= link_to "Follow us on Twitter", "http://twitter.com/riverwest24", :target => "_blank", :class => "sprite-twitter"
+  %li= link_to "Become a Fan on Facebook", "http://www.facebook.com/#!/pages/Riverwest24/282766933449?ref=ts", :target => "_blank", :class => "sprite-facebook"

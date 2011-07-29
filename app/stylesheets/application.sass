@@ -1,34 +1,12 @@
-@import constant
+@import "bard"
 
-@import blueprint
-@import compass/reset
-@import compass/utilities
-@import compass/layout
-// @import blueprint/modules/buttons
-
-=blueprint($body_selector: "body")
-  +blueprint-typography($body_selector)
-  +blueprint-utilities
-  +blueprint-debug
-  +blueprint-interaction
-  +blueprint-colors
-  
-+sticky-footer(64px, "#main", "#footer" )  
-
-@import general.sass
-@import scoring.sass
-  
-//  
-.left
-  +float-left
-.right
-  +float-right  
-  
-//
+body
+  color: #202020
 
 #container
-  :border-top 6px solid #000
-  :min-width 960px
+  @include background(linear-gradient(top, #1a1a1a , #f1f1f1 350px))
+  border-top: 6px solid #000
+  min-width: 960px
 .container
   +container
   :position relative
@@ -37,17 +15,15 @@
 // header
 
 #header
-  :background transparent image_url('/images/tires.png') no-repeat center bottom
-  :height 165px
-  h1
-    &#logo
-      :margin-top 3px
-      +column(3.5)
-      +replace-text("riverwest24.png")
-      :width 125px
-      a
-        :display block
-        :height 124px
+  +sprite-sprite("tires")
+  background-position-x: center
+  height: 165px
+  #logo
+    +sprite-sprite("riverwest24")
+    +float-left
+    width: 125px
+    height: 124px
+    margin-top: 3px
 #title
   :margin-top 6px 
   +column(13)
@@ -105,9 +81,9 @@ ul#nav
     :margin-top 4px
     :position relative
     &:hover
-      :background transparent image_url('/images/transparent-orange.png') repeat 0 0 
+      background: $primaryColor
     &:hover ul
-      :background transparent image_url('/images/transparent-orange.png') repeat 0 0 
+      background: $primaryColor
       :display block
   a
     :display block
@@ -144,28 +120,17 @@ ul#nav
         :color #000
       &.current, &.current:hover
         :color #000
-        
-#race
-  a
-    background: transparent image_url('/images/star.png') no-repeat left top
-    font-weight: bold
-  &:hover 
-    ul a
-      background: none
-    a
-      background: transparent image_url('/images/star-white.png') no-repeat left top
-      
+
 #leaders
   b
     padding-left: 18px
-    background: transparent image_url('/images/star-small.png') no-repeat left 
-
+    +sprite-sprite("star")
 
 // main
   
 #main
   +container
-  :background transparent image_url('/images/tire.gif') no-repeat bottom right
+  :background transparent inline-image("tire.gif") no-repeat bottom right 
    
 #content
   +column(17,"first")
@@ -187,11 +152,14 @@ ul#nav
   :margin 6px 0 12px
   :display block
   +float-left
+  width: 100%
   a
+    width: 14%
     :display inline-block
     +float-left
-    :padding 6px 12px
-    :background #ccc image_url('/images/gradient-white.png') repeat-x top
+    :padding 6px 0
+    text-align: center
+    @include background(linear-gradient(top, #fcfcfc , #ccc))
     :font-size 1.1em
     :font-weight bold
     :border 1px solid #ccc
@@ -205,12 +173,11 @@ ul#nav
       +border-radius-specific("top","right",12px)
       +border-radius-specific("bottom","right",12px)
     &:hover
-      background-color: $primaryColor
+      @include background(linear-gradient(top, adjust-lightness($primaryColor, 20) , $primaryColor))
     &.current
-      :background-color #1a1a1a
+      @include background(linear-gradient(top, #666 , #1a1a1a))
       :color #fff
       :border-color #1a1a1a
-    
   
 // footer
 

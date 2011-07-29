@@ -1,0 +1,35 @@
+@import "constant"
+
+@import "blueprint"
+@import "compass/reset"
+@import "compass/utilities"
+@import "compass/layout"
+@import "compass/css3"
+
+=blueprint($body_selector: "body")
+  +blueprint-typography($body_selector)
+  +blueprint-utilities
+  +blueprint-debug
+  +blueprint-interaction
+  +blueprint-colors
+  
++sticky-footer(64px, "#main", "#footer" )  
+
+//
+
+@import "sprite/*.png"
+@include all-sprite-sprites
+
+//$right-position: 100%
+//@import "right/*.png"
+//@include all-right-sprites
+//
+//$vertical-sprite-base-class: ".repeat-y"
+//@import "vertical/*.png"
+//@include all-vertical-sprites
+//
+//.repeat-y
+//  background-repeat: repeat-y
+
+@import "general"
+@import "scoring"
