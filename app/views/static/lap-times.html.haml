@@ -1,23 +1,50 @@
-%h2 Lap Times
+%h2 Point Tracker
 %h3 INSERT TEAM NAME
-
-%p
 
 %table#lap-times
   %col{:width => "80"}
-  %col{:width => "120"}
-  %tbody#teams
+  %col{:width => "140"}
+  %col{:width => "140"}
+  %thead
     %tr
-      %td Lap 1
-      %td 15:12
+      %th Lap Number
+      %th Since Last Lap
+      %th Since Start of Race
+  %tbody
     %tr
-      %td Lap 2
+      %td 2
       %td 17:01
+      %td 32:13
     %tr
-      %td Lap 3
+      %td 1
       %td 15:12
-    %tr
-      %td Lap 4
-      %td 17:01
+      %td 15:12
       
+
+      
+%table#bonuses
+  %col{:width => "100"}
+  %col{:width => "80"}
+  %thead
+    %tr
+      %th{:colspan => "2"} Bonuses
+  %tbody
+    %tr
+      %td Bonus 1
+      %td 2
+    %tr
+      %td Bonus 2
+      %td 2
+      
+%table#penalties
+  %col{:width => "100"}
+  %col{:width => "80"}
+  %thead
+    %tr
+      %th{:colspan => "2"} Penalties
+  %tbody
+    %tr
+      %td Penalty 1
+      %td -6
+%hr.clear      
 %a{:href => "/leader-board"} &laquo; Back to Leader Board

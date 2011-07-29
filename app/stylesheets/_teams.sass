@@ -1,4 +1,4 @@
-#teams  
+#teams, #lap-times, #bonuses, #penalties
   th
     :border-bottom 4px solid #1a1a1a
     :padding-bottom 3px
@@ -8,21 +8,32 @@
   tr
     &.even
       background: #f1f1f1
-    &:hover
-      background: #FFC81F
   a
     color: #000
     &:hover
       color: $primaryColor
       text-decoration: underline
       
-table#lap-times
-  margin: 20px
-  border: 1px solid #ccc
-  #teams td
-    text-align: center
+#teams
+  tr:hover
+    background: #FFC81F
       
+#lap-times, #bonuses, #penalties
+  +float-left
+  margin: 20px
+  td, th
+    text-align: center
+
+#bonuses, #penalties
+  +float-right
+
+#bonuses
+  td
+    background: #DFFFE9
     
+#penalties
+  td
+    background: #FFE4DF
 
 #show
   :margin 6px 0 12px
