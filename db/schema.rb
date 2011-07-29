@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110517223405) do
+ActiveRecord::Schema.define(:version => 20110729023151) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -32,12 +32,20 @@ ActiveRecord::Schema.define(:version => 20110517223405) do
     t.datetime "created_at",                      :null => false
   end
 
+  add_index "activities", ["author_id"], :name => "index_activities_on_author_id"
+  add_index "activities", ["object_id"], :name => "index_activities_on_object_id"
+  add_index "activities", ["section_id"], :name => "index_activities_on_section_id"
+  add_index "activities", ["site_id"], :name => "index_activities_on_site_id"
+
   create_table "cached_page_references", :force => true do |t|
     t.integer "cached_page_id"
     t.integer "object_id"
     t.string  "object_type"
     t.string  "method"
   end
+
+  add_index "cached_page_references", ["cached_page_id"], :name => "index_cached_page_references_on_cached_page_id"
+  add_index "cached_page_references", ["object_id"], :name => "index_cached_page_references_on_object_id"
 
   create_table "cached_pages", :force => true do |t|
     t.integer  "site_id"
@@ -46,6 +54,9 @@ ActiveRecord::Schema.define(:version => 20110517223405) do
     t.datetime "updated_at"
     t.datetime "cleared_at"
   end
+
+  add_index "cached_pages", ["section_id"], :name => "index_cached_pages_on_section_id"
+  add_index "cached_pages", ["site_id"], :name => "index_cached_pages_on_site_id"
 
   create_table "categories", :force => true do |t|
     t.integer "section_id"
@@ -57,11 +68,17 @@ ActiveRecord::Schema.define(:version => 20110517223405) do
     t.string  "permalink"
   end
 
+  add_index "categories", ["parent_id"], :name => "index_categories_on_parent_id"
+  add_index "categories", ["section_id"], :name => "index_categories_on_section_id"
+
   create_table "categorizations", :force => true do |t|
     t.integer "categorizable_id"
     t.integer "category_id"
     t.string  "categorizable_type"
   end
+
+  add_index "categorizations", ["categorizable_id"], :name => "index_categorizations_on_categorizable_id"
+  add_index "categorizations", ["category_id"], :name => "index_categorizations_on_category_id"
 
   create_table "category_translations", :force => true do |t|
     t.integer  "category_id"
@@ -91,6 +108,12 @@ ActiveRecord::Schema.define(:version => 20110517223405) do
     t.integer  "board_id"
   end
 
+  add_index "comments", ["author_id"], :name => "index_comments_on_author_id"
+  add_index "comments", ["board_id"], :name => "index_comments_on_board_id"
+  add_index "comments", ["commentable_id"], :name => "index_comments_on_commentable_id"
+  add_index "comments", ["section_id"], :name => "index_comments_on_section_id"
+  add_index "comments", ["site_id"], :name => "index_comments_on_site_id"
+
   create_table "content_translations", :force => true do |t|
     t.integer  "content_id"
     t.string   "locale"
@@ -104,6 +127,8 @@ ActiveRecord::Schema.define(:version => 20110517223405) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "content_translations", ["content_id"], :name => "index_content_translations_on_content_id"
 
   create_table "contents", :force => true do |t|
     t.integer  "site_id"
@@ -130,12 +155,19 @@ ActiveRecord::Schema.define(:version => 20110517223405) do
     t.integer  "rgt",                           :default => 0, :null => false
   end
 
+  add_index "contents", ["author_id"], :name => "index_contents_on_author_id"
+  add_index "contents", ["parent_id"], :name => "index_contents_on_parent_id"
+  add_index "contents", ["section_id"], :name => "index_contents_on_section_id"
+  add_index "contents", ["site_id"], :name => "index_contents_on_site_id"
+
   create_table "counters", :force => true do |t|
     t.integer "owner_id"
     t.string  "owner_type"
     t.string  "name",       :limit => 25
     t.integer "count",                    :default => 0
   end
+
+  add_index "counters", ["owner_id"], :name => "index_counters_on_owner_id"
 
   create_table "memberships", :force => true do |t|
     t.integer  "site_id"
@@ -144,12 +176,17 @@ ActiveRecord::Schema.define(:version => 20110517223405) do
     t.datetime "updated_at"
   end
 
+  add_index "memberships", ["site_id"], :name => "index_memberships_on_site_id"
+  add_index "memberships", ["user_id"], :name => "index_memberships_on_user_id"
+
   create_table "plugin_configs", :force => true do |t|
     t.string  "name"
     t.text    "options"
     t.integer "owner_id"
     t.string  "owner_type"
   end
+
+  add_index "plugin_configs", ["owner_id"], :name => "index_plugin_configs_on_owner_id"
 
   create_table "points", :force => true do |t|
     t.integer  "team_id"
@@ -158,6 +195,8 @@ ActiveRecord::Schema.define(:version => 20110517223405) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "points", ["team_id"], :name => "index_points_on_team_id"
 
   create_table "races", :force => true do |t|
     t.integer "year"
@@ -178,6 +217,8 @@ ActiveRecord::Schema.define(:version => 20110517223405) do
     t.string   "phone"
   end
 
+  add_index "riders", ["team_id"], :name => "index_riders_on_team_id"
+
   create_table "roles", :force => true do |t|
     t.integer "user_id"
     t.integer "context_id"
@@ -186,6 +227,10 @@ ActiveRecord::Schema.define(:version => 20110517223405) do
     t.integer "ancestor_context_id"
     t.string  "ancestor_context_type"
   end
+
+  add_index "roles", ["ancestor_context_id"], :name => "index_roles_on_ancestor_context_id"
+  add_index "roles", ["context_id"], :name => "index_roles_on_context_id"
+  add_index "roles", ["user_id"], :name => "index_roles_on_user_id"
 
   create_table "section_translations", :force => true do |t|
     t.integer  "section_id"
@@ -215,6 +260,9 @@ ActiveRecord::Schema.define(:version => 20110517223405) do
     t.text     "permissions"
     t.datetime "published_at"
   end
+
+  add_index "sections", ["parent_id"], :name => "index_sections_on_parent_id"
+  add_index "sections", ["site_id"], :name => "index_sections_on_site_id"
 
   create_table "sites", :force => true do |t|
     t.string  "name"
@@ -266,6 +314,9 @@ ActiveRecord::Schema.define(:version => 20110517223405) do
     t.integer  "position"
     t.integer  "race_id"
   end
+
+  add_index "teams", ["race_id"], :name => "index_teams_on_race_id"
+  add_index "teams", ["site_id"], :name => "index_teams_on_site_id"
 
   create_table "users", :force => true do |t|
     t.string   "first_name",       :limit => 40
