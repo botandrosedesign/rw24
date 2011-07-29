@@ -197,6 +197,7 @@ ActiveRecord::Schema.define(:version => 20110729180439) do
     t.integer  "race_id"
   end
 
+  add_index "points", ["race_id"], :name => "index_points_on_race_id"
   add_index "points", ["team_id"], :name => "index_points_on_team_id"
 
   create_table "races", :force => true do |t|
