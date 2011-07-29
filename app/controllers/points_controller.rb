@@ -1,12 +1,13 @@
 class PointsController < BaseController
   before_filter :guess_section
   before_filter :authorize_access
+  before_filter :set_race
 
   def index
-    @points = Point.all(:limit => 100)
-    @lap = Point.new_lap
-    @bonus = Point.new_bonus
-    @penalty = Point.new_penalty
+    @points = @race.points.all :limit => 100
+    @lap = Point.new_lap :race => @race
+    @bonus = Point.new_bonus :race => @race
+    @penalty = Point.new_penalty :race => @race
   end
 
   def new
@@ -58,5 +59,9 @@ class PointsController < BaseController
 
     def current_user
       @current_user ||= User.find(cookies[:uid]) rescue nil
+    end
+
+    def set_race
+      @race = Race.current
     end
 end

@@ -3,6 +3,7 @@ class Point < ActiveRecord::Base
   default_scope :order => "created_at DESC"
 
   belongs_to :team
+  belongs_to :race
 
   validate :position_must_exist
   validates_inclusion_of :category, :in => CATEGORIES
@@ -34,7 +35,7 @@ class Point < ActiveRecord::Base
 
   def since_start
     return unless created_at
-    diff = created_at - START_TIME
+    diff = created_at - race.start_time
     hours = diff / 1.hour
     minutes = diff % 1.hour / 1.minute
     seconds = diff % 1.minute
@@ -44,7 +45,7 @@ class Point < ActiveRecord::Base
   def since_start=(value)
     return unless value =~ /^\d+:\d+:\d+$/
     hours, minutes, seconds = value.split(":")
-    self.created_at = START_TIME + hours.to_i.hours + minutes.to_i.minutes + seconds.to_i.seconds
+    self.created_at = race.start_time + hours.to_i.hours + minutes.to_i.minutes + seconds.to_i.seconds
   end
 
   def team_position
