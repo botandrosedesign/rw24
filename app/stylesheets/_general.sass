@@ -1,11 +1,6 @@
 body
   font: normal 14px Futura, Helvetica, Arial, sans-serif
 
-.left
-  +float-left
-.right
-  +float-right  
-
 a
   :text-decoration none
 
@@ -86,7 +81,7 @@ a, input.submit
   &.button
     :width auto
     :display inline-block
-    :background #f1f1f1 image_url('/images/gradient-white.png') repeat-x top
+    background: #ccc
     :color #1a1a1a
     :padding 6px 18px
     :font-weight bold
@@ -101,14 +96,6 @@ a, input.submit
     &:hover
       background: $secondaryColor !important
       :color #000 !important
-  &.arrow
-    :display inline-block
-    :font-size 1.25em
-    :background transparent image_url('/images/arrow-orange.png') no-repeat right center
-    :padding-right 12px
-    &:hover
-      color: $secondaryColor
-      background-image: image_url('/images/arrow-yellow.png')
     strong
       color: $primaryColor
 #sidebar
@@ -148,29 +135,6 @@ ol
 ul ol, ol ol
   :list-style lower-alpha outside
   :margin-left 24px
-  
-ul.quicklinks
-  a
-    +sprite-sprite("arrow")
-    &:hover
-      +sprite-sprite("arrow_hover")
-  
-#sidebar
-  ul
-    :line-height 1.4
-  li
-    :list-style none
-    :margin 3px 0
-  a
-    :font-weight bold
-    :color #1a1a1a
-    :padding-left 16px
-    &.current, &.current:hover 
-      :color #000
-      :background transparent image_url('/images/arrow-black.png') no-repeat left center
-    &:hover
-      color: $primaryColor
-  
 
 // tables and images
 
@@ -198,19 +162,6 @@ table, img
 #content
   img
     +box-shadow(6px, #ccc)
-    
-#teams  
-  th
-    :border-bottom 4px solid #1a1a1a
-    :padding-bottom 3px
-  td
-    :padding 6px 10px
-    :border-bottom 1px dashed #ccc
-  tr
-    &:nth-child(even)
-      background: #f1f1f1
-    &:hover
-      background: #FFC81F
 
 // forms
 
