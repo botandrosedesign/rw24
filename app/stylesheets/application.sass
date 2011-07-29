@@ -146,7 +146,50 @@ ul#nav
   +float-right
   :padding 10px
   
+#sidebar
+  ul
+    :line-height 1.4
+  li
+    :list-style none
+    :margin 3px 0
+  a
+    :font-weight bold
+    :color #1a1a1a
+    :padding-left 16px
+    &.current, &.current:hover 
+      :color #000
+      +sprite-sprite("arrow")
+    &:hover
+      color: $primaryColor
+ul.quicklinks
+  a
+    +sprite-sprite("arrow")
+    &:hover
+      +sprite-sprite("arrow_hover")
+
 // unique
+a
+  &.arrow
+    :display inline-block
+    :font-size 1.25em
+    +sprite-sprite("arrow_hover")
+    :padding-right 12px
+    &:hover
+      color: $secondaryColor
+      +sprite-sprite("arrow_focus")
+
+#teams  
+  th
+    :border-bottom 4px solid #1a1a1a
+    :padding-bottom 3px
+  td
+    :padding 6px 10px
+    :border-bottom 1px dashed #ccc
+  tr
+    &:nth-child(even)
+      background: #f1f1f1
+    &:hover
+      background: #FFC81F
 
 #show
   :margin 6px 0 12px
