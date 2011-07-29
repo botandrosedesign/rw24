@@ -1,9 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :points, :except => :show
 
-  map.resource :registrations, :controller => "teams", :path_prefix => "join", :only => [:show, :create], :collection => { :payment => :post }
+  map.resource :registrations, :controller => "teams", :path_prefix => "join", :only => [:new, :create], :collection => { :payment => :post }
 
   map.leader_board "leader-board/:year", :controller => "teams", :action => "index", :year => nil
+  map.leader_board_laps "leader-board/:year/:position", :controller => "teams", :action => "show"
 
   map.namespace :admin do |admin|
     admin.resources :sites do |site|

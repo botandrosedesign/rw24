@@ -1,7 +1,7 @@
 class TeamsController < BaseController
   before_filter :set_race
   before_filter :guess_section
-  before_filter :redirect_if_full, :only => [:show, :create]
+  before_filter :redirect_if_full, :only => [:new, :create]
   skip_before_filter :verify_authenticity_token, :only => :payment
 
   def index
@@ -13,6 +13,10 @@ class TeamsController < BaseController
   end
 
   def show
+    @team = @race.teams.find_by_position params[:position]
+  end
+
+  def new
     @team = @race.teams.build
     6.times { @team.riders << Rider.new }
   end

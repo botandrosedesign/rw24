@@ -48,6 +48,15 @@ class Point < ActiveRecord::Base
     self.created_at = race.start_time + hours.to_i.hours + minutes.to_i.minutes + seconds.to_i.seconds
   end
 
+  def since_last(point)
+    last = point ? point.created_at : race.start_time
+    diff = created_at - last
+    hours = diff / 1.hour
+    minutes = diff % 1.hour / 1.minute
+    seconds = diff % 1.minute
+    [hours, minutes, seconds].collect{ |n| "%02d" % n }.join(":")
+  end
+
   def team_position
     team.try :position
   end
