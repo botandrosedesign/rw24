@@ -20,7 +20,7 @@ var countdown = {
   },
 
   render: function() {
-    self = countdown;
+    var self = countdown;
     self.now += 1000;
 
     if(self.now > self.finish) {

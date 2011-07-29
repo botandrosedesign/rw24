@@ -10,7 +10,7 @@
 
     = stylesheet_link_merged :base
     = yield :css
-    /[if lte IE 7]
+    /[if lte IE 8]
       = stylesheet_link_merged :ie
       
     %link(rel="shortcut icon" href="#{image_path("/favicon.png")}" type="image/png")

@@ -1,3 +1,6 @@
+#container
+  background: #f1f1f1 #{image_url("ie/bg.gif")} repeat-x top
+
 table, img
   &[align="left"]
     :float left
@@ -11,3 +14,12 @@ table, img
     :margin-top 6px
     :padding 0 0 3px
     :float left
+    
+#show
+  a
+    background: #ccc
+    width: 13%
+    &.current
+      background: #444
+    &:hover
+      background: #FF6400
