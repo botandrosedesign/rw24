@@ -32,7 +32,7 @@
     = render @teams
 
 - content_for :sidebar do
-  - if DateTime.now > START_TIME
+  - if DateTime.now > @race.start_time
     %h3 Current Leaders
     #leaders
       %p
