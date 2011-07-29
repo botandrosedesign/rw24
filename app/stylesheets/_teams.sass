@@ -1,0 +1,56 @@
+#teams  
+  th
+    :border-bottom 4px solid #1a1a1a
+    :padding-bottom 3px
+  td
+    :padding 6px 10px
+    :border-bottom 1px dashed #ccc
+  tr
+    &.even
+      background: #f1f1f1
+    &:hover
+      background: #FFC81F
+  a
+    color: #000
+    &:hover
+      color: $primaryColor
+      text-decoration: underline
+      
+table#lap-times
+  margin: 20px
+  border: 1px solid #ccc
+  #teams td
+    text-align: center
+      
+    
+
+#show
+  :margin 6px 0 12px
+  :display block
+  +float-left
+  width: 100%
+  a
+    width: 14%
+    :display inline-block
+    +float-left
+    :padding 6px 0
+    text-align: center
+    @include background(linear-gradient(top, #fcfcfc , #ccc))
+    :font-size 1.1em
+    :font-weight bold
+    :border 1px solid #ccc
+    :border-right 1px solid #fff
+    :color #1a1a1a
+    &.first
+      +border-radius-specific("top","left",12px)
+      +border-radius-specific("bottom","left",12px)
+    &.last
+      :border-right 1px solid #ccc
+      +border-radius-specific("top","right",12px)
+      +border-radius-specific("bottom","right",12px)
+    &:hover
+      @include background(linear-gradient(top, adjust-lightness($primaryColor, 20) , $primaryColor))
+    &.current
+      @include background(linear-gradient(top, #666 , #1a1a1a))
+      :color #fff
+      :border-color #1a1a1a

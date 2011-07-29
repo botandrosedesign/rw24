@@ -1,7 +1,7 @@
 %tr{ :class => [team.category_abbrev_with_gender, team.category_abbrev].uniq.join(" ") }
   %td.center_align= fixed_number_or_empty team.position, :size => 3
   %td.center_align= team.category_abbrev_with_gender
-  %td.team= team.name
+  %td.team= link_to team.name, "/lap-times"
   %td.center_align= fixed_number_or_empty team.laps_total
   %td.center_align= fixed_number_or_empty team.bonuses_total
   %td.center_align= fixed_number_or_empty team.penalties_total
