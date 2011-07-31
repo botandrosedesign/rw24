@@ -41,8 +41,15 @@
             #sec
               %b 00
               %span sec
+
           %ul#nav
             - @site.sections.select(&:published?).each_with_index do |section, index|
+              - if index == 1
+                %li
+                  = link_to_current "Leaderboards", leader_board_path, :if => request.request_uri.starts_with?("/leader-board")
+                  %ul
+                    - Race.all.reverse.each do |race|
+                      %li= link_to_current h(race.year), leader_board_path(race.year)
               %li
                 = link_to_current h(section.title), section_path(section), :if => request.request_uri.starts_with?("/#{section.permalink}")
                 - next unless section.contents.published.length > 1
