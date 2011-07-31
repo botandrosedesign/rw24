@@ -65,12 +65,14 @@ function pickLeaders() {
 function pickWinners() {
   var a_winners = $("#teams tr.A").slice(0, 3).find("td:nth-child(3)").map(function() { return $(this).text(); }).toArray();
   var b_winners = $("#teams tr.B").slice(0, 3).find("td:nth-child(3)").map(function() { return $(this).text(); }).toArray();
+  var s_winners = $("#teams tr.S").slice(0, 3).find("td:nth-child(3)").map(function() { return $(this).text(); }).toArray();
   var m_winners = $("#teams tr.M").slice(0, 3).find("td:nth-child(3)").map(function() { return $(this).text(); }).toArray();
   var f_winners = $("#teams tr.F").slice(0, 3).find("td:nth-child(3)").map(function() { return $(this).text(); }).toArray();
   var t_winners = $("#teams tr.T").slice(0, 3).find("td:nth-child(3)").map(function() { return $(this).text(); }).toArray();
   
   $("#a_winners").html("<b>" + a_winners.join("</b><br/><b>") + "</b>");
   $("#b_winners").html("<b>" + b_winners.join("</b><br/><b>") + "</b>");
+  $("#s_winners").html("<b>" + s_winners.join("</b><br/><b>") + "</b>");
   $("#m_winners").html("<b>" + m_winners.join("</b><br/><b>") + "</b>");
   $("#f_winners").html("<b>" + f_winners.join("</b><br/><b>") + "</b>");
   $("#t_winners").html("<b>" + t_winners.join("</b><br/><b>") + "</b>");

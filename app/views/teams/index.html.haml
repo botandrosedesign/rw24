@@ -4,8 +4,9 @@
   = link_to "A Team", "#", :"data-category" => "A"
   = link_to "B Team", "#", :"data-category" => "B"
   = link_to "Solo", "#", :"data-category" => "S"
-  = link_to "Solo (M)", "#", :"data-category" => "M"
-  = link_to "Solo (F)", "#", :"data-category" => "F"
+  - if @race.year > 2009
+    = link_to "Solo (M)", "#", :"data-category" => "M"
+    = link_to "Solo (F)", "#", :"data-category" => "F"
   = link_to "Tandem", "#", :class => "last", :"data-category" => "T"
 .clear
 %p
@@ -25,7 +26,8 @@
       %th{:scope => "col"} Team Name
       %th.center_align{:scope => "col"} Laps
       %th.center_align{:scope => "col"} Bonus
-      %th.center_align{:scope => "col"} Penalty
+      - if @race.year > 2009
+        %th.center_align{:scope => "col"} Penalty
       %th.center_align{:scope => "col"} 
         %b Total
   %tbody#teams
@@ -67,14 +69,20 @@
         %span B Team:
         %br
         #b_winners
-      %p
-        %span Solo (male):
-        %br
-        #m_winners
-      %p
-        %span Solo (female):
-        %br
-        #f_winners
+      - if @race.year > 2009
+        %p
+          %span Solo (male):
+          %br
+          #m_winners
+        %p
+          %span Solo (female):
+          %br
+          #f_winners
+      - else
+        %p
+          %span Solo:
+          %br
+          #s_winners
       %p
         %span Tandem:
         %br
