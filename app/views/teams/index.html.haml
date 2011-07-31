@@ -1,4 +1,7 @@
 %h2 #{@race.year} Leader Board
+
+= @race.description
+
 %p#show
   = link_to "All", "#", :class => "first current"
   = link_to "A Team", "#", :"data-category" => "A"
