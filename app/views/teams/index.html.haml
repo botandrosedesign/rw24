@@ -32,7 +32,7 @@
     = render @teams
 
 - content_for :sidebar do
-  - if DateTime.now > @race.start_time
+  - if @race.running?
     %h3 Current Leaders
     #leaders
       %p
@@ -44,13 +44,42 @@
         %br
         %b#b_leader
       %p
-        %span Solo:
+        %span Solo (male):
         %br
-        %b#s_leader
+        %b#m_leader
+      %p
+        %span Solo (female):
+        %br
+        %b#f_leader
       %p
         %span Tandem:
         %br
         %b#t_leader
+
+  - if @race.finished?
+    %h3 Winners
+    #leaders
+      %p
+        %span A Team:
+        %br
+        #a_winners
+      %p
+        %span B Team:
+        %br
+        #b_winners
+      %p
+        %span Solo (male):
+        %br
+        #m_winners
+      %p
+        %span Solo (female):
+        %br
+        #f_winners
+      %p
+        %span Tandem:
+        %br
+        #t_winners
+
 
   = render "shared/sidebar"
 

@@ -6,4 +6,20 @@ class Race < ActiveRecord::Base
   def self.current
     Race.find_by_year Date.today.year
   end
+
+  def running?
+    started? and not finished?
+  end
+
+  def started?
+    DateTime.now > start_time
+  end
+
+  def finished?
+    DateTime.now > end_time
+  end
+
+  def end_time
+    start_time + 24.hours
+  end
 end
