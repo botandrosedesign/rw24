@@ -1,5 +1,16 @@
 %h2 #{@race.year} Lap Times
-%h3= @team.position_and_name
+%h3
+  = @team.position_and_name
+  \-
+  = @team.category
+
+%p
+  = pluralize(@team.laps_total, "lap") + ","
+  = pluralize(@team.bonuses_total, "bonus lap") + ","
+  = pluralize(@team.penalties_total, "lost lap") + ","
+  %b= pluralize(@team.points_total, "total lap")
+
+%p= link_to "&laquo; Back to Leader Board", leader_board_path(@race.year)
 
 - if current_user.try(:has_role?, :superuser)
   %p
