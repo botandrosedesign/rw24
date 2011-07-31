@@ -10,6 +10,7 @@ gem "compass", "0.11.1"
 gem "compass-querystring_cachebuster"
 gem "fastercsv"
 gem "csv_builder", "~>1.0"
+gem "nokogiri"
 
 gem "rspec",       "1.2.9", :require => false
 gem "rspec-rails", "1.2.9", :require => false
