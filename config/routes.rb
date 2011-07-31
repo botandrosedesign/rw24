@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :points, :except => :show
+  map.resources :points
 
   map.resource :registrations, :controller => "teams", :path_prefix => "join", :only => [:new, :create], :collection => { :payment => :post }
 

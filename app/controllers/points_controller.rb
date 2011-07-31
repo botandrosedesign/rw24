@@ -10,6 +10,11 @@ class PointsController < BaseController
     @penalty = Point.new_penalty
   end
 
+  def show
+    @team = @race.teams.find_by_position params[:id]
+    render "teams/show"
+  end
+
   def new
     @point = Point.new :race => @race
     @point.attributes = params[:point]
@@ -27,29 +32,42 @@ class PointsController < BaseController
     @point = Point.new :race => @race
     @point.attributes = params[:point]
 
-    if @point.save
-      render @point
-    else
-      render :text => @point.errors.full_messages.join(", "), :status => 406
+    respond_to do |wants|
+      if @point.save
+        wants.js { render @point }
+        wants.html { redirect_to point_path(@point.team.position) }
+      else
+        wants.js { render :text => @point.errors.full_messages.join(", "), :status => 406 }
+        wants.html { render :new }
+      end
     end
   end
 
   def update
     @point = Point.find(params[:id])
 
-    if @point.update_attributes(params[:point])
-      render @point
-    else
-      render :text => @point.errors.full_messages.join(", "), :status => 406
+    respond_to do |wants|
+      if @point.update_attributes(params[:point])
+        wants.js { render @point }
+        wants.html { redirect_to point_path(@point.team.position) }
+      else
+        wants.js { render :text => @point.errors.full_messages.join(", "), :status => 407 }
+        wants.html { render :edit }
+      end
     end
   end
 
   def destroy
     @point = Point.find(params[:id])
-    if @point.destroy
-      head(200)
-    else
-      head(500)
+
+    respond_to do |wants|
+      if @point.destroy
+        wants.js { head(200) }
+        wants.html { redirect_to point_path(@point.team.position) }
+      else
+        wants.js { head(500) }
+        wants.html { redirect_to point_path(@point.team.position) }
+      end
     end
   end
 
@@ -57,10 +75,6 @@ class PointsController < BaseController
 
     def authorize_access
       redirect_to admin_sites_url unless current_user.try(:has_role?, :superuser)
-    end
-
-    def current_user
-      @current_user ||= User.find(cookies[:uid]) rescue nil
     end
 
     def set_race

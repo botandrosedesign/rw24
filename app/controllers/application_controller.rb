@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
 
 
   helper :all # include all helpers, all the time
+  helper_method :current_user
+
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
   # Scrub sensitive parameters from your log
@@ -17,4 +19,9 @@ class ApplicationController < ActionController::Base
       @section = Section.find_by_permalink permalink
       @section ||= Section.first
     end
+
+    def current_user
+      @current_user ||= User.find(cookies[:uid]) rescue nil
+    end
+
 end

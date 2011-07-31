@@ -1,6 +1,14 @@
 %h2 #{@race.year} Lap Times
 %h3= @team.position_and_name
 
+- if current_user.try(:has_role?, :superuser)
+  %p
+    = link_to "New Bonus", new_point_path(:point => { :team_id => @team.id, :category => "Bonus" })
+    |
+    = link_to "New Penalty", new_point_path(:point => { :team_id => @team.id, :category => "Penalty" })
+    |
+    = link_to "New Lap", new_point_path(:point => { :team_id => @team.id, :category => "Lap" })
+
 %table#lap-times
   %col{:width => "80"}
   %col{:width => "140"}
@@ -17,6 +25,9 @@
         %td= i+1
         %td= lap.since_last(last_lap)
         %td= lap.since_start
+        - if current_user.try(:has_role?, :superuser)
+          %td.edit.ceebox= link_to "", [:edit, lap], :title => "Edit Score", :rel => "modal: true width:500 height:200"
+          %td.delete= button_to "", lap, :method => :delete, :confirm => "Are you sure?"
       - last_lap = lap
       
 %table#bonuses
@@ -24,7 +35,7 @@
   %col{:width => "80"}
   %thead
     %tr
-      %th{:colspan => "2"} Bonuses
+      %th{:colspan => "2"} bonuses
   %tbody
     - @team.points.select(&:bonus?).each_with_index do |bonus, i|
       %tr
@@ -32,6 +43,15 @@
           Bonus
           = i+1
         %td= bonus.qty
+        - if current_user.try(:has_role?, :superuser)
+          %td.edit.ceebox= link_to "", [:edit, bonus], :title => "Edit Score", :rel => "modal: true width:500 height:200"
+          %td.delete= button_to "", bonus, :method => :delete, :confirm => "Are you sure?"
+  %tfoot
+    %tr
+      %th Total:
+      %th= @team.bonuses_total
+
+
       
 %table#penalties
   %col{:width => "100"}
@@ -46,7 +66,18 @@
           Penalty
           = i+1
         %td= penalty.qty
+        - if current_user.try(:has_role?, :superuser)
+          %td.edit.ceebox= link_to "", [:edit, penalty], :title => "Edit Score", :rel => "modal: true width:500 height:200"
+          %td.delete= button_to "", penalty, :method => :delete, :confirm => "Are you sure?"
 
 %hr.clear      
 
 = link_to "&laquo; Back to Leader Board", leader_board_path(@race.year)
+
+- content_for :js do
+  - if current_user.try(:has_role?, :superuser)
+    :javascript
+      $(function() {
+        $("#content").css("width", "100%");
+      });
+  -# = javascript_include_merged :points

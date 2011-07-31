@@ -57,6 +57,12 @@ class Point < ActiveRecord::Base
     [hours, minutes, seconds].collect{ |n| "%02d" % n }.join(":")
   end
 
+  def lap_seconds
+    last = Point.first :conditions => "team_id=#{team_id} AND category='Lap' AND created_at < '#{created_at}'", :order => "created_at DESC"
+    last = last ? last.created_at : race.start_time
+    created_at - last
+  end
+
   def team_position
     team.try :position
   end
