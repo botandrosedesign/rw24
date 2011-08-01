@@ -46,7 +46,7 @@
             - @site.sections.select(&:published?).each_with_index do |section, index|
               - if index == 1
                 %li
-                  = link_to_current "Leaderboards", leader_board_path, :if => request.request_uri.starts_with?("/leader-board")
+                  = link_to_current "Leaderboards", leader_board_path(Race.first.year), :if => request.request_uri.starts_with?("/leader-board")
                   %ul
                     - Race.all.reverse.each do |race|
                       %li= link_to_current h(race.year), leader_board_path(race.year)
