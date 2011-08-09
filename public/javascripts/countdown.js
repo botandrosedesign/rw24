@@ -1,11 +1,8 @@
 var countdown = {
   init: function() {
-    // "Sat Jul 31 01:00:00 UTC 2010"
     this.start = new Date(Date.UTC(2011, 6, 30, 0, 0, 0)).valueOf();
-    // "Sat Aug 01 01:00:00 UTC 2010"
     this.finish = new Date(Date.UTC(2011, 6, 31, 0, 0, 0)).valueOf();
-    // "Sat Jul 31 01:00:00 UTC 2011"
-    this.next = new Date(Date.UTC(2012, 6, 27, 0, 0, 0)).valueOf();
+    this.next = new Date(Date.UTC(2012, 6, 28, 0, 0, 0)).valueOf();
     this.now = new Date().valueOf();
 
     this.oneMinute = 60 * 1000;
