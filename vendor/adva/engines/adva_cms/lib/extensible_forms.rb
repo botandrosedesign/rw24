@@ -146,7 +146,7 @@ class ExtensibleFormBuilder < ActionView::Helpers::FormBuilder
       self.class.tabs.map { |name, block|
         klass = self.class.tabs.first.first == name ? 'tab active' : 'tab'
         @template.content_tag 'div', block.call(self), :id => "tab_#{name}", :class => klass
-      }.join
+      }.join.html_safe
     }
   end
 
