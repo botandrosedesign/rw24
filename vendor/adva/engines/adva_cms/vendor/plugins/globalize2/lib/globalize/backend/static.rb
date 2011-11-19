@@ -44,9 +44,7 @@ module Globalize
             result.set_meta meta
             result
           when Hash
-            Hash[*result.map do |key, value|
-              [key, translation(value, meta)]
-            end.flatten]
+            nil
           when Array
             result.map do |value|
               translation(value, meta)
