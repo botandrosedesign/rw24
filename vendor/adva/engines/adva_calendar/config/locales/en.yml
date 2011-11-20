@@ -12,26 +12,26 @@ en:
         created_by: Created by
     calendar:
       events_count:
-        one: "{{count}} event"
-        other: "{{count}} events"
+        one: "%{count} event"
+        other: "%{count} events"
       events_published_count:
-        one: "{{count}} published"
-        other: "{{count}} published"
+        one: "%{count} published"
+        other: "%{count} published"
       events_draft_count:
-        one: "{{count}} draft"
-        other: "{{count}} drafts"
+        one: "%{count} draft"
+        other: "%{count} drafts"
       open_end: Open end
       confirm_delete: Are you sure you want to delete this event?
       publish_on_date: Publish on this date
-      starting_at: Starting at {{start_date}}
+      starting_at: Starting at %{start_date}
       question_save_as_draft: Save as draft?
       confirm_save_as_draft: Yes, save this event as a draft
-      from_to: '{{start_date}} - {{end_date}}'
+      from_to: '%{start_date} - %{end_date}'
       total_events_with_count:
-        one: "Total: {{count}} event."
-        other: "Total: {{count}} events."
+        one: "Total: %{count} event."
+        other: "Total: %{count} events."
       errors:
-        no_events: No events in {{title}} for this period of time.
+        no_events: No events in %{title} for this period of time.
         no_events_in_calendar: There are no events yet in this calendar.
         no_events_found: No events matching your filter.
       input_defaults:
@@ -52,8 +52,8 @@ en:
           year_month_day: 'on %e %B %Y'
           year_month: 'in %B %Y'
           year: 'in %Y'
-        in_category: in {{title}}
-        tagged: tagged {{tags}}
+        in_category: in %{title}
+        tagged: tagged %{tags}
         events: Events
         all_day: All day
       flash:

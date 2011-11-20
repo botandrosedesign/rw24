@@ -63,10 +63,10 @@ en:
       confirm_save_as_draft: Yes, save this issue as draft
       deleted_issues: Deleted issues
       no_deleted_issues: Trash is empty.
-      total_newsletters: "Total newsletters: {{newsletters_count}}"
-      total_issues: "Total issues: {{issues_count}}"
-      total_subscribers: "Total subscribers: {{subscriptions_count}}"
-      delivered_at: "Delivered at {{delivered_time}}"
+      total_newsletters: "Total newsletters: %{newsletters_count}"
+      total_issues: "Total issues: %{issues_count}"
+      total_subscribers: "Total subscribers: %{subscriptions_count}"
+      delivered_at: "Delivered at %{delivered_time}"
       no_issues: There are no issues.
       question_save_issue_as_draft: Yes, save this issue as draft.
       flash:
@@ -111,7 +111,7 @@ en:
         issue_name: Name
         issue_created_at: Created
         issue_deliver_at: Deliver at
-        issue_deliver_at_long: "Issue will be delivered at {{delivery_time}}"
+        issue_deliver_at_long: "Issue will be delivered at %{delivery_time}"
         autocopy: Autocopy
       title:
         new: New newsletter
