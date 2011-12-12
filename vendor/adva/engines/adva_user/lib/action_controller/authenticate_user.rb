@@ -46,7 +46,7 @@ module ActionController
     # Methods callable from within actions
     module InstanceMethods
       def authenticate_user(credentials)
-        returning User.authenticate(credentials) do |user|
+        User.authenticate(credentials).tap do |user|
           if user
             # prevent session hijacking - unnecessary according to http://dev.rubyonrails.org/ticket/10108
             # reset_session_except :return_location

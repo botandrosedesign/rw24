@@ -35,7 +35,7 @@ class Topic < ActiveRecord::Base
   end
 
   def reply(author, attributes)
-    returning posts.build(attributes) do |post| # FIXME should be posts.create ?
+    posts.build(attributes).tap do |post| # FIXME should be posts.create ?
       post.author = author
       post.board = self.board
       post.topic = self
@@ -44,7 +44,7 @@ class Topic < ActiveRecord::Base
   
   def update_attributes(attributes)
     board_id = attributes.delete(:board_id)
-    returning super do
+    super.tap do
       move_to_board(board_id) if board_id
     end
   end

@@ -38,7 +38,7 @@ module RoutingFilter
     end
 
     def around_generate(*args, &block)
-      returning yield do |result|
+      yield.tap do |result|
         result = result.first if result.is_a?(Array)
         if result !~ %r(^/([\w]{2,4}/)?admin) and result =~ %r(/categories/([\d]+))
           category = Category.find $1

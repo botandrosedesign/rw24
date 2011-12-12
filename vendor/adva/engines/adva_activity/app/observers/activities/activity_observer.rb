@@ -15,7 +15,7 @@ module Activities
       end
 
       def find_subscribers(activity)
-        returning [] do |subscribers|
+        [].tap do |subscribers|
           subscribers << User.by_role_and_context(:admin, activity.site)
           subscribers << User.by_role_and_context(:superuser, activity.site)
         end.flatten

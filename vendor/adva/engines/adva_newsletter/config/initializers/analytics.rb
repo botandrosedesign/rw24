@@ -23,7 +23,7 @@ if Rails.plugin?(:adva_google_analytics)
       def track_links(content)
         content.gsub(/<a(.*)href="#{Regexp.escape("http://#{newsletter.site.host}")}(.*)"(.*)>/) do |s|
           m = [$1, $2, $3] # why do I need this?
-          returning %(<a#{m[0]}href="http://#{newsletter.site.host}) do |s|
+          %(<a#{m[0]}href="http://#{newsletter.site.host}).tap do |s|
             s << ("#{m[1]}#{m[1].include?("?") ? "&" : "?"}utm_medium=newsletter&utm_campaign=#{URI.escape(tracking_campaign)}&utm_source=#{URI.escape(tracking_source)}") if m[1]
             s << %("#{m[2]}>)
           end

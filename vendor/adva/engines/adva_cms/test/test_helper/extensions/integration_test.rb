@@ -39,7 +39,7 @@ module ActionController
 
     def use_site!(site)
       site = Site.find_by_name(site) unless site.is_a?(Site)
-      returning site do |site|
+      site.tap do |site|
         @integration_session ||= open_session
         @integration_session.host! site.host
       end

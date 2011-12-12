@@ -1,7 +1,7 @@
 class Time
   class << self
     def extract_from_attributes!(attrs, field, method = :local)
-      returning parse_from_attributes(attrs, field, method) do |time|
+      parse_from_attributes(attrs, field, method).tap do |time|
         attrs.delete_if { |k, v| k.to_s =~ /^#{field}.+/ }
       end unless attrs.blank?
     end

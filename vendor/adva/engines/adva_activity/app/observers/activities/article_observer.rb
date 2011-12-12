@@ -9,7 +9,7 @@ module Activities
     end
 
     def initialize_activity(record)
-      returning super do |activity|
+      super.tap do |activity|
         activity.site = record.site
         activity.section = record.section
         activity.author = record.author

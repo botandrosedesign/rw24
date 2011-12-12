@@ -36,7 +36,7 @@ class User < ActiveRecord::Base
   def attributes=(attributes)
     attributes.symbolize_keys!
     memberships = attributes.delete :memberships
-    returning super do
+    super.tap do
       update_memberships memberships if memberships
     end
   end

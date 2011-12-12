@@ -86,7 +86,7 @@ module Cell::Caching
   
   
   def read_fragment(key, cache_options = nil) #:nodoc:
-    returning self.class.cache_store.read(key, cache_options) do |content|
+    self.class.cache_store.read(key, cache_options).tap do |content|
       @controller.logger.debug "Cell Cache hit: #{key}" unless content.blank?
     end
   end

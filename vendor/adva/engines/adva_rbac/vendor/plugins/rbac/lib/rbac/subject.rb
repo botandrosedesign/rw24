@@ -2,7 +2,7 @@ module Rbac
   class Subject
     class << self
       def define_class(model, options)
-        returning Class.new(Base) do |klass|
+        Class.new(Base).tap do |klass|
           model.const_set('RoleSubject', klass)
         end
       end

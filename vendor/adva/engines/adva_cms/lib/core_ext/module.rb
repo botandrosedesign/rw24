@@ -54,7 +54,7 @@ end
 Class.class_eval do
   # Instantiates a class and adds in any class_mixins that have been registered for it.
   def inherited_with_mixins(klass)
-    returning inherited_without_mixins(klass) do |value|
+    inherited_without_mixins(klass).tap do |value|
       klass.auto_include!
     end
   end

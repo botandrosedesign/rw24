@@ -220,7 +220,7 @@ module Authentication
     end
 
     def assign_token!(*args)
-      returning assign_token(*args) do |token|
+      assign_token(*args).tap do |token|
         save!
       end
     end

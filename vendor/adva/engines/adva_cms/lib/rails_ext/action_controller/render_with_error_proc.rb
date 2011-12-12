@@ -33,7 +33,7 @@ ActionController::Base.class_eval do
       raise "invalid error_proc_key: #{error_proc_key}" unless self.field_error_procs[error_proc_key]
       old_proc = ActionView::Base.field_error_proc
       ActionView::Base.field_error_proc = self.field_error_procs[error_proc_key]
-      returning yield do
+      yield.tap do
         ActionView::Base.field_error_proc = old_proc
       end
     else

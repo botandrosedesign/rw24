@@ -69,7 +69,7 @@ module CacheReferences
         skip_caching! if options.delete(:skip_caching) || !(track_options.has_key?(current_action))
 
         setup_method_call_tracking if track_method_calls?
-        returning render_without_cache_reference_tracking(*args, &block) do
+        render_without_cache_reference_tracking(*args, &block).tap do
           save_cache_references if track_method_calls?
         end
       end

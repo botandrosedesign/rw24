@@ -46,13 +46,13 @@ module LaterDude
     def show_previous_month
       return if @days.first.wday == first_day_of_week # don't display anything if the first day is the first day of a week
 
-      returning "" do |output|
+      "".tap do |output|
         beginning_of_week(@days.first).upto(@days.first - 1) { |d| output << show_day(d) }
       end
     end
 
     def show_current_month
-      returning "" do |output|
+      "".tap do |output|
         @days.first.upto(@days.last) { |d| output << show_day(d) }
       end
     end
@@ -60,7 +60,7 @@ module LaterDude
     def show_following_month
       return if @days.last.wday == last_day_of_week # don't display anything if the last day is the last day of a week
 
-      returning "" do |output|
+      "".tap do |output|
         (@days.last + 1).upto(beginning_of_week(@days.last + 1.week) - 1) { |d| output << show_day(d) }
       end
     end
@@ -84,7 +84,7 @@ module LaterDude
         content = day.day
       end
 
-      returning content_tag(:td, content, options) do |output|
+      content_tag(:td, content, options).tap do |output|
         if day < @days.last && day.wday == last_day_of_week # opening and closing tag for the first and last week are included in #show_days
           output << "</tr><tr>" # close table row at the end of a week and start a new one
         end
@@ -132,7 +132,7 @@ module LaterDude
     def show_month(month, format, options={})
       options[:colspan] ||= 2
 
-      returning %(<th colspan="#{options[:colspan]}">) do |output|
+      %(<th colspan="#{options[:colspan]}">).tap do |output|
         output << if format.kind_of?(Array) && format.size == 2
           text = I18n.localize(month, :format => format.first.to_s)
           format.last.respond_to?(:call) ? link_to(text, format.last.call(month)) : text
@@ -158,7 +158,7 @@ module LaterDude
     def show_day_names
       return if @options[:hide_day_names]
 
-      returning "<tr>" do |output|
+      "<tr>".tap do |output|
         apply_first_day_of_week(day_names).each do |day|
           output << %(<th scope="col">#{include_day_abbreviation(day)}</th>)
         end

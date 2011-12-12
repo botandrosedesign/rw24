@@ -65,7 +65,7 @@ module SpamEngine
         # end
         #
         # def errors
-        #   returning([]) do |es|
+        #   [].tap do |es|
         #     es << "The Defensio key is missing" if options[:defensio_key].blank?
         #     es << "The Defensio url is missing" if options[:defensio_url].blank?
         #

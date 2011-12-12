@@ -13,7 +13,7 @@ module RoutingFilter
     end
 
     def around_generate(*args, &block)
-      returning yield do |result|
+      yield.tap do |result|
         result = result.first if result.is_a?(Array)
         if result !~ %r(^/admin/) and result =~ generate_pattern
           segments, section_type, section_id, dot_or_dash = $2, $3, $4, $5

@@ -51,7 +51,7 @@ if Rails.plugin?(:adva_activity)
     end
   
     def sticky_topic
-      @sticky_topic ||= returning(@topic) do |topic|
+      @sticky_topic ||= @topic.tap do |topic|
         topic.update_attributes! :sticky => true
         topic.clear_changes!
         topic.activities.clear
@@ -60,7 +60,7 @@ if Rails.plugin?(:adva_activity)
     end
   
     def locked_topic
-      @locked_topic ||= returning(@topic) do |topic|
+      @locked_topic ||= @topic.tap do |topic|
         topic.update_attributes! :locked => true
         topic.clear_changes!
         topic.activities.clear

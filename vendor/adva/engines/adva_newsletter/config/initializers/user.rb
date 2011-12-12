@@ -34,7 +34,7 @@ module Adva
     #     protected
     #     def set_newsletter_attributes
     #       @newsletter_attributes = @site.newsletters.published.inject([]) do |newsletter_attributes, newsletter|
-    #         newsletter_attributes << returning({}) do |attributes|
+    #         newsletter_attributes << {}.tap do |attributes|
     #           attributes[:subscribable_id]   = newsletter.id
     #           attributes[:subscribable_type] = newsletter.class.to_s
     #         end

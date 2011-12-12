@@ -68,7 +68,7 @@ module ActiveRecord
 
           def instantiate_from_cached_attributes(name, attributes)
             if type = respond_to?(:"\#{name}_type") ? send(:"\#{name}_type") : name.classify
-              returning type.constantize.new do |object|
+              type.constantize.new.tap do |object|
                 attributes.each do |attribute|
                   object.send :"\#{attribute}=", send(:"\#{name}_\#{attribute}")
                 end

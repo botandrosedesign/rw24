@@ -9,7 +9,7 @@ module Rbac
       end
       
       def define_class(model, options)
-        returning Class.new(Base) do |klass|
+        Class.new(Base).tap do |klass|
           model.const_set('RoleContext', klass).class_eval do
             self.parent_accessor = options.delete(:parent)
             self.options = options

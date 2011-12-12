@@ -16,7 +16,7 @@ module RoutingFilter
     end
 
     def around_generate(*args, &block)
-      returning yield do |result| 
+      yield.tap do |result| 
         result = result.first if result.is_a?(Array)
         if result !~ %r(^/([\w]{2,4}/)?admin) and result =~ generate_pattern
           section = Section.find $2.to_i

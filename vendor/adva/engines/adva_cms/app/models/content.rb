@@ -96,7 +96,7 @@ class Content < ActiveRecord::Base
   end
 
   def attributes=(attributes, guard_protected_attributes = true)
-    returning super do
+    super.tap do
       update_categories(attributes.delete(:category_ids))
     end
   end

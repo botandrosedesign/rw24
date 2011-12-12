@@ -74,7 +74,7 @@ class TagList < Array
     #   tag_list # ["One", "Two", "Three"]
     def from(*strings)
       strings = strings.flatten
-      returning new do |tag_list|
+      new.tap do |tag_list|
         strings.each do |string|
           string = string.to_s.dup
       

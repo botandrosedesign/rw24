@@ -66,7 +66,7 @@ class ActivitiesNotifierTest < ActiveSupport::TestCase
   end
 
   def activity_for(object)
-    returning Activity.new(:site => @site, :section => @section) do |activity|
+    Activity.new(:site => @site, :section => @section).tap do |activity|
       activity.object = object
       activity.author_name = object.author_name
       activity.author_email = object.author_email
