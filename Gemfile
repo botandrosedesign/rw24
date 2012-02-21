@@ -1,6 +1,7 @@
 source "http://rubygems.org"
 
-gem "rails", "2.3.5"
+gem "rails", "2.3.8"
+gem "rack", "1.1.2" # 1.1.3 breaks webrat?
 gem "mysql2", "~>0.2.7"
 gem "bard-rake"
 
