@@ -18,7 +18,7 @@ class CachedPage < ActiveRecord::Base
     end
     
     def create_with_references(site, section, url, references)
-      returning find_or_initialize_by_site_id_and_url(site.id, url, :include => :references) do |page|
+      find_or_initialize_by_site_id_and_url(site.id, url).tap do |page|
         [:compact!, :uniq!].each { |method| references.send method }
         references.each do |object, method|
           reference = CachedPageReference.initialize_with(object, method)
