@@ -25,7 +25,8 @@
           #title
             %h1 Riverwest 24
             %h2 Hour Bike Race
-            %span July 27-28, 2012 | 7pm-7pm
+            %span.countstart{:data => { :countstart => start_time } }
+              = start_time_format start_time
           #countdown{ :style => "visibility: hidden" }
             %p.countup The race starts in:
             %p.countdown{ :style => "display: none" } It's on! The race has been going for:

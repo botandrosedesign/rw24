@@ -1,14 +1,14 @@
 var countdown = {
   init: function() {
-    this.start = new Date(Date.UTC(2011, 6, 30, 0, 0, 0)).valueOf();
-    this.finish = new Date(Date.UTC(2011, 6, 31, 0, 0, 0)).valueOf();
-    this.next = new Date(Date.UTC(2012, 6, 28, 0, 0, 0)).valueOf();
-    this.now = new Date().valueOf();
-
     this.oneMinute = 60 * 1000;
     this.oneHour = this.oneMinute * 60;
     this.oneDay = this.oneHour * 24;
     this.oneYear = this.oneDay * 365;
+
+    this.start = new Date($(".countstart").attr("data-countstart")).valueOf();
+    this.finish = this.start + this.oneDay;
+    this.next = this.start + this.oneYear;
+    this.now = new Date().valueOf();
 
     this.old_current = null;
 

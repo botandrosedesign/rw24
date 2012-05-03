@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
 
   helper :all # include all helpers, all the time
-  helper_method :current_user
+  helper_method :current_user, :start_time
 
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
@@ -24,4 +24,7 @@ class ApplicationController < ActionController::Base
       @current_user ||= User.find(cookies[:uid]) rescue nil
     end
 
+    def start_time
+      @start_time ||= Race.last.start_time
+    end
 end

@@ -31,4 +31,9 @@ module ApplicationHelper
     return '-' * options[:size] unless value.nonzero?
     "%0#{options[:size]}d" % value 
   end
+
+  def start_time_format datetime
+    string = datetime.strftime "%B %e-%%d, %Y | %l%P - %l%P"
+    string % [datetime.day + 1]
+  end
 end

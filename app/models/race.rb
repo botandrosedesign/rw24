@@ -27,6 +27,6 @@ class Race < ActiveRecord::Base
 
   def start_time=(datetime)
     self.year = datetime.try(:year)
-    super
+    super datetime
   end
 end
