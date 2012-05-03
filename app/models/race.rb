@@ -24,4 +24,9 @@ class Race < ActiveRecord::Base
   def end_time
     start_time + 24.hours
   end
+
+  def start_time=(datetime)
+    self.year = datetime.try(:year)
+    super
+  end
 end
