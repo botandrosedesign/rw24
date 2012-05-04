@@ -2,8 +2,7 @@ source "http://rubygems.org"
 
 gem "rails", "2.3.4"
 gem "mysql2", "~>0.2.7"
-gem "bard-rake", :require => false
-gem "ruby-debug", :group => [:development, :test, :cucumber]
+gem "bard-rake"
 
 gem "haml"
 gem "compass", "0.11.1"
@@ -12,19 +11,19 @@ gem "fastercsv"
 gem "csv_builder", "~>1.0"
 gem "nokogiri"
 
-gem "rspec",       "1.2.9", :require => false
-gem "rspec-rails", "1.2.9", :require => false
-
 group :test, :cucumber do
+  gem "ruby-debug"
   gem "autotest-rails"
-  gem "machinist",   "1.0.6", :require => false
-  gem "faker",       "0.3.1"
+  gem "rspec-rails", "~>1.3.0"
+  gem "machinist", "1.0.6"
+  gem "faker", "~>0.3.0"
 end
 
 group :cucumber do
-  gem "cucumber",    "0.4.3", :require => false
-  gem "webrat",      "0.5.3", :require => false
-  gem "pickle",      "0.3.0", :require => false
-  gem "email_spec",  "0.4.0"
-  gem "mechanize"
+  gem "cucumber-rails", "~>0.3.2"
+  gem "cucumber", "~>0.10.2"
+  gem "database_cleaner"
+  gem "capybara", "~>0.4.1.2"
+  gem "pickle" # , :git => "http://github.com/botandrose/pickle.git", :branch => "patch-1"
+  gem "email_spec", "~>0.6.0"
 end

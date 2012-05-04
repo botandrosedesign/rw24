@@ -26,17 +26,17 @@ Feature: Admins can manage teams
     And I fill in "Name" under "Rider 1" with "Micah Geisel"
     And I fill in "Email" under "Rider 1" with "micah@botandrose.com"
     And I fill in "Phone" under "Rider 1" with "937.269.2023"
-    And I fill in "Shirt" under "Rider 1" with "S"
+    # And I select "S" from "Shirt Size" under "Rider 1"
     And I fill in "Payment type" under "Rider 1" with "Cash"
     And I check "Paid?" under "Rider 1"
 
     And I fill in "Name" under "Rider 2" with "Michael Gubitosa"
     And I fill in "Email" under "Rider 2" with "gubs@botandrose.com"
-    And I fill in "Shirt" under "Rider 2" with "L"
+    # And I select "M" from "Shirt Size" under "Rider 2"
 
     And I fill in "Name" under "Rider 3" with "Nick Hogle"
     And I fill in "Email" under "Rider 3" with "nick@botandrose.com"
-    And I fill in "Shirt" under "Rider 3" with "M"
+    # And I select "L" from "Shirt Size" under "Rider 3"
 
     And I press "Save"
 
@@ -76,5 +76,5 @@ Feature: Admins can manage teams
     And I follow "Edit" next to "Bot and Rose Design"
 
     When I follow "Delete"
-    Then I should see 0 teams
+    Then I should see no teams
     And I should not see "Bot and Rose Design"

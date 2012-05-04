@@ -1,5 +1,9 @@
-Then /^I should see (\d+) teams?$/ do |count|
-  response.should have_selector "table.list tbody tr", :count => count.to_i
+Then /^I should see (\d+|no) teams?$/ do |count|
+  if %w(0 no).include? count
+    page.should_not have_css("table.list tbody tr")
+  else
+    page.should have_css("table.list tbody tr", :count => count.to_i)
+  end
 end
 
 When /^I fill in "([^\"]*)" with "([^\"]*)" for "([^\"]*)"$/ do |field, value, label|
