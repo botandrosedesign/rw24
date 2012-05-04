@@ -31,7 +31,7 @@
         %td.center_align= team.riders.count
         %td
           - if team.captain
-            = mail_to team.captain.email, h(team.captain.name), :cc => team.lieutenant_emails, :subject => team.name
+            = mail_to team.captain.email, h(team.captain.name), :cc => team.lieutenant_emails, :subject => team.position_and_name
           - else 
             = team.name
         %td.actions
