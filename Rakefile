@@ -9,5 +9,8 @@ require 'rake/rdoctask'
 
 require 'tasks/rails'
 
-
 require 'bard/rake'
+
+namespace :bootstrap do
+  task :production => :clear_cache
+end
