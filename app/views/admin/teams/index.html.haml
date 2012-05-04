@@ -69,3 +69,9 @@
 - form_for @race, :url => [:admin, @site, @race] do |form|
   = form.text_area :description, :class => "wysiwyg"
 
+  .field
+    = form.check_box :published, :label => "Show race in leaderboards dropdown menu?"
+
+  .field
+    %input(type="submit" value="Save")
+

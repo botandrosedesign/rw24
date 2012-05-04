@@ -49,7 +49,7 @@
                 %li
                   = link_to_current "Leaderboards", leader_board_path(Race.last.year), :if => request.request_uri.starts_with?("/leader-board")
                   %ul
-                    - Race.all.reverse.each do |race|
+                    - Race.published.each do |race|
                       %li= link_to_current h(race.year), leader_board_path(race.year)
               %li
                 = link_to_current h(section.title), content_path(section, section.contents.published.first), :if => request.request_uri.starts_with?("/#{section.permalink}")
