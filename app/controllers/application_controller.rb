@@ -25,6 +25,6 @@ class ApplicationController < ActionController::Base
     end
 
     def start_time
-      @start_time ||= Race.last.start_time
+      @start_time ||= Race.current.start_time
     end
 end

@@ -8,7 +8,7 @@ class Race < ActiveRecord::Base
   xss_terminate :except => :description
 
   def self.current
-    Race.find_by_year Date.today.year
+    find_by_year(Date.today.year) || published.last
   end
 
   def running?
