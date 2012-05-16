@@ -19,14 +19,12 @@ class ArticlesController < BaseController
 
   def index
     @article = @articles.first
-    respond_to do |format|
-      format.html { render :template => "#{@section.type.tableize}/articles/show" }
-    end
+    show
   end
 
   def show
-    respond_to do |format|
-      format.html { render :template => "#{@section.type.tableize}/articles/show" }
+    if stale? :etag => @article, :last_modified => [@article, @section, @site].collect(&:updated_at).compact.max.utc, :public => true
+      render :template => "#{@section.type.tableize}/articles/show"
     end
   end
 

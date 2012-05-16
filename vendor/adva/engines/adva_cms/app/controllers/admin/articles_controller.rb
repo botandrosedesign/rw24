@@ -8,9 +8,6 @@ class Admin::ArticlesController < Admin::BaseController
   before_filter :set_categories, :only => [:new, :edit]
   before_filter :optimistic_lock, :only => :update
   
-  cache_sweeper :article_sweeper, :category_sweeper, :tag_sweeper,
-                :only => [:create, :update, :destroy]
-
   guards_permissions :article, :update => :update_all
 
   def index
