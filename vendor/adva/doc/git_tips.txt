@@ -1,0 +1,51 @@
+Pushing your code to mainstream
+===============================
+
+  Here is quick way to push your code up: 
+    cd vendor/adva # aka to your adva repo
+
+    # push to svenfuchs repo when you have direct commit right and
+    # please avoid merges in your git log
+    git push git://github.com/svenfuchs/adva_cms.git master:master
+
+
+Git workflow to avoid merges
+============================
+
+  Usually git merges in log are not good indicator, 
+  often it means you are doing merges instead of using rebase.
+
+  Here is priidu's workflow, what he currently thinks is the correct way of using git:
+
+    # first let's clone mainstream adva for example when you have right to commit
+
+    git clone git@github.com:svenfuchs/adva_cms.git
+
+    # When cloning you have got master and origin/master branches.
+    # Now make your changes to your master branch.
+
+    touch test_clean_rebase
+    git add .
+    git commit -va
+
+    # Write your comment and you have successfully commited to your local master branch
+
+    # Meanwhile when you wrote new code, others have pushed to mainline adva branch, so
+    # before pushing you need to fetch and rebase. Please do not use pull here, cos
+    # it will pollute log with unneeded merges.
+    # Therefore, first let's fetch most recent code from svenfuchs/adva_cms.
+
+    git fetch origin
+
+    # Now svenfuchs/adva_cms named "origin" in your repo has been fetched to your origin/master branch.
+    # Now it's time to rebase origin/master to your own master branch.
+
+    git rebase origin/master
+
+    # If you have any conflicts now, you just fix them manually and commit fixes and continue rebase.
+    # After when "git status" shows clean status you are ready to push to svenfuchs/master branch.
+
+    git push     # or: git push origin master:master
+
+    # Done.
+    # I hope this short howto will helps new people to use git well without merges in log.

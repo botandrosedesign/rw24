@@ -1,0 +1,42 @@
+
+<%
+	table_for @contents, :class => 'contents list tree' do |t|
+		t.column :title, :published, :actions
+
+		t.row do |r, content|
+			r.add_class "level_#{content.level}"
+      if content.is_a? Article
+        r.cell content_status(content) + link_to_edit(content.title, content, :class => content.state)
+      else
+        r.cell content_status(content) + h(content.title)
+      end
+
+			r.cell published_at_formatted(content)
+      if content.is_a? Article
+        r.cell link_to_preview(content) + "\n" +
+          links_to_actions([:edit, :delete], content)
+      else
+        r.cell link_to(content.body, content.body) + 
+          links_to_actions([:edit, :delete], content)
+      end
+		end
+
+		t.empty :p, :class => 'empty' do
+			params[:filters] ?
+				t(:'adva.contents.no_filtered_contents') :
+				t(:'adva.contents.no_contents', :section => @section.title) + "\n" +
+				link_to_new(:'adva.contents.links.create_now', [@section, :content])
+		end
+	end
+%>
+
+<% content_for :sidebar do -%>
+ 	<div class="tabs">
+		<ul>
+			<li class="active"><a href="#filters" onclick="return false;"><%= t(:'adva.titles.filter') %></a></li>
+		</ul>
+		<div class="tab active" id="tab_filters">
+			<% filter_for(Content, :categories => Section.first.categories) %>
+		</div>
+	</div>
+<% end -%>

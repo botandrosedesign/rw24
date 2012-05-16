@@ -1,0 +1,8 @@
+<h2><%= t(:'adva.links.titles.new', :content_locale => Article.locale) %></h2>
+
+<%= links_to_content_translations(@link) %>
+
+<% split_form_for :link, @link, :url => admin_links_path, :html => {:multipart => true, :id => 'content_form'} do |f| -%>
+  <%= render :partial => 'form', :locals => {:f => f} %>
+  <% save_or_cancel_links(f, :cancel_url => admin_links_path) %>
+<% end %>

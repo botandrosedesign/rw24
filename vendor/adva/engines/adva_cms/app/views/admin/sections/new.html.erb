@@ -1,0 +1,28 @@
+<h2><%= t(:'adva.sections.titles.create') %></h2>
+
+<% form_for :section, @section, :url => admin_sections_path do |f| %>
+	<% f.field_set do %>
+		<% column do %>
+    	<%= f.text_field :title, :label => true %>
+		<% end %>
+		<% column do %>
+     	<%= f.collection_select :type, Section.types, :to_s, :to_s, {}, :label => true %>
+		<% end %>
+  <% end %>
+
+	<% unless @site.sections.size < 2 %>
+		<% f.field_set do %>
+			<h3><%= t(:'adva.titles.parent_settings')%></h3>
+	
+	    <%= f.select :parent_id, @site.sections.collect {|s| s == @section ? nil : [ s.title, s.id ]}.compact, { :include_blank => true, :label => true } %>
+			<span class="hint" for="section_parent_id"><%= t :'adva.sections.hints.parent_setting' %></span>
+		<% end %>
+	<% end %>
+
+  <% f.buttons do %>
+    <%= submit_tag t(:'adva.common.save'), :id => 'commit' %>
+    <%= submit_tag t(:'adva.sections.links.save_and_create_new'), :id => 'save_and_create_new' %>
+    <%= t(:'adva.common.connector.or') %>
+    <%= link_to(t(:'adva.common.cancel'), admin_sections_path) %>
+  <% end %>
+<% end %>
