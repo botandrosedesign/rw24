@@ -32,14 +32,6 @@ User.blueprint do
   verified_at { Time.zone.now }
 end
 
-Blog.blueprint do
-  path { "blog" }
-  permalink { "blog" }
-  title { "Blog" }
-  published_at { Time.zone.parse "2008-01-01" }
-  comment_age { 0 }
-end
-
 Page.blueprint do
   path { "pages" }
   permalink { "pages" }
