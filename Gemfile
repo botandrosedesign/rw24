@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-gem "rails", "2.3.4"
+gem "rails", "2.3.5"
 gem "mysql2", "~>0.2.7"
 gem "bard-rake"
 
