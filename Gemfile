@@ -13,6 +13,14 @@ gem "nokogiri"
 gem "require_relative"
 gem "will_paginate"
 
+group :test, :development do
+  gem "pry"
+  gem "ruby18_source_location"
+  gem "ruby-debug"
+
+  gem "rspec-rails"
+end
+
 group :test do
   gem "spork-rails"
   gem "cucumber-rails", :require => false
