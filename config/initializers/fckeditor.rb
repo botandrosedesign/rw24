@@ -1,1 +1,1 @@
-Fckeditor.load!
+# Fckeditor.load!

@@ -1,8 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :comments, :collection => { :preview => :post }
+  resources :comments, :except => :index do
+    post :preview, :on => :collection
+  end
 
-  map.resources :comments, :path_prefix => "admin/sites/:site_id",
-                           :controller  => 'comments',
-                           :name_prefix => "admin_site_",
-                           :namespace   => "admin/"
+  namespace :admin do
+    resources :sites do
+      resources :comments
+    end
+  end
 end

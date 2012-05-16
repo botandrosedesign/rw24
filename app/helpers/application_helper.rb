@@ -1,7 +1,6 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
-  
-  def link_to_current(name, options = {}, html_options = {})
+  def link_to_current(name, options = {}, html_options = {}, &block)
     url = case options
       when String
         options
@@ -19,7 +18,11 @@ module ApplicationHelper
         html_options[:class] = 'current'
       end
     end
-    link_to name, options, html_options
+
+    new_window_condition = html_options.delete(:new_window_if)
+    html_options[:target] = "_blank" if new_window_condition
+
+    link_to name, options, html_options, &block
   end
   
   def content_path(section, content)

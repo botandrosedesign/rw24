@@ -7,7 +7,7 @@
 	</p>
 <% end %>
 
-<%
+<%=
 	table_for @sections, :collection_name => :sections, :class => 'sections list tree' do |t|
 		t.column :section
 		t.column :actions, :class => :actions

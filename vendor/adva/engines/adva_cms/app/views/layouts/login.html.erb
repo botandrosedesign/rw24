@@ -5,8 +5,8 @@
  		<meta name="generator" content="adva-cms - Open source content management platform" /> 
     <title>adva-cms: <%= controller.controller_name %></title>
 
-    <%= stylesheet_link_tag :login, :cache => 'cache/admin/login' %>
-    <%= javascript_include_tag :common, :login, :cache => 'cache/admin/login' %>
+    <%= stylesheet_link_tag %w( adva_cms/admin/reset adva_cms/admin/common adva_cms/admin/forms adva_cms/layout/login ) %>
+    <%= javascript_include_tag %w( adva_cms/jquery/jquery adva_cms/jquery/jquery-lowpro adva_cms/jquery/jquery-ui adva_cms/jquery.common adva_cms/json adva_cms/cookie adva_cms/jquery.flash application ) %>
 
     <%= yield :head %>
   </head>

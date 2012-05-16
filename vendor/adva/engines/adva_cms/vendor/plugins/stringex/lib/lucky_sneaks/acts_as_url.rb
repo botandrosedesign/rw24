@@ -32,7 +32,8 @@ module LuckySneaks
         class_inheritable_accessor :only_when_blank
         
         callback_installed = Proc.new do |callback|
-          send(:"#{callback}_callback_chain").detect { |c| c.method == :ensure_unique_url }
+          false
+          # send(:"#{callback}_callback_chain").detect { |c| c.method == :ensure_unique_url }
         end
         
         if options[:sync_url]

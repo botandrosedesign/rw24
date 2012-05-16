@@ -1,4 +1,8 @@
-ActionController::Routing::Routes.draw do |map|
+Rw24::Application.routes.draw do |map|
+  get "admin" => redirect("/admin/sites/1")
+
+  root :to => "articles#index"
+
   map.resources :points
 
   map.leader_board "leader-board/:year", :controller => "teams", :action => "index", :year => nil

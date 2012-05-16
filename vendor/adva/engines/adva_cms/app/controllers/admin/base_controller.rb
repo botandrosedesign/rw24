@@ -85,7 +85,7 @@ class Admin::BaseController < ApplicationController
     end
 
     def set_section
-      @section =  @site.sections.find(params[:section_id]) if params[:section_id]
+      @section =  @site.sections.find_by_permalink!(params[:section_id]) if params[:section_id]
     end
 
     def update_role_context!(params)

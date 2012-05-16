@@ -35,4 +35,18 @@ class Article < Content
     excerpt.present?
   end
 
+  def full_permalink
+    raise "cannot create full_permalink for an article that belongs to a non-blog section" unless section.is_a?(Blog)
+    # raise "can not create full_permalink for an unpublished article" unless published?
+    date = [:year, :month, :day].map { |key| [key, (published? ? published_at : created_at).send(key)] }.flatten
+    Hash[:permalink, permalink, *date]
+  end
+
+  def next_article
+    section.articles.published.first :conditions => "published_at <= '#{published_at}' AND id != #{id}"
+  end
+
+  def previous_article
+    section.articles.published.first :conditions => "published_at >= '#{published_at}' AND id != #{id}", :order => "published_at ASC"
+  end
 end

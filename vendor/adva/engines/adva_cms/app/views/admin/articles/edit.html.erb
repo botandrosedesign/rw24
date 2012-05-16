@@ -1,14 +1,11 @@
 <h2><%= t(:'adva.articles.titles.edit') %></h2>
 
-<%#= link_to_content_translations(@article) %>
-
-<% split_form_for :article, @article, :url => admin_article_path(@site, @section, @article), :html => {:multipart => true, :method => :put} do |f| -%>
+<%= split_form_for :article, @article, :url => admin_article_path(@site, @section, @article), :html => {:multipart => true, :method => :put} do |f| -%>
   <%= f.hidden_field :updated_at, :value => @article.updated_at %>
   <%= render :partial => 'form', :locals => {:f => f} %>  
 
-  <% f.buttons do %>
+  <p class="buttons">
     <%= submit_tag t(:'adva.common.save'), :name => 'save_revision' %>
-    <%= submit_tag t(:'adva.common.save_without_revision') %> <%= t(:'adva.common.connector.or') %> 
     <%= link_to t(:'adva.common.cancel'), admin_articles_path %>
-  <% end %>
-<% end -%>
+  </p>
+<% end %>

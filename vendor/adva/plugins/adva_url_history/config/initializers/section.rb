@@ -1,4 +1,4 @@
-ActionController::Dispatcher.to_prepare do
+ActionDispatch::Callbacks.to_prepare do
   Section.class_eval do
     def update_url_history_params(params)
       params[:action] = 'index' if single_article_mode && params[:controller] == 'articles' && params[:action] == 'show'

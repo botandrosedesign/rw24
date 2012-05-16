@@ -12,11 +12,11 @@ module BaseHelper
   def split_form_for(*args, &block)
     # for some weird reasons Passenger and Mongrel behave differently when using Rails' capture method
     # with_output_buffer -> works, so we use it for now
-    lines = (with_output_buffer { form_for(*args, &block) } || '').split("\n")
-    content_for :form, lines.shift
+    lines = (form_for(*args, &block) || '').split("\n")
+    content_for :form, lines.shift.html_safe
     lines.pop
 
-    concat lines.join("\n")
+    lines.join("\n").html_safe
   end
 
   def datetime_with_microformat(datetime, options={})
@@ -28,7 +28,7 @@ module BaseHelper
     # formatted_datetime = options[:format].is_a?(Symbol) ? datetime.clone.in_time_zone.to_s(options[:format]) : datetime.clone.in_time_zone.strftime(options[:format])
     formatted_datetime = l(datetime.in_time_zone.send(options[:type].to_sym == :time ? :to_time : :to_date), :format => options[:format])
 
-    %{<abbr class="datetime" title="#{datetime.utc.xmlschema}">#{formatted_datetime}</abbr>}
+    %{<abbr class="datetime" title="#{datetime.utc.xmlschema}">#{formatted_datetime}</abbr>}.html_safe
   end
 
   def filter_options

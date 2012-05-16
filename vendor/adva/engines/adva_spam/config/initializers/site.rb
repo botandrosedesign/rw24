@@ -5,7 +5,7 @@ class SiteFormBuilder < ExtensibleFormBuilder
   end
 end
 
-ActionController::Dispatcher.to_prepare do
+ActionDispatch::Callbacks.to_prepare do
   Site.class_eval do
     def spam_options=(options)
       if options.is_a?(Hash)

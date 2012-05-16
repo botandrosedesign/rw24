@@ -1,4 +1,4 @@
-ActionController::Dispatcher.to_prepare do
+ActionDispatch::Callbacks.to_prepare do
   Site.acts_as_role_context
   Section.acts_as_role_context :parent => :site
   Content.acts_as_role_context :parent => :section

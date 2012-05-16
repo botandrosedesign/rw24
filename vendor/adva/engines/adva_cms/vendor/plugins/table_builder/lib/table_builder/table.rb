@@ -55,7 +55,7 @@ module TableBuilder
           html << head.render
           html << body.render
           html << foot.render if @foot && !@foot.empty?
-        end.gsub(/\n\s*\n/, "\n")
+        end.gsub(/\n\s*\n/, "\n").html_safe
       end
     end
     

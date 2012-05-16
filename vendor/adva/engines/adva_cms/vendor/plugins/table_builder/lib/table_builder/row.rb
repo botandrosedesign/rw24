@@ -22,7 +22,7 @@ module TableBuilder
     end
 
     def render
-      super(@cells.map(&:render))
+      super @cells.map(&:render)
     end
     
     protected

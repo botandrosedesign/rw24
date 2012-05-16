@@ -1,21 +1,9 @@
-config.to_prepare do
-  BaseController.around_filter(OutputFilter::Cells.new)
+config.middleware.use "OutputFilter::Cells"
 
+config.to_prepare do
   # FIXME this really should go somewhere else ... why did we put it here in the first place?
   class Cell::Base
-    class_inheritable_accessor :states
-    self.states = []
-
     class << self
-      def inherited(child)
-        child.send(:define_method, :current_action) { state_name.to_sym }
-        super
-      end
-
-      def has_state(state)
-        self.states << state.to_sym unless self.states.include?(state.to_sym)
-      end
-
       # convert a cell to xml
       def to_xml(options={})
         options[:root]    ||= 'cell'
@@ -28,7 +16,7 @@ config.to_prepare do
           cell_node.id   cell_name
           cell_node.name I18n.translate(:"adva.cells.#{cell_name}.name", :default => cell_name.humanize)
           cell_node.states do |states_node|
-            self.states.uniq.each do |state|
+            self.action_methods.uniq.each do |state|
               states_node.state do |state_node|
                 state = state.to_s
 
@@ -59,25 +47,6 @@ config.to_prepare do
           end
         end
       end
-    end
-
-    extend CacheReferences::PageCaching::ActMacro
-
-    delegate :site, :section, :perform_caching, :to => :controller
-
-    def render_state(state)
-      @cell = self
-      self.state_name = state
-
-      content = dispatch_state(state)
-
-      return content if content.kind_of? String
-
-      render
-    end
-
-    def render
-      render_view_for_state(state_name)
     end
   end
 end

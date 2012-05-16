@@ -5,7 +5,7 @@
 # E.g., if the permission :'show site' => [:author] is defined in the default_permissions,
 # a superuser, admin, designer and moderator have permission for the action 'show site', too.
 
-ActionController::Dispatcher.to_prepare do
+ActionDispatch::Callbacks.to_prepare do
   Rbac::Context.default_permissions = {
     :'show site'          => [:author],
     :'create site'        => [:superuser],

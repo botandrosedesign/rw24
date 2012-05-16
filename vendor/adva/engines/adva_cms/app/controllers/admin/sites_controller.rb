@@ -3,8 +3,6 @@ class Admin::SitesController < Admin::BaseController
   before_filter :params_section, :only => [:new, :create]
   before_filter :protect_single_site_mode, :only => [:index, :new, :create, :destroy]
 
-  cache_sweeper :site_sweeper, :only => [:create, :update, :destroy]
-
   guards_permissions :site
 
   helper :activities

@@ -4,6 +4,8 @@ class SiteFormBuilder < ExtensibleFormBuilder
   end
 end
 
-ActionController::Dispatcher.to_prepare do
-  Site.has_many_comments
+ActionDispatch::Callbacks.to_prepare do
+  Site.class_eval do
+    has_many_comments
+  end
 end

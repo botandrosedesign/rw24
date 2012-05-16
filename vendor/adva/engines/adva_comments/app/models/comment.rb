@@ -1,10 +1,20 @@
 class Comment < ActiveRecord::Base
   class CommentNotAllowed < StandardError; end
 
-  define_callbacks :after_approve, :after_unapprove
-  after_save do |comment|
-    comment.send :callback, :after_approve   if comment.just_approved?
-    comment.send :callback, :after_unapprove if comment.just_unapproved?
+  define_model_callbacks :approve, :unapprove
+
+  around_save do
+    run_callbacks :approve do
+      yield
+    end if just_approved?
+
+    run_callbacks :unapprove do
+      yield
+    end if just_unapproved?
+  end
+
+  def after_save
+    commentable.touch
   end
 
   filtered_column :body

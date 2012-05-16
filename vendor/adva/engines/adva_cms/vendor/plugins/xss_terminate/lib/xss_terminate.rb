@@ -47,17 +47,17 @@ module XssTerminate
     def xss_terminate(options = {})
       before_save :sanitize_attributes!
 
-      superclass_delegating_reader :xss_terminate_options
-      @xss_terminate_options = {}
+      superclass_delegating_accessor :xss_terminate_options
+      self.xss_terminate_options = {}
       
       keys = [:except, *XssTerminate.sanitize_filters]
       options.assert_valid_keys :none, *keys
       
       keys.each do |key| 
         option = options[key] || []
-        @xss_terminate_options[key] = option.is_a?(Array) ? option : [option]
+        self.xss_terminate_options[key] = option.is_a?(Array) ? option : [option]
       end
-      @xss_terminate_options[:none] = options[:none]
+      self.xss_terminate_options[:none] = options[:none]
       
       include XssTerminate::InstanceMethods
     end

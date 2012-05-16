@@ -1,6 +1,5 @@
-
-<% f.field_set do %>
-	<% column do %>
+<fieldset>
+  <div class="col">
 	  <%= hidden_field_tag 'cl', Article.locale %>
 		
 	  <%= f.text_field :title, :class => 'big', :label => true  %>
@@ -20,7 +19,7 @@
 	                          :end_year => (Time.zone.now.year + 5),
 	                          :order => [:month, :day, :year] %>
 		</p>
-	<% end %>
-<% end %>
+  </div>
+</fieldset>
 
 <%= render :partial => 'options', :locals => { :f => f } %>

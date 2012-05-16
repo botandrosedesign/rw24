@@ -1,4 +1,4 @@
-ActionController::Dispatcher.to_prepare do
+ActionDispatch::Callbacks.to_prepare do
   require_dependency 'article'
 
   class Article

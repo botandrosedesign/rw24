@@ -6,7 +6,6 @@ class Admin::CommentsController < Admin::BaseController
   before_filter :set_commentable, :set_comment_params, :only => :create
   after_filter :postback_spaminess, :only => [:update]
 
-  cache_sweeper :comment_sweeper, :only => [:create, :update, :destroy]
   guards_permissions :comment
 
   def update
@@ -49,10 +48,10 @@ class Admin::CommentsController < Admin::BaseController
       # FIXME how to remove the Topic dependency here? 
       # maybe make Comment a subclass of Comment::Base or something so that we can use STI to exclude 
       # special comment types?
-      collection = source.comments.scoped(:conditions => ['commentable_type NOT IN (?)', 'Topic'])
+      collection = source.comments.where(['commentable_type NOT IN (?)', 'Topic'])
 
       options = { :page => current_page, :per_page => 25, :order => 'created_at.id DESC' }
-      @comments = collection.filtered(params[:filters]).paginate filter_options 
+      @comments = collection.paginate filter_options #.filtered(params[:filters])
     end
 
     def set_comment

@@ -1,4 +1,4 @@
-ActionController::Dispatcher.to_prepare do
+ActionDispatch::Callbacks.to_prepare do
   BaseController.class_eval do
     helper :comments
 

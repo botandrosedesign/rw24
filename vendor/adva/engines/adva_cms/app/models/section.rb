@@ -46,6 +46,10 @@ class Section < ActiveRecord::Base
     end
   end
 
+  def to_param
+    permalink
+  end
+
   def owners
     owner.owners << owner
   end

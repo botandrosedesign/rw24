@@ -18,7 +18,7 @@ module TableBuilder
   }
 
   def table_for(collection = [], options = {}, &block)
-    concat Table.new(self, collection, options, &block).render
+    Table.new(self, collection, options, &block).render
   end
 end
 

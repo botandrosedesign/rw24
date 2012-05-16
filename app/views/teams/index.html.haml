@@ -1,6 +1,6 @@
 %h2 #{@race.year} Leader Board
 
-= @race.description
+= raw @race.description
 
 %p#show
   = link_to "All", "#", :class => "first current"
@@ -94,5 +94,5 @@
 
   = render "shared/sidebar"
 
-- content_for "js" do
+- content_for :js do
   = javascript_include_merged "leader_board"

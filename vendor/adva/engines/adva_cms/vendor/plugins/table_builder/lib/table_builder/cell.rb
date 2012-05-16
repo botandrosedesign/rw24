@@ -11,7 +11,7 @@ module TableBuilder
     end
 
     def render
-      super(content)
+      super content.try(:html_safe)
     end
 
     def tag_name

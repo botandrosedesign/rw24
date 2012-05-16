@@ -14,12 +14,12 @@ module ActionView
       alias_method_chain :fields_for, :resource_form_builders
 
       def field_set(object_name, name, content = nil, options = {}, &block)
-        InstanceTag.new(object_name, name, self, options.delete(:object)).to_field_set_tag(content, options, &block)
+        InstanceTag.new(object_name, name, self, options.delete(:object)).to_field_set_tag(content, options, &block).html_safe
       end
 
       protected
         def singular_class_name(name)
-          ActionController::RecordIdentifier.singular_class_name(name)
+          ActiveModel::Naming.singular(name)
         end
 
         def pick_form_builder(name)
@@ -136,18 +136,18 @@ class ExtensibleFormBuilder < ActionView::Helpers::FormBuilder
   def tabs
     yield if block_given?
     assign_ivars!
-    @template.concat @template.content_tag(:div, :class => 'tabs') {
+    @template.content_tag(:div, :class => 'tabs') {
       @template.content_tag(:ul) {
         self.class.tabs.map { |name, block|
           klass = self.class.tabs.first.first == name ? 'active' : nil
           @template.content_tag 'li', @template.link_to(I18n.t(name, :scope => :'adva.titles'), "##{name}"), :class => klass
-        }.join
+        }.join.html_safe
       } +
       self.class.tabs.map { |name, block|
         klass = self.class.tabs.first.first == name ? 'tab active' : 'tab'
         @template.content_tag 'div', block.call(self), :id => "tab_#{name}", :class => klass
       }.join.html_safe
-    }
+    }.html_safe
   end
 
   def tab(name, &block)
@@ -174,13 +174,14 @@ class ExtensibleFormBuilder < ActionView::Helpers::FormBuilder
       when Symbol then I18n.t(label)
       when TrueClass then
         scope = [:activerecord, :attributes] + object.class.to_s.underscore.split('/')
-        I18n.t(method, :scope => scope)
+        string = I18n.t(method, :scope => scope)
+        string.is_a?(String) ? string : method.to_s.titleize
       else nil
       end
 
       case type
       when :check_box, :radio_button
-        tag + "\n" + self.label(method, label, :class => 'inline light', :for => extract_id(tag), :id => "#{extract_id(tag)}_label")
+        tag + self.label(method, label, :class => 'inline light', :for => extract_id(tag), :id => "#{extract_id(tag)}_label")
       else
         self.label(method, label) + tag
       end
@@ -245,7 +246,7 @@ class ExtensibleFormBuilder < ActionView::Helpers::FormBuilder
       result += run_callbacks(:before, method) if method
       result += yield.to_s
       result += run_callbacks(:after, method) if method
-      result
+      result.html_safe
     end
 
     def run_callbacks(stage, method)

@@ -4,25 +4,17 @@ module ContentHelper
     l(article.published_at, :format => (article.published_at.year == Time.now.year ? :short : :long))
   end
 
-  def section_path(section, options = {})
-    send(:"#{section.type.downcase}_path", section, options)
+  def page_path *args
+    section_path *args
   end
 
-  def article_url(section, article, options = {})
-    if article.section.is_a?(Blog)
-      blog_article_url(section, article.full_permalink.merge(options))
-    else
-      page_article_url(*[section, article.permalink, options].compact)
-    end
-  end
-
-	def article_path(section, article, options = {})
-    if article.section.is_a?(Blog)
-      blog_article_path(section, article.full_permalink.merge(options))
-    else
-      page_article_path(*[section, article.permalink, options].compact)
-    end
-	end
+  # def article_url(section, article, options = {})
+  #   if article.section.is_a?(Blog)
+  #     blog_article_url(section, article.full_permalink.merge(options))
+  #   else
+  #     page_article_url(*[section, article.permalink, options].compact)
+  #   end
+  # end
 
   # TODO: move to Admin::ContentHelper?
   def admin_section_contents_path(section)

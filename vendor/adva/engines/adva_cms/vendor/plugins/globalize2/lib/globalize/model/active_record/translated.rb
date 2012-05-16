@@ -30,7 +30,7 @@ module Globalize
                 :class_name   => globalize_proxy.name,
                 :extend       => Extensions,
                 :dependent    => :delete_all,
-                :foreign_key  => class_name.foreign_key
+                :foreign_key  => name.foreign_key
               )
 
               after_save :update_globalize_record

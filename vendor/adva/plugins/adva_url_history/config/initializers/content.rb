@@ -1,4 +1,4 @@
-ActionController::Dispatcher.to_prepare do
+ActionDispatch::Callbacks.to_prepare do
   Content.class_eval do
     def update_url_history_params(params)
       if params.has_key?(:year)

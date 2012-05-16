@@ -49,7 +49,7 @@ class Admin::ArticlesController < Admin::BaseController
   def update_attributes
     @article.attributes = params[:article]
 
-    if save_with_revision? ? @article.save : @article.save_without_revision
+    if @article.save
       trigger_events(@article)
       flash[:notice] = t(:'adva.articles.flash.update.success')
       redirect_to edit_admin_article_url(:cl => content_locale)
@@ -96,11 +96,11 @@ class Admin::ArticlesController < Admin::BaseController
     end
 
     def set_articles
-      @articles = @section.articles.filtered params[:filters]
+      @articles = @section.articles
     end
 
     def set_article
-      @article = @section.articles.find(params[:id])
+      @article = @section.articles.find_by_permalink!(params[:id])
     end
 
     def set_categories

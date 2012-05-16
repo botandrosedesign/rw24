@@ -9,7 +9,7 @@
   <p>
     <%= t(:'adva.activity.actions', :type => t(:"adva.activity.types.#{activity.object_attributes['type'].tableize.singularize}"),
       :actions => activity.all_actions.collect { |a| t(:"adva.activity.action_names.#{a.downcase}") }.to_sentence,
-      :activity => link_to(activity.section.title, admin_articles_path(activity.section.site, activity.section))) %>
+      :activity => link_to(activity.section.title, admin_articles_path(activity.section.site, activity.section))).html_safe %>
   </p>
   <%= link_to activity.title, activity_object_edit_url(activity) %>
 </li>

@@ -6,7 +6,7 @@ class SectionFormBuilder < ExtensibleFormBuilder
   end
 end
 
-ActionController::Dispatcher.to_prepare do
+ActionDispatch::Callbacks.to_prepare do
   Section.class_eval do
     has_option :template, :layout
 

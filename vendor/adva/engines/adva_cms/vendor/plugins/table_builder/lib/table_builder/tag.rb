@@ -29,7 +29,7 @@ module TableBuilder
 
     def render(content = nil)
       yield(content = '') if content.nil? && block_given?
-      content = lf(indent(content.to_s))
+      content = lf(indent(content.to_s.html_safe))
       lf(content_tag(tag_name, content, options))
     end
     
@@ -39,11 +39,11 @@ module TableBuilder
     
     protected
       def lf(str)
-        "\n#{str}\n"
+        "\n#{str}\n".html_safe
       end
       
       def indent(str)
-        str.gsub(/^/, "  ")
+        str.gsub(/^/, "  ").html_safe
       end
       
       def add_class!(options, klass)

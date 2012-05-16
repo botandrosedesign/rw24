@@ -3,7 +3,7 @@ module Cell
     def all
       @all ||= begin
         require_all_cells
-        Object.subclasses_of(BaseCell)
+        BaseCell.subclasses
       end
     end
 

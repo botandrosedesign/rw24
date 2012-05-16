@@ -8,11 +8,11 @@ Given /^the "Admin" user account exists$/ do
 end
 
 Given /^I am logged in as an Admin$/ do
-  Given 'the "Admin" user account exists'
-  And 'I am on the admin page'
-  And 'I fill in "Email" with "finneus@botandrose.com"'
-  And 'I fill in "Password" with "secret"'
-  And 'I press "Login"'
-  And 'I am on the admin overview page'
+  step 'the "Admin" user account exists'
+  step 'I am on the admin page'
+  step 'I fill in "Email" with "finneus@botandrose.com"'
+  step 'I fill in "Password" with "secret"'
+  step 'I press "Login"'
+  step 'I am on the admin overview page'
 end
 

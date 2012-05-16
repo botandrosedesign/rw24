@@ -6,7 +6,7 @@ class SectionFormBuilder < ExtensibleFormBuilder
   end
 end
 
-ActionController::Dispatcher.to_prepare do
+ActionDispatch::Callbacks.to_prepare do
   Section.class_eval do
     before_validation :set_comment_age
     has_many_comments :foreign_key => :section_id, :as => :section

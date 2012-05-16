@@ -33,7 +33,7 @@ class Admin::ContentsController < Admin::BaseController
     end
 
     def set_contents
-      @contents = @section.contents.filtered params[:filters]
+      @contents = @section.contents #.filtered params[:filters]
     end
 
     def set_content

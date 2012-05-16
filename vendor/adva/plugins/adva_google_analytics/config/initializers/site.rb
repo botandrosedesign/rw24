@@ -1,4 +1,4 @@
-ActionController::Dispatcher.to_prepare do
+ActionDispatch::Callbacks.to_prepare do
   Site.class_eval do
     def tracking_enabled?
       google_analytics_tracking_code.present?

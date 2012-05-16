@@ -1,4 +1,4 @@
-ActionController::Dispatcher.to_prepare do
+ActionDispatch::Callbacks.to_prepare do
   BaseController.class_eval do
     acts_as_themed_controller :current_themes => lambda {|c| c.site.themes.active if c.site }
     # :force_template_types => ['html.serb', 'liquid']

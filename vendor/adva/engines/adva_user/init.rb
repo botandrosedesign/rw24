@@ -1,5 +1,3 @@
-ActiveSupport::Dependencies.load_once_paths << lib_path
-
 ActionController::Base.send :include, ActionController::AuthenticateUser
 ActionController::Base.send :include, ActionController::AuthenticateAnonymous
 ActiveRecord::Base.send :include, ActiveRecord::BelongsToAuthor

@@ -1,21 +1,3 @@
-# Time.now.to_ordinalized_s :long
-# => "February 28th, 2006 21:10"
-module ActiveSupport::CoreExtensions::Time::Conversions
-  def to_ordinalized_s(format = :default)
-    format = ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS[format]
-    return to_default_s if format.nil?
-    strftime(format.gsub(/%d/, '_%d_')).gsub(/_(\d+)_/) { |s| s.to_i.ordinalize }
-  end
-end
-
-ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS.update \
-  :standard  => '%B %d, %Y @ %I:%M %p',
-  :stub      => '%B %d',
-  :time_only => '%I:%M %p',
-  :plain     => '%B %d %I:%M %p',
-  :mdy       => '%B %d, %Y',
-  :my        => '%B %Y'
-
 class Time
   class << self
     def extract_from_attributes!(attrs, field, method = :local)
@@ -56,4 +38,20 @@ class Time
       else self.class.delta(year, month, day)
     end
   end
+
+  # Time.now.to_ordinalized_s :long
+  # => "February 28th, 2006 21:10"
+  def to_ordinalized_s(format = :default)
+    format = DATE_FORMATS[format]
+    return to_default_s if format.nil?
+    strftime(format.gsub(/%d/, '_%d_')).gsub(/_(\d+)_/) { |s| s.to_i.ordinalize }
+  end
+
+  DATE_FORMATS.update \
+    :standard  => '%B %d, %Y @ %I:%M %p',
+    :stub      => '%B %d',
+    :time_only => '%I:%M %p',
+    :plain     => '%B %d %I:%M %p',
+    :mdy       => '%B %d, %Y',
+    :my        => '%B %Y'
 end

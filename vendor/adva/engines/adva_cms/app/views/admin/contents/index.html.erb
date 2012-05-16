@@ -1,5 +1,4 @@
-
-<%
+<%=
 	table_for @contents, :class => 'contents list tree' do |t|
 		t.column :title, :published, :actions
 
@@ -13,8 +12,7 @@
 
 			r.cell published_at_formatted(content)
       if content.is_a? Article
-        r.cell link_to_preview(content) + "\n" +
-          links_to_actions([:edit, :delete], content)
+        r.cell links_to_actions([:edit, :delete], content)
       else
         r.cell link_to(content.body, content.body) + 
           links_to_actions([:edit, :delete], content)

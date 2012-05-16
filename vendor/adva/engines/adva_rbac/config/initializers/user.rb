@@ -1,6 +1,6 @@
 Role = Rbac::Role
 
-ActionController::Dispatcher.to_prepare do
+ActionDispatch::Callbacks.to_prepare do
   User.class_eval do
     acts_as_role_subject
 

@@ -10,11 +10,11 @@ class ArticlesController < BaseController
   before_filter :set_article,  :only => :show
   before_filter :guard_view_permissions, :only => [:index, :show]
 
-  caches_page_with_references :index, :show, :comments,
-    :track => ['@article', '@articles', '@category', '@commentable', {'@site' => :tag_counts, '@section' => :tag_counts}]
+  # caches_page_with_references :index, :show, :comments,
+  #   :track => ['@article', '@articles', '@category', '@commentable', {'@site' => :tag_counts, '@section' => :tag_counts}]
     # TODO move :comments and @commentable to acts_as_commentable
 
-  acts_as_commentable if Rails.plugin?(:adva_comments)
+  acts_as_commentable
   authenticates_anonymous_user
 
   def index
@@ -45,8 +45,6 @@ class ArticlesController < BaseController
         end
       end
     end
-
-    def set_section(type = nil); super(Section); end
 
     def set_articles
       scope = @category ? @category.all_contents : @section.articles

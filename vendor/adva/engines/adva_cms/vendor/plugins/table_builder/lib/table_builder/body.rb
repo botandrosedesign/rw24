@@ -3,7 +3,6 @@ module TableBuilder
     self.tag_name = :tbody
 
     include ActionController::RecordIdentifier
-    include ActionView::Helpers::RecordIdentificationHelper
     
     def row(options = {}, &block)
       table.collection.each_with_index do |record, ix|

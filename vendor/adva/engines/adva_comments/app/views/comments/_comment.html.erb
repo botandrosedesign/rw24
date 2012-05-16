@@ -1,6 +1,6 @@
 <li id="<%= dom_id(comment) %>" class="<%= cycle 'alt', '' %> clearing">
   <div class="meta">
-    <p><%= comment.author_link %></p>
+    <p><%= link_to_author(comment) %></p>
     <p><%= datetime_with_microformat(comment.created_at, :format => :long) %></p>
     <% unless comment.approved? %>
       <p><%= t(:'adva.comments.info.under_review') %></p>

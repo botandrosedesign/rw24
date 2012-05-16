@@ -1,4 +1,6 @@
 class BlogArticlesController < ArticlesController
+  helper :blog
+
   def index
     respond_to do |format|
       format.html { render :template => "#{@section.type.tableize}/articles/index" }
@@ -7,13 +9,11 @@ class BlogArticlesController < ArticlesController
   end
 
   protected
-    def set_section; super(Blog); end
-
     def set_articles
       scope = @category ? @category.all_contents : @section.articles
       scope = scope.tagged(@tags) if @tags.present?
       scope = scope.published(params[:year], params[:month])
-      @articles = scope.paginate(:page  => current_page, :limit => @section.contents_per_page)
+      @articles = scope.paginate(:page  => current_page, :limit => @section.contents_per_page, :order => "published_at DESC")
     end
 
     def valid_article?

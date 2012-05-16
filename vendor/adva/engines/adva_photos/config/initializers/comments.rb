@@ -1,5 +1,5 @@
 if Rails.plugin?(:adva_comments)
-  ActionController::Dispatcher.to_prepare do
+  ActionDispatch::Callbacks.to_prepare do
     Photo.class_eval do
       # has_many_comments :polymorphic => true
       has_many_comments :as => :commentable

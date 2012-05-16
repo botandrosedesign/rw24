@@ -69,7 +69,7 @@ class Admin::SectionsController < Admin::BaseController
     end
 
     def set_section
-      @section = @site.sections.find(params[:id])
+      @section = @site.sections.find_by_permalink!(params[:id])
     end
 
     def normalize_params(hash = nil)

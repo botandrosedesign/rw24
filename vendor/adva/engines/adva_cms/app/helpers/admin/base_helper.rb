@@ -12,11 +12,11 @@ module Admin::BaseHelper
     cancel_options = options.delete(:cancel) || {}
 
     builder.buttons do
-      returning '' do |buttons|
+      ''.html_safe.tap do |buttons|
         buttons << submit_tag(save_text, save_options)
-        buttons << " #{or_text} #{link_to(cancel_text, cancel_url, cancel_options)}" if cancel_url
+        buttons << " #{or_text} #{link_to(cancel_text, cancel_url, cancel_options)}".html_safe if cancel_url
       end
-    end
+    end.html_safe
   end
 
   def link_to_profile(site = nil, options = {})

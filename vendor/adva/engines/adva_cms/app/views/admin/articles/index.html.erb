@@ -1,5 +1,4 @@
-
-<%
+<%=
 	table_for @articles do |t|
 		t.column :article, :comments, :published, :author, :actions
 
@@ -9,8 +8,7 @@
   		r.cell article.accept_comments? && article.comments.present? ? link_to(article.comments.size, admin_comments_path) : t(:"adva.common.none")
 			r.cell published_at_formatted(article)
 			r.cell link_to(article.author_name, admin_site_user_path(@site, article.author))
-			r.cell link_to_preview(article) + "\n" +
-			       links_to_actions([:edit, :delete], article)
+			r.cell links_to_actions([:edit, :delete], article)
 		end
 
 		t.empty :p, :class => 'empty' do
@@ -21,14 +19,3 @@
 		end
 	end
 %>
-
-<% content_for :sidebar do -%>
- 	<div class="tabs">
-		<ul>
-			<li class="active"><a href="#filters" onclick="return false;"><%= t(:'adva.titles.filter') %></a></li>
-		</ul>
-		<div class="tab active" id="tab_filters">
-			<%# filter_for(Article, :categories => Section.first.categories) %>
-		</div>
-	</div>
-<% end -%>

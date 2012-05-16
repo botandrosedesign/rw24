@@ -8,7 +8,7 @@ module ActivitiesHelper
     else
       html = %(<li class="empty shade">#{I18n.t(:'adva.activity.none')}.</li>)
     end
-    %(<ul class="activities">#{html}</ul>)
+    raw %(<ul class="activities">#{html}</ul>)
   end
 
   def activity_css_classes(activity)

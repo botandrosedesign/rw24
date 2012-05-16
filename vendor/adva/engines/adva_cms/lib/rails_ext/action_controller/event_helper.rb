@@ -2,7 +2,7 @@ module ActionController
   module EventHelper
     def trigger_events(object, *changes)
       options = changes.extract_options!
-      changes += object.state_changes
+      # changes += object.state_changes
       changes.uniq.each do |change|
         trigger_event(object, change, options)
       end

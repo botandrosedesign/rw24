@@ -95,7 +95,7 @@ module Tags
     def render(options = {})
       content = (self.content || '').dup
       yield(content) if block_given?
-      content_tag(tag_name, content.to_s, self.options.merge(options))
+      content_tag(tag_name, content.to_s.html_safe, self.options.merge(options))
     end
 
     protected

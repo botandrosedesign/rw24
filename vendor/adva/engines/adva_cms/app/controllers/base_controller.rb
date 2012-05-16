@@ -15,16 +15,13 @@ class BaseController < ApplicationController
 
   protected
     def set_site
-      @site = Site.find_by_host!(request.host_with_port) # or raise "can not set site from host #{request.host_with_port}"
+      @site ||= Site.find_by_host!(request.host_with_port) # or raise "can not set site from host #{request.host_with_port}"
     end
+    alias :site :set_site
 
-    def set_section(type = nil)
+    def set_section
       if @site
-        @section = params[:section_id].present? ? @site.sections.find(params[:section_id]) : @site.sections.root
-      end
-
-      if type && !@section.is_a?(type)
-        raise SectionRoutingError.new("Section must be a #{type.name}: #{@section.inspect}")
+        @section ||= @site.sections.find_by_permalink(params[:section_permalink]) || @site.sections.root
       end
 
       unless @section.published?(true)
@@ -32,6 +29,7 @@ class BaseController < ApplicationController
         skip_caching!
       end
     end
+    alias :section :set_section
 
     def set_locale
       # FIXME: really? what about "en-US", "sms" etc.?

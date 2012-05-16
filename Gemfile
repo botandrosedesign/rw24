@@ -1,7 +1,6 @@
 source "http://rubygems.org"
 
-gem "rails", "2.3.14"
-gem "rack", "1.1.2" # 1.1.3 breaks webrat?
+gem "rails", "~>3.0.12"
 gem "mysql2", "~>0.2.7"
 gem "bard-rake"
 
@@ -11,20 +10,15 @@ gem "compass-querystring_cachebuster"
 gem "fastercsv"
 gem "csv_builder", "~>1.0"
 gem "nokogiri"
+gem "require_relative"
+gem "will_paginate"
 
-group :test, :cucumber do
-  gem "ruby-debug"
-  gem "autotest-rails"
-  gem "rspec-rails", "~>1.3.0"
-  gem "machinist", "1.0.6"
-  gem "faker", "~>0.3.0"
-end
-
-group :cucumber do
-  gem "cucumber-rails", "~>0.3.2"
-  gem "cucumber", "~>0.10.2"
+group :test do
+  gem "spork-rails"
+  gem "cucumber-rails", :require => false
   gem "database_cleaner"
-  gem "capybara", "~>0.4.1.2"
-  gem "pickle" # , :git => "http://github.com/botandrose/pickle.git", :branch => "patch-1"
-  gem "email_spec", "~>0.6.0"
+  gem "pickle"
+  gem "email_spec"
+  gem "machinist", "~>1.0.6"
+  gem "faker"
 end

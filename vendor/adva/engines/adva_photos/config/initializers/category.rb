@@ -1,4 +1,4 @@
-ActionController::Dispatcher.to_prepare do
+ActionDispatch::Callbacks.to_prepare do
   Category.class_eval do
     def all_contents_with_set
       section.class.to_s == 'Album' ? Photo.by_set(self) : all_contents_without_set

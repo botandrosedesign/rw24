@@ -11,9 +11,13 @@ module MetaTagsHelper
     # TODO: check if we actually need this fallback
     fields = resource.class.try(:meta_fields) || DEFAULT_FIELDS
 
-    fields.map do |name|
-      meta_tag(name, resource.send(:"meta_#{name}")) if resource.respond_to?(:"meta_#{name}")
-    end.join("\n")
+    DEFAULT_FIELDS.map do |name|
+      resource = resources.find do |r|
+        r.respond_to?(:"meta_#{name}")
+      end
+
+      meta_tag(name, resource.send(:"meta_#{name}")) if resource
+    end.join("\n").html_safe
   end
 
   def meta_tag(name, content)

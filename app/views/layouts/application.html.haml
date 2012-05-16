@@ -2,6 +2,7 @@
 %html{html_attrs('en-US')}
   %head
     %meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+    = csrf_meta_tag
     %title
       riverwest24
       = yield :title
@@ -50,13 +51,13 @@
                   = link_to_current "Leaderboards", leader_board_path(Race.last.year), :if => request.request_uri.starts_with?("/leader-board")
                   %ul
                     - Race.published.each do |race|
-                      %li= link_to_current h(race.year), leader_board_path(race.year)
+                      %li= link_to_current race.year, leader_board_path(race.year)
               %li
-                = link_to_current h(section.title), content_path(section, section.contents.published.first), :if => request.request_uri.starts_with?("/#{section.permalink}")
+                = link_to_current section.title, content_path(section, section.contents.published.first), :if => request.request_uri.starts_with?("/#{section.permalink}")
                 - next unless section.contents.published.length > 1
                 %ul
                   - section.contents.published.select(&:root?).each do |content|
-                    %li= link_to_current h(content.title), content_path(section, content)
+                    %li= link_to_current content.title, content_path(section, content)
       #main
         .container
           - if flash[:notice]
@@ -79,7 +80,6 @@
             &copy; Copyright #{Date.today.year} - All Rights Reserved 
           %p
             = mail_to "info@riverwest24.com"
-          
 
     = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
     = javascript_include_merged :base

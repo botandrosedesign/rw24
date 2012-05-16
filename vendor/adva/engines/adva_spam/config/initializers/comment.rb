@@ -1,5 +1,5 @@
 if Rails.plugin?(:adva_comments)
-  ActionController::Dispatcher.to_prepare do
+  ActionDispatch::Callbacks.to_prepare do
     Comment.class_eval do
       has_many :spam_reports, :as => :subject
 
