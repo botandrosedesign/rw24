@@ -66,7 +66,7 @@
 %h2 Race description
 %p This will be shown at the top of the leaderboard.
 
-- form_for @race, :url => [:admin, @site, @race] do |form|
+= form_for @race, :url => [:admin, @site, @race] do |form|
   = form.text_area :description, :class => "wysiwyg"
 
   .field

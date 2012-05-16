@@ -34,7 +34,7 @@
 
 - content_for :sidebar do
   %h4 Lap Logger
-  - form_for @lap, :html => { :id => "new_lap", :autocomplete => "off" } do |form|
+  = form_for @lap, :html => { :id => "new_lap", :autocomplete => "off" } do |form|
     .calculator#laps
       = form.hidden_field :qty
       = form.hidden_field :category
@@ -45,7 +45,7 @@
       = form.submit "OK", :class => "button"
   
   %h4 Bonus Points
-  - form_for @bonus, :html => { :id => "new_bonus", :autocomplete => "off" } do |form|
+  = form_for @bonus, :html => { :id => "new_bonus", :autocomplete => "off" } do |form|
     .calculator#bonus
       = form.hidden_field :category
       = form.hidden_field :since_start
@@ -58,7 +58,7 @@
         = form.submit "OK", :class => "button"
   
   %h4 Penalty Points
-  - form_for @penalty, :html => { :id => "new_penalty", :autocomplete => "off" } do |form|
+  = form_for @penalty, :html => { :id => "new_penalty", :autocomplete => "off" } do |form|
     .calculator#penalty
       = form.hidden_field :category
       = form.hidden_field :since_start

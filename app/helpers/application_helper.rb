@@ -9,7 +9,7 @@ module ApplicationHelper
       else
         self.url_for(options)
       end
-    condition = html_options.delete(:if) || url == request.request_uri
+    condition = html_options.delete(:if) || url == request.fullpath
 
     if condition
       if html_options[:class]

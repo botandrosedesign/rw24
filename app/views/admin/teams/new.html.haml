@@ -1,6 +1,6 @@
 = error_messages_for :team
 
-- form_for @team, :url => [:admin, @site, @race, @team] do |form|
+= form_for @team, :url => [:admin, @site, @race, @team] do |form|
   = form.hidden_field :race_id
   %h2 New Team
 
@@ -23,7 +23,7 @@
       = form.text_field :zip, :class => "sm", :label => true, :tabindex => 5
       
   - i = 1
-  - form.fields_for :riders do |rider_form|
+  = form.fields_for :riders do |rider_form|
     %fieldset
       %h4
         Rider #{i}
