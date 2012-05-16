@@ -30,3 +30,7 @@ group :test do
   gem "machinist", "~>1.0.6"
   gem "faker"
 end
+
+group :production do
+  gem "rack-www"
+end
