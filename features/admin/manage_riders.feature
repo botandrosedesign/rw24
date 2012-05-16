@@ -41,9 +41,9 @@ Feature: Admins can manage riders
 
     Then 2 riders should exist with team: that team
     And the following riders should exist:
-      | name          | email               | phone        | shirt | paid  | payment_type | confirmed_on     | notes   |
-      | Paul Kjelland | paulkjell@gmail.com | 608.558.5276 | S     | true  | Cash         | August 1st, 2010 | Rider 1 |
-      | Steve Whitlow | swirr2@gmail.com    | 414.517.6870 | M     | false | Check        | August 2nd, 2010 | Rider 2 |
+      | name          | email               | phone        | shirt | paid | payment_type | confirmed_on | notes   |
+      | Paul Kjelland | paulkjell@gmail.com | 608.558.5276 | S     | 1    | Cash         | 2010-08-01   | Rider 1 |
+      | Steve Whitlow | swirr2@gmail.com    | 414.517.6870 | M     | 0    | Check        | 2010-08-02   | Rider 2 |
 
   Scenario: An Admin creates a rider
     Given a team exists with name: "Bot and Rose Design"
