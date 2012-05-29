@@ -28,6 +28,7 @@ GEM
       activemodel (= 3.0.12)
       activesupport (= 3.0.12)
     activesupport (3.0.12)
+    acts_as_list (0.1.6)
     addressable (2.2.8)
     arel (2.0.10)
     bard-rake (0.5.0)
@@ -176,6 +177,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_list
   bard-rake
   compass (= 0.11.1)
   compass-querystring_cachebuster
