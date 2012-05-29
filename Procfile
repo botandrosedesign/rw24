@@ -1,1 +1,1 @@
-worker:  bin/rvm script/delayed_job run production
+worker: rake jobs:work
