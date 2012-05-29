@@ -1,1 +1,1 @@
-worker: rake jobs:work
+worker: bin/rvm rake jobs:work
