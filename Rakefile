@@ -6,6 +6,9 @@ require 'rake'
 
 Rw24::Application.load_tasks
 
-namespace :bootstrap do
-  task :production => :clear_cache
+task :restart do
+  system "bundle exec foreman export upstart ~/.init --user=`whoami` --log=log"
+  system "restart rw24"
 end
+
+task "bootstrap:production:post" => [:clear_cache, :restart]

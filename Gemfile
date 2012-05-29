@@ -34,5 +34,6 @@ group :test do
 end
 
 group :production do
+  gem "foreman"
   gem "rack-www"
 end
