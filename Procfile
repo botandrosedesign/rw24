@@ -1,1 +1,1 @@
-worker: bin/rvm rake jobs:work
+worker: bin/rvm rake jobs:work RAILS_ENV=production
