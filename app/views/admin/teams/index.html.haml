@@ -2,6 +2,11 @@
 
 = form_tag send_confirmation_emails_admin_site_race_teams_path(@site, @race) do
   %input(type="submit" value="Send Confirmation Emails to Selected")
+  %p
+    Select
+    %a#select_all(href="#") all
+    \/
+    %a#select_none(href="#") none
 
   %table.list{:width => "100%"}
     %col{:width => "5%"}
