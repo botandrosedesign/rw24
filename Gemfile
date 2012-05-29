@@ -5,7 +5,7 @@ gem "mysql2", "~>0.2.7"
 gem "bard-rake"
 
 gem "haml"
-gem "compass", "0.11.1"
+gem "compass", "~>0.11.0"
 gem "compass-querystring_cachebuster"
 gem "fastercsv"
 gem "csv_builder", "~>1.0"
