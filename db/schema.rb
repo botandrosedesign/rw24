@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120529195635) do
+ActiveRecord::Schema.define(:version => 20120529213929) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -339,6 +339,7 @@ ActiveRecord::Schema.define(:version => 20120529195635) do
     t.integer  "site_id"
     t.integer  "position"
     t.integer  "race_id"
+    t.datetime "confirmation_sent_at"
   end
 
   add_index "teams", ["race_id"], :name => "index_teams_on_race_id"

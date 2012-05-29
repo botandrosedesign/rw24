@@ -8,11 +8,12 @@ Rw24::Application.routes.draw do |map|
   map.leader_board "leader-board/:year", :controller => "teams", :action => "index", :year => nil
   map.leader_board_laps "leader-board/:year/:position", :controller => "teams", :action => "show"
 
-  map.namespace :admin do |admin|
-    admin.resources :sites do |site|
-      site.resources :races do |race|
-        race.resources :teams do |team|
-          team.resources :riders
+  namespace :admin do
+    resources :sites do
+      resources :races do
+        resources :teams do
+          post :send_confirmation_emails, :on => :collection
+          resources :riders
         end
       end
     end

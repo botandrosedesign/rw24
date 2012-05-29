@@ -1,42 +1,61 @@
 %h2 #{@race.year} Teams
 
-%table.list{:width => "100%"}
-  %col{:width => "5%"}
-  %col{:width => "5%"}
-  %col{:width => "5%"}
-  %col{:width => "*"}
-  %col{:width => "10%"}
-  %col{:width => "30%"}
-  %col{:width => "15%"}
-  %thead
-    %tr
-      %th.center_align{ :scope => "col"} Paid
-      %th.right_align{ :scope => "col"} POS#
-      %th.center_align{ :scope => "col"} Class
-      %th{ :scope => "col" } Team Name
-      %th.center_align{ :scope => "col" } Riders
-      %th{ :scope => "col" } Leader Name
-      %th.actions{ :scope => "col" }
-  %tbody
-    - @teams.each do |team|
+= form_tag send_confirmation_emails_admin_site_race_teams_path(@site, @race) do
+  %input(type="submit" value="Send Confirmation Emails to Selected")
+
+  %table.list{:width => "100%"}
+    %col{:width => "5%"}
+    %col{:width => "5%"}
+    %col{:width => "5%"}
+    %col{:width => "5%"}
+    %col{:width => "5%"}
+    %col{:width => "*"}
+    %col{:width => "10%"}
+    %col{:width => "30%"}
+    %col{:width => "15%"}
+    %thead
       %tr
-        %td.center_align
-          - if team.paid?
-            .paid
-          - if team.partially_paid?
-            == #{team.riders.paid.count}/#{team.riders.count}
-        %td.center_align= team.position
-        %td.center_align=h team.category_abbrev
-        %td= link_to h(team.name), [:edit, :admin, @site, @race, team]
-        %td.center_align= team.riders.count
-        %td
-          - if team.captain
-            = mail_to team.captain.email, h(team.captain.name), :cc => team.lieutenant_emails, :subject => team.position_and_name
-          - else 
-            = team.name
-        %td.actions
-          = link_to "Edit", [:edit, :admin, @site, @race, team], :class => "edit"
-          = link_to "Delete", [:admin, @site, @race, team], :class => 'delete', :confirm => 'Are you sure you want to delete this team and all its riders? This will renumber everyone after!', :method => :delete
+        %th{ :scope => "col" }
+        %th.center_align{ :scope => "col"} Paid
+        %th.center_align{ :scope => "col"} Emailed
+        %th.right_align{ :scope => "col"} POS#
+        %th.center_align{ :scope => "col"} Class
+        %th{ :scope => "col" } Team Name
+        %th.center_align{ :scope => "col" } Riders
+        %th{ :scope => "col" } Leader Name
+        %th.actions{ :scope => "col" }
+    %tbody
+      - @teams.each do |team|
+        %tr
+          %td.center_align
+            %label{ :for => "team_#{team.id}", :style => "display: none" }= team.name
+            %input{ :type => "checkbox", :name => "team_ids[]", :value => team.id, :id => "team_#{team.id}" }
+          %td.center_align
+            - if team.paid?
+              .paid Yes
+            - elsif team.partially_paid?
+              == #{team.riders.paid.count}/#{team.riders.count}
+            - else
+              .unpaid No
+          %td.center_align
+            - if team.emailed?
+              .paid Yes
+            - else
+              .unpaid No
+          %td.center_align= team.position
+          %td.center_align=h team.category_abbrev
+          %td= link_to h(team.name), [:edit, :admin, @site, @race, team]
+          %td.center_align= team.riders.count
+          %td
+            - if team.captain
+              = mail_to team.captain.email, h(team.captain.name), :cc => team.lieutenant_emails, :subject => team.position_and_name
+            - else 
+              = team.name
+          %td.actions
+            = link_to "Edit", [:edit, :admin, @site, @race, team], :class => "edit"
+            = link_to "Delete", [:admin, @site, @race, team], :class => 'delete', :confirm => 'Are you sure you want to delete this team and all its riders? This will renumber everyone after!', :method => :delete
+
+  %input(type="submit" value="Send Confirmation Emails to Selected")
 
 - content_for :sidebar do
   .tabs

@@ -83,4 +83,5 @@ Rider.blueprint do
   name
   email
   phone
+  shirt "M"
 end

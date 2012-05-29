@@ -49,6 +49,7 @@ ActionDispatch::Callbacks.to_prepare do
     :'update team'        => [:moderator],
     :'destroy team'       => [:moderator],
     :'manage team'        => [:moderator],
+    :'send_confirmation_emails team' => [:moderator],
 
     :'show rider'          => [:moderator],
     :'create rider'        => [:moderator],

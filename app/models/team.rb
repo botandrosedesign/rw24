@@ -45,6 +45,24 @@ class Team < ActiveRecord::Base
     end.reverse
   end
 
+  def self.send_confirmation_email_by_ids team_ids
+    return unless team_ids.present?
+    team_ids.each do |id|
+      team = Team.find_by_id id
+      next unless team.present?
+      if Rails.env.production?
+        team.delay.send_confirmation_email!
+      else
+        team.send_confirmation_email!
+      end
+    end
+  end
+
+  def send_confirmation_email!
+    Mailer.confirmation_email(self).deliver
+    update_attribute :confirmation_sent_at, Time.now
+  end
+
   def initialize(attrs={})
     attrs ||= {}
     attrs.reverse_merge! "category" => "A Team"
@@ -75,12 +93,20 @@ class Team < ActiveRecord::Base
     riders.first
   end
 
+  def captain_email
+    captain.email
+  end
+
   def lieutenants
     riders - [captain]
   end
 
   def lieutenant_emails
     lieutenants.collect(&:email).select(&:present?).join(", ")
+  end
+
+  def shirt_sizes
+    riders.collect(&:shirt).join(", ")
   end
 
   def category_abbrev
@@ -102,6 +128,10 @@ class Team < ActiveRecord::Base
 
   def partially_paid?
     not paid? and riders.any?(&:paid)
+  end
+
+  def emailed?
+    confirmation_sent_at.present?
   end
 
   def to_paypal_hash

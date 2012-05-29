@@ -58,6 +58,11 @@ class Admin::TeamsController < Admin::BaseController
     end
   end
 
+  def send_confirmation_emails
+    Team.send_confirmation_email_by_ids params[:team_ids]
+    redirect_to [:admin, @site, @race, :teams], :notice => "Confirmation emails sending!"
+  end
+
   private
 
     def set_menu
