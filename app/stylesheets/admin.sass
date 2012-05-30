@@ -1,19 +1,4 @@
-@import constant
-
-@import blueprint
-@import compass/reset
-@import compass/utilities
-@import compass/layout
-// @import blueprint/modules/buttons
-
-=blueprint($body_selector: "body")
-  +blueprint-typography($body_selector)
-  +blueprint-utilities
-  +blueprint-debug
-  +blueprint-interaction
-  +blueprint-colors
-
-@import general.sass
+@import "bard"
 
 textarea
   &.big, &.wysiwyg
@@ -116,7 +101,7 @@ body
   li
     :margin-bottom 0px
     &>ul
-      +box-shadow(0px, transparent)
+      +box-shadow(transparent 0 0 0)
       :border none
       :top 28px
       :padding-bottom 3px
@@ -156,6 +141,9 @@ body
       :color #000 !important
   ul.actions
     :vertical-align top
+    .delete
+      background: none
+      width: auto
   h4
     :font-size 1em
     
@@ -221,7 +209,7 @@ body
   :width 370px
   ul#users
     img
-      +box-shadow(3px, #ccc)
+      +box-shadow(#ccc 0 0 3px)
   li a
     :padding-left 0
   select

@@ -11,7 +11,7 @@
 
     = stylesheet_link_merged :base
     = yield :css
-    /[if lte IE 8]
+    /[if lte IE 9]
       = stylesheet_link_merged :ie
     /[if lte IE 7]
       = stylesheet_link_tag "ie7"
