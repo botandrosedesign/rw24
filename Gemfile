@@ -13,6 +13,7 @@ gem "nokogiri"
 gem "require_relative"
 gem "will_paginate"
 gem "acts_as_list"
+gem "dynamic_form"
 gem "delayed_job_active_record"
 
 group :test, :development do
