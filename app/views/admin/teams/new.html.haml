@@ -1,4 +1,4 @@
-= error_messages_for :team
+= error_messages_for @team, :object_name => "team"
 
 = form_for @team, :url => [:admin, @site, @race, @team] do |form|
   = form.hidden_field :race_id
