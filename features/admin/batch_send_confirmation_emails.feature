@@ -36,7 +36,7 @@ Feature: Admins can batch send confirmation emails to teams
 
     And "originofstorms@gmail.com" should receive an email
 
-    When "info@botandrose.com" opens the email with subject "Riverwest 24 2012: 1 - Bot and Rose Design"
+    When "info@botandrose.com" opens the email with subject "RW24 2012 Confirmation: Bot and Rose Design (#1) - A Team - Shirts: M, M, M"
     Then they should see the following in the email body:
       """
       Team name: Bot and Rose Design
