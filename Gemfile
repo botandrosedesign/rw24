@@ -15,6 +15,7 @@ gem "will_paginate"
 gem "acts_as_list"
 gem "dynamic_form"
 gem "delayed_job_active_record"
+gem "delayed_job_web"
 
 group :test, :development do
   gem "pry"
