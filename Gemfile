@@ -38,4 +38,5 @@ end
 group :production do
   gem "foreman"
   gem "rack-www"
+  gem "exception_notification"
 end

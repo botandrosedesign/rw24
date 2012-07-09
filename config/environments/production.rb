@@ -51,4 +51,9 @@ Rw24::Application.configure do
   config.active_support.deprecation = :notify
 
   config.middleware.use Rack::WWW
+
+  config.middleware.use ExceptionNotifier,
+    :email_prefix => "[riverwest24.com] ",
+    :sender_address => %{"smtp" <steve@riverwest24.com>},
+    :exception_recipients => %w{micah@botandrose.com}
 end

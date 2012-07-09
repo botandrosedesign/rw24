@@ -41,6 +41,3 @@ module Rw24
     config.filter_parameters += [:password]
   end
 end
-
-# ExceptionNotification::Notifier.sender_address = "steve@riverwest24.com"
-# ExceptionNotification::Notifier.exception_recipients = %w(micah@botandrose.com)
