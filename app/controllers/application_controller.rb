@@ -27,4 +27,12 @@ class ApplicationController < ActionController::Base
     def start_time
       @start_time ||= Race.current.start_time
     end
+
+    def stale? *args
+      if Rails.env.development?
+        true
+      else
+        super
+      end
+    end
 end
