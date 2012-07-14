@@ -23,6 +23,8 @@ a
   +border-radius(0px)
   :margin 0
   :padding 0
+.current
+  color: #000
 label
   :width auto
   &.inline
@@ -58,7 +60,7 @@ h4
 
 table, tr, th, td
   :border-color #181716 !important
-table.list
+table .list
   th
     &.center_align
       :text-align center
@@ -287,5 +289,28 @@ textarea
   :min-width 380px
   :height 80px
   
-    
-  
+// Settings
+
+#race-title
+  .text
+    font-size: 1.5em
+
+#starts, #ends
+  select
+    width: auto
+    font-size: .8em
+    border-color: #bdbdbd
+
+#bonuses
+  width: 100%
+  td, th
+    &:nth-child(1)
+      width: 10%
+      text-align: center
+    &:nth-child(2)
+      width: 15%
+      text-align: center
+    &:nth-child(3)
+      width: 55%
+    &:nth-child(4)
+      width: 20%

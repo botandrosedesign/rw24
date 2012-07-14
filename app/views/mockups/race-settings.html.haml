@@ -1,0 +1,206 @@
+!!!
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}
+    %meta{:content => "adva-cms - Open source content management platform", :name => "generator"}
+    %title
+      adva-cms: Admin
+      teams
+    = stylesheet_link_tag "adva_cms/admin/reset.css"
+    = stylesheet_link_tag "adva_cms/admin/layout.css"
+    = stylesheet_link_tag "adva_cms/admin/common.css"
+    = stylesheet_link_tag "adva_cms/admin/header.css"
+    = stylesheet_link_tag "adva_cms/admin/top.css"
+    = stylesheet_link_tag "adva_cms/admin/sidebar.css"
+    = stylesheet_link_tag "adva_cms/admin/forms.css"
+    = stylesheet_link_tag "adva_cms/admin/lists.css"
+    = stylesheet_link_tag "adva_cms/admin/content.css"
+    = stylesheet_link_tag "adva_cms/admin/themes.css"
+    = stylesheet_link_tag "adva_cms/admin/helptip.css"
+    = stylesheet_link_tag "adva_cms/admin/users.css"
+    = stylesheet_link_tag "adva_cms/jquery/jquery-ui.css"
+    = stylesheet_link_tag "adva_cms/jquery/jquery.tooltip.css"
+    = stylesheet_link_tag "adva_activity/admin/activities.css"
+    = stylesheet_link_tag "adva_comments/admin/comments.css"
+    = stylesheet_link_tag "has_filter/filter.css"
+    = stylesheet_link_tag "adva_cms/admin/projection.css"
+    = stylesheet_link_tag "admin"
+
+    = yield :css
+        
+  %body
+    #top
+      %ul.main
+        %li.item
+          %a#show_site{:href => "/admin/sites/1"} Overview
+        %li.item
+          %a#index_sections{:href => "/admin/sites/1/sections"} Sections
+          %ul#sections_menu
+            %li
+              %a.level_0{:href => "/admin/sites/1/sections/home/contents"} Home
+            %li
+              %a.level_0{:href => "/admin/sites/1/sections/about/contents"} About
+            %li
+              %a.level_0{:href => "/admin/sites/1/sections/media/contents"} Media
+            %li
+              %a.level_0{:href => "/admin/sites/1/sections/join/contents"} Join
+            %li
+              %a.level_0{:href => "/admin/sites/1/sections/contact/contents"} Contact
+        %li.item
+          %a#index_races{:href => "/admin/sites/1/races"} Races
+      %ul.right
+        %li.item
+          %a#edit_site{:href => "/admin/sites/1/edit"} Settings
+        %li.item
+          %a#index_users{:href => "/admin/sites/1/users"} Users
+    #header
+      .main
+      .right
+        Logged in as:
+        %a{:href => "/admin/sites/1/users/1"} gubs
+        \·
+        %a{"data-method" => "delete", :href => "/logout", :rel => "nofollow"} Logout
+        \·
+        %a#go_to_website{:href => "http://riverwest24.com"} Website »
+    #page
+      .main
+        #main_menu
+          %ul.left
+            %li.item
+              %a{:href => "/admin/sites/1/races/1/teams"} 2008
+            %li.item
+              %a{:href => "/admin/sites/1/races/2/teams"} 2009
+            %li.item
+              %a{:href => "/admin/sites/1/races/3/teams"} 2010
+            %li.item
+              %a{:href => "/admin/sites/1/races/4/teams"} 2011
+            %li.item
+              %a.current{:href => "/admin/sites/1/races/5/teams"} 2012
+          %ul.actions
+            %li.item
+              %a{:href => "/admin/sites/1/races/5/teams.csv"} Export
+            %li.item
+              %a.current{:href => "#"} Settings
+            %li.item
+              %a{:href => "/admin/sites/1/races/5/teams/new"} New
+            %li.item
+              %a{:href => "/admin/sites/1/races/new"} New Race
+        %p#flash_notice.flash.notice{:style => "display: none;"}
+        %p#flash_error.flash.error{:style => "display: none;"}
+        #content
+          .col.half
+          
+            %h3 Basic Information
+            %hr
+            .field#race-title
+              %label Title
+              %input.text{:href => "text"}
+          
+            .field#starts
+              %label Starts
+              %select
+                %option 27
+              %select
+                %option July
+              %select
+                %option 2012
+              %em @
+              %select
+                %option 7PM
+          
+            .field#ends
+              %label Ends
+              %select
+                %option 28
+              %select
+                %option July
+              %select
+                %option 2012
+              %em @
+              %select
+                %option 7PM
+            
+            .field#description
+              %label Description
+              %textarea
+          
+          .col.half
+            %h3 Bonus Checkpoints
+            %hr
+            %p.right_align= link_to "+ Add a Checkpoint", "#"
+            %table#bonuses.list
+              %thead
+                %tr
+                  %th #
+                  %th Points
+                  %th Name
+                  %th
+              %tbody
+                %tr
+                  %td 1
+                  %td 2
+                  %td Breakfast
+                  %td
+                    = link_to "Edit", "#", :class => "edit"
+                    %input.delete{:type => "submit", :value => ""}
+                %tr
+                  %td 2
+                  %td 2
+                  %td Haircut
+                  %td
+                    = link_to "Edit", "#", :class => "edit"
+                    %input.delete{:type => "submit", :value => ""}
+                %tr
+                  %td 3
+                  %td 5
+                  %td Tattoo
+                  %td
+                    = link_to "Edit", "#", :class => "edit"
+                    %input.delete{:type => "submit", :value => ""}
+          
+          %hr.clear
+          
+          .field
+            %input.save{:type => "submit", :value => "Save"}
+            = link_to "cancel", :back, :class => "cancel"
+            
+      #sidebar.right
+        .tabs
+          .tab.active
+            %h3 Totals
+            %p
+              Teams:
+              %b 268
+              \ 
+              Racers:
+              %b 883
+            %p
+              %ul
+                %li
+                  A Team
+                  %b 9
+                %li
+                  B Team
+                  %b 142
+                %li
+                  Solo (male)
+                  %b 68
+                %li
+                  Solo (female)
+                  %b 39
+                %li
+                  Tandem
+                  %b 10
+            %p
+              Shirts:
+              S
+              %b 238
+              M
+              %b 306
+              L
+              %b 248
+              XL
+              %b 63
+              Other
+              %b 5
+      #left.collapsed

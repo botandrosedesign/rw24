@@ -5,5 +5,5 @@
   %td.center_align= point.qty
   %td.center_align= point.total_laps
   %td= point.team_name
-  %td.edit.ceebox= link_to "", [:edit, point], :title => "Edit Score", :rel => "modal: true width:500 height:200"
-  %td.delete= button_to "", point, :method => :delete, :confirm => "Are you sure?"
+  %td.ceebox= link_to "", [:edit, point], :title => "Edit Score", :rel => "modal: true width:500 height:200", :class => "edit"
+  %td= button_to "", point, :class => "delete", :method => :delete, :confirm => "Are you sure?"
