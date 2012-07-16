@@ -29,8 +29,12 @@ git "https://github.com/botandrose/adva_cms.git", :branch => "revamp" do
   gem "adva_meta_tags"
 end
 
+gem "asset_precompilation_finder"
 gem "sass-rails"
 gem "compass-rails"
+gem "coffee-rails"
+gem "therubyracer"
+gem "uglifier"
 gem "jquery-rails"
 
 group :test, :development do
