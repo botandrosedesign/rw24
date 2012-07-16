@@ -14,7 +14,7 @@ class Admin::TeamsController < Admin::BaseController
   end
 
   def new
-    @team = @race.teams.new
+    @team = @race.teams.build
     6.times { @team.riders << Rider.new }
   end
 
@@ -23,7 +23,7 @@ class Admin::TeamsController < Admin::BaseController
   end
 
   def create
-    @team = @race.teams.new(params[:team])
+    @team = @race.teams.build(params[:team])
     if @team.save
       flash[:notice] = "The team has been created."
       redirect_to [:edit, :admin, @site, @race, @team]

@@ -63,9 +63,9 @@ class Team < ActiveRecord::Base
     update_attribute :confirmation_sent_at, Time.now
   end
 
-  def initialize(attrs={})
-    attrs ||= {}
-    attrs.reverse_merge! "category" => "A Team"
+  def initialize *options, &block
+    options[0] ||= {}
+    options[0].reverse_merge! "category" => "A Team"
     super
   end
 
