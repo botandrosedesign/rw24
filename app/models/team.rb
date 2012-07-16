@@ -13,11 +13,11 @@ class Team < ActiveRecord::Base
     ["A Team", "B Team", "Solo (male)", "Solo (female)", "Tandem"]
   end
 
-  default_scope :order => "position"
+  default_scope order("position")
   
-  named_scope :by_category, lambda { |category|
-    { :conditions => { :category => category } }
-  }
+  def self.by_category category
+    where :category => category
+  end
 
   attr_accessor :phone
 

@@ -1,1 +1,0 @@
-require 'tags/tag'

@@ -1,22 +1,37 @@
 source "http://rubygems.org"
 
-gem "rails", "~>3.0.12"
-gem "mysql2", "~>0.2.7"
+gem "rails"
+gem "mysql2"
 gem "bard-rake"
 gem "bard_static"
-
-gem "haml"
-gem "compass", "~>0.11.0"
-gem "compass-querystring_cachebuster"
+gem "haml-rails"
+gem "input_css"
 gem "fastercsv"
-gem "csv_builder", "~>1.0"
+# gem "csv_builder", "~>1.0"
 gem "nokogiri"
 gem "require_relative"
-gem "will_paginate"
 gem "acts_as_list"
 gem "dynamic_form"
+gem "validates_email_format_of"
 gem "delayed_job_active_record"
 gem "delayed_job_web"
+
+git "https://github.com/botandrose/adva_cms.git", :branch => "revamp" do
+  gem "adva_cms"
+  gem "adva_activity"
+  gem "adva_blog"
+  gem "adva_comments"
+  gem "adva_rbac"
+  gem "adva_user"
+
+  gem "adva_cells"
+  gem "adva_fckeditor"
+  gem "adva_meta_tags"
+end
+
+gem "sass-rails"
+gem "compass-rails"
+gem "jquery-rails"
 
 group :test, :development do
   gem "pry"

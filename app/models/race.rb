@@ -3,9 +3,11 @@ class Race < ActiveRecord::Base
   has_many :riders, :through => :teams
   has_many :points
 
-  named_scope :published, :conditions => { :published => true }, :order => "year desc"
-
   xss_terminate :except => :description
+
+  def self.published
+    where(:published => true).order("year desc")
+  end
 
   def self.current
     find_by_year(Date.today.year) || published.last

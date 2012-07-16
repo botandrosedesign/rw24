@@ -3,8 +3,13 @@ class Rider < ActiveRecord::Base
     %w(S M L XL Other)
   end
 
-  named_scope :shirt, lambda { |size| { :conditions => { :shirt => size } } }
-  named_scope :paid, :conditions => { :paid => true }
+  def self.shirt size
+    where :shirt => size
+  end
+
+  def self.paid
+    where :paid => true
+  end
 
   belongs_to :team
   acts_as_list :scope => :team_id

@@ -30,7 +30,9 @@
     = yield :css
 
     = yield :before_javascript_include
-    = javascript_include_tag "adva_cms/jquery/jquery.js"
+    = javascript_include_tag "jquery"
+    = javascript_include_tag "jquery_ujs"
+
     = javascript_include_tag "adva_cms/jquery/jquery-lowpro.js"
     = javascript_include_tag "adva_cms/jquery/jquery-ui.js"
     = javascript_include_tag "adva_cms/jquery.common.js"
@@ -48,7 +50,7 @@
     = javascript_include_tag "has_filter/jquery.filter.js"
     = javascript_include_tag "adva_fckeditor/fckeditor/fckeditor.js"
     = javascript_include_tag "adva_fckeditor/setup_fckeditor.js"
-    = javascript_include_tag "adva_cms/admin/select_all_none.js"
+    = javascript_include_tag "admin/select_all_none.js"
     = javascript_tag "window._auth_token = #{form_authenticity_token.inspect}"
 
     = yield :js

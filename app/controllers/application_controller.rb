@@ -1,9 +1,5 @@
-# Filters added to this controller apply to all controllers in the application.
-# Likewise, all the methods added will be available for all controllers.
-
 class ApplicationController < ActionController::Base
-  include ExceptionNotification::Notifiable
-
+  # include ExceptionNotification::Notifiable
 
   helper :all # include all helpers, all the time
   helper_method :current_user, :start_time
@@ -14,25 +10,26 @@ class ApplicationController < ActionController::Base
   # filter_parameter_logging :password
 
   private
-    def guess_section
-      permalink = request.request_uri.split("/").second
-      @section = Section.find_by_permalink permalink
-      @section ||= Section.first
-    end
 
-    def current_user
-      @current_user ||= User.find(cookies[:uid]) rescue nil
-    end
+  def guess_section
+    permalink = request.fullpath.split("/").second
+    @section = Section.find_by_permalink permalink
+    @section ||= Section.first
+  end
 
-    def start_time
-      @start_time ||= Race.current.start_time
-    end
+  def current_user
+    @current_user ||= User.find(cookies[:uid]) rescue nil
+  end
 
-    def stale? *args
-      if Rails.env.development?
-        true
-      else
-        super
-      end
+  def start_time
+    @start_time ||= Race.current.start_time
+  end
+
+  def stale? *args
+    if Rails.env.development?
+      true
+    else
+      super
     end
+  end
 end
