@@ -64,4 +64,11 @@ Rw24::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  config.middleware.use Rack::WWW
+  
+  config.middleware.use ExceptionNotifier,
+    :email_prefix => "[riverwest24.com] ",
+    :sender_address => %{"smtp" <smtp@riverwest24.com>},
+    :exception_recipients => %w{micah@botandrose.com}
 end
