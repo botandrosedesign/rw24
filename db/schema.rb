@@ -134,26 +134,31 @@ ActiveRecord::Schema.define(:version => 20120529213929) do
   create_table "contents", :force => true do |t|
     t.integer  "site_id"
     t.integer  "section_id"
-    t.string   "type",            :limit => 20
+    t.string   "type",             :limit => 20
     t.string   "permalink"
     t.text     "excerpt_html"
     t.text     "body_html"
     t.integer  "author_id"
     t.string   "author_type"
-    t.string   "author_name",     :limit => 40
-    t.string   "author_email",    :limit => 40
+    t.string   "author_name",      :limit => 40
+    t.string   "author_email",     :limit => 40
     t.string   "author_homepage"
     t.integer  "version"
     t.string   "filter"
-    t.integer  "comment_age",                   :default => 0
+    t.integer  "comment_age",                    :default => 0
     t.string   "cached_tag_list"
-    t.integer  "assets_count",                  :default => 0
+    t.integer  "assets_count",                   :default => 0
     t.datetime "published_at"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "parent_id"
-    t.integer  "lft",                           :default => 0, :null => false
-    t.integer  "rgt",                           :default => 0, :null => false
+    t.integer  "lft",                            :default => 0, :null => false
+    t.integer  "rgt",                            :default => 0, :null => false
+    t.string   "meta_author"
+    t.string   "meta_geourl"
+    t.string   "meta_copyright"
+    t.string   "meta_keywords"
+    t.text     "meta_description"
   end
 
   add_index "contents", ["author_id"], :name => "index_contents_on_author_id"
@@ -310,6 +315,11 @@ ActiveRecord::Schema.define(:version => 20120529213929) do
     t.boolean  "email_notification",                :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "meta_author"
+    t.string   "meta_geourl"
+    t.string   "meta_copyright"
+    t.string   "meta_keywords"
+    t.text     "meta_description"
   end
 
   create_table "taggings", :force => true do |t|
