@@ -45,26 +45,27 @@
   +float-left
   width: 100%
   a
-    width: 13%
+    width: 14%
     :display inline-block
     +float-left
-    line-height: 32px
+    :padding 6px 0
     text-align: center
     +background-image(linear-gradient(#fcfcfc , #ccc))
     :font-size 1.1em
     :font-weight bold
-    border: 1px solid #999
-    :color #333
+    :border 1px solid #ccc
+    :border-right 1px solid #fff
+    :color #1a1a1a
     &.first
       +border-left-radius(12px)
     &.last
+      :border-right 1px solid #ccc
       +border-right-radius(12px)
     &:hover
-      background: #ccc
-      color: #1a1a1a
+      background: $primaryColor
+      +background-image(linear-gradient(lighten($primaryColor, 20%), $primaryColor))
     &.current
-      background: #999
-      +background-image(linear-gradient(#333, #999))
-      color: #fff
-      +box-shadow(transparent 0 0 0 0, #000 0 3px 9px 0 inset)
-      border-color: #000
+      background: #666
+      +background-image(linear-gradient(#666 , #1a1a1a))
+      :color #fff
+      :border-color #1a1a1a
