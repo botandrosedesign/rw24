@@ -8,10 +8,12 @@ class TeamsController < BaseController
       format.html
       format.js { render @teams, :layout => false }
     end
+    expires_in 1.minute, :public => true
   end
 
   def show
     @team = @race.teams.find_by_position params[:position]
+    expires_in 1.minute, :public => true
   end
 
   private
