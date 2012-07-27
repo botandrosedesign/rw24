@@ -14,14 +14,7 @@
 .clear
 %p
   %b#teams_count= pluralize @teams.size, "Team"
-%table{:width => "100%"}
-  %col{:width => "8%"}
-  %col{:width => "10%"}
-  %col{:width => "*"}
-  %col{:width => "10%"}
-  %col{:width => "10%"}
-  %col{:width => "10%"}
-  %col{:width => "10%"}
+%table#leader-board{:width => "100%"}
   %thead
     %tr
       %th.center_align{:scope => "col"} POS#
@@ -33,7 +26,7 @@
         %th.center_align{:scope => "col"} Penalty
       %th.center_align{:scope => "col"} 
         %b Total
-  %tbody#teams
+  %tbody
     = render @teams
 
 - content_for :sidebar do
