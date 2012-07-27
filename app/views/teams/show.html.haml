@@ -10,7 +10,7 @@
   = pluralize(@team.penalties_total, "lost lap") + ","
   %b= pluralize(@team.points_total, "total lap")
 
-%p= link_to "&laquo; Back to Leader Board", leader_board_path(@race.year)
+%p= link_to raw("&laquo; Back to Leader Board"), leader_board_path(@race.year)
 
 - if current_user.try(:has_role?, :superuser)
   %p
@@ -51,12 +51,15 @@
     - @team.points.select(&:bonus?).each_with_index do |bonus, i|
       %tr
         %td
-          Bonus
-          = i+1
+          - if @race.year >= 2012
+            = current_race.bonuses[bonus.bonus_id][:name]
+          - else
+            Bonus
+            = i+1
         %td= bonus.qty
         - if current_user.try(:has_role?, :superuser)
-          %td.edit.ceebox= link_to "", [:edit, bonus], :title => "Edit Score", :rel => "modal: true width:500 height:200"
-          %td.delete= button_to "", bonus, :method => :delete, :confirm => "Are you sure?"
+          %td.ceebox= link_to "", [:edit, bonus], :title => "Edit Score", :rel => "modal: true width:500 height:200", :class => "edit"
+          %td= button_to "", bonus, :class => "delete", :method => :delete, :confirm => "Are you sure?"
   %tfoot
     %tr
       %th Total:
@@ -83,7 +86,7 @@
 
 %hr.clear      
 
-= link_to "&laquo; Back to Leader Board", leader_board_path(@race.year)
+= link_to raw("&laquo; Back to Leader Board"), leader_board_path(@race.year)
 
 - content_for :js do
   - if current_user.try(:has_role?, :superuser)

@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   # include ExceptionNotification::Notifiable
 
   helper :all # include all helpers, all the time
-  helper_method :current_user, :start_time
+  helper_method :current_user, :start_time, :current_race
 
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
@@ -21,8 +21,12 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(cookies[:uid]) rescue nil
   end
 
+  def current_race
+    @current_race ||= Race.current
+  end
+
   def start_time
-    @start_time ||= Race.current.start_time
+    @start_time ||= current_race.start_time
   end
 
   def stale? *args

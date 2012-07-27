@@ -1,11 +1,16 @@
 $(function() {
   $("#sidebar form").submit(function() {
     var now = new Date().valueOf();
-    var start = Date.UTC(2011, 6, 30, 0, 0, 0);
+    var start = window.raceStart;
     var since_start = now - start;
     var since_start_formatted = format_time_diff(since_start);
     var id = "point_" + now;
     $(this).find("#point_since_start").val(since_start_formatted);
+    var bonus_id = $(this).find("#point_bonus_id").val();
+    if(bonus_id) {
+      var qty = window.bonuses.qty_for_id(bonus_id);
+      $(this).find("#point_qty").val(qty);
+    }
 
     var queryString = $(this).serialize();
     $("#points").addPendingRow(id, $(this).serializeObject());

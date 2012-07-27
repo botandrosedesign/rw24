@@ -32,7 +32,7 @@
     </tr>
   </script>
 
-- content_for :sidebar do
+= content_for :sidebar do
   %h4 Lap Logger
   = form_for @lap, :html => { :id => "new_lap", :autocomplete => "off" } do |form|
     .calculator#laps
@@ -49,12 +49,13 @@
     .calculator#bonus
       = form.hidden_field :category
       = form.hidden_field :since_start
+      = form.hidden_field :qty
       .field
         = form.label :team_position, "POS#", :class => "medium"
-        %label.medium Bonus#
+        = form.label :bonus_id, "Bonus#"
       .field
         = form.text_field :team_position, :class => "medium", :tabindex => 11
-        %input.text.medium{:type => "text",  :tabindex => 12}
+        = form.text_field :bonus_id, :class => "medium", :tabindex => 12
         = form.submit "OK", :class => "button"
   
   %h4 Penalty Points
@@ -70,5 +71,15 @@
         = form.text_field :qty, :class => "medium", :tabindex => 22
         = form.submit "OK", :class => "button"
 
-- content_for :js do
+= content_for :js do
   = javascript_include_tag "jquery.templates", "jquery.serializeobject", "jquery.ajaxretry", "jquery.sprintf", "jquery.ceebox", "points"
+  :erb
+    <script type="text/javascript">
+      window.raceStart = new Date($(".countstart").attr("data-countstart")).valueOf();
+      window.bonuses = {
+        store: <%= @race.bonuses.to_json %>,
+        qty_for_id: function(bonus_id) {
+          return parseInt(this.store[bonus_id].points);
+        }
+      };
+    </script>

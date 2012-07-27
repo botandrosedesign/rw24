@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120727172641) do
+ActiveRecord::Schema.define(:version => 20120727183936) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -217,6 +217,7 @@ ActiveRecord::Schema.define(:version => 20120727172641) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "race_id"
+    t.integer  "bonus_id"
   end
 
   add_index "points", ["race_id"], :name => "index_points_on_race_id"
