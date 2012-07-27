@@ -16,6 +16,7 @@ gem "validates_email_format_of"
 gem "delayed_job_active_record"
 gem "delayed_job_web"
 
+# path "../adva" do
 git "https://github.com/botandrose/adva_cms.git", :branch => "revamp" do
   gem "adva_cms"
   gem "adva_activity"

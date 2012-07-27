@@ -1,11 +1,12 @@
 GIT
   remote: https://github.com/botandrose/adva_cms.git
-  revision: 4c1d00368d96f020aa448558427a58e890a88e2b
+  revision: 2fe1fedccfaafd0e94bb41ac22b5cb6018319bb2
   branch: revamp
   specs:
     adva_activity (0.0.1)
     adva_blog (0.0.1)
     adva_cells (0.0.1)
+      cells
     adva_cms (0.0.1)
       globalize3
       will_paginate
@@ -60,6 +61,9 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (~> 2.0)
       xpath (~> 0.1.4)
+    cells (3.8.5)
+      actionpack (~> 3.0)
+      railties (~> 3.0)
     childprocess (0.3.4)
       ffi (~> 1.0, >= 1.0.6)
     chunky_png (1.2.5)
