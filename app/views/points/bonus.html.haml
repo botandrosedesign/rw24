@@ -49,7 +49,7 @@
   </script>
 
 = content_for :js do
-  = javascript_include_tag "jquery.templates", "jquery.serializeobject", "jquery.ajaxretry", "jquery.sprintf", "jquery.ceebox", "points"
+  = javascript_include_tag "points"
   :erb
     <script type="text/javascript">
       window.raceStart = new Date($(".countstart").attr("data-countstart")).valueOf();

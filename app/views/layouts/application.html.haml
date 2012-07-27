@@ -4,12 +4,12 @@
     %meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
     = csrf_meta_tag
     %title
-      riverwest24
+      Riverwest 24
       = yield :title
     %meta(name="keywords" content="")
     %meta(name="description" content="")
 
-    = stylesheet_link_tag "screen", "application", "handheld"
+    = stylesheet_link_tag "application"
     = yield :css
     /[if lte IE 9]
       = stylesheet_link_tag "ie"
@@ -82,5 +82,5 @@
             = mail_to "info@riverwest24.com"
 
     = javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
-    = javascript_include_tag "google_analytics", "application", "countdown"
+    = javascript_include_tag "application"
     = yield :js

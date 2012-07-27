@@ -1,3 +1,9 @@
+//= require jquery.templates
+//= require jquery.serializeobject
+//= require jquery.ajaxretry
+//= require jquery.sprintf
+//= require jquery.ceebox
+
 $(function() {
   $("#new_lap, #new_bonus, #new_penalty").submit(function() {
     var now = new Date().valueOf();
