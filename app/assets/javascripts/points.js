@@ -1,5 +1,5 @@
 $(function() {
-  $("#sidebar form").submit(function() {
+  $("#new_lap, #new_bonus, #new_penalty").submit(function() {
     var now = new Date().valueOf();
     var start = window.raceStart;
     var since_start = now - start;
@@ -7,7 +7,8 @@ $(function() {
     var id = "point_" + now;
     $(this).find("#point_since_start").val(since_start_formatted);
     var bonus_id = $(this).find("#point_bonus_id").val();
-    if(bonus_id) {
+    var qty = $(this).find("#point_qty").val();
+    if(bonus_id && !qty) {
       var qty = window.bonuses.qty_for_id(bonus_id);
       $(this).find("#point_qty").val(qty);
     }
@@ -56,22 +57,24 @@ $(function() {
     }).join(":");
   }
 
-  $("#points td.delete form").live('click', function() {
-    var id = $(this).parents("tr").attr("id");
-    $.ajax({
-      type: 'POST',
-      url: this.action,
-      data: $(this).serialize(),
-      retry: true,
-      success: function(data, textStatus) {
-        $("#"+id).remove();
-      },
-      error: function(xhr, textStatus, errorThrown) {
-        $("#"+id).addClass("failed")
-          .find("td:last-child").html('<a href="#" onclick="$(this).parent().parent().remove(); return false;">Clear</a>')
-          .prev().prev().html("Couldn't delete");
-      }
-    });
+  $("#points a.delete").live('click', function() {
+    if(confirm($(this).attr('data-confirm'))) {
+      var id = $(this).parents("tr").attr("id");
+      $.ajax({
+        type: 'POST',
+        url: this.href,
+        data: { _method: "DELETE" },
+        retry: true,
+        success: function(data, textStatus) {
+          $("#"+id).remove();
+        },
+        error: function(xhr, textStatus, errorThrown) {
+          $("#"+id).addClass("failed")
+            .find("td:last-child").html('<a href="#" onclick="$(this).parent().parent().remove(); return false;">Clear</a>')
+            .prev().prev().html("Couldn't delete");
+        }
+      });
+    }
     return false;
   });
 

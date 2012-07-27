@@ -1,9 +1,13 @@
 %tr[point]{ :class => point.category.downcase }
   %td.center_align= fixed_number_or_empty point.team_position, :size => 3
   %td.center_align.sort= point.since_start
-  %td.center_align= point.category
+  %td.center_align
+    - if point.category == "Bonus" and current_race.year >= 2012
+      Bonus #{point.bonus_id}
+    - else
+      = point.category
   %td.center_align= point.qty
   %td.center_align= point.total_laps
   %td= point.team_name
   %td.ceebox= link_to "", [:edit, point], :title => "Edit Score", :rel => "modal: true width:500 height:200", :class => "edit"
-  %td= button_to "", point, :class => "delete", :method => :delete, :confirm => "Are you sure?"
+  %td= link_to "", point, :class => "delete", :method => :delete, :confirm => "Are you sure?"

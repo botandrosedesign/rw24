@@ -10,6 +10,12 @@ class PointsController < BaseController
     @penalty = Point.new_penalty
   end
 
+  def bonus
+    @checkpoint = Bonus.find_by_race_and_key @race, params[:key]
+    @bonuses = @race.points.where(:category => "Bonus", :bonus_id => @checkpoint.id).limit(100)
+    @bonus = Point.new_bonus
+  end
+
   def show
     @team = @race.teams.find_by_position params[:id]
     render "teams/show"

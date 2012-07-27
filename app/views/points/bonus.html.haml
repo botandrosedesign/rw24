@@ -1,0 +1,55 @@
+%h3 BONUS CHECKPOINT - #{@checkpoint.name}
+%h4 Bonus Logger
+
+= form_for @bonus, :html => { :id => "new_bonus", :autocomplete => "off" } do |form|
+  .calculator#bonus
+    = form.hidden_field :category
+    = form.hidden_field :since_start
+    = form.hidden_field :qty, :value => @checkpoint.points
+    = form.hidden_field :bonus_id, :value => @checkpoint.id
+    .field
+      = form.label :team_position, "Insert Team #", :class => "medium"
+    .field
+      = form.text_field :team_position, :class => "medium", :tabindex => 11
+      = form.submit "OK", :class => "button"
+
+%table#teams
+  %col{:width => "10%"}
+  %col{:width => "10%"}
+  %col{:width => "10%"}
+  %col{:width => "10%"}
+  %col{:width => "10%"}
+  %col{:width => "*"}
+  %col{:width => "5%"}
+  %col{:width => "5%"}
+  %thead
+    %tr
+      %th.center_align POS#
+      %th.center_align When
+      %th.center_align Type
+      %th.center_align Amt
+      %th.center_align Tot
+      %th Team Name
+      %th.center_align{:colspan => "2"} Actions
+  %tbody.stripe#points
+    = render @bonuses
+
+:plain
+  <script type="text/x-jquery-template" title="pointRow">
+    <tr class="pending" id="<%= self.id %>">
+      <td class="center_align"><%= fixed_number_or_empty(self['point[team_position]']) %></td>
+      <td class="center_align sort"><%= self['point[since_start]'] %></td>
+      <td class="center_align"></td>
+      <td class="center_align"><%= self['point[category]'] %></td>
+      <td class="center_align"><%= self['point[qty]'] %></td>
+      <td>Saving...</td>
+      <td colspan="2" class="center_align"></td>
+    </tr>
+  </script>
+
+= content_for :js do
+  = javascript_include_tag "jquery.templates", "jquery.serializeobject", "jquery.ajaxretry", "jquery.sprintf", "jquery.ceebox", "points"
+  :erb
+    <script type="text/javascript">
+      window.raceStart = new Date($(".countstart").attr("data-countstart")).valueOf();
+    </script>
