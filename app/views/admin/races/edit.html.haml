@@ -38,13 +38,15 @@
             %th #
             %th Name
             %th Points
-            / %th
+            %th
         %tbody
           - @race.bonuses.each_with_index do |bonus, index|
             %tr
               %td= index
               %td= bonus[:name]
               %td= bonus[:points]
+              %td
+                = link_to "Bonus Form", bonus_points_path(:key => bonus[:key])
               /
                 %td
                   = link_to "Edit", "#", :class => "edit"

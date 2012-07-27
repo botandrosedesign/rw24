@@ -5,10 +5,14 @@ Rw24::Application.routes.draw do
 
   root :to => "articles#index"
 
-  resources :points
+  resources :points do
+    collection do
+      get "bonus/:key", :action => :bonus, :key => /[a-z0-9]+/, :as => "bonus"
+    end
+  end
 
-  match "leader-board/:year" => "teams#index", :year => nil, :as => "leader_board"
-  match "leader-board/:year/:position" => "teams#show", :as => "leader_board_laps"
+  get "leader-board/:year" => "teams#index", :year => nil, :as => "leader_board"
+  get "leader-board/:year/:position" => "teams#show", :as => "leader_board_laps"
 
   namespace :admin do
     resources :sites do

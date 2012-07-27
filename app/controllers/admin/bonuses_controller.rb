@@ -6,6 +6,7 @@ class Admin::BonusesController < Admin::BaseController
   end
 
   def create
+    params[:bonus][:key] = SecureRandom.hex(8)
     @race.bonuses << params[:bonus]
     @race.save
     redirect_to [:new, :admin, @site, @race, :bonus], :notice => "Bonus added! Add another?"
