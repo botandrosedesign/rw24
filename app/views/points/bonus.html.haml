@@ -1,3 +1,6 @@
+= content_for :css do
+  = stylesheet_link_tag "bonus-logger"
+
 %h3 BONUS CHECKPOINT - #{@checkpoint.name}
 %h4 Bonus Logger
 
@@ -9,20 +12,12 @@
     = form.hidden_field :qty, :value => @checkpoint.points
     = form.hidden_field :bonus_id, :value => @checkpoint.id
     .field
-      = form.label :team_position, "Insert Team #", :class => "medium"
+      = form.label :team_position, "Team #"
     .field
-      = form.text_field :team_position, :class => "medium", :tabindex => 11
-      = form.submit "OK", :class => "button"
+      = form.text_field :team_position, :type => "tel", :class => "medium", :tabindex => 11
+      = form.submit "OK", :class => "button", :id => "point_submit"
 
 %table#teams
-  %col{:width => "10%"}
-  %col{:width => "10%"}
-  %col{:width => "10%"}
-  %col{:width => "10%"}
-  %col{:width => "10%"}
-  %col{:width => "*"}
-  %col{:width => "5%"}
-  %col{:width => "5%"}
   %thead
     %tr
       %th.center_align POS#

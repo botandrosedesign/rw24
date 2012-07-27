@@ -132,8 +132,7 @@ ul#nav
 // main
   
 #main
-  +container
-  :background transparent inline-image("tire.gif") no-repeat bottom right 
+  background: transparent inline-image("tire.gif") no-repeat bottom right 
    
 #content
   +column(17,"first")
@@ -142,8 +141,11 @@ ul#nav
   :border 2px solid #DBDBDB
   +box-shadow(#ccc 0 0 3px)
   +border-radius(3px)
+  +box-sizing("border-box")
   :margin-bottom 20px
   :min-height 360px
+  &.full
+    width: 100%
 #sidebar
   +column(6, "last")
   +float-right

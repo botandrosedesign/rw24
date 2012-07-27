@@ -15,7 +15,7 @@
       = stylesheet_link_tag "ie"
     /[if lte IE 7]
       = stylesheet_link_tag "ie7"
-      
+    %meta{:name => "viewport", :content => "width=device-width"}
     %link(rel="shortcut icon" href="#{image_path("/favicon.png")}" type="image/png")
 
   %body
@@ -64,10 +64,15 @@
             #flash_notice= flash[:notice]
           - if flash[:error]
             #flash_error= flash[:error]
-          #content
-            = yield
-          #sidebar
-            = yield :sidebar
+
+          - if content_for? :sidebar
+            #content
+              = yield
+            #sidebar
+              = yield :sidebar
+          - else
+            #content.full
+              = yield
       #footer
         .container
           %p
