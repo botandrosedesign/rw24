@@ -28,28 +28,27 @@
       %input.save{:type => "submit", :value => "Save"}
       = link_to "cancel", :back, :class => "cancel"
 
-.col.half
-  %h3 Bonus Checkpoints
+- content_for :sidebar do
+  .tabs
+    .tab.active
+      %h3 Bonus Checkpoints
+      %table#bonuses.list
+        %thead
+          %tr
+            %th #
+            %th Name
+            %th Points
+            / %th
+        %tbody
+          - @race.bonuses.each_with_index do |bonus, index|
+            %tr
+              %td= index
+              %td= bonus[:name]
+              %td= bonus[:points]
+              /
+                %td
+                  = link_to "Edit", "#", :class => "edit"
+                  %input.delete{:type => "submit", :value => ""}
 
-  %hr
-
-  %table#bonuses.list
-    %thead
-      %tr
-        %th #
-        %th Name
-        %th Points
-        / %th
-    %tbody
-      - @race.bonuses.each_with_index do |bonus, index|
-        %tr
-          %td= index
-          %td= bonus[:name]
-          %td= bonus[:points]
-          /
-            %td
-              = link_to "Edit", "#", :class => "edit"
-              %input.delete{:type => "submit", :value => ""}
-
-  %p.right_align= link_to "+ Add a Checkpoint", [:new, :admin, @site, @race, :bonus]
+      %p.right_align= link_to "+ Add a Checkpoint", [:new, :admin, @site, @race, :bonus]
 
