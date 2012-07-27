@@ -79,32 +79,33 @@
                 %a{:href => "/contact/articles/contact"} Contact
       #main
         .container
-          %h3 BONUS CHECKPOINT #1
-          %h4 Bonus Logger
-          %form#new_bonus.new_point{"accept-charset" => "UTF-8", :action => "/points", :autocomplete => "off", :method => "post"}
-            %div{:style => "margin:0;padding:0;display:inline"}
-              %input{:name => "utf8", :type => "hidden", :value => "✓"}/
-              %input{:name => "authenticity_token", :type => "hidden", :value => "1Bp7uIri6lzM1t/qX3w4bu/EvrGlrL/RGC9KqBzX6S8="}/
-            #bonus.calculator
-              %input#point_category{:name => "point[category]", :type => "hidden", :value => "Bonus"}/
-              %input#point_since_start{:name => "point[since_start]", :type => "hidden"}/
-              .field
-                %label.medium{:for => "point_team_position"} Insert Team #
-              .field
-                %input#point_team_position.medium.text{:name => "point[team_position]", :size => "30", :tabindex => "11", :type => "text"}/
-                %input#point_submit.button.submit{:name => "commit", :type => "submit", :value => "OK"}/
-          %table#bonus-points
-            %thead
-              %tr
-                %th pos#
-                %th Team name
-            %tbody
-              %tr
-                %td 001
-                %td This is a team name
-              %tr
-                %td 126
-                %td AWESOME SWEET NAME THAT TAKES UP WAY TOO MUCH SPACE BECAUSE WE'RE THAT AWESOME
+          #content
+            %h3 BONUS CHECKPOINT #1
+            %h4 Bonus Logger
+            %form#new_bonus.new_point{"accept-charset" => "UTF-8", :action => "/points", :autocomplete => "off", :method => "post"}
+              %div{:style => "margin:0;padding:0;display:inline"}
+                %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+                %input{:name => "authenticity_token", :type => "hidden", :value => "1Bp7uIri6lzM1t/qX3w4bu/EvrGlrL/RGC9KqBzX6S8="}/
+              #bonus.calculator
+                %input#point_category{:name => "point[category]", :type => "hidden", :value => "Bonus"}/
+                %input#point_since_start{:name => "point[since_start]", :type => "hidden"}/
+                .field
+                  %label.medium{:for => "point_team_position"} Insert Team #
+                .field
+                  %input#point_team_position.medium.text{:name => "point[team_position]", :size => "30", :tabindex => "11", :type => "text"}/
+                  %input#point_submit.button.submit{:name => "commit", :type => "submit", :value => "OK"}/
+            %table#bonus-points
+              %thead
+                %tr
+                  %th pos#
+                  %th Team name
+              %tbody
+                %tr
+                  %td 001
+                  %td This is a team name
+                %tr
+                  %td 126
+                  %td AWESOME SWEET NAME THAT TAKES UP WAY TOO MUCH SPACE BECAUSE WE'RE THAT AWESOME
                   
       #footer
         .container
