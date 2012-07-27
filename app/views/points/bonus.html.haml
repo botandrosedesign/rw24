@@ -1,8 +1,7 @@
 = content_for :css do
   = stylesheet_link_tag "bonus_logger"
 
-%h3 BONUS CHECKPOINT - #{@checkpoint.name}
-%h4 Bonus Logger
+%h3 Bonus Logger - #{@checkpoint.name}
 
 = form_for @bonus, :html => { :id => "new_bonus", :autocomplete => "off" } do |form|
   .calculator#bonus
