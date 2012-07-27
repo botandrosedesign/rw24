@@ -22,7 +22,7 @@
       
 #teams, #bonus-points
   width: 100%
-  tr:hover
+  tbody tr:hover
     background: #FFC81F
 
 #teams
@@ -46,6 +46,8 @@
 
 #leader-board
   @extend #teams
+  th
+    border: none
   th, td
     &:nth-child(1)
       width: 10%
