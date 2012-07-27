@@ -1,7 +1,7 @@
 class PointsController < BaseController
   before_filter :guess_section
-  before_filter :authorize_access
   before_filter :set_race
+  before_filter :authorize_access
 
   def index
     @points = @race.points.all :limit => 100
@@ -80,7 +80,9 @@ class PointsController < BaseController
   private
 
     def authorize_access
-      redirect_to admin_sites_url unless current_user.try(:has_role?, :superuser)
+      return true if current_user.try(:has_role?, :superuser)
+      return true if Bonus.find_by_race_and_key @race, params[:key]
+      redirect_to admin_sites_url
     end
 
     def set_race

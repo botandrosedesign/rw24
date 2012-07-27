@@ -3,6 +3,7 @@
 
 = form_for @bonus, :html => { :id => "new_bonus", :autocomplete => "off" } do |form|
   .calculator#bonus
+    = hidden_field_tag :key, @checkpoint.key
     = form.hidden_field :category
     = form.hidden_field :since_start
     = form.hidden_field :qty, :value => @checkpoint.points

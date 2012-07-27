@@ -8,6 +8,7 @@ class Bonus
       next unless bonus[:key] == key
       return Bonus.new({ :id => index }.merge(bonus))
     end
+    nil
   end
 
   attr_accessor :id, :name, :points, :key
