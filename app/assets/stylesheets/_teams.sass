@@ -15,8 +15,9 @@
       background: #f1f1f1
   a
     color: #000
+    border-bottom: 1px dotted #000
     &:hover
-      text-decoration: underline
+      border-style: solid
       
 #teams, #bonus-points
   width: 100%
@@ -34,12 +35,20 @@
       
 #lap-times, #bonuses, #penalties
   +float-left
-  margin: 20px
+  margin: 20px 10px 0 0
+  td, th
+    text-align: left
+    padding: 6px
+    vertical-align: middle
+
+#lap-times
+  width: 40%
   td, th
     text-align: center
-
-#bonuses, #penalties
-  +float-right
+#bonuses
+  width: 35%
+#penalties
+  width: 18%
 
 #bonuses
   td

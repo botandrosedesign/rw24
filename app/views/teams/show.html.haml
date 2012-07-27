@@ -21,14 +21,13 @@
     = link_to "New Lap", new_point_path(:point => { :team_id => @team.id, :category => "Lap" })
 
 %table#lap-times
-  %col{:width => "80"}
-  %col{:width => "140"}
-  %col{:width => "140"}
   %thead
     %tr
       %th Lap Number
       %th Since Last Lap
       %th Since Start of Race
+      - if current_user.try(:has_role?, :superuser)
+        %th{:colspan => "2"}
   %tbody
     - last_lap = nil
     - @team.points.select(&:lap?).each_with_index do |lap, i|
@@ -40,13 +39,14 @@
           %td.ceebox= link_to "", [:edit, lap], :title => "Edit Score", :rel => "modal: true width:500 height:200", :class => "edit"
           %td= button_to "", lap, :class => "delete", :method => :delete, :confirm => "Are you sure?"
       - last_lap = lap
-      
+
+  
 %table#bonuses
-  %col{:width => "100"}
-  %col{:width => "80"}
   %thead
     %tr
-      %th{:colspan => "2"} bonuses
+      %th{:colspan => "2"} Bonuses
+      - if current_user.try(:has_role?, :superuser)
+        %th{:colspan => "2"}
   %tbody
     - @team.points.select(&:bonus?).each_with_index do |bonus, i|
       %tr
@@ -64,15 +64,15 @@
     %tr
       %th Total:
       %th= @team.bonuses_total
-
-
-      
+      - if current_user.try(:has_role?, :superuser)
+        %th{:colspan => "2"} 
+  
 %table#penalties
-  %col{:width => "100"}
-  %col{:width => "80"}
   %thead
     %tr
       %th{:colspan => "2"} Penalties
+      - if current_user.try(:has_role?, :superuser)
+        %th{:colspan => "2"}
   %tbody
     - @team.points.select(&:penalty?).each_with_index do |penalty, i|
       %tr
@@ -81,17 +81,16 @@
           = i+1
         %td= penalty.qty
         - if current_user.try(:has_role?, :superuser)
-          %td.edit.ceebox= link_to "", [:edit, penalty], :title => "Edit Score", :rel => "modal: true width:500 height:200"
-          %td.delete= button_to "", penalty, :method => :delete, :confirm => "Are you sure?"
+          %td.ceebox= link_to "", [:edit, penalty], :title => "Edit Score", :rel => "modal: true width:500 height:200", :class => "edit"
+          %td= button_to "", penalty, :class => "delete", :method => :delete, :confirm => "Are you sure?"
 
 %hr.clear      
 
 = link_to raw("&laquo; Back to Leader Board"), leader_board_path(@race.year)
 
 - content_for :js do
-  - if current_user.try(:has_role?, :superuser)
-    :javascript
-      $(function() {
-        $("#content").css("width", "100%");
-      });
+  :javascript
+    $(function() {
+      $("#content").css("width", "100%");
+    });
   -# = javascript_include_tag "points"
