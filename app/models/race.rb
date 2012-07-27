@@ -3,6 +3,8 @@ class Race < ActiveRecord::Base
   has_many :riders, :through => :teams
   has_many :points
 
+  store :settings
+
   xss_terminate :except => :description
 
   def self.published
@@ -32,5 +34,9 @@ class Race < ActiveRecord::Base
   def start_time=(datetime)
     self.year = datetime.try(:year)
     super datetime
+  end
+
+  def bonuses
+    settings[:bonuses] ||= []
   end
 end

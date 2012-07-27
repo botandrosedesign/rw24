@@ -8,6 +8,10 @@ class Admin::RacesController < Admin::BaseController
     @race = Race.new
   end
 
+  def edit
+    @race = Race.find params[:id]
+  end
+
   def create
     @race = Race.new params[:race]
     if @race.save
@@ -23,5 +27,11 @@ class Admin::RacesController < Admin::BaseController
     @race.update_attributes params[:race]
     @site.touch # expire all cached pages
     redirect_to [:admin, @site, @race, :teams]
+  end
+
+private
+
+  def set_menu
+    @menu = Menus::Admin::Teams.new
   end
 end

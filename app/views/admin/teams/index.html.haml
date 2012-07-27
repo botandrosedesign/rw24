@@ -88,16 +88,3 @@
         - Rider.shirt_sizes.each do |size|
           = size
           %b= @race.riders.shirt(size).count
-
-%h2 Race description
-%p This will be shown at the top of the leaderboard.
-
-= form_for @race, :url => [:admin, @site, @race] do |form|
-  = form.text_area :description, :class => "wysiwyg"
-
-  .field
-    = form.check_box :published, :label => "Show race in leaderboards dropdown menu?"
-
-  .field
-    %input(type="submit" value="Save")
-

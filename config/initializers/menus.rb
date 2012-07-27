@@ -19,6 +19,7 @@ module Menus
         menu :actions, :class => 'actions' do
           if @teams
             item :export, :content => link_to("Export", admin_site_race_teams_path(@site, @race, :format => :csv))
+            item :settings, :content => link_to("Settings", [:edit, :admin, @site, @race])
           end
           if @team or @teams
             item :new, :content => link_to_current("New", [:new, :admin, @site, @race, :team])

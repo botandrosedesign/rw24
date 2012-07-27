@@ -64,6 +64,9 @@ GEM
       ffi (~> 1.0, >= 1.0.6)
     chunky_png (1.2.5)
     coderay (1.0.7)
+    coffee-filter (0.1.1)
+      coffee-script (>= 2.2.0)
+      haml (>= 3.0.18)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -272,6 +275,7 @@ DEPENDENCIES
   asset_precompilation_finder
   bard-rake
   bard_static
+  coffee-filter
   coffee-rails
   compass-rails
   csv_builder

@@ -1,0 +1,55 @@
+.col.half
+  %h3 Basic Information
+
+  %hr
+
+  = form_for [:admin, @site, @race] do |form|
+
+    .field#race-title
+      = form.label :year
+      = form.text_field :year
+
+    .field#starts
+      = form.label :start_time
+      = form.datetime_select :start_time, :ampm => true
+    
+    .field
+      = form.check_box :published, :label => "Show race in leaderboards dropdown menu?"
+
+    %hr
+
+
+    .field#description
+      = form.label :description
+      %p This will be shown at the top of the leaderboard.
+      = form.text_area :description, :class => "wysiwyg"
+
+    .field
+      %input.save{:type => "submit", :value => "Save"}
+      = link_to "cancel", :back, :class => "cancel"
+
+.col.half
+  %h3 Bonus Checkpoints
+
+  %hr
+
+  %table#bonuses.list
+    %thead
+      %tr
+        %th #
+        %th Name
+        %th Points
+        / %th
+    %tbody
+      - @race.bonuses.each_with_index do |bonus, index|
+        %tr
+          %td= index
+          %td= bonus[:name]
+          %td= bonus[:points]
+          /
+            %td
+              = link_to "Edit", "#", :class => "edit"
+              %input.delete{:type => "submit", :value => ""}
+
+  %p.right_align= link_to "+ Add a Checkpoint", [:new, :admin, @site, @race, :bonus]
+
