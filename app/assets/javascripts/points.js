@@ -28,6 +28,7 @@ $(function() {
       type: 'POST',
       url: this.action,
       data: queryString,
+      dataType: "text",
       retry: true,
       success: function(data, textStatus) {
         $("#"+id).replaceWith(data);
@@ -70,6 +71,7 @@ $(function() {
         type: 'POST',
         url: this.href,
         data: { _method: "DELETE" },
+        dataType: "text",
         retry: true,
         success: function(data, textStatus) {
           $("#"+id).remove();
@@ -96,6 +98,7 @@ $(function() {
       type: 'POST',
       url: this.action,
       data: $(this).serialize(),
+      dataType: "text",
       retry: true,
       success: function(data, textStatus) {
         $("#"+id).remove();
