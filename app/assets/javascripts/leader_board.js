@@ -19,12 +19,12 @@ $(function() {
     var category = $(this).attr("data-category");
     var count;
     if(category) {
-      $("#leader-board tr").hide();
-      $("#leader-board tr." + category).show()
+      $("#teams tr").hide();
+      $("#teams tr." + category).show()
         .tap(function() { count = this.length; })
         .removeClass("even").filter("tr:odd").addClass("even");
     } else {
-      $("#leader-board tr").show()
+      $("#teams tr").show()
         .tap(function() { count = this.length; })
         .removeClass("even").filter("tr:odd").addClass("even");
     }
@@ -49,11 +49,11 @@ function refreshLeaderBoard() {
 }
 
 function pickLeaders() {
-  var a_leader = $("#leader-board tr.A").first().find("td:nth-child(3)").text();
-  var b_leader = $("#leader-board tr.B").first().find("td:nth-child(3)").text();
-  var m_leader = $("#leader-board tr.M").first().find("td:nth-child(3)").text();
-  var f_leader = $("#leader-board tr.F").first().find("td:nth-child(3)").text();
-  var t_leader = $("#leader-board tr.T").first().find("td:nth-child(3)").text();
+  var a_leader = $("#teams tr.A").first().find("td:nth-child(3)").text();
+  var b_leader = $("#teams tr.B").first().find("td:nth-child(3)").text();
+  var m_leader = $("#teams tr.M").first().find("td:nth-child(3)").text();
+  var f_leader = $("#teams tr.F").first().find("td:nth-child(3)").text();
+  var t_leader = $("#teams tr.T").first().find("td:nth-child(3)").text();
   
   $("#a_leader").html(a_leader);
   $("#b_leader").html(b_leader);
@@ -63,12 +63,12 @@ function pickLeaders() {
 }
 
 function pickWinners() {
-  var a_winners = $("#leader-board tr.A").slice(0, 3).find("td:nth-child(3)").map(function() { return $(this).text(); }).toArray();
-  var b_winners = $("#leader-board tr.B").slice(0, 3).find("td:nth-child(3)").map(function() { return $(this).text(); }).toArray();
-  var s_winners = $("#leader-board tr.S").slice(0, 3).find("td:nth-child(3)").map(function() { return $(this).text(); }).toArray();
-  var m_winners = $("#leader-board tr.M").slice(0, 3).find("td:nth-child(3)").map(function() { return $(this).text(); }).toArray();
-  var f_winners = $("#leader-board tr.F").slice(0, 3).find("td:nth-child(3)").map(function() { return $(this).text(); }).toArray();
-  var t_winners = $("#leader-board tr.T").slice(0, 3).find("td:nth-child(3)").map(function() { return $(this).text(); }).toArray();
+  var a_winners = $("#teams tr.A").slice(0, 3).find("td:nth-child(3)").map(function() { return $(this).text(); }).toArray();
+  var b_winners = $("#teams tr.B").slice(0, 3).find("td:nth-child(3)").map(function() { return $(this).text(); }).toArray();
+  var s_winners = $("#teams tr.S").slice(0, 3).find("td:nth-child(3)").map(function() { return $(this).text(); }).toArray();
+  var m_winners = $("#teams tr.M").slice(0, 3).find("td:nth-child(3)").map(function() { return $(this).text(); }).toArray();
+  var f_winners = $("#teams tr.F").slice(0, 3).find("td:nth-child(3)").map(function() { return $(this).text(); }).toArray();
+  var t_winners = $("#teams tr.T").slice(0, 3).find("td:nth-child(3)").map(function() { return $(this).text(); }).toArray();
   
   $("#a_winners").html("<b>" + a_winners.join("</b><br/><b>") + "</b>");
   $("#b_winners").html("<b>" + b_winners.join("</b><br/><b>") + "</b>");
