@@ -44,19 +44,18 @@
       = form.text_field :team_position, :tabindex => 1
       = form.submit "OK", :class => "button"
   
-  /
-    %h4 Bonus Points
-    = form_for @bonus, :html => { :id => "new_bonus", :autocomplete => "off" } do |form|
-      .calculator#bonus
-        = form.hidden_field :category
-        = form.hidden_field :since_start
-        .field
-          = form.label :team_position, "POS#", :class => "medium"
-          = form.label :qty, "Points", :class => "medium"
-        .field
-          = form.text_field :team_position, :class => "medium", :tabindex => 11
-          = form.text_field :qty, :class => "medium", :tabindex => 12
-          = form.submit "OK", :class => "button"
+  %h4 Bonus Points
+  = form_for @bonus, :html => { :id => "new_bonus", :autocomplete => "off" } do |form|
+    .calculator#bonus
+      = form.hidden_field :category
+      = form.hidden_field :since_start
+      .field
+        = form.label :team_position, "POS#", :class => "medium"
+        %label.medium Bonus#
+      .field
+        = form.text_field :team_position, :class => "medium", :tabindex => 11
+        %input.text.medium{:type => "text",  :tabindex => 12}
+        = form.submit "OK", :class => "button"
   
   %h4 Penalty Points
   = form_for @penalty, :html => { :id => "new_penalty", :autocomplete => "off" } do |form|
