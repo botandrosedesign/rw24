@@ -316,13 +316,10 @@ textarea
       width: 20%
 
 #bonus-view
-  li
-    +float-left
-    display: inline-block
-    width: 50px
-    line-height: 50px
-    border: 1px solid #ccc
-    margin: 5px
-    text-align: center
-    
-
+  tr
+    &:nth-child(1)
+      width: 30
+      text-align: center
+    th, td
+      padding: 2px
+      font-size: 1.2em

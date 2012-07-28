@@ -1,6 +1,11 @@
 class Admin::BonusesController < Admin::BaseController
   before_filter :set_race
 
+  def show
+    @bonus = Bonus.find_by_race_and_id @race, params[:id]
+    @bonuses = Point.where(:bonus_id => params[:id], :race_id => @race.id, :category => "Bonus").includes(:team).order("teams.position")
+  end
+
   def new
     @bonus = Bonus.new :points => 2
   end

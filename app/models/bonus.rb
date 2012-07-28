@@ -3,6 +3,14 @@ class Bonus
   include ActiveModel::Conversion
   extend ActiveModel::Naming
 
+  def self.find_by_race_and_id race, id
+    race.bonuses.each_with_index do |bonus, index|
+      next unless index == id.to_i
+      return Bonus.new({ :id => index }.merge(bonus))
+    end
+    nil
+  end
+
   def self.find_by_race_and_key race, key
     race.bonuses.each_with_index do |bonus, index|
       next unless bonus[:key] == key

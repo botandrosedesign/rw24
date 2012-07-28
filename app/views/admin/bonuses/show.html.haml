@@ -1,0 +1,6 @@
+%h2 Bonus ##{@bonus.id} - #{@bonus.name}
+%table#bonus-view
+  - @bonuses.each do |bonus|
+    %tr
+      %th= bonus.team_position
+      %td= bonus.team_name
