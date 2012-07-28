@@ -5,12 +5,8 @@
   = @team.category
 
 %ul#team-members
-  %li John Doe
-  %li Jane Doe
-  %li Hilary Johnson
-  %li Ralph Emerson
-  %li Tyler Durden
-  %li Peter Piper
+  - @team.riders.each do |rider|
+    %li= rider.name
 
 %hr.clear
 
