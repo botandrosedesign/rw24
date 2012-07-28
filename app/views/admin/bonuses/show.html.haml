@@ -4,6 +4,7 @@
     %tr[bonus]
       %th= bonus.team_position
       %td= bonus.team_name
+      %td= bonus.qty
       %td= link_to "Delete", point_path(bonus), :class => "delete", :method => :delete, :confirm => "Are you sure?"
 
 :coffeescript
