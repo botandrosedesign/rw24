@@ -54,10 +54,12 @@
       - if current_user.try(:has_role?, :superuser)
         %th{:colspan => "2"}
   %tbody
-    - @team.points.select(&:bonus?).each_with_index do |bonus, i|
+    - @team.points.select(&:bonus?).sort_by(&:bonus_id).each_with_index do |bonus, i|
       %tr
         %td
           - if @race.year >= 2012
+            = bonus.bonus_id
+            \-
             = current_race.bonuses[bonus.bonus_id][:name]
           - else
             Bonus
