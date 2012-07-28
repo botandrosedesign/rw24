@@ -1,6 +1,6 @@
 class Point < ActiveRecord::Base
   CATEGORIES = %w(Lap Bonus Penalty)
-  default_scope :order => "created_at DESC"
+  default_scope :order => "points.created_at ASC"
 
   belongs_to :team
   belongs_to :race
