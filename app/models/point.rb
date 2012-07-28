@@ -6,6 +6,7 @@ class Point < ActiveRecord::Base
   belongs_to :race
 
   validate :position_must_exist
+  validate :uniqueness_of_bonus
   validates_inclusion_of :category, :in => CATEGORIES
   validates_numericality_of :qty
 
@@ -100,5 +101,11 @@ class Point < ActiveRecord::Base
 
     def position_must_exist
       errors.add(:team_position, "doesn't exist") unless team
+    end
+
+    def uniqueness_of_bonus
+      if Point.where(:category => "Bonus", :team_id => team_id, :race_id => race_id, :bonus_id => bonus_id).count > 0
+        errors.add(:team_position, "already has this bonus")
+      end
     end
 end
