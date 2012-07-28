@@ -317,9 +317,11 @@ textarea
 
 #bonus-view
   tr
-    &:nth-child(1)
-      width: 30
-      text-align: center
+    &:nth-child(2n+2)
+      background-color: #ccc
     th, td
       padding: 2px
       font-size: 1.2em
+      &:nth-child(1)
+        width: 30
+        text-align: center
