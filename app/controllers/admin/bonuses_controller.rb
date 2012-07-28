@@ -3,7 +3,7 @@ class Admin::BonusesController < Admin::BaseController
 
   def show
     @bonus = Bonus.find_by_race_and_id @race, params[:id]
-    @bonuses = Point.where(:bonus_id => params[:id], :race_id => @race.id, :category => "Bonus").includes(:team).order("teams.position")
+    @bonuses = Point.where(:bonus_id => params[:id], :race_id => @race.id, :category => "Bonus").includes(:team).reorder("teams.position")
   end
 
   def new
