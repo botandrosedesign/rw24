@@ -1,0 +1,120 @@
+!!!
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}
+      %meta{:content => "adva-cms - Open source content management platform", :name => "generator"}
+        %title
+          adva-cms: Admin
+          teams
+        
+        = stylesheet_link_tag "adva_cms/admin/reset.css"
+        = stylesheet_link_tag "adva_cms/admin/layout.css"
+        = stylesheet_link_tag "adva_cms/admin/common.css"
+        = stylesheet_link_tag "adva_cms/admin/header.css"
+        = stylesheet_link_tag "adva_cms/admin/top.css"
+        = stylesheet_link_tag "adva_cms/admin/sidebar.css"
+        = stylesheet_link_tag "adva_cms/admin/forms.css"
+        = stylesheet_link_tag "adva_cms/admin/lists.css"
+        = stylesheet_link_tag "adva_cms/admin/content.css"
+        = stylesheet_link_tag "adva_cms/admin/themes.css"
+        = stylesheet_link_tag "adva_cms/admin/helptip.css"
+        = stylesheet_link_tag "adva_cms/admin/users.css"
+        = stylesheet_link_tag "adva_cms/jquery/jquery-ui.css"
+        = stylesheet_link_tag "adva_cms/jquery/jquery.tooltip.css"
+        = stylesheet_link_tag "adva_activity/admin/activities.css"
+        = stylesheet_link_tag "adva_comments/admin/comments.css"
+        = stylesheet_link_tag "has_filter/filter.css"
+        = stylesheet_link_tag "adva_cms/admin/projection.css"
+        = stylesheet_link_tag "admin.css"
+
+        = yield :css
+      
+  %body
+    %sites#top
+      %ul.main
+        %li.item
+          %a#show_site{:href => "/admin/sites/1"} Overview
+        %li.item
+          %a#index_sections{:href => "/admin/sites/1/sections"} Sections
+          %ul#sections_menu
+            %li
+              %a.level_0{:href => "/admin/sites/1/sections/home/contents"} Home
+            %li
+              %a.level_0{:href => "/admin/sites/1/sections/about/contents"} About
+            %li
+              %a.level_0{:href => "/admin/sites/1/sections/media/contents"} Media
+            %li
+              %a.level_0{:href => "/admin/sites/1/sections/join/contents"} Join
+            %li
+              %a.level_0{:href => "/admin/sites/1/sections/contact/contents"} Contact
+        %li.item
+          %a#index_comments{:href => "/admin/sites/1/comments"} Comments
+        %li.item
+          %a#index_races{:href => "/admin/sites/1/races"} Races
+      %ul.right
+        %li.item
+          %a#edit_site{:href => "/admin/sites/1/edit"} Settings
+        %li.item
+          %a#index_users{:href => "/admin/sites/1/users"} Users
+
+    #header
+      .main
+      .right
+        Logged in as:
+        %a{:href => "/admin/sites/1/users/1"} gubs
+        \·
+        %a{"data-method" => "delete", :href => "/logout", :rel => "nofollow"} Logout
+        \·
+        %a#go_to_website{:href => "http://riverwest24.com"} Website »
+    #page
+      .main
+        %teams#main_menu
+          %races.left
+            %li.item
+              %a{:href => "/admin/sites/1/races/1/teams"} 2008
+            %li.item
+              %a{:href => "/admin/sites/1/races/2/teams"} 2009
+            %li.item
+              %a{:href => "/admin/sites/1/races/3/teams"} 2010
+            %li.item
+              %a{:href => "/admin/sites/1/races/4/teams"} 2011
+            %li.item
+              %a.current{:href => "/admin/sites/1/races/5/teams"} 2012
+          %ul.actions
+            %li.item
+              %a{:href => "/admin/sites/1/races/1/teams.csv"} Export
+            %li.item
+              %a{:href => "/admin/sites/1/races/1/edit"} Settings
+            %li.item
+              %a{:href => "/admin/sites/1/races/1/teams/new"} New
+            %li.item
+              %a{:href => "/admin/sites/1/races/new"} New Race
+        %p#flash_notice.flash.notice{:style => "display: none;"}
+        %p#flash_error.flash.error{:style => "display: none;"}
+        #content
+          %h2 Bonus #1 - NAME OF CHECKPOINT View
+          %ul#bonus-view
+            %li 001
+            %li 002
+            %li 003
+            %li 006
+            %li 008
+            %li 009
+            %li 001
+            %li 002
+            %li 003
+            %li 006
+            %li 008
+            %li 009
+            %li 001
+            %li 002
+            %li 003
+            %li 006
+            %li 008
+            %li 009
+          
+      #sidebar.right
+        .tabs
+          .tab.active
+            
+      #left.collapsed
