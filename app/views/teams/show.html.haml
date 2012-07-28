@@ -50,7 +50,7 @@
 %table#bonuses
   %thead
     %tr
-      %th{:colspan => "2"} Bonuses
+      %th{:colspan => "2"} <br>Bonuses
       - if current_user.try(:has_role?, :superuser)
         %th{:colspan => "2"}
   %tbody
@@ -78,7 +78,7 @@
 %table#penalties
   %thead
     %tr
-      %th{:colspan => "2"} Penalties
+      %th{:colspan => "2"} <br>Penalties
       - if current_user.try(:has_role?, :superuser)
         %th{:colspan => "2"}
   %tbody
