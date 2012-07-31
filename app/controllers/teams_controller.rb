@@ -12,7 +12,7 @@ class TeamsController < BaseController
   end
 
   def show
-    @team = @race.teams.find_by_position params[:position]
+    @team = @race.teams.find_by_position! params[:position]
     expires_in 1.minute, :public => true
   end
 
