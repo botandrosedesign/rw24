@@ -1,14 +1,15 @@
 %tr{ :class => [team.category_abbrev_with_gender, team.category_abbrev].uniq.join(" ") }
-  %td.center_align= fixed_number_or_empty team.position, :size => 3
-  %td.center_align
+  %td= fixed_number_or_empty team.position, :size => 3
+  %td
     - if @race.year > 2009
       = team.category_abbrev_with_gender
     - else
       = team.category_abbrev
   %td.team= link_to_if @race.year > 2009, team.name, leader_board_laps_path(:year => @race.year, :position => team.position)
-  %td.center_align= fixed_number_or_empty team.laps_total
-  %td.center_align= fixed_number_or_empty team.bonuses_total
+  %td= fixed_number_or_empty team.laps_total
+  %td= fixed_number_or_empty team.laps_total * 4.6
+  %td= fixed_number_or_empty team.bonuses_total
   - if @race.year > 2009
-    %td.center_align= fixed_number_or_empty team.penalties_total
-  %td.center_align
+    %td= fixed_number_or_empty team.penalties_total
+  %td
     %b= fixed_number_or_empty team.points_total
