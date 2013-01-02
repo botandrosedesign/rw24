@@ -60,7 +60,7 @@
           - if @race.year >= 2012
             = bonus.bonus_id
             \-
-            = current_race.bonuses[bonus.bonus_id][:name]
+            = @race.bonuses[bonus.bonus_id][:name]
           - else
             Bonus
             = i+1
