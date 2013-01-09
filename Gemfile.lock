@@ -4,11 +4,13 @@ GIT
   branch: revamp
   specs:
     adva_activity (0.0.1)
+    adva_blog (0.0.1)
     adva_cells (0.0.1)
       cells
     adva_cms (0.0.1)
       globalize3
       will_paginate
+    adva_comments (0.0.1)
     adva_fckeditor (0.0.1)
     adva_meta_tags (0.0.1)
     adva_rbac (0.0.1)
@@ -266,8 +268,10 @@ PLATFORMS
 DEPENDENCIES
   acts_as_list
   adva_activity!
+  adva_blog!
   adva_cells!
   adva_cms!
+  adva_comments!
   adva_fckeditor!
   adva_meta_tags!
   adva_rbac!

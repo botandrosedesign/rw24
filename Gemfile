@@ -19,9 +19,11 @@ gem "delayed_job_web"
 # path "../adva" do
 git "https://github.com/botandrose/adva_cms.git", :branch => "revamp" do
   gem "adva_cms"
+  gem "adva_activity"
+  gem "adva_blog"
+  gem "adva_comments"
   gem "adva_rbac"
   gem "adva_user"
-  gem "adva_activity"
 
   gem "adva_cells"
   gem "adva_fckeditor"
