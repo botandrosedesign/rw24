@@ -69,6 +69,16 @@ Rw24::Application.configure do
   
   config.middleware.use ExceptionNotifier,
     :email_prefix => "[riverwest24.com] ",
-    :sender_address => %{"smtp" <smtp@riverwest24.com>},
-    :exception_recipients => %w{micah@botandrose.com}
+    :sender_address => %{"errors" <errors@botandrose.com>},
+    :exception_recipients => "micah@botandrose.com",
+    :smtp_settings => {
+      :address => "smtp.gmail.com",
+      :port => 587,
+      :authentication => :plain,
+      :user_name => "errors@botandrose.com",
+      :password => "***REMOVED***",
+      :ssl => nil,
+      :tls => nil,
+      :enable_starttls_auto => true,
+    }
 end
