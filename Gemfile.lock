@@ -117,6 +117,7 @@ GEM
       launchy (~> 2.1)
       mail (~> 2.2)
     erubis (2.7.0)
+    eventmachine (1.0.3)
     exception_notification (3.0.1)
       actionmailer (>= 3.0.4)
     execjs (1.4.0)
@@ -124,6 +125,8 @@ GEM
     faker (1.1.2)
       i18n (~> 0.5)
     fastercsv (1.5.5)
+    faye-websocket (0.4.7)
+      eventmachine (>= 0.12.0)
     ffi (1.8.1)
     foreman (0.63.0)
       dotenv (>= 0.7)
@@ -144,6 +147,7 @@ GEM
       haml (>= 3.1, < 4.1)
       railties (>= 3.1, < 4.1)
     hike (1.2.2)
+    http_parser.rb (0.5.3)
     i18n (0.6.1)
     input_css (0.0.1)
       rails
@@ -171,6 +175,12 @@ GEM
     pickle (0.4.11)
       cucumber (>= 0.8)
       rake
+    poltergeist (1.0.3)
+      capybara (~> 1.1)
+      childprocess (~> 0.3)
+      faye-websocket (~> 0.4.4)
+      http_parser.rb (~> 0.5.3)
+      multi_json (~> 1.0)
     polyglot (0.3.3)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
@@ -298,6 +308,7 @@ DEPENDENCIES
   mysql2
   nokogiri
   pickle
+  poltergeist
   pry
   rack-www
   rails
