@@ -1,3 +1,5 @@
+#ruby=ree-1.8.7-2011.03
+#ruby-gemset=rw24
 source "http://rubygems.org"
 
 gem "rails"
