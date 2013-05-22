@@ -17,6 +17,7 @@ gem "dynamic_form"
 gem "validates_email_format_of"
 gem "delayed_job_active_record"
 gem "delayed_job_web"
+gem "mail", "2.5.3" # 2.5.4 breaks ssl stuff
 
 # path "../adva" do
 git "https://github.com/botandrose/adva_cms.git" do
