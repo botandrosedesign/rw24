@@ -53,11 +53,11 @@
                     - Race.published.each do |race|
                       %li= link_to_current race.year, leader_board_path(race.year)
               %li
-                = link_to_current section.title, content_path(section, section.contents.published.first), :if => request.fullpath.starts_with?("/#{section.permalink}")
+                = link_to_current section.title, [section, section.contents.published.first], :if => request.fullpath.starts_with?("/#{section.permalink}")
                 - next unless section.contents.published.length > 1
                 %ul
                   - section.contents.published.select(&:root?).each do |content|
-                    %li= link_to_current content.title, content_path(section, content)
+                    %li= link_to_current content.title, [section, content]
       #main
         .container
           - if flash[:notice]
@@ -77,7 +77,7 @@
         .container
           %p
             - @site.sections.all.each_with_index do |section, index|
-              = link_to h(section.title), section_path(section)
+              = link_to h(section.title), section
               = "|" if index < @site.sections.length - 1
           %p
             Riverwest - Milwaukee, WI
