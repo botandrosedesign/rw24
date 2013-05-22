@@ -19,7 +19,7 @@ gem "delayed_job_active_record"
 gem "delayed_job_web"
 
 # path "../adva" do
-git "https://github.com/botandrose/adva_cms.git", :branch => "revamp" do
+git "https://github.com/botandrose/adva_cms.git" do
   gem "adva_cms"
   gem "adva_activity"
   gem "adva_blog"
@@ -36,8 +36,6 @@ gem "asset_precompilation_finder"
 gem "sass-rails"
 gem "compass-rails"
 gem "coffee-rails"
-gem "coffee-filter"
-gem "therubyracer"
 gem "uglifier"
 gem "jquery-rails"
 
@@ -50,8 +48,8 @@ group :test, :development do
 end
 
 group :test do
-  gem "spork-rails"
   gem "cucumber-rails", :require => false
+  gem "capybara", "~>1.1"
   gem "database_cleaner"
   gem "pickle"
   gem "email_spec"
