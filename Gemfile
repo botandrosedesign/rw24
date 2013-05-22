@@ -32,6 +32,7 @@ git "https://github.com/botandrose/adva_cms.git" do
   gem "adva_meta_tags"
 end
 
+gem "asset_precompilation_finder"
 gem "sass-rails"
 gem "compass-rails"
 gem "coffee-rails"
