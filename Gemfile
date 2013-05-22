@@ -39,6 +39,7 @@ gem "compass-rails"
 gem "coffee-rails"
 gem "uglifier"
 gem "jquery-rails"
+gem "turbo-sprockets-rails3"
 
 group :test, :development do
   gem "pry"
