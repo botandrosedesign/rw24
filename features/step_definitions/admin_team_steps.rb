@@ -5,9 +5,9 @@ Given /^the following race teams exist:/ do |table|
       :category => row["Class"],
     })
 
-    team.riders.make :name => row["Leader Name"], :email => row["Leader Email"]
-    team.riders.make :email => row["Rider 1 Email"] if row["Rider 1 Email"].present?
-    team.riders.make :email => row["Rider 2 Email"] if row["Rider 2 Email"].present?
+    team.riders.build Rider.plan(:name => row["Leader Name"], :email => row["Leader Email"])
+    team.riders.build Rider.plan(:email => row["Rider 1 Email"]) if row["Rider 1 Email"].present?
+    team.riders.build Rider.plan(:email => row["Rider 2 Email"]) if row["Rider 2 Email"].present?
 
     team.save!
   end
