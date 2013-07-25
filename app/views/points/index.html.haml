@@ -69,7 +69,7 @@
     <script type="text/javascript">
       window.raceStart = new Date($(".countstart").attr("data-countstart")).valueOf();
       window.bonuses = {
-        store: <%= @race.bonuses.to_json %>,
+        store: <%= raw @race.bonuses.to_json %>,
         qty_for_id: function(bonus_id) {
           return parseInt(this.store[bonus_id].points);
         }
