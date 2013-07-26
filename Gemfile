@@ -22,7 +22,6 @@ git "https://github.com/botandrose/adva_cms.git" do
   gem "adva_cms"
   gem "adva_activity"
   gem "adva_blog"
-  gem "adva_comments"
   gem "adva_rbac"
   gem "adva_user"
 

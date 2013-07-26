@@ -11,7 +11,6 @@ GIT
       friendly_id
       globalize3
       will_paginate
-    adva_comments (0.0.1)
     adva_fckeditor (0.0.1)
     adva_meta_tags (0.0.1)
     adva_rbac (0.0.1)
@@ -131,7 +130,7 @@ GEM
       activesupport (>= 3.1, < 4.1)
       haml (>= 3.1, < 4.1)
       railties (>= 3.1, < 4.1)
-    hike (1.2.2)
+    hike (1.2.3)
     http_parser.rb (0.5.3)
     i18n (0.6.1)
     input_css (0.0.1)
@@ -152,10 +151,10 @@ GEM
       treetop (~> 1.4.8)
     method_source (0.8.1)
     mime-types (1.23)
-    multi_json (1.7.3)
+    multi_json (1.7.7)
     mysql2 (0.3.11)
     nokogiri (1.5.9)
-    paper_trail (2.7.1)
+    paper_trail (2.7.2)
       activerecord (~> 3.0)
       railties (~> 3.0)
     pickle (0.4.11)
@@ -196,7 +195,7 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
-    rake (10.0.4)
+    rake (10.1.0)
     rbx-require-relative (0.0.9)
     rdoc (3.12.2)
       json (~> 1.4)
@@ -262,7 +261,6 @@ DEPENDENCIES
   adva_blog!
   adva_cells!
   adva_cms!
-  adva_comments!
   adva_fckeditor!
   adva_meta_tags!
   adva_rbac!
