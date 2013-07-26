@@ -15,8 +15,6 @@ gem "require_relative"
 gem "acts_as_list"
 gem "dynamic_form"
 gem "validates_email_format_of"
-gem "delayed_job_active_record"
-gem "delayed_job_web"
 gem "mail", "2.5.3" # 2.5.4 breaks ssl stuff
 
 # path "../adva" do
@@ -61,7 +59,6 @@ group :test do
 end
 
 group :production do
-  gem "foreman"
   gem "rack-www"
   gem "exception_notification"
 end

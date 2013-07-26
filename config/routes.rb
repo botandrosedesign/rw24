@@ -1,6 +1,4 @@
 Rw24::Application.routes.draw do
-  match "jobs" => DelayedJobWeb, :anchor => false
-
   get "admin" => redirect("/admin/sites/1")
 
   root :to => "articles#index"
