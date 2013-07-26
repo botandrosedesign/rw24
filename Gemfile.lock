@@ -3,7 +3,6 @@ GIT
   revision: f4fb66120c745c774f720e5bb9decef234e3dfbf
   specs:
     adva_activity (0.0.1)
-    adva_blog (0.0.1)
     adva_cells (0.0.1)
       cells
     adva_cms (0.0.1)
@@ -258,7 +257,6 @@ PLATFORMS
 DEPENDENCIES
   acts_as_list
   adva_activity!
-  adva_blog!
   adva_cells!
   adva_cms!
   adva_fckeditor!

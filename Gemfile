@@ -21,7 +21,6 @@ gem "mail", "2.5.3" # 2.5.4 breaks ssl stuff
 git "https://github.com/botandrose/adva_cms.git" do
   gem "adva_cms"
   gem "adva_activity"
-  gem "adva_blog"
   gem "adva_rbac"
   gem "adva_user"
 
