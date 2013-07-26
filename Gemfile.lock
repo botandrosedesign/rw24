@@ -1,6 +1,7 @@
 GIT
   remote: https://github.com/botandrose/adva_cms.git
-  revision: f4fb66120c745c774f720e5bb9decef234e3dfbf
+  revision: 5f430c0235d4cf67a4353caeac4e5c19ec226d30
+  branch: ruby2.0
   specs:
     adva_activity (0.0.1)
     adva_cells (0.0.1)
@@ -55,6 +56,11 @@ GEM
       activerecord (>= 3.0.0)
     bard-rake (0.10.2)
     bard_static (1.4.2)
+    better_errors (0.9.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     builder (3.0.4)
     capybara (1.1.4)
       mime-types (>= 1.16)
@@ -97,6 +103,13 @@ GEM
       nokogiri (>= 1.5.0)
       rails (~> 3.0)
     database_cleaner (1.0.1)
+    debug_inspector (0.0.2)
+    debugger (1.6.1)
+      columnize (>= 0.3.1)
+      debugger-linecache (~> 1.2.0)
+      debugger-ruby_core_source (~> 1.2.3)
+    debugger-linecache (1.2.0)
+    debugger-ruby_core_source (1.2.3)
     diff-lcs (1.2.4)
     dynamic_form (1.1.4)
     email_spec (1.4.0)
@@ -141,14 +154,11 @@ GEM
     json (1.8.0)
     launchy (2.3.0)
       addressable (~> 2.3)
-    linecache (0.46)
-      rbx-require-relative (> 0.0.4)
     machinist (1.0.6)
     mail (2.5.3)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    method_source (0.8.1)
     mime-types (1.23)
     multi_json (1.7.7)
     mysql2 (0.3.11)
@@ -166,10 +176,8 @@ GEM
       http_parser.rb (~> 0.5.3)
       multi_json (~> 1.0)
     polyglot (0.3.3)
-    pry (0.9.12.2)
-      coderay (~> 1.0.5)
-      method_source (~> 0.8)
-      slop (~> 3.4)
+    quiet_assets (1.0.2)
+      railties (>= 3.1, < 5.0)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -195,7 +203,6 @@ GEM
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
     rake (10.1.0)
-    rbx-require-relative (0.0.9)
     rdoc (3.12.2)
       json (~> 1.4)
     require_relative (1.0.3)
@@ -210,12 +217,6 @@ GEM
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
       rspec-mocks (~> 2.13.0)
-    ruby-debug (0.10.4)
-      columnize (>= 0.1)
-      ruby-debug-base (~> 0.10.4.0)
-    ruby-debug-base (0.10.4)
-      linecache (>= 0.3)
-    ruby18_source_location (0.2)
     rubyzip (0.9.9)
     sass (3.2.9)
     sass-rails (3.2.6)
@@ -227,7 +228,6 @@ GEM
       multi_json (~> 1.0)
       rubyzip
       websocket (~> 1.0.4)
-    slop (3.4.5)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -266,12 +266,15 @@ DEPENDENCIES
   asset_precompilation_finder
   bard-rake
   bard_static
+  better_errors
+  binding_of_caller
   capybara (~> 1.1)
   coffee-rails
   compass-rails
   csv_builder
   cucumber-rails
   database_cleaner
+  debugger
   dynamic_form
   email_spec
   exception_notification
@@ -286,13 +289,11 @@ DEPENDENCIES
   nokogiri
   pickle
   poltergeist
-  pry
+  quiet_assets
   rack-www
   rails
   require_relative
   rspec-rails
-  ruby-debug
-  ruby18_source_location
   sass-rails
   turbo-sprockets-rails3
   uglifier
