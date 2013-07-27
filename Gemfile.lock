@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/botandrose/adva_cms.git
-  revision: 5f430c0235d4cf67a4353caeac4e5c19ec226d30
+  revision: 2aef70372babdaff5aa48e96002013331e469c6c
   branch: ruby2.0
   specs:
     adva_activity (0.0.1)
