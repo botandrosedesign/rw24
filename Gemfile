@@ -1,4 +1,4 @@
-#ruby=ruby-2.0.0-p195
+#ruby=ree-1.8.7-2011.03
 #ruby-gemset=rw24
 source "http://rubygems.org"
 
@@ -18,7 +18,7 @@ gem "validates_email_format_of"
 gem "mail", "2.5.3" # 2.5.4 breaks ssl stuff
 
 # path "../adva" do
-git "https://github.com/botandrose/adva_cms.git", branch: "ruby2.0" do
+git "https://github.com/botandrose/adva_cms.git" do
   gem "adva_cms"
   gem "adva_activity"
   gem "adva_rbac"
@@ -38,9 +38,7 @@ gem "jquery-rails"
 gem "turbo-sprockets-rails3"
 
 group :test, :development do
-  gem "debugger"
-  gem "better_errors"
-  gem "binding_of_caller"
+  gem "ruby-debug"
   gem "quiet_assets"
   gem "rspec-rails"
 end
