@@ -15,8 +15,8 @@ gem "dynamic_form"
 gem "validates_email_format_of"
 gem "mail", "2.5.3" # 2.5.4 breaks ssl stuff
 
-path "../adva" do
-# git "https://github.com/botandrose/adva_cms.git", sha: "64fb17a6ae6104290afccdcea86effd1100e95d6" do
+# path "../adva" do
+git "https://github.com/botandrose/adva_cms.git" do
   gem "adva_cms"
   gem "adva_activity"
   gem "adva_rbac"
