@@ -1,5 +1,3 @@
-#ruby=ree-1.8.7-2011.03
-#ruby-gemset=rw24
 source "http://rubygems.org"
 
 gem "rails"
@@ -38,8 +36,8 @@ gem "jquery-rails"
 gem "turbo-sprockets-rails3"
 
 group :test, :development do
-  gem "ruby-debug"
   gem "quiet_assets"
+  gem "byebug"
   gem "rspec-rails"
 end
 
