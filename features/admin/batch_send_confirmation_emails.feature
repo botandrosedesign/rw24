@@ -1,6 +1,10 @@
 Feature: Admins can batch send confirmation emails to teams
 
   Scenario: Admin sends an email to some recipients
+    Given today is "2010-06-19"
+
+    Given a race exists for 2010
+
     Given the following race teams exist:
       | Name                | Class       | Leader Name  | Leader Email             | Rider 1 Email        | Rider 2 Email       |
       | Bot and Rose Design | A Team      | Micah Geisel | info@botandrose.com      | micah@botandrose.com | gubs@botandrose.com |
@@ -35,7 +39,7 @@ Feature: Admins can batch send confirmation emails to teams
 
     And "originofstorms@gmail.com" should receive an email
 
-    When "info@botandrose.com" opens the email with subject "RW24 2013 Confirmation: Bot and Rose Design (#1) - A Team - Shirts: M, M, M"
+    When "info@botandrose.com" opens the email with subject "RW24 2010 Confirmation: Bot and Rose Design (#1) - A Team - Shirts: M, M, M"
     Then they should see the following in the email body:
       """
       Team name: Bot and Rose Design
@@ -45,7 +49,7 @@ Feature: Admins can batch send confirmation emails to teams
 
       ---
 
-      Thank you for registering for RW24 2013!  Let us know if there are any changes you need to your information above, especially shirt sizes.   We need confirmation QUICKLY on what shirt sizes you need.   We will be placing our orders for shirts shortly.   Let us know quickly or we cannot guarantee size.   But we promise to have a shirt for you.
+      Thank you for registering for RW24 2010!  Let us know if there are any changes you need to your information above, especially shirt sizes.   We need confirmation QUICKLY on what shirt sizes you need.   We will be placing our orders for shirts shortly.   Let us know quickly or we cannot guarantee size.   But we promise to have a shirt for you.
 
       Find the rider check-in July 26th, and we will give you the goods (t-shirt,spoke card, meal tickets) so you can get ready for the race.  We STRONGLY encourage you to arrive early, meet your fellow riders, check out our neighborhood, and make a preliminary lap.  Say hello, introduce yourself to strangers.  This race is about community, and our community is strengthened with your help.  Be a friendly human.
 

@@ -1,4 +1,7 @@
 Feature: Admins can manage riders
+  Background:
+    Given today is "2010-06-19"
+    And a race exists for 2010
 
   Scenario: An Admin views all riders
     Given a solo team exists with name: "Bot and Rose Design"

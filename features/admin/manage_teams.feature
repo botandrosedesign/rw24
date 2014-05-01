@@ -1,6 +1,8 @@
 Feature: Admins can manage teams
   Background:
-    Given a solo team exists with name: "Bot and Rose Design"
+    Given today is "2010-06-19"
+    And a race exists for 2010
+    And a solo team exists with name: "Bot and Rose Design"
     And a rider exists with name: "Micah Geisel", team: that team
     And I am logged in as an Admin
 
