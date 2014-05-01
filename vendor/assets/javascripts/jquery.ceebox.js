@@ -49,7 +49,7 @@ $.fn.ceebox.defaults = {
 	// false = autosize to browser window
 	// Numerical sizes are uses for maximums; if the browser is smaller it will scale to match the browser. You can set any or all of the opts.
 	// common ratios are included "4:3", "3:2", "16:9" (as set in $.fn.ceebox.ratios), or ratio can also be set to a decimal amount (i.e., "3:2" is the same as 1.5)
-	titles: true, //set to false if you don't want titles/captions§
+	titles: true, //set to false if you don't want titles/captions
 	htmlGallery:true,
 	imageGallery:true,
 	videoGallery:true,
