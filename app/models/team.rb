@@ -3,14 +3,17 @@ class Team < ActiveRecord::Base
     {
       :a_team      => 2..6,
       :b_team      => 2..6,
+      :b_team      => 2..6,
+      :elder_team  => 2..6,
       :solo_male   => 1..1,
       :solo_female => 1..1,
+      :solo_elder  => 1..1,
       :tandem      => 2..2
     }
   end
 
   def self.categories
-    ["A Team", "B Team", "Solo (male)", "Solo (female)", "Tandem"]
+    ["A Team", "B Team", "Elder Team", "Solo (male)", "Solo (female)", "Solo (elder)", "Tandem"]
   end
 
   default_scope order("position")
