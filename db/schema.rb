@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120727183936) do
+ActiveRecord::Schema.define(:version => 20140519183010) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -276,8 +276,8 @@ ActiveRecord::Schema.define(:version => 20120727183936) do
     t.string   "type"
     t.integer  "site_id"
     t.integer  "parent_id"
-    t.integer  "lft",            :default => 0, :null => false
-    t.integer  "rgt",            :default => 0, :null => false
+    t.integer  "lft",                  :default => 0,     :null => false
+    t.integer  "rgt",                  :default => 0,     :null => false
     t.string   "path"
     t.string   "permalink"
     t.string   "title"
@@ -291,6 +291,7 @@ ActiveRecord::Schema.define(:version => 20120727183936) do
     t.datetime "published_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "hidden_on_global_nav", :default => false
   end
 
   add_index "sections", ["parent_id"], :name => "index_sections_on_parent_id"
