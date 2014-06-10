@@ -3,6 +3,7 @@ class Mailer < ActionMailer::Base
 
   def confirmation_email team
     @team = team
+    @body = team.site.confirmation_email_body
     mail :to => team.captain_email,
       :cc => team.lieutenant_emails,
       :content_type => "text/plain",

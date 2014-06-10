@@ -3,16 +3,16 @@
 %hr
 
 = form_for @site, url: admin_site_confirmation_email_path(@site) do |form|
-  /
-    Team name: <%= @team.name %>
-    Position: <%= @team.position %>
-    Class: <%= @team.category %>
-    Shirt sizes: <%= @team.shirt_sizes %>
-    
-    ---
-    
   .field
     = form.label :confirmation_email_body, "Message"
+    /
+      Team name: <name>
+      Position: <position>
+      Class: <category>
+      Shirt sizes: <shirt_sizes>
+    
+      \---
+    
     = form.text_area :confirmation_email_body
 
   .actions-field

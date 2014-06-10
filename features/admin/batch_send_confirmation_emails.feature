@@ -22,7 +22,7 @@ Feature: Admins can batch send confirmation emails to teams
     When I follow "Edit Confirmation Email"
     And I fill in "Message" with the following:
       """
-      Thank you for registering for RW24!  Let us know if there are any changes you need to your information above, especially shirt sizes.   We need confirmation QUICKLY on what shirt sizes you need.   We will be placing our orders for shirts shortly.   Let us know quickly or we cannot guarantee size.   But we promise to have a shirt for you.
+      Thank you for registering for RW24 2010!  Let us know if there are any changes you need to your information above, especially shirt sizes.   We need confirmation QUICKLY on what shirt sizes you need.   We will be placing our orders for shirts shortly.   Let us know quickly or we cannot guarantee size.   But we promise to have a shirt for you.
       
       Find the rider check-in July 26th, and we will give you the goods (t-shirt,spoke card, meal tickets) so you can get ready for the race.  We STRONGLY encourage you to arrive early, meet your fellow riders, check out our neighborhood, and make a preliminary lap.  Say hello, introduce yourself to strangers.  This race is about community, and our community is strengthened with your help.  Be a friendly human.
       """
