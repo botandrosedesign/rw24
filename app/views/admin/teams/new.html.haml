@@ -24,7 +24,7 @@
       
   - i = 1
   = form.fields_for :riders do |rider_form|
-    %fieldset
+    %fieldset{ :id => "rider_#{i}" }
       %h4
         Rider #{i}
         = "/ Team Leader" if i == 1

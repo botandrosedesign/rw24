@@ -8,7 +8,7 @@ Feature: Admins can manage riders
     And a rider exists with name: "Micah Geisel", team: that team
     And I am logged in as an Admin
     When I follow "Races"
-    And I follow "Edit" next to "Bot and Rose Design"
+    And I follow "Edit" within the "Bot and Rose Design" team
     Then I should see "Micah Geisel"
 
   Scenario: An Admin edits all riders
@@ -16,29 +16,29 @@ Feature: Admins can manage riders
     Then 2 riders should exist with team: that team
     And I am logged in as an Admin
     When I follow "Races"
-    And I follow "Edit" next to "Bot and Rose Design"
+    And I follow "Edit" within the "Bot and Rose Design" team
     
-    When I fill in "Name" with "Paul Kjelland" for "Rider 1"
-    And I fill in "Email" with "paulkjell@gmail.com" for "Rider 1"
-    And I fill in "Phone" with "608.558.5276" for "Rider 1"
-    And I select "S" from "Shirt Size" for "Rider 1"
+    When I fill in "Name" with "Paul Kjelland" within the first rider
+    And I fill in "Email" with "paulkjell@gmail.com" within the first rider
+    And I fill in "Phone" with "608.558.5276" within the first rider
+    And I select "S" from "Shirt Size" within the first rider
 
-    And I check "Paid?" for "Rider 1"
-    And I fill in "Payment Type" with "Cash" for "Rider 1"
-    And I select "August 1st, 2010" as the "Confirmed" date for "Rider 1"
+    And I check "Paid?" within the first rider
+    And I fill in "Payment Type" with "Cash" within the first rider
+    And I select "August 1st, 2010" as the "Confirmed" date within the first rider
 
-    And I fill in "Notes" with "Rider 1" for "Rider 1"
+    And I fill in "Notes" with "Rider 1" within the first rider
 
-    When I fill in "Name" with "Steve Whitlow" for "Rider 2"
-    And I fill in "Email" with "swirr2@gmail.com" for "Rider 2"
-    And I fill in "Phone" with "414.517.6870" for "Rider 2"
-    And I select "M" from "Shirt Size" for "Rider 2"
+    When I fill in "Name" with "Steve Whitlow" within the second rider
+    And I fill in "Email" with "swirr2@gmail.com" within the second rider
+    And I fill in "Phone" with "414.517.6870" within the second rider
+    And I select "M" from "Shirt Size" within the second rider
 
-    And I uncheck "Paid?" for "Rider 2"
-    And I fill in "Payment Type" with "Check" for "Rider 2"
-    And I select "August 2nd, 2010" as the "Confirmed" date for "Rider 2"
+    And I uncheck "Paid?" within the second rider
+    And I fill in "Payment Type" with "Check" within the second rider
+    And I select "August 2nd, 2010" as the "Confirmed" date within the second rider
 
-    And I fill in "Notes" with "Rider 2" for "Rider 2"
+    And I fill in "Notes" with "Rider 2" within the second rider
 
     And I press "Save"
 
@@ -52,7 +52,7 @@ Feature: Admins can manage riders
     Given a team exists with name: "Bot and Rose Design"
     And I am logged in as an Admin
     When I follow "Races"
-    And I follow "Edit" next to "Bot and Rose Design"
+    And I follow "Edit" within the "Bot and Rose Design" team
     And I follow "Add a rider"
 
     When I fill in "Name" with "Michael Gubitosa"
@@ -68,7 +68,7 @@ Feature: Admins can manage riders
     And I press "Save"
 
     When I follow "Races"
-    And I follow "Edit" next to "Bot and Rose Design"
+    And I follow "Edit" within the "Bot and Rose Design" team
     Then I should see "Michael Gubitosa"
 
   Scenario: An Admin edits a rider
@@ -76,7 +76,7 @@ Feature: Admins can manage riders
     And a rider exists with name: "Micah Geisel", team: that team
     And I am logged in as an Admin
     When I follow "Races"
-    And I follow "Edit" next to "Bot and Rose Design"
+    And I follow "Edit" within the "Bot and Rose Design" team
     And I follow "Micah Geisel"
 
     When I fill in "Name" with "Michael Gubitosa"
@@ -92,7 +92,7 @@ Feature: Admins can manage riders
     And I press "Save"
 
     When I follow "Races"
-    And I follow "Edit" next to "Bot and Rose Design"
+    And I follow "Edit" within the "Bot and Rose Design" team
     Then I should see "Michael Gubitosa"
 
   Scenario: An admin deletes a rider
@@ -100,9 +100,9 @@ Feature: Admins can manage riders
     And a rider exists with name: "Micah Geisel", team: that team
     And I am logged in as an Admin
     When I follow "Races"
-    And I follow "Edit" next to "Bot and Rose Design"
+    And I follow "Edit" within the "Bot and Rose Design" team
     And I follow "Delete Micah Geisel"
 
     When I follow "Races"
-    And I follow "Edit" next to "Bot and Rose Design"
+    And I follow "Edit" within the "Bot and Rose Design" team
     Then I should not see "Micah Geisel"

@@ -21,7 +21,7 @@ Feature: Admins can batch send confirmation emails to teams
     
     When I check "Bot and Rose Design"
     And I check "Micah"
-    And I press "Send Confirmation Email"
+    And I press "Send Confirmation Emails to Selected" within the header
     # Then I should see "Confirmation emails sending!"
     Then I should see the following teams:
       | PAID | EMAILED | POS# | CLASS | TEAM NAME           | RIDERS | LEADER NAME  |

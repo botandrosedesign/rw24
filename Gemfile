@@ -44,7 +44,7 @@ end
 group :test do
   gem "cucumber-rails", :require => false
   gem "poltergeist"
-  gem "capybara", "~>1.1"
+  gem "capybara"
   gem "database_cleaner"
   gem "pickle"
   gem "email_spec"

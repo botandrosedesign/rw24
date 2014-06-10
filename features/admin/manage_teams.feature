@@ -25,20 +25,20 @@ Feature: Admins can manage teams
     And I select "OR" from "State"
     And I fill in "Zip" with "97209"
 
-    And I fill in "Name" under "Rider 1" with "Micah Geisel"
-    And I fill in "Email" under "Rider 1" with "micah@botandrose.com"
-    And I fill in "Phone" under "Rider 1" with "937.269.2023"
-    # And I select "S" from "Shirt Size" under "Rider 1"
-    And I fill in "Payment type" under "Rider 1" with "Cash"
-    And I check "Paid?" under "Rider 1"
+    And I fill in "Name" with "Micah Geisel" within the first rider
+    And I fill in "Email" with "micah@botandrose.com" within the first rider
+    And I fill in "Phone" with "937.269.2023" within the first rider
+    # And I select "S" from "Shirt Size" within the first rider
+    And I fill in "Payment type" with "Cash" within the first rider
+    And I check "Paid?" within the first rider
 
-    And I fill in "Name" under "Rider 2" with "Michael Gubitosa"
-    And I fill in "Email" under "Rider 2" with "gubs@botandrose.com"
-    # And I select "M" from "Shirt Size" under "Rider 2"
+    And I fill in "Name" with "Michael Gubitosa" within the second rider
+    And I fill in "Email" with "gubs@botandrose.com" within the second rider
+    # And I select "M" from "Shirt Size" within the second rider
 
-    And I fill in "Name" under "Rider 3" with "Nick Hogle"
-    And I fill in "Email" under "Rider 3" with "nick@botandrose.com"
-    # And I select "L" from "Shirt Size" under "Rider 3"
+    And I fill in "Name" with "Nick Hogle" within the third rider
+    And I fill in "Email" with "nick@botandrose.com" within the third rider
+    # And I select "L" from "Shirt Size" within the third rider
 
     And I press "Save"
 
@@ -52,7 +52,7 @@ Feature: Admins can manage teams
 
   Scenario: An Admin edits a team
     When I follow "Races"
-    And I follow "Edit" next to "Bot and Rose Design"
+    And I follow "Edit" within the "Bot and Rose Design" team
 
     And I select "Tandem" from "Category"
     And I fill in "Team Name" with "Bog and Rat Defeat"
@@ -75,7 +75,7 @@ Feature: Admins can manage teams
 
   Scenario: An Admin deletes a team from the edit page
     When I follow "Races"
-    And I follow "Edit" next to "Bot and Rose Design"
+    And I follow "Edit" within the "Bot and Rose Design" team
 
     When I follow "Delete"
     Then I should see no teams

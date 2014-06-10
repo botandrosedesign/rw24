@@ -1,11 +1,11 @@
 When /^I follow "([^\"]*)" next to "([^\"]*)"$/ do |text, context|
-  within "*:contains('#{context}') ~ *:contains('#{text}')" do
+  within find(:xpath, "//*[text()='#{context}']/..") do
     click_link text
   end
 end
 
 Then /^I should see "([^\"]*)" next to "([^\"]*)"$/ do |text, context|
-  page.should have_css("*:contains('#{context}') ~ *:contains('#{text}')")
+  find :xpath, "//*[text()='#{context}']/..", text: text
 end
 
 When /^I fill in "([^\"]*)" under "([^\"]*)" with "([^\"]*)"$/ do |field, context, value|
