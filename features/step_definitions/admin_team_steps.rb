@@ -1,13 +1,12 @@
 Given /^the following race teams exist:/ do |table|
   table.hashes.each do |row|
-    team = Team.make_unsaved({
-      :name => row["Name"],
-      :category => row["Class"],
-    })
+    team = FactoryGirl.build :team,
+      name: row["Name"],
+      category: row["Class"]
 
-    team.riders.build Rider.plan(:name => row["Leader Name"], :email => row["Leader Email"])
-    team.riders.build Rider.plan(:email => row["Rider 1 Email"]) if row["Rider 1 Email"].present?
-    team.riders.build Rider.plan(:email => row["Rider 2 Email"]) if row["Rider 2 Email"].present?
+    team.riders.build FactoryGirl.attributes_for(:rider, :name => row["Leader Name"], :email => row["Leader Email"])
+    team.riders.build FactoryGirl.attributes_for(:rider, :email => row["Rider 1 Email"]) if row["Rider 1 Email"].present?
+    team.riders.build FactoryGirl.attributes_for(:rider, :email => row["Rider 2 Email"]) if row["Rider 2 Email"].present?
 
     team.save!
   end

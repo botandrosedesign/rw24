@@ -1,5 +1,6 @@
 Given /^the "Admin" user account exists$/ do
-  user = User.make :first_name => "Finneus",
+  user = FactoryGirl.create :user,
+    :first_name => "Finneus",
     :last_name => "Flubberbuster",
     :email => "finneus@botandrose.com",
     :password => "secret"

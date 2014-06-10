@@ -46,9 +46,8 @@ group :test do
   gem "poltergeist"
   gem "capybara"
   gem "database_cleaner"
-  gem "pickle"
   gem "email_spec"
-  gem "machinist", "~>1.0.6"
+  gem "factory_girl_rails"
   gem "faker"
   gem "delorean"
 end

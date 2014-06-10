@@ -3,13 +3,9 @@
   = f.hidden_field :race_id
   %fieldset
     %h4 Main Information
-    .field
-      %label POS#
-      = f.text_field :position, :label => "POS#", :class => "xlarge"
-    .field
-      = f.select :category, Team.categories, :class => "sm", :label => true
-    .field
-      = f.text_field :name, :label => "Team Name", :class => "xlarge"
+    .field= f.text_field :position, :label => "POS#", :class => "xlarge"
+    .field= f.select :category, Team.categories, :class => "sm", :label => true
+    .field= f.text_field :name, :label => "Team Name", :class => "xlarge"
 
   %fieldset
     %h4 Riders
@@ -23,22 +19,16 @@
           = link_to "Delete #{rider_form.object.name}", [:admin, @site, @race, @team, rider_form.object], :method => :delete
         %fieldset.half
           %h4 Basic Info
-          .field
-            = rider_form.text_field :name, :label => true
-          .field
-            = rider_form.text_field :email, :label => true
-          .field
-            = rider_form.text_field :phone, :label => true
-          .field
-            = rider_form.select :shirt, Rider.shirt_sizes, :label => "Shirt Size"
+          .field= rider_form.text_field :name, :label => true
+          .field= rider_form.text_field :email, :label => true
+          .field= rider_form.text_field :phone, :label => true
+          .field= rider_form.select :shirt, Rider.shirt_sizes, :label => "Shirt Size"
 
         - if i == 1
           %fieldset.half
             %h4 Leader Fields
-            .field
-              = f.text_field :address, :class => "lg", :label => true
-            .field
-              = f.text_field :line_2, :class => "lg", :label => true
+            .field= f.text_field :address, :class => "lg", :label => true
+            .field= f.text_field :line_2, :class => "lg", :label => true
             .field
               = f.text_field :city, :class => "med", :label => true
               = f.select :state, State.abbrevs, { :include_blank => "--" }, :class => "sm", :label => true
@@ -46,24 +36,19 @@
 
         %fieldset.half
           %h4 Payment
-          .field
-            = rider_form.check_box :paid, :label => "Paid?"
-          .field
-            = rider_form.text_field :payment_type, :label => true
-          .field
-            = rider_form.date_select :confirmed_on, :label => "Confirmed"
+          .field= rider_form.check_box :paid, :label => "Paid?"
+          .field= rider_form.text_field :payment_type, :label => true
+          .field= rider_form.date_select :confirmed_on, :label => "Confirmed"
 
         %fieldset.half
           %h4 Additional Information
-          .field
-            = rider_form.text_area :notes, :label => true
+          .field= rider_form.text_area :notes, :label => true
         - i += 1
       .clear
     %br
     %br
     %hr
-    .field
-      = link_to "+ Add a rider", [:new, :admin, @site, @race, @team, :rider]
+    .field= link_to "+ Add a rider", [:new, :admin, @site, @race, @team, :rider]
 
   %hr
   - save_or_cancel_links f, :cancel_url => [:admin, @site, @race, :teams]
