@@ -14,6 +14,7 @@ Rw24::Application.routes.draw do
 
   namespace :admin do
     resources :sites do
+      resource :confirmation_email
       resources :races do
         resources :bonuses
         resources :teams do

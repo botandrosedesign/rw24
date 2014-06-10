@@ -35,6 +35,10 @@ When /^I fill in "(.*?)" with "(.*?)"$/ do |field, value|
   fill_in field, with: value
 end
 
+When /^I fill in "(.*?)" with the following:$/ do |field, value|
+  fill_in field, with: value
+end
+
 When /^I fill in the following:$/ do |fields|
   fields.rows_hash.each do |name, value|
     fill_in name, with: value

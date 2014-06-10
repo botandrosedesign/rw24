@@ -3,7 +3,7 @@
 = form_tag send_confirmation_emails_admin_site_race_teams_path(@site, @race) do
   %header
     %input(type="submit" value="Send Confirmation Emails to Selected")
-    %a.edit-button(href="/mockups/confirmation-email") Edit Confirmation Email
+    = link_to "Edit Confirmation Email", edit_admin_site_confirmation_email_path(@site), class: "edit-button"
 
   %table.list{:width => "100%"}
     %col{:width => "5%"}

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140519183010) do
+ActiveRecord::Schema.define(:version => 20140610185355) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
@@ -306,7 +306,7 @@ ActiveRecord::Schema.define(:version => 20140519183010) do
     t.string   "timezone"
     t.string   "theme_names"
     t.text     "ping_urls"
-    t.string   "akismet_key",        :limit => 100
+    t.string   "akismet_key",             :limit => 100
     t.string   "akismet_url"
     t.boolean  "approve_comments"
     t.integer  "comment_age"
@@ -316,7 +316,7 @@ ActiveRecord::Schema.define(:version => 20140519183010) do
     t.string   "tag_layout"
     t.string   "permalink_style"
     t.text     "permissions"
-    t.boolean  "email_notification",                :default => false
+    t.boolean  "email_notification",                     :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "meta_author"
@@ -324,6 +324,7 @@ ActiveRecord::Schema.define(:version => 20140519183010) do
     t.string   "meta_copyright"
     t.string   "meta_keywords"
     t.text     "meta_description"
+    t.text     "confirmation_email_body"
   end
 
   create_table "taggings", :force => true do |t|
