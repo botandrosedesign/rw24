@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-gem "rails"
+gem "rails", "~>3.2"
 gem "mysql2"
 gem "bard-rake"
 gem "bard_static"
@@ -13,7 +13,6 @@ gem "require_relative"
 gem "acts_as_list"
 gem "dynamic_form"
 gem "validates_email_format_of"
-gem "mail", "2.5.3" # 2.5.4 breaks ssl stuff
 
 # path "../adva" do
 git "https://github.com/botandrose/adva_cms.git" do
@@ -32,7 +31,7 @@ gem "sass-rails"
 gem "compass-rails"
 gem "coffee-rails"
 gem "uglifier"
-gem "jquery-rails"
+gem "jquery-rails", "~>2.2"
 gem "turbo-sprockets-rails3"
 
 group :test, :development do
@@ -54,5 +53,5 @@ end
 
 group :production do
   gem "rack-www"
-  gem "exception_notification"
+  gem "exception_notification", "~>3.0"
 end

@@ -11,7 +11,6 @@ Feature: Admins can manage riders
     And I follow "Edit" within the "Bot and Rose Design" team
     Then I should see "Micah Geisel"
 
-  @wip
   Scenario: An Admin edits all riders
     Given a team exists with name: "Bot and Rose Design"
     And I am logged in as an Admin

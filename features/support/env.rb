@@ -28,3 +28,6 @@ Capybara.default_selector = :css
 # recommended as it will mask a lot of errors for you!
 #
 ActionController::Base.allow_rescue = false
+
+I18n.enforce_available_locales = false
+
