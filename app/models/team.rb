@@ -50,15 +50,8 @@ class Team < ActiveRecord::Base
   end
 
   def self.send_confirmation_email_by_ids team_ids
-    return unless team_ids.present?
-    team_ids.each do |id|
-      team = Team.find_by_id id
-      next unless team.present?
-      if Rails.env.production?
-        team.delay.send_confirmation_email!
-      else
-        team.send_confirmation_email!
-      end
+    Team.where(id: team_ids).each do |team|
+      team.delay.send_confirmation_email!
     end
   end
 

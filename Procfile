@@ -1,1 +1,1 @@
-worker: bin/rvm rake jobs:work RAILS_ENV=production
+worker:  bin/rvm script/delayed_job run production

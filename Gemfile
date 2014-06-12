@@ -55,7 +55,7 @@ group :test do
 end
 
 group :production do
-  gem "foreman"
+  gem "foreman-export-upstart_user"
   gem "rack-www"
   gem "exception_notification", "~>3.0"
 end

@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+PROJECT_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd )"
+RUBY_VERSION=$(cat $PROJECT_ROOT/.ruby-version)
+RUBY_GEMSET=$(cat $PROJECT_ROOT/.ruby-gemset)
+RUBY="$RUBY_VERSION@$RUBY_GEMSET"
+
+if [[ -s ~/.rvm/environments/$RUBY ]] ; then
+  source ~/.rvm/environments/$RUBY
+  exec "$@"
+else
+  echo "ERROR: Missing RVM environment file: ~/.rvm/environments/$RUBY" >&2
+  exit 1
+fi
+

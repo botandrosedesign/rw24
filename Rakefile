@@ -6,9 +6,11 @@ require 'rake'
 
 Rw24::Application.load_tasks
 
-task :restart_workers do
-  system "bundle exec foreman export upstart ~/.init --user=`whoami` --log=log"
-  system "restart rw24"
+if Rails.env.production?
+  task :restart do
+    system "bundle exec foreman export upstart-user"
+    system "restart rw24"
+  end
 end
 
-task "bootstrap:production:post" => [:clear_cache, :restart_workers]
+task "bootstrap:production:post" => [:clear_cache]
