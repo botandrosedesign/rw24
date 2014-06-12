@@ -28,14 +28,6 @@ ExceptionNotification.configure do |config|
   }
 end
 
-ActionController::Live.class_eval do
-  def log_error_with_exception_notification(exception)
-    ExceptionNotifier.notify_exception(exception, env: request.env)
-    log_error_without_exception_notification(exception)
-  end
-  alias_method_chain :log_error, :exception_notification
-end
-
 Delayed::Worker.class_eval do 
   def handle_failed_job_with_exception_notification job, error
     handle_failed_job_without_exception_notification job, error
