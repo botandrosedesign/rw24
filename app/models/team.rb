@@ -55,7 +55,7 @@ class Team < ActiveRecord::Base
       team = Team.find_by_id id
       next unless team.present?
       if Rails.env.production?
-        team.send_confirmation_email!
+        team.delay.send_confirmation_email!
       else
         team.send_confirmation_email!
       end

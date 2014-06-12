@@ -13,6 +13,9 @@ gem "require_relative"
 gem "acts_as_list"
 gem "dynamic_form"
 gem "validates_email_format_of"
+gem "delayed_job_active_record"
+gem "delayed_job_web"
+gem "delayed_job", "~>3.0"
 
 # path "../adva" do
 git "https://github.com/botandrose/adva_cms.git" do
@@ -52,6 +55,7 @@ group :test do
 end
 
 group :production do
+  gem "foreman"
   gem "rack-www"
   gem "exception_notification", "~>3.0"
 end
