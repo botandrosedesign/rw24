@@ -57,5 +57,5 @@ end
 group :production do
   gem "foreman-export-upstart_user"
   gem "rack-www"
-  gem "exception_notification", "~>3.0"
+  gem "exception_notification"
 end

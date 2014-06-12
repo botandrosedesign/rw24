@@ -66,19 +66,4 @@ Rw24::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   config.middleware.use Rack::WWW
-  
-  config.middleware.use ExceptionNotifier,
-    :email_prefix => "[riverwest24.com] ",
-    :sender_address => %{"errors" <errors@botandrose.com>},
-    :exception_recipients => "micah@botandrose.com",
-    :smtp_settings => {
-      :address => "smtp.gmail.com",
-      :port => 587,
-      :authentication => :plain,
-      :user_name => "errors@botandrose.com",
-      :password => "***REMOVED***",
-      :ssl => nil,
-      :tls => nil,
-      :enable_starttls_auto => true,
-    }
 end
