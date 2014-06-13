@@ -16,6 +16,7 @@ gem "validates_email_format_of"
 gem "delayed_job_active_record"
 gem "delayed_job_web"
 gem "delayed_job", "~>3.0"
+gem "daemons"
 gem "exception_notification"
 
 # path "../adva" do
