@@ -39,18 +39,17 @@
             %th Name
             %th Points
             %th
+            %th
         %tbody
           - @race.bonuses.each_with_index do |bonus, index|
             %tr
               %td= index
               %td= link_to bonus[:name], admin_site_race_bonus_path(@site, @race, index)
               %td= bonus[:points]
+              %td= link_to "Bonus Form", bonus_points_path(:key => bonus[:key])
               %td
-                = link_to "Bonus Form", bonus_points_path(:key => bonus[:key])
-              /
-                %td
-                  = link_to "Edit", "#", :class => "edit"
-                  %input.delete{:type => "submit", :value => ""}
+                //= link_to "Edit", "#", :class => "edit"
+                %input.delete{:type => "submit", :value => "Delete"}
 
       %p.right_align= link_to "+ Add a Checkpoint", [:new, :admin, @site, @race, :bonus]
 

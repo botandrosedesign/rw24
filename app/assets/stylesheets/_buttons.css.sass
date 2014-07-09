@@ -28,3 +28,23 @@
   +button
 .send
   +button
+
+// ICONS
+
+.edit, .delete
+  display: inline-block
+  width: 20px
+  height: 20px
+  border: none
+  text-indent: -9999px
+  opacity: .8
+  cursor: pointer
+  float: none
+  vertical-align: top
+  margin: 0 5px
+  &:hover
+    opacity: 1
+.edit
+  @extend .sprite-edit
+.delete
+  @extend .sprite-delete
