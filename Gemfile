@@ -39,6 +39,13 @@ gem "uglifier"
 gem "jquery-rails", "~>2.2"
 gem "turbo-sprockets-rails3"
 
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+  gem "spring-commands-cucumber"
+  gem "spring"
+end
+
 group :test, :development do
   gem "quiet_assets"
   gem "byebug"

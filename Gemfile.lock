@@ -56,6 +56,11 @@ GEM
     bard-rake (0.12.0)
       rake
     bard-static (2.1.0)
+    better_errors (1.1.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     builder (3.0.4)
     byebug (3.1.2)
       columnize (~> 0.8)
@@ -73,6 +78,7 @@ GEM
     chronic (0.10.2)
     chunky_png (1.3.1)
     cliver (0.3.2)
+    coderay (1.1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -104,6 +110,7 @@ GEM
       rails (>= 3, < 5)
     daemons (1.1.9)
     database_cleaner (1.3.0)
+    debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
     delayed_job (3.0.5)
       activesupport (~> 3.0)
@@ -247,6 +254,9 @@ GEM
       rack (~> 1.4)
       rack-protection (~> 1.3)
       tilt (~> 1.3, >= 1.3.3)
+    spring (1.1.3)
+    spring-commands-cucumber (1.0.1)
+      spring (>= 0.9.1)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -286,6 +296,8 @@ DEPENDENCIES
   asset_precompilation_finder
   bard-rake
   bard-static
+  better_errors
+  binding_of_caller
   byebug
   capybara
   coffee-rails
@@ -317,6 +329,8 @@ DEPENDENCIES
   require_relative
   rspec-rails
   sass-rails
+  spring
+  spring-commands-cucumber
   turbo-sprockets-rails3
   uglifier
   validates_email_format_of
