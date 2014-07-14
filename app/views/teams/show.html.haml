@@ -43,7 +43,7 @@
         %td= lap.since_start
         - if current_user.try(:has_role?, :superuser)
           %td.ceebox= link_to "", [:edit, lap], :title => "Edit Score", :rel => "modal: true width:500 height:200", :class => "edit"
-          %td= button_to "", lap, :class => "delete", :method => :delete, :confirm => "Are you sure?"
+          %td= link_to "Delete", lap, class: "delete", method: :delete, confirm: "Are you sure?"
       - last_lap = lap
 
   

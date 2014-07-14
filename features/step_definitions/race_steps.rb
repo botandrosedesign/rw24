@@ -3,7 +3,8 @@ Given /^a race exists for (\d+)$/ do |year|
 end
 
 Then "I should see the following laps:" do |table|
-  actual = find("#leader-board").all("tr").map do |row|
+  wait_for_ajax
+  actual = all("tr").map do |row|
     row.all("th,td").map(&:text)
   end
   table.diff! actual

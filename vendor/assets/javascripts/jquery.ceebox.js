@@ -366,12 +366,13 @@ function init(elem,opts,selector) {
 	}();
 	
 	base.userAgent = navigator.userAgent;
-	$(".cee_close").die().live("click",function(){$.fn.ceebox.closebox();return false;}); //adds close button functionality
+	$(document).off("click", ".cee_close");
+  $(document).on("click", ".cee_close", function(){$.fn.ceebox.closebox();return false;}); //adds close button functionality
 	
 	if (selector != false) {$(elem).each(function(i){ceeboxLinkSort(this,i,opts,selector);});} //as long as a selector was passed, this sets up all the links
 	
 	//adds click functionality via jquery live event bubbling
-	$(elem).live("click", function(e){
+	$(elem).click(function(e){
 		var tgt = $(e.target).closest("[href]");
 		var tgtData = tgt.data("ceebox");
     if(!tgtData) {

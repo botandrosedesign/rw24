@@ -21,26 +21,27 @@ Feature: Admin can manage team scoring
 
   Scenario: Admin can log a lap
     When I fill in "Input Team Number:" with "1"
-    And I press "OK"
-
+    And I press "OK" within the new lap form
     Then I should see the following laps:
-      | POS#  | WHEN        | TYPE  | AMT | TOT | TEAM NAME           |
-      | 001   |             | Lap   | 1   | 1   | Bot and Rose Design |
+      | POS#  | WHEN        | TYPE  | AMT | TOT | TEAM NAME |
+      | 001   | 00:00:00    | Lap   | 1   | 1   | BARD      |
 
-    Given I am on the homepage
-    When I follow "2014" within the "LEADERBOARDS" dropdown
+    Given I am on the leaderboard page
     Then I should see the following laps:
-      | POS# | CLASS  | TEAM NAME | LAPS | MILES | BONUS | PENALTY | TOTAL |
-      | 001  | A      | BARD      | 01   | 4.5   | --    | --      | 01    | 
-      | 002  | A      | BORG      | --   | --    | --    | --      | --    | 
+      | POS# | CLASS  | TEAM NAME | LAPS  | MILES  | BONUS | PENALTY | TOTAL |
+      | 001  | M      | BARD      | 01    | 04     | --    | --      | 01    | 
+      | 002  | F      | BORG      | --    | --     | --    | --      | --    | 
+      |      |        |           | LAPS! | MILES! |       |         |       |
 
   #Scenario: Admin remove laps
-    When I follow "BARD" within the leaderboard
-    And I follow "Delete" with the "1" lap
+    When I follow "BARD"
+    And I follow "Delete" within lap 1
     #And I confirm deletion
-    And I follow "« Back to Leader Board"
+    Given I am on the leaderboard page
 
     Then I should see the following laps:
-      | POS# | CLASS  | TEAM NAME | LAPS | MILES | BONUS | PENALTY | TOTAL |
-      | 002  | A      | BORG      | --   | --    | --    | --      | --    | 
-      | 001  | A      | BARD      | --   | --    | --    | --      | --    | 
+      | POS# | CLASS  | TEAM NAME | LAPS  | MILES  | BONUS | PENALTY | TOTAL |
+      | 002  | F      | BORG      | --    | --     | --    | --      | --    | 
+      | 001  | M      | BARD      | --    | --     | --    | --      | --    | 
+      |      |        |           | LAPS! | MILES! |       |         |       |
+

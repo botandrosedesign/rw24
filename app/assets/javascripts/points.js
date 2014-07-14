@@ -5,7 +5,8 @@
 //= require jquery.ceebox
 
 $(function() {
-  $("#new_lap, #new_bonus, #new_penalty").submit(function() {
+  $("#new_lap, #new_bonus, #new_penalty").submit(function(event) {
+    event.preventDefault();
     var now = new Date().valueOf();
     var start = window.raceStart;
     var since_start = now - start;
@@ -42,7 +43,6 @@ $(function() {
           .prev().html(xhr.responseText);
       }
     });
-    return false;
   });
 
   $.fn.addPendingRow = function(id, data) {
@@ -64,7 +64,7 @@ $(function() {
     }).join(":");
   }
 
-  $("#points a.delete").live('click', function() {
+  $("#points").on("click", "a.delete", function() {
     if(confirm($(this).attr('data-confirm'))) {
       var id = $(this).parents("tr").attr("id");
       $.ajax({
@@ -86,7 +86,7 @@ $(function() {
     return false;
   });
 
-  $("#cee_box form").live('submit', function() {
+  $(document).on("submit", "#cee_box form", function() {
     var id = "point_" + $(this).find("#point_id").val();
     var backup_id = $(this).find("#backup_id").val();
 
@@ -114,7 +114,10 @@ $(function() {
     return false;
   });
 
-  $(".ceebox").ceebox();
+  $("#points").on("click", "a.ceebox", function(event) {
+    event.preventDefault();
+    $(this).ceebox();
+  });
 
   sortLoop = function($el) {
     var $next = $el.next();

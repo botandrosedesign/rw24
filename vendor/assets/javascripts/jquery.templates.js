@@ -35,7 +35,7 @@ $.templates = {};
 
   /* Some supplemental useful snippets that help build the widget system */
   $(function() {
-    $("script[type=text/x-jquery-template]").each(function() {
+    $("script[type='text/x-jquery-template']").each(function() {
       $.templates[this.title] = $.compileTemplate(this.innerHTML, "<%", "%>");  
       $.templates[this.title].templateName = this.title;
     });

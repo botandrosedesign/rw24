@@ -1,8 +1,8 @@
 Given 'today is "$time"' do |time|
-  Delorean.time_travel_to time
+  Timecop.freeze time
 end
 
-When /^I wait for (\d+) seconds?$/ do |time|
-  sleep(time.to_i)
+When /^I wait for (\d+) seconds?$/ do |seconds|
+  Timecop.freeze seconds.to_i.seconds.from_now
 end
 

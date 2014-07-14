@@ -7,7 +7,8 @@
       %th.center_align Amt
       %th.center_align Tot
       %th Team Name
-      %th.center_align{:colspan => "2"} Actions
+      %th
+      %th
   %tbody.stripe#points
     = render @points
  
@@ -20,7 +21,8 @@
       <td class="center_align"><%= self['point[category]'] %></td>
       <td class="center_align"><%= self['point[qty]'] %></td>
       <td>Saving...</td>
-      <td colspan="2" class="center_align"></td>
+      <td></td>
+      <td></td>
     </tr>
   </script>
 
@@ -32,8 +34,8 @@
       = form.hidden_field :category
       = form.hidden_field :since_start
 
-      = form.label :team_position, "Input Team Number:"
-      = form.text_field :team_position, :tabindex => 1
+      = form.label :team_position, "Input Team Number:", for: "lap_team_position"
+      = form.text_field :team_position, :tabindex => 1, id: "lap_team_position"
       = form.submit "OK", :class => "button"
   
   %h4 Bonus Points
@@ -43,10 +45,10 @@
       = form.hidden_field :since_start
       = form.hidden_field :qty
       .field
-        = form.label :team_position, "POS#", :class => "medium"
+        = form.label :team_position, "POS#", :class => "medium", for: "bonus_team_position"
         = form.label :bonus_id, "Bonus#"
       .field
-        = form.text_field :team_position, :class => "medium", :tabindex => 11
+        = form.text_field :team_position, :class => "medium", :tabindex => 11, id: "bonus_team_position"
         = form.text_field :bonus_id, :class => "medium", :tabindex => 12
         = form.submit "OK", :class => "button"
   
@@ -56,11 +58,11 @@
       = form.hidden_field :category
       = form.hidden_field :since_start
       .field
-        = form.label :team_position, "POS#", :class => "medium"
-        = form.label :qty, "Points", :class => "medium"
+        = form.label :team_position, "POS#", :class => "medium", for: "penalty_team_position"
+        = form.label :qty, "Points", :class => "medium", for: "penalty_qty"
       .field
-        = form.text_field :team_position, :class => "medium", :tabindex => 21
-        = form.text_field :qty, :class => "medium", :tabindex => 22
+        = form.text_field :team_position, :class => "medium", :tabindex => 21, id: "penalty_team_position"
+        = form.text_field :qty, :class => "medium", :tabindex => 22, id: "penalty_qty"
         = form.submit "OK", :class => "button"
 
 = content_for :js do

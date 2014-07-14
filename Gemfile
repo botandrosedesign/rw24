@@ -60,7 +60,7 @@ group :test do
   gem "email_spec"
   gem "factory_girl_rails"
   gem "faker"
-  gem "delorean"
+  gem "timecop"
 end
 
 group :production do
