@@ -19,6 +19,12 @@ module NavigationHelpers
 
     when /the admin overview page/
       '/admin/sites/1'
+
+    when /the points page/
+      '/points'
+    
+    when /the leaderboard page/
+      "/leader-board/#{Time.now.year}"
     
     # Add more mappings here.
     # Here is a more fancy example:
