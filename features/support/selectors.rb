@@ -29,6 +29,12 @@ module HtmlSelectorsHelpers
     when /lap (\d+)/
       "#lap-times tbody tr:nth-child(#{$1})"
 
+    when /the admin subnav/
+      "#main_menu"
+
+    when /the "(.+?)" checkpoint/
+      ["#bonuses tr", text: $1]
+
     else
       raise "Can't find mapping from \"#{locator}\" to a selector.\n" +
         "Now, go and add a mapping in #{__FILE__}"

@@ -25,7 +25,8 @@
       %th.center_align Amt
       %th.center_align Tot
       %th Team Name
-      %th.center_align{:colspan => "2"} Actions
+      %th
+      %th
   %tbody.stripe#points
     = render @bonuses
 
@@ -38,7 +39,8 @@
       <td class="center_align"><%= self['point[category]'] %></td>
       <td class="center_align"><%= self['point[qty]'] %></td>
       <td>Saving...</td>
-      <td colspan="2" class="center_align"></td>
+      <td></td>
+      <td></td>
     </tr>
   </script>
 

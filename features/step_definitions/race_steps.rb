@@ -9,3 +9,11 @@ Then "I should see the following laps:" do |table|
   end
   table.diff! actual
 end
+
+Then "I should see the following bonuses:" do |table|
+  wait_for_ajax
+  actual = find("#teams").all("tr").map do |row|
+    row.all("th,td").map(&:text)
+  end
+  table.diff! actual
+end
