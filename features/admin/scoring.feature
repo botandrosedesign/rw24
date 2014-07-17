@@ -26,11 +26,23 @@ Feature: Admin can manage team scoring
       | POS#  | WHEN        | TYPE  | AMT | TOT | TEAM NAME |
       | 001   | 00:00:00    | Lap   | 1   | 1   | BARD      |
 
+    When I wait for 900 seconds
+    And I fill in "Input Team Number:" with "1"
+    And I press "OK" within the new lap form
+    And I fill in "Input Team Number:" with "2"
+    And I press "OK" within the new lap form
+    Then I should see the following laps:
+      | POS#  | WHEN        | TYPE  | AMT | TOT | TEAM NAME |
+      | 002   | 00:15:00    | Lap   | 1   | 1   | BORG      |
+      | 001   | 00:15:00    | Lap   | 1   | 2   | BARD      |
+      | 001   | 00:00:00    | Lap   | 1   | 1   | BARD      |
+
+
     Given I am on the leaderboard page
     Then I should see the following laps:
       | POS# | CLASS  | TEAM NAME | LAPS  | MILES  | BONUS | PENALTY | TOTAL |
-      | 001  | M      | BARD      | 01    | 04     | --    | --      | 01    | 
-      | 002  | F      | BORG      | --    | --     | --    | --      | --    | 
+      | 001  | M      | BARD      | 02    | 09     | --    | --      | 02    | 
+      | 002  | F      | BORG      | 01    | 04     | --    | --      | 01    | 
       |      |        |           | LAPS! | MILES! |       |         |       |
 
   #Scenario: Admin remove laps
@@ -41,7 +53,7 @@ Feature: Admin can manage team scoring
 
     Then I should see the following laps:
       | POS# | CLASS  | TEAM NAME | LAPS  | MILES  | BONUS | PENALTY | TOTAL |
-      | 002  | F      | BORG      | --    | --     | --    | --      | --    | 
-      | 001  | M      | BARD      | --    | --     | --    | --      | --    | 
+      | 002  | F      | BORG      | 01    | 04     | --    | --      | 01    | 
+      | 001  | M      | BARD      | 01    | 04     | --    | --      | 01    | 
       |      |        |           | LAPS! | MILES! |       |         |       |
 
