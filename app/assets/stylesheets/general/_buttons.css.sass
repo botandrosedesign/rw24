@@ -1,0 +1,75 @@
+@mixin button( $bg: $primaryColor, $text-color: #fcfcfc, $hover: true )
+  display: inline-block
+  font: bold 1em $font
+  line-height: 2em
+  color: $text-color
+  border: 1px solid lighten( $bg, 6% )
+  background: $bg
+  +background-image( linear-gradient( $bg, darken( $bg, 10% ) ) )
+  +box-shadow( #ccc 0 0 4px )
+  +border-radius( 2px )
+  padding: 0 20px
+  cursor: pointer
+  text-align: center
+  text-decoration: none
+  margin: 0px
+  cursor: default
+  @if $hover
+    cursor: pointer
+    &:hover
+      +background-image( linear-gradient( darken( $bg, 10% ), $bg ) )
+      +box-shadow( darken( $bg, 20% ) 0 0 5px 0 inset)
+      color:  lighten( $text-color, 6% )
+
+
+.cancel
+  +button(#fff, #999)
+.edit-button
+  +button(#fff, #666)
+.save
+  +button
+.send
+  +button
+
+// input wrapper buttons
+
+=input-button($bg: $primaryColor, $text-color: #fcfcfc, $fa: false)
+  +button($bg, $text-color)
+  input
+    font-size: 1em
+    border: none
+    background: none
+    padding: 0
+    cursor: pointer
+    color: $text-color
+  @if $fa
+    @extend .fa
+    @extend .fa-#{$fa}
+    &:before
+      @extend .fa
+
+.ok-wrapper
+  +input-button(#fff, #333)
+  margin-top: 23px
+  input
+    line-height: 50px
+
+// ICONS
+
+.edit, .delete
+  display: inline-block
+  width: 20px
+  height: 20px
+  border: none
+  text-indent: -9999px
+  opacity: .8
+  cursor: pointer
+  float: none
+  vertical-align: top
+  margin: 0 5px
+  &:hover
+    opacity: 1
+.edit
+  @extend .sprite-edit
+.delete
+  @extend .sprite-delete

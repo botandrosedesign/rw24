@@ -120,28 +120,23 @@
     background: #FFE4DF
 
 #show
-  :margin 6px 0 12px
-  :display block
-  +float-left
+  float: left
+  margin: 6px 0 12px
+  display: block
   width: 100%
   a
-    width: 13%
-    :display inline-block
-    +float-left
+    +button(#fff, #333)
+    float: left
+    display: inline-block
+    width: 14.25%
+    font-size: 1em
     line-height: 32px
-    text-align: center
-    +background-image(linear-gradient(#fcfcfc , #ccc))
-    :font-size 1.1em
-    :font-weight bold
-    border: 1px solid #999
-    :color #333
-    &.first
-      +border-left-radius(12px)
-    &.last
-      +border-right-radius(12px)
-    &:hover
-      background: #ccc
-      color: #1a1a1a
+    border-color: #ccc
+    +border-radius(0px)
+    &:first-child
+      +border-left-radius(3px)
+    &:last-child
+      +border-right-radius(3px)
     &.current
       background: #999
       +background-image(linear-gradient(#333, #999))

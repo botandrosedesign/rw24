@@ -1,207 +1,150 @@
-@import "bard"
+@charset "UTF-8"
+@import "constant"
+
+@import "blueprint"
+@import "compass/reset"
+@import "compass/utilities"
+@import "compass/layout"
+@import "compass/css3"
+@import "compass/support"
+
+=blueprint($body_selector: "body")
+  @include blueprint-typography($body_selector)
+  @include blueprint-utilities
+  @include blueprint-debug
+  @include blueprint-interaction
+  @include blueprint-colors
+
+//
+
+@import "sprite/*.png"
+@include all-sprite-sprites
+
+//
+
+@import "general/*"
+@import "scoring"
 @import "teams"
 @import "handheld"
 
+//
+
+*
+  +box-sizing(border-box)
+
 body
   color: #202020
-
-#container
   +background-image(linear-gradient(#1a1a1a 0px, #f1f1f1 350px))
-  border-top: 6px solid #000
-  min-width: 960px
+  height: auto
+
 .container
-  +container
-  :position relative
-  :overflow visible
+  display: table
+  width: 1120px
+  position: relative
+  overflow: visible
+  margin: auto
   
 // header
 
-#header
+header
   +sprite-sprite("tires")
   background-position-x: center
   height: 165px
-  #logo
-    +sprite-sprite("riverwest24")
-    +float-left
+  .rw24-logo
+    @extend .sprite-riverwest24
+    float: left
     width: 125px
     height: 124px
     margin-top: 3px
-#title
-  :margin-top 6px 
+.title
+  margin-top: 6px 
   +column(13)
-  :line-height .9
+  line-height: .9
   h1, h2
     :display inline-block
     :color #fff
   h2
     :margin-right 3px
   span
-    :font-size 1.2em
-    :line-height .8
-    :font-weight bold
-    :color #fff
-    :text-shadow 0px 0px 3px #000
-    color: $secondaryColor
+    font-size: 1.2em
+    line-height: .8
+    font-weight: bold
+    text-shadow: 0px 0px 3px #000
+    color: #FFC81F
     
 #countdown
-  +column(7.5, "last")
-  +float-right
-  :background #000
-  +border-bottom-radius( 12px)
-  +box-shadow(#000 0 0 6px)
-  :color #ccc
+  width: 300px
+  float: right
+  background: #1a1a1a
+  +border-bottom-radius( 3px)
+  color: #ccc
+  border: 1px solid #000
   p
-    :margin 0 0 0px 10px
+    margin: 0 0 0px 10px
   #day, #hrs, #min, #sec
-    +column(1.5)
-    :text-align right
-    :line-height .9
-    :margin 2px 14px 6px 0
-    :color #fff
+    float: left
+    display: inline-block
+    width: 50px
+    text-align: right
+    line-height: .9
+    margin: 2px 14px 6px 0
+    color: #fff
   #day
-    +column(2.25)
+    width: 80px
     :margin-left 6px
   b
-    +float-right
-    :color #fff
-    :font-size 3em
-    :font-weight normal
+    float: right
+    color: #fff
+    font-size: 3em
+    font-weight: normal
   span
-    :clear right
-    :display inline-block
-    +float-right
-    
-// nav
-
-ul#nav
-  +horizontal-list
-  +column(20, "last")
-  :overflow visible
-  :margin-top 8px
-  li
-    :margin-top 4px
-    :position relative
-    &:hover
-      background: $primaryColor
-    &:hover ul
-      background: $primaryColor
-      :display block
-  a
-    :display block
-    :color #fff
-    :text-transform uppercase
-    :font-size 1.25em
-    :font-weight bold
-    :padding 6px 22px
-    &.current, &.current:hover
-      color: $secondaryColor
-      
-  ul
-    :display none
-    :position absolute
-    :right 0px
-    :width 100%
-    :padding-left 0
-    :padding-bottom 6px
-    :z-index 2
-    +box-shadow(#666 0px 2px 2px)
-    li
-      :display block
-      :width 100%
-      :padding 0
-      :margin 0
-      &:hover
-        :background none
-    a
-      :width 100%
-      :font-size .9em
-      :text-align center
-      :padding 2px 0
-      &:hover
-        :color #000
-      &.current, &.current:hover
-        :color #000
-
-#leaders
-  p
-    text-align: left
-  b
-    padding-left: 18px
-    +sprite-sprite("star")
-    text-transform: capitalize
+    clear: right
+    display: inline-block
+    float: right
 
 // main
   
-#main
+.main
   background: transparent inline-image("tire.gif") no-repeat bottom right 
-   
-#content
-  +column(17,"first")
-  :padding 10px
-  :background #fff
-  :border 2px solid #DBDBDB
+  padding-bottom: 40px
+
+article, aside
+  display: table-cell
+  vertical-align: top
+article
+  width: 70%
+  padding: 20px 40px
+  background: #fff
+  border: 2px solid #DBDBDB
   +box-shadow(#ccc 0 0 3px)
   +border-radius(3px)
   +box-sizing("border-box")
-  :margin-bottom 20px
-  :min-height 360px
+  margin-bottom: 20px
+  min-height: 360px
   &.full
     width: 100%
-#sidebar
-  +column(6, "last")
-  +float-right
-  :padding 10px
-  
-#sidebar
-  ul
-    :line-height 1.4
-  li
-    :list-style none
-    :margin 3px 0
-  a
-    :font-weight bold
-    :color #1a1a1a
-    :padding-left 16px
-    &.current, &.current:hover 
-      :color #000
-      +sprite-sprite("arrow")
-    &:hover
-      color: $primaryColor
-ul.quicklinks
-  a
-    +sprite-sprite("arrow")
-    &:hover
-      +sprite-sprite("arrow_hover")
-
-// unique
-a
-  &.arrow
-    :display inline-block
-    :font-size 1.25em
-    +sprite-sprite("arrow_hover")
-    :padding-left 18px
-    &:hover
-      color: $secondaryColor
-      +sprite-sprite("arrow_focus")
+aside
+  display: table-cell
+  padding: 20px 0 20px 40px
   
 // footer
 
-#footer
-  :background #303030
-  :border-bottom 6px solid #000
-  :padding 12px 0
+footer
+  background: #303030
+  border-bottom: 6px solid #000
+  padding: 12px 0
   p
-    :text-transform uppercase
-    :margin 0
-    :text-align center
-    :font-size .85em
-    :color #7B7B7B
+    text-transform: uppercase
+    margin: 0
+    text-align: center
+    font-size: .85em
+    color: #7B7B7B
   a
-    :display inline-block
-    :padding 0 10px
-    :color #ACACAC
+    display: inline-block
+    padding: 0 10px
+    color: #ACACAC
     &:hover
-      :color #fff
+      color: #fff
 
 // errors
 

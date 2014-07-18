@@ -1,0 +1,114 @@
+ul, ol, li
+  margin: 0
+  padding: 0
+ul
+  list-style: none
+  margin-top: 18px
+  margin-left: 12px
+ol
+  list-style: inside decimal
+ul, ol
+  margin-bottom: 20px
+  ul, ol
+    margin-left: 12px
+    margin-bottom: 0px
+li
+  margin-bottom: 12px
+  li
+    margin-top: 6px
+
+%reset-list
+  margin: 0
+  padding: 0
+  list-style: none
+  ul, li
+    margin: 0
+    padding: 0
+    list-style: none
+
+// MAIN NAV
+
+.nav
+  @extend %reset-list
+  float: left
+  overflow: visible
+  & > li
+    display: inline-block
+    float: left
+    position: relative
+    &:hover
+      background: $primaryColor
+    &:hover ul
+      display: block
+  a
+    display: block
+    color: #fcfcfc
+    text-transform: uppercase
+    font-size: 1.25em
+    font-weight: bold
+    padding: 10px 30px
+    &:hover
+      color: #fff
+  ul
+    display: none
+    background: $primaryColor
+    position: absolute
+    left: 0px
+    min-width: 100%
+    z-index: 2
+    +box-shadow(#999 0px 1px 2px)
+    li
+      display: block
+      width: 100%
+    a
+      font-size: 1em
+      text-align: center
+      padding: 5px
+      border-top: 1px solid lighten($primaryColor, 5%)
+      border-bottom: 1px solid darken($primaryColor, 5%)
+      &:hover
+        background: darken($primaryColor, 5%)
+
+// SPECIFIC LISTS
+
+.quicklinks
+  margin: 0 0 20px 20px
+  a
+    display: inline-block
+    padding: 4px 0
+    font-weight: bold
+    color: #666
+    @extend .fa-arrow-right
+    &:before
+      @extend .fa
+      margin-right: 5px
+      color: #ccc
+    &.current, &.current:hover 
+      color: #000
+      &:before
+        color: #000
+    &:hover
+      color: $primaryColor
+    &.twitter
+      @extend .fa-twitter-square
+      &:hover, &:before
+        color: #33ccff
+    &.facebook
+      @extend .fa-facebook-square
+      &:hover, &:before
+        color: #3b5998
+
+#leaders
+  p
+    text-align: left
+    margin-bottom: 0
+  b
+    @extend .fa-star
+    text-transform: capitalize
+    margin: 3px 0
+    display: inline-block
+    &:before
+      @extend .fa
+      margin-right: 5px
+    &:last-child
+      margin-bottom: 20px

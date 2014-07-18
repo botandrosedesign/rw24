@@ -38,6 +38,7 @@ gem "coffee-rails"
 gem "uglifier"
 gem "jquery-rails", "~>2.2"
 gem "turbo-sprockets-rails3"
+gem "font-awesome-sass"
 
 group :development do
   gem "better_errors"

@@ -1,4 +1,4 @@
-%table#teams
+%table#teams.point-tracker
   %thead
     %tr
       %th.center_align POS#
@@ -33,10 +33,12 @@
       = form.hidden_field :qty
       = form.hidden_field :category
       = form.hidden_field :since_start
-
-      = form.label :team_position, "Input Team Number:", for: "lap_team_position"
-      = form.text_field :team_position, :tabindex => 1, id: "lap_team_position"
-      = form.submit "OK", :class => "button"
+      .field.team-input
+        = form.label :team_position, "Input Team Number:", for: "lap_team_position"
+        = form.text_field :team_position, :tabindex => 1, id: "lap_team_position"
+      .field.team-submit
+        .ok-wrapper
+          = form.submit "OK"
   
   %h4 Bonus Points
   = form_for @bonus, :html => { :id => "new_bonus", :autocomplete => "off" } do |form|
@@ -45,12 +47,15 @@
       = form.hidden_field :since_start
       = form.hidden_field :qty
       .field
-        = form.label :team_position, "POS#", :class => "medium", for: "bonus_team_position"
-        = form.label :bonus_id, "Bonus#"
-      .field
-        = form.text_field :team_position, :class => "medium", :tabindex => 11, id: "bonus_team_position"
-        = form.text_field :bonus_id, :class => "medium", :tabindex => 12
-        = form.submit "OK", :class => "button"
+        .field.bonus-input
+          = form.label :team_position, "POS#", for: "bonus_team_position"
+          = form.text_field :team_position, :tabindex => 11, id: "bonus_team_position"
+        .field.bonus-input
+          = form.label :bonus_id, "Bonus#"
+          = form.text_field :bonus_id, :tabindex => 12
+        .field.bonus-submit
+          .ok-wrapper
+            = form.submit "OK"
   
   %h4 Penalty Points
   = form_for @penalty, :html => { :id => "new_penalty", :autocomplete => "off" } do |form|
@@ -58,12 +63,15 @@
       = form.hidden_field :category
       = form.hidden_field :since_start
       .field
-        = form.label :team_position, "POS#", :class => "medium", for: "penalty_team_position"
-        = form.label :qty, "Points", :class => "medium", for: "penalty_qty"
-      .field
-        = form.text_field :team_position, :class => "medium", :tabindex => 21, id: "penalty_team_position"
-        = form.text_field :qty, :class => "medium", :tabindex => 22, id: "penalty_qty"
-        = form.submit "OK", :class => "button"
+        .field.bonus-input
+          = form.label :team_position, "POS#", for: "penalty_team_position"
+          = form.text_field :team_position, :tabindex => 21, id: "penalty_team_position"
+        .field.bonus-input
+          = form.label :qty, "Points", for: "penalty_qty"
+          = form.text_field :qty, :tabindex => 22, id: "penalty_qty"
+        .field.bonus-submit
+          .ok-wrapper
+            = form.submit "OK"
 
 = content_for :js do
   = javascript_include_tag "points"

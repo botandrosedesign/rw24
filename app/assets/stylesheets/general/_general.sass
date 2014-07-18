@@ -1,0 +1,23 @@
+// tables and images
+
+table, img
+  :border-collapse none
+  :margin-bottom 6px
+  tr.even
+    :background #ebebeb
+  td
+    :line-height 1.25
+    :vertical-align top
+  // image tables for cms
+  &.right, &[align = "right"]
+    :margin-left 16px
+    td
+      :padding 0px
+  &.left, &[align = "left"]
+    :margin-right 16px
+    td
+      :padding 0px
+  th
+    :font-size .8em
+    :text-transform uppercase
+      
