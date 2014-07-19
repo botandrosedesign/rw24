@@ -32,6 +32,8 @@ li
   @extend %reset-list
   float: left
   overflow: visible
+  +handheld
+    width: 100%
   & > li
     display: inline-block
     float: left
@@ -49,6 +51,9 @@ li
     padding: 10px 30px
     &:hover
       color: #fff
+    +handheld
+      font-size: 1em
+      padding: 10px 15px
   ul
     display: none
     background: $primaryColor
@@ -77,26 +82,30 @@ li
     display: inline-block
     padding: 4px 0
     font-weight: bold
-    color: #666
+    color: #333
     @extend .fa-arrow-right
     &:before
       @extend .fa
       margin-right: 5px
-      color: #ccc
+      color: #333
+      opacity: 0.2
     &.current, &.current:hover 
       color: #000
       &:before
         color: #000
+        opacity: 1
     &:hover
       color: $primaryColor
     &.twitter
       @extend .fa-twitter-square
       &:hover, &:before
         color: #33ccff
+        opacity: 1
     &.facebook
       @extend .fa-facebook-square
       &:hover, &:before
         color: #3b5998
+        opacity: 1
 
 #leaders
   p
