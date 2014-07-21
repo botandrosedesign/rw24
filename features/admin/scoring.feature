@@ -1,6 +1,6 @@
 Feature: Admin can manage team scoring
   Background:
-    Given today is "2014-07-25"
+    Given today is "2014-07-25 00:00:00 CDT"
     And a race exists for 2014
 
     Given the following race teams exist:
