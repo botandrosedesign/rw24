@@ -1,5 +1,7 @@
-PATH
-  remote: ../adva
+GIT
+  remote: https://github.com/botandrose/adva_cms.git
+  revision: 8a5d0332df64da6307d8831ef3a037eaf4e8cc22
+  branch: rails4
   specs:
     adva_activity (0.0.1)
       rails-observers
