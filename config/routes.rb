@@ -1,4 +1,4 @@
-Rw24::Application.routes.draw do
+Rails.application.routes.draw do
   match "/admin/jobs" => DelayedJobWeb, anchor: false, via: [:get, :post]
 
   get "admin" => redirect("/admin/sites/1")

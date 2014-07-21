@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-gem "rails", "~>4.0.0"
+gem "rails", "~>4.1.0"
 gem "mysql2"
 gem "bard-rake"
 gem "bard-static"
@@ -18,8 +18,8 @@ gem "daemons"
 gem "exception_notification"
 
 gem "awesome_nested_set", "~>3.0.0.rc.6" # unreleased 3.0.0 will be compatible with rails 4.1
-# path "../adva" do
-git "https://github.com/botandrose/adva_cms.git", branch: "rails4" do
+path "../adva" do
+# git "https://github.com/botandrose/adva_cms.git", branch: "rails4" do
   gem "adva_cms"
   gem "adva_activity"
   gem "adva_rbac"
