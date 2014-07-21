@@ -4,7 +4,7 @@ class PointsController < BaseController
   before_filter :authorize_access
 
   def index
-    @points = @race.points.all :limit => 100
+    @points = @race.points.limit(100)
     @lap = Point.new_lap
     @bonus = Point.new_bonus
     @penalty = Point.new_penalty

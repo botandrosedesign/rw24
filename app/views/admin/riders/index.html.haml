@@ -24,4 +24,5 @@
         %td=h rider.captain.name
         %td.actions
           = link_to "Edit", edit_admin_rider_path(@site, rider), :class => "edit"
-          = link_to "Delete", admin_rider_path(@site, rider), :class => 'delete', :confirm => t(:'adva.rider.confirm_delete'), :method => :delete
+          = link_to "Delete", admin_rider_path(@site, rider), class: 'delete', method: :delete, data: { confirm: t(:'adva.rider.confirm_delete') }
+

@@ -17,10 +17,10 @@ class Team < ActiveRecord::Base
     ["A Team", "B Team", "Elder Team", "Solo (male)", "Solo (female)", "Solo (elder)", "Tandem", "Tandem (elder)"]
   end
 
-  default_scope order("position")
+  default_scope -> { order(:position) }
   
   def self.by_category category
-    where :category => category
+    where(category: category)
   end
 
   attr_accessor :phone
@@ -43,7 +43,7 @@ class Team < ActiveRecord::Base
   before_save :assign_phone_to_captain, :assign_site
 
   def self.leader_board
-    all(:include => :points).sort do |a,b|
+    includes(:points).sort do |a,b|
       comp = a.points_total <=> b.points_total
       comp == 0 ? a.position <=> b.position : comp
     end.reverse

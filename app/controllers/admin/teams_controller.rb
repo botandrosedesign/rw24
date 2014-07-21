@@ -6,7 +6,7 @@ class Admin::TeamsController < Admin::BaseController
   guards_permissions :team
 
   def index
-    @teams = @race.teams.all
+    @teams = @race.teams
   end
   
   def show

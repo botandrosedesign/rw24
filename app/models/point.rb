@@ -1,6 +1,6 @@
 class Point < ActiveRecord::Base
   CATEGORIES = %w(Lap Bonus Penalty)
-  default_scope :order => "points.created_at ASC"
+  default_scope -> { order(:created_at) }
 
   belongs_to :team
   belongs_to :race
@@ -59,7 +59,7 @@ class Point < ActiveRecord::Base
   end
 
   def lap_seconds
-    last = Point.first :conditions => "team_id=#{team_id} AND category='Lap' AND created_at < '#{created_at}'", :order => "created_at DESC"
+    last = Point.where(team_id: team_id, category: 'Lap').where(["created_at < ?", created_at]).order(created_at: :desc).first
     last = last ? last.created_at : race.start_time
     created_at - last
   end
@@ -69,7 +69,7 @@ class Point < ActiveRecord::Base
   end
 
   def team_position=(value)
-    self.team = Team.first :conditions => { :race_id => race_id, :position => value }
+    self.team = Team.where(race_id: race_id, position: value).first
   end
 
   def team_name
@@ -77,7 +77,7 @@ class Point < ActiveRecord::Base
   end
 
   def total_laps
-    Point.count(:conditions => "race_id=#{race.id} AND team_id=#{team_id} AND category='Lap'")
+    Point.where(race_id: race.id, team_id: team_id, category: 'Lap').count
   end
 
   categories.each do |cat|

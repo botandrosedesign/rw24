@@ -73,7 +73,7 @@
     %footer
       .container
         %p
-          - @site.sections.all.each_with_index do |section, index|
+          - @site.sections.each_with_index do |section, index|
             = link_to h(section.title), section
             = "|" if index < @site.sections.length - 1
         %p
