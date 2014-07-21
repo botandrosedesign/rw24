@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140610185355) do
+ActiveRecord::Schema.define(version: 20140721000000) do
 
   create_table "accounts", force: true do |t|
     t.string   "name"
@@ -160,6 +160,9 @@ ActiveRecord::Schema.define(version: 20140610185355) do
     t.string   "meta_copyright"
     t.string   "meta_keywords"
     t.text     "meta_description"
+    t.string   "title"
+    t.text     "body"
+    t.text     "excerpt"
   end
 
   add_index "contents", ["author_id"], name: "index_contents_on_author_id", using: :btree
