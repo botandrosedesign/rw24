@@ -1,5 +1,5 @@
 Rw24::Application.routes.draw do
-  match "jobs" => DelayedJobWeb, :anchor => false
+  match "/admin/jobs" => DelayedJobWeb, anchor: false, via: [:get, :post]
 
   get "admin" => redirect("/admin/sites/1")
 

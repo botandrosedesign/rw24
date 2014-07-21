@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-gem "rails", "~>3.2"
+gem "rails", "~>4.0.0"
 gem "mysql2"
 gem "bard-rake"
 gem "bard-static"
@@ -9,7 +9,6 @@ gem "input_css"
 gem "fastercsv"
 gem "csv_builder"
 gem "nokogiri"
-gem "require_relative"
 gem "acts_as_list"
 gem "dynamic_form"
 gem "validates_email_format_of"
@@ -18,8 +17,9 @@ gem "delayed_job_web"
 gem "daemons"
 gem "exception_notification"
 
-# path "../adva" do
-git "https://github.com/botandrose/adva_cms.git" do
+gem "awesome_nested_set", "~>3.0.0.rc.6" # unreleased 3.0.0 will be compatible with rails 4.1
+path "../adva" do
+# git "https://github.com/botandrose/adva_cms.git" do
   gem "adva_cms"
   gem "adva_activity"
   gem "adva_rbac"
@@ -30,13 +30,13 @@ git "https://github.com/botandrose/adva_cms.git" do
   gem "adva_meta_tags"
 end
 
-gem "sass-rails"
+gem "sass-rails", "~>4.0" # have to specify this for some reason
 gem "compass-rails"
 gem "coffee-rails"
 gem "uglifier"
-gem "jquery-rails", "~>2.2"
-gem "turbo-sprockets-rails3"
 gem "font-awesome-sass"
+
+gem "jquery-rails", "~>2.2"
 
 group :development do
   gem "better_errors"
