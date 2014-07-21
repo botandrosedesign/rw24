@@ -15,6 +15,10 @@ module Rw24
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+    # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
+    config.assets.precompile += %w(leader_board.js points.js)
+    config.assets.precompile += %w(admin.css admin-score.css ie.css bonus_logger.css)
+
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
 
