@@ -65,5 +65,5 @@ end
 group :production do
   gem "foreman-export-upstart_user"
   gem "rack-www"
-  gem "utf8-cleaner" # chinese spiders are polluting the internet
+  gem "handle_invalid_percent_encoding_requests" # chinese spiders are polluting the internet
 end

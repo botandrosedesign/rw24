@@ -160,6 +160,9 @@ GEM
       activesupport (>= 4.0.1)
       haml (>= 3.1, < 5.0)
       railties (>= 4.0.1)
+    handle_invalid_percent_encoding_requests (1.0)
+      rack-utf8_sanitizer
+      rails (~> 4.1.4)
     hike (1.2.3)
     i18n (0.6.11)
     input_css (0.1.1)
@@ -194,6 +197,8 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
+    rack-utf8_sanitizer (1.2.2)
+      rack (~> 1.0)
     rack-www (1.5.0)
       rack
     rails (4.1.4)
@@ -265,7 +270,6 @@ GEM
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
-    utf8-cleaner (0.0.9)
     validates_email_format_of (1.5.3)
     websocket-driver (0.3.4)
     will_paginate (3.0.7)
@@ -308,6 +312,7 @@ DEPENDENCIES
   font-awesome-sass
   foreman-export-upstart_user
   haml-rails
+  handle_invalid_percent_encoding_requests
   input_css
   jquery-rails (~> 2.2)
   mysql2
@@ -322,5 +327,4 @@ DEPENDENCIES
   spring-commands-cucumber
   timecop
   uglifier
-  utf8-cleaner
   validates_email_format_of
