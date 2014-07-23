@@ -8,7 +8,7 @@
       = point.category
   %td.center_align= point.qty
   %td.center_align= point.total_laps
-  %td= point.team_name
+  %td= link_to point.team_name, leader_board_laps_path(current_race.year, point.team_position), target: "_blank"
   %td.ceebox= link_to "Edit", [:edit, point], :title => "Edit Score", :rel => "modal: true width:500 height:200", :class => "edit"
   %td= link_to "Delete", point_path(point, key: params[:key]), class: "delete", method: :delete, data: { confirm: "Are you sure?" }
 
