@@ -46,6 +46,7 @@ group :development do
 end
 
 group :test, :development do
+  gem "sqlite3"
   gem "quiet_assets"
   gem "byebug"
   gem "rspec-rails"

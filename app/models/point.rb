@@ -49,18 +49,22 @@ class Point < ActiveRecord::Base
     self.created_at = race.start_time + hours.to_i.hours + minutes.to_i.minutes + seconds.to_i.seconds
   end
 
-  def since_last(point)
-    last = point ? point.created_at : race.start_time
-    diff = created_at - last
+  def since_last(point=last_lap)
+    diff = created_at - last_lap.created_at
     hours = diff / 1.hour
     minutes = diff % 1.hour / 1.minute
     seconds = diff % 1.minute
     [hours, minutes, seconds].collect{ |n| "%02d" % n }.join(":")
   end
 
+  NullLap = Struct.new(:created_at)
+
+  def last_lap
+    last = Point.where(team_id: team_id, category: 'Lap').where(["created_at < ?", created_at]).reorder(created_at: :desc).first
+    last || NullLap.new(race.start_time)
+  end
+
   def lap_seconds
-    last = Point.where(team_id: team_id, category: 'Lap').where(["created_at < ?", created_at]).order(created_at: :desc).first
-    last = last ? last.created_at : race.start_time
     created_at - last
   end
 
@@ -100,7 +104,7 @@ class Point < ActiveRecord::Base
     end
 
     def position_must_exist
-      errors.add(:team_position, "doesn't exist") unless team
+      errors.add(:team_position, "doesn't exist") unless team_id
     end
 
     def uniqueness_of_bonus
