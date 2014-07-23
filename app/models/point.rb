@@ -12,6 +12,18 @@ class Point < ActiveRecord::Base
 
   before_validation :ensure_penalties_are_negative, :ensure_bonuses_are_positive
 
+  def self.laps
+    where(category: "Lap")
+  end
+
+  def self.bonuses
+    where(category: "Bonus")
+  end
+
+  def self.penalties
+    where(category: "Penalty")
+  end
+
   def self.categories
     CATEGORIES
   end

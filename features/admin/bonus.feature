@@ -31,8 +31,8 @@ Feature: Admin can manage team bonuses
 
     Given I am on the leaderboard page
     Then I should see the following laps:
-      | POS# | CLASS  | TEAM NAME | LAPS  | MILES  | BONUS | PENALTY | TOTAL |
-      | 001  | M      | BARD      | --    | --     | 02    | --      | 02    |
-      | 002  | F      | BORG      | --    | --     | --    | --      | --    |
-      |      |        |           | LAPS! | MILES! |       |         |       |
+      | POS# | CLASS  | TEAM NAME | LAPS    | MILES      | BONUS | PENALTY | TOTAL |
+      | 001  | M      | BARD      | --      | --         | 02    | --      | 02    |
+      | 002  | F      | BORG      | --      | --         | --    | --      | --    |
+      |      |        |           | 0 LAPS! | 0.0 MILES! |       |         |       |
 
