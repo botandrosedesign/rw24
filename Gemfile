@@ -16,6 +16,7 @@ gem "delayed_job_active_record"
 gem "delayed_job_web"
 gem "daemons"
 gem "exception_notification"
+gem "newrelic_rpm"
 
 gem "awesome_nested_set", "~>3.0.0.rc.6" # unreleased 3.0.0 will be compatible with rails 4.1
 # path "../adva" do
