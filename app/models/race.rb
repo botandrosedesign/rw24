@@ -8,7 +8,7 @@ class Race < ActiveRecord::Base
   xss_terminate :except => :description
 
   def self.published
-    where(:published => true).order("year desc")
+    order("year desc").select(&:started?)
   end
 
   def self.current
