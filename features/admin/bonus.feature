@@ -26,8 +26,8 @@ Feature: Admin can manage team bonuses
     And I fill in "Team #" with "1"
     And I press "OK"
     Then I should see the following bonuses:
-      | POS#  | WHEN     | TYPE     | AMT | TOT | TEAM NAME |
-      | 001   | 00:00:00 | Bonus 0  |  2  | 0   | BARD      |
+      | POS#  | WHEN     | SINCE    | TYPE     | AMT | TOT | TEAM NAME |
+      | 001   | 00:00:00 | 00:00:00 | Bonus 0  |  2  | 0   | BARD      |
 
     Given I am on the leaderboard page
     Then I should see the following laps:
