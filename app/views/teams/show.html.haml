@@ -11,7 +11,7 @@
 %hr.clear
 
 %p
-  = pluralize(@team.laps_total, "lap") + " (#{@team.laps_total * 4.6} miles),"
+  = pluralize(@team.laps_total, "lap") + " (#{@team.miles_total} miles),"
   = pluralize(@team.bonuses_total, "bonus lap") + ","
   = pluralize(@team.penalties_total, "lost lap") + ","
   %b= pluralize(@team.points_total, "total lap")

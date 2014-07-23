@@ -14,10 +14,10 @@ Feature: Admin can manage team scoring
   Scenario: Existing laps
     Given I am on the leaderboard page
     Then I should see the following laps:
-      | POS# | CLASS  | TEAM NAME | LAPS  | MILES  | BONUS | PENALTY | TOTAL |
-      | 002  | F      | BORG      | --    | --     | --    | --      | --    | 
-      | 001  | M      | BARD      | --    | --     | --    | --      | --    | 
-      |      |        |           | LAPS! | MILES! |       |         |       |
+      | POS# | CLASS  | TEAM NAME | LAPS    | MILES      | BONUS | PENALTY | TOTAL |
+      | 002  | F      | BORG      | --      | --         | --    | --      | --    |
+      | 001  | M      | BARD      | --      | --         | --    | --      | --    |
+      |      |        |           | 0 LAPS! | 0.0 MILES! |       |         |       |
 
   Scenario: Admin can log a lap
     When I wait for 900 seconds
@@ -41,10 +41,10 @@ Feature: Admin can manage team scoring
 
     Given I am on the leaderboard page
     Then I should see the following laps:
-      | POS# | CLASS  | TEAM NAME | LAPS  | MILES  | BONUS | PENALTY | TOTAL |
-      | 001  | M      | BARD      | 02    | 09     | --    | --      | 02    | 
-      | 002  | F      | BORG      | 01    | 04     | --    | --      | 01    | 
-      |      |        |           | LAPS! | MILES! |       |         |       |
+      | POS# | CLASS  | TEAM NAME | LAPS    | MILES       | BONUS | PENALTY | TOTAL |
+      | 001  | M      | BARD      | 02      | 09          | --    | --      | 02    |
+      | 002  | F      | BORG      | 01      | 04          | --    | --      | 01    |
+      |      |        |           | 3 LAPS! | 13.8 MILES! |       |         |       |
 
   #Scenario: Admin remove laps
     When I follow "BARD"
@@ -53,8 +53,8 @@ Feature: Admin can manage team scoring
     Given I am on the leaderboard page
 
     Then I should see the following laps:
-      | POS# | CLASS  | TEAM NAME | LAPS  | MILES  | BONUS | PENALTY | TOTAL |
-      | 002  | F      | BORG      | 01    | 04     | --    | --      | 01    | 
-      | 001  | M      | BARD      | 01    | 04     | --    | --      | 01    | 
-      |      |        |           | LAPS! | MILES! |       |         |       |
+      | POS# | CLASS  | TEAM NAME | LAPS    | MILES      | BONUS | PENALTY | TOTAL |
+      | 002  | F      | BORG      | 01      | 04         | --    | --      | 01    |
+      | 001  | M      | BARD      | 01      | 04         | --    | --      | 01    |
+      |      |        |           | 2 LAPS! | 9.2 MILES! |       |         |       |
 

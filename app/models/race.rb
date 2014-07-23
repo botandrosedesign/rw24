@@ -39,4 +39,12 @@ class Race < ActiveRecord::Base
   def bonuses
     settings[:bonuses] ||= []
   end
+
+  def total_laps
+    points.laps.sum(:qty)
+  end
+
+  def total_miles
+    total_laps * BigDecimal.new("4.6")
+  end
 end
