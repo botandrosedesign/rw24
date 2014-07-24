@@ -46,7 +46,7 @@ Feature: Admin can manage team scoring
       | 002  | F      | BORG      | 01      | 04          | --    | --      | 01    |
       |      |        |           | 3 LAPS! | 13.8 MILES! |       |         |       |
 
-  #Scenario: Admin remove laps
+  #Scenario: Admin removes a lap
     When I follow "BARD"
     And I follow "Delete" within lap 1
     #And I confirm deletion
@@ -58,3 +58,13 @@ Feature: Admin can manage team scoring
       | 001  | M      | BARD      | 01      | 04         | --    | --      | 01    |
       |      |        |           | 2 LAPS! | 9.2 MILES! |       |         |       |
 
+  #Scenario: Admin splits a lap
+    When I follow "BARD"
+    And I follow "Split" within lap 1
+    Given I am on the points page
+
+    Then I should see the following laps:
+      | POS#  | WHEN        | SINCE     | TYPE  | AMT | TOT | TEAM NAME |
+      | 001   | 00:15:00    | 00:15:00  | Lap   | 1   | 2   | BARD      |
+      | 001   | 00:30:00    | 00:15:00  | Lap   | 1   | 2   | BARD      |
+      | 002   | 00:30:00    | 00:30:00  | Lap   | 1   | 1   | BORG      |
