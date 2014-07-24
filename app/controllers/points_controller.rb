@@ -49,6 +49,12 @@ class PointsController < BaseController
     end
   end
 
+  def split
+    @point = Point.find(params[:id])
+    @point.split_behind!
+    redirect_to point_path(@point.team.position), notice: "Lap split into two laps"
+  end
+
   def update
     @point = Point.find(params[:id])
 

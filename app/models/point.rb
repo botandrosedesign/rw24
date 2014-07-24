@@ -46,6 +46,15 @@ class Point < ActiveRecord::Base
     new attrs
   end
 
+  def split_behind!
+    dup.tap do |new_lap|
+      diff = created_at - last_lap.created_at
+      median = diff / 2
+      new_lap.created_at = created_at - median.seconds
+      new_lap.save!
+    end
+  end
+
   def since_start
     return unless created_at
     diff = created_at - race.start_time

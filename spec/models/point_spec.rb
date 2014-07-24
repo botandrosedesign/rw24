@@ -2,13 +2,13 @@ require "ar_helper"
 require "point"
 
 describe Point do
-  describe "#last_lap" do
-    before do
-      @lap1 = Point.create! team_id: 1, qty: 1, category: "Lap", created_at: 1.hour.ago
-      @lap2 = Point.create! team_id: 1, qty: 1, category: "Lap", created_at: 2.hours.ago
-      @lap3 = Point.create! team_id: 1, qty: 1, category: "Lap", created_at: 1.minute.ago
-    end
+  before do
+    @lap1 = Point.create! team_id: 1, qty: 1, category: "Lap", created_at: 1.hour.ago
+    @lap2 = Point.create! team_id: 1, qty: 1, category: "Lap", created_at: 2.hours.ago
+    @lap3 = Point.create! team_id: 1, qty: 1, category: "Lap", created_at: 1.second.ago
+  end
 
+  describe "#last_lap" do
     it "returns the most recent lap" do
       @lap3.last_lap.should == @lap1
     end
@@ -30,6 +30,18 @@ describe Point do
       start_time = 3.hours.ago
       @lap3.stub race: double(:race, start_time: start_time)
       @lap3.last_lap.created_at.should == start_time
+    end
+  end
+
+  describe "#split_behind!" do
+    it "creates a new lap that is halfway between itself and the previous lap" do
+      new_lap = @lap3.split_behind!
+      new_lap.created_at.should be_within(1).of(30.minutes.ago)
+    end
+
+    it "saves a new lap" do
+      new_lap = @lap3.split_behind!
+      Point.count.should == 4
     end
   end
 end

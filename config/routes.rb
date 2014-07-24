@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     collection do
       get "bonus/:key", :action => :bonus, :key => /[a-z0-9]+/, :as => "bonus"
     end
+    post :split, on: :member
   end
 
   get "leader-board/:year" => "teams#index", :year => nil, :as => "leader_board"
