@@ -42,6 +42,7 @@
         %td= lap.since_last(last_lap)
         %td= lap.since_start
         - if current_user.try(:has_role?, :superuser)
+          %td= link_to "Split", [:split, lap], title: "Split Lap", class: "split", method: "post"
           %td= link_to "Edit", [:edit, lap], title: "Edit Score", rel: "width:500 height:400", class: "edit ceebox"
           %td= link_to "Delete", lap, class: "delete", method: :delete, data: { confirm: "Are you sure?" }
       - last_lap = lap
