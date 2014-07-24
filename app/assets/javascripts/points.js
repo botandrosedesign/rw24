@@ -2,7 +2,6 @@
 //= require jquery.serializeobject
 //= require jquery.ajaxretry
 //= require jquery.sprintf
-//= require jquery.ceebox
 
 $(function() {
   $("#new_lap, #new_bonus, #new_penalty").submit(function(event) {
@@ -87,6 +86,7 @@ $(function() {
   });
 
   $(document).on("submit", "#cee_box form", function() {
+    event.preventDefault();
     var id = "point_" + $(this).find("#point_id").val();
     var backup_id = $(this).find("#backup_id").val();
 
@@ -111,12 +111,6 @@ $(function() {
       }
     });
     $("#cee_closeBtn").click();
-    return false;
-  });
-
-  $("#points").on("click", "a.ceebox", function(event) {
-    event.preventDefault();
-    $(this).ceebox();
   });
 
   sortLoop = function($el) {

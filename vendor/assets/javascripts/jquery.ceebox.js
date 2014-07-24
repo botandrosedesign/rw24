@@ -27,12 +27,7 @@ $.fn.ceebox = function(opts){
 	//initilize some global private functions and variables
 	var elem = this;
 	var selector = $(this).selector;
-	if (opts.videoJSON) { 
-		$.getJSON(opts.videoJSON, function(json){//loads optional JSON file
-			$.extend($.fn.ceebox.videos,json);
-			init(elem,opts,selector);
-		});
-	} else {init(elem,opts,selector);}
+	init(elem,opts,selector);
 	
 	return this;
 };
@@ -323,7 +318,7 @@ $.fn.ceebox.popup = function(content,opts) {
 				// 7a. add closebtn
 				$("<a href='#' id='cee_closeBtn' class='cee_close' title='Close'>close</a>").prependTo("#cee_box");
 				// 7b. add gallery next/prev nav if there is a gallery group
-				if (opts.gallery) {addGallery(opts.gallery,family,opts);}
+				// if (opts.gallery) {addGallery(opts.gallery,family,opts);}
 				
 				// 7c. add key events
 				keyEvents(gallery,family,opts.fadeOut);
