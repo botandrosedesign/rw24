@@ -89,6 +89,18 @@ class Point < ActiveRecord::Base
     created_at - last
   end
 
+  def display_class
+    classes = [category.downcase]
+    classes << "impossible" if impossible?
+    classes.compact.join(" ")
+  end
+
+  def impossible?
+    return false unless lap?
+    diff = created_at - last_lap.created_at
+    diff < 14.minutes
+  end
+
   def team_position
     team.try :position
   end
