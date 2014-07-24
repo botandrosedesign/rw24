@@ -42,7 +42,7 @@
         %td= lap.since_last(last_lap)
         %td= lap.since_start
         - if current_user.try(:has_role?, :superuser)
-          %td.ceebox= link_to "", [:edit, lap], :title => "Edit Score", :rel => "modal: true width:500 height:200", :class => "edit"
+          %td= link_to "Edit", [:edit, lap], title: "Edit Score", rel: "width:500 height:200", class: "edit ceebox"
           %td= link_to "Delete", lap, class: "delete", method: :delete, data: { confirm: "Are you sure?" }
       - last_lap = lap
 
@@ -66,8 +66,8 @@
             = i+1
         %td= bonus.qty
         - if current_user.try(:has_role?, :superuser)
-          %td.ceebox= link_to "", [:edit, bonus], :title => "Edit Score", :rel => "modal: true width:500 height:200", :class => "edit"
-          %td= button_to "", bonus, :class => "delete", :method => :delete, :confirm => "Are you sure?"
+          %td= link_to "Edit", [:edit, bonus], title: "Edit Score", rel: "width:500 height:200", class: "edit ceebox"
+          %td= link_to "Delete", bonus, class: "delete", method: :delete, data: { confirm: "Are you sure?" }
   %tfoot
     %tr
       %th Total:
@@ -89,8 +89,8 @@
           = i+1
         %td= penalty.qty
         - if current_user.try(:has_role?, :superuser)
-          %td.ceebox= link_to "", [:edit, penalty], :title => "Edit Score", :rel => "modal: true width:500 height:200", :class => "edit"
-          %td= button_to "", penalty, :class => "delete", :method => :delete, :confirm => "Are you sure?"
+          %td= link_to "Edit", [:edit, penalty], title: "Edit Score", rel: "width:500 height:200", class: "edit ceebox"
+          %td= link_to "Delete", penalty, class: "delete", method: :delete, data: { confirm: "Are you sure?" }
 
 %hr.clear      
 

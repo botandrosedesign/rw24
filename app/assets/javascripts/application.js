@@ -2,6 +2,5 @@
 //= require jquery_ujs
 //= require google_analytics
 //= require countdown
+//= require ceebox
 
-$(function() {
-});
