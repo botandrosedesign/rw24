@@ -30,11 +30,17 @@ Feature: Admin can manage team scoring
     When I wait for 900 seconds
     And I fill in "Input Team Number:" with "1"
     And I press "OK" within the new lap form
+    Then I should see the following laps:
+      | POS#  | WHEN        | SINCE     | TYPE  | AMT | TOT | TEAM NAME |
+      | 001   | 00:30:00    | 00:15:00  | Lap   | 1   | 2   | BARD      |
+      | 001   | 00:15:00    | 00:15:00  | Lap   | 1   | 1   | BARD      |
+
+    When I wait for 300 seconds
     And I fill in "Input Team Number:" with "2"
     And I press "OK" within the new lap form
     Then I should see the following laps:
       | POS#  | WHEN        | SINCE     | TYPE  | AMT | TOT | TEAM NAME |
-      | 002   | 00:30:00    | 00:30:00  | Lap   | 1   | 1   | BORG      |
+      | 002   | 00:35:00    | 00:35:00  | Lap   | 1   | 1   | BORG      |
       | 001   | 00:30:00    | 00:15:00  | Lap   | 1   | 2   | BARD      |
       | 001   | 00:15:00    | 00:15:00  | Lap   | 1   | 1   | BARD      |
 
@@ -67,4 +73,4 @@ Feature: Admin can manage team scoring
       | POS#  | WHEN        | SINCE     | TYPE  | AMT | TOT | TEAM NAME |
       | 001   | 00:15:00    | 00:15:00  | Lap   | 1   | 2   | BARD      |
       | 001   | 00:30:00    | 00:15:00  | Lap   | 1   | 2   | BARD      |
-      | 002   | 00:30:00    | 00:30:00  | Lap   | 1   | 1   | BORG      |
+      | 002   | 00:35:00    | 00:35:00  | Lap   | 1   | 1   | BORG      |
