@@ -61,28 +61,18 @@
           - bonus_id = index + 1
           - bonus = @team.points.bonuses.where(bonus_id: bonus_id).first
           %tr
-            %td #{bonus_id} - #{bonus_category[:name]}
+            %td 
+              %span
+              #{bonus_id} - #{bonus_category[:name]}
             %td
               - if bonus && current_user.try(:has_role?, :superuser)
                 = link_to "Delete", bonus, class: "delete-icon", title: "Delete Score", method: :delete, data: { confirm: "Are you sure?" }
 
-        // MICAH - HERE'S THE NEW MOCKUP WTIH TR CLASSES
-        %tr
-          %td
-            %span
-            Example Bonus
-          %td
+        // MICAH - HERE'S THE  MOCKUP WITH THE TR COMPLETE CLASS
         %tr.complete
           %td
             %span
             Example Complete Bonus
-          %td
-            / - if bonus && current_user.try(:has_role?, :superuser)
-            = link_to "Delete", "", class: "delete-icon"
-        %tr.incomplete
-          %td
-            %span
-            Example Incomplete Bonus with more text than necessary
           %td
             / - if bonus && current_user.try(:has_role?, :superuser)
             = link_to "Delete", "", class: "delete-icon"
@@ -98,10 +88,6 @@
                 = link_to "Edit", [:edit, bonus], title: "Edit Score", rel: "width:500 height:400", class: "edit-icon ceebox"
                 = link_to "Delete", bonus, class: "delete-icon", title: "Delete Score", method: :delete, data: { confirm: "Are you sure?" }
 
-    //%tfoot
-    //  %tr
-    //    %th Total:
-    //    %th= @team.bonuses_total
 
 .col-penalties
   %table.penalties
