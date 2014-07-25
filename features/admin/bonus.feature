@@ -48,7 +48,7 @@ Feature: Admin can manage team bonuses
       | - 1 - Another Bonus   |
 
   #Scenario: Admin can delete a bonus lap
-    When I follow "Delete Score" within the "0 - Example Bonus" bonus
+    When I follow "Delete Score" within the "0 - Example Bonus" checkpoint
     #And I confirm deletion
     Then I should see the following bonuses:
       | - BONUSES             |

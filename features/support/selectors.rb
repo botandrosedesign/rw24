@@ -33,7 +33,7 @@ module HtmlSelectorsHelpers
       "#main_menu"
 
     when /the "(.+?)" checkpoint/
-      ["#bonuses tr", text: $1]
+      [".bonuses tr, #bonuses tr", text: $1]
 
     else
       raise "Can't find mapping from \"#{locator}\" to a selector.\n" +
