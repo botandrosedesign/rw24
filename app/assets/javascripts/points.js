@@ -63,7 +63,7 @@ $(function() {
     }).join(":");
   }
 
-  $("#points").on("click", "a.delete", function() {
+  $("#points").on("click", "a.delete-icon", function() {
     if(confirm($(this).attr('data-confirm'))) {
       var id = $(this).parents("tr").attr("id");
       $.ajax({
