@@ -50,7 +50,8 @@ body
 header
   +sprite-sprite("tires")
   background-position-x: center
-  height: 165px
+  +handheld
+    padding: 5px
   .rw24-logo
     @extend .sprite-riverwest24
     float: left
@@ -61,11 +62,12 @@ header
       display: none
 .title
   margin-top: 6px 
-  +column(13)
   line-height: .9
+  float: left
+  width: 500px
   h1, h2
-    :display inline-block
-    :color #fff
+    display: inline-block
+    color: #fff
   h2
     :margin-right 3px
   span
@@ -74,7 +76,12 @@ header
     font-weight: bold
     text-shadow: 0px 0px 3px #000
     color: #FFC81F
-    
+
+.title
+  +handheld
+    font-size: 0.9em
+    width: 100%
+
 #countdown
   width: 300px
   float: right
@@ -112,6 +119,8 @@ header
 .main
   background: transparent inline-image("tire.gif") no-repeat bottom right 
   padding-bottom: 40px
+  +handheld
+    padding: 0 5px
 
 article, aside
   display: table-cell
@@ -130,7 +139,7 @@ article
     width: 100%
   +handheld
     width: 100%
-    padding: 20px 0
+    padding: 10px
 aside
   display: table-cell
   padding: 20px 0 20px 40px

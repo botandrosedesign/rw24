@@ -32,8 +32,6 @@ li
   @extend %reset-list
   float: left
   overflow: visible
-  +handheld
-    width: 100%
   & > li
     display: inline-block
     float: left
@@ -51,9 +49,6 @@ li
     padding: 10px 30px
     &:hover
       color: #fff
-    +handheld
-      font-size: 1em
-      padding: 10px 15px
   ul
     display: none
     background: $primaryColor
@@ -73,6 +68,15 @@ li
       border-bottom: 1px solid darken($primaryColor, 5%)
       &:hover
         background: darken($primaryColor, 5%)
+
+.nav
+  +handheld
+    margin-top: 5px
+    width: 100%
+  a
+    +handheld
+      font-size: 1em
+      padding: 10px 5px
 
 // SPECIFIC LISTS
 
