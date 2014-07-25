@@ -1,7 +1,7 @@
 Feature: Admin can manage team scoring
   Background:
-    Given today is "2014-07-25 00:00:00 CDT"
-    And a race exists for 2014
+    Given today is "2020-07-25 00:00:00 CDT"
+    And a race exists for 2020
 
     Given the following race teams exist:
       | POS# | Name | Class         |
