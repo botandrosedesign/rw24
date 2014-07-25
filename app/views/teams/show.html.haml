@@ -57,25 +57,15 @@
         %th          
     %tbody
       - if @race.year >= 2012
-        - @race.bonuses.each.with_index do |bonus_category, index|
-          - bonus_id = index + 1
-          - bonus = @team.points.bonuses.where(bonus_id: bonus_id).first
-          %tr
+        - @race.bonus_checkpoints.each do |bonus|
+          - bonus_lap = @team.points.bonuses.where(bonus_id: bonus.id).first
+          %tr{class: ("complete" if bonus_lap)}
             %td 
               %span
-              #{bonus_id} - #{bonus_category[:name]}
+              #{bonus.id} - #{bonus.name}
             %td
-              - if bonus && current_user.try(:has_role?, :superuser)
-                = link_to "Delete", bonus, class: "delete-icon", title: "Delete Score", method: :delete, data: { confirm: "Are you sure?" }
-
-        // MICAH - HERE'S THE  MOCKUP WITH THE TR COMPLETE CLASS
-        %tr.complete
-          %td
-            %span
-            Example Complete Bonus
-          %td
-            / - if bonus && current_user.try(:has_role?, :superuser)
-            = link_to "Delete", "", class: "delete-icon"
+              - if bonus_lap && current_user.try(:has_role?, :superuser)
+                = link_to "Delete", bonus_lap, class: "delete-icon", title: "Delete Score", method: :delete, data: { confirm: "Are you sure?" }
 
       - else
         - @team.points.bonuses.sort_by {|p| p.bonus_id || 0}.each_with_index do |bonus, i|

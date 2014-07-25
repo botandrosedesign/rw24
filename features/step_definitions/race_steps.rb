@@ -12,8 +12,11 @@ end
 
 Then "I should see the following bonuses:" do |table|
   wait_for_ajax
-  actual = find("#teams").all("tr").map do |row|
-    row.all("th,td").map(&:text)
+  actual = find(".bonuses").all("tr").map do |row|
+    prefix = (row[:class] || "").split(" ").include?("complete") ? "✓" : "-"
+    rows = row.all("th,td").map(&:text)
+    rows[0] = "#{prefix} #{rows[0]}"
+    rows
   end
   table.diff! actual
 end
