@@ -19,6 +19,11 @@ Feature: Admin can manage team bonuses
     And I fill in "Points" with "2"
     And I press "Create Bonus"
     Then I should see "Bonus added! Add another?"
+    
+    When I fill in "Name" with "Another Bonus"
+    And I fill in "Points" with "2"
+    And I press "Create Bonus"
+    Then I should see "Bonus added! Add another?"
 
   #Scenario: Log bonuses for teams
     When I follow "cancel"
@@ -36,3 +41,7 @@ Feature: Admin can manage team bonuses
       | 002  | F      | BORG      | --      | --         | --    | --      | --    |
       |      |        |           | 0 LAPS! | 0.0 MILES! |       |         |       |
 
+    When I follow "BARD"
+    Then I should see the following bonuses:
+      | ✓ | 1 - Example Bonus   |
+      |   | 2 - Another Bonus   |
