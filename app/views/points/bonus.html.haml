@@ -14,8 +14,11 @@
       = form.label :team_position, "Team #"
     .field
       = form.text_field :team_position, :type => "number", :class => "medium", :tabindex => 11
-      = form.submit "OK", :class => "button", :id => "point_submit"
+      .ok-wrapper.top_align
+        = form.submit "OK", :id => "point_submit"
 
+.field.table-actions
+  %a.submit-bonuses(href="") All bonuses have been added
 %table#teams
   %thead
     %tr
@@ -29,6 +32,8 @@
       %th
   %tbody.stripe#points
     = render @bonuses
+
+  
 
 :plain
   <script type="text/x-jquery-template" title="pointRow">
