@@ -6,7 +6,7 @@ tr.penalty, #penalty input.text
   background: #FFE4DF !important
 tr.pending
   color: #ccc
-tr.failed, tr.impossible
+tr.failed
   background: red !important
   color: #fff
   td
@@ -15,6 +15,11 @@ tr.failed, tr.impossible
       text-align: left
 p.lineheight
   :line-height 2.75
+
+.impossible
+  td
+    &:nth-child(3)
+      color: red
   
 //
 
