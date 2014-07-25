@@ -44,7 +44,7 @@
           %td= lap.since_start
           - if current_user.try(:has_role?, :superuser)
             %td
-              = link_to "Split", [:split, lap], title: "Split Lap", class: "split", method: "post", class: "split-icon"
+              = link_to "Split", [:split, lap], title: "Split Lap", class: "split", method: "post", class: "split-icon", data: { confirm: "Are you sure you want to split this lap into two?" }
               = link_to "Edit", [:edit, lap], title: "Edit Score", rel: "width:500 height:400", class: "edit-icon ceebox"
               = link_to "Delete", lap, class: "delete-icon", title: "Delete Score", method: :delete, data: { confirm: "Are you sure?" }
         - last_lap = lap
