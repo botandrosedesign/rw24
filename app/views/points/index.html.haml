@@ -40,7 +40,10 @@
         .ok-wrapper
           = form.submit "OK"
   
-  %h4 Bonus Points
+  %h4
+    Bonus Points
+    \-
+    = link_to "Forms", bonuses_points_path, class: "ceebox"
   = form_for @bonus, :html => { :id => "new_bonus", :autocomplete => "off" } do |form|
     .calculator#bonus
       = form.hidden_field :category
