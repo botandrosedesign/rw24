@@ -1,15 +1,20 @@
 // SPECIFIC TABLES
 
-.col-lap-times, .col-bonuses, .col-penalties
-  @extend .col
-  padding-right: 20px
-
 .col-lap-times
   width: 45%
 .col-bonuses
   width: 30%
 .col-penalties
   width: 25%
+
+.col-lap-times, .col-bonuses, .col-penalties
+  @extend .col
+  padding-right: 20px
+  +handheld
+    width: 100%
+    clear: both
+    padding: 0
+    margin-bottom: 20px
 
 .lap-times, .bonuses, .penalties
   float: left

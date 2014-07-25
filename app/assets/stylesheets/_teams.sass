@@ -1,13 +1,13 @@
 #team-members
-  +float-left
+  float: left
   list-style: inside disc
   margin: 0 0 12px
   padding: 0
+  width: 100%
   li
-    +float-left
-    display: list-item
-    margin-right: 12px
-    
+    float: left
+    margin-right: 20px
+    white-space: nowrap
 
 #teams
   thead
@@ -63,6 +63,8 @@
 #leader-board
   th
     border-bottom: 4px solid #1a1a1a
+    +handheld
+      font-size: 0.6em
   tbody tr:hover
     background: #FFC81F
   th, td
@@ -124,6 +126,7 @@
       +box-shadow(transparent 0 0 0 0, #000 0 3px 9px 0 inset)
       border-color: #1a1a1a
     +handheld
+      font-size: 0.9em
       width: auto
       white-space: nowrap
       padding: 0 5px
