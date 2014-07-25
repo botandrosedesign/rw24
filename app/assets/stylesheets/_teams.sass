@@ -80,12 +80,22 @@
       width: 8%
     &:nth-child(5)
       width: 10%
+      +handheld
+        display: none
     &:nth-child(6)
       width: 8%
+      +handheld
+        color: green
     &:nth-child(7)
       width: 6%
+      +handheld
+        color: red
     &:nth-child(8)
       width: 10%
+  th
+    &:nth-child(6), &:nth-child(7)
+      +handheld
+        font-size: 0
   tfoot
     th
       border: none
