@@ -79,9 +79,13 @@
     &:nth-child(4)
       width: 8%
     &:nth-child(5)
-      width: 10%
+      width: 8%
       +handheld
         display: none
+    &:nth-child(6), &:nth-child(7)
+      white-space: nowrap
+      padding-left: 3px
+      padding-right: 3px
     &:nth-child(6)
       width: 8%
       +handheld
@@ -135,7 +139,7 @@
       +box-shadow(transparent 0 0 0 0, #000 0 3px 9px 0 inset)
       border-color: #1a1a1a
     +handheld
-      font-size: 0.9em
+      font-size: 0.8em
       width: auto
       white-space: nowrap
       padding: 0 5px
