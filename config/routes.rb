@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :points do
     collection do
+      get "bonus", action: :bonuses, as: "bonuses"
       get "bonus/:key", :action => :bonus, :key => /[a-z0-9]+/, :as => "bonus"
     end
     post :split, on: :member

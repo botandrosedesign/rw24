@@ -1,0 +1,19 @@
+%h3 Bonus Checkpoints
+%table#bonuses.list
+  %thead
+    %tr
+      %th #
+      %th Name
+      %th Points
+      %th
+      %th
+  %tbody
+    - @race.bonus_checkpoints.each do |bonus|
+      %tr
+        %td= bonus.id
+        %td= link_to bonus.name, admin_site_race_bonus_path(@site, @race, bonus.id)
+        %td= bonus.points
+        %td= link_to "Bonus Form", bonus_points_path(key: bonus.key)
+        %td
+          //= link_to "Edit", "#", :class => "edit"
+          // %input.delete{:type => "submit", :value => "Delete"}
