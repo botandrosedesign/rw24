@@ -25,7 +25,7 @@
       %input.save{:type => "submit", :value => "Save"}
       = link_to "cancel", :back, :class => "cancel"
 
-- content_for :sidebar do
+= content_for :sidebar do
   .tabs
     .tab.active
       %h3 Bonus Checkpoints
@@ -38,15 +38,15 @@
             %th
             %th
         %tbody
-          - @race.bonuses.each_with_index do |bonus, index|
+          - @race.bonus_checkpoints.each do |bonus|
             %tr
-              %td= index
-              %td= link_to bonus[:name], admin_site_race_bonus_path(@site, @race, index)
-              %td= bonus[:points]
-              %td= link_to "Bonus Form", bonus_points_path(:key => bonus[:key])
+              %td= bonus.id
+              %td= link_to bonus.name, admin_site_race_bonus_path(@site, @race, bonus.id)
+              %td= bonus.points
+              %td= link_to "Bonus Form", bonus_points_path(key: bonus.key)
               %td
                 //= link_to "Edit", "#", :class => "edit"
-                %input.delete{:type => "submit", :value => "Delete"}
+                // %input.delete{:type => "submit", :value => "Delete"}
 
       %p.right_align= link_to "+ Add a Checkpoint", [:new, :admin, @site, @race, :bonus]
 

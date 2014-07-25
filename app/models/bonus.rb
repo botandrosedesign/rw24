@@ -4,27 +4,27 @@ class Bonus
   extend ActiveModel::Naming
 
   def self.find_by_race_and_id race, id
-    race.bonuses.each_with_index do |bonus, index|
-      next unless index == id.to_i
-      return Bonus.new({ :id => index }.merge(bonus))
+    race.bonus_checkpoints.find do |bonus|
+      bonus.id == id.to_i
     end
-    nil
   end
 
   def self.find_by_race_and_key race, key
-    race.bonuses.each_with_index do |bonus, index|
-      next unless bonus[:key] == key
-      return Bonus.new({ :id => index }.merge(bonus))
+    race.bonus_checkpoints.find do |bonus|
+      bonus.key == key
     end
-    nil
   end
 
-  attr_accessor :id, :name, :points, :key
+  attr_accessor :id, :name, :points, :key, :published
 
   def initialize(attributes = {})
     attributes.each do |name, value|
       send("#{name}=", value)
     end
+  end
+
+  def published?
+    published
   end
 
   def persisted?
