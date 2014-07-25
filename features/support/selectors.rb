@@ -27,7 +27,7 @@ module HtmlSelectorsHelpers
       "form#new_lap"
 
     when /lap (\d+)/
-      "#lap-times tbody tr:nth-child(#{$1})"
+      ".lap-times tbody tr:nth-child(#{$1})"
 
     when /the admin subnav/
       "#main_menu"

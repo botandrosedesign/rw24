@@ -30,7 +30,7 @@ Feature: Admin can manage team bonuses
     And I follow "Bonus Form" within the "Example Bonus" checkpoint
     And I fill in "Team #" with "1"
     And I press "OK"
-    Then I should see the following bonuses:
+    Then I should see the following laps:
       | POS#  | WHEN     | SINCE    | TYPE     | AMT | TOT | TEAM NAME |
       | 001   | 00:00:00 | 00:00:00 | Bonus 0  |  2  | 0   | BARD      |
 
@@ -43,5 +43,7 @@ Feature: Admin can manage team bonuses
 
     When I follow "BARD"
     Then I should see the following bonuses:
-      | ✓ | 1 - Example Bonus   |
-      |   | 2 - Another Bonus   |
+      | - BONUSES             |
+      | ✓ 0 - Example Bonus   |
+      | - 1 - Another Bonus   |
+
