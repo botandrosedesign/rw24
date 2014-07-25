@@ -1,11 +1,3 @@
-- if @article.try(:permalink) == "home"
-  .field
-    %h3 Are you ready?
-    %ul.quicklinks
-      %li= link_to "Read the Rules", "/about/rules"
-      %li= link_to "Suggested Route Map", "/about/rules/#route"
-      %li= link_to "Volunteer to help", "/join/volunteer"
-
 .field
   %h3 Live radio broadcast!
   %object#utv962948{ :height => "200", :classid => "clsid:d27cdb6e-ae6d-11cf-96b8-444553540000", :width => "230" }
@@ -23,6 +15,12 @@
     %ul.quicklinks
       - @section.contents.published.select(&:root?).each do |content|
         %li= link_to_current h(content.title), [@section, content], :if => content == @article
+
+.field
+  <a class="twitter-timeline" href="https://twitter.com/search?q=%23rw24%2C+%23riverwest24" data-widget-id="492743751022813184">Tweets about "#rw24, #riverwest24"</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+
 
 .field
   %h3 Connect
