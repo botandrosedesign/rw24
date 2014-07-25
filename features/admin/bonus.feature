@@ -1,7 +1,7 @@
 Feature: Admin can manage team bonuses
   Background:
-    Given today is "2014-07-25 00:00:00 CDT"
-    And a race exists for 2014
+    Given today is "2020-07-25 00:00:00 CDT"
+    And a race exists for 2020
 
     Given the following race teams exist:
       | POS# | Name | Class         |
@@ -10,7 +10,7 @@ Feature: Admin can manage team bonuses
 
     Given I am logged in as an Admin
     When I follow "Races"
-    And I follow "2014"
+    And I follow "2020"
     And I follow "Settings" within the admin subnav
 
   Scenario: Admin can add bonus checkpoints
