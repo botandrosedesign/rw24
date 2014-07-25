@@ -12,6 +12,9 @@
     .field#starts
       = form.label :start_time
       = form.datetime_select :start_time, :ampm => true
+    
+    .field
+      = form.check_box :published, :label => "Show race in leaderboards dropdown menu?"
 
     %hr
 
