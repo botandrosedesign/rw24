@@ -26,77 +26,101 @@
     |
     = link_to "New Lap", new_point_path(:point => { :team_id => @team.id, :category => "Lap" })
 
-%table#lap-times
-  %thead
-    %tr
-      %th Lap Number
-      %th Since Last Lap
-      %th Since Start of Race
-      - if current_user.try(:has_role?, :superuser)
-        %th{:colspan => "2"}
-  %tbody
-    - last_lap = nil
-    - @team.points.select(&:lap?).each_with_index do |lap, i|
+.col-lap-times
+  %table.lap-times
+    %thead
       %tr
-        %td= i+1
-        %td= lap.since_last(last_lap)
-        %td= lap.since_start
+        %th Lap Number
+        %th Since Last Lap
+        %th Since Start of Race
         - if current_user.try(:has_role?, :superuser)
-          %td= link_to "Split", [:split, lap], title: "Split Lap", class: "split", method: "post"
-          %td= link_to "Edit", [:edit, lap], title: "Edit Score", rel: "width:500 height:400", class: "edit ceebox"
-          %td= link_to "Delete", lap, class: "delete", method: :delete, data: { confirm: "Are you sure?" }
-      - last_lap = lap
-
-  
-%table#bonuses
-  %thead
-    %tr
-      %th{:colspan => "2"} <br>Bonuses
-      - if current_user.try(:has_role?, :superuser)
-        %th{:colspan => "2"}
-  %tbody
-    - if @race.year >= 2012
-      - @race.bonuses.each.with_index do |bonus_category, index|
-        - bonus_id = index + 1
-        - bonus = @team.points.bonuses.where(bonus_id: bonus_id).first
+          %th
+    %tbody
+      - last_lap = nil
+      - @team.points.select(&:lap?).each_with_index do |lap, i|
         %tr
-          %td #{bonus_id} - #{bonus_category[:name]}
-          %td= bonus ? "✓" : "✗"
-          - if bonus && current_user.try(:has_role?, :superuser)
-            %td= link_to "Edit", [:edit, bonus], title: "Edit Score", rel: "width:500 height:200", class: "edit ceebox"
-            %td= link_to "Delete", bonus, class: "delete", method: :delete, data: { confirm: "Are you sure?" }
-
-    - else
-      - @team.points.bonuses.sort_by {|p| p.bonus_id || 0}.each_with_index do |bonus, i|
-        %tr
-          %td Bonus #{i+1}
-          %td= bonus.qty
+          %td= i+1
+          %td= lap.since_last(last_lap)
+          %td= lap.since_start
           - if current_user.try(:has_role?, :superuser)
-            %td= link_to "Edit", [:edit, bonus], title: "Edit Score", rel: "width:500 height:200", class: "edit ceebox"
-            %td= link_to "Delete", bonus, class: "delete", method: :delete, data: { confirm: "Are you sure?" }
-  %tfoot
-    %tr
-      %th Total:
-      %th= @team.bonuses_total
-      - if current_user.try(:has_role?, :superuser)
-        %th{:colspan => "2"} 
-  
-%table#penalties
-  %thead
-    %tr
-      %th{:colspan => "2"} <br>Penalties
-      - if current_user.try(:has_role?, :superuser)
-        %th{:colspan => "2"}
-  %tbody
-    - @team.points.select(&:penalty?).each_with_index do |penalty, i|
+            %td
+              = link_to "Split", [:split, lap], title: "Split Lap", class: "split", method: "post", class: "split-icon"
+              = link_to "Edit", [:edit, lap], title: "Edit Score", rel: "width:500 height:400", class: "edit-icon ceebox"
+              = link_to "Delete", lap, class: "delete-icon", title: "Delete Score", method: :delete, data: { confirm: "Are you sure?" }
+        - last_lap = lap
+
+.col-bonuses
+  %table.bonuses
+    %thead
       %tr
-        %td
-          Penalty
-          = i+1
-        %td= penalty.qty
-        - if current_user.try(:has_role?, :superuser)
-          %td= link_to "Edit", [:edit, penalty], title: "Edit Score", rel: "width:500 height:400", class: "edit ceebox"
-          %td= link_to "Delete", penalty, class: "delete", method: :delete, data: { confirm: "Are you sure?" }
+        %th Bonuses
+        %th          
+    %tbody
+      - if @race.year >= 2012
+        - @race.bonuses.each.with_index do |bonus_category, index|
+          - bonus_id = index + 1
+          - bonus = @team.points.bonuses.where(bonus_id: bonus_id).first
+          %tr
+            %td #{bonus_id} - #{bonus_category[:name]}
+            %td
+              - if bonus && current_user.try(:has_role?, :superuser)
+                = link_to "Delete", bonus, class: "delete-icon", title: "Delete Score", method: :delete, data: { confirm: "Are you sure?" }
+
+        // MICAH - HERE'S THE NEW MOCKUP WTIH TR CLASSES
+        %tr
+          %td
+            %span
+            Example Bonus
+          %td
+        %tr.complete
+          %td
+            %span
+            Example Complete Bonus
+          %td
+            / - if bonus && current_user.try(:has_role?, :superuser)
+            = link_to "Delete", "", class: "delete-icon"
+        %tr.incomplete
+          %td
+            %span
+            Example Incomplete Bonus with more text than necessary
+          %td
+            / - if bonus && current_user.try(:has_role?, :superuser)
+            = link_to "Delete", "", class: "delete-icon"
+
+      - else
+        - @team.points.bonuses.sort_by {|p| p.bonus_id || 0}.each_with_index do |bonus, i|
+          %tr
+            %td
+              Bonus #{i+1}
+              = bonus.qty
+            %td
+              - if current_user.try(:has_role?, :superuser)
+                = link_to "Edit", [:edit, bonus], title: "Edit Score", rel: "width:500 height:400", class: "edit-icon ceebox"
+                = link_to "Delete", bonus, class: "delete-icon", title: "Delete Score", method: :delete, data: { confirm: "Are you sure?" }
+
+    //%tfoot
+    //  %tr
+    //    %th Total:
+    //    %th= @team.bonuses_total
+
+.col-penalties
+  %table.penalties
+    %thead
+      %tr
+        %th(colspan="2") Penalties
+        %th
+
+    %tbody
+      - @team.points.select(&:penalty?).each_with_index do |penalty, i|
+        %tr
+          %td
+            Penalty
+            = i+1
+          %td= penalty.qty
+          %td
+            - if current_user.try(:has_role?, :superuser)
+              = link_to "Edit", [:edit, penalty], title: "Edit Score", rel: "width:500 height:400", class: "edit-icon ceebox"
+              = link_to "Delete", penalty, class: "delete-icon", method: :delete, data: { confirm: "Are you sure?" }
 
 %hr.clear      
 

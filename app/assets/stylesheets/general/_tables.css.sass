@@ -1,0 +1,78 @@
+// SPECIFIC TABLES
+
+.col-lap-times, .col-bonuses, .col-penalties
+  @extend .col
+  padding-right: 20px
+
+.col-lap-times
+  width: 45%
+.col-bonuses
+  width: 30%
+.col-penalties
+  width: 25%
+
+.lap-times, .bonuses, .penalties
+  float: left
+  width: 100%
+  vertical-align: top
+  thead
+    th
+      border-bottom: 4px solid #1a1a1a
+      padding-bottom: 3px
+  tfoot
+    th
+      border-top: 4px solid #1a1a1a
+      padding-top: 3px
+  td
+    border-bottom: 1px dashed #ccc
+    vertical-align: middle
+  th, td
+    padding: 8px
+    &:last-child
+      white-space: nowrap
+  tbody
+    tr
+      &:hover
+        background: lighten(yellow, 45%) !important
+      &:nth-child(even)
+        background: #f9f9f9
+
+.lap-times
+  th, td
+    text-align: center
+
+.bonuses, .penalties
+  th, td
+    &:last-child
+      text-align: right
+
+.bonuses
+  td
+    color: #ccc
+  span
+    display: inline-block
+    @extend .fa
+    @extend .fa-ellipsis-h
+    &:before
+      display: inline-block
+      width: 20px
+      text-align: center
+  .complete
+    td
+      color: #1a1a1a
+      background: #DFFFE9
+    span
+      color: green
+      @extend .fa-check
+
+  .incomplete
+    td
+      color: #1a1a1a
+      background: lighten(red, 45%)
+    span
+      color: red
+      @extend .fa-times
+
+.penalties
+  td
+    background: lighten(red, 45%)
