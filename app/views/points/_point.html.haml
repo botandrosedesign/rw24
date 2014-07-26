@@ -8,7 +8,7 @@
     - else
       = point.category
   %td.center_align= point.qty
-  %td.center_align= point.total_laps
+  %td.center_align= point.total_laps + point.team.penalties_total
   %td= link_to point.team_name, leader_board_laps_path(current_race.year, point.team_position), target: "_blank"
   %td
     = link_to "Edit", [:edit, point], title: "Edit Score", rel: "width:500 height:400", class: "edit-icon ceebox"
