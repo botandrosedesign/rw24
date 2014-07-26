@@ -35,7 +35,7 @@
       = form.hidden_field :since_start
       .field.team-input
         = form.label :team_position, "Input Team Number:", for: "lap_team_position"
-        = form.text_field :team_position, :tabindex => 1, id: "lap_team_position"
+        = form.text_field :team_position, tabindex: 1, id: "lap_team_position", type: "number", class: "text"
       .field.team-submit
         .ok-wrapper
           = form.submit "OK"
@@ -52,7 +52,7 @@
       .field
         .field.bonus-input
           = form.label :team_position, "POS#", for: "bonus_team_position"
-          = form.text_field :team_position, :tabindex => 11, id: "bonus_team_position"
+          = form.text_field :team_position, tabindex: 11, id: "bonus_team_position", type: "number", class: "text"
         .field.bonus-input
           = form.label :bonus_id, "Bonus#"
           = form.text_field :bonus_id, :tabindex => 12
@@ -68,7 +68,7 @@
       .field
         .field.bonus-input
           = form.label :team_position, "POS#", for: "penalty_team_position"
-          = form.text_field :team_position, :tabindex => 21, id: "penalty_team_position"
+          = form.text_field :team_position, :tabindex => 21, id: "penalty_team_position", type: "number", class: "text"
         .field.bonus-input
           = form.label :qty, "Points", for: "penalty_qty"
           = form.text_field :qty, :tabindex => 22, id: "penalty_qty"
