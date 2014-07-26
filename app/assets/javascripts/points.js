@@ -42,6 +42,8 @@ $(function() {
           .prev().html(xhr.responseText);
       }
     });
+    
+    $(this).find("input[type=number]").focus()
   });
 
   $.fn.addPendingRow = function(id, data) {
