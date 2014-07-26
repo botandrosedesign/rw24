@@ -13,7 +13,6 @@ class TeamsController < BaseController
 
   def show
     @team = @race.teams.find_by_position! params[:position]
-    expires_in 1.minute, public: true if Rails.env.production?
   end
 
   private
