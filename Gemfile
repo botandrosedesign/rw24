@@ -18,9 +18,9 @@ gem "daemons"
 gem "exception_notification"
 gem "newrelic_rpm"
 
-gem "awesome_nested_set", "~>3.0.0.rc.6" # unreleased 3.0.0 will be compatible with rails 4.1
+gem "awesome_nested_set", "~> 3.0"
 # path "../adva" do
-git "https://github.com/botandrose/adva_cms.git", branch: "rails4" do
+git "https://github.com/botandrose/adva_cms.git" do
   gem "adva_cms"
   gem "adva_activity"
   gem "adva_rbac"
