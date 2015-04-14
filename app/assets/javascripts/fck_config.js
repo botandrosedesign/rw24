@@ -43,7 +43,8 @@ FCKConfig.ToolbarSets['adva-cms'] = [
   ['Table', '-', 'TableInsertRowAfter', 'TableDeleteRows', '-',
     'TableInsertColumnAfter', 'TableDeleteColumns', '-',
     'TableInsertCellAfter', 'TableDeleteCells', '-',
-    'TableMergeCells', 'TableHorizontalSplitCell', '-', 'TableCellProp']
+    'TableMergeCells', 'TableHorizontalSplitCell', '-', 'TableCellProp'],
+  ['ConfigureCell']
 ];
 
 // adva-cms minimum toolbar
