@@ -26,8 +26,28 @@
 @import "scoring"
 @import "teams"
 
-body 
+body
   :background #fff
   :padding 10px
 img
   +box-shadow(#ccc 0 0 6px)
+
+cell
+  border: 2px dashed #999 !important
+  width: 100%
+  min-height: 400px
+  display: block
+  clear: both
+  cursor: not-allowed
+  &:after
+    content: "Cell"
+    display: block
+    width: 100%
+    text-align: center
+    color: #999
+    font-size: 3em
+    padding-top: 30px
+  &[name="redirect/to_url"]
+    &:after
+      content: "Redirect Url to " attr(url)
+
