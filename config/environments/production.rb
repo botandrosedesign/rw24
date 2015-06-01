@@ -85,5 +85,16 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
+  config.action_mailer.smtp_settings = {
+    :address              => "email-smtp.us-east-1.amazonaws.com",
+    :port                 => 465,
+    :user_name            => "***REMOVED***",
+    :password             => "***REMOVED***",
+    :authentication       => :login,
+    :ssl                  => true,
+    :tls                  => true,
+    :enable_starttls_auto => true,
+  }
+
   config.middleware.use Rack::WWW
 end
