@@ -57,6 +57,7 @@ GEM
       activerecord (>= 4.0.0, < 5)
     bard-rake (0.12.0)
       rake
+    bard-staging_banner (0.1.0)
     bard-static (2.1.1)
     better_errors (1.1.0)
       coderay (>= 1.0.0)
@@ -296,6 +297,7 @@ DEPENDENCIES
   adva_user!
   awesome_nested_set (~> 3.0)
   bard-rake
+  bard-staging_banner
   bard-static
   better_errors
   binding_of_caller
