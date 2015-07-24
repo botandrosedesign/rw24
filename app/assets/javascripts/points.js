@@ -21,6 +21,10 @@ $(function() {
 
     var queryString = $(this).serialize();
     $("#points").addPendingRow(id, $(this).serializeObject());
+
+    $points = $("#points > *");
+    $points.slice(100 - $points.length).remove();
+
     this.reset();
     $(this).find("#point_team_position").focus();
 
