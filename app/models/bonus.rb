@@ -28,6 +28,10 @@ class Bonus
   end
 
   def persisted?
-    false
+    id.present?
+  end
+
+  def new_record?
+    !persisted?
   end
 end
