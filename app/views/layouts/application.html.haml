@@ -64,6 +64,8 @@
 
         - if content_for? :sidebar
           %article
+            - if cookies[:flash_error].present?
+              .errorExplanation= cookies.delete(:flash_error)
             = yield
           %aside
             = yield :sidebar
