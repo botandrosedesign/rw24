@@ -1,3 +1,8 @@
+%h2 
+  = params[:action].titleize
+  Bonus
+  = @bonus.id
+
 = form_for [:admin, @site, @race, @bonus] do |form|
   %p
     = form.label :name
@@ -7,8 +12,10 @@
     = form.label :points
     = form.text_field :points
 
+  %br
+
   %p
-    = form.submit
+    %input(type="submit" value="#{@bonus.new_record? ? "Create Bonus" : "Update Bonus"}")
     = link_to "cancel", [:edit, :admin, @site, @race]
 
 :coffeescript

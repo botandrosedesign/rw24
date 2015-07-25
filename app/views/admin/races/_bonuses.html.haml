@@ -15,5 +15,5 @@
         %td= bonus.points
         %td= link_to "Bonus Form", bonus_points_path(key: bonus.key)
         %td
-          //= link_to "Edit", "#", :class => "edit"
-          // %input.delete{:type => "submit", :value => "Delete"}
+          = link_to "Edit", edit_admin_site_race_bonus_path(@site, @race, bonus.id), class: "edit"
+          / %input.delete{:type => "submit", :value => "Delete"}

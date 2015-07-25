@@ -8,13 +8,30 @@ class Admin::BonusesController < Admin::BaseController
 
   def new
     @bonus = Bonus.new(points: 2)
+    render :form
+  end
+
+  def edit
+    @bonus = Bonus.find_by_race_and_id(@race, params[:id])
+    render :form
   end
 
   def create
-    params[:bonus][:key] = SecureRandom.hex(8)
-    @race.bonuses << params[:bonus]
+    if params[:id].present?
+      update
+    else
+      params[:bonus][:key] = SecureRandom.hex(8)
+      @race.bonuses << params[:bonus]
+      @race.save
+      redirect_to [:new, :admin, @site, @race, :bonus], notice: "Bonus added! Add another?"
+    end
+  end
+
+  def update
+    @race.bonuses[params[:id].to_i][:name] = params[:bonus][:name]
+    @race.bonuses[params[:id].to_i][:points] = params[:bonus][:points]
     @race.save
-    redirect_to [:new, :admin, @site, @race, :bonus], notice: "Bonus added! Add another?"
+    redirect_to [:edit, :admin, @site, @race], notice: "Bonus updated!"
   end
 
   private
