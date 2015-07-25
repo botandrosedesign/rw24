@@ -40,6 +40,10 @@ class Race < ActiveRecord::Base
     settings[:bonuses] ||= []
   end
 
+  def bonuses= value
+    settings[:bonuses] = value
+  end
+
   def bonus_checkpoints
     bonuses.map.with_index do |attributes, index|
       Bonus.new(attributes.merge(id: index))

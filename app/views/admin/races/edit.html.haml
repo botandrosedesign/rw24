@@ -22,6 +22,7 @@
     .field#description
       = form.label :description
       %p This will be shown at the top of the leaderboard.
+      %br
       = form.text_area :description, :class => "wysiwyg"
 
     .field
@@ -32,5 +33,6 @@
   .tabs
     .tab.active
       = render "bonuses"
-      %p.right_align= link_to "+ Add a Checkpoint", [:new, :admin, @site, @race, :bonus]
+      %p.right_align.clear= link_to "+ Add a Checkpoint", [:new, :admin, @site, @race, :bonus]
+      %p= button_to "Delete All Bonuses", [:delete_all, :admin, @site, @race, :bonuses], "data-confirm" => "Are you sure you want to remove all the bonuses?"
 

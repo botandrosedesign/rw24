@@ -20,7 +20,9 @@ Rails.application.routes.draw do
     resources :sites do
       resource :confirmation_email
       resources :races do
-        resources :bonuses
+        resources :bonuses do
+          post :delete_all, on: :collection
+        end
         resources :teams do
           post :send_confirmation_emails, :on => :collection
           resources :riders

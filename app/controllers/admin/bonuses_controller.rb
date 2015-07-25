@@ -34,6 +34,12 @@ class Admin::BonusesController < Admin::BaseController
     redirect_to [:edit, :admin, @site, @race], notice: "Bonus updated!"
   end
 
+  def delete_all
+    @race.bonuses = []
+    @race.save
+    redirect_to [:edit, :admin, @site, @race], notice: "All Bonuses deleted!"
+  end
+
   private
 
   def set_menu
