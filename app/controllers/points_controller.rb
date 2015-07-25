@@ -87,6 +87,14 @@ class PointsController < BaseController
     end
   end
 
+  def assign_all_bonuses_bonuses
+    @race.assign_all_bonuses_bonuses
+  rescue AllBonusesException => error
+    cookies[:flash_error] = error.message
+  ensure
+    redirect_to points_path
+  end
+
   private
 
     def authorize_access

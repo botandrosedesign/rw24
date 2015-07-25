@@ -15,16 +15,12 @@ class Bonus
     end
   end
 
-  attr_accessor :id, :name, :points, :key, :published
+  attr_accessor :id, :name, :points, :key
 
   def initialize(attributes = {})
     attributes.each do |name, value|
       send("#{name}=", value)
     end
-  end
-
-  def published?
-    published
   end
 
   def persisted?
