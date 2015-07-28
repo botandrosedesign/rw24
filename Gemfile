@@ -66,6 +66,7 @@ group :test do
   gem "factory_girl_rails"
   gem "faker"
   gem "timecop"
+  gem "coveralls", require: false
 end
 
 group :production do

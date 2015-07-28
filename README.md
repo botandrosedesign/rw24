@@ -1,6 +1,7 @@
 # RW24
 
 [![Build Status](https://travis-ci.org/botandrose/rw24.svg)](https://travis-ci.org/botandrose/rw24)
+[![Coverage Status](https://coveralls.io/repos/botandrose/rw24/badge.svg?branch=master&service=github)](https://coveralls.io/github/botandrose/rw24?branch=master)
 [![Code Climate](https://codeclimate.com/github/botandrose/rw24/badges/gpa.svg)](https://codeclimate.com/github/botandrose/rw24)
 
 Riverwest 24 Website and Scoring System

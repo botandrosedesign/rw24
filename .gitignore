@@ -10,7 +10,7 @@ doc/spec/*
 db/data.*
 db/*.sqlite3
 config/database.yml
-converage/**/*
+coverage/**/*
 public/stylesheets/*.css
 *[~]
 

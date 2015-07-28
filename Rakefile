@@ -14,3 +14,9 @@ if Rails.env.production?
 end
 
 task "bootstrap:production:post" => [:clear_cache]
+
+require "coveralls/rake/task"
+Coveralls::RakeTask.new
+task :default do
+  Rake::Task["coveralls:push"].invoke
+end
