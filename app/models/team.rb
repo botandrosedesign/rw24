@@ -1,3 +1,5 @@
+require "acts_as_list"
+
 class Team < ActiveRecord::Base
   def self.allowed_ranges
     {
@@ -87,7 +89,7 @@ class Team < ActiveRecord::Base
   end
 
   def allowed_range
-    self.class.allowed_ranges[category.methodize.to_sym]
+    self.class.allowed_ranges[category.parameterize.underscore.to_sym]
   end
 
   def captain
