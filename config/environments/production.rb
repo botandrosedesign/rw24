@@ -83,10 +83,10 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.smtp_settings = {
-    :address              => "email-smtp.us-east-1.amazonaws.com",
-    :port                 => 465,
-    :user_name            => "***REMOVED***",
-    :password             => "***REMOVED***",
+    :address              => ENV["SMTP_ADDRESS"],
+    :port                 => ENV["SMTP_PORT"],
+    :user_name            => ENV["SMTP_USER_NAME"],
+    :password             => ENV["SMTP_PASSWORD"],
     :authentication       => :login,
     :ssl                  => true,
     :tls                  => true,
