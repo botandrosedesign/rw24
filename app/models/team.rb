@@ -158,11 +158,12 @@ class Team < ActiveRecord::Base
   end
 
   private
-    def assign_phone_to_captain
-      captain.phone = self.phone if self.phone
-    end
 
-    def assign_site
-      self.site = Site.first
-    end
+  def assign_phone_to_captain
+    captain.phone = self.phone if self.phone
+  end
+
+  def assign_site
+    self.site = Site.first
+  end
 end

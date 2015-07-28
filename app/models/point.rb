@@ -124,25 +124,26 @@ class Point < ActiveRecord::Base
   end
 
   private
-    def ensure_penalties_are_negative
-      if category == "Penalty" && self.qty.try(:>, 0)
-        self.qty = self.qty * -1
-      end
-    end
 
-    def ensure_bonuses_are_positive
-      if category == "Bonus" && self.qty.try(:<, 0)
-        self.qty = self.qty.abs
-      end
+  def ensure_penalties_are_negative
+    if category == "Penalty" && self.qty.try(:>, 0)
+      self.qty = self.qty * -1
     end
+  end
 
-    def position_must_exist
-      errors.add(:team_position, "doesn't exist") unless team_id
+  def ensure_bonuses_are_positive
+    if category == "Bonus" && self.qty.try(:<, 0)
+      self.qty = self.qty.abs
     end
+  end
 
-    def uniqueness_of_bonus
-      if Point.where(:category => "Bonus", :team_id => team_id, :race_id => race_id, :bonus_id => bonus_id).count > 0
-        errors.add(:team_position, "already has this bonus")
-      end
+  def position_must_exist
+    errors.add(:team_position, "doesn't exist") unless team_id
+  end
+
+  def uniqueness_of_bonus
+    if Point.where(:category => "Bonus", :team_id => team_id, :race_id => race_id, :bonus_id => bonus_id).count > 0
+      errors.add(:team_position, "already has this bonus")
     end
+  end
 end
