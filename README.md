@@ -11,7 +11,6 @@ Riverwest 24 Website and Scoring System
 * Ruby 2.0+
 
 ## TODO
-* Hook up Coveralls.
 * Getting started documentation.
 * Better acceptance test coverage.
 * Better unit test coverage.
