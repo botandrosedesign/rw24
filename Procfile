@@ -1,1 +1,1 @@
-worker:  bin/rvm script/delayed_job run production
+worker:  bin/rvm bin/delayed_job run production
