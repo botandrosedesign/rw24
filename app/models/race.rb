@@ -5,8 +5,6 @@ class Race < ActiveRecord::Base
 
   store :settings
 
-  xss_terminate :except => :description
-
   def self.published
     where(:published => true).order("year desc")
   end

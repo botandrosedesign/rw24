@@ -1,3 +1,5 @@
+require "validates_email_format_of"
+
 class Rider < ActiveRecord::Base
   def self.shirt_sizes
     %w(S M L XL Other)

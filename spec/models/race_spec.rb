@@ -1,6 +1,15 @@
-require "rails_helper"
+require "ar_helper"
+require "race"
+require "team"
+require "rider"
+require "point"
+require "bonus"
+require "./spec/support/factories"
 
 describe Race do
+  before { Team.any_instance.stub(assign_site: nil) }
+  before { stub_const "Site", double }
+
   describe "#assign_all_bonuses_bonuses" do
     subject do
       FactoryGirl.create(:race, bonuses: [
