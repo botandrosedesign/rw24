@@ -51,7 +51,7 @@ describe Point do
     end
   end
 
-  fdescribe "#display_class" do
+  describe "#display_class" do
     before do
       @race = double(:race, start_time: 10.minutes.ago)
       @lap = Point.create!(team_id: 1, qty: 1, category: "Lap")
