@@ -1,4 +1,6 @@
-# rw24
+# RW24
+
+[![Build Status](https://travis-ci.org/botandrose/rw24.svg)](https://travis-ci.org/botandrose/rw24)
 
 Riverwest 24 Website and Scoring System
 
@@ -7,7 +9,6 @@ Riverwest 24 Website and Scoring System
 * Ruby 2.0+
 
 ## TODO
-* Hook up Travis CI.
 * Hook up Coveralls.
 * Hook up Code Climate.
 * Getting started documentation.
