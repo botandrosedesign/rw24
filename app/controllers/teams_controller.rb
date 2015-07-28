@@ -16,7 +16,8 @@ class TeamsController < BaseController
   end
 
   private
-    def set_race
-      @race = Race.find_by_year(params[:year]) || Race.current
-    end
+
+  def set_race
+    @race = Race.find_by_year(params[:year]) || Race.current
+  end
 end

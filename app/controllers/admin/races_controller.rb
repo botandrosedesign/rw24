@@ -29,7 +29,7 @@ class Admin::RacesController < Admin::BaseController
     redirect_to [:admin, @site, @race, :teams]
   end
 
-private
+  private
 
   def set_menu
     @menu = Menus::Admin::Teams.new

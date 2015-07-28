@@ -65,15 +65,15 @@ class Admin::TeamsController < Admin::BaseController
 
   private
 
-    def set_menu
-      @menu = Menus::Admin::Teams.new
-    end
+  def set_menu
+    @menu = Menus::Admin::Teams.new
+  end
 
-    def set_race
-      @race = Race.find params[:race_id]
-    end
+  def set_race
+    @race = Race.find params[:race_id]
+  end
 
-    def authorize_access
-      redirect_to admin_sites_url unless @site || current_user.has_role?(:superuser)
-    end
+  def authorize_access
+    redirect_to admin_sites_url unless @site || current_user.has_role?(:superuser)
+  end
 end
