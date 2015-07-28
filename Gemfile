@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-gem "rails", "~>4.1.0"
+gem "rails", "~>4.2.0"
 gem "mysql2"
 gem "bard-rake"
 gem "bard-static"
@@ -18,6 +18,7 @@ gem "delayed_job_web"
 gem "daemons"
 gem "exception_notification"
 gem "newrelic_rpm"
+gem "cells", "~>3.0"
 
 gem "awesome_nested_set", "~> 3.0"
 # path "../adva" do
