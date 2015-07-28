@@ -1,6 +1,7 @@
 # RW24
 
 [![Build Status](https://travis-ci.org/botandrose/rw24.svg)](https://travis-ci.org/botandrose/rw24)
+[![Code Climate](https://codeclimate.com/github/botandrose/rw24/badges/gpa.svg)](https://codeclimate.com/github/botandrose/rw24)
 
 Riverwest 24 Website and Scoring System
 
@@ -10,7 +11,6 @@ Riverwest 24 Website and Scoring System
 
 ## TODO
 * Hook up Coveralls.
-* Hook up Code Climate.
 * Getting started documentation.
 * Better acceptance test coverage.
 * Better unit test coverage.
