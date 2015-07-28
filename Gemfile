@@ -32,7 +32,9 @@ git "https://github.com/botandrose/adva_cms.git" do
   gem "adva_meta_tags"
 end
 
+gem "sprockets", "~>2.0"
 gem "sass-rails", "~>4.0" # have to specify this for some reason
+gem "compass", "~>0.12.0"
 gem "compass-rails"
 gem "coffee-rails"
 gem "uglifier"
