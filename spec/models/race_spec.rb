@@ -56,14 +56,14 @@ describe Race do
     it "complains if there is no all bonuses bonus" do
       subject.bonuses.pop
       subject.save!
-      -> { subject.assign_all_bonuses_bonuses }.should
+      -> { subject.assign_all_bonuses_bonuses }.should \
         raise_error("The last bonus needs to be a five point all bonuses bonus")
     end
 
     it "complains if there is no tattoo bonus" do
       subject.bonuses.shift
       subject.save!
-      -> { subject.assign_all_bonuses_bonuses }.should
+      -> { subject.assign_all_bonuses_bonuses }.should \
         raise_error("The first bonus needs to be a five point tattoo bonus")
     end
   end
