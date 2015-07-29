@@ -21,11 +21,10 @@ cd rw24
 bin/setup
 bin/rails server
 ```
-View the site at [http://localhost:3000](http://localhost:3000)
-
-Note that the site has no data in the database at this point, so it will throw errors. Need to make it easy to clone the contents of the production database, or at least start with a sample set of data.
+View the site at [http://localhost:3000](http://localhost:3000) and follow the installation instructions.
 
 ## TODO
+* Documentation on how to administer the site.
 * Better acceptance test coverage.
 * Better unit test coverage.
 * Any javascript unit test coverage at all!
