@@ -36,6 +36,7 @@ module ApplicationHelper
   end
 
   def start_time_format datetime
+    return unless datetime
     string = datetime.strftime "%B %e-%%d, %Y | %l%P - %l%P"
     string % [datetime.day + 1]
   end

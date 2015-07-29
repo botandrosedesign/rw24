@@ -23,7 +23,7 @@
         .title
           %h1 Riverwest 24
           %h2 Hour Bike Race
-          %span.countstart{:data => { :countstart => start_time.to_s(:rfc822) } }
+          %span.countstart{:data => { :countstart => start_time.try(:to_s, :rfc822) } }
             = start_time_format start_time
         #countdown{ :style => "visibility: hidden" }
           %p.countup The ride starts in:

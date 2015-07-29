@@ -18,8 +18,8 @@ gem "delayed_job_web"
 gem "daemons"
 gem "exception_notification"
 gem "newrelic_rpm"
-gem "cells", "~>3.0"
 
+gem "cells", "~>3.0"
 gem "awesome_nested_set", "~> 3.0"
 # path "../adva" do
 git "https://github.com/botandrose/adva_cms.git" do

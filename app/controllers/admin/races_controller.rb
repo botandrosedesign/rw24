@@ -1,7 +1,10 @@
 class Admin::RacesController < Admin::BaseController
-
   def index
-    redirect_to [:admin, @site, Race.last, :teams]
+    if @race = Race.last
+      redirect_to [:admin, @site, @race, :teams]
+    else
+      redirect_to [:new, :admin, @site, :race]
+    end
   end
 
   def new

@@ -3,8 +3,6 @@ Rails.application.routes.draw do
 
   get "admin" => redirect("/admin/sites/1")
 
-  root :to => "articles#index"
-
   resources :points do
     collection do
       get "bonus", action: :bonuses, as: "bonuses"

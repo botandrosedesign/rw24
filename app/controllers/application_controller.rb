@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
   end
 
   def start_time
-    @start_time ||= current_race.start_time
+    @start_time ||= current_race.try(:start_time)
   end
 
   def stale? *args
