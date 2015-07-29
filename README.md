@@ -8,10 +8,24 @@ Riverwest 24 Website and Scoring System
 
 ## Requirements
 
-* Ruby 2.0+
+* Linux OS
+* Ruby 2.x
+* Bundler 1.x
+* MySQL 5.x
+* JavaScript Runtime (NodeJS, Rhino, etc)
+
+## Get Started
+```bash
+git clone git@github.com:botandrose/rw24.git
+cd rw24
+bin/setup
+bin/rails server
+```
+View the site at [http://localhost:3000](http://localhost:3000)
+
+Note that the site has no data in the database at this point, so it will throw errors. Need to make it easy to clone the contents of the production database, or at least start with a sample set of data.
 
 ## TODO
-* Getting started documentation.
 * Better acceptance test coverage.
 * Better unit test coverage.
 * Any javascript unit test coverage at all!
