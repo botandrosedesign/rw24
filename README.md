@@ -8,10 +8,10 @@ Riverwest 24 Website and Scoring System
 
 ## Requirements
 
-* Linux OS
+* Linux OS (probably works on MacOS, but untested)
 * Ruby 2.x
 * Bundler 1.x
-* MySQL 5.x
+* MySQL 5.x (probably works on Postgres and Sqlite, but untested)
 * JavaScript Runtime (NodeJS, Rhino, etc)
 
 ## Get Started
