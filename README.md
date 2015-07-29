@@ -24,6 +24,7 @@ bin/rails server
 View the site at [http://localhost:3000](http://localhost:3000) and follow the installation instructions.
 
 ## TODO
+* Easy import/export of content, except for user accounts. Anyone should be able to import riverwest24.com content.
 * Documentation on how to administer the site.
 * Better acceptance test coverage.
 * Better unit test coverage.
