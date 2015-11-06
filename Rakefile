@@ -15,6 +15,8 @@ end
 
 task "bootstrap:production:post" => [:clear_cache]
 
+task :default => :teaspoon
+
 if Rails.env.test?
   require "coveralls/rake/task"
   Coveralls::RakeTask.new
