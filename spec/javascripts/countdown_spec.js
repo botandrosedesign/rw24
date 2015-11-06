@@ -8,20 +8,17 @@ describe('Countdown', function() {
     });
     
     beforeEach(function() {
-	countdown.init();
-    });
-    afterEach(function() {
-	
+        countdown.init();
     });
 
     it('should exist', function() {
-	expect(countdown).toBeDefined();
+        expect(countdown).toBeDefined();
     });
 
     it('should init with proper time measurements', function() {
-	expect(countdown.oneMinute).toBe(60 * 1000);
-	expect(countdown.oneHour).toBe(60 * 1000 * 60);
-	expect(countdown.oneDay).toBe(60 * 1000 * 60 * 24);
-	expect(countdown.oneYear).toBe(60 * 1000 * 60 * 24 * 365);
+        expect(countdown.oneMinute).toBe(60 * 1000);
+        expect(countdown.oneHour).toBe(60 * 1000 * 60);
+        expect(countdown.oneDay).toBe(60 * 1000 * 60 * 24);
+        expect(countdown.oneYear).toBe(60 * 1000 * 60 * 24 * 365);
     });
 });
