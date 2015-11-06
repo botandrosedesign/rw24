@@ -55,6 +55,7 @@ group :test, :development do
   gem "quiet_assets"
   gem "byebug"
   gem "rspec-rails"
+  gem "teaspoon-jasmine"
 end
 
 group :test do
