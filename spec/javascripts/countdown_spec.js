@@ -1,9 +1,10 @@
+//= require spec_helper
 //= require jquery
 //= require countdown
 
 describe('Countdown', function() {
-    before(function() {
-	this.countFixture = $("<div class='countstart' data-countstart=''></div>");
+    beforeEach(function() {
+        this.countFixture = $("<div class='countstart' data-countstart=''></div>");
     });
     
     beforeEach(function() {
