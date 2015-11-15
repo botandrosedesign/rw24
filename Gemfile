@@ -56,6 +56,7 @@ group :test, :development do
   gem "byebug"
   gem "rspec-rails"
   gem "teaspoon-jasmine"
+  gem "phantomjs"
 end
 
 group :test do
