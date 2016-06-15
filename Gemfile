@@ -1,5 +1,6 @@
 source "http://rubygems.org"
 
+gem "dotenv-rails"
 gem "rails", "~>4.2.0"
 gem "mysql2"
 gem "bard-rake"
