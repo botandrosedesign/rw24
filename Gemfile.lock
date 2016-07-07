@@ -407,6 +407,3 @@ DEPENDENCIES
   timecop
   uglifier
   validates_email_format_of
-
-BUNDLED WITH
-   1.10.6
