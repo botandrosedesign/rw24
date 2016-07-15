@@ -4,10 +4,6 @@
   \-
   = @team.category
 
-%ul#team-members
-  - @team.riders.each do |rider|
-    %li= rider.name
-
 %hr.clear
 
 %p
@@ -54,13 +50,13 @@
     %thead
       %tr
         %th Bonuses
-        %th          
+        %th
     %tbody
       - if @race.year >= 2012
         - @race.bonus_checkpoints.each do |bonus|
           - bonus_lap = @team.points.bonuses.where(bonus_id: bonus.id).first
           %tr{class: ("complete" if bonus_lap)}
-            %td 
+            %td
               %span
               #{bonus.id} - #{bonus.name}
             %td
@@ -98,6 +94,6 @@
               = link_to "Edit", [:edit, penalty], title: "Edit Score", rel: "width:500 height:400", class: "edit-icon ceebox"
               = link_to "Delete", penalty, class: "delete-icon", method: :delete, data: { confirm: "Are you sure?" }
 
-%hr.clear      
+%hr.clear
 
 = link_to raw("&laquo; Back to Leader Board"), leader_board_path(@race.year)
