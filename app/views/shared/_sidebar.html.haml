@@ -1,14 +1,3 @@
-.field
-  %h3 Live radio broadcast!
-  %object#utv962948{ :height => "200", :classid => "clsid:d27cdb6e-ae6d-11cf-96b8-444553540000", :width => "300" }
-    %param{ :name => "flashvars", :value => "autoplay=false&amp;brand=embed&amp;cid=5043682&amp;locale=en_US" }
-    %param{ :name => "allowfullscreen", :value => "true" }
-    %param{ :name => "allowscriptaccess", :value => "always" }
-    %param{ :name => "movie", :value => "http://www.ustream.tv/flash/live/1/5043682" }
-    %embed#utv962948{ :name => "utv_n_989944", :allowfullscreen => "true", :src => "http://www.ustream.tv/flash/live/1/5043682", :allowscriptaccess => "always", :type => "application/x-shockwave-flash", :height => "200", :flashvars => "autoplay=false&amp;brand=embed&amp;cid=5043682&amp;locale=en_US", :width => "300" }
-  %a{ :href => "http://www.ustream.tv/", :target => "_blank", :style => "padding: 2px 0px 4px; width: 230px; background: #ffffff; display: block; color: #000000; font-weight: normal; font-size: 10px; text-decoration: underline; text-align: center;" }
-    Streaming Video by Ustream.TV
-
 - if @section.contents.published.length > 1
   .field
     %h3= h @section.title
@@ -17,18 +6,15 @@
         %li= link_to_current h(content.title), [@section, content], :if => content == @article
 
 .field
-  <a class="twitter-timeline" href="https://twitter.com/search?q=%23rw24+OR+%23riverwest24+OR+%23peoplesholiday" data-widget-id="492743751022813184">Tweets about "#rw24 OR #riverwest24 OR #peoplesholiday"</a>
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
-
-
-
-.field
   <iframe width='300' height='360' src='http://iconosquare.com/widget.php?choice=hashtag&hashtag=rw24&show_infos=false&linking=instagram&width=300&height=360&mode=grid&layout_x=3&layout_y=3&padding=3&photo_border=true&background=FFFFFF&text=777777&widget_border=true&radius=3&border-color=DDDDDD&user_id=238850714&time=1406338380362' allowTransparency='true' frameborder='0' scrolling='no' style='border:none; overflow:hidden; width:300px; height:360px;'></iframe>
 .field
   <iframe width='300' height='360' src='http://iconosquare.com/widget.php?choice=hashtag&hashtag=riverwest24&show_infos=false&linking=instagram&width=300&height=360&mode=grid&layout_x=3&layout_y=3&padding=3&photo_border=true&background=FFFFFF&text=777777&widget_border=true&radius=3&border-color=DDDDDD&user_id=238850714&time=1406338380362' allowTransparency='true' frameborder='0' scrolling='no' style='border:none; overflow:hidden; width:300px; height:360px;'></iframe>
 .field
   <iframe width='300' height='360' src='http://iconosquare.com/widget.php?choice=hashtag&hashtag=peoplesholiday&show_infos=false&linking=instagram&width=300&height=360&mode=grid&layout_x=3&layout_y=3&padding=3&photo_border=true&background=FFFFFF&text=777777&widget_border=true&radius=3&border-color=DDDDDD&user_id=238850714&time=1406338380362' allowTransparency='true' frameborder='0' scrolling='no' style='border:none; overflow:hidden; width:300px; height:360px;'></iframe>
+
+.field
+  <a class="twitter-timeline" href="https://twitter.com/search?q=%23rw24+OR+%23riverwest24+OR+%23peoplesholiday" data-widget-id="492743751022813184">Tweets about "#rw24 OR #riverwest24 OR #peoplesholiday"</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
 .field
   %h3 Connect
