@@ -61,4 +61,15 @@ namespace :rw24 do
       team.points.create! :category => "Bonus", :qty => bonus, :race => race
     end
   end
+
+  task :incorrect_all_bonuses => :environment do
+    race = Race.find_by_year(2017)
+    teams_with_all_bonuses_bonus = race.teams.select { |team| team.points.bonuses.last.bonus_id == 23 }
+    teams_with_all_bonuses_bonus.select do |team|
+      bonus_ids = team.points.bonuses.map(&:bonus_id)
+      has_tattoo_bonus = bonus_ids.include?(0)
+      doesnt_really_have_all_bonuses = bonus_ids.sort != (1..22).to_a
+      has_tattoo_bonus || doesnt_really_have_all_bonuses
+    end.each { |team| puts [team.position, team.name].to_s }
+  end
 end
