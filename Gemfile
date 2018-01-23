@@ -1,4 +1,9 @@
-source "http://rubygems.org"
+source "https://rubygems.org"
+
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
+end
 
 gem "dotenv-rails"
 gem "rails", "~>4.2.0"
@@ -45,10 +50,9 @@ gem "font-awesome-sass"
 gem "jquery-rails", "~>2.2"
 
 group :development do
+  gem "bard"
   gem "better_errors"
   gem "binding_of_caller"
-  gem "spring-commands-cucumber"
-  gem "spring"
 end
 
 group :test, :development do
