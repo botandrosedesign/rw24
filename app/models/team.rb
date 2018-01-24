@@ -5,7 +5,6 @@ class Team < ActiveRecord::Base
     {
       :a_team       => 2..6,
       :b_team       => 2..6,
-      :b_team       => 2..6,
       :elder_team   => 2..6,
       :solo_male    => 1..1,
       :solo_female  => 1..1,
@@ -58,7 +57,7 @@ class Team < ActiveRecord::Base
   end
 
   def send_confirmation_email!
-    Mailer.confirmation_email(self).deliver
+    Mailer.confirmation_email(self).deliver_now
     update_attribute :confirmation_sent_at, Time.now
   end
 

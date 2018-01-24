@@ -12,6 +12,8 @@ ActiveRecord::Migration.class_eval do
   def add_index *; end
 end
 
+ActiveRecord::Base.raise_in_transactional_callbacks = true
+
 DatabaseCleaner.strategy = :transaction
 silence_stream(STDOUT) do
   load "db/schema.rb"

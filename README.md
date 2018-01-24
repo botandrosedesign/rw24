@@ -31,7 +31,6 @@ View the site at [http://localhost:3000](http://localhost:3000) and follow the i
 * Any javascript unit test coverage at all!
 * Refactoring, especially jquery soup.
 * Bonus model needs to be reworked. Inline JSON is not working out well.
-* Upgrade to Compass 1.0
 * Modernize stylesheets, still using old SASS syntax
 * Extract to Rails Engine for easier reuse for other races?
 
