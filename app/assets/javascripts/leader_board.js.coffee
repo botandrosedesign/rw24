@@ -1,5 +1,14 @@
-$ ->
-  filterCategory = (category) ->
+class CategoryFilter
+  constructor: ->
+    $("#show a").click((event) => @selectCategory(event)).eq(0).click()
+
+  selectCategory: (event) ->
+    event.preventDefault()
+    $el = $(event.target)
+    $el.addClass("current").siblings().removeClass("current")
+    @filterCategory $el.data("category")
+
+  filterCategory: (category) ->
     $rows = if category
       $("#teams tr").hide()
       $("#teams tr.#{category}")
@@ -8,13 +17,6 @@ $ ->
 
     $rows.show().removeClass("even").filter("tr:odd").addClass("even")
     $("#teams_count").html "#{$rows.length} Teams"
-
-  $("#show a").click ->
-    event.preventDefault()
-    $el = $(event.target)
-    $el.addClass("current").siblings().removeClass("current")
-    filterCategory $el.data("category")
-  .eq(0).click()
 
 class Ranker
   constructor: (@categoryLetters) ->
@@ -36,5 +38,6 @@ class Ranker
     $("#teams tr.#{category}").find("td:nth-child(3)").map(-> $(this).text()).toArray()
 
 $ ->
+  new CategoryFilter()
   new Ranker(["A","B","S","M","F","T"])
 
