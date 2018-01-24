@@ -16,29 +16,25 @@ $ ->
     filterCategory $el.data("category")
   .eq(0).click()
 
-$ ->
-  categoryLetters = ["A","B","S","M","F","T"]
+class Ranker
+  constructor: (@categoryLetters) ->
+    @pickLeaders()
+    @pickWinners()
 
-  pickLeaders = ->
-    pickLeader = (category) ->
-      leadersByCategory(category)[0]
+  pickLeaders: ->
+    for letter in @categoryLetters
+      leader = leadersByCategory(letter)[0]
+      $("##{letter.toLowerCase()}_leader").html leader
 
-    for letter in categoryLetters
-      $("##{letter.toLowerCase()}_leader").html pickLeader(letter)
-
-  pickWinners = ->
-    pickWinningThree = (category) ->
-      leadersByCategory(category).slice(0, 3)
-
-    formatWinners = (winners) ->
-      winners.map((winner)-> "<b>#{winner}</b>").join("<br>")
-
-    for letter in categoryLetters
-      $("##{letter.toLowerCase()}_winners").html formatWinners(pickWinningThree(letter))
+  pickWinners: ->
+    for letter in @categoryLetters
+      winningThree = leadersByCategory(letter).slice(0, 3)
+      winners = winningThree.map((winner)-> "<b>#{winner}</b>").join("<br>")
+      $("##{letter.toLowerCase()}_winners").html winners
 
   leadersByCategory = (category) ->
     $("#teams tr.#{category}").find("td:nth-child(3)").map(-> $(this).text()).toArray()
 
-  pickLeaders()
-  pickWinners()
+$ ->
+  new Ranker(["A","B","S","M","F","T"])
 
