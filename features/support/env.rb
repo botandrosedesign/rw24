@@ -5,7 +5,7 @@ require 'cucumber/rails'
 require 'capybara'
 require 'capybara/poltergeist'
 Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new app, :timeout => 90
+  Capybara::Poltergeist::Driver.new app, phantomjs: Phantomjs.path
 end
 Capybara.default_driver = :poltergeist
 

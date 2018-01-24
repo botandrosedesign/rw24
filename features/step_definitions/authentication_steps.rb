@@ -10,10 +10,10 @@ end
 
 Given /^I am logged in as an Admin$/ do
   step 'the "Admin" user account exists'
-  step 'I am on the admin page'
-  step 'I fill in "Email" with "finneus@botandrose.com"'
-  step 'I fill in "Password" with "secret"'
-  step 'I press "Login"'
+  visit "/admin/sites/1" # stupid phantomjs hates double redirects a second time :(
+  fill_in "Email", with: "finneus@botandrose.com"
+  fill_in "Password", with: "secret"
+  click_button "Login"
   step 'I am on the admin overview page'
 end
 

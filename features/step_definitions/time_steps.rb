@@ -1,4 +1,4 @@
-Given 'today is "$time"' do |time|
+Given /^today is "(.+)"$/ do |time|
   Timecop.freeze time
 end
 

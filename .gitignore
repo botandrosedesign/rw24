@@ -13,6 +13,7 @@ config/database.yml
 coverage/**/*
 public/stylesheets/*.css
 *[~]
+.byebug_history
 
 public/userfiles/*
 !public/userfiles/.gitignore
