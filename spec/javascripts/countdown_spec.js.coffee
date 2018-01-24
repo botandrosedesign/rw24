@@ -13,10 +13,10 @@ describe 'countdown', ->
     '''
 
     beforeEach ->
-        countdown.init()
+      new Countdown()
 
     it 'displays the time remaing until the race starts', ->
-        expect($('#readout').text()).toEqual('00:00:59:59')
+        expect($('#readout').text()).toEqual('00:01:00:00')
 
     it 'displays the waiting element', ->
         expect($('waiting').is(":visible")).toBe(true)
@@ -32,10 +32,10 @@ describe 'countdown', ->
     '''
 
     beforeEach ->
-        countdown.init()
+      new Countdown()
 
     it 'displays the time remaining until the race ends', ->
-        expect($('#readout').text()).toEqual('00:01:00:01')
+        expect($('#readout').text()).toEqual('00:01:00:00')
 
     it 'displays the during element', ->
         expect($('during').is(":visible")).toBe(true)
@@ -51,11 +51,12 @@ describe 'countdown', ->
     '''
 
     beforeEach ->
-        countdown.init()
+      new Countdown()
 
     it 'displays the time remaing until the next race starts', ->
-        expect($('#readout').text()).toEqual('363:22:59:59')
+        expect($('#readout').text()).toEqual('363:23:00:00')
 
     it 'displays the waiting element', ->
         expect($('waiting').is(":visible")).toBe(true)
         expect($('during').is(":visible")).toBe(false)
+

@@ -25,25 +25,21 @@
           %h2 Hour Bike Race
           %span.countstart= start_time_format start_time
 
-        %countdown#countdown{now: Time.zone.now.to_s(:rfc822), target: start_time.try(:to_s, :rfc822)}
+        %countdown{now: Time.zone.now.to_s(:rfc822), target: start_time.try(:to_s, :rfc822)}
           %p
-            %waiting.countup The ride starts in:
-            %during.countdown{ :style => "display: none" } It's on! The ride has been going for:
+            %waiting The ride starts in:
+            %during It's on! The ride has been going for:
           #day
-            %b 
-              %days
+            %days
             %span days
           #hrs
-            %b
-              %hours
+            %hours
             %span hrs
           #min
-            %b
-              %minutes
+            %minutes
             %span min
           #sec
-            %b
-              %seconds
+            %seconds
             %span sec
 
         %ul.nav
