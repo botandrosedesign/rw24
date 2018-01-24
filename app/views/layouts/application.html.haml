@@ -23,22 +23,27 @@
         .title
           %h1 Riverwest 24
           %h2 Hour Bike Race
-          %span.countstart{:data => { :countstart => start_time.try(:to_s, :rfc822) } }
-            = start_time_format start_time
-        #countdown{ :style => "visibility: hidden" }
-          %p.countup The ride starts in:
-          %p.countdown{ :style => "display: none" } It's on! The ride has been going for:
+          %span.countstart= start_time_format start_time
+
+        %countdown#countdown{now: Time.zone.now.to_s(:rfc822), target: start_time.try(:to_s, :rfc822)}
+          %p
+            %waiting.countup The ride starts in:
+            %during.countdown{ :style => "display: none" } It's on! The ride has been going for:
           #day
-            %b 00
+            %b 
+              %days
             %span days
           #hrs
-            %b 00
+            %b
+              %hours
             %span hrs
           #min
-            %b 00
+            %b
+              %minutes
             %span min
           #sec
-            %b 00
+            %b
+              %seconds
             %span sec
 
         %ul.nav

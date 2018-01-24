@@ -5,10 +5,10 @@ var countdown = {
     this.oneDay = this.oneHour * 24;
     this.oneYear = this.oneDay * 365;
 
-    this.start = new Date($(".countstart").attr("data-countstart")).valueOf();
+    this.start = new Date($("countdown").attr("target")).valueOf();
     this.finish = this.start + this.oneDay;
     this.next = this.start + this.oneYear;
-    this.now = new Date().valueOf();
+    this.now = new Date($("countdown").attr("now")).valueOf();
 
     this.old_current = null;
 
@@ -31,22 +31,21 @@ var countdown = {
     var countdownMin = Math.floor(diff % self.oneHour / self.oneMinute);
     var countdownSec = Math.floor(diff % self.oneMinute / 1000);
 
-    $("#day b").html(countdownDay < 10 ? "0"+countdownDay.toString() : countdownDay);
-    $("#hrs b").html(countdownHrs < 10 ? "0"+countdownHrs.toString() : countdownHrs);
-    $("#min b").html(countdownMin < 10 ? "0"+countdownMin.toString() : countdownMin);
-    $("#sec b").html(countdownSec < 10 ? "0"+countdownSec.toString() : countdownSec);
+    $("countdown days").html(countdownDay < 10 ? "0"+countdownDay.toString() : countdownDay);
+    $("countdown hours").html(countdownHrs < 10 ? "0"+countdownHrs.toString() : countdownHrs);
+    $("countdown minutes").html(countdownMin < 10 ? "0"+countdownMin.toString() : countdownMin);
+    $("countdown seconds").html(countdownSec < 10 ? "0"+countdownSec.toString() : countdownSec);
 
     var current = self.start < self.now && self.now < self.finish;
     if(current != self.old_current) {
       if(current) {
-        $("#countdown p.countup").hide();
-        $("#countdown p.countdown").show();
+        $("countdown waiting").hide();
+        $("countdown during").show();
       } else {
-        $("#countdown p.countup").show();
-        $("#countdown p.countdown").hide();
+        $("countdown waiting").show();
+        $("countdown during").hide();
       }
     }
-    $("#countdown").css("visibility", "");
     self.old_current = current;
   }
 }
