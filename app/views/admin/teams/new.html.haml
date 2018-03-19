@@ -1,45 +1,65 @@
-= error_messages_for @team, :object_name => "team"
+= error_messages_for @team, object_name: "team"
 
-= form_for @team, :url => [:admin, @site, @race, @team] do |form|
+= form_for [:admin, @site, @race, @team] do |form|
   = form.hidden_field :race_id
   %h2 New Team
 
   %fieldset
     %h4 Team Information
     .field
-      = form.text_field :name, :label => "Team Name"
+      = form.text_field :name, label: "Team Name"
     .field
-      = form.select :category, Team.categories, :class => "sm", :label => true
+      = form.select :category, Team.categories, class: "sm", label: true, tabindex: 1
+
+    = mockup_form_for do |form|
+      .field
+        = form.label :shirt_sizes
+        .shirt-fields
+          .field
+            = form.label :small, "S"
+            = form.number_field :small
+          .field
+            = form.label :medium, "M"
+            = form.number_field :medium
+          .field
+            = form.label :large, "L"
+            = form.number_field :large
+          .field
+            = form.label :x_large, "XL"
+            = form.number_field :x_large
+          .field
+            = form.label :xxx_large, "XXXL"
+            = form.number_field :xxx_large
 
   %fieldset
     %h4 Team Leader Contact Information
     .field
-      = form.text_field :address, :class => "lg", :label => true
+      = form.text_field :address, class: "lg", label: true
     .field
-      = form.text_field :line_2, :class => "lg", :label => true
+      = form.text_field :line_2, class: "lg", label: true
     .field
-      = form.text_field :city, :class => "med", :label => true
-      = form.select :state, State.abbrevs, { :include_blank => "--" }, :class => "sm", :label => true
-      = form.text_field :zip, :class => "sm", :label => true
+      = form.text_field :city, class: "med", label: true, tabindex: 5
+      = form.select :state, State.abbrevs, { include_blank: "--" }, class: "sm", label: true, tabindex: 5
+      = form.text_field :zip, class: "sm", label: true, tabindex: 5
 
   - i = 1
   = form.fields_for :riders do |rider_form|
-    %fieldset{ :id => "rider_#{i}" }
+    %fieldset{ id: "rider_#{i}" }
       %h4
         Rider #{i}
         = "/ Team Leader" if i == 1
       .field
-        = rider_form.text_field :name, :label => true
-        = rider_form.select :shirt, Rider.shirt_sizes, { :include_blank => "--" }, :class => "sm", :label => true
+        = rider_form.text_field :name, label: true, tabindex: 2
       .field
-        = rider_form.text_field :email, :label => true
-        = rider_form.text_field :phone, :label => true
+        = rider_form.text_field :email, label: true
+        = rider_form.text_field :phone, label: true
       .field
-        = rider_form.check_box :paid, :label => "Paid?"
+        = rider_form.check_box :paid, label: "Paid?"
       .field
-        = rider_form.text_field :payment_type, :label => "Payment type"
+        = rider_form.text_field :payment_type, label: "Payment type"
     - i += 1
 
   %hr
 
-  - save_or_cancel_links form, :cancel_url => [:admin, @site, @race, :teams]
+  - save_or_cancel_links form, cancel_url: [:admin, @site, @race, :teams]
+

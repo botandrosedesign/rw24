@@ -19,6 +19,8 @@ Feature: Admins can manage teams
 
     When I fill in "Team Name" with "Bot and Rose Design"
     And I select "A Team" from "Category"
+    And I fill in "Large" with "2"
+    And I fill in "Extra large" with "1"
 
     And I fill in "Address" with "625 NW Everett St"
     And I fill in "Line 2" with "#347"
@@ -29,17 +31,14 @@ Feature: Admins can manage teams
     And I fill in "Name" with "Micah Geisel" within the first rider
     And I fill in "Email" with "micah@botandrose.com" within the first rider
     And I fill in "Phone" with "937.269.2023" within the first rider
-    # And I select "S" from "Shirt Size" within the first rider
     And I fill in "Payment type" with "Cash" within the first rider
     And I check "Paid?" within the first rider
 
     And I fill in "Name" with "Michael Gubitosa" within the second rider
     And I fill in "Email" with "gubs@botandrose.com" within the second rider
-    # And I select "M" from "Shirt Size" within the second rider
 
     And I fill in "Name" with "Nick Hogle" within the third rider
     And I fill in "Email" with "nick@botandrose.com" within the third rider
-    # And I select "L" from "Shirt Size" within the third rider
 
     And I press "Save"
     Then I should see "The team has been created."
@@ -64,6 +63,7 @@ Feature: Admins can manage teams
 
     And I select "Tandem" from "Category"
     And I fill in "Team Name" with "Bog and Rat Defeat"
+    And I fill in "Small" with "3"
     And I fill in "Address" with "2907 Old Troy Pike"
     And I fill in "Line 2" with ""
     And I fill in "City" with "Dayton"

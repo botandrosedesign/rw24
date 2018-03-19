@@ -7,6 +7,26 @@
     .field= form.select :category, Team.categories, class: "sm", label: true
     .field= form.text_field :name, label: "Team Name", class: "xlarge"
 
+    = mockup_form_for do |form|
+      .field
+        = form.label :shirt_sizes
+        .shirt-fields
+          .field
+            = form.label :small, "S"
+            = form.number_field :small
+          .field
+            = form.label :medium, "M"
+            = form.number_field :medium
+          .field
+            = form.label :large, "L"
+            = form.number_field :large
+          .field
+            = form.label :x_large, "XL"
+            = form.number_field :x_large
+          .field
+            = form.label :xxx_large, "XXXL"
+            = form.number_field :xxx_large
+
   %fieldset
     %h4 Riders
     - i = 1
@@ -22,7 +42,6 @@
           .field= rider_form.text_field :name, label: true
           .field= rider_form.text_field :email, label: true
           .field= rider_form.text_field :phone, label: true
-          .field= rider_form.select :shirt, Rider.shirt_sizes, label: "Shirt Size"
 
         - if i == 1
           %fieldset.half
@@ -52,3 +71,4 @@
 
   %hr
   - save_or_cancel_links form, cancel_url: [:admin, @site, @race, :teams]
+
