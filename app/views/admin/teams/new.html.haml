@@ -7,21 +7,21 @@
   %fieldset
     %h4 Team Information
     .field
-      = form.text_field :name, :label => "Team Name", :tabindex => 1
+      = form.text_field :name, :label => "Team Name"
     .field
-      = form.select :category, Team.categories, :class => "sm", :label => true, :tabindex => 1
+      = form.select :category, Team.categories, :class => "sm", :label => true
 
   %fieldset
     %h4 Team Leader Contact Information
     .field
-      = form.text_field :address, :class => "lg", :label => true, :tabindex => 5
+      = form.text_field :address, :class => "lg", :label => true
     .field
-      = form.text_field :line_2, :class => "lg", :label => true, :tabindex => 5
+      = form.text_field :line_2, :class => "lg", :label => true
     .field
-      = form.text_field :city, :class => "med", :label => true, :tabindex => 5
-      = form.select :state, State.abbrevs, { :include_blank => "--" }, :class => "sm", :label => true, :tabindex => 5
-      = form.text_field :zip, :class => "sm", :label => true, :tabindex => 5
-      
+      = form.text_field :city, :class => "med", :label => true
+      = form.select :state, State.abbrevs, { :include_blank => "--" }, :class => "sm", :label => true
+      = form.text_field :zip, :class => "sm", :label => true
+
   - i = 1
   = form.fields_for :riders do |rider_form|
     %fieldset{ :id => "rider_#{i}" }
@@ -29,15 +29,15 @@
         Rider #{i}
         = "/ Team Leader" if i == 1
       .field
-        = rider_form.text_field :name, :label => true, :tabindex => 2
-        = rider_form.select :shirt, Rider.shirt_sizes, { :include_blank => "--" }, :class => "sm", :label => true, :tabindex => 4
+        = rider_form.text_field :name, :label => true
+        = rider_form.select :shirt, Rider.shirt_sizes, { :include_blank => "--" }, :class => "sm", :label => true
       .field
-        = rider_form.text_field :email, :label => true, :tabindex => 2
-        = rider_form.text_field :phone, :label => true, :tabindex => 7
+        = rider_form.text_field :email, :label => true
+        = rider_form.text_field :phone, :label => true
       .field
-        = rider_form.check_box :paid, :label => "Paid?", :tabindex => 6
+        = rider_form.check_box :paid, :label => "Paid?"
       .field
-        = rider_form.text_field :payment_type, :label => "Payment type", :tabindex => 6
+        = rider_form.text_field :payment_type, :label => "Payment type"
     - i += 1
 
   %hr
