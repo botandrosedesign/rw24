@@ -35,6 +35,9 @@ module HtmlSelectorsHelpers
     when /the "(.+?)" checkpoint/
       [".bonuses tr, #bonuses tr", text: $1]
 
+    when /the popup/
+      "#cee_box"
+
     else
       raise "Can't find mapping from \"#{locator}\" to a selector.\n" +
         "Now, go and add a mapping in #{__FILE__}"

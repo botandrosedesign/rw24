@@ -107,13 +107,20 @@ Feature: Admin can manage team scoring
       | 001   | 00:15:00    | 00:15:00  | Lap   | 1   | 2   | BARD      |
       | 001   | 00:30:00    | 00:15:00  | Lap   | 1   | 2   | BARD      |
 
-  Scenario: Refuses an invalid lap
+  Scenario: Refuses an invalid lap but has opportunity to correct
     When I wait for 900 seconds
     And I fill in "Input Team Number:" with "10"
     And I press "OK" within the new lap form
     Then I should see the following laps:
       | POS# | WHEN        | SINCE | TYPE | AMT | TOT       | TEAM NAME                   |
       | 010  | NaN:NaN:NaN |       | Lap  | 1   | Saving... | Team position doesn't exist |
+
+    When I follow "Edit"
+    And I fill in "POS#" with "1" within the popup
+    And I press "Update"
+    Then I should see the following laps:
+      | POS#  | WHEN        | SINCE     | TYPE  | AMT | TOT | TEAM NAME |
+      | 001   | 00:15:00    | 00:15:00  | Lap   | 1   | 1   | BARD      |
 
   Scenario: Bonus checkpoint folks can log bonus laps
     Given the race has the tattoo bonus checkpoint
