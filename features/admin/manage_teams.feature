@@ -3,18 +3,18 @@ Feature: Admins can manage teams
     Given today is "2010-06-19"
     And a race exists for 2010
     And a solo team exists with name: "Bot and Rose Design"
-    And a rider exists with name: "Micah Geisel", team: that team
+    And a rider exists with name: "Micah Geisel", team: "Bot and Rose Design"
     And I am logged in as an admin
 
   Scenario: An Admin views all teams
     When I follow "Races"
     Then I should see 1 team
     And I should see "Bot and Rose Design"
-    # And I should see "Micah Geisel"
+    And I should see "Micah Geisel"
 
   Scenario: An admin creates a new team with three members
     When I follow "Races"
-    And I follow "New"
+    And I follow "New Team"
 
     When I fill in "Team Name" with "Bot and Rose Design"
     And I select "A Team" from "Category"
@@ -69,7 +69,7 @@ Feature: Admins can manage teams
 
   Scenario: An Admin deletes a team
     When I follow "Races"
-    And I follow "Delete"
+    And I follow "Delete" within the "Bot and Rose Design" team
     Then I should see 0 teams
     And I should not see "Bot and Rose Design"
 
@@ -77,6 +77,6 @@ Feature: Admins can manage teams
     When I follow "Races"
     And I follow "Edit" within the "Bot and Rose Design" team
 
-    When I follow "Delete"
+    When I follow "Delete Team"
     Then I should see no teams
     And I should not see "Bot and Rose Design"

@@ -18,18 +18,18 @@ module Menus
 
         menu :actions, :class => 'actions' do
           if @teams
-            item :export, :content => link_to("Export", admin_site_race_teams_path(@site, @race, :format => :csv))
-            item :settings, :content => link_to("Settings", [:edit, :admin, @site, @race])
-          end
-          if @team or @teams
-            item :new, :content => link_to_current("New", [:new, :admin, @site, @race, :team])
-            if @team and !@team.new_record?
-              item :delete, :content => link_to("Delete", [:admin, @site, @race, @team], :method => :delete)
-            end
-          elsif @rider and !@rider.new_record?
-            item :delete, :content => link_to("Delete", [:admin, @site, @race, @team, @rider], :method => :delete)
+            item :export, :content => link_to("Export Teams", admin_site_race_teams_path(@site, @race, :format => :csv))
+            item :settings, :content => link_to("Edit Race", [:edit, :admin, @site, @race])
           end
           item :new_race, :content => link_to_current("New Race", [:new, :admin, @site, :race])
+          if @team or @teams
+            item :new, :content => link_to_current("New Team", [:new, :admin, @site, @race, :team])
+            if @team and !@team.new_record?
+              item :delete, :content => link_to("Delete Team", [:admin, @site, @race, @team], :method => :delete)
+            end
+          elsif @rider and !@rider.new_record?
+            item :delete, :content => link_to("Delete Rider", [:admin, @site, @race, @team, @rider], :method => :delete)
+          end
         end
       end
 

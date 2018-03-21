@@ -9,27 +9,32 @@ class Admin::RacesController < Admin::BaseController
 
   def new
     @race = Race.new
+    render :form
   end
 
   def edit
-    @race = Race.find params[:id]
+    @race = Race.find(params[:id])
+    render :form
   end
 
   def create
-    @race = Race.new params[:race]
+    @race = Race.new(params[:race])
     if @race.save
       @site.touch # expire all cached pages
-      redirect_to [:admin, @site, @race, :teams], :notice => "Race created!"
+      redirect_to [:admin, @site, @race, :teams], notice: "Race created!"
     else
-      render :new
+      render :form
     end
   end
 
   def update
-    @race = Race.find params[:id]
-    @race.update_attributes params[:race]
-    @site.touch # expire all cached pages
-    redirect_to [:admin, @site, @race, :teams]
+    @race = Race.find(params[:id])
+    if @race.update(params[:race])
+      @site.touch # expire all cached pages
+      redirect_to [:admin, @site, @race, :teams], notice: "Race updated!"
+    else
+      render :form
+    end
   end
 
   private

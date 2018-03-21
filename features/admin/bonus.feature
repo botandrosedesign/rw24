@@ -11,7 +11,7 @@ Feature: Admin can manage team bonuses
     Given I am logged in as an admin
     When I follow "Races"
     And I follow "2020"
-    And I follow "Settings" within the admin subnav
+    And I follow "Edit Race" within the admin subnav
 
   Scenario: Admin can add bonus checkpoints
     When I follow "+ Add a Checkpoint"

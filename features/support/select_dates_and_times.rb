@@ -18,8 +18,8 @@ module Cucumber
           time        = Time.zone.parse(time)
           base_dom_id = get_base_dom_id_from_label_tag(options[:from])
 
-          find(:xpath, ".//select[@id='#{base_dom_id}_4i']").select(time.hour.to_s.rjust(2, '0'))
-          find(:xpath, ".//select[@id='#{base_dom_id}_5i']").select(time.min.to_s.rjust(2,  '0'))
+          find(:xpath, ".//select[@id='#{base_dom_id}_4i']").select(time.strftime("%m %p"))
+          find(:xpath, ".//select[@id='#{base_dom_id}_5i']").select(time.min.to_s.rjust(2, '0'))
         end
       
         # Select a Rails datetime. Options has must include :from => +label+
