@@ -9,10 +9,6 @@ class Admin::TeamsController < Admin::BaseController
     @teams = @race.teams
   end
   
-  def show
-    @team = @race.teams.find(params[:id])
-  end
-
   def new
     @team = @race.teams.build
     6.times { @team.riders << Rider.new }

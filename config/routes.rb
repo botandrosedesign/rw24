@@ -22,7 +22,7 @@ Rails.application.routes.draw do
         resources :bonuses do
           post :delete_all, on: :collection
         end
-        resources :teams do
+        resources :teams, except: :show do
           post :send_confirmation_emails, :on => :collection
           resources :riders, only: [:new, :create, :destroy]
         end
