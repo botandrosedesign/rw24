@@ -1,27 +1,35 @@
 Given /^the following race teams exist:/ do |table|
-  table.hashes.each do |row|
-    team = FactoryGirl.build :team,
-      name: row["Name"],
-      category: row["Class"]
+  table.create! factory_girl: :team do
+    underscore_keys
 
-    team.riders.build FactoryGirl.attributes_for(:rider, :name => row["Leader Name"], :email => row["Leader Email"])
-    team.riders.build FactoryGirl.attributes_for(:rider, :email => row["Rider 1 Email"]) if row["Rider 1 Email"].present?
-    team.riders.build FactoryGirl.attributes_for(:rider, :email => row["Rider 2 Email"]) if row["Rider 2 Email"].present?
+    field(:race) { Race.last }
 
-    team.save!
+    rename :pos => :position
+    rename :class => :category
+
+    transformation do |attributes|
+      def rider_from_email email, **attrs
+        FactoryGirl.attributes_for(:rider, email: email, **attrs) if email.present?
+      end
+
+      attributes.merge(riders_attributes: [
+        rider_from_email(attributes.delete(:leader_email), name: attributes.delete(:leader_name)),
+        rider_from_email(attributes.delete(:rider_1_email)),
+        rider_from_email(attributes.delete(:rider_2_email)),
+      ].compact)
+    end
   end
 end
 
-Then /^I should see the following teams:$/ do |table|
-  tableish = find("table").all("tr").map { |row| row.all("th, td").map { |cell| cell.text.strip }[0..-2] }
-  table.diff! tableish
+Then "I should see the following teams:" do |table|
+  table.diff!
 end
 
 Then /^I should see (\d+|no) teams?$/ do |count|
   if %w(0 no).include? count
     page.should_not have_css("table.list tbody tr")
   else
-    page.should have_css("table.list tbody tr", :count => count.to_i)
+    page.should have_css("table.list tbody tr", count: count.to_i)
   end
 end
 

@@ -4,9 +4,9 @@ Feature: Admin can manage team bonuses
     And a race exists for 2020
 
     Given the following race teams exist:
-      | POS# | Name | Class         |
-      | 001  | BARD | Solo (male)   |
-      | 002  | BORG | Solo (female) |
+      | POS# | Name | Class         | Leader Name | Leader Email          |
+      | 001  | BARD | Solo (male)   | Micah       | micah@riverwest24.com |
+      | 002  | BORG | Solo (female) | Julie       | julie@riverwest24.com |
 
     Given I am logged in as an Admin
     When I follow "Races"
@@ -43,7 +43,7 @@ Feature: Admin can manage team bonuses
 
     When I follow "BARD"
     Then I should see the following bonuses:
-      | - BONUSES             |
+      | BONUSES               |
       | ✓ 0 - Example Bonus   |
       | - 1 - Another Bonus   |
 
@@ -51,7 +51,7 @@ Feature: Admin can manage team bonuses
     When I follow "Delete Score" within the "0 - Example Bonus" checkpoint
     #And I confirm deletion
     Then I should see the following bonuses:
-      | - BONUSES             |
+      | BONUSES               |
       | - 0 - Example Bonus   |
       | - 1 - Another Bonus   |
 

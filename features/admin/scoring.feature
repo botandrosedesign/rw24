@@ -4,9 +4,9 @@ Feature: Admin can manage team scoring
     And a race exists for 2020
 
     Given the following race teams exist:
-      | POS# | Name | Class         |
-      | 001  | BARD | Solo (male)   |
-      | 002  | BORG | Solo (female) |
+      | POS# | Name | Class         | Leader Name | Leader Email          |
+      | 001  | BARD | Solo (male)   | Micah       | micah@riverwest24.com |
+      | 002  | BORG | Solo (female) | Julie       | julie@riverwest24.com |
 
     Given I am logged in as an Admin
     And I am on the points page

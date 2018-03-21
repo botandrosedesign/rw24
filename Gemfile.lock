@@ -103,6 +103,10 @@ GEM
       actionpack (>= 3.0)
       railties (>= 3.0)
       uber (~> 0.0.8)
+    chop (0.20.1)
+      activerecord
+      capybara
+      cucumber
     chunky_png (1.3.8)
     cliver (0.3.2)
     coderay (1.1.2)
@@ -413,6 +417,7 @@ DEPENDENCIES
   byebug
   capybara
   cells (~> 3.0)
+  chop
   coffee-rails
   compass
   compass-rails

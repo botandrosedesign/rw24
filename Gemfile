@@ -72,6 +72,7 @@ group :test do
   gem "email_spec"
   gem "factory_girl_rails"
   gem "faker"
+  gem "chop"
   gem "timecop"
   gem "coveralls", require: false
 end
