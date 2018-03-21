@@ -83,16 +83,37 @@ Feature: Admin can manage team scoring
       | 001  | M      | BARD      | 01      | 04         | --    | --      | 01    |
       |      |        |           | 2 LAPS! | 9.2 MILES! |       |         |       |
 
-  #Scenario: Admin splits a lap
+  Scenario: Admin splits a lap
+    When I wait for 1800 seconds
+    And I fill in "Input Team Number:" with "1"
+    And I press "OK" within the new lap form
+    Then I should see the following laps:
+      | POS#  | WHEN        | SINCE     | TYPE  | AMT | TOT | TEAM NAME |
+      | 001   | 00:30:00    | 00:30:00  | Lap   | 1   | 1   | BARD      |
+
+    Given I am on the leaderboard page
     When I follow "BARD"
     And I follow "Split" within lap 1
-    Given I am on the points page
+    # And I confirm
+    Then I should see the following leaderboard:
+      | POS# | CLASS | TEAM NAME | LAPS    | MILES      | BONUS | PENALTY | TOTAL |
+      | 001  | M     | BARD      | 02      | 09         | --    | --      | 02    |
+      | 002  | F     | BORG      | --      | --         | --    | --      | --    |
+      |      |       |           | 2 LAPS! | 9.2 MILES! |       |         |       |
 
+    Given I am on the points page
     Then I should see the following laps:
       | POS#  | WHEN        | SINCE     | TYPE  | AMT | TOT | TEAM NAME |
       | 001   | 00:15:00    | 00:15:00  | Lap   | 1   | 2   | BARD      |
       | 001   | 00:30:00    | 00:15:00  | Lap   | 1   | 2   | BARD      |
-      | 002   | 00:35:00    | 00:35:00  | Lap   | 1   | 1   | BORG      |
+
+  Scenario: Refuses an invalid lap
+    When I wait for 900 seconds
+    And I fill in "Input Team Number:" with "10"
+    And I press "OK" within the new lap form
+    Then I should see the following laps:
+      | POS# | WHEN        | SINCE | TYPE | AMT | TOT       | TEAM NAME                   |
+      | 010  | NaN:NaN:NaN |       | Lap  | 1   | Saving... | Team position doesn't exist |
 
   Scenario: Bonus checkpoint folks can log bonus laps
     Given the race has the tattoo bonus checkpoint

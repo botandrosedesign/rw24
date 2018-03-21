@@ -56,7 +56,7 @@ class PointsController < BaseController
   def split
     @point = Point.find(params[:id])
     @point.split_behind!
-    redirect_to point_path(@point.team.position), notice: "Lap split into two laps"
+    redirect_to leader_board_path(year: @race.year, position: @point.team.position), notice: "Lap split into two laps"
   end
 
   def update

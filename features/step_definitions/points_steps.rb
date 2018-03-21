@@ -10,7 +10,7 @@ Then "I should see the following laps:" do |table|
 end
 
 Then "I should see the following leaderboard:" do |table|
-  table.diff!
+  table.diff! "#leader-board"
 end
 
 Then "I should see the following bonuses:" do |table|
