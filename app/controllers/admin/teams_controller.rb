@@ -10,7 +10,7 @@ class Admin::TeamsController < Admin::BaseController
   end
   
   def show
-    @team = @race.teams.find params[:id]
+    @team = @race.teams.find(params[:id])
   end
 
   def new
@@ -19,48 +19,41 @@ class Admin::TeamsController < Admin::BaseController
   end
 
   def edit
-    @team = @race.teams.find params[:id]
+    @team = @race.teams.find(params[:id])
   end
 
   def create
     @team = @race.teams.build(params[:team])
     if @team.save
-      flash[:notice] = "The team has been created."
-      redirect_to [:edit, :admin, @site, @race, @team]
+      redirect_to [:edit, :admin, @site, @race, @team], notice: "The team has been created."
     else
       until @team.riders.length == 6
         @team.riders << Rider.new
       end
-      flash.now[:error] = "The team could not be created."
-      render :action => :new
+      flash.now.alert = errors_for(@team)
+      render action: :new
     end
   end
 
   def update
-    @team = @race.teams.find params[:id]
-    if @team.update_attributes(params[:team])
-      flash[:notice] = "The team has been updated."
-      redirect_to [:edit, :admin, @site, @race, @team]
+    @team = @race.teams.find(params[:id])
+    if @team.update(params[:team])
+      redirect_to [:edit, :admin, @site, @race, @team], notice: "The team has been updated."
     else
-      flash.now[:error] = "The team could not be updated."
-      render :action => :edit
+      flash.now.alert = errors_for(@team)
+      render action: :edit
     end
   end
 
   def destroy
-    @team = @race.teams.find params[:id]
-    if @team.destroy
-      flash[:notice] = "The team has been destroyed."
-      redirect_to [:admin, @site, @race, :teams]
-    else
-      flash.now[:error] = "The team could not be destroyed."
-      render :action => :edit
-    end
+    @team = @race.teams.find(params[:id])
+    @team.destroy
+    redirect_to [:admin, @site, @race, :teams], notice: "The team has been destroyed."
   end
 
   def send_confirmation_emails
     Team.send_confirmation_email_by_ids params[:team_ids]
-    redirect_to [:admin, @site, @race, :teams], :notice => "Confirmation emails sending!"
+    redirect_to [:admin, @site, @race, :teams], notice: "Confirmation emails sending!"
   end
 
   private
@@ -70,7 +63,7 @@ class Admin::TeamsController < Admin::BaseController
   end
 
   def set_race
-    @race = Race.find params[:race_id]
+    @race = Race.find(params[:race_id])
   end
 
   def authorize_access

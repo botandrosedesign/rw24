@@ -1,3 +1,11 @@
+Given /^a solo team exists with name: "(.*?)"$/ do |name|
+  FactoryGirl.create :team_solo, name: name
+end
+
+Given /^a team exists with name: "(.*?)"$/ do |name|
+  FactoryGirl.create :team_a, name: name
+end
+
 Given /^the following race teams exist:/ do |table|
   table.create! factory_girl: :team do
     underscore_keys

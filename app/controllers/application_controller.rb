@@ -11,6 +11,13 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def errors_for *records, preamble: "There were error(s):"
+    [
+      preamble,
+      records.map(&:errors).flat_map(&:full_messages).join(", "),
+    ].join(" ")
+  end
+
   def guess_section
     permalink = request.fullpath.split("/").second
     @section = Section.find_by_permalink permalink

@@ -1,13 +1,5 @@
-Given /^a solo team exists with name: "(.*?)"$/ do |name|
-  FactoryGirl.create :team_solo, name: name
-end
-
 Given /^a rider exists with name: "(.*?)", team: "(.+?)"$/ do |name, team_name|
   FactoryGirl.create :rider, name: name, team: Team.find_by_name!(team_name)
-end
-
-Given /^a team exists with name: "(.*?)"$/ do |name|
-  FactoryGirl.create :team_a, name: name
 end
 
 Then "I should see the following leader:" do |table|
