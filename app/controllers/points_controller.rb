@@ -15,27 +15,27 @@ class PointsController < BaseController
   end
 
   def bonus
-    @checkpoint = Bonus.find_by_race_and_key @race, params[:key]
-    @bonuses = @race.points.where(:category => "Bonus", :bonus_id => @checkpoint.id).limit(100)
+    @checkpoint = Bonus.find_by_race_and_key(@race, params[:key])
+    @bonuses = @race.points.where(category: "Bonus", bonus_id: @checkpoint.id).limit(100)
     @bonus = Point.new_bonus
   end
 
   def show
-    @team = @race.teams.find_by_position params[:id]
+    @team = @race.teams.find_by_position(params[:id])
     render "teams/show"
   end
 
   def new
     @point = Point.new :race => @race
     @point.attributes = params[:point]
-    @point.valid?
-    render :action => "form", :layout => false
+    @point.validate
+    render action: "form", layout: false
   end
 
   def edit
     @point = Point.find(params[:id])
-    @point.valid?
-    render :action => "form", :layout => false
+    @point.validate
+    render action: "form", layout: false
   end
 
   def create
@@ -47,7 +47,7 @@ class PointsController < BaseController
         wants.js { render @point }
         wants.html { redirect_to point_path(@point.team.position) }
       else
-        wants.js { render :text => @point.errors.full_messages.join(", "), :status => 406 }
+        wants.js { render text: @point.errors.full_messages.join(", "), status: 406 }
         wants.html { render :new }
       end
     end
@@ -63,11 +63,11 @@ class PointsController < BaseController
     @point = Point.find(params[:id])
 
     respond_to do |wants|
-      if @point.update_attributes(params[:point])
+      if @point.update(params[:point])
         wants.js { render @point }
         wants.html { redirect_to point_path(@point.team.position) }
       else
-        wants.js { render :text => @point.errors.full_messages.join(", "), :status => 407 }
+        wants.js { render text: @point.errors.full_messages.join(", "), status: 407 }
         wants.html { render :edit }
       end
     end
@@ -75,15 +75,11 @@ class PointsController < BaseController
 
   def destroy
     @point = Point.find(params[:id])
+    @point.destroy
 
     respond_to do |wants|
-      if @point.destroy
-        wants.js { head(200) }
-        wants.html { redirect_to point_path(@point.team.position) }
-      else
-        wants.js { head(500) }
-        wants.html { redirect_to point_path(@point.team.position) }
-      end
+      wants.js { head(200) }
+      wants.html { redirect_to point_path(@point.team.position) }
     end
   end
 
@@ -92,14 +88,14 @@ class PointsController < BaseController
   rescue AllBonusesException => error
     cookies[:flash_error] = error.message
   ensure
-    redirect_to points_path
+    redirect_to :points
   end
 
   private
 
   def authorize_access
     return true if current_user.try(:has_role?, :superuser)
-    return true if Bonus.find_by_race_and_key @race, params[:key]
+    return true if Bonus.find_by_race_and_key(@race, params[:key])
     redirect_to admin_sites_url
   end
 
@@ -107,3 +103,4 @@ class PointsController < BaseController
     @race = Race.current
   end
 end
+

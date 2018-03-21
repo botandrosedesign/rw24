@@ -43,7 +43,7 @@ Feature: Admin can manage team bonuses
     When I follow "Bonus Form" within the "Example Bonus" checkpoint
     And I fill in "Team #" with "1"
     And I press "OK"
-    Then I should see the following laps:
+    Then I should see the following bonus entries:
       | POS#  | WHEN     | SINCE    | TYPE     | AMT | TOT | TEAM NAME |
       | 001   | 00:00:00 | 00:00:00 | Bonus 0  |  2  | 0   | BARD      |
 
@@ -57,7 +57,7 @@ Feature: Admin can manage team bonuses
       | 1 | BARD | 2 |
 
     Given I am on the leaderboard page
-    Then I should see the following laps:
+    Then I should see the following leaderboard:
       | POS# | CLASS  | TEAM NAME | LAPS    | MILES      | BONUS | PENALTY | TOTAL |
       | 001  | M      | BARD      | --      | --         | 02    | --      | 02    |
       | 002  | F      | BORG      | --      | --         | --    | --      | --    |

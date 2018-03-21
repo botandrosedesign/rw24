@@ -13,7 +13,7 @@ Feature: Admin can manage team scoring
 
   Scenario: Existing laps
     Given I am on the leaderboard page
-    Then I should see the following laps:
+    Then I should see the following leaderboard:
       | POS# | CLASS  | TEAM NAME | LAPS    | MILES      | BONUS | PENALTY | TOTAL |
       | 002  | F      | BORG      | --      | --         | --    | --      | --    |
       | 001  | M      | BARD      | --      | --         | --    | --      | --    |
@@ -44,21 +44,40 @@ Feature: Admin can manage team scoring
       | 001   | 00:30:00    | 00:15:00  | Lap   | 1   | 2   | BARD      |
       | 001   | 00:15:00    | 00:15:00  | Lap   | 1   | 1   | BARD      |
 
-
     Given I am on the leaderboard page
-    Then I should see the following laps:
+    Then I should see the following leaderboard:
       | POS# | CLASS  | TEAM NAME | LAPS    | MILES       | BONUS | PENALTY | TOTAL |
       | 001  | M      | BARD      | 02      | 09          | --    | --      | 02    |
       | 002  | F      | BORG      | 01      | 04          | --    | --      | 01    |
       |      |        |           | 3 LAPS! | 13.8 MILES! |       |         |       |
 
+  #Scenario: Admin edits a lap
+    When I follow "BARD"
+    And I follow "Edit" within lap 1
+    And I fill in "When" with "00:14:00"
+    And I press "Update"
+    And I follow "Back to Leader Board"
+
+    Then I should see the following leaderboard:
+      | POS# | CLASS  | TEAM NAME | LAPS    | MILES       | BONUS | PENALTY | TOTAL |
+      | 001  | M      | BARD      | 02      | 09          | --    | --      | 02    |
+      | 002  | F      | BORG      | 01      | 04          | --    | --      | 01    |
+      |      |        |           | 3 LAPS! | 13.8 MILES! |       |         |       |
+
+    Given I am on the points page
+    Then I should see the following laps:
+      | POS#  | WHEN        | SINCE     | TYPE  | AMT | TOT | TEAM NAME |
+      | 001   | 00:14:00    | 00:14:00  | Lap   | 1   | 2   | BARD      |
+      | 001   | 00:30:00    | 00:16:00  | Lap   | 1   | 2   | BARD      |
+      | 002   | 00:35:00    | 00:35:00  | Lap   | 1   | 1   | BORG      |
+
   #Scenario: Admin removes a lap
+    Given I am on the leaderboard page
     When I follow "BARD"
     And I follow "Delete" within lap 1
     #And I confirm deletion
-    Given I am on the leaderboard page
-
-    Then I should see the following laps:
+    And I follow "Back to Leader Board"
+    Then I should see the following leaderboard:
       | POS# | CLASS  | TEAM NAME | LAPS    | MILES      | BONUS | PENALTY | TOTAL |
       | 002  | F      | BORG      | 01      | 04         | --    | --      | 01    |
       | 001  | M      | BARD      | 01      | 04         | --    | --      | 01    |

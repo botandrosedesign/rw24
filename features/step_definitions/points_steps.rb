@@ -6,6 +6,10 @@ end
 
 Then "I should see the following laps:" do |table|
   wait_for_ajax
+  table.diff! ".point-tracker"
+end
+
+Then "I should see the following leaderboard:" do |table|
   table.diff!
 end
 
@@ -21,6 +25,11 @@ Then "I should see the following bonuses:" do |table|
 end
 
 Then "I should see the following team bonuses:" do |table|
+  wait_for_ajax
+  table.diff!
+end
+
+Then "I should see the following bonus entries:" do |table|
   wait_for_ajax
   table.diff!
 end
