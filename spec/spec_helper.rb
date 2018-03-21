@@ -1,5 +1,4 @@
-require "coveralls"
-Coveralls.wear_merged!("rails")
+require_relative "./coverage_setup"
 
 RSpec.configure do |config|
   # These two settings work together to allow you to limit a spec run

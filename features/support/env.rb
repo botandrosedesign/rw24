@@ -1,6 +1,4 @@
-require "coveralls"
-Coveralls.wear_merged!("rails")
-
+require './spec/coverage_setup'
 require 'cucumber/rails'
 require 'capybara'
 require 'capybara/poltergeist'
