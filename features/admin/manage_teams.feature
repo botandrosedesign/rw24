@@ -4,7 +4,7 @@ Feature: Admins can manage teams
     And a race exists for 2010
     And a solo team exists with name: "Bot and Rose Design"
     And a rider exists with name: "Micah Geisel", team: that team
-    And I am logged in as an Admin
+    And I am logged in as an admin
 
   Scenario: An Admin views all teams
     When I follow "Races"

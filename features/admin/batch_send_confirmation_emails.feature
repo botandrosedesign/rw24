@@ -10,7 +10,7 @@ Feature: Admins can batch send confirmation emails to teams
       | Bot and Rose Design | A Team      | Micah Geisel | info@botandrose.com      | micah@botandrose.com | gubs@botandrose.com |
       | Bog and Rat Defeat  | B Team      | Hacim Leseig | info@bogandrat.com       | micah@bogandrat.com  | gubs@bogandrat.com  |
       | Micah               | Solo (male) | Micah Diesel | originofstorms@gmail.com | | |
-    And I am logged in as an Admin
+    And I am logged in as an admin
 
     When I follow "Races"
     Then I should see the following teams:

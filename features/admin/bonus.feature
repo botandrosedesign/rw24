@@ -8,7 +8,7 @@ Feature: Admin can manage team bonuses
       | 001  | BARD | Solo (male)   | Micah       | micah@riverwest24.com |
       | 002  | BORG | Solo (female) | Julie       | julie@riverwest24.com |
 
-    Given I am logged in as an Admin
+    Given I am logged in as an admin
     When I follow "Races"
     And I follow "2020"
     And I follow "Settings" within the admin subnav

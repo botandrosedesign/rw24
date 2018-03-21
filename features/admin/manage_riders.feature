@@ -6,14 +6,14 @@ Feature: Admins can manage riders
   Scenario: An Admin views all riders
     Given a solo team exists with name: "Bot and Rose Design"
     And a rider exists with name: "Micah Geisel", team: that team
-    And I am logged in as an Admin
+    And I am logged in as an admin
     When I follow "Races"
     And I follow "Edit" within the "Bot and Rose Design" team
     Then I should see "Micah Geisel"
 
   Scenario: An Admin edits all riders
     Given a team exists with name: "Bot and Rose Design"
-    And I am logged in as an Admin
+    And I am logged in as an admin
     When I follow "Races"
     And I follow "Edit" within the "Bot and Rose Design" team
     
@@ -56,7 +56,7 @@ Feature: Admins can manage riders
 
   Scenario: An Admin creates a rider
     Given a team exists with name: "Bot and Rose Design"
-    And I am logged in as an Admin
+    And I am logged in as an admin
     When I follow "Races"
     And I follow "Edit" within the "Bot and Rose Design" team
     And I follow "Add a rider"
@@ -80,7 +80,7 @@ Feature: Admins can manage riders
   Scenario: An Admin edits a rider
     Given a solo team exists with name: "Bot and Rose Design"
     And a rider exists with name: "Micah Geisel", team: that team
-    And I am logged in as an Admin
+    And I am logged in as an admin
     When I follow "Races"
     And I follow "Edit" within the "Bot and Rose Design" team
     And I follow "Micah Geisel"
@@ -104,7 +104,7 @@ Feature: Admins can manage riders
   Scenario: An admin deletes a rider
     Given a solo team exists with name: "Bot and Rose Design"
     And a rider exists with name: "Micah Geisel", team: that team
-    And I am logged in as an Admin
+    And I am logged in as an admin
     When I follow "Races"
     And I follow "Edit" within the "Bot and Rose Design" team
     And I follow "Delete Micah Geisel"

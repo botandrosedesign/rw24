@@ -8,7 +8,7 @@ Feature: Admin can manage team scoring
       | 001  | BARD | Solo (male)   | Micah       | micah@riverwest24.com |
       | 002  | BORG | Solo (female) | Julie       | julie@riverwest24.com |
 
-    Given I am logged in as an Admin
+    Given I am logged in as an admin
     And I am on the points page
 
   Scenario: Existing laps
