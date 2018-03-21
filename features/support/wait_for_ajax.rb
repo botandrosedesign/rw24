@@ -25,7 +25,7 @@ class AjaxWaiter
   end
 
   def timed_out?
-    (start_time + Capybara.default_wait_time) < Time.now
+    (start_time + Capybara.default_max_wait_time) < Time.now
   end
 end
 
