@@ -24,7 +24,7 @@ Rails.application.routes.draw do
         end
         resources :teams do
           post :send_confirmation_emails, :on => :collection
-          resources :riders
+          resources :riders, only: [:new, :create, :destroy]
         end
       end
     end

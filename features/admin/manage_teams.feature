@@ -58,8 +58,7 @@ Feature: Admins can manage teams
     And I press "Save"
     Then I should see "The rider has been created."
 
-    When I follow "Cancel"
-    And I fill in "Name" with "Michael Gubitosa" within the second rider
+    When I fill in "Name" with "Michael Gubitosa" within the second rider
     And I fill in "Email" with "gubs@botandrose.com" within the second rider
     # And I select "M" from "Shirt Size" within the second rider
 
