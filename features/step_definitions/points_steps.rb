@@ -14,3 +14,11 @@ Then "I should see the following bonuses:" do |table|
   end
 end
 
+Then "I should see the following team bonuses:" do |table|
+  table.diff!
+end
+
+Then "I should see the following bonus checkpoints:" do |table|
+  table.diff!
+end
+

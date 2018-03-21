@@ -25,14 +25,36 @@ Feature: Admin can manage team bonuses
     And I press "Create Bonus"
     Then I should see "Bonus added! Add another?"
 
-  #Scenario: Log bonuses for teams
+  #Scenario: Admin can edit a bonus checkpoint
     When I follow "cancel"
-    And I follow "Bonus Form" within the "Example Bonus" checkpoint
+    And I follow "Edit" within the "Another Bonus" checkpoint
+    And I fill in "Name" with "Yet Another Bonus"
+    And I fill in "Points" with "5"
+    And I press "Update Bonus"
+    Then I should see "Bonus updated!"
+
+  #Scenario: Admin can see a list of bonus checkpoints
+    And I should see the following bonus checkpoints:
+      | # | NAME              | POINTS |
+      | 0 | Example Bonus     | 2      |
+      | 1 | Yet Another Bonus | 5      |
+
+  #Scenario: Log bonuses for teams
+    When I follow "Bonus Form" within the "Example Bonus" checkpoint
     And I fill in "Team #" with "1"
     And I press "OK"
     Then I should see the following laps:
       | POS#  | WHEN     | SINCE    | TYPE     | AMT | TOT | TEAM NAME |
       | 001   | 00:00:00 | 00:00:00 | Bonus 0  |  2  | 0   | BARD      |
+
+    Given I am on the admin overview page
+    When I follow "Races"
+    And I follow "2020"
+    And I follow "Edit Race" within the admin subnav
+    And I follow "Example Bonus"
+    Then I should see "BONUS #0 - EXAMPLE BONUS"
+    And I should see the following team bonuses:
+      | 1 | BARD | 2 |
 
     Given I am on the leaderboard page
     Then I should see the following laps:
@@ -43,15 +65,25 @@ Feature: Admin can manage team bonuses
 
     When I follow "BARD"
     Then I should see the following bonuses:
-      | BONUSES               |
-      | ✓ 0 - Example Bonus   |
-      | - 1 - Another Bonus   |
+      | BONUSES                 |
+      | ✓ 0 - Example Bonus     |
+      | - 1 - Yet Another Bonus |
 
   #Scenario: Admin can delete a bonus lap
     When I follow "Delete Score" within the "0 - Example Bonus" checkpoint
     #And I confirm deletion
     Then I should see the following bonuses:
-      | BONUSES               |
-      | - 0 - Example Bonus   |
-      | - 1 - Another Bonus   |
+      | BONUSES                 |
+      | - 0 - Example Bonus     |
+      | - 1 - Yet Another Bonus |
+
+  #Scenario: Admin can delete all bonuses
+    Given I am on the admin overview page
+    When I follow "Races"
+    And I follow "2020"
+    And I follow "Edit Race" within the admin subnav
+    And I press "Delete All Bonuses"
+    Then I should see "All Bonuses deleted!"
+    And I should see the following bonus checkpoints:
+      | # | NAME              | POINTS |
 
