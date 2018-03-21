@@ -58,7 +58,8 @@ FactoryGirl.define do
 
   factory :race do
     year { Date.today.year }
-    start_time { Date.parse("#{year}-07-25 7:00:00 CDT") }
+    start_time { Time.parse("#{year}-07-25 19:00:00 CDT") }
+    published true
   end
 
   factory :team do

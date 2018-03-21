@@ -1,3 +1,9 @@
+Given "the race has the tattoo bonus checkpoint" do
+  race = Race.last
+  race.bonuses[0] = { name: "Tattoo", points: 5, key: SecureRandom.hex(8) }
+  race.save!
+end
+
 Then "I should see the following laps:" do |table|
   wait_for_ajax
   table.diff!
@@ -15,10 +21,11 @@ Then "I should see the following bonuses:" do |table|
 end
 
 Then "I should see the following team bonuses:" do |table|
+  wait_for_ajax
   table.diff!
 end
 
 Then "I should see the following bonus checkpoints:" do |table|
-  table.diff!
+  table.diff! "#bonuses"
 end
 

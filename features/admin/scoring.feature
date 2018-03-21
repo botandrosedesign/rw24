@@ -1,6 +1,6 @@
 Feature: Admin can manage team scoring
   Background:
-    Given today is "2020-07-25 00:00:00 CDT"
+    Given today is "2020-07-25 19:00:00 CDT"
     And a race exists for 2020
 
     Given the following race teams exist:
@@ -74,3 +74,19 @@ Feature: Admin can manage team scoring
       | 001   | 00:15:00    | 00:15:00  | Lap   | 1   | 2   | BARD      |
       | 001   | 00:30:00    | 00:15:00  | Lap   | 1   | 2   | BARD      |
       | 002   | 00:35:00    | 00:35:00  | Lap   | 1   | 1   | BORG      |
+
+  Scenario: Bonus checkpoint folks can log bonus laps
+    Given the race has the tattoo bonus checkpoint
+    When I follow "Forms"
+    Then I should see the following bonus checkpoints:
+      | # | NAME   | POINTS |            |      |
+      | 0 | Tattoo | 5      | Bonus Form | Edit |
+
+    When I follow "Bonus Form"
+    Then I should see "Bonus Logger - Tattoo"
+    And I fill in "Team #" with "1"
+    And I press "OK"
+    Then I should see the following team bonuses:
+      | POS# | WHEN     | SINCE    | TYPE    | AMT | TOT | TEAM NAME |
+      | 001  | 00:00:00 | 00:00:00 | Bonus 0 | 5   | 0   | BARD      |
+
