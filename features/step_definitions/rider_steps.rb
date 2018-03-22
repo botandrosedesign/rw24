@@ -1,5 +1,5 @@
 Given /^a rider exists with name: "(.*?)", team: "(.+?)"$/ do |name, team_name|
-  FactoryGirl.create :rider, name: name, team: Team.find_by_name!(team_name)
+  FactoryBot.create :rider, name: name, team: Team.find_by_name!(team_name)
 end
 
 Then "I should see the following leader:" do |table|

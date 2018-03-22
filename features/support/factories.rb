@@ -1,7 +1,7 @@
 require "faker"
-require "factory_girl"
+require "factory_bot"
 
-FactoryGirl.define do
+FactoryBot.define do
   sequence(:first_name) { Faker::Name.first_name }
   sequence(:last_name) { Faker::Name.last_name }
   sequence(:name) { Faker::Name.name }
@@ -73,15 +73,15 @@ FactoryGirl.define do
     factory :team_solo do
       category "Solo (male)"
       before(:create) do |team|
-        team.riders << FactoryGirl.build(:rider)
+        team.riders << FactoryBot.build(:rider)
       end
     end
 
     factory :team_a do
       category "A Team"
       before(:create) do |team|
-        team.riders << FactoryGirl.build(:rider)
-        team.riders << FactoryGirl.build(:rider)
+        team.riders << FactoryBot.build(:rider)
+        team.riders << FactoryBot.build(:rider)
       end
     end
   end

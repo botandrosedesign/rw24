@@ -1,13 +1,13 @@
 Given /^a solo team exists with name: "(.*?)"$/ do |name|
-  FactoryGirl.create :team_solo, name: name
+  FactoryBot.create :team_solo, name: name
 end
 
 Given /^a team exists with name: "(.*?)"$/ do |name|
-  FactoryGirl.create :team_a, name: name
+  FactoryBot.create :team_a, name: name
 end
 
 Given /^the following race teams exist:/ do |table|
-  table.create! factory_girl: :team do
+  table.create! factory_bot: :team do
     underscore_keys
 
     field(:race) { Race.last }
@@ -17,7 +17,7 @@ Given /^the following race teams exist:/ do |table|
 
     transformation do |attributes|
       def rider_from_email email, **attrs
-        FactoryGirl.attributes_for(:rider, email: email, **attrs) if email.present?
+        FactoryBot.attributes_for(:rider, email: email, **attrs) if email.present?
       end
 
       attributes.merge(riders_attributes: [

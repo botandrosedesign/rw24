@@ -12,7 +12,7 @@ describe Race do
 
   describe "#assign_all_bonuses_bonuses" do
     subject do
-      FactoryGirl.create(:race, bonuses: [
+      FactoryBot.create(:race, bonuses: [
         { name: "tattoo", points: "5" },
         { name: "bonus 1", points: "2" },
         { name: "bonus 2", points: "2" },
@@ -21,7 +21,7 @@ describe Race do
       ])
     end
 
-    let(:team) { FactoryGirl.create(:team_solo, name: "Han Solo") }
+    let(:team) { FactoryBot.create(:team_solo, name: "Han Solo") }
 
     it "assigns the all bonuses bonus to teams that have attended every bonus" do
       Point.create! race: subject, team: team, category: "Bonus", qty: 2, bonus_id: 1

@@ -4,7 +4,7 @@ require "./spec/support/factories"
 
 describe Team do
   # stubbing #race is a bitch
-  subject { FactoryGirl.build(:team, race: nil) }
+  subject { FactoryBot.build(:team, race: nil) }
   let(:race) { double(marked_for_destruction?: false) }
   before { subject.stub(race: race) }
 

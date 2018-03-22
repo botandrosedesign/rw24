@@ -8,7 +8,7 @@ Given "I am logged in as an admin" do
 end
 
 def create_admin_account
-  @site.users << FactoryGirl.create(:user, {
+  @site.users << FactoryBot.create(:user, {
     first_name: "Finneus",
     last_name: "Flubberbuster",
     email: "finneus@botandrose.com",

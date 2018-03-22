@@ -70,7 +70,7 @@ group :test do
   gem "capybara"
   gem "database_cleaner"
   gem "email_spec"
-  gem "factory_girl_rails"
+  gem "factory_bot_rails"
   gem "faker"
   gem "chop"
   gem "timecop"
