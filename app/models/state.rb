@@ -54,10 +54,6 @@ class State
     ["Puerto Rico", "PR"]
   ]
 
-  def self.all
-    NAMES
-  end
-
   def self.abbrevs
     NAMES.collect(&:second)
   end
