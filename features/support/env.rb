@@ -2,6 +2,7 @@ require './spec/coverage_setup'
 require 'cucumber/rails'
 require 'capybara'
 require 'capybara/poltergeist'
+require 'phantomjs/poltergeist'
 Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new app, phantomjs: Phantomjs.path
 end
