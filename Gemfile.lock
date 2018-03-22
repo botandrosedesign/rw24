@@ -65,7 +65,7 @@ GEM
     awesome_nested_set (3.1.3)
       activerecord (>= 4.0.0, < 5.2)
     backports (3.11.0)
-    bard (0.26.1)
+    bard (0.32.0)
       bard-rake (>= 0.1.1)
       capistrano (= 2.5.10)
       net-ssh (= 3.0.1)
