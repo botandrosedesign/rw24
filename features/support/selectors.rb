@@ -29,6 +29,9 @@ module HtmlSelectorsHelpers
     when /lap (\d+)/
       ".lap-times tbody tr:nth-child(#{$1})"
 
+    when /the first lap/
+      "#points tr:nth-child(1)"
+
     when /the admin subnav/
       "#main_menu"
 
