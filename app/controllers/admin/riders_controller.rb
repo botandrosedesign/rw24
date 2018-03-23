@@ -1,9 +1,9 @@
 class Admin::RidersController < Admin::BaseController
   include Admin::RidersHelper
   include Admin::TeamsHelper
-  before_filter :authorize_access
+  before_action :authorize_access
 
-  before_filter :set_race, :set_team
+  before_action :set_race, :set_team
 
   guards_permissions :rider
 

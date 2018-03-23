@@ -30,7 +30,7 @@ $(function() {
 
     $.ajax({
       type: 'POST',
-      url: this.action,
+      url: this.action + ".js",
       data: queryString,
       dataType: "text",
       retry: true,

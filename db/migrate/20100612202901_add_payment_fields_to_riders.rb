@@ -1,4 +1,4 @@
-class AddPaymentFieldsToRiders < ActiveRecord::Migration
+class AddPaymentFieldsToRiders < ActiveRecord::Migration[4.2]
   def self.up
     add_column :riders, :paid, :boolean, :default => false
     add_column :riders, :payment_type, :string

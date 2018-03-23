@@ -1,4 +1,4 @@
-class AddNestingToArticles < ActiveRecord::Migration
+class AddNestingToArticles < ActiveRecord::Migration[4.2]
   def self.up
     remove_column :contents, :position
     add_column :contents, :parent_id, :integer

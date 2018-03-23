@@ -1,7 +1,7 @@
 class PointsController < BaseController
-  before_filter :guess_section
-  before_filter :set_race
-  before_filter :authorize_access
+  before_action :guess_section
+  before_action :set_race
+  before_action :authorize_access
 
   def index
     @points = @race.points.limit(100)
@@ -47,7 +47,7 @@ class PointsController < BaseController
         wants.js { render @point }
         wants.html { redirect_to point_path(@point.team.position) }
       else
-        wants.js { render text: @point.errors.full_messages.join(", "), status: 406 }
+        wants.js { render plain: @point.errors.full_messages.join(", "), status: 406 }
         wants.html { render :new }
       end
     end

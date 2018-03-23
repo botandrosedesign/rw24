@@ -1,4 +1,4 @@
-class CreateMembershipsTable < ActiveRecord::Migration
+class CreateMembershipsTable < ActiveRecord::Migration[4.2]
   def change
     create_table :memberships do |t|
       t.references :site

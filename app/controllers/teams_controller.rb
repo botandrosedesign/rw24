@@ -1,6 +1,6 @@
 class TeamsController < BaseController
-  before_filter :set_race
-  before_filter :guess_section
+  before_action :set_race
+  before_action :guess_section
 
   def index
     @teams = @race.teams.leader_board

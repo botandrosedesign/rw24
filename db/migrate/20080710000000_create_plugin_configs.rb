@@ -1,4 +1,4 @@
-class CreatePluginConfigs < ActiveRecord::Migration
+class CreatePluginConfigs < ActiveRecord::Migration[4.2]
   def self.up
     create_table :plugin_configs, :force => true do |t|
       t.references :site

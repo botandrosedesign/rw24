@@ -1,4 +1,4 @@
-class AddConfirmationSentAtToTeams < ActiveRecord::Migration
+class AddConfirmationSentAtToTeams < ActiveRecord::Migration[4.2]
   def self.up
     add_column :teams, :confirmation_sent_at, :datetime
   end

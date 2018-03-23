@@ -1,4 +1,4 @@
-class CreateCountersTable < ActiveRecord::Migration
+class CreateCountersTable < ActiveRecord::Migration[4.2]
   def self.up
     create_table :counters, :force => true do |t|
       t.references :owner, :polymorphic => true

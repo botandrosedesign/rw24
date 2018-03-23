@@ -28,11 +28,10 @@ ExceptionNotification.configure do |config|
   }
 end
 
-Delayed::Worker.class_eval do 
-  def handle_failed_job_with_exception_notification job, error
-    handle_failed_job_without_exception_notification job, error
+Delayed::Worker.prepend Module.new {
+  def handle_failed_job job, error
+    super
     ExceptionNotifier::Notifier.background_exception_notification(error).deliver if job.attempts + 1 == max_attempts(job)
   end
-  alias_method_chain :handle_failed_job, :exception_notification
-end
+}
 

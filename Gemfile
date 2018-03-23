@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem "dotenv-rails"
-gem "rails", "~>4.2.0"
+gem "rails", "~>5.1.0"
 gem "mysql2", "~>0.4.0"
 gem "bard-rake"
 gem "bard-static"
@@ -28,7 +28,7 @@ gem "newrelic_rpm"
 gem "cells", "~>3.0"
 gem "awesome_nested_set", "~> 3.0"
 # path "../adva" do
-git "https://github.com/botandrose/adva_cms.git" do
+git "https://github.com/botandrose/adva_cms.git", branch: "rails5" do
   gem "adva_cms"
   gem "adva_activity"
   gem "adva_rbac"
@@ -56,7 +56,6 @@ end
 
 group :test, :development do
   gem "sqlite3"
-  gem "quiet_assets"
   gem "byebug"
   gem "rspec-rails"
   gem "teaspoon-jasmine"
@@ -67,6 +66,7 @@ group :test do
   gem "cucumber-rails", :require => false
   gem "poltergeist"
   gem "capybara"
+  gem "capybara-screenshot"
   gem "database_cleaner"
   gem "email_spec"
   gem "factory_bot_rails"

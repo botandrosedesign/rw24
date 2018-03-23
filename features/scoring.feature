@@ -109,7 +109,6 @@ Feature: Admin can manage team scoring
       | 001  | 00:45:00 | 00:30:00 | Lap  | 1   | 2   | BARD      |
       | 001  | 00:15:00 | 00:15:00 | Lap  | 1   | 1   | BARD      |
 
-
     Given I am on the leaderboard page
     When I follow "BARD"
     And I follow "Split" within lap 2
@@ -135,7 +134,6 @@ Feature: Admin can manage team scoring
       | POS# | WHEN        | SINCE    | TYPE | AMT | TOT       | TEAM NAME                   |
       | 010  | NaN:NaN:NaN |          | Lap  | 1   | Saving... | Team position doesn't exist |
       | 001  | 00:15:00    | 00:15:00 | Lap  | 1   | 1         | BARD                        |
-
 
     When I follow "Edit" within the first lap
     And I fill in "POS#" with "1" within the popup

@@ -1,4 +1,4 @@
-class PluginOwnerColumn < ActiveRecord::Migration
+class PluginOwnerColumn < ActiveRecord::Migration[4.2]
   def self.up
     remove_column :plugin_configs, :site_id
     add_column :plugin_configs, :owner_id, :integer

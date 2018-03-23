@@ -1,6 +1,7 @@
 require './spec/coverage_setup'
 require 'cucumber/rails'
 require 'capybara'
+require 'capybara-screenshot/cucumber' unless ENV["CI"]
 require 'capybara/poltergeist'
 require 'phantomjs/poltergeist'
 Capybara.register_driver :poltergeist do |app|

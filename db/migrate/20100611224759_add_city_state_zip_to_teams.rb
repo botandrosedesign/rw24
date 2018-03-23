@@ -1,4 +1,4 @@
-class AddCityStateZipToTeams < ActiveRecord::Migration
+class AddCityStateZipToTeams < ActiveRecord::Migration[4.2]
   def self.up
     add_column :teams, :city, :string
     add_column :teams, :state, :string

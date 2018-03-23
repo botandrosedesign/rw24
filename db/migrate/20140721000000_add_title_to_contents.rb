@@ -1,4 +1,4 @@
-class AddTitleToContents < ActiveRecord::Migration
+class AddTitleToContents < ActiveRecord::Migration[4.2]
   def change
     add_column :contents, :title, :string
     add_column :contents, :body, :text

@@ -1,4 +1,4 @@
-class AddTimestampsToSites < ActiveRecord::Migration
+class AddTimestampsToSites < ActiveRecord::Migration[4.2]
   def self.up
     add_column :sites, :created_at, :datetime
     add_column :sites, :updated_at, :datetime

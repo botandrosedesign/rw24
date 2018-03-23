@@ -1,4 +1,4 @@
-class CreateActivitiesTable < ActiveRecord::Migration
+class CreateActivitiesTable < ActiveRecord::Migration[4.2]
   def self.up
     create_table :activities, :force => true do |t|
       t.references :site
