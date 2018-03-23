@@ -28,10 +28,12 @@ Given /^the following race teams exist:/ do |table|
     end
 
     field(:shirt_sizes) do |value|
-      if value = "M, M, M"
-        ShirtSizes.new(medium: 3)
-      else
-        raise NotImplementedError
+      if value.present?
+        if value == "M, M, M"
+          ShirtSizes.new(medium: 3)
+        else
+          raise NotImplementedError
+        end
       end
     end
   end
