@@ -5,6 +5,11 @@ module WithinHelpers
 end
 World(WithinHelpers)
 
+# FIXME WTF why doesn't the default step work
+When 'I press "OK" within the new lap form' do
+  execute_script "$('#new_lap').submit()"
+end
+
 # Single-line step scoper
 When /^(.*) within (.*[^:])$/ do |step_fragment, parent|
   with_scope(parent) { step step_fragment }

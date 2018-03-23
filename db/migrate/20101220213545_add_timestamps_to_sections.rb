@@ -1,4 +1,4 @@
-class AddTimestampsToSections < ActiveRecord::Migration
+class AddTimestampsToSections < ActiveRecord::Migration[4.2]
   def self.up
     add_column :sections, :created_at, :datetime
     add_column :sections, :updated_at, :datetime

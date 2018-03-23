@@ -1,4 +1,4 @@
-class CreateRiders < ActiveRecord::Migration
+class CreateRiders < ActiveRecord::Migration[4.2]
   def self.up
     create_table :riders do |t|
       t.integer :team_id

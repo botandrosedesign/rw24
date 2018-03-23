@@ -1,4 +1,4 @@
-class AddShirtToRiders < ActiveRecord::Migration
+class AddShirtToRiders < ActiveRecord::Migration[4.2]
   def self.up
     add_column :riders, :shirt, :string
     remove_column :teams, :shirts

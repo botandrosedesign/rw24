@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem "dotenv-rails"
-gem "rails", "~>5.0.0"
+gem "rails", "~>5.1.0"
 gem "mysql2", "~>0.4.0"
 gem "bard-rake"
 gem "bard-static"

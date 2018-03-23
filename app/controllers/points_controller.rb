@@ -47,7 +47,7 @@ class PointsController < BaseController
         wants.js { render @point }
         wants.html { redirect_to point_path(@point.team.position) }
       else
-        wants.js { render text: @point.errors.full_messages.join(", "), status: 406 }
+        wants.js { render plain: @point.errors.full_messages.join(", "), status: 406 }
         wants.html { render :new }
       end
     end

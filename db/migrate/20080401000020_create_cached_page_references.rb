@@ -1,4 +1,4 @@
-class CreateCachedPageReferences < ActiveRecord::Migration
+class CreateCachedPageReferences < ActiveRecord::Migration[4.2]
   def self.up
     create_table :cached_page_references, :force => true do |t|
       t.references :cached_page

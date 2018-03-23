@@ -1,4 +1,4 @@
-class CreateCategoriesTable < ActiveRecord::Migration
+class CreateCategoriesTable < ActiveRecord::Migration[4.2]
   def self.up
     create_table :categories do |t|
       t.references  :section

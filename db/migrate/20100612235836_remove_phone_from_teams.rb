@@ -1,4 +1,4 @@
-class RemovePhoneFromTeams < ActiveRecord::Migration
+class RemovePhoneFromTeams < ActiveRecord::Migration[4.2]
   def self.up
     remove_column :teams, :phone
   end

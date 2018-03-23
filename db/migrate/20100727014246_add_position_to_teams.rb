@@ -1,4 +1,4 @@
-class AddPositionToTeams < ActiveRecord::Migration
+class AddPositionToTeams < ActiveRecord::Migration[4.2]
   def self.up
     add_column :teams, :position, :integer
   end

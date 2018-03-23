@@ -1,4 +1,4 @@
-class RenameCategoryAssignmentToCategorization < ActiveRecord::Migration
+class RenameCategoryAssignmentToCategorization < ActiveRecord::Migration[4.2]
   def self.up
     rename_table :category_assignments, :categorizations
     rename_column :categorizations, :content_type, :categorizable_type

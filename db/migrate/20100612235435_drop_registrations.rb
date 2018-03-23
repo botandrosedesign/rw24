@@ -1,4 +1,4 @@
-class DropRegistrations < ActiveRecord::Migration
+class DropRegistrations < ActiveRecord::Migration[4.2]
   def self.up
     drop_table :registrations
     remove_column :teams, :registration_id

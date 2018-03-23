@@ -1,4 +1,4 @@
-class CreateContentsTable < ActiveRecord::Migration
+class CreateContentsTable < ActiveRecord::Migration[4.2]
   def change
     create_table :contents, :force => true do |t|
       t.references :site

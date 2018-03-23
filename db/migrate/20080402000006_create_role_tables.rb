@@ -1,4 +1,4 @@
-class CreateRoleTables < ActiveRecord::Migration
+class CreateRoleTables < ActiveRecord::Migration[4.2]
   def self.up
     create_table :roles do |t| 
       t.references :user # TODO reference a membership instead?

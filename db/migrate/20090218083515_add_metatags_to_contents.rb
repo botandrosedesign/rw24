@@ -1,4 +1,4 @@
-class AddMetatagsToContents < ActiveRecord::Migration
+class AddMetatagsToContents < ActiveRecord::Migration[4.2]
   def self.up
     add_column :contents, :meta_author, :string
     add_column :contents, :meta_geourl, :string

@@ -1,4 +1,4 @@
-class MigrateRolesTableToNewRbac < ActiveRecord::Migration
+class MigrateRolesTableToNewRbac < ActiveRecord::Migration[4.2]
   def self.up
     rename_column :roles, :type, :name
     add_column :roles, :ancestor_context_id, :integer

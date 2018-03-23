@@ -1,4 +1,4 @@
-class AddMiscFieldsToRiders < ActiveRecord::Migration
+class AddMiscFieldsToRiders < ActiveRecord::Migration[4.2]
   def self.up
     add_column :riders, :confirmed_on, :date
     add_column :riders, :notes, :text
