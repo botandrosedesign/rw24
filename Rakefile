@@ -15,5 +15,5 @@ end
 
 task "bootstrap:production:post" => [:clear_cache]
 
-task :default => :teaspoon
+# task :default => :teaspoon
 
