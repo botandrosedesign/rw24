@@ -1,3 +1,5 @@
+require "bundler/setup" # some deps are pulled from git
+
 require "spec_helper"
 require "active_record"
 require "database_cleaner"
@@ -5,14 +7,27 @@ require "byebug"
 
 $LOAD_PATH << "app/models"
 
+def silence_stream(stream)
+  old_stream = stream.dup
+  stream.reopen(RbConfig::CONFIG['host_os'] =~ /mswin|mingw/ ? 'NUL:' : '/dev/null')
+  stream.sync = true
+  yield
+ensure
+  stream.reopen(old_stream)
+  old_stream.close
+end
+
 ActiveRecord::Base.establish_connection adapter: "sqlite3", database: ":memory:"
 
 # sqlite3 hates our mysql indexes
 ActiveRecord::Migration.class_eval do
   def add_index *; end
-end
 
-ActiveRecord::Base.raise_in_transactional_callbacks = true
+  def create_table name, options
+    options.delete(:options)
+    super name, options
+  end
+end
 
 DatabaseCleaner.strategy = :transaction
 silence_stream(STDOUT) do

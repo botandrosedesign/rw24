@@ -29,11 +29,6 @@ class Race < ActiveRecord::Base
     start_time + 24.hours
   end
 
-  def start_time=(datetime)
-    self.year = datetime.try(:year)
-    super datetime
-  end
-
   def bonuses
     settings[:bonuses] ||= []
   end

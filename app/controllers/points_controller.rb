@@ -1,7 +1,7 @@
 class PointsController < BaseController
-  before_filter :guess_section
-  before_filter :set_race
-  before_filter :authorize_access
+  before_action :guess_section
+  before_action :set_race
+  before_action :authorize_access
 
   def index
     @points = @race.points.limit(100)

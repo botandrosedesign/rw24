@@ -1,7 +1,7 @@
 class Admin::TeamsController < Admin::BaseController
   include Admin::TeamsHelper
-  before_filter :authorize_access
-  before_filter :set_race
+  before_action :authorize_access
+  before_action :set_race
 
   guards_permissions :team
 

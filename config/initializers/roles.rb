@@ -1,4 +1,4 @@
-ActionDispatch::Callbacks.to_prepare do
+ActiveSupport::Reloader.to_prepare do
   Rbac::Context.default_permissions.merge!({
     :'show team'          => [:moderator],
     :'create team'        => [:moderator],

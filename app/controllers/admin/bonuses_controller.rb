@@ -1,5 +1,5 @@
 class Admin::BonusesController < Admin::BaseController
-  before_filter :set_race
+  before_action :set_race
 
   def show
     @bonus = Bonus.find_by_race_and_id(@race, params[:id])

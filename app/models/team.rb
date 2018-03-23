@@ -68,9 +68,10 @@ class Team < ActiveRecord::Base
     update_attribute :confirmation_sent_at, Time.now
   end
 
+  # FIXME replace with default_value_for
   def initialize *options, &block
     options[0] ||= {}
-    options[0].reverse_merge! "category" => "A Team"
+    options[0]["category"] ||= "A Team"
     super
   end
 
