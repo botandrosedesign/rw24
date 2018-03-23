@@ -7,7 +7,7 @@ end
 
 gem "dotenv-rails"
 gem "rails", "~>4.2.0"
-gem "mysql2"
+gem "mysql2", "~>0.4.0"
 gem "bard-rake"
 gem "bard-static"
 gem "bard-staging_banner"
@@ -39,15 +39,14 @@ git "https://github.com/botandrose/adva_cms.git" do
   gem "adva_meta_tags"
 end
 
-gem "sprockets", "~>2.0"
 gem "sass-rails"
-gem "compass"
 gem "compass-rails"
+gem "font-awesome-rails"
+
 gem "coffee-rails"
 gem "uglifier"
-gem "font-awesome-sass"
-
-gem "jquery-rails", "~>2.2"
+gem "jquery-rails"
+gem "jquery-ui-rails"
 
 group :development do
   gem "bard"
