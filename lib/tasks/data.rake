@@ -1,0 +1,19 @@
+namespace :data do
+  task :migrate_shirt_sizes => :environment do
+    blank_shirt_sizes = Team::ShirtSizes.new(small: 0, medium: 0, large: 0, x_large: 0, xxx_large: 0)
+    Team.find_each do |team|
+      team.shirt_sizes = team.riders.pluck(:shirt).inject(blank_shirt_sizes.dup) do |shirt_sizes, size|
+        case size
+        when "S" then shirt_sizes.small += 1
+        when "M" then shirt_sizes.medium += 1
+        when "L" then shirt_sizes.large += 1
+        when "XL" then shirt_sizes.x_large += 1
+        when "Other" then shirt_sizes.xxx_large += 1
+        end
+        shirt_sizes
+      end
+      team.save(validate: false)
+    end
+  end
+end
+

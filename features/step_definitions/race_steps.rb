@@ -11,3 +11,7 @@ Then "I should see the following races:" do |table|
   table.diff! actual
 end
 
+Then "I should see the following shirts count:" do |table|
+  table.diff! ".shirts-count"
+end
+

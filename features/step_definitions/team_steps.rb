@@ -26,6 +26,14 @@ Given /^the following race teams exist:/ do |table|
         rider_from_email(attributes.delete(:rider_2_email)),
       ].compact)
     end
+
+    field(:shirt_sizes) do |value|
+      if value = "M, M, M"
+        ShirtSizes.new(medium: 3)
+      else
+        raise NotImplementedError
+      end
+    end
   end
 end
 

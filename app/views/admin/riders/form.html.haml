@@ -10,28 +10,19 @@
       = @rider.team_position
       = form.hidden_field :team_id
 
-    .field
-      = form.text_field :name, label: true
-    .field
-      = form.text_field :email, label: true
-    .field
-      = form.text_field :phone, label: true
-    .field
-      = form.select :shirt, Rider.shirt_sizes, label: "Shirt Size"
+    .field= form.text_field :name, label: true
+    .field= form.text_field :email, label: true
+    .field= form.text_field :phone, label: true
 
   %fieldset
     %h4 Payment
-    .field
-      = form.check_box :paid, label: "Paid?"
-    .field
-      = form.text_field :payment_type, label: true
-    .field
-      = form.date_select :confirmed_on, label: "Confirmed"
+    .field= form.check_box :paid, label: "Paid?"
+    .field= form.text_field :payment_type, label: true
+    .field= form.date_select :confirmed_on, label: "Confirmed"
 
   %fieldset
     %h4 Additional Information
-    .field
-      = form.text_area :notes, label: true
+    .field= form.text_area :notes, label: true
 
   %hr
 

@@ -1,4 +1,5 @@
 require "acts_as_list"
+require "shirt_sizes"
 
 class Team < ActiveRecord::Base
   def self.allowed_ranges
@@ -29,9 +30,15 @@ class Team < ActiveRecord::Base
   belongs_to :site
   belongs_to :race
   has_many :riders, :dependent => :delete_all
+  accepts_nested_attributes_for :riders, :reject_if => lambda { |attrs| attrs["name"].blank? }
+
   has_many :points
 
-  accepts_nested_attributes_for :riders, :reject_if => lambda { |attrs| attrs["name"].blank? }
+  serialize :shirt_sizes, ShirtSizes
+  def shirt_sizes= value
+    value = ShirtSizes.new(value) if value.is_a?(Hash)
+    super
+  end
 
   validates_presence_of :race, :name, :category
   validates_uniqueness_of :position, :scope => :race_id
@@ -105,10 +112,6 @@ class Team < ActiveRecord::Base
 
   def lieutenant_emails
     lieutenants.collect(&:email).select(&:present?).join(", ")
-  end
-
-  def shirt_sizes
-    riders.collect(&:shirt).join(", ")
   end
 
   def category_abbrev

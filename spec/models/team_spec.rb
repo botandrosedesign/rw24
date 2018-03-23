@@ -91,4 +91,23 @@ describe Team do
       subject.should be_valid
     end
   end
+
+  describe "#shirt_sizes" do
+    before do
+      stub_const "Site", double(first: nil)
+    end
+    it "accepts a hash" do
+      subject.shirt_sizes = {"small" => "1"}
+      subject.shirt_sizes.small.should == 1
+      subject.save(validate: false)
+      subject.shirt_sizes.attributes.should == {
+        small: 1,
+        medium: nil,
+        large: nil,
+        x_large: nil,
+        xxx_large: nil,
+      }
+      subject.shirt_sizes.small.should == 1
+    end
+  end
 end

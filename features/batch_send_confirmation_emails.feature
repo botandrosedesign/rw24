@@ -6,10 +6,10 @@ Feature: Admins can batch send confirmation emails to teams
     Given a race exists for 2010
 
     Given the following race teams exist:
-      | Name                | Class       | Leader Name  | Leader Email             | Rider 1 Email        | Rider 2 Email       |
-      | Bot and Rose Design | A Team      | Micah Geisel | info@botandrose.com      | micah@botandrose.com | gubs@botandrose.com |
-      | Bog and Rat Defeat  | B Team      | Hacim Leseig | info@bogandrat.com       | micah@bogandrat.com  | gubs@bogandrat.com  |
-      | Micah               | Solo (male) | Micah Diesel | originofstorms@gmail.com | | |
+      | Name                | Class       | Leader Name  | Leader Email             | Rider 1 Email        | Rider 2 Email       | Shirt Sizes |
+      | Bot and Rose Design | A Team      | Micah Geisel | info@botandrose.com      | micah@botandrose.com | gubs@botandrose.com | M, M, M     |
+      | Bog and Rat Defeat  | B Team      | Hacim Leseig | info@bogandrat.com       | micah@bogandrat.com  | gubs@bogandrat.com  |             |
+      | Micah               | Solo (male) | Micah Diesel | originofstorms@gmail.com |                      |                     |             |
     And I am logged in as an admin
 
     When I follow "Races"

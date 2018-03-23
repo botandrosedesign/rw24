@@ -70,6 +70,16 @@ class Race < ActiveRecord::Base
   def total_miles
     total_laps * BigDecimal.new("4.6")
   end
+
+  def shirt_size_counts
+    teams.inject({}) do |counts, team|
+      team.shirt_sizes.attributes.each do |size, count|
+        counts[size.to_s] ||= 0
+        counts[size.to_s] += count.to_i
+      end
+      counts
+    end
+  end
 end
 
 class AllBonusesException < StandardError; end
