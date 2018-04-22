@@ -17,22 +17,17 @@ Feature: Admins can manage teams
     When I follow "Races"
     And I follow "New Team"
 
+    # NO NEED TO SET POS?
+    # When I fill in "POS#" with "2"
     When I fill in "Team Name" with "Bot and Rose Design"
     And I select "A Team" from "Category"
     And I fill in "L" with "2"
     And I fill in "XL" with "1"
 
-    And I fill in "Address" with "625 NW Everett St"
-    And I fill in "Line 2" with "#347"
-    And I fill in "City" with "Portland"
-    And I select "OR" from "State"
-    And I fill in "Zip" with "97209"
-
+    And I check "Paid?" within the first rider
     And I fill in "Name" with "Micah Geisel" within the first rider
     And I fill in "Email" with "micah@botandrose.com" within the first rider
     And I fill in "Phone" with "937.269.2023" within the first rider
-    And I fill in "Payment type" with "Cash" within the first rider
-    And I check "Paid?" within the first rider
 
     And I fill in "Name" with "Michael Gubitosa" within the second rider
     And I fill in "Email" with "gubs@botandrose.com" within the second rider
@@ -64,17 +59,11 @@ Feature: Admins can manage teams
     And I press "Save"
     Then I should see "The rider has been created."
 
-    When I fill in "Name" with "Michael Gubitosa" within the second rider
-    And I fill in "Email" with "gubs@botandrose.com" within the second rider
+    When I fill in "Team Name" with "Bog and Rat Defeat"
     And I select "Tandem" from "Category"
-    And I fill in "Team Name" with "Bog and Rat Defeat"
-    And I fill in "S" with "3"
-    And I fill in "Address" with "2907 Old Troy Pike"
-    And I fill in "Line 2" with ""
-    And I fill in "City" with "Dayton"
-    And I select "OH" from "State"
-    And I fill in "Zip" with "45404"
 
+    And I fill in "Name" with "Michael Gubitosa" within the second rider
+    And I fill in "Email" with "gubs@botandrose.com" within the second rider
     And I press "Save"
     Then I should see "The team has been updated."
 

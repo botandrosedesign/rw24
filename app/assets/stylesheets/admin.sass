@@ -36,6 +36,23 @@ textarea
 
 //
 
+#page
+  display: flex
+  .main
+    flex: 1 0 75%
+    width: auto
+
+.rider-flex
+  display: flex
+  & > .field
+    clear: none
+    display: inline-block
+    padding-right: 10px
+  fieldset
+    margin: 0 !important
+  input
+    box-sizing: border-box
+
 a
   color: $primaryColor
   +border-radius(0px)

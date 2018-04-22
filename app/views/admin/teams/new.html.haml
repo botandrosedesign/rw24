@@ -2,41 +2,34 @@
 
 = form_for [:admin, @site, @race, @team] do |form|
   = form.hidden_field :race_id
-  %h2 New Team
+  %h2 New / Edit Team
 
   %fieldset
     %h4 Team Information
-    .field= form.text_field :name, label: "Team Name"
-    .field= form.select :category, Team.categories, class: "sm", label: true, tabindex: 1
+    / MICAH - can POS# be set upon team creation?
+    .field= form.number_field :position, label: "POS#", class: "xlarge"
+    .field= form.select :category, Team.categories, label: true
+    .field= form.text_field :name, label: "Team Name", class: "xlarge"
     .field= render "shirt_sizes", form: form
 
   %fieldset
-    %h4 Team Leader Contact Information
-    .field
-      = form.text_field :address, class: "lg", label: true
-    .field
-      = form.text_field :line_2, class: "lg", label: true
-    .field
-      = form.text_field :city, class: "med", label: true, tabindex: 5
-      = form.select :state, State.abbrevs, { include_blank: "--" }, class: "sm", label: true, tabindex: 5
-      = form.text_field :zip, class: "sm", label: true, tabindex: 5
+    .rider-flex
+      - i = 1
+      = form.fields_for :riders do |rider_form|
+        .field
+          %fieldset{ id: "rider_#{i}" }
+            %h4
+              Rider #{i}
+              = "/ Team Leader" if i == 1
+            .field= rider_form.check_box :paid, label: "Paid?"
+            .field= rider_form.text_field :name, label: true
+            .field= rider_form.text_field :email, label: true
+            .field= rider_form.text_field :phone, label: true
+        - i += 1
 
-  - i = 1
-  = form.fields_for :riders do |rider_form|
-    %fieldset{ id: "rider_#{i}" }
-      %h4
-        Rider #{i}
-        = "/ Team Leader" if i == 1
-      .field
-        = rider_form.text_field :name, label: true, tabindex: 2
-      .field
-        = rider_form.text_field :email, label: true
-        = rider_form.text_field :phone, label: true
-      .field
-        = rider_form.check_box :paid, label: "Paid?"
-      .field
-        = rider_form.text_field :payment_type, label: "Payment type"
-    - i += 1
+      / MICAH - IF EDITING, CAN ADD RIDERS UP TO 6?
+      /.field= link_to "+ Add a rider", [:new, :admin, @site, @race, @team, :rider]
+
 
   %hr
 
