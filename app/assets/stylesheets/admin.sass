@@ -364,16 +364,31 @@ textarea
         text-align: center
 
 // Shirts
-
+.all-shirt-fields
+  display: flex
+  & > .field
+    margin: 0
+    float: none
+    flex: 1 0
 .shirt-fields
   display: flex
-  margin-left: 20px
+  margin-left: 10px
   .field
     display: inline-block
     float: none
     margin: 0
-    flex: 0 0 40px
+    flex: 1 0 50px
     input
-      width: 40px
+      width: 50px
 
 
+.shirts-count
+  dfn
+    display: block
+    padding-left: 10px
+    line-height: 1.6em
+    border-left: 1px solid #ccc
+  dt, dd
+    display: inline-block
+  dd
+    font-weight: 700

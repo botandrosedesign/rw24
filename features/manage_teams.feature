@@ -21,8 +21,9 @@ Feature: Admins can manage teams
     # When I fill in "POS#" with "2"
     When I fill in "Team Name" with "Bot and Rose Design"
     And I select "A Team" from "Category"
-    And I fill in "L" with "2"
-    And I fill in "XL" with "1"
+    And I fill in "Mens large" with "2"
+    And I fill in "Mens xx large" with "1"
+    And I fill in "Womens small" with "1"
 
     And I check "Paid?" within the first rider
     And I fill in "Name" with "Micah Geisel" within the first rider
@@ -44,11 +45,19 @@ Feature: Admins can manage teams
       | No   | No      | 1    | S     | BARD                | 1      | Micah        |
       | 1/3  | No      | 2    | A     | Bot and Rose Design | 3      | Micah Geisel |
 
-    And I should see the following shirts count:
+    And I should see the following mens shirts count:
       | Small     | 0 |
       | Medium    | 0 |
       | Large     | 2 |
-      | X Large   | 1 |
+      | X Large   | 0 |
+      | Xx Large  | 1 |
+      | Xxx Large | 0 |
+    And I should see the following womens shirts count:
+      | Small     | 1 |
+      | Medium    | 0 |
+      | Large     | 0 |
+      | X Large   | 0 |
+      | Xx Large  | 0 |
       | Xxx Large | 0 |
 
   Scenario: An Admin edits a team
@@ -61,7 +70,7 @@ Feature: Admins can manage teams
 
     When I fill in "Team Name" with "Bog and Rat Defeat"
     And I select "Tandem" from "Category"
-
+    And I fill in "Mens small" with "3"
     And I fill in "Name" with "Michael Gubitosa" within the second rider
     And I fill in "Email" with "gubs@botandrose.com" within the second rider
     And I press "Save"

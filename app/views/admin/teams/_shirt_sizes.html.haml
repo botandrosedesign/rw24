@@ -1,19 +1,47 @@
 = form.label :shirt_sizes
 = form.fields_for :shirt_sizes do |shirt_sizes_form|
-  .shirt-fields
+  .all-shirt-fields
     .field
-      = shirt_sizes_form.label :small, "S"
-      = shirt_sizes_form.number_field :small
+      %h4 Mens
+      .shirt-fields
+        .field
+          = shirt_sizes_form.label :mens_small, "S"
+          = shirt_sizes_form.number_field :mens_small
+        .field
+          = shirt_sizes_form.label :mens_medium, "M"
+          = shirt_sizes_form.number_field :mens_medium
+        .field
+          = shirt_sizes_form.label :mens_large, "L"
+          = shirt_sizes_form.number_field :mens_large
+        .field
+          = shirt_sizes_form.label :mens_x_large, "XL"
+          = shirt_sizes_form.number_field :mens_x_large
+        .field
+          = shirt_sizes_form.label :mens_xx_large, "XXL"
+          = shirt_sizes_form.number_field :mens_xx_large
+        .field
+          = shirt_sizes_form.label :mens_xxx_large, "XXXL"
+          = shirt_sizes_form.number_field :mens_xxx_large
     .field
-      = shirt_sizes_form.label :medium, "M"
-      = shirt_sizes_form.number_field :medium
-    .field
-      = shirt_sizes_form.label :large, "L"
-      = shirt_sizes_form.number_field :large
-    .field
-      = shirt_sizes_form.label :x_large, "XL"
-      = shirt_sizes_form.number_field :x_large
-    .field
-      = shirt_sizes_form.label :xxx_large, "XXXL"
-      = shirt_sizes_form.number_field :xxx_large
+      %h4 Womens
+      .shirt-fields
+        .field
+          = shirt_sizes_form.label :womens_small, "S"
+          = shirt_sizes_form.number_field :womens_small
+        .field
+          = shirt_sizes_form.label :womens_medium, "M"
+          = shirt_sizes_form.number_field :womens_medium
+        .field
+          = shirt_sizes_form.label :womens_large, "L"
+          = shirt_sizes_form.number_field :womens_large
+        .field
+          = shirt_sizes_form.label :womens_x_large, "XL"
+          = shirt_sizes_form.number_field :womens_x_large
+        .field
+          = shirt_sizes_form.label :womens_xx_large, "XXL"
+          = shirt_sizes_form.number_field :womens_xx_large
+        .field
+          = shirt_sizes_form.label :womens_xxx_large, "XXXL"
+          = shirt_sizes_form.number_field :womens_xxx_large
+
 

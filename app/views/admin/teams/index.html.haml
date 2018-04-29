@@ -51,7 +51,7 @@
           %td
             - if team.captain
               = mail_to team.captain.email, h(team.captain.name), :cc => team.lieutenant_emails, :subject => team.position_and_name
-            - else 
+            - else
               = team.name
           %td.actions
             = link_to "Edit", [:edit, :admin, @site, @race, team], :class => "edit"
@@ -79,8 +79,16 @@
               %b= @race.teams.by_category(category).count
 
         %dl.shirts-count
-          Shirts:
+          Mens Shirts:
           - @race.shirt_size_counts.each do |size, count|
-            %dt= size.titleize
-            %dd= count
+            %dfn
+              %dt= size.titleize
+              %dd= count
+
+        %dl.shirts-count
+          Womens Shirts:
+          - @race.shirt_size_counts.each do |size, count|
+            %dfn
+              %dt= size.titleize
+              %dd= count
 
