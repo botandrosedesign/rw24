@@ -12,11 +12,12 @@ class Team < ActiveRecord::Base
       :solo_elder   => 1..1,
       :tandem       => 2..2,
       :tandem_elder => 2..2,
+      :convoy       => 3..3,
     }
   end
 
   def self.categories
-    ["A Team", "B Team", "Elder Team", "Solo (male)", "Solo (female)", "Solo (elder)", "Tandem", "Tandem (elder)"]
+    ["A Team", "B Team", "Elder Team", "Solo (male)", "Solo (female)", "Solo (elder)", "Tandem", "Tandem (elder)", "Convoy"]
   end
 
   default_scope -> { order(:position) }
