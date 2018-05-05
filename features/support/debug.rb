@@ -1,3 +1,5 @@
+require "byebug"
+
 Then "debug" do
   debugger
   stop_here = 1

@@ -12,10 +12,12 @@ class Admin::TeamsController < Admin::BaseController
   def new
     @team = @race.teams.build
     6.times { @team.riders << Rider.new }
+    render :form
   end
 
   def edit
     @team = @race.teams.find(params[:id])
+    render :form
   end
 
   def create
@@ -27,7 +29,7 @@ class Admin::TeamsController < Admin::BaseController
         @team.riders << Rider.new
       end
       flash.now.alert = errors_for(@team)
-      render action: :new
+      render :form
     end
   end
 
@@ -37,7 +39,7 @@ class Admin::TeamsController < Admin::BaseController
       redirect_to [:edit, :admin, @site, @race, @team], notice: "The team has been updated."
     else
       flash.now.alert = errors_for(@team)
-      render action: :edit
+      render :form
     end
   end
 

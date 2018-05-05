@@ -70,6 +70,10 @@ When /^I attach the file "(.*?)" to "(.*?)"$/ do |path, field|
   attach_file field, "features/support/fixtures/#{path}"
 end
 
+Then /^I should see "(.*?)" filled in with "(.*?)"$/ do |field, value|
+  find_field(field).value.should == value
+end
+
 Then /^I should see "(.*?)"$/ do |text|
   page.should have_content(text)
 end

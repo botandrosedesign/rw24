@@ -2,12 +2,15 @@
 
 = form_for [:admin, @site, @race, @team] do |form|
   = form.hidden_field :race_id
-  %h2 New / Edit Team
+  %h2
+    = form.object.new_record? ? "New" : "Edit"
+    Team
 
   %fieldset
     %h4 Team Information
-    / MICAH - can POS# be set upon team creation?
-    .field= form.number_field :position, label: "POS#", class: "xlarge"
+    - if form.object.persisted?
+      .field= form.number_field :position, label: "POS#", class: "xlarge"
+
     .field= form.select :category, Team.categories, label: true
     .field= form.text_field :name, label: "Team Name", class: "xlarge"
     .field= render "shirt_sizes", form: form
@@ -17,7 +20,7 @@
       - i = 1
       = form.fields_for :riders do |rider_form|
         .field
-          %fieldset{ id: "rider_#{i}" }
+          %fieldset.rider-fields{ id: "rider_#{i}" }
             %h4
               Rider #{i}
               = "/ Team Leader" if i == 1
@@ -29,9 +32,8 @@
 
         - i += 1
 
-      / MICAH - IF EDITING, CAN ADD RIDERS UP TO 6?
-      /.field= link_to "+ Add a rider", [:new, :admin, @site, @race, @team, :rider]
-
+      - if form.object.persisted?
+        .field= link_to "+ Add a rider", [:new, :admin, @site, @race, @team, :rider]
 
   %hr
 

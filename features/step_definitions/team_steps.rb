@@ -2,6 +2,10 @@ Given /^a solo team exists with name: "(.*?)"$/ do |name|
   FactoryBot.create :team_solo, name: name
 end
 
+Given /^a solo team exists with name: "(.*?)", rider name: "(.+?)"$/ do |name, rider_name|
+  FactoryBot.create :team, category: "Solo (male)", name: name, riders: [FactoryBot.build(:rider, name: rider_name)]
+end
+
 Given /^a team exists with name: "(.*?)"$/ do |name|
   FactoryBot.create :team_a, name: name
 end
