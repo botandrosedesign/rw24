@@ -33,8 +33,8 @@ Given /^the following race teams exist:/ do |table|
 
     field(:shirt_sizes) do |value|
       if value.present?
-        if value == "M, M, M"
-          ShirtSizes.new(medium: 3)
+        if value == "MM, MM, MM"
+          ShirtSizes.new(mens_medium: 3)
         else
           raise NotImplementedError
         end

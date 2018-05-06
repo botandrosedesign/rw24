@@ -10,11 +10,19 @@ class ShirtSizes
   end
 
   SIZES = {
-    small: "S",
-    medium: "M",
-    large: "L",
-    x_large: "XL",
-    xxx_large: "XXXL",
+    mens_small: "MS",
+    mens_medium: "MM",
+    mens_large: "ML",
+    mens_x_large: "MXL",
+    mens_xx_large: "MXXL",
+    mens_xxx_large: "MXXXL",
+
+    womens_small: "WS",
+    womens_medium: "WM",
+    womens_large: "WL",
+    womens_x_large: "WXL",
+    womens_xx_large: "WXXL",
+    womens_xxx_large: "WXXXL",
   }
 
   SIZES.each do |key, _|

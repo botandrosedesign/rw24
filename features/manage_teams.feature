@@ -17,8 +17,6 @@ Feature: Admins can manage teams
     When I follow "Races"
     And I follow "New Team"
 
-    # NO NEED TO SET POS?
-    # When I fill in "POS#" with "2"
     When I fill in "Team Name" with "Bot and Rose Design"
     And I select "A Team" from "Category"
     And I fill in "Mens large" with "2"
@@ -45,20 +43,19 @@ Feature: Admins can manage teams
       | No   | No      | 1    | S     | BARD                | 1      | Micah        |
       | 1/3  | No      | 2    | A     | Bot and Rose Design | 3      | Micah Geisel |
 
-    And I should see the following mens shirts count:
-      | Small     | 0 |
-      | Medium    | 0 |
-      | Large     | 2 |
-      | X Large   | 0 |
-      | Xx Large  | 1 |
-      | Xxx Large | 0 |
-    And I should see the following womens shirts count:
-      | Small     | 1 |
-      | Medium    | 0 |
-      | Large     | 0 |
-      | X Large   | 0 |
-      | Xx Large  | 0 |
-      | Xxx Large | 0 |
+    And I should see the following shirts count:
+      | Mens Small       | 0 |
+      | Mens Medium      | 0 |
+      | Mens Large       | 2 |
+      | Mens X Large     | 0 |
+      | Mens Xx Large    | 1 |
+      | Mens Xxx Large   | 0 |
+      | Womens Small     | 1 |
+      | Womens Medium    | 0 |
+      | Womens Large     | 0 |
+      | Womens X Large   | 0 |
+      | Womens Xx Large  | 0 |
+      | Womens Xxx Large | 0 |
 
   Scenario: An Admin edits a team
     When I follow "Races"

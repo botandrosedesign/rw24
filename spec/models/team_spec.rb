@@ -97,17 +97,24 @@ describe Team do
       stub_const "Site", double(first: nil)
     end
     it "accepts a hash" do
-      subject.shirt_sizes = {"small" => "1"}
-      subject.shirt_sizes.small.should == 1
+      subject.shirt_sizes = {"mens_small" => "1"}
+      subject.shirt_sizes.mens_small.should == 1
       subject.save(validate: false)
       subject.shirt_sizes.attributes.should == {
-        small: 1,
-        medium: nil,
-        large: nil,
-        x_large: nil,
-        xxx_large: nil,
+        mens_small: 1,
+        mens_medium: nil,
+        mens_large: nil,
+        mens_x_large: nil,
+        mens_xx_large: nil,
+        mens_xxx_large: nil,
+        womens_small: nil,
+        womens_medium: nil,
+        womens_large: nil,
+        womens_x_large: nil,
+        womens_xx_large: nil,
+        womens_xxx_large: nil,
       }
-      subject.shirt_sizes.small.should == 1
+      subject.shirt_sizes.mens_small.should == 1
     end
   end
 end

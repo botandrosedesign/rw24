@@ -79,14 +79,7 @@
               %b= @race.teams.by_category(category).count
 
         %dl.shirts-count
-          Mens Shirts:
-          - @race.shirt_size_counts.each do |size, count|
-            %dfn
-              %dt= size.titleize
-              %dd= count
-
-        %dl.shirts-count
-          Womens Shirts:
+          Shirts:
           - @race.shirt_size_counts.each do |size, count|
             %dfn
               %dt= size.titleize
