@@ -1,5 +1,5 @@
 = form.label :shirt_sizes
-= form.fields_for :shirt_sizes do |shirt_sizes_form|
+= form.fields_for :shirt_sizes, form.object.shirt_sizes do |shirt_sizes_form|
   .all-shirt-fields
     .field
       %h4 Mens
