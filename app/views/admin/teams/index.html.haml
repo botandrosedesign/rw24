@@ -5,49 +5,42 @@
     %input.send(type="submit" value="Send Confirmation Emails to Selected")
     = link_to "Edit Confirmation Email", edit_admin_site_confirmation_email_path(@site), class: "edit-button"
 
-  %table.list{:width => "100%"}
-    %col{:width => "5%"}
-    %col{:width => "5%"}
-    %col{:width => "5%"}
-    %col{:width => "5%"}
-    %col{:width => "5%"}
-    %col{:width => "*"}
-    %col{:width => "10%"}
-    %col{:width => "30%"}
-    %col{:width => "15%"}
+  %table.team-list
     %thead
       %tr
-        %th{ :scope => "col" }
-        %th.center_align{ :scope => "col"} Paid
-        %th.center_align{ :scope => "col"} Emailed
-        %th.right_align{ :scope => "col"} POS#
-        %th.center_align{ :scope => "col"} Class
-        %th{ :scope => "col" } Team Name
-        %th.center_align{ :scope => "col" } Riders
-        %th{ :scope => "col" } Leader Name
-        %th.actions{ :scope => "col" }
+        %th
+        %th Paid
+        %th Emailed
+        %th POS#
+        %th Class
+        %th Team Name
+        %th Riders
+        %th T-Shirts
+        %th Leader Name
+        %th
     %tbody
       - @teams.each do |team|
         %tr
-          %td.center_align
+          %td
             %label{ :for => "team_#{team.id}", :style => "display: none" }= team.name
             %input{ :type => "checkbox", :name => "team_ids[]", :value => team.id, :id => "team_#{team.id}" }
-          %td.center_align
+          %td
             - if team.paid?
               .paid Yes
             - elsif team.partially_paid?
               == #{team.riders.paid.count}/#{team.riders.count}
             - else
               .unpaid No
-          %td.center_align
+          %td
             - if team.emailed?
               .emailed Yes
             - else
               .not_emailed No
-          %td.center_align= team.position
-          %td.center_align=h team.category_abbrev
+          %td= team.position
+          %td=h team.category_abbrev
           %td= link_to h(team.name), [:edit, :admin, @site, @race, team]
-          %td.center_align= team.riders.count
+          %td= team.riders.count
+          %td= team.shirt_sizes.total
           %td
             - if team.captain
               = mail_to team.captain.email, h(team.captain.name), :cc => team.lieutenant_emails, :subject => team.position_and_name

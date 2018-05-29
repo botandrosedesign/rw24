@@ -10,8 +10,8 @@ Feature: Admins can manage teams
   Scenario: An Admin views all teams
     When I follow "Races"
     Then I should see the following teams:
-      | PAID | EMAILED | POS# | CLASS | TEAM NAME | RIDERS | LEADER NAME |
-      | No   | No      | 1    | S     | BARD      | 1      | Micah       |
+      | PAID | EMAILED | POS# | CLASS | TEAM NAME | RIDERS | T-SHIRTS | LEADER NAME |
+      | No   | No      | 1    | S     | BARD      | 1      | 0        | Micah       |
 
   Scenario: An admin creates a new team with three members
     When I follow "Races"
@@ -39,9 +39,9 @@ Feature: Admins can manage teams
 
     When I follow "Races"
     Then I should see the following teams:
-      | PAID | EMAILED | POS# | CLASS | TEAM NAME           | RIDERS | LEADER NAME  |
-      | No   | No      | 1    | S     | BARD                | 1      | Micah        |
-      | 1/3  | No      | 2    | A     | Bot and Rose Design | 3      | Micah Geisel |
+      | PAID | EMAILED | POS# | CLASS | TEAM NAME           | RIDERS | T-SHIRTS | LEADER NAME  |
+      | No   | No      | 1    | S     | BARD                | 1      | 0        | Micah        |
+      | 1/3  | No      | 2    | A     | Bot and Rose Design | 3      | 4        | Micah Geisel |
 
     And I should see the following shirts count:
       | Mens Small       | 0 |
@@ -75,8 +75,8 @@ Feature: Admins can manage teams
 
     When I follow "Races"
     Then I should see the following teams:
-      | PAID | EMAILED | POS# | CLASS | TEAM NAME          | RIDERS | LEADER NAME |
-      | No   | No      | 1    | T     | Bog and Rat Defeat | 2      | Micah       |
+      | PAID | EMAILED | POS# | CLASS | TEAM NAME          | RIDERS | T-SHIRTS | LEADER NAME |
+      | No   | No      | 1    | T     | Bog and Rat Defeat | 2      | 3        | Micah       |
 
   Scenario: An Admin deletes a team
     When I follow "Races"

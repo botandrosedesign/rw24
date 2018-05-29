@@ -45,6 +45,12 @@ class ShirtSizes
     end.join(", ") 
   end
 
+  def total
+    SIZES.flat_map do |key, value|
+      send(key).to_i
+    end.sum
+  end
+
   attr_accessor :errors
 end
 
