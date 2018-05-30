@@ -14,6 +14,7 @@
 
 //
 
+@import "mixins/*"
 @import "general/*"
 @import "scoring"
 @import "teams"
@@ -36,7 +37,7 @@ body
   margin: auto
   +handheld
     width: 100%
-  
+
 // header
 
 header
@@ -53,7 +54,7 @@ header
     +handheld
       display: none
 .title
-  margin-top: 6px 
+  margin-top: 6px
   line-height: .9
   float: left
   width: 500px
@@ -114,9 +115,9 @@ countdown
     float: right
 
 // main
-  
+
 .main
-  background: transparent inline-image("tire.gif") no-repeat bottom right 
+  background: transparent inline-image("tire.gif") no-repeat bottom right
   padding-top: 20px
   padding-bottom: 40px
   +handheld
@@ -146,7 +147,7 @@ aside
   padding: 20px 0 20px 40px
   +handheld
     display: none
-  
+
 // footer
 
 footer

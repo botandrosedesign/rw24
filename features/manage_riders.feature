@@ -36,6 +36,26 @@ Feature: Admins can manage riders
       | Paul Kjelland | paulkjell@gmail.com | 608.558.5276 | Yes   | Rider 1 |
       | Steve Whitlow | swirr2@gmail.com    | 414.517.6870 | No    | Rider 2 |
 
+    When I follow "Races"
+    Then I should see the following teams:
+      | PAID | EMAILED | POS# | CLASS | TEAM NAME           | RIDERS | LEADER NAME   |
+      | 1/2  | No      | 1    | B     | Bot and Rose Design | 2      | Paul Kjelland |
+
+  # Scenario: An admin deletes a rider
+    When I follow "Edit" within the "Bot and Rose Design" team
+    And I check "Remove rider 2"
+    And I press "Save"
+
+    Then I should see "The team has been updated"
+    And I should see the following riders:
+      | Name          | Email               | Phone        | Paid? | Notes   |
+      | Paul Kjelland | paulkjell@gmail.com | 608.558.5276 | Yes   | Rider 1 |
+
+    When I follow "Races"
+    Then I should see the following teams:
+      | PAID | EMAILED | POS# | CLASS | TEAM NAME           | RIDERS | LEADER NAME   |
+      | Yes  | No      | 1    | S     | Bot and Rose Design | 1      | Paul Kjelland |
+
   Scenario: An Admin creates a rider
     Given a team exists with name: "Bot and Rose Design"
     And I am logged in as an admin
@@ -76,13 +96,3 @@ Feature: Admins can manage riders
       | Name             | Email               | Phone        | Paid? | Notes          |
       | Michael Gubitosa | gubs@botandrose.com | 267.664.0528 | Yes   | this is a test |
 
-# Scenario: An admin deletes a rider
-#   Given a solo team exists with name: "Bot and Rose Design", rider name: "Micah Geisel"
-#   And I am logged in as an admin
-#   When I follow "Races"
-#   And I follow "Edit" within the "Bot and Rose Design" team
-#   And I follow "Delete Micah Geisel"
-
-#   When I follow "Races"
-#   And I follow "Edit" within the "Bot and Rose Design" team
-#   Then I should not see "Micah Geisel"

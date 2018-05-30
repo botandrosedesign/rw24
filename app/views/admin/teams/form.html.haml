@@ -17,11 +17,16 @@
       .field= render "shirt_sizes", form: form
 
   %fieldset
+    .info-text To remove riders, highlight the <i class="fa fa-trash"></i> icon and press Save.
     .rider-flex
       - i = 1
       = form.fields_for :riders do |rider_form|
         .field
           %fieldset.rider-fields{ id: "rider_#{i}" }
+            .remove-rider
+              %input(type="checkbox" id="remove-rider-#{i}" class="remove-rider-input")
+              %label(for="remove-rider-#{i}")
+                %span Remove rider #{i}
             %h4
               Rider #{i}
               = "/ Team Leader" if i == 1
