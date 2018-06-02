@@ -25,7 +25,7 @@
           %h2 Hour Bike Race
           %span.countstart= start_time_format start_time
 
-        %countdown{now: Time.zone.now.to_s(:rfc822), target: start_time.try(:to_s, :rfc822)}
+        %countdown{target: start_time.try(:to_s, :rfc822)}
           %p
             %waiting The ride starts in:
             %during It's on! The ride has been going for:

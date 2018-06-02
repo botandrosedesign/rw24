@@ -8,7 +8,7 @@ class window.Countdown
     @oneDay = @oneHour * 24
     @oneYear = @oneDay * 365
 
-    @now = new Date(@$el.attr("now")).valueOf()
+    @now = new Date().valueOf()
     @start = new Date(@$el.attr("target")).valueOf()
     @finish = @start + @oneDay
     @next = @start + @oneYear
