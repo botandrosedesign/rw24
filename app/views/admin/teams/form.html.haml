@@ -13,7 +13,8 @@
 
     .field= form.select :category, Team.categories, label: true
     .field= form.text_field :name, label: "Team Name", class: "xlarge"
-    .field= render "shirt_sizes", form: form
+    - if @race.year >= 2018
+      .field= render "shirt_sizes", form: form
 
   %fieldset
     .rider-flex

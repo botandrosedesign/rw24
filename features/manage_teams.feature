@@ -1,7 +1,7 @@
 Feature: Admins can manage teams
   Background:
-    Given today is "2010-06-19"
-    And a race exists for 2010
+    Given today is "2020-06-19"
+    And a race exists for 2020
     And the following race teams exist:
       | POS# | Name | Class         | Leader Name | Leader Email          |
       | 001  | BARD | Solo (male)   | Micah       | micah@riverwest24.com |

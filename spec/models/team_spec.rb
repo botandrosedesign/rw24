@@ -102,17 +102,17 @@ describe Team do
       subject.save(validate: false)
       subject.shirt_sizes.attributes.should == {
         mens_small: 1,
-        mens_medium: nil,
-        mens_large: nil,
-        mens_x_large: nil,
-        mens_xx_large: nil,
-        mens_xxx_large: nil,
-        womens_small: nil,
-        womens_medium: nil,
-        womens_large: nil,
-        womens_x_large: nil,
-        womens_xx_large: nil,
-        womens_xxx_large: nil,
+        mens_medium: 0,
+        mens_large: 0,
+        mens_x_large: 0,
+        mens_xx_large: 0,
+        mens_xxx_large: 0,
+        womens_small: 0,
+        womens_medium: 0,
+        womens_large: 0,
+        womens_x_large: 0,
+        womens_xx_large: 0,
+        womens_xxx_large: 0,
       }
       subject.shirt_sizes.mens_small.should == 1
     end
