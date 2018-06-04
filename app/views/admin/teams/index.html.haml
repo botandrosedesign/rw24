@@ -40,7 +40,7 @@
           %td=h team.category_abbrev
           %td= link_to h(team.name), [:edit, :admin, @site, @race, team]
           %td= team.riders.count
-          %td= team.shirt_sizes.total
+          %td{ style: "#{"background-color: red" if team.riders.count != team.shirt_sizes.total }"}= team.shirt_sizes.total
           %td
             - if team.captain
               = mail_to team.captain.email, h(team.captain.name), :cc => team.lieutenant_emails, :subject => team.position_and_name
