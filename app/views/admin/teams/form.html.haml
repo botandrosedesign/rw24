@@ -24,7 +24,7 @@
         .field
           %fieldset.rider-fields{ id: "rider_#{i}" }
             .remove-rider
-              %input(type="checkbox" id="remove-rider-#{i}" class="remove-rider-input")
+              = rider_form.check_box :_destroy, id: "remove-rider-#{i}", class: "remove-rider-input"
               %label(for="remove-rider-#{i}")
                 %span Remove rider #{i}
             %h4

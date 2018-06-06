@@ -39,7 +39,7 @@ Feature: Admins can manage riders
     When I follow "Races"
     Then I should see the following teams:
       | PAID | EMAILED | POS# | CLASS | TEAM NAME           | RIDERS | LEADER NAME   |
-      | 1/2  | No      | 1    | B     | Bot and Rose Design | 2      | Paul Kjelland |
+      | 1/2  | No      | 1    | A     | Bot and Rose Design | 2      | Paul Kjelland |
 
   # Scenario: An admin deletes a rider
     When I follow "Edit" within the "Bot and Rose Design" team
@@ -54,7 +54,7 @@ Feature: Admins can manage riders
     When I follow "Races"
     Then I should see the following teams:
       | PAID | EMAILED | POS# | CLASS | TEAM NAME           | RIDERS | LEADER NAME   |
-      | Yes  | No      | 1    | S     | Bot and Rose Design | 1      | Paul Kjelland |
+      | Yes  | No      | 1    | A     | Bot and Rose Design | 1      | Paul Kjelland |
 
   Scenario: An Admin creates a rider
     Given a team exists with name: "Bot and Rose Design"

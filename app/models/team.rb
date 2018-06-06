@@ -31,7 +31,7 @@ class Team < ActiveRecord::Base
   belongs_to :site
   belongs_to :race
   has_many :riders, :dependent => :delete_all
-  accepts_nested_attributes_for :riders, :reject_if => lambda { |attrs| attrs["name"].blank? }
+  accepts_nested_attributes_for :riders, reject_if: ->(attrs) { attrs["name"].blank? }, allow_destroy: true
 
   has_many :points
 
