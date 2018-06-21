@@ -18,6 +18,7 @@ module Menus
 
         menu :actions, :class => 'actions' do
           if @teams
+            item :database, content: link_to("Download Database", admin_site_database_path(@site, format: :sql))
             item :export, :content => link_to("Export Teams", admin_site_race_teams_path(@site, @race, :format => :csv))
             item :settings, :content => link_to("Edit Race", [:edit, :admin, @site, @race])
           end

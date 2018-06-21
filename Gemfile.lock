@@ -68,6 +68,8 @@ GEM
     arel (8.0.0)
     awesome_nested_set (3.1.4)
       activerecord (>= 4.0.0, < 5.3)
+    backhoe (0.3.0)
+      activerecord
     backports (3.11.1)
     bard (0.33.0)
       bard-rake (>= 0.1.1)
@@ -78,7 +80,8 @@ GEM
       systemu (>= 1.2.0)
       term-ansicolor (>= 1.0.3)
       thor (~> 0.19.0)
-    bard-rake (0.14.1)
+    bard-rake (0.15.0)
+      backhoe
       rake
     bard-staging_banner (0.1.0)
     bard-static (2.5.0)
@@ -416,6 +419,7 @@ DEPENDENCIES
   adva_rbac!
   adva_user!
   awesome_nested_set (~> 3.0)
+  backhoe
   bard
   bard-rake
   bard-staging_banner

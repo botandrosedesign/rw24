@@ -27,6 +27,7 @@ Rails.application.routes.draw do
           resources :riders, only: [:new, :create, :destroy]
         end
       end
+      resource :database
     end
   end
 end
