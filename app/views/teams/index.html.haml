@@ -6,6 +6,8 @@
   = link_to "All", "#", :class => "first current"
   = link_to "A Team", "#", :"data-category" => "A"
   = link_to "B Team", "#", :"data-category" => "B"
+  - if @race.year >= 2018
+    = link_to "Convoy", "#", :"data-category" => "C"
   = link_to "Solo", "#", :"data-category" => "S"
   - if @race.year > 2009
     = link_to "Solo (M)", "#", :"data-category" => "M"
