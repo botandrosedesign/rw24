@@ -19,7 +19,7 @@ Feature: Admin can manage team bonuses
     And I fill in "Points" with "2"
     And I press "Create Bonus"
     Then I should see "Bonus added! Add another?"
-    
+
     When I fill in "Name" with "Another Bonus"
     And I fill in "Points" with "2"
     And I press "Create Bonus"
@@ -41,8 +41,8 @@ Feature: Admin can manage team bonuses
 
   #Scenario: Log bonuses for teams
     When I follow "Bonus Form" within the "Example Bonus" checkpoint
-    And I fill in "Team #" with "1"
-    And I press "OK"
+    And I check "1"
+    And I press "Log Bonuses"
     Then I should see the following bonus entries:
       | POS#  | WHEN     | SINCE    | TYPE     | AMT | TOT | TEAM NAME |
       | 001   | 00:00:00 | 00:00:00 | Bonus 0  |  2  | 0   | BARD      |

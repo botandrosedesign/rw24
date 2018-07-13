@@ -3,22 +3,283 @@
 
 %h3 Bonus Logger - #{@checkpoint.name}
 
-= form_for @bonus, :html => { :id => "new_bonus", :autocomplete => "off" } do |form|
-  .calculator#bonus
-    = hidden_field_tag :key, @checkpoint.key
-    = form.hidden_field :category
-    = form.hidden_field :since_start
-    = form.hidden_field :qty, :value => @checkpoint.points
-    = form.hidden_field :bonus_id, :value => @checkpoint.id
+= mockup_form_for do |form|
+  .bonus-fields
     .field
-      = form.label :team_position, "Team #"
+      = form.check_box :pos_1
+      = form.label :pos_1, "1"
     .field
-      = form.text_field :team_position, :type => "number", :class => "medium", :tabindex => 11
-      .ok-wrapper.top_align
-        = form.submit "OK", :id => "point_submit"
+      = form.check_box :pos_2
+      = form.label :pos_2, "2"
+    .field
+      = form.check_box :pos_3
+      = form.label :pos_3, "3"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "4"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "5"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "6"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "7"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "8"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "9"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "10"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "11"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "12"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "13"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "14"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "15"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "16"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "17"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "18"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "19"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "20"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "21"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "22"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "23"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "24"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "25"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "26"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "27"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "28"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "29"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "30"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "1"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "2"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "3"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "4"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "5"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "6"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "7"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "8"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "9"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "10"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "11"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "12"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "13"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "14"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "15"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "16"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "17"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "18"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "19"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "20"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "21"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "22"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "23"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "24"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "25"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "26"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "27"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "28"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "29"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "30"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "1"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "2"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "3"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "4"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "5"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "6"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "7"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "8"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "9"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "410"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "411"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "412"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "413"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "414"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "415"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "416"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "417"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "418"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "419"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "420"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "421"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "422"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "423"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "424"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "425"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "426"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "427"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "428"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "429"
+    .field
+      = form.check_box :pos_1
+      = form.label :pos_1, "430"
 
-.field.table-actions
-  %a.submit-bonuses(href="") All bonuses have been logged
+  .field
+    %a.submit-bonuses(href="") Log Bonuses
+    //%a.submit-bonuses(href="") All bonuses have been logged
+
 %table#teams
   %thead
     %tr
@@ -33,7 +294,7 @@
   %tbody.stripe#points
     = render @bonuses
 
-  
+
 
 :plain
   <script type="text/x-jquery-template" title="pointRow">

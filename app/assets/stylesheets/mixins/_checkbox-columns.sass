@@ -1,0 +1,59 @@
+%inline-label
+  display: inline-block
+  color: #444
+  font: 400 1.55em $default
+  vertical-align: top
+
+=checkbox-columns($h: 40px, $cols: 1)
+  width: 100%
+  display: flex
+  flex-wrap: wrap
+  vertical-align: top
+  line-height: 1em
+  padding-top: 2px
+  .field
+    display: inline-block
+    line-height: $h
+    min-height: $h
+    padding: 0
+    margin: 0 0 3px 1%
+    border: none
+    clear: none
+  input[type="checkbox"], input[type="radio"]
+    line-height: $h
+    vertical-align: middle
+    margin-top: -3px
+    & + label
+      line-height: $h
+      display: inline
+  label
+    line-height: $h
+  .other
+    width: 100%
+    display: flex
+    clear: both
+    input
+      margin: auto
+    label
+      @extend %inline-label
+      line-height: $h
+      margin: 0 0 0 10px
+    .text, input[type="text"]
+      flex: 1 0
+      margin: 0px 0 0 8px
+  @if $cols == 1
+    .field
+      flex-basis: 100%
+  @if $cols == 2
+    .field
+      flex-basis: 48%
+  @if $cols == 3
+    .field
+      flex-basis: 32%
+  @if $cols == 4
+    .field
+      flex-basis: 24%
+  @if $cols == "auto"
+    .field
+      flex-basis: inherit
+      width: auto
