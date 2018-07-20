@@ -141,6 +141,10 @@ class Team < ActiveRecord::Base
     confirmation_sent_at.present?
   end
 
+  def has_bonus? bonus
+    points.bonuses.map(&:bonus_id).include?(bonus.id)
+  end
+
   def to_paypal_hash
     {
       :no_shipping => "1",

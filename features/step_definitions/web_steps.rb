@@ -82,7 +82,7 @@ Then /^I should not see "(.*?)"$/ do |text|
   page.should_not have_content(text)
 end
 
-Then /^show me the page$/ do
-  save_and_open_page
+Then "I should see the following form:" do |table|
+  table.diff! "form"
 end
 

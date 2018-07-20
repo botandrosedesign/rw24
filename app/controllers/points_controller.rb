@@ -20,6 +20,19 @@ class PointsController < BaseController
     @bonus = Point.new_bonus
   end
 
+  def update_bonuses
+    @checkpoint = Bonus.find_by_race_and_key(@race, params[:key])
+    attributes = { race: @race, category: "Bonus", qty: @checkpoint.points, bonus_id: @checkpoint.id }
+
+    @race.teams.find(params[:team_ids]).each do |team|
+      team.points.where(attributes).first_or_create!
+    end
+
+    team_ids_without = @race.team_ids.map(&:to_s) - params[:team_ids]
+    Point.where(attributes.merge(team_id: team_ids_without)).destroy_all
+    redirect_to({ action: :bonus, key: params[:key] }, notice: "Bonuses updated!")
+  end
+
   def show
     @team = @race.teams.find_by_position(params[:id])
     render "teams/show"
