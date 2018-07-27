@@ -112,34 +112,32 @@
     &:nth-child(2)
       width: 90%
 
-#show
-  float: left
-  margin: 6px 0 12px
-  display: block
-  width: 100%
+.toggle-categories
+  display: flex
+  margin: 0px 0 15px -41px
+  width: calc(100% + 82px)
+  +handheld
+    margin-left: -11px
+    width: calc(100% + 22px)
   a
-    +button(#fff, #333)
-    float: left
+    background: linear-gradient(#fff, #e6e6e6)
+    color: #333
+    border: 1px solid #e0e0e0
     display: inline-block
     width: auto
+    flex: 1 0
     white-space: nowrap
-    font-size: 1em
-    line-height: 32px
+    font: 700 0.9em $default
+    line-height: 50px
     border-color: #ccc
-    +border-radius(0px)
-    &:first-child
-      +border-left-radius(3px)
-    &:last-child
-      +border-right-radius(3px)
+    text-align: center
     &.current
-      background: #999
-      +background-image(linear-gradient(#333, #999))
+      background: linear-gradient(#333, #999)
       color: #fff
-      +box-shadow(transparent 0 0 0 0, #000 0 3px 9px 0 inset)
+      box-shadow: transparent 0 0 0 0, #000 0 3px 9px 0 inset
       border-color: #1a1a1a
     +handheld
       font-size: 0.8em
-      padding: 0 5px
       font-weight: normal
 
 .point-tracker

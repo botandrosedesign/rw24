@@ -2,7 +2,7 @@
 
 = raw @race.description
 
-%p#show
+%p.toggle-categories#show
   = link_to "All", "#", :class => "first current"
   = link_to "A Team", "#", :"data-category" => "A"
   = link_to "B Team", "#", :"data-category" => "B"
@@ -28,7 +28,7 @@
       %th{:scope => "col"} Bonus
       - if @race.year > 2009
         %th{:scope => "col"} Penalty
-      %th{:scope => "col"} 
+      %th{:scope => "col"}
         %b Total
   %tbody#teams
     = render @teams
