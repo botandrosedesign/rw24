@@ -4,7 +4,7 @@ class PointsController < BaseController
   before_action :authorize_access
 
   def index
-    @points = @race.points.limit(100)
+    @points = @race.points.limit(100).reorder(created_at: :desc)
     @lap = Point.new_lap
     @bonus = Point.new_bonus
     @penalty = Point.new_penalty

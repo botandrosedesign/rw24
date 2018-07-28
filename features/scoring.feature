@@ -76,8 +76,8 @@ Feature: Admin can manage team scoring
     Given I am on the points page
     Then I should see the following laps:
       | POS#  | WHEN        | SINCE     | TYPE  | AMT | TOT | TEAM NAME |
-      | 001   | 00:14:00    | 00:14:00  | Lap   | 1   | 2   | BARD      |
       | 001   | 00:30:00    | 00:16:00  | Lap   | 1   | 2   | BARD      |
+      | 001   | 00:14:00    | 00:14:00  | Lap   | 1   | 2   | BARD      |
 
   Scenario: Admin removes a lap
     When I wait for 900 seconds
@@ -122,9 +122,9 @@ Feature: Admin can manage team scoring
     Given I am on the points page
     Then I should see the following laps:
       | POS# | WHEN     | SINCE    | TYPE | AMT | TOT | TEAM NAME |
-      | 001  | 00:15:00 | 00:15:00 | Lap  | 1   | 3   | BARD      |
-      | 001  | 00:30:00 | 00:15:00 | Lap  | 1   | 3   | BARD      |
       | 001  | 00:45:00 | 00:15:00 | Lap  | 1   | 3   | BARD      |
+      | 001  | 00:30:00 | 00:15:00 | Lap  | 1   | 3   | BARD      |
+      | 001  | 00:15:00 | 00:15:00 | Lap  | 1   | 3   | BARD      |
 
   Scenario: Refuses an invalid lap but has opportunity to correct
     When I wait for 900 seconds
