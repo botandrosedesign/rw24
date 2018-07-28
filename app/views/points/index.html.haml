@@ -38,7 +38,7 @@
         = form.text_field :team_position, tabindex: 1, id: "lap_team_position", type: "number", class: "text"
       .field.team-submit
         .ok-wrapper
-          = form.submit "OK"
+          = form.submit "OK", data: { disable_with: false }
   
   %h4
     Bonus Points
@@ -58,7 +58,7 @@
           = form.text_field :bonus_id, :tabindex => 12, type: "number", class: "text"
         .field.bonus-submit
           .ok-wrapper
-            = form.submit "OK"
+            = form.submit "OK", data: { disable_with: false }
 
   .field= button_to "Assign All Bonuses Bonuses", assign_all_bonuses_bonuses_points_path, "data-confirm" => "This will assign the all bonus checkpoints bonus to all teams that have completed every bonus checkpoint, but haven't gotten the tattoo. This operation is idempotent, so push this button as many times as you like."
   
@@ -76,7 +76,7 @@
           = form.text_field :qty, :tabindex => 22, id: "penalty_qty", type: "number", class: "text"
         .field.bonus-submit
           .ok-wrapper
-            = form.submit "OK"
+            = form.submit "OK", data: { disable_with: false }
 
 = content_for :js do
   = javascript_include_tag "points"
