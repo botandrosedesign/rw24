@@ -44,17 +44,22 @@ class Race < ActiveRecord::Base
   end
 
   def assign_all_bonuses_bonuses
-    total_points = bonus_checkpoints.map(&:points).map(&:to_i).sum
     tattoo_points = bonus_checkpoints.first.points.to_i
     raise AllBonusesException, "The first bonus needs to be a five point tattoo bonus" unless tattoo_points == 5
     all_bonuses_points = bonus_checkpoints.last.points.to_i
     raise AllBonusesException, "The last bonus needs to be a five point all bonuses bonus" unless all_bonuses_points == 5
-    ideal_number = total_points - tattoo_points - all_bonuses_points
 
-    teams.find_each.select do |team|
-      team.bonuses_total == ideal_number
-    end.each do |team|
-      team.points.create!(qty: 5, category: "Bonus", race: self, bonus_id: bonus_checkpoints.last.id)
+    teams.find_each do |team|
+      assigned_bonuses = team.points.bonuses.map(&:bonus_id)
+      before = (1..bonus_checkpoints.count-2).to_a
+      after = (1..bonus_checkpoints.count-1).to_a
+      all_bonuses_bonus = team.points.where(qty: 5, category: "Bonus", race: self, bonus_id: bonus_checkpoints.last.id)
+
+      if [before, after].include?(assigned_bonuses)
+        all_bonuses_bonus.first_or_create!
+      else
+        all_bonuses_bonus.destroy_all
+      end
     end
   end
 
