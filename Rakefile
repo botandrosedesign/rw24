@@ -7,8 +7,9 @@ Rails.application.load_tasks
 
 if Rails.env.production?
   task :restart => :clear_cache do
-    sh "bundle exec foreman export upstart-user"
-    sh "restart rw24"
+    sh "bundle exec foreman export systemd-user --app rw24"
+    sh "systemctl --user enable rw24.target"
+    sh "systemctl --user restart rw24.target"
   end
 end
 
