@@ -90,8 +90,7 @@ Feature: Admin can manage team scoring
 
     Given I am on the leaderboard page
     When I follow "BARD"
-    And I follow "Delete" within lap 1
-    #And I confirm deletion
+    And I follow and confirm "Delete" within lap 1
     And I follow "Back to Leader Board"
     Then I should see the following leaderboard:
       | POS# | CLASS | TEAM NAME | LAPS    | MILES      | BONUS | PENALTY | TOTAL |
@@ -111,8 +110,7 @@ Feature: Admin can manage team scoring
 
     Given I am on the leaderboard page
     When I follow "BARD"
-    And I follow "Split" within lap 2
-    # And I confirm
+    And I follow and confirm "Split" within lap 2
     Then I should see the following leaderboard:
       | POS# | CLASS | TEAM NAME | LAPS    | MILES       | BONUS | PENALTY | TOTAL |
       | 001  | M     | BARD      | 03      | 13          | --    | --      | 03    |

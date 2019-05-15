@@ -1,13 +1,17 @@
 require './spec/coverage_setup'
 require 'cucumber/rails'
-require 'capybara'
+require 'capybara/headless_chrome'
 require 'capybara-screenshot/cucumber' unless ENV["CI"]
-require 'capybara/poltergeist'
-require 'phantomjs/poltergeist'
-Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new app, phantomjs: Phantomjs.path
+
+Capybara.register_driver :chrome do |app|
+  Capybara::HeadlessChrome::Driver.new(app, window_size: [1600,2400])
 end
-Capybara.default_driver = :poltergeist
+
+Capybara::Screenshot.register_driver :chrome do |driver, path|
+  driver.save_screenshot(path)
+end
+
+Capybara.server = :webrick
 
 # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
 # order to ease the transition to Capybara we set the default here. If you'd

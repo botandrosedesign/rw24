@@ -64,9 +64,8 @@ group :test, :development do
 end
 
 group :test do
-  gem "cucumber-rails", :require => false
-  gem "poltergeist"
-  gem "capybara"
+  gem "cucumber-rails", require: false
+  gem "capybara-headless_chrome"
   gem "capybara-screenshot"
   gem "database_cleaner"
   gem "email_spec"

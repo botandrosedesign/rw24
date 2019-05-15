@@ -70,8 +70,7 @@ Feature: Admin can manage team bonuses
       | - 1 - Yet Another Bonus |
 
   #Scenario: Admin can delete a bonus lap
-    When I follow "Delete Score" within the "0 - Example Bonus" checkpoint
-    #And I confirm deletion
+    When I follow and confirm "Delete Score" within the "0 - Example Bonus" checkpoint
     Then I should see the following bonuses:
       | BONUSES                 |
       | - 0 - Example Bonus     |
@@ -82,7 +81,7 @@ Feature: Admin can manage team bonuses
     When I follow "Races"
     And I follow "2020"
     And I follow "Edit Race" within the admin subnav
-    And I press "Delete All Bonuses"
+    And I press and confirm "Delete All Bonuses"
     Then I should see "All Bonuses deleted!"
     And I should see the following bonus checkpoints:
       | # | NAME              | POINTS |

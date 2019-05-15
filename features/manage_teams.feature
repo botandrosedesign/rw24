@@ -80,7 +80,7 @@ Feature: Admins can manage teams
 
   Scenario: An Admin deletes a team
     When I follow "Races"
-    And I follow "Delete" within the "BARD" team
+    And I follow and confirm "Delete" within the "BARD" team
     Then I should see no teams
 
   Scenario: An Admin deletes a team from the edit page
