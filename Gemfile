@@ -78,7 +78,7 @@ group :test do
 end
 
 group :production do
-  gem "foreman-export-upstart_user"
+  gem "foreman-export-systemd_user"
   gem "rack-www"
   gem "rack-cache"
   gem "handle_invalid_percent_encoding_requests" # chinese spiders are polluting the internet
