@@ -1,6 +1,6 @@
 require "ar_helper"
 require "team"
-require "./spec/support/factories"
+require "support/factories"
 
 describe Team do
   # stubbing #race is a bitch

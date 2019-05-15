@@ -4,7 +4,7 @@ require "team"
 require "rider"
 require "point"
 require "bonus"
-require "./spec/support/factories"
+require "support/factories"
 
 describe Race do
   before { Team.any_instance.stub(assign_site: nil) }

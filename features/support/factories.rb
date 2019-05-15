@@ -59,7 +59,7 @@ FactoryBot.define do
   factory :race do
     year { Date.today.year }
     start_time { Time.parse("#{year}-07-25 19:00:00 CDT") }
-    published true
+    published { true }
   end
 
   factory :team do
@@ -71,14 +71,14 @@ FactoryBot.define do
     zip
 
     factory :team_solo do
-      category "Solo (male)"
+      category { "Solo (male)" }
       before(:create) do |team|
         team.riders << FactoryBot.build(:rider)
       end
     end
 
     factory :team_a do
-      category "A Team"
+      category { "A Team" }
       before(:create) do |team|
         team.riders << FactoryBot.build(:rider)
         team.riders << FactoryBot.build(:rider)
@@ -90,6 +90,6 @@ FactoryBot.define do
     name
     email
     phone
-    shirt "M"
+    shirt { "M" }
   end
 end
