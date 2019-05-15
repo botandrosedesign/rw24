@@ -55,9 +55,10 @@ group :development do
   gem "binding_of_caller"
 end
 
-group :test, :development do
-  gem "sqlite3"
+group :development, :test do
   gem "byebug"
+  gem "parallel_tests"
+  gem "sqlite3"
   gem "rspec-rails"
   gem "teaspoon-jasmine"
   gem "phantomjs"
