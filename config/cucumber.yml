@@ -1,1 +1,1 @@
-default: --format pretty --guess --require features/step_definitions --require features/support features
+default: --strict <%= "--retry 2 --no-strict-flaky" if ENV["CI"] %> --format <%= ENV["CI"] ? "progress" : "pretty" %> --guess --require features/support
