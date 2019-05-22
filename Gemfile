@@ -38,8 +38,7 @@ git "https://github.com/botandrose/adva_cms.git", branch: "rails5" do
   gem "adva_meta_tags"
 end
 
-gem "sass-rails"
-gem "compass-rails"
+gem "sassc-rails"
 gem "font-awesome-rails"
 
 gem "coffee-rails"
