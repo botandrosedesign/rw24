@@ -1,23 +1,8 @@
 @charset "UTF-8"
 @import "constant"
 
-@import "compass/reset"
-@import "compass/utilities"
-@import "compass/layout"
-@import "compass/css3"
-@import "compass/support"
-
-//
-
-@import "sprite/*.png"
-@include all-sprite-sprites
-
-//
-
-@import "mixins/*"
-@import "general/*"
-@import "scoring"
-@import "teams"
+*
+  box-sizing: border-box
 
 textarea
   &.big, &.wysiwyg
@@ -46,7 +31,6 @@ textarea
   display: flex
   .main
     flex: 1 0 75%
-    width: auto
 
 .rider-flex
   display: flex
@@ -95,7 +79,7 @@ textarea
 
 a
   color: $primaryColor
-  +border-radius(0px)
+  border-radius: 0px
   margin: 0
   padding: 0
 .current
@@ -185,7 +169,7 @@ body
   li
     margin-bottom: 0px
     &>ul
-      +box-shadow(transparent 0 0 0)
+      box-shadow: transparent 0 0 0
       border: none
       top: 28px
       padding-bottom: 3px
@@ -272,18 +256,15 @@ body
 
 #content
   .actions
-    a.edit, a.delete, a.preview
-      display: inline-block
-      width: 2px
+    a
+      width: 20px
       height: 20px
-      padding: 0px 9px
-      margin: 0 5px
     a.preview
-      background: transparent #{image_url("admin/show.gif")} no-repeat center !important
+      background: none
     a.edit
-      background: transparent #{image_url("admin/edit.gif")} no-repeat center !important
+      background: none
     a.delete
-      background: transparent #{image_url("admin/delete.gif")} no-repeat center !important
+      background: none
 
 //
 
@@ -293,7 +274,7 @@ body
   width: 370px
   ul#users
     img
-      +box-shadow(#ccc 0 0 3px)
+      box-shadow: #ccc 0 0 3px
   li a
     padding-left: 0
   select

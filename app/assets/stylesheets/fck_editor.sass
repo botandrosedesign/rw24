@@ -1,28 +1,11 @@
 @charset "UTF-8"
 @import "constant"
 
-@import "compass/reset"
-@import "compass/utilities"
-@import "compass/layout"
-@import "compass/css3"
-@import "compass/support"
-
-//
-
-@import "sprite/*.png"
-@include all-sprite-sprites
-
-//
-
-@import "general/*"
-@import "scoring"
-@import "teams"
-
 body
   background: #fff
   padding: 10px
 img
-  +box-shadow(#ccc 0 0 6px)
+  box-shadow: #ccc 0 0 6px
 
 cell
   border: 2px dashed #999 !important

@@ -1,0 +1,37 @@
+// Icons with hidden text
+
+=icon($fa, $size: 1.4em)
+  display: inline-block
+  margin: 0 6px
+  text-align: left
+  position: relative
+  font-size: $size
+  width: 1em
+  text-indent: -9999px
+  color: transparent
+  @extend .fa
+  @extend .fa-#{$fa}
+  &:before
+    color: #4f4f4f
+    text-indent: 0
+    position: absolute
+    top: 50%
+    right: 50%
+    margin: -0.5em -0.5em 0 0
+    z-index: 2
+  &:hover
+    color: transparent
+    &:before
+      color: $secondaryColor
+
+
+// Icons with text
+
+=icon_text($fa, $font-size: 1.3em)
+  display: inline-block
+  @extend .fa-#{$fa}
+  font-size: $font-size
+  &:before
+    margin-right: 6px
+    @extend .fa
+

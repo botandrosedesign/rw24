@@ -1,37 +1,9 @@
-@mixin icon
-  display: inline-block
-  margin: 0 0 0 3px
-  text-align: left
-  position: relative
-  font-size: 1.4em
-  width: 1em
-  text-indent: -9999px
-  color: #666
-  &:before
-    text-indent: 0
-    position: absolute
-    top: 50%
-    right: 50%
-    margin: -0.5em -0.5em 0 0 
-    z-index: 2
-  &:hover
-    &:before
-      color: $primaryColor
-
-
-// Specific icons
-
-.icon
-  +icon
-.delete-icon
-  +icon
-  @extend .fa
-  @extend .fa-trash-o
-.edit-icon
-  +icon
-  @extend .fa
-  @extend .fa-pencil
+.delete, .delete-icon
+  +icon("trash-o")
+.edit, .edit-icon
+  +icon("pencil")
+.preview, .preview-icon
+  +icon("search")
 .split-icon
-  +icon
-  @extend .fa
-  @extend .fa-share-alt
+  +icon("share-alt")
+

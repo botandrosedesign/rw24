@@ -1,32 +1,15 @@
 @charset "UTF-8"
 @import "constant"
 
-@import "compass/reset"
-@import "compass/utilities"
-@import "compass/layout"
-@import "compass/css3"
-@import "compass/support"
-
-//
-
-@import "sprite/*.png"
-@include all-sprite-sprites
-
-//
-
-@import "mixins/*"
-@import "general/*"
-@import "scoring"
-@import "teams"
 
 //
 
 *
-  +box-sizing(border-box)
+  box-sizing: border-box
 
 body
   color: #202020
-  +background-image(linear-gradient(#1a1a1a 0px, #f1f1f1 350px))
+  background: linear-gradient(#1a1a1a 0px, #f1f1f1 350px)
   height: auto
 
 .container
@@ -41,16 +24,15 @@ body
 // header
 
 header
-  +sprite-sprite("tires")
-  background-position-x: center
+  background: transparent image_url("header.png") no-repeat 50% 0%
   +handheld
     padding: 5px
   .rw24-logo
-    @extend .sprite-riverwest24
+    background: transparent image_url("rw24.svg") no-repeat 50% 50%
+    background-size: contain
     float: left
     width: 125px
-    height: 124px
-    margin-top: 3px
+    height: 125px
     +handheld
       display: none
 .title
@@ -86,7 +68,8 @@ countdown
   width: 300px
   float: right
   background: #1a1a1a
-  +border-bottom-radius( 3px)
+  border-bottom-left-radius: 3px
+  border-bottom-right-radius: 3px
   color: #ccc
   border: 1px solid #000
   +handheld
@@ -133,8 +116,8 @@ article
   width: 70%
   padding: 20px 40px
   background: #fff
-  +box-shadow(#ccc 0 0 3px)
-  +border-radius(2px)
+  box-shadow: #ccc 0 0 3px
+  border-radius: 2px
   margin-bottom: 20px
   min-height: 360px
   &.full
@@ -171,11 +154,11 @@ footer
 
 .errorExplanation
   border: 3px solid red
-  +border-radius(12px)
+  border-radius: 12px
   color: red
   padding: 20px 20px 0
   background: pink
-  +box-shadow(#333 0 0 6px)
+  box-shadow: #333 0 0 6px
   width: 80%
   margin: auto
   h2
