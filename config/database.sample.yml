@@ -10,11 +10,7 @@ development:
 
 test:
   <<: *login
-  database: rw24_test
-
-cucumber:
-  <<: *login
-  database: rw24_test
+  database: rw24_test<%= ENV["TEST_ENV_NUMBER"] %>
 
 staging:
   <<: *login
