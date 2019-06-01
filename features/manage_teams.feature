@@ -61,13 +61,9 @@ Feature: Admins can manage teams
     When I follow "Races"
     And I follow "Edit" within the "BARD" team
 
-    And I follow "+ Add a rider"
-    And I press "Save"
-    Then I should see "The rider has been created."
-
-    When I fill in "Team Name" with "Bog and Rat Defeat"
+    And I fill in "Team Name" with "Bog and Rat Defeat"
     And I select "Tandem" from "Category"
-    And I fill in "Mens small" with "3"
+    And I fill in "Mens small" with "2"
     And I fill in "Name" with "Michael Gubitosa" within the second rider
     And I fill in "Email" with "gubs@botandrose.com" within the second rider
     And I press "Save"
@@ -76,7 +72,7 @@ Feature: Admins can manage teams
     When I follow "Races"
     Then I should see the following teams:
       | PAID | EMAILED | POS# | CLASS | TEAM NAME          | RIDERS | T-SHIRTS | LEADER NAME |
-      | No   | No      | 1    | T     | Bog and Rat Defeat | 2      | 3        | Micah       |
+      | No   | No      | 1    | T     | Bog and Rat Defeat | 2      | 2        | Micah       |
 
   Scenario: An Admin deletes a team
     When I follow "Races"

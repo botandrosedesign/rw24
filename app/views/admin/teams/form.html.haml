@@ -19,8 +19,9 @@
   %fieldset
     .info-text To remove riders, highlight the <i class="fa fa-trash"></i> icon and press Save.
     .rider-flex
-      - i = 1
+      - @team.riders.build until @team.riders.length == 6
       = form.fields_for :riders do |rider_form|
+        - i = rider_form.index + 1
         .field
           %fieldset.rider-fields{ id: "rider_#{i}" }
             .remove-rider
@@ -35,11 +36,6 @@
             .field= rider_form.text_field :email, label: true
             .field= rider_form.text_field :phone, label: true
             .field= rider_form.text_area :notes, label: true
-
-        - i += 1
-
-      - if form.object.persisted?
-        .field= link_to "+ Add a rider", [:new, :admin, @site, @race, @team, :rider]
 
   %hr
 

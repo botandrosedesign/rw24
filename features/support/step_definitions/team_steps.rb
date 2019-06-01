@@ -25,7 +25,7 @@ Given /^the following race teams exist:/ do |table|
       end
 
       attributes.merge(riders_attributes: [
-        rider_from_email(attributes.delete(:leader_email), name: attributes.delete(:leader_name)),
+        rider_from_email(attributes.delete(:leader_email), name: attributes.delete(:leader_name), phone: attributes.delete(:leader_phone)),
         rider_from_email(attributes.delete(:rider_1_email)),
         rider_from_email(attributes.delete(:rider_2_email)),
       ].compact)

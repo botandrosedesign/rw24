@@ -11,7 +11,6 @@ class Admin::TeamsController < Admin::BaseController
   
   def new
     @team = @race.teams.build
-    6.times { @team.riders << Rider.new }
     render :form
   end
 
@@ -21,13 +20,10 @@ class Admin::TeamsController < Admin::BaseController
   end
 
   def create
-    @team = @race.teams.build(params[:team])
+    @team = @race.teams.build(team_params)
     if @team.save
       redirect_to [:edit, :admin, @site, @race, @team], notice: "The team has been created."
     else
-      until @team.riders.length == 6
-        @team.riders << Rider.new
-      end
       flash.now.alert = errors_for(@team)
       render :form
     end
@@ -35,7 +31,7 @@ class Admin::TeamsController < Admin::BaseController
 
   def update
     @team = @race.teams.find(params[:id])
-    if @team.update(params[:team])
+    if @team.update(team_params)
       redirect_to [:edit, :admin, @site, @race, @team], notice: "The team has been updated."
     else
       flash.now.alert = errors_for(@team)
@@ -66,5 +62,18 @@ class Admin::TeamsController < Admin::BaseController
 
   def authorize_access
     redirect_to admin_sites_url unless @site || current_user.has_role?(:superuser)
+  end
+
+  def team_params
+    @team_params = params[:team].permit!.to_h
+    @team_params["riders_attributes"] = @team_params["riders_attributes"].reduce({}) do |riders_attributes, (index, attributes)|
+      if attributes["_destroy"] == "1"
+        Rider.destroy(attributes["id"])
+        riders_attributes
+      else
+        riders_attributes.merge index => attributes
+      end
+    end
+    @team_params
   end
 end

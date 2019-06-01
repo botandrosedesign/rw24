@@ -44,7 +44,7 @@ class Team < ActiveRecord::Base
   validates_presence_of :race, :name, :category
   validates_uniqueness_of :position, :scope => :race_id
   validates_each :riders do |record, attr, value|
-    record.errors.add attr, 'count is incorrect.' unless record.allowed_range.include? value.length
+    record.errors.add attr, "count is incorrect." unless record.allowed_range.include?(value.length)
   end
 
   acts_as_list :scope => :race_id
