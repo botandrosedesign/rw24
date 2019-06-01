@@ -12,7 +12,7 @@ class Team < ActiveRecord::Base
       :solo_elder   => 1..1,
       :tandem       => 2..2,
       :tandem_elder => 2..2,
-      :convoy       => 3..3,
+      :convoy       => 3..6,
     }
   end
 
