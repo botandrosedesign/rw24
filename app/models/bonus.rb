@@ -15,7 +15,16 @@ class Bonus
     end
   end
 
-  attr_accessor :id, :name, :points, :key
+  def self.find_by_key key
+    bonus = nil
+    race = Race.all.find do |race|
+      bonus = find_by_race_and_key(race, key)
+    end
+    bonus.race = race
+    bonus
+  end
+
+  attr_accessor :id, :name, :points, :key, :race
 
   def initialize(attributes = {})
     attributes.each do |name, value|

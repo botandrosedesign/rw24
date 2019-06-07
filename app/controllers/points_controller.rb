@@ -15,13 +15,15 @@ class PointsController < BaseController
   end
 
   def bonus
-    @checkpoint = Bonus.find_by_race_and_key(@race, params[:key])
+    @checkpoint = Bonus.find_by_key(params[:key])
+    @race = @checkpoint.race
     @bonuses = @race.points.where(category: "Bonus", bonus_id: @checkpoint.id).limit(100)
     @bonus = Point.new_bonus
   end
 
   def update_bonuses
-    @checkpoint = Bonus.find_by_race_and_key(@race, params[:key])
+    @checkpoint = Bonus.find_by_key(params[:key])
+    @race = @checkpoint.race
     attributes = { race: @race, category: "Bonus", qty: @checkpoint.points, bonus_id: @checkpoint.id }
 
     @race.teams.find(params[:team_ids]).each do |team|
