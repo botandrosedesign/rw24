@@ -14,7 +14,7 @@ $(function() {
     $(this).find("#point_since_start").val(since_start_formatted);
     var bonus_id = $(this).find("#point_bonus_id").val();
     var qty = $(this).find("#point_qty").val();
-    if(bonus_id && !qty) {
+    if(bonus_id) {
       var qty = window.bonuses.qty_for_id(bonus_id);
       $(this).find("#point_qty").val(qty);
     }
