@@ -59,6 +59,7 @@
             %td
               %span
               #{bonus.id} - #{bonus.name}
+              %i.points= bonus_lap&.qty
             %td
               - if bonus_lap && current_user.try(:has_role?, :superuser)
                 = link_to "Delete", bonus_lap, class: "delete-icon", title: "Delete Score", method: :delete, data: { confirm: "Are you sure?" }
@@ -68,7 +69,7 @@
           %tr
             %td
               Bonus #{i+1}
-              = bonus.qty
+              %i.points= bonus.qty
             %td
               - if current_user.try(:has_role?, :superuser)
                 = link_to "Edit", [:edit, bonus], title: "Edit Score", rel: "width:500 height:400", class: "edit-icon ceebox"

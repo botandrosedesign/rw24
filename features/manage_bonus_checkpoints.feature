@@ -93,12 +93,12 @@ Feature: Admin can manage team bonuses
 
     When I follow "BARD"
     Then I should see the following bonuses:
-      | BONUSES            |
-      | - 0 - Tattoo       |
-      | ✓ 1 - First Bonus  |
-      | - 2 - Second Bonus |
-      | - 3 - Third Bonus  |
-      | - 4 - All Bonuses! |
+      | BONUSES               |
+      | - 0 - Tattoo          |
+      | ✓ 1 - First Bonus 1   |
+      | - 2 - Second Bonus    |
+      | - 3 - Third Bonus     |
+      | - 4 - All Bonuses!    |
 
 # Scenario: Admin can delete a bonus lap
 #   When I follow and confirm "Delete Score" within the "0 - Example Bonus" checkpoint
@@ -138,12 +138,12 @@ Feature: Admin can manage team bonuses
 
     When I follow "BARD"
     Then I should see the following bonuses:
-      | BONUSES            |        |
-      | - 0 - Tattoo       |        |
-      | ✓ 1 - First Bonus  | Delete |
-      | ✓ 2 - Second Bonus | Delete |
-      | - 3 - Third Bonus  |        |
-      | - 4 - All Bonuses! |        |
+      | BONUSES                |        |
+      | - 0 - Tattoo           |        |
+      | ✓ 1 - First Bonus 1    | Delete |
+      | ✓ 2 - Second Bonus 10  | Delete |
+      | - 3 - Third Bonus      |        |
+      | - 4 - All Bonuses!     |        |
 
     Given I am on the admin overview page
     When I follow "Races"
@@ -167,12 +167,12 @@ Feature: Admin can manage team bonuses
 
     When I follow "BARD"
     Then I should see the following bonuses:
-      | BONUSES            |        |
-      | - 0 - Tattoo       |        |
-      | ✓ 1 - First Bonus  | Delete |
-      | ✓ 2 - Second Bonus | Delete |
-      | ✓ 3 - Third Bonus  | Delete |
-      | ✓ 4 - All Bonuses! | Delete |
+      | BONUSES                |        |
+      | - 0 - Tattoo           |        |
+      | ✓ 1 - First Bonus 1    | Delete |
+      | ✓ 2 - Second Bonus 10  | Delete |
+      | ✓ 3 - Third Bonus 24   | Delete |
+      | ✓ 4 - All Bonuses! 5   | Delete |
 
   Scenario: Getting all bonuses WITH Tattoo does not award All Bonuses! bonus
     Given I am on the points page
@@ -191,7 +191,7 @@ Feature: Admin can manage team bonuses
     When I fill in "POS#" with "1" within the bonus form
     And I fill in "Bonus#" with "3" within the bonus form
     And I press "OK" within the bonus form
- 
+
     When I press and confirm "Assign All Bonuses Bonus"
 
     Given I am on the leaderboard page
@@ -203,10 +203,10 @@ Feature: Admin can manage team bonuses
 
     When I follow "BARD"
     Then I should see the following bonuses:
-      | BONUSES            |        |
-      | ✓ 0 - Tattoo       | Delete |
-      | ✓ 1 - First Bonus  | Delete |
-      | ✓ 2 - Second Bonus | Delete |
-      | ✓ 3 - Third Bonus  | Delete |
-      | - 4 - All Bonuses! |        |
+      | BONUSES                |        |
+      | ✓ 0 - Tattoo 5         | Delete |
+      | ✓ 1 - First Bonus 1    | Delete |
+      | ✓ 2 - Second Bonus 10  | Delete |
+      | ✓ 3 - Third Bonus 24   | Delete |
+      | - 4 - All Bonuses!     |        |
 
