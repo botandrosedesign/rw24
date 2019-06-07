@@ -26,7 +26,9 @@ end
 
 Then "I should see the following team bonuses:" do |table|
   wait_for_ajax
-  table.diff!
+  table.diff! do
+    header { ["POS#", "TEAM NAME", "POINTS"] }
+  end
 end
 
 Then "I should see the following bonus entries:" do |table|

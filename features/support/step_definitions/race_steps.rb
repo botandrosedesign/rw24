@@ -1,5 +1,10 @@
 Given /^a race exists for (\d+)$/ do |year|
-  FactoryBot.create :race, year: year.to_i
+  FactoryBot.create :race, year: year.to_int
+end
+
+Given "a race exists for {int} with the following bonus checkpoints:" do |year, table|
+  bonuses = table.hashes.map { |hash| { name: hash["Name"], points: hash["Points"].to_i, key: SecureRandom.hex(8) } }
+  race = FactoryBot.create :race, year: year.to_i, bonuses: bonuses
 end
 
 Given "there are no races" do

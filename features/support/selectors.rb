@@ -38,6 +38,9 @@ module HtmlSelectorsHelpers
     when /the "(.+?)" checkpoint/
       [".bonuses tr, #bonuses tr", text: $1]
 
+    when /the bonus form/
+      "#bonus"
+
     when /the popup/
       "#cee_box"
 
