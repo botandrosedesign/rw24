@@ -19,5 +19,7 @@ module Rw24
     config.time_zone = 'Central Time (US & Canada)'
 
     config.action_controller.permit_all_parameters = true
+
+    config.active_record.sqlite3.represent_boolean_as_integer = true
   end
 end
