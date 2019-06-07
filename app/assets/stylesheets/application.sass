@@ -14,7 +14,7 @@ body
 
 .container
   display: table
-  width: 1120px
+  width: 1280px
   position: relative
   overflow: visible
   margin: auto
@@ -105,15 +105,17 @@ countdown
   padding-bottom: 40px
   +handheld
     padding: 0 5px
+  .container
+    display: flex
+    flex-wrap: wrap
 
 article, aside
-  display: table-cell
   vertical-align: top
   img
     max-width: 100%
     height: auto
 article
-  width: 70%
+  flex: 0 0 69%
   padding: 20px 40px
   background: #fff
   box-shadow: #ccc 0 0 3px
@@ -121,12 +123,12 @@ article
   margin-bottom: 20px
   min-height: 360px
   &.full
-    width: 100%
+    flex: 1 0 100%
   +handheld
-    width: 100%
+    flex: 1 0 100%
     padding: 10px
 aside
-  display: table-cell
+  flex: 0 0 30%
   padding: 20px 0 20px 40px
   +handheld
     display: none

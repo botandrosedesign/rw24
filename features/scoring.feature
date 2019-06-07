@@ -151,7 +151,7 @@ Feature: Admin can manage team scoring
     When I follow "Bonus Form"
     And I check "1"
     And I press "Save"
-    # Then I should see "BONUSES UPDATED!" # FIXME flash doesnt work on frontend
+    Then I should see "Bonuses updated!"
     And I should see the following form:
       | 1 |
 

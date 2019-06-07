@@ -58,10 +58,8 @@
                   %li= link_to_current content.title, [section, content]
     %section.main
       .container
-        - if flash[:notice]
-          #flash_notice= flash[:notice]
-        - if flash[:error]
-          #flash_error= flash[:error]
+        #flash_notice= flash[:notice]
+        #flash_error= flash[:error]
 
         - if content_for? :sidebar
           %article
@@ -82,7 +80,7 @@
         %p
           Riverwest - Milwaukee, WI
         %p
-          &copy; Copyright #{Date.today.year} - All Rights Reserved 
+          &copy; Copyright #{Date.today.year} - All Rights Reserved
         %p
           = mail_to "info@riverwest24.com"
 

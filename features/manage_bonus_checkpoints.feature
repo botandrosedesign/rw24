@@ -70,7 +70,7 @@ Feature: Admin can manage team bonuses
     When I follow "Bonus Form" within the "First Bonus" checkpoint
     And I check "1"
     And I press "Save"
-    # Then I should see "Bonuses updated!" # FIXME broken flash messages
+    Then I should see "Bonuses updated!"
     And I should see the following form:
       | 1 |
 
@@ -117,7 +117,7 @@ Feature: Admin can manage team bonuses
     When I follow "Bonus Form" within the "First Bonus" checkpoint
     And I check "1"
     And I press "Save"
-    # Then I should see "Bonuses updated!"
+    Then I should see "Bonuses updated!"
 
     Given I am on the admin overview page
     When I follow "Races"
@@ -127,7 +127,7 @@ Feature: Admin can manage team bonuses
     When I follow "Bonus Form" within the "Second Bonus" checkpoint
     And I check "1"
     And I press "Save"
-    # Then I should see "Bonuses updated!"
+    Then I should see "Bonuses updated!"
 
     Given I am on the leaderboard page
     Then I should see the following leaderboard:
@@ -153,7 +153,7 @@ Feature: Admin can manage team bonuses
     When I follow "Bonus Form" within the "Third Bonus" checkpoint
     And I check "1"
     And I press "Save"
-    # Then I should see "Bonuses updated!"
+    Then I should see "Bonuses updated!"
 
     Given I am on the points page
     When I press and confirm "Assign All Bonuses Bonus"
