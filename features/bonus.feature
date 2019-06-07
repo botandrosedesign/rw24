@@ -86,3 +86,110 @@ Feature: Admin can manage team bonuses
     And I should see the following bonus checkpoints:
       | # | NAME              | POINTS |
 
+  Scenario: Getting all bonuses except Tattoo awards All Bonuses! bonus
+    When I follow "+ Add a Checkpoint"
+    And I fill in "Name" with "Tattoo"
+    And I fill in "Points" with "5"
+    And I press "Create Bonus"
+
+    When I fill in "Name" with "First Bonus"
+    And I fill in "Points" with "1"
+    And I press "Create Bonus"
+
+    When I fill in "Name" with "Second Bonus"
+    And I fill in "Points" with "10"
+    And I press "Create Bonus"
+
+    When I fill in "Name" with "Third Bonus"
+    And I fill in "Points" with "24"
+    And I press "Create Bonus"
+
+    When I fill in "Name" with "All Bonuses!"
+    And I fill in "Points" with "5"
+    And I press "Create Bonus"
+
+    When I follow "cancel"
+    Then I should see the following bonus checkpoints:
+      | # | NAME              | POINTS |
+      | 0 | Tattoo            | 5      |
+      | 1 | First Bonus       | 1      |
+      | 2 | Second Bonus      | 10     |
+      | 3 | Third Bonus       | 24     |
+      | 4 | All Bonuses!      | 5      |
+
+    When I follow "Bonus Form" within the "First Bonus" checkpoint
+    And I check "1"
+    And I press "Save"
+
+    Given I am on the admin overview page
+    When I follow "Races"
+    And I follow "2020"
+    And I follow "Edit Race" within the admin subnav
+
+    When I follow "Bonus Form" within the "Second Bonus" checkpoint
+    And I check "1"
+    And I press "Save"
+
+    Given I am on the leaderboard page
+    Then I should see the following leaderboard:
+      | POS# | CLASS  | TEAM NAME | LAPS    | MILES      | BONUS | PENALTY | TOTAL |
+      | 001  | M      | BARD      | --      | --         | 11    | --      | 11    |
+      | 002  | F      | BORG      | --      | --         | --    | --      | --    |
+      |      |        |           | 0 LAPS! | 0.0 MILES! |       |         |       |
+
+    When I follow "BARD"
+    Then I should see the following bonuses:
+      | 0 - Tattoo        |           |
+      | 1 - First bonus   | Delete    |
+      | 2 - Second bonus  | Delete    |
+      | 3 - Third bonus   |           |
+      | 4 - All bonuses   |           |
+
+    Given I am on the admin overview page
+    When I follow "Races"
+    And I follow "2020"
+    And I follow "Edit Race" within the admin subnav
+
+    When I follow "Bonus Form" within the "Third Bonus" checkpoint
+    And I check "1"
+    And I press "Save"
+
+    Given I am on the leaderboard page
+    Then I should see the following leaderboard:
+      | POS# | CLASS  | TEAM NAME | LAPS    | MILES      | BONUS | PENALTY | TOTAL |
+      | 001  | M      | BARD      | --      | --         | 40    | --      | 40    |
+      | 002  | F      | BORG      | --      | --         | --    | --      | --    |
+      |      |        |           | 0 LAPS! | 0.0 MILES! |       |         |       |
+
+    When I follow "BARD"
+    Then I should see the following bonuses:
+      | 0 - Tattoo        |           |
+      | 1 - First bonus   | Delete    |
+      | 2 - Second bonus  | Delete    |
+      | 3 - Third bonus   | Delete    |
+      | 4 - All bonuses   | Delete    |
+
+  # Scenario: Getting all bonuses WITH Tattoo does not award All Bonuses! bonus
+    Given I am on the admin overview page
+    When I follow "Races"
+    And I follow "2020"
+    And I follow "Edit Race" within the admin subnav
+
+    When I follow "Bonus Form" within the "Tattoo" checkpoint
+    And I check "1"
+    And I press "Save"
+
+    Given I am on the leaderboard page
+    Then I should see the following leaderboard:
+      | POS# | CLASS  | TEAM NAME | LAPS    | MILES      | BONUS | PENALTY | TOTAL |
+      | 001  | M      | BARD      | --      | --         | 40    | --      | 40    |
+      | 002  | F      | BORG      | --      | --         | --    | --      | --    |
+      |      |        |           | 0 LAPS! | 0.0 MILES! |       |         |       |
+
+    When I follow "BARD"
+    Then I should see the following bonuses:
+      | 0 - Tattoo        | Delete    |
+      | 1 - First bonus   | Delete    |
+      | 2 - Second bonus  | Delete    |
+      | 3 - Third bonus   | Delete    |
+      | 4 - All bonuses   |           |
