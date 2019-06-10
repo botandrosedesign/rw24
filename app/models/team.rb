@@ -17,14 +17,14 @@ class Team < ActiveRecord::Base
     }
   end
 
-  def self.categories
+  def self.legacy_categories
     ["A Team", "B Team", "Elder Team", "Solo (male)", "Solo (female)", "Solo (elder)", "Tandem", "Tandem (elder)", "Convoy", "Perfect Strangers"]
   end
 
   default_scope -> { order(:position) }
   
-  def self.by_category category
-    where(category: category)
+  def self.by_legacy_category legacy_category
+    where(legacy_category: legacy_category)
   end
 
   attr_accessor :phone
@@ -42,7 +42,7 @@ class Team < ActiveRecord::Base
     super
   end
 
-  validates_presence_of :race, :name, :category
+  validates_presence_of :race, :name, :legacy_category
   validates_uniqueness_of :position, :scope => :race_id
   validates_each :riders do |record, attr, value|
     record.errors.add attr, "count is incorrect." unless record.allowed_range.include?(value.length)
@@ -73,7 +73,7 @@ class Team < ActiveRecord::Base
   # FIXME replace with default_value_for
   def initialize *options, &block
     options[0] ||= {}
-    options[0]["category"] ||= "A Team"
+    options[0]["legacy_category"] ||= "A Team"
     super
   end
 
@@ -98,7 +98,7 @@ class Team < ActiveRecord::Base
   end
 
   def allowed_range
-    self.class.allowed_ranges[category.parameterize.underscore.to_sym]
+    self.class.allowed_ranges[legacy_category.parameterize.underscore.to_sym]
   end
 
   def captain
@@ -117,15 +117,15 @@ class Team < ActiveRecord::Base
     lieutenants.collect(&:email).select(&:present?).join(", ")
   end
 
-  def category_abbrev
-    return unless category
-    return "?" if category == "Perfect Strangers"
-    category[0..0]
+  def legacy_category_abbrev
+    return unless legacy_category
+    return "?" if legacy_category == "Perfect Strangers"
+    legacy_category[0..0]
   end
 
-  def category_abbrev_with_gender
-    return category_abbrev unless category_abbrev == "S"
-    category =~ /female/ ? "F" : "M"
+  def legacy_category_abbrev_with_gender
+    return legacy_category_abbrev unless legacy_category_abbrev == "S"
+    legacy_category =~ /female/ ? "F" : "M"
   end
 
   def position_and_name
@@ -154,7 +154,7 @@ class Team < ActiveRecord::Base
       :business => "riverwest24@gmail.com",
       :amount => 20.00,
       :quantity => riders.length,
-      :item_name => "Riverwest 24 Registration - #{category}",
+      :item_name => "Riverwest 24 Registration - #{legacy_category}",
       :cmd => "_xclick",
       :custom => id,
       :return => "http://riverwest24.com/join/articles/thanks",

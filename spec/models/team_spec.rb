@@ -9,7 +9,7 @@ describe Team do
   before { subject.stub(race: race) }
 
   context "of category 'A Team'" do
-    before { subject.category = "A Team" }
+    before { subject.legacy_category = "A Team" }
 
     [0,1,7].each do |i|
       it "cannot have #{i} riders" do
@@ -27,7 +27,7 @@ describe Team do
   end
 
   context "of category 'B Team'" do
-    before { subject.category = "B Team" }
+    before { subject.legacy_category = "B Team" }
 
     [0,1,7].each do |i|
       it "cannot have #{i} riders" do
@@ -45,7 +45,7 @@ describe Team do
   end
 
   context "of category 'Solo (male)'" do
-    before { subject.category = "Solo (male)" }
+    before { subject.legacy_category = "Solo (male)" }
 
     [0,2,3,4,5,6,7].each do |i|
       it "cannot have #{i} riders" do
@@ -61,7 +61,7 @@ describe Team do
   end
 
   context "of category 'Solo (female)'" do
-    before { subject.category = "Solo (female)" }
+    before { subject.legacy_category = "Solo (female)" }
 
     [0,2,3,4,5,6,7].each do |i|
       it "cannot have #{i} riders" do
@@ -77,7 +77,7 @@ describe Team do
   end
 
   context "of category 'Tandem'" do
-    before { subject.category = "Tandem" }
+    before { subject.legacy_category = "Tandem" }
 
     [0,1,3,4,5,6,7].each do |i|
       it "cannot have #{i} riders" do

@@ -1,17 +1,17 @@
-class CategoryFilter
+class LegacyCategoryFilter
   constructor: ->
-    $("#show a").click((event) => @selectCategory(event)).eq(0).click()
+    $("#show a").click((event) => @selectlegacyCategory(event)).eq(0).click()
 
-  selectCategory: (event) ->
+  selectlegacyCategory: (event) ->
     event.preventDefault()
     $el = $(event.target)
     $el.addClass("current").siblings().removeClass("current")
-    @filterCategory $el.data("category")
+    @filterlegacyCategory $el.data("legacy-category")
 
-  filterCategory: (category) ->
-    $rows = if category
+  filterlegacyCategory: (legacyCategory) ->
+    $rows = if legacyCategory
       $("#teams tr").hide()
-      $("#teams tr.#{category}")
+      $("#teams tr.#{legacyCategory}")
     else
       $("#teams tr")
 
@@ -19,25 +19,25 @@ class CategoryFilter
     $("#teams_count").html "#{$rows.length} Teams"
 
 class Ranker
-  constructor: (@categoryLetters) ->
+  constructor: (@legacyCategoryLetters) ->
     @pickLeaders()
     @pickWinners()
 
   pickLeaders: ->
-    for letter in @categoryLetters
+    for letter in @legacyCategoryLetters
       leader = leadersByCategory(letter)[0]
       $("##{letter.toLowerCase()}_leader").html leader
 
   pickWinners: ->
-    for letter in @categoryLetters
-      winningThree = leadersByCategory(letter).slice(0, 3)
+    for letter in @legacyCategoryLetters
+      winningThree = leadersByLegacyCategory(letter).slice(0, 3)
       winners = winningThree.map((winner)-> "<b>#{winner}</b>").join("<br>")
       $("##{letter.toLowerCase()}_winners").html winners
 
-  leadersByCategory = (category) ->
-    $("#teams tr.#{category}").find("td:nth-child(3)").map(-> $(this).text()).toArray()
+  leadersByLegacyCategory = (legacyCategory) ->
+    $("#teams tr.#{legacyCategory}").find("td:nth-child(3)").map(-> $(this).text()).toArray()
 
 $ ->
-  new CategoryFilter()
+  new LegacyCategoryFilter()
   new Ranker(["A","B","S","M","F","T"])
 

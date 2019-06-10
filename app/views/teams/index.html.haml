@@ -4,18 +4,18 @@
 
 %p.toggle-categories#show
   = link_to "All", "#", :class => "first current"
-  = link_to "A Team", "#", :"data-category" => "A"
-  = link_to "B Team", "#", :"data-category" => "B"
+  = link_to "A Team", "#", :"data-legacy-category" => "A"
+  = link_to "B Team", "#", :"data-legacy-category" => "B"
   - if @race.year >= 2018
-    = link_to "Convoy", "#", :"data-category" => "C"
-    = link_to "Elder", "#", :"data-category" => "E"
-  = link_to "Solo", "#", :"data-category" => "S"
+    = link_to "Convoy", "#", :"data-legacy-category" => "C"
+    = link_to "Elder", "#", :"data-legacy-category" => "E"
+  = link_to "Solo", "#", :"data-legacy-category" => "S"
   - if @race.year > 2009
-    = link_to "Solo (M)", "#", :"data-category" => "M"
-    = link_to "Solo (F)", "#", :"data-category" => "F"
-  = link_to "Tandem", "#", :class => "last", :"data-category" => "T"
+    = link_to "Solo (M)", "#", :"data-legacy-category" => "M"
+    = link_to "Solo (F)", "#", :"data-legacy-category" => "F"
+  = link_to "Tandem", "#", :class => "last", :"data-legacy-category" => "T"
   - if @race.year >= 2019
-    = link_to "Perfect Strangers", "#", :"data-category" => "?"
+    = link_to "Perfect Strangers", "#", :"data-legacy-category" => "?"
 .clear
 %p
   %b#teams_count= pluralize @teams.size, "Team"
