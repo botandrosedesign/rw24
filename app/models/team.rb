@@ -13,11 +13,12 @@ class Team < ActiveRecord::Base
       :tandem       => 2..2,
       :tandem_elder => 2..2,
       :convoy       => 3..6,
+      :perfect_strangers => 2..2,
     }
   end
 
   def self.categories
-    ["A Team", "B Team", "Elder Team", "Solo (male)", "Solo (female)", "Solo (elder)", "Tandem", "Tandem (elder)", "Convoy"]
+    ["A Team", "B Team", "Elder Team", "Solo (male)", "Solo (female)", "Solo (elder)", "Tandem", "Tandem (elder)", "Convoy", "Perfect Strangers"]
   end
 
   default_scope -> { order(:position) }
@@ -117,7 +118,9 @@ class Team < ActiveRecord::Base
   end
 
   def category_abbrev
-    category[0..0] if category
+    return unless category
+    return "?" if category == "Perfect Strangers"
+    category[0..0]
   end
 
   def category_abbrev_with_gender
