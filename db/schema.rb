@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_10_224412) do
+ActiveRecord::Schema.define(version: 2019_06_11_063454) do
 
   create_table "accounts", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "name"
@@ -324,6 +324,15 @@ ActiveRecord::Schema.define(version: 2019_06_10_224412) do
     t.string "name"
   end
 
+  create_table "team_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.integer "min", null: false
+    t.integer "max", null: false
+    t.string "initial"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "teams", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "name"
     t.string "legacy_category"
@@ -339,6 +348,7 @@ ActiveRecord::Schema.define(version: 2019_06_10_224412) do
     t.integer "race_id"
     t.datetime "confirmation_sent_at"
     t.text "shirt_sizes"
+    t.integer "category_id"
     t.index ["race_id"], name: "index_teams_on_race_id"
     t.index ["site_id"], name: "index_teams_on_site_id"
   end

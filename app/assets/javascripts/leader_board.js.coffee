@@ -1,17 +1,17 @@
-class LegacyCategoryFilter
+class CategoryFilter
   constructor: ->
-    $("#show a").click((event) => @selectlegacyCategory(event)).eq(0).click()
+    $("#show a").click((event) => @selectCategory(event)).eq(0).click()
 
-  selectlegacyCategory: (event) ->
+  selectCategory: (event) ->
     event.preventDefault()
     $el = $(event.target)
     $el.addClass("current").siblings().removeClass("current")
-    @filterlegacyCategory $el.data("legacy-category")
+    @filterCategory $el.data("category-initial")
 
-  filterlegacyCategory: (legacyCategory) ->
-    $rows = if legacyCategory
+  filterCategory: (initial) ->
+    $rows = if initial
       $("#teams tr").hide()
-      $("#teams tr.#{legacyCategory}")
+      $("#teams tr.#{initial}")
     else
       $("#teams tr")
 
@@ -19,25 +19,25 @@ class LegacyCategoryFilter
     $("#teams_count").html "#{$rows.length} Teams"
 
 class Ranker
-  constructor: (@legacyCategoryLetters) ->
+  constructor: (@initials) ->
     @pickLeaders()
     @pickWinners()
 
   pickLeaders: ->
-    for letter in @legacyCategoryLetters
-      leader = leadersByCategory(letter)[0]
-      $("##{letter.toLowerCase()}_leader").html leader
+    for initial in @initials
+      leader = leadersByCategory(initial)[0]
+      $("##{initial.toLowerCase()}_leader").html leader
 
   pickWinners: ->
-    for letter in @legacyCategoryLetters
-      winningThree = leadersByLegacyCategory(letter).slice(0, 3)
+    for initial in @initials
+      winningThree = leadersByCategory(initial).slice(0, 3)
       winners = winningThree.map((winner)-> "<b>#{winner}</b>").join("<br>")
-      $("##{letter.toLowerCase()}_winners").html winners
+      $("##{initial.toLowerCase()}_winners").html winners
 
-  leadersByLegacyCategory = (legacyCategory) ->
-    $("#teams tr.#{legacyCategory}").find("td:nth-child(3)").map(-> $(this).text()).toArray()
+  leadersByCategory = (initial) ->
+    $("#teams tr.#{initial}").find("td:nth-child(3)").map(-> $(this).text()).toArray()
 
 $ ->
-  new LegacyCategoryFilter()
+  new CategoryFilter()
   new Ranker(["A","B","S","M","F","T"])
 

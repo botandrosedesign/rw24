@@ -37,7 +37,7 @@
             - else
               .not_emailed No
           %td= team.position
-          %td=h team.legacy_category_abbrev
+          %td=h team.category_initial
           %td= link_to h(team.name), [:edit, :admin, @site, @race, team]
           %td= team.riders.count
           %td{ class: "#{"missing-shirts" if team.riders.count != team.shirt_sizes.total }"}= team.shirt_sizes.total
@@ -66,10 +66,10 @@
 
       %p
         %ul
-          - Team.legacy_categories.each do |legacy_category|
+          - Category.all.each do |category|
             %li
-              = legacy_category
-              %b= @race.teams.by_legacy_category(legacy_category).count
+              = category.name
+              %b= @race.teams.by_category(category).count
 
         %dl.shirts-count
           Shirts:

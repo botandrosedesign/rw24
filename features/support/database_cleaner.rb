@@ -10,6 +10,8 @@ DatabaseCleaner.clean_with :truncation
 
 DatabaseCleaner.strategy = :transaction
 
+require_relative "../../db/seeds"
+
 Around do |scenario, block|
   DatabaseCleaner.cleaning(&block)
 end

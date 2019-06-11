@@ -71,14 +71,14 @@ FactoryBot.define do
     zip
 
     factory :team_solo do
-      legacy_category { "Solo (male)" }
+      category { TeamCategory.find_by_name("Solo (male)") }
       before(:create) do |team|
         team.riders << FactoryBot.build(:rider)
       end
     end
 
     factory :team_a do
-      legacy_category { "A Team" }
+      category { TeamCategory.find_by_name("A Team") }
       before(:create) do |team|
         team.riders << FactoryBot.build(:rider)
         team.riders << FactoryBot.build(:rider)

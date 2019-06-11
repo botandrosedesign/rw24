@@ -5,6 +5,10 @@ require_relative 'config/application'
 
 Rails.application.load_tasks
 
+task :bootstrap do
+  Rake::Task["db:seed"].invoke
+end
+
 if Rails.env.production?
   task :restart => :clear_cache do
     sh "bundle exec foreman export systemd-user --app rw24"

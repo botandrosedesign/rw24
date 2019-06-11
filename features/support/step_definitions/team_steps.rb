@@ -3,7 +3,7 @@ Given /^a solo team exists with name: "(.*?)"$/ do |name|
 end
 
 Given /^a solo team exists with name: "(.*?)", rider name: "(.+?)"$/ do |name, rider_name|
-  FactoryBot.create :team, legacy_category: "Solo (male)", name: name, riders: [FactoryBot.build(:rider, name: rider_name)]
+  FactoryBot.create :team, category: TeamCategory.find_by_name("Solo (male)"), name: name, riders: [FactoryBot.build(:rider, name: rider_name)]
 end
 
 Given /^a team exists with name: "(.*?)"$/ do |name|
@@ -17,7 +17,8 @@ Given /^the following race teams exist:/ do |table|
     field(:race) { Race.last }
 
     rename :pos => :position
-    rename :class => :legacy_category
+
+    belongs_to({ :class => :category }, TeamCategory)
 
     transformation do |attributes|
       def rider_from_email email, **attrs

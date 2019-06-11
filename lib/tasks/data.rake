@@ -1,4 +1,14 @@
 namespace :data do
+  task :populate_team_categories => :environment do
+    Team.find_each do |team|
+      begin
+        team.update_column :category_id, TeamCategory.find_by_name!(team.legacy_category).id
+      rescue ActiveRecord::RecordNotFound
+        puts "Couldn't find TeamCategory with name: #{team.legacy_category}"
+      end
+    end
+  end
+
   task :migrate_shirt_sizes => :environment do
     blank_shirt_sizes = Team::ShirtSizes.new(small: 0, medium: 0, large: 0, x_large: 0, xxx_large: 0)
     Team.find_each do |team|

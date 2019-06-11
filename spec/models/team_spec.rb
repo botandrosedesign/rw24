@@ -1,6 +1,8 @@
 require "ar_helper"
 require "team"
+require "team_category"
 require "support/factories"
+require_relative "../../db/seeds"
 
 describe Team do
   # stubbing #race is a bitch
@@ -9,7 +11,7 @@ describe Team do
   before { subject.stub(race: race) }
 
   context "of category 'A Team'" do
-    before { subject.legacy_category = "A Team" }
+    before { subject.category = TeamCategory.find_by_name("A Team") }
 
     [0,1,7].each do |i|
       it "cannot have #{i} riders" do
@@ -27,7 +29,7 @@ describe Team do
   end
 
   context "of category 'B Team'" do
-    before { subject.legacy_category = "B Team" }
+    before { subject.category = TeamCategory.find_by_name("B Team") }
 
     [0,1,7].each do |i|
       it "cannot have #{i} riders" do
@@ -45,7 +47,7 @@ describe Team do
   end
 
   context "of category 'Solo (male)'" do
-    before { subject.legacy_category = "Solo (male)" }
+    before { subject.category = TeamCategory.find_by_name("Solo (male)") }
 
     [0,2,3,4,5,6,7].each do |i|
       it "cannot have #{i} riders" do
@@ -61,7 +63,7 @@ describe Team do
   end
 
   context "of category 'Solo (female)'" do
-    before { subject.legacy_category = "Solo (female)" }
+    before { subject.category = TeamCategory.find_by_name("Solo (female)") }
 
     [0,2,3,4,5,6,7].each do |i|
       it "cannot have #{i} riders" do
@@ -77,7 +79,7 @@ describe Team do
   end
 
   context "of category 'Tandem'" do
-    before { subject.legacy_category = "Tandem" }
+    before { subject.category = TeamCategory.find_by_name("Tandem") }
 
     [0,1,3,4,5,6,7].each do |i|
       it "cannot have #{i} riders" do

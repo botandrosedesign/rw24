@@ -11,7 +11,8 @@
     - if form.object.persisted?
       .field= form.number_field :position, label: "POS#", class: "xlarge"
 
-    .field= form.select :legacy_category, Team.legacy_categories, label: true
+    .field= form.collection_select :category_id, TeamCategory.all, :id, :name, label: "Category"
+
     .field= form.text_field :name, label: "Team Name", class: "xlarge"
     - if @race.year >= 2018
       .field= render "shirt_sizes", form: form

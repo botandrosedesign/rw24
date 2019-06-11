@@ -8,6 +8,6 @@ class Mailer < ActionMailer::Base
       :cc => team.lieutenant_emails,
       :content_type => "text/plain",
       :reply_to => "register@riverwest24.com",
-      :subject => "RW24 #{team.race.year} Confirmation: #{team.name} (##{team.position}) - #{team.legacy_category} - Shirts: #{team.shirt_sizes.summary}"
+      :subject => "RW24 #{team.race.year} Confirmation: #{team.name} (##{team.position}) - #{team.category_name} - Shirts: #{team.shirt_sizes.summary}"
   end
 end

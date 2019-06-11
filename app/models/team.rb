@@ -3,22 +3,13 @@ require "shirt_sizes"
 
 class Team < ActiveRecord::Base
   def self.allowed_ranges
-    {
-      :a_team       => 2..6,
-      :b_team       => 2..6,
-      :elder_team   => 2..6,
-      :solo_male    => 1..1,
-      :solo_female  => 1..1,
-      :solo_elder   => 1..1,
-      :tandem       => 2..2,
-      :tandem_elder => 2..2,
-      :convoy       => 3..6,
-      :perfect_strangers => 2..2,
-    }
+    Category.all.to_a.reduce({}) do |hash, category|
+      hash.merge category.key => category.range
+    end
   end
 
   def self.legacy_categories
-    ["A Team", "B Team", "Elder Team", "Solo (male)", "Solo (female)", "Solo (elder)", "Tandem", "Tandem (elder)", "Convoy", "Perfect Strangers"]
+    Category.pluck(:name)
   end
 
   default_scope -> { order(:position) }
@@ -27,10 +18,15 @@ class Team < ActiveRecord::Base
     where(legacy_category: legacy_category)
   end
 
+  def self.by_category category
+    where(category: category)
+  end
+
   attr_accessor :phone
 
   belongs_to :site
   belongs_to :race
+  belongs_to :category, class_name: "TeamCategory"
   has_many :riders, :dependent => :delete_all
   accepts_nested_attributes_for :riders, reject_if: ->(attrs) { attrs["name"].blank? }, allow_destroy: true
 
@@ -74,6 +70,7 @@ class Team < ActiveRecord::Base
   def initialize *options, &block
     options[0] ||= {}
     options[0]["legacy_category"] ||= "A Team"
+    options[0]["category_id"] ||= 1
     super
   end
 
@@ -98,7 +95,7 @@ class Team < ActiveRecord::Base
   end
 
   def allowed_range
-    self.class.allowed_ranges[legacy_category.parameterize.underscore.to_sym]
+    category.range
   end
 
   def captain
@@ -117,15 +114,17 @@ class Team < ActiveRecord::Base
     lieutenants.collect(&:email).select(&:present?).join(", ")
   end
 
-  def legacy_category_abbrev
-    return unless legacy_category
-    return "?" if legacy_category == "Perfect Strangers"
-    legacy_category[0..0]
+  def category_initial
+    category.initial
   end
 
-  def legacy_category_abbrev_with_gender
-    return legacy_category_abbrev unless legacy_category_abbrev == "S"
-    legacy_category =~ /female/ ? "F" : "M"
+  def legacy_category_initial_with_gender
+    return category_initial unless category_initial == "S"
+    category_name =~ /female/ ? "F" : "M"
+  end
+
+  def category_name
+    category.name
   end
 
   def position_and_name

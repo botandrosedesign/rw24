@@ -1,10 +1,10 @@
-%tr{ :class => [team.legacy_category_abbrev_with_gender, team.legacy_category_abbrev].uniq.join(" ") }
+%tr{ :class => [team.legacy_category_initial_with_gender, team.category_initial].uniq.join(" ") }
   %td= fixed_number_or_empty team.position, :size => 3
   %td
     - if @race.year > 2009
-      = team.legacy_category_abbrev_with_gender
+      = team.legacy_category_initial_with_gender
     - else
-      = team.legacy_category_abbrev
+      = team.category_initial
   %td.team= link_to_if @race.year > 2009, team.name, leader_board_laps_path(:year => @race.year, :position => team.position)
   %td= fixed_number_or_empty team.laps_total
   %td= fixed_number_or_empty team.laps_total * 4.6
