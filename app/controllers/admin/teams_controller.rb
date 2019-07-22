@@ -8,7 +8,7 @@ class Admin::TeamsController < Admin::BaseController
   def index
     @teams = @race.teams
   end
-  
+
   def new
     @team = @race.teams.build
     render :form
@@ -41,7 +41,11 @@ class Admin::TeamsController < Admin::BaseController
 
   def destroy
     @team = @race.teams.find(params[:id])
-    @team.destroy
+    # prevent positions from being updated
+    # TODO: replace acts_as_list with autopopulating position column and call it a day?
+    Team.acts_as_list_no_update do
+      @team.destroy
+    end
     redirect_to [:admin, @site, @race, :teams], notice: "The team has been destroyed."
   end
 
