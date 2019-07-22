@@ -59,7 +59,7 @@
             %td
               %span
               #{bonus.id} - #{bonus.name}
-              %i.points= bonus_lap&.qty
+              %i.points= bonus.points
             %td
               - if bonus_lap && current_user.try(:has_role?, :superuser)
                 = link_to "Delete", bonus_lap, class: "delete-icon", title: "Delete Score", method: :delete, data: { confirm: "Are you sure?" }
