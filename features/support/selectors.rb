@@ -35,7 +35,7 @@ module HtmlSelectorsHelpers
     when /the admin subnav/
       "#main_menu"
 
-    when /the "(.+?)" checkpoint/
+    when /the "(.+?)" (checkpoint|bonus)/
       [".bonuses tr, #bonuses tr", text: $1]
 
     when /the bonus form/

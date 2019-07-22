@@ -21,6 +21,7 @@ Rails.application.routes.draw do
       resource :confirmation_email
       resources :races do
         resources :bonuses do
+          put :reposition, on: :collection
           post :delete_all, on: :collection
         end
         resources :teams, except: :show do

@@ -28,6 +28,16 @@ Feature: Admin can manage team bonuses
       | 3 | Third Bonus  | 24     |
       | 4 | All Bonuses! | 5      |
 
+  Scenario: Admin can reorder bonus checkpoints
+    When I drag the "Third Bonus" bonus above the "First Bonus" bonus
+    Then I should see the following bonus checkpoints:
+      | # | NAME         | POINTS |
+      | 0 | Tattoo       | 5      |
+      | 3 | Third Bonus  | 24     |
+      | 1 | First Bonus  | 1      |
+      | 2 | Second Bonus | 10     |
+      | 4 | All Bonuses! | 5      |
+
   Scenario: Admin can add bonus checkpoints
     When I follow "+ Add a Checkpoint"
     And I fill in "Name" with "Example Bonus"
