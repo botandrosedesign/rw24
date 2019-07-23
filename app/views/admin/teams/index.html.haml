@@ -48,7 +48,7 @@
               = team.name
           %td.actions
             = link_to "Edit", [:edit, :admin, @site, @race, team], :class => "edit"
-            = link_to "Delete", [:admin, @site, @race, team], :class => 'delete', :method => :delete, :data => { :confirm => 'Are you sure you want to delete this team and all its riders? This will renumber everyone after!' }
+            = link_to "Delete", [:admin, @site, @race, team], :class => 'delete', :method => :delete, :data => { :confirm => 'Are you sure you want to delete this team and all its riders?' }
 
   %input(type="submit" value="Send Confirmation Emails to Selected")
 
