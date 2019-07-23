@@ -146,7 +146,7 @@ Feature: Admin can manage team scoring
     When I follow "Forms"
     Then I should see the following bonus checkpoints:
       | # | NAME   | POINTS |            |      |
-      | 0 | Tattoo | 5      | Bonus Form | Edit |
+      |   | Tattoo | 5      | Bonus Form | Edit |
 
     When I follow "Bonus Form"
     And I check "1"

@@ -22,21 +22,21 @@ Feature: Admin can manage team bonuses
   Scenario: Admin can see a list of bonus checkpoints
     Then I should see the following bonus checkpoints:
       | # | NAME         | POINTS |
-      | 0 | Tattoo       | 5      |
-      | 1 | First Bonus  | 1      |
-      | 2 | Second Bonus | 10     |
-      | 3 | Third Bonus  | 24     |
-      | 4 | All Bonuses! | 5      |
+      |   | Tattoo       | 5      |
+      |   | First Bonus  | 1      |
+      |   | Second Bonus | 10     |
+      |   | Third Bonus  | 24     |
+      |   | All Bonuses! | 5      |
 
   Scenario: Admin can reorder bonus checkpoints
     When I drag the "Third Bonus" bonus above the "First Bonus" bonus
     Then I should see the following bonus checkpoints:
       | # | NAME         | POINTS |
-      | 0 | Tattoo       | 5      |
-      | 3 | Third Bonus  | 24     |
-      | 1 | First Bonus  | 1      |
-      | 2 | Second Bonus | 10     |
-      | 4 | All Bonuses! | 5      |
+      |   | Tattoo       | 5      |
+      |   | Third Bonus  | 24     |
+      |   | First Bonus  | 1      |
+      |   | Second Bonus | 10     |
+      |   | All Bonuses! | 5      |
 
   Scenario: Admin can add bonus checkpoints
     When I follow "+ Add a Checkpoint"
@@ -53,13 +53,13 @@ Feature: Admin can manage team bonuses
     When I follow "cancel"
     Then I should see the following bonus checkpoints:
       | # | NAME          | POINTS |
-      | 0 | Tattoo        | 5      |
-      | 1 | First Bonus   | 1      |
-      | 2 | Second Bonus  | 10     |
-      | 3 | Third Bonus   | 24     |
-      | 4 | All Bonuses!  | 5      |
-      | 5 | Example Bonus | 2      |
-      | 6 | Another Bonus | 2      |
+      |   | Tattoo        | 5      |
+      |   | First Bonus   | 1      |
+      |   | Second Bonus  | 10     |
+      |   | Third Bonus   | 24     |
+      |   | All Bonuses!  | 5      |
+      |   | Example Bonus | 2      |
+      |   | Another Bonus | 2      |
 
   Scenario: Admin can edit a bonus checkpoint
     When I follow "Edit" within the "First Bonus" checkpoint
@@ -70,11 +70,11 @@ Feature: Admin can manage team bonuses
 
     Then I should see the following bonus checkpoints:
       | # | NAME          | POINTS |
-      | 0 | Tattoo        | 5      |
-      | 1 | Primary Bonus | 5      |
-      | 2 | Second Bonus  | 10     |
-      | 3 | Third Bonus   | 24     |
-      | 4 | All Bonuses!  | 5      |
+      |   | Tattoo        | 5      |
+      |   | Primary Bonus | 5      |
+      |   | Second Bonus  | 10     |
+      |   | Third Bonus   | 24     |
+      |   | All Bonuses!  | 5      |
 
   Scenario: Log bonuses for teams
     When I follow "Bonus Form" within the "First Bonus" checkpoint

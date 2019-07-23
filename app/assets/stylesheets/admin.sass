@@ -359,14 +359,22 @@ textarea
 
 #bonuses
   width: 100%
+  counter-reset: bonusNumber
   tr
     cursor: ns-resize
+  tbody
+    tr
+      counter-increment: bonusNumber
   td, th
     &:nth-child(1)
       width: 10%
       text-align: center
     &:nth-child(4), &:nth-child(5)
       white-space: nowrap
+  td
+    &:nth-child(1)
+      span::before
+        content: counter(bonusNumber)
 
 #bonus-view
   tr

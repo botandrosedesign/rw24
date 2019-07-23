@@ -10,7 +10,8 @@
   %tbody{data: { reposition: reposition_admin_site_race_bonuses_path(@site, @race) }}
     - @race.bonus_checkpoints.each do |bonus|
       %tr{data: { id: bonus.to_json }}
-        %td= bonus.id
+        %td
+          %span
         %td= link_to bonus.name, admin_site_race_bonus_path(@site, @race, bonus.id)
         %td= bonus.points
         %td= link_to "Bonus Form", bonus_points_path(key: bonus.key)
