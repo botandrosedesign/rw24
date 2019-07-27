@@ -83,7 +83,7 @@ class PointsController < BaseController
         wants.html { redirect_to point_path(@point.team.position) }
       else
         wants.js { render text: @point.errors.full_messages.join(", "), status: 407 }
-        wants.html { render :edit }
+        wants.html { render :form }
       end
     end
   end

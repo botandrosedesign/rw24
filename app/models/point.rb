@@ -9,6 +9,7 @@ class Point < ActiveRecord::Base
   validate :uniqueness_of_bonus
   validates_inclusion_of :category, :in => CATEGORIES
   validates_numericality_of :qty
+  validate :laps_are_qty_1
 
   before_validation :ensure_penalties_are_negative, :ensure_bonuses_are_positive
 
@@ -124,6 +125,12 @@ class Point < ActiveRecord::Base
   end
 
   private
+
+  def laps_are_qty_1
+    if category == "Lap" && qty != 1
+      errors.add :qty, "must be 1 for laps"
+    end
+  end
 
   def ensure_penalties_are_negative
     if category == "Penalty" && self.qty.try(:>, 0)
