@@ -15,7 +15,7 @@
     = link_to "Solo (F)", "#", :"data-category-initial" => "F"
   = link_to "Tandem", "#", :class => "last", :"data-category-initial" => "T"
   - if @race.year >= 2019
-    = link_to "Perfect Strangers", "#", :"data-category-initial" => "P"
+    = link_to raw("Perfect <br/>Strangers"), "#", :"data-category-initial" => "P"
 .clear
 %p
   %b#teams_count= pluralize @teams.size, "Team"

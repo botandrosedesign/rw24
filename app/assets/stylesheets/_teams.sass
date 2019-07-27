@@ -116,6 +116,7 @@
   display: flex
   margin: 0px 0 15px -41px
   width: calc(100% + 82px)
+  align-items: stretch
   +handheld
     margin-left: -11px
     width: calc(100% + 22px)
@@ -128,8 +129,12 @@
     flex: 1 0
     white-space: nowrap
     font: 700 0.9em $default
-    line-height: 50px
+    line-height: 1.2em
+    padding: 10px 0
     border-color: #ccc
+    display: flex
+    justify-content: center
+    align-items: center
     text-align: center
     &.current
       background: linear-gradient(#333, #999)
@@ -137,7 +142,7 @@
       box-shadow: transparent 0 0 0 0, #000 0 3px 9px 0 inset
       border-color: #1a1a1a
     +handheld
-      font-size: 0.8em
+      font-size: 0.7em
       font-weight: normal
 
 .point-tracker
