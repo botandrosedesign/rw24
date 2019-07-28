@@ -50,12 +50,12 @@ class Race < ActiveRecord::Base
     raise AllBonusesException, "The last bonus needs to be a five point all bonuses bonus" unless all_bonuses_points == 5
 
     teams.find_each do |team|
-      assigned_bonuses = team.points.bonuses.map(&:bonus_id).sort
-      before = (1..bonus_checkpoints.count-2).to_a
-      after = (1..bonus_checkpoints.count-1).to_a
+      assigned_bonuses = team.points.bonuses.map(&:bonus_id).sort.uniq
+      before = (1..bonus_checkpoints.count-2).to_a - [19,20]
+      after = (1..bonus_checkpoints.count-1).to_a - [19,20]
       all_bonuses_bonus = team.points.where(qty: 5, category: "Bonus", race: self, bonus_id: bonus_checkpoints.last.id)
 
-      if [before, after].include?(assigned_bonuses)
+      if [before, after].include?(assigned_bonuses - [19,20]) && (assigned_bonuses.include?(19) || assigned_bonuses.include?(20))
         all_bonuses_bonus.first_or_create!
       else
         all_bonuses_bonus.destroy_all
