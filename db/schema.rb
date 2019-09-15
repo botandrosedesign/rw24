@@ -324,7 +324,7 @@ ActiveRecord::Schema.define(version: 2019_06_11_063454) do
     t.string "name"
   end
 
-  create_table "team_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "team_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "name"
     t.integer "min", null: false
     t.integer "max", null: false
