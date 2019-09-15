@@ -8,7 +8,7 @@ FactoryBot.define do
   sequence(:email) { Faker::Internet.email }
   sequence(:sentence) { Faker::Lorem.sentence }
   sequence(:paragraph) { Faker::Lorem.paragraph }
-  sequence(:url) { "http://#{Faker::Internet.domain_name}/#{Faker::Lorem.words(3).join('_').downcase}" }
+  sequence(:url) { "http://#{Faker::Internet.domain_name}/#{Faker::Lorem.words(number: 3).join('_').downcase}" }
 
   sequence(:address) { Faker::Address.street_address }
   sequence(:city) { Faker::Address.city }
