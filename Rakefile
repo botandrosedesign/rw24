@@ -7,6 +7,7 @@ Rails.application.load_tasks
 
 task :bootstrap do
   Rake::Task["db:seed"].invoke
+  Rake::Task["clear_cache"].invoke
 end
 
 if Rails.env.production?
@@ -17,3 +18,7 @@ if Rails.env.production?
   end
 end
 
+desc "clear all cached pages"
+task :clear_cache => :environment do
+  Site.all.each(&:touch)
+end
