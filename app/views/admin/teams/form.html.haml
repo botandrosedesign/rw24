@@ -11,7 +11,11 @@
     - if form.object.persisted?
       .field= form.number_field :position, label: "POS#", class: "xlarge"
 
-    .field= form.collection_select :category_id, TeamCategory.all, :id, :name, label: "Category"
+    .field
+      = form.label :category_id, "Category"
+      = form.select :category_id, {}, { prompt: form.object.new_record? }, data: { "team_category_select" => ".nested-fields" } do
+        - TeamCategory.all.each do |category|
+          = content_tag :option, category.name, value: category.id, data: { min: category.min, max: category.max }
 
     .field= form.text_field :name, label: "Team Name", class: "xlarge"
     - if @race.year >= 2018
@@ -20,23 +24,9 @@
   %fieldset
     .info-text To remove riders, highlight the <i class="fa fa-trash"></i> icon and press Save.
     .rider-flex
-      - @team.riders.build until @team.riders.length == 6
       = form.fields_for :riders do |rider_form|
-        - i = rider_form.index + 1
-        .field
-          %fieldset.rider-fields{ id: "rider_#{i}" }
-            .remove-rider
-              = rider_form.check_box :_destroy, id: "remove-rider-#{i}", class: "remove-rider-input"
-              %label(for="remove-rider-#{i}")
-                %span Remove rider #{i}
-            %h4
-              Rider #{i}
-              = "/ Team Leader" if i == 1
-            .field= rider_form.check_box :paid, label: "Paid?"
-            .field= rider_form.text_field :name, label: true
-            .field= rider_form.text_field :email, label: true
-            .field= rider_form.text_field :phone, label: true
-            .field= rider_form.text_area :notes, label: true
+        = render "rider_fields", form: rider_form
+      = link_to_add_association "Add rider", form, :riders
 
   %hr
 

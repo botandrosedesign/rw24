@@ -1,0 +1,17 @@
+- form ||= f
+.field.nested-fields
+  %fieldset.rider-fields
+    .remove-rider
+      = link_to_remove_association "Remove rider", form
+
+    %h4 Rider
+    .field
+      %label(for="team_riders_attributes_#{form.index}_search") Search
+      %input{ id: "team_riders_attributes_#{form.index}_search", data: { autocomplete: form.object.autocomplete_options.to_json } }
+      = form.hidden_field :user_id
+    .field= form.check_box :paid, label: "Paid?"
+    .field= form.text_field :name, label: true
+    .field= form.text_field :email, label: true
+    .field= form.text_field :phone, label: true
+    .field= form.text_area :notes, label: true
+

@@ -69,15 +69,6 @@ class Admin::TeamsController < Admin::BaseController
   end
 
   def team_params
-    @team_params = params[:team].permit!.to_h
-    @team_params["riders_attributes"] = @team_params["riders_attributes"].reduce({}) do |riders_attributes, (index, attributes)|
-      if attributes["_destroy"] == "1"
-        Rider.destroy(attributes["id"])
-        riders_attributes
-      else
-        riders_attributes.merge index => attributes
-      end
-    end
-    @team_params
+    params[:team].permit!.to_h
   end
 end

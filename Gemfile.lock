@@ -119,10 +119,11 @@ GEM
       railties (>= 3.0)
       uber (~> 0.0.8)
     childprocess (3.0.0)
-    chop (0.24.0)
+    chop (0.25.1)
       activerecord
       capybara
       cucumber
+    cocoon (1.2.14)
     coffee-rails (5.0.0)
       coffee-script (>= 2.2.0)
       railties (>= 5.2.0)
@@ -433,6 +434,7 @@ DEPENDENCIES
   capybara-screenshot
   cells (~> 3.0)
   chop
+  cocoon
   coffee-rails
   coveralls
   csv_builder

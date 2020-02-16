@@ -30,3 +30,14 @@ def rider_to_values rider
     end
   end
 end
+
+Then "I should see {int} rider forms" do |count|
+  expect(all(".rider-fields").length).to eq count
+end
+
+Then "I should see the {word} rider form filled out with the following:" do |which, table|
+  page.document.synchronize Capybara.default_max_wait_time, errors: page.driver.invalid_element_errors + [Capybara::ElementNotFound, Cucumber::MultilineArgument::DataTable::Different] do
+    table.diff! all("fieldset.rider-fields").to_a.send(which.to_sym), as: :form
+  end
+end
+

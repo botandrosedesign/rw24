@@ -14,14 +14,8 @@ module HtmlSelectorsHelpers
     when /the "(.+?)" team/
       ["tr", text: $1]
 
-    when /the first rider/
-      "#rider_1"
-
-    when /the second rider/
-      "#rider_2"
-
-    when /the third rider/
-      "#rider_3"
+    when /the (first|second|third) rider form/
+      all(".rider-fields").to_a.send($1.to_sym)
 
     when /the new lap form/
       "form#new_lap"

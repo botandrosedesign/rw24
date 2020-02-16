@@ -23,7 +23,7 @@ class Team < ActiveRecord::Base
   belongs_to :site
   belongs_to :race
   belongs_to :category, class_name: "TeamCategory"
-  has_many :riders, :dependent => :delete_all
+  has_many :riders, dependent: :delete_all, inverse_of: :team
   accepts_nested_attributes_for :riders, reject_if: ->(attrs) { attrs["name"].blank? }, allow_destroy: true
 
   has_many :points
@@ -60,13 +60,6 @@ class Team < ActiveRecord::Base
   def send_confirmation_email!
     Mailer.confirmation_email(self).deliver_now
     update_attribute :confirmation_sent_at, Time.now
-  end
-
-  # FIXME replace with default_value_for
-  def initialize *options, &block
-    options[0] ||= {}
-    options[0]["category_id"] ||= 1
-    super
   end
 
   def laps_total
