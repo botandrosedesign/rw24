@@ -183,7 +183,7 @@ When /^(?:I|they) follow "([^"]*?)" in the email$/ do |link|
   visit_in_email(link)
 end
 
-When /^(?:I|they) click the first link in the email$/ do
+When /^(?:I|they) (?:follow|click) the first link in the email$/ do
   click_first_link_in_email
 end
 
@@ -208,3 +208,33 @@ end
 Then /^save and open all raw emails$/ do
   EmailSpec::EmailViewer::save_and_open_all_raw_emails
 end
+
+Then /^(?:I|they|"([^"]*?)") should receive (an|no|\d+) emails? from "(.*)"$/ do |address, amount, sender|
+  emails = unread_emails_for(address)
+  expect(emails.size).to eq parse_email_count(amount)
+  emails.each do |email|
+    expect(email.from.first).to eq sender
+  end
+end
+
+Then /^(?:I|they) should see the following in the email body:$/ do |text|
+  expect(current_email.default_part_body.to_s).to include(text)
+end
+
+Then /^"(.*?)" should (?:all |)receive an email from "(.*?)" with the subject "(.*?)" and the following body:$/ do |recipients, from, subject, body|
+  emails_for(recipients, from, subject).each do |email|
+    expect(email.default_part_body.to_s).to include(body)
+  end
+end
+
+def emails_for recipients, from, subject
+  recipients.split(", ").map do |address|
+    email = unread_emails_for(address).find do |email|
+      email.header[:from].value == from &&
+        email.subject == subject
+    end || find_email!(address, from: from, subject: subject)
+    set_current_email(email)
+    current_email
+  end
+end
+

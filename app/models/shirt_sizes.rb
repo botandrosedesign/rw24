@@ -10,6 +10,10 @@ class ShirtSizes
     end
   end
 
+  def self.options
+    new.sizes.values
+  end
+
   def self.new_with_old_sizes(attrs)
     new.tap do |shirt_sizes|
       shirt_sizes.instance_variable_set :"@sizes", {

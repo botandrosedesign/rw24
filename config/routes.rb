@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  match "/admin/jobs" => DelayedJobWeb, anchor: false, via: [:get, :post]
-
-  get "admin" => redirect("/admin/sites/1")
+  resource :account do
+    resources :confirmations
+  end
 
   resources :points do
     collection do
@@ -15,6 +15,10 @@ Rails.application.routes.draw do
 
   get "leader-board/:year" => "teams#index", :year => nil, :as => "leader_board"
   get "leader-board/:year/:position" => "teams#show", :as => "leader_board_laps"
+
+  match "/admin/jobs" => DelayedJobWeb, anchor: false, via: [:get, :post]
+
+  get "admin" => redirect("/admin/sites/1")
 
   namespace :admin do
     resources :sites do

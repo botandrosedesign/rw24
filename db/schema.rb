@@ -233,7 +233,9 @@ ActiveRecord::Schema.define(version: 2020_03_08_221415) do
     t.date "confirmed_on"
     t.text "notes"
     t.string "phone"
+    t.bigint "user_id"
     t.index ["team_id"], name: "index_riders_on_team_id"
+    t.index ["user_id"], name: "index_riders_on_user_id"
   end
 
   create_table "roles", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
@@ -373,6 +375,8 @@ ActiveRecord::Schema.define(version: 2020_03_08_221415) do
     t.datetime "verified_at"
     t.datetime "deleted_at"
     t.integer "account_id"
+    t.string "phone"
+    t.string "shirt_size"
     t.index ["account_id"], name: "index_users_on_account_id"
   end
 

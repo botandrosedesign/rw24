@@ -36,7 +36,7 @@ When /^I press and confirm "(.*?)"$/ do |button|
   accept_confirm { click_button button }
 end
 
-When /^I follow "(.*?)"$/ do |link|
+When "I follow {string}" do |link|
   click_link link
 end
 
@@ -56,6 +56,10 @@ When /^I fill in the following:$/ do |fields|
   fields.rows_hash.each do |name, value|
     fill_in name, with: value
   end
+end
+
+When "I fill in the following form:" do |table|
+  table.fill_in!
 end
 
 When /^I select "([^"]*)" from "([^"]*)"$/ do |value, field|

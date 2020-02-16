@@ -1,0 +1,24 @@
+h1 REGISTER
+
+%dl
+  = form_for @user, url: account_path do |form|
+    %dt= form.label :email, "Email address"
+    %dd= form.email_field :email, required: true
+
+    %dt= form.label :password
+    %dd= form.password_field :password, required: true
+
+    %dt= form.label :first_name
+    %dd= form.text_field :first_name
+
+    %dt= form.label :last_name
+    %dd= form.text_field :last_name
+
+    %dt= form.label :phone
+    %dd= form.text_field :phone
+
+    %dt= form.label :shirt_size
+    %dd= form.select :shirt_size, ShirtSizes.options, include_blank: true
+
+    %p= form.submit "Register"
+
