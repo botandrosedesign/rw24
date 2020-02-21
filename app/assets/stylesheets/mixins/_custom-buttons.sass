@@ -1,0 +1,34 @@
+=custom-buttons
+  label
+    +button(rgba(20,20,20,20.8), #fcfcfc, 1.8em)
+    display: block
+    text-align: left
+    padding-left: 0
+    span
+      display: inline-block
+      margin: 0
+      &:before
+        @extend .fa
+        color: #333
+        line-height: 2.5em
+        font-size: 1.25em
+        min-width: 50px
+        text-align: center
+        margin-right: 10px
+        border-right: 1px solid #333
+        border-top-left-radius: 2px
+        border-bottom-left-radius: 2px
+    &:hover
+      span::before
+        color: #999
+  input
+    position: absolute
+    z-index: 2
+    opacity: 0.001
+    &:checked
+      & ~ span
+        &:before
+          background: $primaryColor
+          box-shadow: darken($primaryColor, 30%) 0 1px 3px 0 inset
+          color: #fff
+

@@ -1,0 +1,36 @@
+=expanding-input
+  position: absolute
+  left: -15px
+  top: 0
+  opacity: 0.001
+  & + label
+    margin-left: -15px
+  &:checked
+    & + label
+      dt::before
+        transform: rotate(90deg)
+      & + .expanding-table
+        display: table
+
+=expanding-label
+  font-size: 1.8em
+  dt
+    display: inline-block
+    text-transform: uppercase
+    cursor: pointer
+    font-weight: 900
+    @extend .fa-caret-right
+    &:hover
+      color: $secondaryColor
+    &:before
+      font-family: FontAwesome
+      display: inline-block
+      margin-right: 10px
+      transform: rotate(0deg)
+      transition: transform 0.1s
+  a
+    font-size: 1.1em
+    margin: 0 0 0 10px
+
+.expanding-table
+  display: none

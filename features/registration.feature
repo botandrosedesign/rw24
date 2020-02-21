@@ -8,11 +8,13 @@ Feature: Riders can create user accounts that persist beyond races
     When I follow "Register"
     And I fill in the following form:
       | Email address         | micah@botandrose.com |
-      | Password              | secret               |
       | First name            | Micah                |
       | Last name             | Geisel               |
       | Phone                 | 937.269.2023         |
       | Shirt size            | ML                   |
+      | Password              | secret               |
+      | Confirm password      | seecret              |
+
     And I press "Register"
     Then I should see "A confirmation email has been sent to micah@botandrose.com"
 

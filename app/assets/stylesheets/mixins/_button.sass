@@ -1,0 +1,59 @@
+@mixin button( $bg: $primaryColor, $text-color: #fcfcfc, $font-size: 1.4em, $hover: true, $fa: false )
+  display: inline-block
+  font-size: $font-size
+  font-weight: 400
+  line-height: 3.0em
+  color: $text-color
+  border: 1px solid darken( $bg, 6% )
+  background-color: $bg
+  background: linear-gradient( $bg, darken( $bg, 5% ) )
+  border-radius: 2px
+  padding: 0 15px
+  cursor: pointer
+  text-align: center
+  text-decoration: none
+  margin: 0px
+  cursor: default
+  text-transform: uppercase
+  @if $hover
+    cursor: pointer
+    &:hover
+      background: darken( $bg, 4% )
+      box-shadow: 0 0 5px 0 inset darken( $bg, 10% )
+      color:  lighten( $text-color, 6% )
+  @if $fa
+    @extend .fa-#{$fa}
+    &:before
+      @extend .fa
+      margin-right: 10px
+
+// input wrapper buttons
+
+=input-button($bg: $primaryColor, $text-color: #fcfcfc, $fa: false, $size: 1.4em, $fa-size: 1.2em)
+  +button($bg, $text-color)
+  padding: 0
+  line-height: 1
+  font-size: $size
+  input, button
+    font-size: 1.1em
+    border: none
+    background: none
+    padding: 0 20px
+    line-height: 3.0em
+    cursor: pointer
+    color: $text-color
+    font-weight: 400
+    text-transform: uppercase
+  @if $fa
+    @extend .fa
+    @extend .fa-#{$fa}
+    input, button
+      padding-left: 45px
+    &:before
+      @extend .fa
+      position: absolute
+      top: 50%
+      margin-top: -0.5em
+      left: 20px
+      font-size: $fa-size
+

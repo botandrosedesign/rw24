@@ -1,0 +1,36 @@
+=actions-table($reorder: false, $image: false, $imgWidth: 75px)
+  margin-bottom: 30px
+  th, td
+    &:last-child
+      text-align: right
+      white-space: nowrap
+      width: 120px
+  thead
+    th
+      padding-bottom: 5px
+  tbody
+    tr
+      &:nth-child(even)
+        background: #fcfcfc
+      &:hover
+        background: lighten($yellow, 51%)
+  @if $reorder
+    th, td
+      &:nth-child(1)
+        width: 50px
+        text-align: center
+    tbody
+      tr
+        cursor: move
+  @if $image
+    th, td
+      &:nth-child(1)
+        width: $imgWidth
+        text-align: center
+    tbody
+      td
+        img
+          display: block
+        &:nth-child(1)
+          padding: 0
+
