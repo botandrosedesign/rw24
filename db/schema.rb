@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_11_063454) do
+ActiveRecord::Schema.define(version: 2020_03_08_221415) do
 
   create_table "accounts", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "name"
@@ -335,7 +335,6 @@ ActiveRecord::Schema.define(version: 2019_06_11_063454) do
 
   create_table "teams", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci", force: :cascade do |t|
     t.string "name"
-    t.string "legacy_category"
     t.string "address"
     t.string "line_2"
     t.datetime "created_at"

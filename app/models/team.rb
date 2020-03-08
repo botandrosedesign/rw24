@@ -14,10 +14,6 @@ class Team < ActiveRecord::Base
 
   default_scope -> { order(:position) }
   
-  def self.by_legacy_category legacy_category
-    where(legacy_category: legacy_category)
-  end
-
   def self.by_category category
     where(category: category)
   end
@@ -38,7 +34,7 @@ class Team < ActiveRecord::Base
     super
   end
 
-  validates_presence_of :race, :name, :legacy_category
+  validates_presence_of :race, :name, :category
   validates_uniqueness_of :position, :scope => :race_id
   validates_each :riders do |record, attr, value|
     record.errors.add attr, "count is incorrect." unless record.allowed_range.include?(value.length)
@@ -69,7 +65,6 @@ class Team < ActiveRecord::Base
   # FIXME replace with default_value_for
   def initialize *options, &block
     options[0] ||= {}
-    options[0]["legacy_category"] ||= "A Team"
     options[0]["category_id"] ||= 1
     super
   end
@@ -153,7 +148,7 @@ class Team < ActiveRecord::Base
       :business => "riverwest24@gmail.com",
       :amount => 20.00,
       :quantity => riders.length,
-      :item_name => "Riverwest 24 Registration - #{legacy_category}",
+      :item_name => "Riverwest 24 Registration - #{category.name}",
       :cmd => "_xclick",
       :custom => id,
       :return => "http://riverwest24.com/join/articles/thanks",
