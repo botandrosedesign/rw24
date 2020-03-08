@@ -106,7 +106,7 @@ Then /^(?:I|they) should see \/([^"]*?)\/ in the email subject$/ do |text|
 end
 
 Then /^(?:I|they) should see the following in the email body:$/ do |text|
-  current_email.default_part_body.to_s.should include(text)
+  expect(current_email.default_part_body.to_s).to include(text)
 end
 
 Then /^(?:I|they) should see "([^"]*?)" in the email body$/ do |text|
@@ -215,10 +215,6 @@ Then /^(?:I|they|"([^"]*?)") should receive (an|no|\d+) emails? from "(.*)"$/ do
   emails.each do |email|
     expect(email.from.first).to eq sender
   end
-end
-
-Then /^(?:I|they) should see the following in the email body:$/ do |text|
-  expect(current_email.default_part_body.to_s).to include(text)
 end
 
 Then /^"(.*?)" should (?:all |)receive an email from "(.*?)" with the subject "(.*?)" and the following body:$/ do |recipients, from, subject, body|
