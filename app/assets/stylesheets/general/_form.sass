@@ -241,7 +241,7 @@ label
     line-height: 2.5em
 
 input, select
-  font: 400 1.4em $default
+  //font: 400 1.4em $default
   font-variant-ligatures: none
   & + label
     @extend %inline-label
@@ -254,9 +254,9 @@ input, select
   &[type="checkbox"], &[type="radio"]
     & + label, & + span
       font-weight: 400
-      margin-right: 15px
-      margin-left: 5px
+      margin: 5px 15px 0 0
       text-transform: none
+      float: none
   &[type="file"]
     display: inline-block
     max-width: 50%

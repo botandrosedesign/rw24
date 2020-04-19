@@ -1,8 +1,9 @@
 - form ||= f
-.field.nested-fields
-  %fieldset.rider-fields
+.field.nested-fields.rider-field
+  %div
     .remove-rider
-      = link_to_remove_association "Remove rider", form
+      = link_to_remove_association form do
+        %span Removes rider
 
     %h4 Rider
     .field

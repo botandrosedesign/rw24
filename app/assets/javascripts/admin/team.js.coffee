@@ -21,7 +21,7 @@ $ ->
       $("[data-autocomplete]", insertedItem).each ->
         $field = $(this)
         $input = $field.next()
-        $fieldset = $field.closest("fieldset")
+        $fieldset = $field.closest(".rider-field")
         source = $field.data("autocomplete")
 
         $field.autocomplete

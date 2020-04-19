@@ -6,7 +6,7 @@
     = form.object.new_record? ? "New" : "Edit"
     Team
 
-  %fieldset
+  %fieldsets
     %h4 Team Information
     - if form.object.persisted?
       .field= form.number_field :position, label: "POS#", class: "xlarge"
@@ -26,7 +26,7 @@
     .rider-flex
       = form.fields_for :riders do |rider_form|
         = render "rider_fields", form: rider_form
-      = link_to_add_association "Add rider", form, :riders
+      .add-rider-link= link_to_add_association "Add rider", form, :riders
 
   %hr
 

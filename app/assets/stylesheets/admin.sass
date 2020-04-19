@@ -5,6 +5,7 @@
 @import "jquery-ui/autocomplete"
 
 *
+  position: relative
   box-sizing: border-box
 
 textarea
@@ -37,32 +38,41 @@ textarea
 
 .rider-flex
   display: flex
-  & > .field
+  padding: 0 0 20px 20px
+
+.rider-field
+  display: inline-block
+  flex: 1 0
+  float: none
+  font-size: 1em
+  padding: 0 10px 0 0
+  .field
     clear: none
+    float: none
     display: inline-block
-    padding-right: 10px
+    padding-right: 0px
     position: relative
-    .field
-      margin: 0 0 5px 0
-  fieldset
-    margin: 0 !important
-  input
+    margin: 0 0 5px 0
+  label
+    font-size: 12px
+    margin: 0 0 3px
+  input, textarea
+    font-size: 12px
     box-sizing: border-box
+  input.ui-autocomplete-input
+    @extend %generic-input
   textarea
-    box-sizing: border-box
     max-width: 100%
     min-width: initial
     width: 100%
 
 .remove-rider
   position: absolute
-  top: 6px
-  left: -12px
-  input
-    position: absolute
-    z-index: 1
-    opacity: 0.001
-  label
+  top: 2px
+  left: 60px
+  font-size: 1.2em
+  z-index: 1
+  a
     @extend .fa
     @extend .fa-trash
     color: #999
@@ -76,9 +86,10 @@ textarea
     color: transparent
     width: 0px
 
-.remove-rider-input:checked
-  & + label
-    color: red
+.add-rider-link
+  position: absolute
+  bottom: 0
+  left: 20px
 
 a
   color: $primaryColor

@@ -15,7 +15,7 @@ module HtmlSelectorsHelpers
       ["tr", text: $1]
 
     when /the (first|second|third) rider form/
-      all(".rider-fields").to_a.send($1.to_sym)
+      all(".rider-field").to_a.send($1.to_sym)
 
     when /the new lap form/
       "form#new_lap"
