@@ -3,8 +3,9 @@ require_relative './specified_ruby'
 require_relative './specified_bundler'
 
 Dir.chdir File.expand_path("..", __dir__) do
-  SpecifiedRuby.ensure!
-  SpecifiedBundler.ensure!
-  exec "bundle check || bundle install && bundle exec rake bootstrap"
+  exec [
+    SpecifiedRuby.ensure!,
+    SpecifiedBundler.ensure!,
+    "bin/rake bootstrap",
+  ].join(" && ")
 end
-

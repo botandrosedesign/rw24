@@ -3,6 +3,7 @@ module SpecifiedBundler
 
   def ensure!
     system("gem install bundler --conservative --version=#{bundler_version}") or raise "Cannot install bundler!"
+    "bundle check || bundle install"
   end
 
   private

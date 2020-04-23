@@ -6,6 +6,7 @@ module SpecifiedRuby
   def ensure!
     install unless installed?
     restart unless current?
+    "true"
   end
 
   private
