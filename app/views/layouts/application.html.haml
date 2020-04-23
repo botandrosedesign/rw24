@@ -59,9 +59,10 @@
 
         %ul.account-nav#logged_out(style="display: none")
           %li= link_to "Register", [:new, :account]
+          %li= link_to "Login", :login
         %ul.account-nav#logged_in(style="display: none")
           %li= link_to "My account", :account
-          %li= link_to "Logout", :logout
+          %li= link_to "Logout", :logout, method: :delete
 
     %section.main
       .container

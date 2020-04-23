@@ -33,6 +33,9 @@ Feature: Riders can create user accounts that persist beyond races
     And I should see "My account"
     And I should see "Logout"
 
+    When I follow "Logout"
+    Then I should see "Register"
+
   Scenario: Admin creates a new team from existing user profiles
     Given the following users exist:
       | email                | first_name | last_name | phone        | shirt_size |
