@@ -6,7 +6,7 @@ gem "bootsnap", require: false
 gem "dotenv-rails"
 gem "rails", "~>5.2.0"
 gem "mysql2"
-gem "bard-rake"
+gem "bard-rake", "~>0.16.0" # 0.17 requires rails 6+
 gem "bard-static"
 gem "bard-staging_banner"
 gem "haml-rails"
@@ -39,7 +39,8 @@ git "https://github.com/botandrose/adva_cms.git", branch: "rails5" do
   gem "adva_meta_tags"
 end
 
-gem "sassc-rails"
+gem "sprockets", "~>3.0" # 4.0 requires local changes
+gem "sass-rails"
 gem "font-awesome-rails"
 
 gem "coffee-rails"
@@ -75,6 +76,7 @@ group :test do
 end
 
 group :production do
+  gem "foreman", "~>0.86.0" # 0.87 breaks integration with above
   gem "foreman-export-systemd_user"
   gem "rack-www"
   gem "rack-cache"
