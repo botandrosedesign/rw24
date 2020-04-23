@@ -37,10 +37,11 @@ class ApplicationController < ActionController::Base
   end
 
   def stale? *args
-    if Rails.env.development?
-      true
-    else
-      super
-    end
+    true
+    # if Rails.env.development?
+    #   true
+    # else
+    #   super
+    # end
   end
 end
