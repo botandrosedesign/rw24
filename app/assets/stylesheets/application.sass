@@ -18,32 +18,40 @@ body
   position: relative
   overflow: visible
   margin: auto
-  +handheld
+  +bp_tablet
     width: 100%
 
 // header
 
 header
   background: transparent image_url("header.png") no-repeat 50% 0%
-  margin: 20px 0 0
+  padding: 0 20px
   +handheld
-    padding: 5px
-  .rw24-logo
-    background: transparent image_url("rw24.svg") no-repeat 50% 50%
-    background-size: contain
-    float: left
-    width: 125px
-    height: 125px
-    +handheld
-      display: none
+    padding: 0 5px 10px
+.header-top
+  display: flex
+  justify-content: space-between
+  +handheld
+    padding: 10px 0
+.logo-container
+  display: flex
+.rw24-logo
+  background: transparent image_url("rw24.svg") no-repeat 50% 50%
+  background-size: contain
+  width: 125px
+  height: 125px
+  display: inline-block
+  +handheld
+    display: none
 .title
-  margin-top: 6px
-  line-height: .9
-  float: left
+  display: inline-block
+  margin-top: 10px
+  line-height: 1em
   width: 550px
   h1, h2
     display: inline-block
     color: #fff
+    line-height: 0.9em
   h2
     margin-right: 3px
   span
@@ -56,7 +64,7 @@ header
 .title
   +handheld
     margin: 0
-    font-size: 0.9em
+    font-size: 0.75em
     width: 100%
   h2
     +handheld
@@ -67,12 +75,12 @@ header
 
 countdown
   width: 300px
-  float: right
   background: #1a1a1a
   border-bottom-left-radius: 3px
   border-bottom-right-radius: 3px
   color: #ccc
   border: 1px solid #000
+  align-self: start
   +handheld
     display: none
   p
@@ -97,23 +105,6 @@ countdown
     clear: right
     display: inline-block
     float: right
-
-
-.account-nav
-  position: absolute
-  display: flex
-  justify-content: flex-end
-  background: rgba(#fff, 0.1)
-  top: 0
-  width: 100vw
-  right: 0
-  padding: 0 20px
-  li
-    padding: 0 5px
-    line-height: 20px
-    a
-      color: #999
-
 
 // main
 

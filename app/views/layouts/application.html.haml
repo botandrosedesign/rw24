@@ -18,12 +18,13 @@
 
   %body
     %header
-      .container
-        %a.rw24-logo{:href => "/"}
-        .title
-          %h1 Riverwest 24
-          %h2 Hour Bike Race
-          %span.countstart= start_time_format start_time
+      .header-top
+        .logo-container
+          %a.rw24-logo{:href => "/"}
+          .title
+            %h1 Riverwest 24
+            %h2 Hour Bike Race
+            %span.countstart= start_time_format start_time
 
         %countdown{target: start_time.try(:to_s, :rfc822)}
           %p
@@ -42,7 +43,8 @@
             %seconds
             %span sec
 
-        %ul.nav
+      %nav
+        %ul.main-nav
           - @site.sections.select(&:published?).each_with_index do |section, index|
             - if index == 1
               %li
@@ -57,12 +59,12 @@
                 - section.contents.published.select(&:root?).each do |content|
                   %li= link_to_current content.title, [section, content]
 
-      %ul.account-nav#logged_out(style="display: none")
-        %li= link_to "Register", [:new, :account]
-        %li= link_to "Login", :login
-      %ul.account-nav#logged_in(style="display: none")
-        %li= link_to "My account", :account
-        %li= link_to "Logout", :logout, method: :delete
+        %ul.account-nav#logged_out(style="display: none")
+          %li= link_to "Register", [:new, :account]
+          %li= link_to "Login", :login
+        %ul.account-nav#logged_in(style="display: none")
+          %li= link_to "My account", :account
+          %li= link_to "Logout", :logout, method: :delete
 
     %section.main
       .container

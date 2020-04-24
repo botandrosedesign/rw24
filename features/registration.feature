@@ -30,11 +30,11 @@ Feature: Riders can create user accounts that persist beyond races
     When I follow the first link in the email
     Then I should see "Welcome, Micah Geisel! You have completed the registration process."
     And I should not see "Register"
-    And I should see "My account"
-    And I should see "Logout"
+    And I should see "MY ACCOUNT"
+    And I should see "LOGOUT"
 
     When I follow "Logout"
-    Then I should see "Register"
+    Then I should see "REGISTER"
 
   Scenario: Admin creates a new team from existing user profiles
     Given the following users exist:
