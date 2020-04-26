@@ -5,7 +5,7 @@ Feature: Riders can create user accounts that persist beyond races
 
   Scenario: A rider creates a user account
     Given I am on the homepage
-    When I follow "Register"
+    When I follow "Create profile"
     And I fill in the following form:
       | Email address         | micah@botandrose.com |
       | First name            | Micah                |
@@ -29,12 +29,12 @@ Feature: Riders can create user accounts that persist beyond races
 
     When I follow the first link in the email
     Then I should see "Welcome, Micah Geisel! You have completed the registration process."
-    And I should not see "Register"
+    And I should not see "CREATE PROFILE"
     And I should see "MY ACCOUNT"
     And I should see "LOGOUT"
 
     When I follow "Logout"
-    Then I should see "REGISTER"
+    Then I should see "CREATE PROFILE"
 
   Scenario: Admin creates a new team from existing user profiles
     Given the following users exist:

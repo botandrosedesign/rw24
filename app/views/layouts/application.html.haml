@@ -60,7 +60,7 @@
                   %li= link_to_current content.title, [section, content]
 
         %ul.account-nav#logged_out(style="display: none")
-          %li= link_to "Register", [:new, :account]
+          %li= link_to "Create profile", [:new, :account]
           %li= link_to "Login", :login
         %ul.account-nav#logged_in(style="display: none")
           %li= link_to "My account", :account
