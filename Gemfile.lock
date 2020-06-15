@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/botandrose/adva_cms.git
-  revision: 960e449974885ad1ae43719cbc2fbcdee56f6059
-  branch: rails5
+  revision: 44e9c1c2caa079235a11bc7737e2a4e60a5b5c8e
+  branch: rails6
   specs:
     adva_activity (0.0.1)
       rails-observers
@@ -39,7 +39,7 @@ GEM
       rack-test (>= 0.6.3)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
-    actionpack-page_caching (1.2.2)
+    actionpack-page_caching (1.2.3)
       actionpack (>= 5.0.0)
     actionview (5.2.4.2)
       activesupport (= 5.2.4.2)
