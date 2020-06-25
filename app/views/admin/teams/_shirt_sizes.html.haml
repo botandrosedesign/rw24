@@ -3,7 +3,7 @@
   .all-shirt-fields
     .field
       %h4 Mens
-      .shirt-fields
+      .shirt-fields#mens
         .field
           = shirt_sizes_form.label :mens_small, class: "hidden"
           = shirt_sizes_form.label :mens_small, "S"
@@ -30,7 +30,7 @@
           = shirt_sizes_form.number_field :mens_xxx_large
     .field
       %h4 Womens
-      .shirt-fields
+      .shirt-fields#womens
         .field
           = shirt_sizes_form.label :womens_small, class: "hidden"
           = shirt_sizes_form.label :womens_small, "S"

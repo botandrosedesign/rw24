@@ -36,8 +36,27 @@ $ ->
             $fieldset.find("input[name$='[name]']").val item.name
             $fieldset.find("input[name$='[email]']").val item.email
             $fieldset.find("input[name$='[phone]']").val item.phone
+            $fieldset.find("select[name$='[shirt_size]']").val item.shirt_size
+            renderShirtSizeCounts()
             false
         $field.autocomplete("instance")._renderItem = (ul, item) ->
           $("<li>")
             .append("<div>#{item.label}</div>")
             .appendTo(ul)
+    $("body").on "cocoon:after-remove", (e, removedItem, originalEvent) ->
+      renderShirtSizeCounts()
+
+  $("body").on "change", "select", ->
+    renderShirtSizeCounts()
+
+renderShirtSizeCounts = ->
+  $(".all-shirt-fields input").val(0)
+  sizeMap = <%= ShirtSizes.new.sizes.invert.to_json %>
+  selectedSizes = $("select[name$='[shirt_size]']").map(() -> $(this).val()).toArray()
+  selectedSizes.forEach (size) ->
+    return if size.length == 0
+    $field = $("input[name$='[#{sizeMap[size]}]']")
+    count = parseInt($field.val()) || 0
+    count += 1
+    $field.val count
+

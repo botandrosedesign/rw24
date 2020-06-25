@@ -15,6 +15,8 @@ class Rider < ActiveRecord::Base
     team.try(:position)
   end
 
+  alias_attribute :shirt_size, :shirt
+
   def autocomplete_options
     User.verified.map do |user|
       { 
@@ -24,6 +26,7 @@ class Rider < ActiveRecord::Base
         name: user.name,
         email: user.email,
         phone: user.phone,
+        shirt_size: user.shirt_size,
       }
     end
   end

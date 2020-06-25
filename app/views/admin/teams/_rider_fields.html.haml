@@ -14,5 +14,6 @@
     .field= form.text_field :name, label: true
     .field= form.text_field :email, label: true
     .field= form.text_field :phone, label: true
+    .field= form.select :shirt_size, ShirtSizes.options, include_blank: true, label: "Shirt size"
     .field= form.text_area :notes, label: true
 

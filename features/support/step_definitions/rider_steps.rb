@@ -41,3 +41,7 @@ Then "I should see the {word} rider form filled out with the following:" do |whi
   end
 end
 
+Then "I should see the following mens shirt sizes:" do |table|
+  table.diff! ".shirt-fields#mens", as: :form
+end
+

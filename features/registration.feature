@@ -1,7 +1,7 @@
 Feature: Riders can create user accounts that persist beyond races
   Background:
-    Given today is "2010-06-19"
-    And a race exists for 2010
+    Given today is "2020-06-19"
+    And a race exists for 2020
 
   Scenario: A rider creates a user account
     Given I am on the homepage
@@ -76,7 +76,15 @@ Feature: Riders can create user accounts that persist beyond races
       | Name       | Micah Geisel         |
       | Email      | micah@botandrose.com |
       | Phone      | 937.269.2023         |
-    # | Shirt size | ML                   |
+      | Shirt size | ML                   |
+
+    And I should see the following mens shirt sizes:
+      | Mens small      | 0 |
+      | Mens medium     | 0 |
+      | Mens large      | 1 |
+      | Mens x large    | 0 |
+      | Mens xx large   | 0 |
+      | Mens xxx large  | 0 |
 
     When I fill in "Search" with "gubs" within the second rider form
     And I select the autocomplete option "gubs@botandrose.com"
@@ -85,13 +93,35 @@ Feature: Riders can create user accounts that persist beyond races
       | Name       | Michael Gubitosa    |
       | Email      | gubs@botandrose.com |
       | Phone      | 267.664.0528        |
-    # | Shirt size | MXL                 |
+      | Shirt size | MXL                 |
+
+    And I should see the following mens shirt sizes:
+      | Mens small      | 0 |
+      | Mens medium     | 0 |
+      | Mens large      | 1 |
+      | Mens x large    | 1 |
+      | Mens xx large   | 0 |
+      | Mens xxx large  | 0 |
 
     When I press "Save"
     Then I should see "The team has been created."
 
-    When I follow "2010"
+    When I follow "2020"
     Then I should see the following teams:
       | PAID | EMAILED | POS# | CLASS | TEAM NAME    | RIDERS | T-SHIRTS | LEADER NAME  |
-      | No   | No      | 1    | T     | Bot and Rose | 2      | 0        | Micah Geisel |
+      | No   | No      | 1    | T     | Bot and Rose | 2      | 2        | Micah Geisel |
+
+    And I should see the following shirts count:
+      | Mens Small       | 0 |
+      | Mens Medium      | 0 |
+      | Mens Large       | 1 |
+      | Mens X Large     | 1 |
+      | Mens Xx Large    | 0 |
+      | Mens Xxx Large   | 0 |
+      | Womens Small     | 0 |
+      | Womens Medium    | 0 |
+      | Womens Large     | 0 |
+      | Womens X Large   | 0 |
+      | Womens Xx Large  | 0 |
+      | Womens Xxx Large | 0 |
 
