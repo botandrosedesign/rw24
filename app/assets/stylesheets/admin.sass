@@ -29,12 +29,26 @@ textarea
 .info-text
   +notification-text( #999, "info-circle" )
 
+.new_user
+  width: 600px
+  margin: 60px auto
+  fieldset
+    padding: 20px
+
 //
+
+.main
+  width: 100vw
 
 #page
   display: flex
+  & > form
+    display: flex
   .main
-    flex: 1 0 75%
+    flex: 1 0 75vw
+    max-width: 75vw
+    width: auto
+
 
 .rider-flex
   display: flex
