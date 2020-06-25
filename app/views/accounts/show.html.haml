@@ -1,0 +1,38 @@
+%h2 My Account
+
+= form_for current_user, url: account_path do |form|
+  %fieldset.registration-form
+    .flex
+      .field
+        = form.label :email
+        %br
+        %p
+          %b= form.object.email
+
+      .field
+        = form.label :first_name
+        = form.text_field :first_name
+      .field
+        = form.label :last_name
+        = form.text_field :last_name
+
+    .flex
+      .field
+        = form.label :phone
+        = form.text_field :phone
+      .field
+        = form.label :shirt_size
+        = form.select :shirt_size, ShirtSizes.options, include_blank: true
+
+    .help-text Leave the below fields blank to keep your existing password
+    .flex
+      .field
+        = form.label :password
+        = form.password_field :password, required: true
+      .field
+        = form.label :confirm_password
+        = form.password_field :confirm_password, required: true
+
+    .actions-field
+      = form.submit "Save My Account"
+

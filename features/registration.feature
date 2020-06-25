@@ -13,7 +13,7 @@ Feature: Riders can create user accounts that persist beyond races
       | Phone                 | 937.269.2023         |
       | Shirt size            | ML                   |
       | Password              | secret               |
-      | Confirm password      | seecret              |
+      | Confirm password      | secret               |
 
     And I press "Create Rider Profile"
     Then I should see "A confirmation email has been sent to micah@botandrose.com"
@@ -32,6 +32,16 @@ Feature: Riders can create user accounts that persist beyond races
     And I should not see "CREATE PROFILE"
     And I should see "MY ACCOUNT"
     And I should see "LOGOUT"
+
+    When I follow "My account"
+    Then I should see "EMAIL micah@botandrose.com"
+    And I should see the following form:
+      | First name            | Micah                |
+      | Last name             | Geisel               |
+      | Phone                 | 937.269.2023         |
+      | Shirt size            | ML                   |
+      | Password              |                      |
+      | Confirm password      |                      |
 
     When I follow "Logout"
     Then I should see "CREATE PROFILE"
