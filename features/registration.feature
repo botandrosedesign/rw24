@@ -15,7 +15,7 @@ Feature: Riders can create user accounts that persist beyond races
       | Password              | secret               |
       | Confirm password      | seecret              |
 
-    And I press "Register"
+    And I press "Create Rider Profile"
     Then I should see "A confirmation email has been sent to micah@botandrose.com"
 
     And "micah@botandrose.com" should receive an email from "info@riverwest24.com" with the subject "Welcome to Riverwest24" and the following body:
@@ -28,7 +28,7 @@ Feature: Riders can create user accounts that persist beyond races
       """
 
     When I follow the first link in the email
-    Then I should see "Welcome, Micah Geisel! You have completed the registration process."
+    Then I should see "Welcome, Micah Geisel! You have created your profile."
     And I should not see "CREATE PROFILE"
     And I should see "MY ACCOUNT"
     And I should see "LOGOUT"

@@ -8,7 +8,7 @@ class ConfirmationsController < BaseController
       user.update_column :verified_at, (user.verified_at || Time.zone.now)
       session[:uid] = user.id
       set_user_cookie!(user)
-      flash.notice = "Welcome, #{user.name}! You have completed the registration process."
+      flash.notice = "Welcome, #{user.name}! You have created your profile."
     else
       flash.alert = "Bad confirmation key"
     end
