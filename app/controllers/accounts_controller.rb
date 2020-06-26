@@ -6,7 +6,7 @@ class AccountsController < BaseController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(create_user_params)
     if @user.save
       Authentication::SingleToken.new.assign_token(@user, nil, 1.month.from_now)
       @user.save!
@@ -17,18 +17,30 @@ class AccountsController < BaseController
     end
   end
 
+  def update
+    @user = current_user
+    if @user.update(update_user_params)
+      redirect_to "/", notice: "Account updated"
+    else
+      render({ action: :show }, alert: @user.errors.full_messages)
+    end
+  end
+
   private
 
-  def user_params
+  def create_user_params
     params.require(:user).permit(
       :email,
       :password,
-      :password_confirmation,
       :first_name,
       :last_name,
       :phone,
       :shirt_size,
     )
+  end
+
+  def update_user_params
+    create_user_params.tap { |p| p.delete(:email) }
   end
 end
 

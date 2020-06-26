@@ -17,3 +17,11 @@ def create_admin_account
   })
 end
 
+Given "I am logged in as {string}" do |email|
+  visit "/"
+  click_link "Login"
+  fill_in "Email", with: email
+  fill_in "Password", with: "secret"
+  click_button "Login"
+end
+
