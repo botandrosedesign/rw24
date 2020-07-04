@@ -46,6 +46,25 @@ Feature: Riders can create user accounts that persist beyond races
     When I follow "Logout"
     Then I should see "CREATE PROFILE"
 
+  Scenario: Same email can't be used to create profile
+    Given the following users exist:
+      | email                |
+      | micah@botandrose.com |
+
+    Given I am on the homepage
+    When I follow "Create profile"
+    And I fill in the following form:
+      | Email address         | micah@botandrose.com |
+      | First name            | Micah                |
+      | Last name             | Geisel               |
+      | Phone                 | 937.269.2023         |
+      | Shirt size            | ML                   |
+      | Password              | abc123               |
+      | Confirm password      | abc123               |
+
+    And I press "Create Rider Profile"
+    Then I should see "Email has already been taken"
+
   Scenario: Admin creates a new team from existing user profiles
     Given the following users exist:
       | email                | first_name | last_name | phone        | shirt_size |

@@ -13,7 +13,8 @@ class AccountsController < BaseController
       Mailer.registration(@user, request.host_with_port).deliver_now
       redirect_to "/", notice: "A confirmation email has been sent to #{@user.email}"
     else
-      render({ action: :new }, alert: @user.errors.full_messages)
+      flash.now.alert = @user.errors.full_messages.join(", ")
+      render action: :new
     end
   end
 
@@ -22,7 +23,8 @@ class AccountsController < BaseController
     if @user.update(update_user_params)
       redirect_to "/", notice: "Account updated"
     else
-      render({ action: :show }, alert: @user.errors.full_messages)
+      flash.now.alert = @user.errors.full_messages.join(", ")
+      render action: :show
     end
   end
 
