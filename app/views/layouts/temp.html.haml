@@ -1,0 +1,28 @@
+!!!
+%html{html_attrs('en-US')}
+  %head
+    %meta(http-equiv="Content-Type" content="text/html; charset=utf-8")
+    = csrf_meta_tag
+    %title
+      Riverwest 24
+      = yield :title
+    %meta(name="keywords" content="")
+    %meta(name="description" content="")
+
+    = stylesheet_link_tag "application"
+    = stylesheet_link_tag "admin"
+    = yield :css
+    /[if lte IE 9]
+      = stylesheet_link_tag "ie"
+    %meta{:name => "viewport", :content => "width=device-width"}
+    %link(rel="shortcut icon" href="#{image_path("/favicon.png")}" type="image/png")
+
+  %body
+    #page
+      .main
+        #content
+          = yield
+
+    = javascript_include_tag "application"
+    = yield :js
+

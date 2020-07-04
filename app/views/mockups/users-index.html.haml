@@ -1,0 +1,31 @@
+= layout "temp" do
+  %h2 Users
+  %table.users-table
+    %thead
+      %tr
+        %th Name
+        %th Email
+        %th Role
+        %th Races
+        %th
+    %tbody
+      %tr
+        %td= link_to "John Doe", ""
+        %td= link_to "john@email.com"
+        %td Admin
+        %td
+        %td
+          = link_to "Edit user", "", class: "edit-icon", title: "Edit user"
+          = link_to "Delete user", "", method: "delete", class: "delete-icon", title: "Delete user",
+            data: { confirm: "Are you sure you want to delete this user?" }
+      %tr
+        %td= link_to "Jane Doherty", ""
+        %td= link_to "jane@email.com"
+        %td Racer
+        %td 2020
+        %td
+          = link_to "Edit user", "", class: "edit-icon", title: "Edit user"
+          = link_to "Delete user", "", method: "delete", class: "delete-icon", title: "Delete user",
+            data: { confirm: "Are you sure you want to delete this user?" }
+
+
