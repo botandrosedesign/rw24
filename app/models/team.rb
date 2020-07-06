@@ -67,7 +67,7 @@ class Team < ActiveRecord::Base
   end
 
   def miles_total
-    laps_total * BigDecimal.new("4.6")
+    laps_total * BigDecimal("4.6")
   end
 
   def bonuses_total

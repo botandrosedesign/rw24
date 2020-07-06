@@ -3,7 +3,7 @@ class Admin::ConfirmationEmailsController < Admin::BaseController
   end
 
   def update
-    if @site.update_attributes(params[:site])
+    if @site.update(params[:site])
       redirect_to [:admin, @site, :races], notice: "CONFIRMATION EMAIL UPDATED"
     else
       render :edit

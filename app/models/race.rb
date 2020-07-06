@@ -68,7 +68,7 @@ class Race < ActiveRecord::Base
   end
 
   def total_miles
-    total_laps * BigDecimal.new("4.6")
+    total_laps * BigDecimal("4.6")
   end
 
   def shirt_size_counts
