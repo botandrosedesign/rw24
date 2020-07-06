@@ -24,10 +24,6 @@ class ApplicationController < ActionController::Base
     @section ||= Section.first
   end
 
-  def current_user
-    @current_user ||= User.find_by_id(cookies[:uid]) || User.new(anonymous: true)
-  end
-
   def current_race
     @current_race ||= Race.current
   end
