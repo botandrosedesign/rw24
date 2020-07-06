@@ -4,9 +4,9 @@ git_source(:github) { |repo_name| "https://github.com/#{repo_name}.git" }
 
 gem "bootsnap", require: false
 gem "dotenv-rails"
-gem "rails", "~>5.2.0"
+gem "rails", "~>6.0.0"
 gem "mysql2"
-gem "bard-rake", "~>0.16.0" # 0.17 requires rails 6+
+gem "bard-rake"
 gem "bard-static"
 gem "bard-staging_banner"
 gem "haml-rails"
@@ -76,7 +76,6 @@ group :test do
 end
 
 group :production do
-  gem "foreman", "~>0.86.0" # 0.87 breaks integration with above
   gem "foreman-export-systemd_user"
   gem "rack-www"
   gem "rack-cache"

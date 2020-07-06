@@ -28,5 +28,7 @@ module Rw24
     config.action_controller.permit_all_parameters = true
 
     config.active_record.sqlite3.represent_boolean_as_integer = true
+
+    config.hosts = nil
   end
 end
