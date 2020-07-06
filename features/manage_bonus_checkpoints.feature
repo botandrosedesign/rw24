@@ -167,6 +167,7 @@ Feature: Admin can manage team bonuses
 
     Given I am on the points page
     When I press and confirm "Assign All Bonuses Bonus"
+    Then I should see "All Bonuses Bonus assigned!"
 
     Given I am on the leaderboard page
     Then I should see the following leaderboard:

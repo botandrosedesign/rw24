@@ -100,6 +100,7 @@ class PointsController < BaseController
 
   def assign_all_bonuses_bonuses
     @race.assign_all_bonuses_bonuses
+    flash.notice = "All Bonuses Bonus assigned!"
   rescue AllBonusesException => error
     cookies[:flash_error] = error.message
   ensure
