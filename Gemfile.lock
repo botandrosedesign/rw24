@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/botandrose/adva_cms.git
-  revision: 44e9c1c2caa079235a11bc7737e2a4e60a5b5c8e
+  revision: bcfe87dafaddbfb7ffd9e16bfe31aa845c423258
   branch: rails6
   specs:
     adva_activity (0.0.1)
@@ -281,7 +281,7 @@ GEM
     mysql2 (0.5.3)
     newrelic_rpm (6.11.0.365)
     nio4r (2.5.2)
-    nokogiri (1.10.9)
+    nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     non-stupid-digest-assets (1.0.9)
       sprockets (>= 2.0)
