@@ -30,5 +30,23 @@ module Rw24
     config.active_record.sqlite3.represent_boolean_as_integer = true
 
     config.hosts = nil
+
+    class CL
+      include Rack::Utils
+
+      def initialize(app)
+        @app = app
+      end
+
+      def call(env)
+        status, headers, body = @app.call(env)
+        headers = HeaderHash[headers]
+        headers['Content-Length'] = 1000000.to_s
+
+        [status, headers, body]
+      end
+    end
+
+    config.middleware.insert 0, CL
   end
 end
