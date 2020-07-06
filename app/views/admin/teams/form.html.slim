@@ -2,14 +2,14 @@
 
 = form_for [:admin, @site, @race, @team] do |form|
   = form.hidden_field :race_id
-  %h2
+  h2
     = form.object.new_record? ? "New" : "Edit"
-    Team
+    |  Team
 
-  %fieldsets
-    %h4 Team Information
+  fieldsets
+    h4 Team Information
     - if form.object.persisted?
-      .field= form.number_field :position, label: "POS#", class: "xlarge"
+      .field = form.number_field :position, label: "POS#", class: "xlarge"
 
     .field
       = form.label :category_id, "Category"
@@ -17,18 +17,18 @@
         - TeamCategory.all.each do |category|
           = content_tag :option, category.name, value: category.id, data: { min: category.min, max: category.max }
 
-    .field= form.text_field :name, label: "Team Name", class: "xlarge"
+    .field = form.text_field :name, label: "Team Name", class: "xlarge"
     - if @race.year >= 2018
-      .field= render "shirt_sizes", form: form
+      .field = render "shirt_sizes", form: form
 
-  %fieldset
+  fieldset
     .info-text To remove riders, highlight the <i class="fa fa-trash"></i> icon and press Save.
     .rider-flex
       = form.fields_for :riders do |rider_form|
         = render "rider_fields", form: rider_form
-      .add-rider-link= link_to_add_association "Add rider", form, :riders
+      .add-rider-link = link_to_add_association "Add rider", form, :riders
 
-  %hr
+  hr
 
   .field
     - save_or_cancel_links form, cancel_url: [:admin, @site, @race, :teams]
