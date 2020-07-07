@@ -60,23 +60,23 @@ Feature: Admins can manage teams
       | Womens Xx Large  | 0 |
       | Womens Xxx Large | 0 |
 
-# Scenario: An Admin edits a team
-#   When I follow "Races"
-#   And I follow "Edit" within the "BARD" team
+  Scenario: An Admin edits a team
+    When I follow "Races"
+    And I follow "Edit" within the "BARD" team
 
-#   And I fill in "Team Name" with "Bog and Rat Defeat"
-#   And I select "Tandem" from "Category"
-#   And I fill in "Mens small" with "2"
-#   And I fill in "Name" with "Michael Gubitosa" within the second rider form
-#   And I fill in "Email" with "gubs@botandrose.com" within the second rider form
-#   And I press "Save"
-#   Then I should see "The team has been updated."
+    And I fill in "Team Name" with "Bog and Rat Defeat"
+    And I select "Tandem" from "Category"
+    And I fill in "Mens small" with "2"
+    And I fill in "Name" with "Michael Gubitosa" within the second rider form
+    And I fill in "Email" with "gubs@botandrose.com" within the second rider form
+    And I press "Save"
+    Then I should see "The team has been updated."
 
-#   When I follow "Races"
-#   Then I should see the following teams:
-#     | PAID | EMAILED | POS# | CLASS | TEAM NAME          | RIDERS | T-SHIRTS | LEADER NAME |
-#     | No   | No      | 1    | T     | Bog and Rat Defeat | 2      | 2        | Micah       |
-#     | No   | No      | 2    | S     | BORG               | 1      | 0        | Michael     |
+    When I follow "Races"
+    Then I should see the following teams:
+      | PAID | EMAILED | POS# | CLASS | TEAM NAME          | RIDERS | T-SHIRTS | LEADER NAME |
+      | No   | No      | 1    | T     | Bog and Rat Defeat | 2      | 2        | Micah       |
+      | No   | No      | 2    | S     | BORG               | 1      | 0        | Michael     |
 
   Scenario: An Admin deletes a team
     When I follow "Races"
