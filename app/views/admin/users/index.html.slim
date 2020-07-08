@@ -1,5 +1,5 @@
 #users
-  - @users.each do |user|
+  - User.joins(:roles).admins_and_superusers.each do |user|
     li
       = gravatar_img user
       h4 = link_to user.name, [:admin, @site, user]
@@ -7,4 +7,24 @@
       p.actions
         = link_to t(:'adva.links.edit'), [:edit, :admin, @site, user], class: "edit"
         = link_to t(:'adva.links.delete'), [:admin, @site, user], class: "delete", data: { confirm: t(:'adva.users.confirm_delete') }, method: :delete
+
+table.users-table
+  thead
+    tr
+      th Name
+      th Email
+      th Role
+      th Shirt
+      th
+  tbody
+    - User.all.each do |user|
+      tr
+        td = link_to user.name, [:admin, @site, user]
+        td = user.email
+        td = user.roles.map(&:name).join(", ")
+        td = user.shirt_size
+        td
+          = link_to "Edit user", [:edit, :admin, @site, user], class: "edit-icon", title: "Edit user"
+          = link_to "Delete user", [:admin, @site, user], method: "delete", class: "delete-icon", title: "Delete user",
+            data: { confirm: "Are you sure you want to delete this user?" }
 
