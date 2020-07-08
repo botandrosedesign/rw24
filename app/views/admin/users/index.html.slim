@@ -1,20 +1,3 @@
-#users
-  - User.joins(:roles).admins_and_superusers.each do |user|
-    li
-      = gravatar_img user
-      h4 = link_to user.name, [:admin, @site, user]
-      p = user.email
-      p.actions
-        = link_to t(:'adva.links.edit'), [:edit, :admin, @site, user], class: "edit"
-        = link_to t(:'adva.links.delete'), [:admin, @site, user], class: "delete", data: { confirm: t(:'adva.users.confirm_delete') }, method: :delete
-
-
-legend Shirt Sizes:
-table
-  - ShirtSizes.options.each do |size|
-    tr
-      th = "#{size} "
-      td = User.where(shirt_size: size).count
 
 table.users-table
   thead
@@ -36,3 +19,12 @@ table.users-table
           = link_to "Delete user", [:admin, @site, user], method: "delete", class: "delete-icon", title: "Delete user",
             data: { confirm: "Are you sure you want to delete this user?" }
 
+= content_for :sidebar do
+  .tabs
+    .tab.active
+      h3 ALL Shirt Sizes:
+      table.shirts-table
+        - ShirtSizes.options.each do |size|
+          tr
+            td = "#{size}  "
+            td = User.where(shirt_size: size).count
