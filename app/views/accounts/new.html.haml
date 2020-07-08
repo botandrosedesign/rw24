@@ -2,6 +2,8 @@
 
 %fieldset.registration-form
   = form_for @user, url: account_path do |form|
+    = form.invisible_captcha :homepage
+
     .flex
       .field
         = form.label :email, "Email address"
