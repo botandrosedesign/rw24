@@ -8,6 +8,14 @@
         = link_to t(:'adva.links.edit'), [:edit, :admin, @site, user], class: "edit"
         = link_to t(:'adva.links.delete'), [:admin, @site, user], class: "delete", data: { confirm: t(:'adva.users.confirm_delete') }, method: :delete
 
+
+legend Shirt Sizes:
+table
+  - ShirtSizes.options.each do |size|
+    tr
+      th = "#{size} "
+      td = User.where(shirt_size: size).count
+
 table.users-table
   thead
     tr
