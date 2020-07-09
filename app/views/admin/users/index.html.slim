@@ -4,6 +4,7 @@ table.users-table
     tr
       th Name
       th Email
+      th Confirmed?
       th Role
       th Shirt
       th
@@ -12,6 +13,7 @@ table.users-table
       tr
         td = link_to user.name, [:admin, @site, user]
         td = user.email
+        td = user.verified? ? "Yes" : "No"
         td = user.roles.map(&:name).join(", ")
         td = user.shirt_size
         td
