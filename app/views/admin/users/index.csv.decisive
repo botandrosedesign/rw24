@@ -1,0 +1,9 @@
+date = Time.zone.now.strftime("%Y-%m-%d")
+csv User.all, filename: "rw24-users-#{date}.csv", stream: false do
+  column "Name"
+  column "Email"
+  column("Confirmed?") { |user| user.verified? ? "Yes" : "No" }
+  column("Role") { |user| user.roles.map(&:name).map(&:capitalize).join(", ") }
+  column "Shirt", :shirt_size
+end
+

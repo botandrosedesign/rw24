@@ -1,3 +1,5 @@
+.table-buttons
+  = link_to "Download users", [:admin, :users, format: :csv], class: "download-button"
 
 table.users-table
   thead
@@ -14,7 +16,7 @@ table.users-table
         td = link_to user.name, [:admin, @site, user]
         td = user.email
         td = user.verified? ? "Yes" : "No"
-        td = user.roles.map(&:name).join(", ")
+        td = user.roles.map(&:name).map(&:capitalize).join(", ")
         td = user.shirt_size
         td
           = link_to "Edit user", [:edit, :admin, @site, user], class: "edit-icon", title: "Edit user"

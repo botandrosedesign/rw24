@@ -46,6 +46,21 @@ Feature: Riders can create user accounts that persist beyond races
     When I follow "Logout"
     Then I should see "CREATE PROFILE"
 
+  # Scenario: Admin can see all users
+    Given I am logged in as an admin
+    When I follow "Users"
+    Then I should see the following users:
+      | NAME          | EMAIL                 | CONFIRMED? | ROLE      | SHIRT |
+      | Admin Account | admin@riverwest24.com | Yes        | Superuser |       |
+      | Micah Geisel  | micah@botandrose.com  | Yes        |           | ML    |
+
+  # Scenario: Admin can download all users
+    When I follow "Download users"
+    Then I should download a CSV named "rw24-users-2020-06-19.csv" with the following contents:
+      | Name          | Email                 | Confirmed? | Role      | Shirt |
+      | Admin Account | admin@riverwest24.com | Yes        | Superuser |       |
+      | Micah Geisel  | micah@botandrose.com  | Yes        |           | ML    |
+
   Scenario: Same email can't be used to create profile
     Given the following users exist:
       | email                |

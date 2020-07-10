@@ -11,6 +11,7 @@ def create_admin_account
   user = @site.users.where(email: "admin@riverwest24.com").first_or_initialize
   user.update! FactoryBot.attributes_for(:user, {
     first_name: "Admin",
+    last_name: "Account",
     email: "admin@riverwest24.com",
     password: "secret",
     roles: [Rbac::Role.new(name: "superuser")],

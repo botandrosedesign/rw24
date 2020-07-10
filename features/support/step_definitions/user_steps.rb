@@ -7,3 +7,7 @@ Given "the following user exists:" do |table|
   FactoryBot.create :user, attributes
 end
 
+Then "I should see the following users:" do |table|
+  table.diff! ".users-table"
+end
+

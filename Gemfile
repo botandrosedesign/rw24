@@ -11,9 +11,9 @@ gem "bard-static"
 gem "bard-staging_banner"
 gem "haml-rails"
 gem "slim-rails"
+gem "decisive"
 gem "input_css"
 gem "invisible_captcha"
-gem "fastercsv"
 gem "csv_builder"
 gem "nokogiri"
 gem "acts_as_list"
@@ -66,7 +66,9 @@ end
 
 group :test do
   gem "cucumber-rails", require: false
-  gem "capybara-headless_chrome"
+  gem "cucumber", "~>3.0" # 4.0 breaks CLI runner line option
+  gem "diff-lcs", "1.3" # 1.4 breaks #changes
+  gem "capybara-headless_chrome", github: "botandrose/capybara-headless_chrome", branch: "js_errors"
   gem "capybara-screenshot"
   gem "database_cleaner"
   gem "email_spec"
