@@ -9,6 +9,7 @@ table.users-table
       th Confirmed?
       th Role
       th Shirt
+      th Races
       th
   tbody
     - User.all.each do |user|
@@ -18,6 +19,9 @@ table.users-table
         td = user.verified? ? "Yes" : "No"
         td = user.roles.map(&:name).map(&:capitalize).join(", ")
         td = user.shirt_size
+        td
+          span 2019
+          span 2020
         td
           = link_to "Edit user", [:edit, :admin, @site, user], class: "edit-icon", title: "Edit user"
           = link_to "Delete user", [:admin, @site, user], method: "delete", class: "delete-icon", title: "Delete user",

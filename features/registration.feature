@@ -50,16 +50,16 @@ Feature: Riders can create user accounts that persist beyond races
     Given I am logged in as an admin
     When I follow "Users"
     Then I should see the following users:
-      | NAME          | EMAIL                 | CONFIRMED? | ROLE      | SHIRT |
-      | Admin Account | admin@riverwest24.com | Yes        | Superuser |       |
-      | Micah Geisel  | micah@botandrose.com  | Yes        |           | ML    |
+      | NAME          | EMAIL                 | CONFIRMED? | ROLE      | RACES | SHIRT |
+      | Admin Account | admin@riverwest24.com | Yes        | Superuser |       |       |
+      | Micah Geisel  | micah@botandrose.com  | Yes        |           |       | ML    |
 
   # Scenario: Admin can download all users
     When I follow "Download users"
     Then I should download a CSV named "rw24-users-2020-06-19.csv" with the following contents:
-      | Name          | Email                 | Confirmed? | Role      | Shirt |
-      | Admin Account | admin@riverwest24.com | Yes        | Superuser |       |
-      | Micah Geisel  | micah@botandrose.com  | Yes        |           | ML    |
+      | Name          | Email                 | Confirmed? | Role      | Races | Shirt |
+      | Admin Account | admin@riverwest24.com | Yes        | Superuser |       |       |
+      | Micah Geisel  | micah@botandrose.com  | Yes        |           |       | ML    |
 
   Scenario: Same email can't be used to create profile
     Given the following users exist:
@@ -159,3 +159,17 @@ Feature: Riders can create user accounts that persist beyond races
       | Womens Xx Large  | 0 |
       | Womens Xxx Large | 0 |
 
+    When I follow "Users"
+    Then I should see the following users:
+      | NAME              | EMAIL                 | CONFIRMED? | ROLE      | RACES | SHIRT |
+      | Admin Account     | admin@riverwest24.com | Yes        | Superuser |       |       |
+      | Micah Geisel      | micah@botandrose.com  | Yes        |           |       | ML    |
+      | Michael Gubitosa  | gubs@botandrose.com   | Yes        |           | 2020  | MXL   |
+
+  # Scenario: Admin can download all users
+    When I follow "Download users"
+    Then I should download a CSV named "rw24-users-2020-06-19.csv" with the following contents:
+      | Name              | Email                 | Confirmed? | Role      | Races | Shirt |
+      | Admin Account     | admin@riverwest24.com | Yes        | Superuser |       |       |
+      | Micah Geisel      | micah@botandrose.com  | Yes        |           |       | ML    |
+      | Michael Gubitosa  | gubs@botandrose.com   | Yes        |           | 2020  | MXL   |
