@@ -1,4 +1,6 @@
 require "validates_email_format_of"
+require "acts_as_list"
+require "team"
 
 class Rider < ActiveRecord::Base
   def self.paid

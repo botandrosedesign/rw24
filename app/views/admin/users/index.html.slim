@@ -12,7 +12,7 @@ table.users-table
       th Races
       th
   tbody
-    - User.all.each do |user|
+    - @users.each do |user|
       tr
         td = link_to user.name, [:admin, @site, user]
         td = user.email
@@ -20,9 +20,10 @@ table.users-table
         td = user.roles.map(&:name).map(&:capitalize).join(", ")
         td = user.shirt_size
         td
-          - user.teams.each do |team|
+          - @user_teams[user.id].each do |race_id, team_id|
+            - year = @user_teams.race_year_map[race_id]
             span
-              = link_to team.race_year, leader_board_laps_path(team.race_year, team.position)
+              = link_to year, edit_admin_site_race_team_path(@site, race_id, team_id)
               | &nbsp;
         td
           = link_to "Edit user", [:edit, :admin, @site, user], class: "edit-icon", title: "Edit user"
