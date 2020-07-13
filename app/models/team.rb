@@ -57,6 +57,8 @@ class Team < ActiveRecord::Base
     end
   end
 
+  delegate :year, to: :race, prefix: true
+
   def send_confirmation_email!
     Mailer.confirmation_email(self).deliver_now
     update_attribute :confirmation_sent_at, Time.now

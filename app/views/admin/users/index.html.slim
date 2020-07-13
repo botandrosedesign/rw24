@@ -20,8 +20,10 @@ table.users-table
         td = user.roles.map(&:name).map(&:capitalize).join(", ")
         td = user.shirt_size
         td
-          span 2019
-          span 2020
+          - user.teams.each do |team|
+            span
+              = link_to team.race_year, leader_board_laps_path(team.race_year, team.position)
+              | &nbsp;
         td
           = link_to "Edit user", [:edit, :admin, @site, user], class: "edit-icon", title: "Edit user"
           = link_to "Delete user", [:admin, @site, user], method: "delete", class: "delete-icon", title: "Delete user",

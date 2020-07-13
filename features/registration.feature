@@ -163,7 +163,7 @@ Feature: Riders can create user accounts that persist beyond races
     Then I should see the following users:
       | NAME              | EMAIL                 | CONFIRMED? | ROLE      | RACES | SHIRT |
       | Admin Account     | admin@riverwest24.com | Yes        | Superuser |       |       |
-      | Micah Geisel      | micah@botandrose.com  | Yes        |           |       | ML    |
+      | Micah Geisel      | micah@botandrose.com  | Yes        |           | 2020  | ML    |
       | Michael Gubitosa  | gubs@botandrose.com   | Yes        |           | 2020  | MXL   |
 
   # Scenario: Admin can download all users
@@ -171,5 +171,6 @@ Feature: Riders can create user accounts that persist beyond races
     Then I should download a CSV named "rw24-users-2020-06-19.csv" with the following contents:
       | Name              | Email                 | Confirmed? | Role      | Races | Shirt |
       | Admin Account     | admin@riverwest24.com | Yes        | Superuser |       |       |
-      | Micah Geisel      | micah@botandrose.com  | Yes        |           |       | ML    |
+      | Micah Geisel      | micah@botandrose.com  | Yes        |           | 2020  | ML    |
       | Michael Gubitosa  | gubs@botandrose.com   | Yes        |           | 2020  | MXL   |
+
