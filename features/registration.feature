@@ -282,6 +282,16 @@ Feature: Riders can create user accounts that persist beyond races
       | Womens Xx Large  | 0 |
       | Womens Xxx Large | 0 |
 
+    When I follow "New Team"
+    And I fill in the following form:
+      | Team Name | Not Again     |
+      | Category  | Solo (male)   |
+
+    When I fill in "Search" with "botandrose.com" within the first rider form
+    Then I should see the following autocomplete options:
+      | #1 Micah Geisel ‹micah@botandrose.com›    |
+      | #1 Michael Gubitosa ‹gubs@botandrose.com› |
+
     When I follow "Users"
     Then I should see the following users:
       | NAME              | EMAIL                 | CONFIRMED? | ROLE      | RACES | SHIRT |
