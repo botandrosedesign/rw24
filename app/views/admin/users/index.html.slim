@@ -16,7 +16,7 @@ table.users-table
       tr
         td = link_to user.name, [:admin, @site, user]
         td = user.email
-        td = user.verified? ? "Yes" : "No"
+        td = user.verified? ? "Yes" : "<a href="">Resend</a>"
         td = user.roles.map(&:name).map(&:capitalize).join(", ")
         td = user.shirt_size
         td
