@@ -175,33 +175,33 @@ Feature: Riders can create user accounts that persist beyond races
     Then I should see "Confirmation email resent to micah@botandrose.com"
     And "micah@botandrose.com" should receive an email from "info@riverwest24.com"
 
-  # Given a clear email queue
-  # When I follow "Races"
-  # And I follow "New Team"
+    Given a clear email queue
+    When I follow "Races"
+    And I follow "New Team"
 
-  # When I fill in the following form:
-  #   | Team Name | Bot and Rose |
-  #   | Category  | Solo (male)  |
+    When I fill in the following form:
+      | Team Name | Bot and Rose |
+      | Category  | Solo (male)  |
 
-  # When I fill in "Search" with "botandrose.com" within the first rider form
-  # Then I should see the following autocomplete options:
-  #   | UNCONFIRMED Micah Geisel ‹micah@botandrose.com›    |
-  # When I select the autocomplete option "UNCONFIRMED Micah Geisel ‹micah@botandrose.com›"
-  # Then I should see the first rider form filled out with the following:
-  #   | Paid?      |                      |
-  #   | Name       |                      |
-  #   | Email      |                      |
-  #   | Phone      |                      |
-  #   | Shirt size |                      |
-  # And I should see "Confirmation email resent to micah@botandrose.com"
-  # And "micah@botandrose.com" should receive an email from "info@riverwest24.com" with the subject "Welcome to Riverwest24" and the following body:
-  #   """
-  #   Dear Micah Geisel,<br />
-  #   <br />
-  #   Welcome to Riverwest24!<br />
-  #   <br />
-  #   Please visit the link below to confirm your account.<br />
-  #   """
+    When I fill in "Search" with "botandrose.com" within the first rider form
+    Then I should see the following autocomplete options:
+      | UNCONFIRMED Micah Geisel ‹micah@botandrose.com›    |
+    When I select the autocomplete option "UNCONFIRMED Micah Geisel ‹micah@botandrose.com›"
+    Then I should see the first rider form filled out with the following:
+      | Paid?      |                      |
+      | Name       |                      |
+      | Email      |                      |
+      | Phone      |                      |
+      | Shirt size |                      |
+    And I should see "Confirmation email resent to micah@botandrose.com"
+    And "micah@botandrose.com" should receive an email from "info@riverwest24.com" with the subject "Welcome to Riverwest24" and the following body:
+      """
+      Dear Micah Geisel,<br />
+      <br />
+      Welcome to Riverwest24!<br />
+      <br />
+      Please visit the link below to confirm your account.<br />
+      """
 
   Scenario: Admin creates a new team from existing user profiles
     Given the following users exist:

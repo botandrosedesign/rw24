@@ -20,8 +20,9 @@ class Rider < ActiveRecord::Base
   alias_attribute :shirt_size, :shirt
 
   def autocomplete_options
-    User.verified.map do |user|
+    User.all.map do |user|
       { 
+        verified: user.verified?,
         label: "#{user.name} ‹#{user.email}›",
         value: user.id,
         user_id: user.id,
