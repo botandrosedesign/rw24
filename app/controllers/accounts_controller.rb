@@ -15,8 +15,13 @@ class AccountsController < BaseController
       Mailer.registration(@user, request.host_with_port).deliver_now
       redirect_to "/", notice: "A confirmation email has been sent to #{@user.email}"
     else
-      flash.now.alert = @user.errors.full_messages.join(", ")
-      render action: :new
+      if @user.errors[:email].include?("has already been taken") && !(existing_user = User.find_by_email!(@user.email)).verified?
+        Mailer.registration(existing_user, request.host_with_port).deliver_now
+        redirect_to "/", alert: "Profile already exists but is unconfirmed. A confirmation email has been sent to #{existing_user.email}"
+      else
+        flash.now.alert = @user.errors.full_messages.join(", ")
+        render action: :new
+      end
     end
   end
 

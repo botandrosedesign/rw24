@@ -32,6 +32,9 @@ Rails.application.routes.draw do
           post :send_confirmation_emails, :on => :collection
         end
       end
+      resources :users do
+        post :resend_confirmation
+      end
       resource :database
     end
   end
