@@ -3,7 +3,36 @@ csv << ["Pos", "Team Name", "Category", "Address", "Address 2", "City", "State",
 
 @teams.each do |team|
   team.riders.each do |rider|
-    csv << [team.position, team.name, team.category_name, team.address, team.line_2, team.city, team.state, team.zip, team.shirt_sizes.total, team.shirt_sizes.mens_small, team.shirt_sizes.mens_medium, team.shirt_sizes.mens_large, team.shirt_sizes.mens_x_large, team.shirt_sizes.mens_xx_large, team.shirt_sizes.mens_xxx_large, team.shirt_sizes.womens_small, team.shirt_sizes.womens_medium, team.shirt_sizes.womens_large, team.shirt_sizes.womens_x_large, team.shirt_sizes.womens_xx_large, team.shirt_sizes.womens_xxx_large,
-      rider.position, rider.name, rider.email, rider.phone, rider.paid, rider.payment_type, rider.notes]
+    csv << [
+      team.position,
+      team.name,
+      team.category_name,
+      team.address,
+      team.line_2,
+      team.city,
+      team.state,
+      team.zip,
+      team.shirt_sizes.total,
+      team.shirt_sizes.mens_small,
+      team.shirt_sizes.mens_medium,
+      team.shirt_sizes.mens_large,
+      team.shirt_sizes.mens_x_large,
+      team.shirt_sizes.mens_xx_large,
+      team.shirt_sizes.mens_xxx_large,
+      team.shirt_sizes.womens_small,
+      team.shirt_sizes.womens_medium,
+      team.shirt_sizes.womens_large,
+      team.shirt_sizes.womens_x_large,
+      team.shirt_sizes.womens_xx_large,
+      team.shirt_sizes.womens_xxx_large,
+
+      rider.position,
+      rider.name.strip.gsub(/\s+/, ' '),
+      rider.email,
+      rider.phone,
+      rider.paid,
+      rider.payment_type,
+      rider.notes,
+    ]
   end
 end
