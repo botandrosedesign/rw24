@@ -51,8 +51,11 @@ $ ->
               false
 
         $field.autocomplete("instance")._renderItem = (ul, item) ->
+          text = item.label
+          text = "<span style='color: red'>UNCONFIRMED</span> #{text}" unless item.verified
+          text = "<span style='color: red'>##{item.team_pos}</span> #{text}" if item.team_pos
           $("<li>")
-            .append("<div>#{if item.verified then "" else "<span style='color: red'>UNCONFIRMED</span> "}#{item.label}</div>")
+            .append("<div>#{text}</div>")
             .appendTo(ul)
     $("body").on "cocoon:after-remove", (e, removedItem, originalEvent) ->
       renderShirtSizeCounts()
