@@ -97,7 +97,7 @@ GEM
     backhoe (0.3.0)
       activerecord
     backports (3.18.1)
-    bard (0.43.0)
+    bard (0.44.2)
       bard-rake (>= 0.1.1)
       rvm
       term-ansicolor (>= 1.0.3)
