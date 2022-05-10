@@ -1,4 +1,8 @@
 namespace :data do
+  task :remove_spam_accounts => :environment do
+    User.where(verified_at: nil).where(shirt_size: "WXXXL").delete_all
+  end
+
   task :populate_team_categories => :environment do
     Team.find_each do |team|
       begin
