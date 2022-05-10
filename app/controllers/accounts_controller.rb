@@ -1,5 +1,5 @@
 class AccountsController < BaseController
-  invisible_captcha only: :create, honeypot: :homepage
+  invisible_captcha only: :create, honeypot: :homepage, scope: :user
 
   before_action :guess_section
 
