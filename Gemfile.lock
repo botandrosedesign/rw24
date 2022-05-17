@@ -1,7 +1,6 @@
 GIT
   remote: https://github.com/botandrose/adva_cms.git
-  revision: 4abd306aaeaa95075349a2877c40d637de132954
-  branch: rails6
+  revision: 55b511aa872ee1679aac8a00592afe9569fe6729
   specs:
     adva_activity (0.0.1)
       rails-observers
@@ -55,8 +54,8 @@ GEM
       rack-test (>= 0.6.3)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.2.0)
-    actionpack-page_caching (1.2.3)
-      actionpack (>= 5.0.0)
+    actionpack-page_caching (1.2.4)
+      actionpack (>= 4.0.0)
     actiontext (6.0.3.2)
       actionpack (= 6.0.3.2)
       activerecord (= 6.0.3.2)
@@ -429,7 +428,7 @@ GEM
     websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
-    will_paginate (3.3.0)
+    will_paginate (3.3.1)
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.3.1)

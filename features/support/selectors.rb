@@ -11,6 +11,9 @@ module HtmlSelectorsHelpers
     when "the header"
       "header"
 
+    when "the admin nav"
+      "#top"
+
     when /the "(.+?)" team/
       ["tr", text: $1]
 

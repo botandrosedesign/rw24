@@ -39,7 +39,7 @@ Feature: Admins can manage teams
     And I press "Save"
     Then I should see "The team has been created."
 
-    When I follow "Races"
+    When I follow "Races" within the admin nav
     Then I should see the following teams:
       | PAID | EMAILED | POS# | CLASS | TEAM NAME           | RIDERS | T-SHIRTS | LEADER NAME  |
       | No   | No      | 1    | S     | BARD                | 1      | 0        | Micah        |
@@ -72,7 +72,7 @@ Feature: Admins can manage teams
     And I press "Save"
     Then I should see "The team has been updated."
 
-    When I follow "Races"
+    When I follow "Races" within the admin nav
     Then I should see the following teams:
       | PAID | EMAILED | POS# | CLASS | TEAM NAME          | RIDERS | T-SHIRTS | LEADER NAME |
       | No   | No      | 1    | T     | Bog and Rat Defeat | 2      | 2        | Micah       |

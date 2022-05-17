@@ -7,7 +7,7 @@ Feature: Admins can manage races
 
   Scenario: Admin is redirected to create a race if none exist
     Given there are no races
-    When I follow "Races"
+    When I follow "Races" within the admin nav
     And I fill in "Year" with "2011"
 
   Scenario: Admin sees all races
