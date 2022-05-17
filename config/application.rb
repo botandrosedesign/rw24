@@ -1,4 +1,5 @@
 require_relative 'boot'
+require_relative 'exec_js'
 
 require 'active_record/railtie'
 require 'active_storage/engine'
