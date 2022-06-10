@@ -10,7 +10,7 @@ class AccountsController < BaseController
   def create
     @user = User.new(create_user_params)
     if @user.save
-      Authentication::SingleToken.new.assign_token(@user, nil, 1.month.from_now)
+      Authentication::SingleToken.new.assign_token(@user)
       @user.save!
       Mailer.registration(@user, request.host_with_port).deliver_now
       redirect_to "/", notice: "A confirmation email has been sent to #{@user.email}"
