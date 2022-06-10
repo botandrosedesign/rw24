@@ -58,7 +58,7 @@ end
 
 group :development, :test do
   gem "byebug"
-  gem "parallel_tests"
+  gem "parallel_tests", "~>3.9.0" # 3.10 pegs cpu
   gem "sqlite3"
   gem "rspec-rails"
   gem "teaspoon-jasmine"
@@ -69,7 +69,8 @@ group :test do
   gem "cucumber-rails", require: false
   gem "cucumber", "~>3.0" # 4.0 breaks CLI runner line option
   gem "diff-lcs", "1.3" # 1.4 breaks #changes
-  gem "capybara-headless_chrome", github: "botandrose/capybara-headless_chrome", branch: "js_errors"
+  gem "capybara-headless_chrome"
+  gem "selenium-webdriver", "~>3.0"
   gem "capybara-screenshot"
   gem "database_cleaner"
   gem "email_spec"

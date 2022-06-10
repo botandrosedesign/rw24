@@ -1,18 +1,7 @@
 require 'database_cleaner'
 require 'database_cleaner/cucumber'
 
-ActiveRecord::Base.shared_connection = ActiveRecord::Base.connection
-ActiveRecord::Base.descendants.each do |model|
-  model.shared_connection = model.connection
-end
-
-DatabaseCleaner.clean_with :truncation
-
-DatabaseCleaner.strategy = :transaction
-
-require_relative "../../db/seeds"
-
-Around do |scenario, block|
-  DatabaseCleaner.cleaning(&block)
-end
+DatabaseCleaner.strategy = :truncation
+DatabaseCleaner.clean
+Before { load "db/seeds.rb" }
 
