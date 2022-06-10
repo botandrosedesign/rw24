@@ -4,6 +4,7 @@ login: &login
   username: root
   password:
   socket: /var/run/mysqld/mysqld.sock
+  charset: utf8mb4
 
 development:
   <<: *login
