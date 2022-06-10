@@ -183,7 +183,7 @@ Feature: Riders can create user accounts that persist beyond races
       | Team Name | Bot and Rose |
       | Category  | Solo (male)  |
 
-    When I fill in "Search" with "botandrose.com" within the first rider form
+    When I type "botandrose.com" into "Search" within the first rider form
     Then I should see the following autocomplete options:
       | UNCONFIRMED Micah Geisel ‹micah@botandrose.com›    |
     When I select the autocomplete option "UNCONFIRMED Micah Geisel ‹micah@botandrose.com›"
@@ -218,12 +218,12 @@ Feature: Riders can create user accounts that persist beyond races
       | Category  | Tandem       |
     Then I should see 2 rider forms
 
-    When I fill in "Search" with "botandrose.com" within the first rider form
+    When I type "botandrose.com" into "Search" within the first rider form
     Then I should see the following autocomplete options:
       | Micah Geisel ‹micah@botandrose.com›    |
       | Michael Gubitosa ‹gubs@botandrose.com› |
 
-    When I fill in "Search" with "geisel" within the first rider form
+    When I type "geisel" into "Search" within the first rider form
     Then I should see the following autocomplete options:
       | Micah Geisel ‹micah@botandrose.com›    |
 
@@ -243,7 +243,7 @@ Feature: Riders can create user accounts that persist beyond races
       | Mens xx large   | 0 |
       | Mens xxx large  | 0 |
 
-    When I fill in "Search" with "gubs" within the second rider form
+    When I type "gubs" into "Search" within the second rider form
     And I select the autocomplete option "gubs@botandrose.com"
     Then I should see the second rider form filled out with the following:
       | Paid?      |                     |
@@ -287,7 +287,7 @@ Feature: Riders can create user accounts that persist beyond races
       | Team Name | Not Again     |
       | Category  | Solo (male)   |
 
-    When I fill in "Search" with "botandrose.com" within the first rider form
+    When I type "botandrose.com" into "Search" within the first rider form
     Then I should see the following autocomplete options:
       | #1 Micah Geisel ‹micah@botandrose.com›    |
       | #1 Michael Gubitosa ‹gubs@botandrose.com› |

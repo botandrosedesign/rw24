@@ -69,8 +69,8 @@ group :test do
   gem "cucumber-rails", require: false
   gem "cucumber", "~>3.0" # 4.0 breaks CLI runner line option
   gem "diff-lcs", "1.3" # 1.4 breaks #changes
-  gem "capybara-headless_chrome"
-  gem "selenium-webdriver", "~>3.0"
+  gem "cuprite", github: "botandrose/cuprite", branch: "drag_and_drop"
+  gem "cuprite-downloads"
   gem "capybara-screenshot"
   gem "database_cleaner"
   gem "email_spec"

@@ -91,7 +91,7 @@ $(function() {
     return false;
   });
 
-  $(document).on("submit", "#cee_box form", function() {
+  $(document).on("submit", "#cee_box form", function(event) {
     event.preventDefault();
     var id = "point_" + $(this).find("#point_id").val();
     var backup_id = $(this).find("#backup_id").val();

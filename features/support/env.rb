@@ -1,23 +1,21 @@
 require './spec/coverage_setup'
 require 'cucumber/rails'
-require 'capybara/headless_chrome'
+require "capybara/cuprite"
+require "cuprite/downloads/cucumber"
 require 'capybara-screenshot/cucumber' unless ENV["CI"]
 
-Capybara.register_driver :chrome do |app|
-  Capybara::HeadlessChrome::Driver.new(app, window_size: [1600,2400])
-end
-
-Capybara::Screenshot.register_driver :chrome do |driver, path|
-  driver.save_screenshot(path)
+Capybara.register_driver(:cuprite) do |app|
+  Capybara::Cuprite::Driver.new(app, window_size: [1200, 2048], timeout: 10, js_errors: true)
 end
 
 Capybara.server = :webrick
+Capybara.default_driver = :cuprite
+Capybara.default_normalize_ws = true
 
-# Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
-# order to ease the transition to Capybara we set the default here. If you'd
-# prefer to use XPath just remove this line and adjust any selectors in your
-# steps to use the XPath syntax.
-Capybara.default_selector = :css
+# Capybara defaults to CSS3 selectors rather than XPath.
+# If you'd prefer to use XPath, just uncomment this line and adjust any
+# selectors in your step definitions to use the XPath syntax.
+# Capybara.default_selector = :xpath
 
 # By default, any exception happening in your Rails application will bubble up
 # to Cucumber so that your scenario will fail. This is a different from how 

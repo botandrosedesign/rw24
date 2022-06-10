@@ -44,6 +44,11 @@ When /^I follow and confirm "(.*?)"$/ do |link|
   accept_confirm { click_link link }
 end
 
+When "I type {string} into {string}" do |value, field|
+  find_field(field).set nil
+  find_field(field).send_keys(value)
+end
+
 When /^I fill in "(.*?)" with "(.*?)"$/ do |field, value|
   fill_in field, with: value
 end
