@@ -4,7 +4,7 @@ git_source(:github) { |repo_name| "https://github.com/#{repo_name}.git" }
 
 gem "bootsnap", require: false
 gem "dotenv-rails"
-gem "rails", "~>6.0.0"
+gem "rails", "~>6.1.0"
 gem "mysql2"
 gem "bard-rake"
 gem "bard-static"
