@@ -1,4 +1,10 @@
 namespace :data do
+  task :strip_whitespace => :environment do
+    User.find_each do |user|
+      user.save!
+    end
+  end
+
   task :populate_verification_keys => :environment do
     User.find_each do |user|
       user.instance_eval do

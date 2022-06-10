@@ -16,6 +16,8 @@ ActiveSupport::Reloader.to_prepare do
       raise "blank key" if @unhashed_verification_key.blank?
       @unhashed_verification_key
     end
+
+    auto_strip_attributes :first_name, :last_name, :email, :phone
   end
 end
 

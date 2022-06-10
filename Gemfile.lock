@@ -91,6 +91,8 @@ GEM
       activerecord (>= 4.2)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    auto_strip_attributes (2.6.0)
+      activerecord (>= 4.0)
     awesome_nested_set (3.2.1)
       activerecord (>= 4.0.0, < 7.0)
     backhoe (0.3.0)
@@ -446,6 +448,7 @@ DEPENDENCIES
   adva_meta_tags!
   adva_rbac!
   adva_user!
+  auto_strip_attributes
   awesome_nested_set (~> 3.0)
   backhoe
   bard
