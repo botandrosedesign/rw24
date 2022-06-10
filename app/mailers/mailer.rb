@@ -11,9 +11,9 @@ class Mailer < ActionMailer::Base
       :subject => "RW24 #{team.race.year} Confirmation: #{team.name} (##{team.position}) - #{team.category_name} - Shirts: #{team.shirt_sizes.summary}"
   end
 
-  def registration user, host
+  def registration user, key, host
     @user = user
-    @link = account_confirmation_url(id: @user.token_key, host: host)
+    @link = account_confirmation_url(id: key, host: host)
     mail from: "info@riverwest24.com", to: user.email, subject: "Welcome to Riverwest24"
   end
 end

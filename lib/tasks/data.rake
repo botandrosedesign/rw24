@@ -1,4 +1,12 @@
 namespace :data do
+  task :populate_verification_keys => :environment do
+    User.find_each do |user|
+      user.instance_eval do
+        update_column :verification_key, hash_string(token_key)
+      end
+    end
+  end
+
   task :remove_spam_accounts => :environment do
     User.where(verified_at: nil).where(shirt_size: "WXXXL").delete_all
   end

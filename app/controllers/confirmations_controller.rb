@@ -1,10 +1,10 @@
 class ConfirmationsController < BaseController
+  include Authentication::HashHelper
+
   before_action :guess_section
 
   def show
-    single_token = Authentication::SingleToken.new
-    token_key = params[:id]
-    if user = User.find_by_token_key(params[:id])
+    if user = User.find_by_verification_key(hash_string(params[:id]))
       user.update_column :verified_at, (user.verified_at || Time.zone.now)
       session[:uid] = user.id
       set_user_cookie!(user)

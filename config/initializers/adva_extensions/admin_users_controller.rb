@@ -9,7 +9,8 @@ ActiveSupport::Reloader.to_prepare do
 
     def resend_confirmation
       if user = User.find_by(id: params[:user_id], verified_at: nil)
-        Mailer.registration(user, request.host_with_port).deliver_now
+        user.generate_verification_key!
+        Mailer.registration(user, user.unhashed_verification_key, request.host_with_port).deliver_now
         respond_to do |wants|
           wants.js { render json: nil, status: 204 }
           wants.html { redirect_to({ action: :index }, notice: "Confirmation email resent to #{user.email}") }
