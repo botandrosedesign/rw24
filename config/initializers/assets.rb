@@ -8,3 +8,4 @@ Rails.application.config.assets.version = '2.0'
 Rails.application.config.assets.precompile += %w(leader_board.js points.js)
 Rails.application.config.assets.precompile += %w(admin.css admin-score.css ie.css bonus_logger.css)
 
+Rails.application.config.assets.precompile += %w(importmap_application)
