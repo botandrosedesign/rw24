@@ -3,7 +3,7 @@ source "https://rubygems.org"
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}.git" }
 
 gem "bootsnap", require: false
-gem "rails", "~>6.1.0"
+gem "rails", "~>7.0.0"
 gem "mysql2"
 gem "bard-rake"
 gem "bard-static"
@@ -16,13 +16,12 @@ gem "invisible_captcha"
 gem "csv_builder"
 gem "nokogiri"
 gem "acts_as_list"
-gem "dynamic_form"
 gem "cocoon"
 gem "validates_email_format_of"
 gem "auto_strip_attributes"
 gem "awesome_nested_set", "~> 3.0"
 gem "nacelle"
-gem "adva"
+gem "adva", github: "botandrose/adva_cms", branch: "rails-7"
 
 gem "delayed_job_active_record"
 gem "delayed_job_web"

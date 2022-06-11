@@ -10,4 +10,19 @@ module ApplicationHelper
     string = datetime.strftime "%B %e-%%d, %Y | %l%P - %l%P"
     string % [datetime.day + 1]
   end
+
+  def error_messages_for record
+    count = record.errors.count
+    if count > 0
+      tag.div do
+        tag.h2("#{pluralize count, "error"} prohibited this #{record.class.name} from being saved") +
+        tag.p("There were problems with the following fields:") +
+        tag.ul do
+          record.errors.to_a.map do |message|
+            tag.li(message)
+          end.reduce(:+)
+        end
+      end
+    end
+  end
 end

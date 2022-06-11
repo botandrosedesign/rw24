@@ -24,7 +24,7 @@
             %h2 Hour Bike Race
             %span.countstart= start_time_format start_time
 
-        .countdown{data: { controller: "countdown", countdown_starts_at_value: start_time&.to_s(:rfc822) }}
+        .countdown{data: { controller: "countdown", countdown_starts_at_value: start_time&.to_fs(:rfc822) }}
           %p
             %waiting(data-countdown-target="waiting") The ride starts in:
             %during(data-countdown-target="during") It's on! The ride has been going for:

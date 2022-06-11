@@ -10,12 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_01_175433) do
-
+ActiveRecord::Schema[7.0].define(version: 2022_09_01_175433) do
   create_table "accounts", id: :integer, charset: "utf8mb4", collation: "utf8mb4_unicode_ci", options: "ENGINE=InnoDB ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
   end
 
   create_table "activities", id: :integer, charset: "utf8mb4", collation: "utf8mb4_unicode_ci", options: "ENGINE=InnoDB ROW_FORMAT=DYNAMIC", force: :cascade do |t|
@@ -30,7 +29,7 @@ ActiveRecord::Schema.define(version: 2022_09_01_175433) do
     t.integer "object_id"
     t.string "object_type", limit: 15
     t.text "object_attributes"
-    t.datetime "created_at", null: false
+    t.datetime "created_at", precision: nil, null: false
     t.index ["author_id"], name: "index_activities_on_author_id"
     t.index ["object_id"], name: "index_activities_on_object_id"
     t.index ["section_id"], name: "index_activities_on_section_id"
@@ -50,8 +49,8 @@ ActiveRecord::Schema.define(version: 2022_09_01_175433) do
     t.integer "site_id"
     t.integer "section_id"
     t.string "url"
-    t.datetime "updated_at"
-    t.datetime "cleared_at"
+    t.datetime "updated_at", precision: nil
+    t.datetime "cleared_at", precision: nil
     t.index ["section_id"], name: "index_cached_pages_on_section_id"
     t.index ["site_id"], name: "index_cached_pages_on_site_id"
   end
@@ -80,8 +79,8 @@ ActiveRecord::Schema.define(version: 2022_09_01_175433) do
     t.integer "category_id"
     t.string "locale"
     t.string "title"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.index ["category_id"], name: "index_category_translations_on_category_id"
   end
 
@@ -98,8 +97,8 @@ ActiveRecord::Schema.define(version: 2022_09_01_175433) do
     t.text "body"
     t.text "body_html"
     t.integer "approved", default: 0, null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.integer "board_id"
     t.index ["author_id"], name: "index_comments_on_author_id"
     t.index ["board_id"], name: "index_comments_on_board_id"
@@ -118,8 +117,8 @@ ActiveRecord::Schema.define(version: 2022_09_01_175433) do
     t.text "body_html"
     t.text "excerpt"
     t.text "body"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.index ["content_id"], name: "index_content_translations_on_content_id"
   end
 
@@ -140,9 +139,9 @@ ActiveRecord::Schema.define(version: 2022_09_01_175433) do
     t.integer "comment_age", default: 0
     t.string "cached_tag_list"
     t.integer "assets_count", default: 0
-    t.datetime "published_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "published_at", precision: nil
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.integer "parent_id"
     t.integer "lft", default: 0, null: false
     t.integer "rgt", default: 0, null: false
@@ -173,21 +172,21 @@ ActiveRecord::Schema.define(version: 2022_09_01_175433) do
     t.integer "attempts", default: 0
     t.text "handler"
     t.text "last_error"
-    t.datetime "run_at"
-    t.datetime "locked_at"
-    t.datetime "failed_at"
+    t.datetime "run_at", precision: nil
+    t.datetime "locked_at", precision: nil
+    t.datetime "failed_at", precision: nil
     t.string "locked_by"
     t.string "queue"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
   create_table "memberships", id: :integer, charset: "utf8mb4", collation: "utf8mb4_unicode_ci", options: "ENGINE=InnoDB ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.integer "site_id"
     t.integer "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.index ["site_id"], name: "index_memberships_on_site_id"
     t.index ["user_id"], name: "index_memberships_on_user_id"
   end
@@ -204,8 +203,8 @@ ActiveRecord::Schema.define(version: 2022_09_01_175433) do
     t.integer "team_id"
     t.integer "qty"
     t.string "category"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.integer "race_id"
     t.integer "bonus_id"
     t.index ["race_id"], name: "index_points_on_race_id"
@@ -214,7 +213,7 @@ ActiveRecord::Schema.define(version: 2022_09_01_175433) do
 
   create_table "races", id: :integer, charset: "utf8mb4", collation: "utf8mb4_unicode_ci", options: "ENGINE=InnoDB ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.integer "year"
-    t.datetime "start_time"
+    t.datetime "start_time", precision: nil
     t.text "description"
     t.boolean "published"
     t.text "settings"
@@ -225,8 +224,8 @@ ActiveRecord::Schema.define(version: 2022_09_01_175433) do
     t.string "name"
     t.string "email"
     t.integer "position"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.string "shirt"
     t.boolean "paid", default: false
     t.string "payment_type"
@@ -254,8 +253,8 @@ ActiveRecord::Schema.define(version: 2022_09_01_175433) do
     t.integer "section_id"
     t.string "locale"
     t.string "title"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.index ["section_id"], name: "index_section_translations_on_section_id"
   end
 
@@ -275,9 +274,9 @@ ActiveRecord::Schema.define(version: 2022_09_01_175433) do
     t.integer "comment_age"
     t.string "content_filter"
     t.text "permissions"
-    t.datetime "published_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "published_at", precision: nil
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.boolean "hidden_on_global_nav", default: false
     t.index ["parent_id"], name: "index_sections_on_parent_id"
     t.index ["site_id"], name: "index_sections_on_site_id"
@@ -303,8 +302,8 @@ ActiveRecord::Schema.define(version: 2022_09_01_175433) do
     t.string "permalink_style"
     t.text "permissions"
     t.boolean "email_notification", default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.string "meta_author"
     t.string "meta_geourl"
     t.string "meta_copyright"
@@ -317,7 +316,7 @@ ActiveRecord::Schema.define(version: 2022_09_01_175433) do
     t.integer "tag_id"
     t.integer "taggable_id"
     t.string "taggable_type"
-    t.datetime "created_at"
+    t.datetime "created_at", precision: nil
     t.index ["tag_id"], name: "index_taggings_on_tag_id"
     t.index ["taggable_id", "taggable_type"], name: "index_taggings_on_taggable_id_and_taggable_type"
   end
@@ -331,23 +330,23 @@ ActiveRecord::Schema.define(version: 2022_09_01_175433) do
     t.integer "min", null: false
     t.integer "max", null: false
     t.string "initial"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "teams", id: :integer, charset: "utf8mb4", collation: "utf8mb4_unicode_ci", options: "ENGINE=InnoDB ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.string "name"
     t.string "address"
     t.string "line_2"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
     t.string "city"
     t.string "state"
     t.string "zip"
     t.integer "site_id"
     t.integer "position"
     t.integer "race_id"
-    t.datetime "confirmation_sent_at"
+    t.datetime "confirmation_sent_at", precision: nil
     t.text "shirt_sizes"
     t.integer "category_id"
     t.index ["race_id"], name: "index_teams_on_race_id"
@@ -368,12 +367,12 @@ ActiveRecord::Schema.define(version: 2022_09_01_175433) do
     t.string "referer"
     t.string "remember_me", limit: 40
     t.string "token_key", limit: 40
-    t.datetime "token_expiration"
+    t.datetime "token_expiration", precision: nil
     t.boolean "anonymous", default: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.datetime "verified_at"
-    t.datetime "deleted_at"
+    t.datetime "created_at", precision: nil
+    t.datetime "updated_at", precision: nil
+    t.datetime "verified_at", precision: nil
+    t.datetime "deleted_at", precision: nil
     t.integer "account_id"
     t.string "phone"
     t.string "shirt_size"

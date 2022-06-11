@@ -2,7 +2,7 @@
   = hidden_field_tag "backup_id", params[:id]
   = form.hidden_field :id
   .field
-    = error_messages_for @point, :object_name => "point"
+    = error_messages_for @point
   .field
     = form.label :team_position, "POS#"
     = form.text_field :team_position
