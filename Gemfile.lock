@@ -262,7 +262,10 @@ GEM
     htmlentities (4.3.4)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
-    input_css (0.1.2)
+    importmap-rails (1.1.0)
+      actionpack (>= 6.0.0)
+      railties (>= 6.0.0)
+    input_css (0.2.0)
       rails
     invisible_captcha (2.0.0)
       rails (>= 5.0)
@@ -493,6 +496,7 @@ DEPENDENCIES
   foreman-export-systemd_user
   haml-rails
   handle_invalid_percent_encoding_requests
+  importmap-rails
   input_css
   invisible_captcha
   jquery-rails

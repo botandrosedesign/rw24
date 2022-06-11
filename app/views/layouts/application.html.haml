@@ -16,6 +16,8 @@
     %meta{:name => "viewport", :content => "width=device-width"}
     %link(rel="shortcut icon" href="#{image_path("/favicon.png")}" type="image/png")
 
+    = javascript_importmap_tags :importmap_application
+
   %body
     %header
       .header-top

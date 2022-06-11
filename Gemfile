@@ -51,6 +51,8 @@ gem "uglifier"
 gem "jquery-rails"
 gem "jquery-ui-rails"
 
+gem "importmap-rails"
+
 group :development do
   gem "bard"
   gem "web-console"
@@ -87,3 +89,4 @@ group :production do
   gem "rack-cache"
   gem "handle_invalid_percent_encoding_requests" # chinese spiders are polluting the internet
 end
+
