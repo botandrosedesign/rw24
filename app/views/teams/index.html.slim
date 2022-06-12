@@ -61,51 +61,33 @@ div data-controller="leaderboard"
     p data-controller="ranker" data-ranker-initial-value="A"
       span A Team:
       br
-      - if @race.running?
-        b data-ranker-target="leader"
-      - if @race.finished?
-        span data-ranker-target="winners"
+      span data-ranker-target="leaders"
 
     p data-controller="ranker" data-ranker-initial-value="B"
       span B Team:
       br
-      - if @race.running?
-        b data-ranker-target="leader"
-      - if @race.finished?
-        span data-ranker-target="winners"
+      span data-ranker-target="leaders"
 
     - if @race.year > 2009
       p data-controller="ranker" data-ranker-initial-value="M"
         span Solo (male):
         br
-        - if @race.running?
-          b data-ranker-target="leader"
-        - if @race.finished?
-          span data-ranker-target="winners"
+        span data-ranker-target="leaders"
       p data-controller="ranker" data-ranker-initial-value="F"
         span Solo (female):
         br
-        - if @race.running?
-          b data-ranker-target="leader"
-        - if @race.finished?
-          span data-ranker-target="winners"
+        span data-ranker-target="leaders"
 
     - else
       p data-controller="ranker" data-ranker-initial-value="S"
         span Solo:
         br
-        - if @race.running?
-          b data-ranker-target="leader"
-        - if @race.finished?
-          span data-ranker-target="winners"
+        span data-ranker-target="leaders"
 
     p data-controller="ranker" data-ranker-initial-value="T"
       span Tandem:
       br
-      - if @race.running?
-        b data-ranker-target="leader"
-      - if @race.finished?
-        span data-ranker-target="winners"
+      span data-ranker-target="leaders"
 
   = render "shared/sidebar"
 
