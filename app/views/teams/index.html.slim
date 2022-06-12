@@ -1,0 +1,111 @@
+h2 #{@race.year} Leader Board
+
+= raw @race.description
+
+div data-controller="leaderboard"
+
+  p.toggle-categories
+    = link_to "All", "#", class: "first current", data: { action: "leaderboard#select", leaderboard_target: "button" }
+    = link_to "A Team", "#", data: { leaderboard_initial_param: "A", action: "leaderboard#select", leaderboard_target: "button" }
+    = link_to "B Team", "#", data: { leaderboard_initial_param: "B", action: "leaderboard#select", leaderboard_target: "button" }
+    - if @race.year >= 2018
+      = link_to "Convoy", "#", data: { leaderboard_initial_param: "C", action: "leaderboard#select", leaderboard_target: "button" }
+      = link_to "Elder", "#", data: { leaderboard_initial_param: "E", action: "leaderboard#select", leaderboard_target: "button" }
+    = link_to "Solo", "#", data: { leaderboard_initial_param: "S", action: "leaderboard#select", leaderboard_target: "button" }
+    - if @race.year > 2009
+      = link_to "Solo (M)", "#", data: { leaderboard_initial_param: "M", action: "leaderboard#select", leaderboard_target: "button" }
+      = link_to "Solo (F)", "#", data: { leaderboard_initial_param: "F", action: "leaderboard#select", leaderboard_target: "button" }
+    = link_to "Tandem", "#", class: "last", data: { leaderboard_initial_param: "T", action: "leaderboard#select", leaderboard_target: "button" }
+    - if @race.year >= 2019
+      = link_to raw("Perfect <br/>Strangers"), "#", data: { leaderboard_initial_param: "P", action: "leaderboard#select", leaderboard_target: "button" }
+  .clear
+
+  p
+    b data-leaderboard-target="count"
+      = pluralize @teams.size, "Team"
+
+  table#leader-board width="100%"
+    thead
+      tr
+        th scope="col" POS#
+        th scope="col" Class
+        th scope="col" Team Name
+        th scope="col" Laps
+        th scope="col" Miles
+        th scope="col" Bonus
+        - if @race.year > 2009
+          th scope="col" Penalty
+        th scope="col"
+          b Total
+    tbody#teams
+      = render @teams
+    tfoot
+      tr
+        th
+        th
+        th
+        th #{@race.total_laps} Laps!
+        th #{@race.total_miles} Miles!
+        th
+        - if @race.year > 2009
+          th
+        th
+
+= content_for :sidebar do
+  div data-controller="ranker"
+    - if @race.running?
+      h3 Current Leaders
+      #leaders
+        p
+          span A Team:
+          br
+          b#a_leader
+        p
+          span B Team:
+          br
+          b#b_leader
+        p
+          span Solo (male):
+          br
+          b#m_leader
+        p
+          span Solo (female):
+          br
+          b#f_leader
+        p
+          span Tandem:
+          br
+          b#t_leader
+
+    - if @race.finished?
+      h3 Winners
+      #leaders
+        p
+          span A Team:
+          br
+          #a_winners
+        p
+          span B Team:
+          br
+          #b_winners
+        - if @race.year > 2009
+          p
+            span Solo (male):
+            br
+            #m_winners
+          p
+            span Solo (female):
+            br
+            #f_winners
+        - else
+          p
+            span Solo:
+            br
+            #s_winners
+        p
+          span Tandem:
+          br
+          #t_winners
+
+  = render "shared/sidebar"
+
