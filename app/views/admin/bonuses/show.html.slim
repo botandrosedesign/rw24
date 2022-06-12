@@ -2,34 +2,24 @@ h2 Bonus ##{@bonus.id} - #{@bonus.name}
 
 table#bonus-view
   - @bonuses.each do |bonus|
-    tr[bonus]
+    tr id=dom_id(bonus)
       th = bonus.team_position
       td = bonus.team_name
       td = bonus.qty
-      td = link_to "Delete", point_path(bonus), class: "delete-icon", method: :delete, data: { confirm: "Are you sure?" }
+      td = link_to "Delete", point_path(bonus), class: "delete-icon", remote: true, method: :delete, data: { type: "text", confirm: "Are you sure?", "delete-bonus": true }
 
 javascript:
   $(function() {
-    $("a.delete").click(function(event) {
-      event.preventDefault()
+    $(document).on("ajax:success", "[data-delete-bonus]", function(data, status, xhr) {
       const id = $(this).parents("tr").attr("id")
-      $.ajax({
-        type: 'POST',
-        url: this.href,
-        data: { _method: "DELETE" },
-        dataType: "text",
-        retry: true,
-        success: function() {
-          $("#"+id).remove()
-        },
+      $("#"+id).remove()
+    })
 
-        error: function() {
-          $("#"+id).addClass("failed")
-            .find("td:last-child").html('<a href="#" onclick="$(this).parent().parent().remove(); return false;">Clear</a>')
-            .prev().prev().html("Couldn't delete")
-
-        },
-      })
+    $(document).on("ajax:error", "[data-delete-bonus]", function(data, status, xhr) {
+      const id = $(this).parents("tr").attr("id")
+      $("#"+id).addClass("failed")
+        .find("td:last-child").html(`<a href="#" onclick="$(this).parents('tr').remove(); return false;">Clear</a>`)
+        .prev().prev().html("Couldn't delete")
     })
   })
 
