@@ -414,6 +414,8 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     sqlite3 (1.4.2)
+    stimulus-rails (1.0.4)
+      railties (>= 6.0.0)
     sync (0.5.0)
     teaspoon (1.2.2)
       railties (>= 3.2.5)
@@ -514,6 +516,7 @@ DEPENDENCIES
   slim-rails
   sprockets (~> 3.0)
   sqlite3
+  stimulus-rails
   teaspoon-jasmine
   timecop
   uglifier

@@ -52,6 +52,7 @@ gem "jquery-rails"
 gem "jquery-ui-rails"
 
 gem "importmap-rails"
+gem "stimulus-rails"
 
 group :development do
   gem "bard"

@@ -26,21 +26,21 @@
             %h2 Hour Bike Race
             %span.countstart= start_time_format start_time
 
-        %countdown{target: start_time.try(:to_s, :rfc822)}
+        .countdown{data: { controller: "countdown", countdown_starts_at_value: start_time&.to_s(:rfc822) }}
           %p
-            %waiting The ride starts in:
-            %during It's on! The ride has been going for:
+            %waiting(data-countdown-target="waiting") The ride starts in:
+            %during(data-countdown-target="during") It's on! The ride has been going for:
           #day
-            %days
+            %days(data-countdown-target="days")
             %span days
           #hrs
-            %hours
+            %hours(data-countdown-target="hours")
             %span hrs
           #min
-            %minutes
+            %minutes(data-countdown-target="minutes")
             %span min
           #sec
-            %seconds
+            %seconds(data-countdown-target="seconds")
             %span sec
 
       %nav
@@ -96,7 +96,7 @@
         %p
           = mail_to "info@riverwest24.com"
 
-    = javascript_include_tag "application"
     = javascript_importmap_tags :importmap_application
+    = javascript_include_tag "application"
     = yield :js
 
