@@ -3,7 +3,6 @@ source "https://rubygems.org"
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}.git" }
 
 gem "bootsnap", require: false
-gem "dotenv-rails"
 gem "rails", "~>6.1.0"
 gem "mysql2"
 gem "bard-rake"
@@ -21,7 +20,6 @@ gem "dynamic_form"
 gem "cocoon"
 gem "validates_email_format_of"
 gem "auto_strip_attributes"
-gem "backhoe"
 gem "delayed_job_active_record"
 gem "delayed_job_web"
 gem "daemons"
@@ -46,7 +44,6 @@ gem "sprockets", "~>3.0" # 4.0 requires local changes
 gem "sass-rails"
 gem "font-awesome-rails"
 
-gem "uglifier"
 gem "jquery-rails"
 gem "jquery-ui-rails"
 
