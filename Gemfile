@@ -64,8 +64,6 @@ group :development, :test do
   gem "parallel_tests", "~>3.9.0" # 3.10 pegs cpu
   gem "sqlite3"
   gem "rspec-rails"
-  gem "teaspoon-jasmine"
-  gem "phantomjs"
 end
 
 group :test do
