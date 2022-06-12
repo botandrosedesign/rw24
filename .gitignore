@@ -17,3 +17,5 @@ public/stylesheets/*.css
 
 public/userfiles/*
 !public/userfiles/.gitignore
+
+/config/master.key
