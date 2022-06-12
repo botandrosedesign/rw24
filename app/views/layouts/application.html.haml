@@ -43,7 +43,7 @@
             %seconds(data-countdown-target="seconds")
             %span sec
 
-      %nav
+      %nav(data-controller="account-nav")
         %ul.main-nav
           - @site.sections.select(&:published?).each_with_index do |section, index|
             - if index == 1
@@ -59,10 +59,10 @@
                 - section.contents.published.select(&:root?).each do |content|
                   %li= link_to_current content.title, [section, content]
 
-        %ul.account-nav#logged_out(style="display: none")
+        %ul.account-nav#logged_out(style="display: none" data-account-nav-target="loggedOut")
           %li= link_to "Create profile", [:new, :account]
           %li= link_to "Login", :login
-        %ul.account-nav#logged_in(style="display: none")
+        %ul.account-nav#logged_in(style="display: none" data-account-nav-target="loggedIn")
           %li= link_to "My account", :account
           %li= link_to "Logout", :logout, method: :delete
 
