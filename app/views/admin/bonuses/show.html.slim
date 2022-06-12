@@ -1,0 +1,35 @@
+h2 Bonus ##{@bonus.id} - #{@bonus.name}
+
+table#bonus-view
+  - @bonuses.each do |bonus|
+    tr[bonus]
+      th = bonus.team_position
+      td = bonus.team_name
+      td = bonus.qty
+      td = link_to "Delete", point_path(bonus), class: "delete-icon", method: :delete, data: { confirm: "Are you sure?" }
+
+javascript:
+  $(function() {
+    $("a.delete").click(function(event) {
+      event.preventDefault()
+      const id = $(this).parents("tr").attr("id")
+      $.ajax({
+        type: 'POST',
+        url: this.href,
+        data: { _method: "DELETE" },
+        dataType: "text",
+        retry: true,
+        success: function() {
+          $("#"+id).remove()
+        },
+
+        error: function() {
+          $("#"+id).addClass("failed")
+            .find("td:last-child").html('<a href="#" onclick="$(this).parent().parent().remove(); return false;">Clear</a>')
+            .prev().prev().html("Couldn't delete")
+
+        },
+      })
+    })
+  })
+

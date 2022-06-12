@@ -1,23 +1,20 @@
-%h2
+h2
   = params[:action].titleize
-  Bonus
+  | Bonus
   = @bonus.id
 
 = form_for [:admin, @site, @race, @bonus] do |form|
-  %p
+  p
     = form.label :name
-    = form.text_field :name
+    = form.text_field :name, autofocus: true
 
-  %p
+  p
     = form.label :points
     = form.text_field :points
 
-  %br
+  br
 
-  %p
-    %input(type="submit" value="#{@bonus.new_record? ? "Create Bonus" : "Update Bonus"}")
+  p
+    input type="submit" value=(@bonus.new_record? ? "Create Bonus" : "Update Bonus")
     = link_to "cancel", [:edit, :admin, @site, @race]
 
-:coffeescript
-  $ ->
-    $("#bonus_name").focus()

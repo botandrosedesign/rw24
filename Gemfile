@@ -46,7 +46,6 @@ gem "sprockets", "~>3.0" # 4.0 requires local changes
 gem "sass-rails"
 gem "font-awesome-rails"
 
-gem "coffee-rails"
 gem "uglifier"
 gem "jquery-rails"
 gem "jquery-ui-rails"

@@ -140,13 +140,6 @@ GEM
       cucumber
     cliver (0.3.2)
     cocoon (1.2.15)
-    coffee-rails (5.0.0)
-      coffee-script (>= 2.2.0)
-      railties (>= 5.2.0)
-    coffee-script (2.4.1)
-      coffee-script-source
-      execjs
-    coffee-script-source (1.12.2)
     concurrent-ruby (1.1.10)
     coveralls (0.8.23)
       json (>= 1.8, < 3)
@@ -470,7 +463,6 @@ DEPENDENCIES
   cells (~> 3.0)
   chop
   cocoon
-  coffee-rails
   coveralls
   csv_builder
   cucumber (~> 3.0)

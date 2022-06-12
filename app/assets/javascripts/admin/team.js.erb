@@ -1,0 +1,92 @@
+//= require jquery-ui/widgets/autocomplete
+//= require cocoon
+
+$(function() {
+  $("[data-autocomplete]").each(function() { wireUpAutocomplete(this) })
+
+  $("[data-team-category-select]").each(function() {
+    const selector = $(this).data("team-category-select")
+    $(this).change(function() {
+      const desiredLength = $("option:selected", this).data("max")
+      const actualLength = $(selector).length
+
+      if(desiredLength > actualLength) {
+        Array.from(Array(desiredLength - actualLength)).map((_, i) => {
+          $("[data-association='rider']").click()
+        })
+      }
+
+      if(actualLength > desiredLength) {
+        Array.from(Array(actualLength - desiredLength)).map((_, i) => {
+          $(`${selector} .remove_fields`).get(i).click()
+        })
+      }
+    })
+
+    $("body").on("cocoon:after-insert", function(_, insertedItem, _) {
+      $(insertedItem).find("[data-autocomplete]").each(function() { wireUpAutocomplete(this) })
+    })
+  })
+
+  $("body")
+    .on("cocoon:after-remove", () => renderShirtSizeCounts())
+    .on("change", "select", () => renderShirtSizeCounts())
+})
+
+function renderShirtSizeCounts() {
+  $(".all-shirt-fields input").val(0)
+  const sizeMap = <%= ShirtSizes.new.sizes.invert.to_json %>
+  const selectedSizes = $("select[name$='[shirt_size]']").toArray().map(e => $(e).val())
+  selectedSizes.forEach(function(size) {
+    if(size.length == 0) return
+    const $field = $(`input[name$='[${sizeMap[size]}]']`)
+    let count = parseInt($field.val()) || 0
+    count += 1
+    $field.val(count)
+  })
+}
+
+function wireUpAutocomplete(field) {
+  const $field = $(field)
+  const $input = $field.next()
+  const $fieldset = $field.closest(".rider-field")
+  const source = $field.data("autocomplete")
+
+  $field.autocomplete({
+    source: source,
+    focus: function(event, ui) {
+      $field.val(ui.item.label)
+      return false
+    },
+    select: function(event, ui) {
+      const item = ui.item
+      if(item.verified) {
+        $field.val(item.label)
+        $fieldset.find("input[name$='[user_id]']").val(item.user_id)
+        $fieldset.find("input[name$='[name]']").val(item.name)
+        $fieldset.find("input[name$='[email]']").val(item.email)
+        $fieldset.find("input[name$='[phone]']").val(item.phone)
+        $fieldset.find("select[name$='[shirt_size]']").val(item.shirt_size)
+        renderShirtSizeCounts()
+        return false
+      } else {
+        $.post({
+          url: `/admin/sites/1/users/${item.user_id}/resend_confirmation.js`,
+          dataType: "script",
+          success: (event) => Flash.notice(`Confirmation email resent to ${item.email}`)
+        })
+        $field.val(null)
+        return false
+      }
+    },
+  })
+
+  $field.autocomplete("instance")._renderItem = function(ul, item) {
+    let text = item.label
+    if(!item.verified) { text = `<span style='color: red'>UNCONFIRMED</span> ${text}` }
+    if(item.team_pos) { text = `<span style='color: red'>#${item.team_pos}</span> ${text}` }
+    return $("<li>")
+      .append(`<div>${text}</div>`)
+      .appendTo(ul)
+  }
+}
