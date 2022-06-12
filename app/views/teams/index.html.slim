@@ -52,60 +52,60 @@ div data-controller="leaderboard"
         th
 
 = content_for :sidebar do
-  div data-controller="ranker"
-    - if @race.running?
-      h3 Current Leaders
-      #leaders
-        p
-          span A Team:
-          br
-          b#a_leader
-        p
-          span B Team:
-          br
-          b#b_leader
-        p
-          span Solo (male):
-          br
-          b#m_leader
-        p
-          span Solo (female):
-          br
-          b#f_leader
-        p
-          span Tandem:
-          br
-          b#t_leader
+  - if @race.running?
+    h3 Current Leaders
+  - if @race.finished?
+    h3 Winners
 
-    - if @race.finished?
-      h3 Winners
-      #leaders
-        p
-          span A Team:
-          br
-          #a_winners
-        p
-          span B Team:
-          br
-          #b_winners
-        - if @race.year > 2009
-          p
-            span Solo (male):
-            br
-            #m_winners
-          p
-            span Solo (female):
-            br
-            #f_winners
-        - else
-          p
-            span Solo:
-            br
-            #s_winners
-        p
-          span Tandem:
-          br
-          #t_winners
+  #leaders
+    p data-controller="ranker" data-ranker-initial-value="A"
+      span A Team:
+      br
+      - if @race.running?
+        b data-ranker-target="leader"
+      - if @race.finished?
+        span data-ranker-target="winners"
+
+    p data-controller="ranker" data-ranker-initial-value="B"
+      span B Team:
+      br
+      - if @race.running?
+        b data-ranker-target="leader"
+      - if @race.finished?
+        span data-ranker-target="winners"
+
+    - if @race.year > 2009
+      p data-controller="ranker" data-ranker-initial-value="M"
+        span Solo (male):
+        br
+        - if @race.running?
+          b data-ranker-target="leader"
+        - if @race.finished?
+          span data-ranker-target="winners"
+      p data-controller="ranker" data-ranker-initial-value="F"
+        span Solo (female):
+        br
+        - if @race.running?
+          b data-ranker-target="leader"
+        - if @race.finished?
+          span data-ranker-target="winners"
+
+    - else
+      p data-controller="ranker" data-ranker-initial-value="S"
+        span Solo:
+        br
+        - if @race.running?
+          b data-ranker-target="leader"
+        - if @race.finished?
+          span data-ranker-target="winners"
+
+    p data-controller="ranker" data-ranker-initial-value="T"
+      span Tandem:
+      br
+      - if @race.running?
+        b data-ranker-target="leader"
+      - if @race.finished?
+        span data-ranker-target="winners"
 
   = render "shared/sidebar"
 
