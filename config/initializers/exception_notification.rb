@@ -13,18 +13,8 @@ ExceptionNotification.configure do |config|
 
   config.add_notifier :email, {
     email_prefix: "[riverwest24.com] ",
-    sender_address: %{"smtp" <smtp@riverwest24.com>},
     exception_recipients: "micah@botandrose.com",
-    smtp_settings: {
-      address: ENV["EXCEPTION_NOTIFICATION_SMTP_ADDRESS"],
-      port: ENV["EXCEPTION_NOTIFICATION_SMTP_PORT"],
-      user_name: ENV["EXCEPTION_NOTIFICATION_SMTP_USER_NAME"],
-      password: ENV["EXCEPTION_NOTIFICATION_SMTP_PASSWORD"],
-      authentication: :plain,
-      ssl: nil,
-      tls: nil,
-      enable_starttls_auto: true,
-    }
+    smtp_settings: Rails.application.credentials[:exception_notification_smtp_settings],
   }
 end
 
