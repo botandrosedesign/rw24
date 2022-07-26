@@ -63,7 +63,7 @@ FactoryBot.define do
   end
 
   factory :team do
-    race { Race.find_by_year Date.today.year }
+    race { Race.find_by_year! Date.today.year }
     name
     address
     city
@@ -71,14 +71,14 @@ FactoryBot.define do
     zip
 
     factory :team_solo do
-      category { TeamCategory.find_by_name("Solo (male)") }
+      category { TeamCategory.find_by_name!("Solo (male)") }
       before(:create) do |team|
         team.riders << FactoryBot.build(:rider)
       end
     end
 
     factory :team_a do
-      category { TeamCategory.find_by_name("A Team") }
+      category { TeamCategory.find_by_name!("A Team") }
       before(:create) do |team|
         team.riders << FactoryBot.build(:rider)
         team.riders << FactoryBot.build(:rider)

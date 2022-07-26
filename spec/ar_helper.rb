@@ -47,3 +47,6 @@ end
 # silence deprecation warning
 I18n.enforce_available_locales = true
 
+# YAML doesn't want to load AS::HashWithIndifferentAccess otherwise
+ActiveRecord::Base.use_yaml_unsafe_load = true
+

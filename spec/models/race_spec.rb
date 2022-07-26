@@ -1,10 +1,12 @@
 require "ar_helper"
 require "race"
 require "team"
+require "team_category"
 require "rider"
 require "point"
 require "bonus"
 require "support/factories"
+load "db/seeds.rb"
 
 describe Race do
   before { Team.any_instance.stub(assign_site: nil) }

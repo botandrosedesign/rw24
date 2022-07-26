@@ -20,5 +20,8 @@ module Rw24
     config.action_controller.permit_all_parameters = true
 
     config.hosts = nil
+
+    # YAML doesn't want to load AS::HashWithIndifferentAccess otherwise
+    config.active_record.use_yaml_unsafe_load = true
   end
 end
