@@ -109,6 +109,7 @@ class Team < ActiveRecord::Base
   end
 
   def legacy_category_initial_with_gender
+    return "E" if category_name =~ /elder/i
     return category_initial unless category_initial == "S"
     category_name =~ /female/ ? "F" : "M"
   end
