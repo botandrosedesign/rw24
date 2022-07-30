@@ -1,4 +1,3 @@
-require './spec/coverage_setup'
 require 'cucumber/rails'
 require "capybara/cuprite"
 require "cuprite/downloads/cucumber"

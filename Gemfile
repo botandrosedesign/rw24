@@ -75,7 +75,6 @@ group :test do
   gem "faker"
   gem "chop"
   gem "timecop"
-  gem "coveralls", require: false
 end
 
 group :production do
