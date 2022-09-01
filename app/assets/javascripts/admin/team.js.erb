@@ -71,7 +71,7 @@ function wireUpAutocomplete(field) {
         return false
       } else {
         $.post({
-          url: `/admin/sites/1/users/${item.user_id}/resend_confirmation.js`,
+          url: `/admin/users/${item.user_id}/resend_confirmation.js`,
           dataType: "script",
           success: (event) => Flash.notice(`Confirmation email resent to ${item.email}`)
         })

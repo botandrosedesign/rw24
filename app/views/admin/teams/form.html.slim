@@ -1,6 +1,6 @@
 = error_messages_for @team, object_name: "team"
 
-= form_for [:admin, @site, @race, @team] do |form|
+= form_for [:admin, @race, @team] do |form|
   = form.hidden_field :race_id
   h2
     = form.object.new_record? ? "New" : "Edit"
@@ -32,5 +32,5 @@
   hr
 
   .field
-    - save_or_cancel_links form, cancel_url: [:admin, @site, @race, :teams]
+    - save_or_cancel_links form, cancel_url: [:admin, @race, :teams]
 

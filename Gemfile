@@ -20,25 +20,15 @@ gem "dynamic_form"
 gem "cocoon"
 gem "validates_email_format_of"
 gem "auto_strip_attributes"
+gem "awesome_nested_set", "~> 3.0"
+gem "nacelle"
+gem "adva"
+
 gem "delayed_job_active_record"
 gem "delayed_job_web"
 gem "daemons"
 gem "exception_notification"
 gem "newrelic_rpm"
-
-gem "cells", "~>3.0"
-gem "awesome_nested_set", "~> 3.0"
-# path "../adva" do
-git "https://github.com/botandrose/adva_cms.git" do
-  gem "adva_cms"
-  gem "adva_activity"
-  gem "adva_rbac"
-  gem "adva_user"
-
-  gem "adva_cells"
-  gem "adva_fckeditor"
-  gem "adva_meta_tags"
-end
 
 gem "sprockets", "~>3.0" # 4.0 requires local changes
 gem "sass-rails"

@@ -3,7 +3,7 @@ h2
   | Bonus
   = @bonus.id
 
-= form_for [:admin, @site, @race, @bonus] do |form|
+= form_for [:admin, @race, @bonus] do |form|
   p
     = form.label :name
     = form.text_field :name, autofocus: true
@@ -16,5 +16,5 @@ h2
 
   p
     input type="submit" value=(@bonus.new_record? ? "Create Bonus" : "Update Bonus")
-    = link_to "cancel", [:edit, :admin, @site, @race]
+    = link_to "cancel", [:edit, :admin, @race]
 

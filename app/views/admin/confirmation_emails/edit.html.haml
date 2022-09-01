@@ -10,7 +10,7 @@
   Shirt sizes: SIZES<br />
   \---
 
-= form_for @site, url: admin_site_confirmation_email_path(@site) do |form|
+= form_for @site, url: admin_confirmation_email_path do |form|
   .field
     = form.label :confirmation_email_body, "Message"
     = form.text_area :confirmation_email_body, class: "confirmation-message"

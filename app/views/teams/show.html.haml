@@ -14,7 +14,7 @@
 
 %p= link_to raw("&laquo; Back to Leader Board"), leader_board_path(@race.year)
 
-- if current_user.try(:has_role?, :superuser)
+- if current_user&.admin?
   %p
     = link_to "New Bonus", new_point_path(:point => { :team_id => @team.id, :category => "Bonus" })
     |
@@ -29,7 +29,7 @@
         %th Lap Number
         %th Since Last Lap
         %th Since Start of Race
-        - if current_user.try(:has_role?, :superuser)
+        - if current_user&.admin?
           %th
     %tbody
       - last_lap = nil
@@ -38,7 +38,7 @@
           %td= i+1
           %td= lap.since_last(last_lap)
           %td= lap.since_start
-          - if current_user.try(:has_role?, :superuser)
+          - if current_user&.admin?
             %td
               = link_to "Split", [:split, lap], title: "Split Lap", class: "split-icon", method: "post", data: { confirm: "Are you sure you want to split this lap into two?" }
               = link_to "Edit", [:edit, lap], title: "Edit Score", rel: "width:500 height:400", class: "edit-icon ceebox"
@@ -61,7 +61,7 @@
               #{bonus.id} - #{bonus.name}
               %i.points= bonus.points
             %td
-              - if bonus_lap && current_user.try(:has_role?, :superuser)
+              - if bonus_lap && current_user&.admin?
                 = link_to "Delete", bonus_lap, class: "delete-icon", title: "Delete Score", method: :delete, data: { confirm: "Are you sure?" }
 
       - else
@@ -71,7 +71,7 @@
               Bonus #{i+1}
               %i.points= bonus.qty
             %td
-              - if current_user.try(:has_role?, :superuser)
+              - if current_user&.admin?
                 = link_to "Edit", [:edit, bonus], title: "Edit Score", rel: "width:500 height:400", class: "edit-icon ceebox"
                 = link_to "Delete", bonus, class: "delete-icon", title: "Delete Score", method: :delete, data: { confirm: "Are you sure?" }
 
@@ -91,7 +91,7 @@
             = i+1
           %td= penalty.qty
           %td
-            - if current_user.try(:has_role?, :superuser)
+            - if current_user&.admin?
               = link_to "Edit", [:edit, penalty], title: "Edit Score", rel: "width:500 height:400", class: "edit-icon ceebox"
               = link_to "Delete", penalty, class: "delete-icon", method: :delete, data: { confirm: "Are you sure?" }
 

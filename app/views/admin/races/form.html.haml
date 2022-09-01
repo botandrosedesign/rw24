@@ -3,7 +3,7 @@
 
   %hr
 
-  = form_for [:admin, @site, @race] do |form|
+  = form_for [:admin, @race] do |form|
 
     .field#race-title
       = form.label :year
@@ -34,6 +34,6 @@
     .tabs
       .tab.active
         = render "bonuses"
-        %p.right_align.clear= link_to "+ Add a Checkpoint", [:new, :admin, @site, @race, :bonus]
-        %p= button_to "Delete All Bonuses", [:delete_all, :admin, @site, @race, :bonuses], data: { confirm: "Are you sure you want to remove all the bonuses?" }
+        %p.right_align.clear= link_to "+ Add a Checkpoint", [:new, :admin, @race, :bonus]
+        %p= button_to "Delete All Bonuses", [:delete_all, :admin, @race, :bonuses], data: { confirm: "Are you sure you want to remove all the bonuses?" }
 

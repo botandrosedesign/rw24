@@ -1,9 +1,6 @@
 class Admin::TeamsController < Admin::BaseController
-  include Admin::TeamsHelper
   before_action :authorize_access
   before_action :set_race
-
-  guards_permissions :team
 
   def index
     @teams = @race.teams
@@ -22,7 +19,7 @@ class Admin::TeamsController < Admin::BaseController
   def create
     @team = @race.teams.build(team_params)
     if @team.save
-      redirect_to [:edit, :admin, @site, @race, @team], notice: "The team has been created."
+      redirect_to [:edit, :admin, @race, @team], notice: "The team has been created."
     else
       flash.now.alert = errors_for(@team)
       render :form
@@ -32,7 +29,7 @@ class Admin::TeamsController < Admin::BaseController
   def update
     @team = @race.teams.find(params[:id])
     if @team.update(team_params)
-      redirect_to [:edit, :admin, @site, @race, @team], notice: "The team has been updated."
+      redirect_to [:edit, :admin, @race, @team], notice: "The team has been updated."
     else
       flash.now.alert = errors_for(@team)
       render :form
@@ -46,12 +43,12 @@ class Admin::TeamsController < Admin::BaseController
     Team.acts_as_list_no_update do
       @team.destroy
     end
-    redirect_to [:admin, @site, @race, :teams], notice: "The team has been destroyed."
+    redirect_to [:admin, @race, :teams], notice: "The team has been destroyed."
   end
 
   def send_confirmation_emails
     Team.send_confirmation_email_by_ids params[:team_ids]
-    redirect_to [:admin, @site, @race, :teams], notice: "Confirmation emails sending!"
+    redirect_to [:admin, @race, :teams], notice: "Confirmation emails sending!"
   end
 
   private
@@ -65,7 +62,7 @@ class Admin::TeamsController < Admin::BaseController
   end
 
   def authorize_access
-    redirect_to admin_sites_url unless @site || current_user.has_role?(:superuser)
+    redirect_to admin_sites_url unless @site || current_user.admin?
   end
 
   def team_params

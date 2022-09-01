@@ -14,7 +14,7 @@ class AccountsController < BaseController
       Mailer.registration(@user, @user.unhashed_verification_key, request.host_with_port).deliver_now
       redirect_to "/", notice: "A confirmation email has been sent to #{@user.email}"
     else
-      if @user.errors[:email].include?("has already been taken") && !(existing_user = User.find_by_email!(@user.email)).verified?
+      if @user.errors.messages[:email].include?("has already been taken") && !(existing_user = User.find_by_email!(@user.email)).verified?
         existing_user.generate_verification_key!
         Mailer.registration(existing_user, existing_user.unhashed_verification_key, request.host_with_port).deliver_now
         redirect_to "/", alert: "Profile already exists but is unconfirmed. A confirmation email has been sent to #{existing_user.email}"

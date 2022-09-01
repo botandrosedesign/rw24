@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_10_111928) do
+ActiveRecord::Schema.define(version: 2022_09_01_175433) do
 
   create_table "accounts", id: :integer, charset: "utf8mb4", collation: "utf8mb4_unicode_ci", options: "ENGINE=InnoDB ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.string "name"
@@ -378,6 +378,7 @@ ActiveRecord::Schema.define(version: 2022_06_10_111928) do
     t.string "phone"
     t.string "shirt_size"
     t.string "verification_key"
+    t.boolean "admin", default: false, null: false
     t.index ["account_id"], name: "index_users_on_account_id"
   end
 

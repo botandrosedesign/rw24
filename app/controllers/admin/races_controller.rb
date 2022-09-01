@@ -1,9 +1,9 @@
 class Admin::RacesController < Admin::BaseController
   def index
     if @race = Race.last
-      redirect_to [:admin, @site, @race, :teams]
+      redirect_to [:admin, @race, :teams]
     else
-      redirect_to [:new, :admin, @site, :race]
+      redirect_to [:new, :admin, :race]
     end
   end
 
@@ -21,7 +21,7 @@ class Admin::RacesController < Admin::BaseController
     @race = Race.new(params[:race])
     if @race.save
       @site.touch # expire all cached pages
-      redirect_to [:admin, @site, @race, :teams], notice: "Race created!"
+      redirect_to [:admin, @race, :teams], notice: "Race created!"
     else
       render :form
     end
@@ -31,7 +31,7 @@ class Admin::RacesController < Admin::BaseController
     @race = Race.find(params[:id])
     if @race.update(params[:race])
       @site.touch # expire all cached pages
-      redirect_to [:admin, @site, @race, :teams], notice: "Race updated!"
+      redirect_to [:admin, @race, :teams], notice: "Race updated!"
     else
       render :form
     end

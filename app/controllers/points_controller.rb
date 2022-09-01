@@ -110,7 +110,7 @@ class PointsController < BaseController
   private
 
   def authorize_access
-    return true if current_user.try(:has_role?, :superuser)
+    return true if current_user&.admin?
     return true if Bonus.find_by_race_and_key(@race, params[:key])
     redirect_to admin_sites_url
   end

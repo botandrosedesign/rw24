@@ -33,7 +33,7 @@ class Admin::BonusesController < Admin::BaseController
       params[:bonus][:key] = SecureRandom.hex(8)
       @race.bonuses << params[:bonus]
       @race.save
-      redirect_to [:new, :admin, @site, @race, :bonus], notice: "Bonus added! Add another?"
+      redirect_to [:new, :admin, @race, :bonus], notice: "Bonus added! Add another?"
     end
   end
 
@@ -41,13 +41,13 @@ class Admin::BonusesController < Admin::BaseController
     @race.bonuses[params[:id].to_i][:name] = params[:bonus][:name]
     @race.bonuses[params[:id].to_i][:points] = params[:bonus][:points]
     @race.save
-    redirect_to [:edit, :admin, @site, @race], notice: "Bonus updated!"
+    redirect_to [:edit, :admin, @race], notice: "Bonus updated!"
   end
 
   def delete_all
     @race.bonuses = []
     @race.save
-    redirect_to [:edit, :admin, @site, @race], notice: "All Bonuses deleted!"
+    redirect_to [:edit, :admin, @race], notice: "All Bonuses deleted!"
   end
 
   private

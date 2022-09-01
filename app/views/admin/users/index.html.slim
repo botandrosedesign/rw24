@@ -14,18 +14,18 @@ table.users-table
   tbody
     - @users.each do |user|
       tr
-        td = link_to user.name, [:admin, @site, user]
+        td = link_to user.name, [:admin, user]
         td = user.email
-        td = user.verified? ? "Yes" : link_to("Resend", [:admin, @site, user, :resend_confirmation], method: :post)
-        td = user.roles.map(&:name).map(&:capitalize).join(", ")
+        td = user.verified? ? "Yes" : link_to("Resend", [:admin, user, :resend_confirmation], method: :post)
+        td = "Admin" if user.admin?
         td = user.shirt_size
         td
           - @user_teams[user.id].each do |race_id, team_id|
             - year = @user_teams.race_year_map[race_id]
-            = link_to year, edit_admin_site_race_team_path(@site, race_id, team_id), class: "user-race"
+            = link_to year, edit_admin_race_team_path(race_id, team_id), class: "user-race"
         td
-          = link_to "Edit user", [:edit, :admin, @site, user], class: "edit-icon", title: "Edit user"
-          = link_to "Delete user", [:admin, @site, user], method: "delete", class: "delete-icon", title: "Delete user",
+          = link_to "Edit user", [:edit, :admin, user], class: "edit-icon", title: "Edit user"
+          = link_to "Delete user", [:admin, user], method: "delete", class: "delete-icon", title: "Delete user",
             data: { confirm: "Are you sure you want to delete this user?" }
 
 = content_for :sidebar do

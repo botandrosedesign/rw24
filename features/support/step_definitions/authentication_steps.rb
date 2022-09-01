@@ -14,7 +14,7 @@ def create_admin_account
     last_name: "Account",
     email: "admin@riverwest24.com",
     password: "secret",
-    roles: [Rbac::Role.new(name: "superuser")],
+    admin: true,
   })
 end
 

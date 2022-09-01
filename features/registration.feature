@@ -50,16 +50,16 @@ Feature: Riders can create user accounts that persist beyond races
     Given I am logged in as an admin
     When I follow "Users"
     Then I should see the following users:
-      | NAME          | EMAIL                 | CONFIRMED? | ROLE      | RACES | SHIRT |
-      | Admin Account | admin@riverwest24.com | Yes        | Superuser |       |       |
-      | Micah Geisel  | micah@botandrose.com  | Yes        |           |       | ML    |
+      | NAME          | EMAIL                 | CONFIRMED? | ROLE  | RACES | SHIRT |
+      | Admin Account | admin@riverwest24.com | Yes        | Admin |       |       |
+      | Micah Geisel  | micah@botandrose.com  | Yes        |       |       | ML    |
 
   # Scenario: Admin can download all users
     When I follow "Download users"
     Then I should download a CSV named "rw24-users-2020-06-19.csv" with the following contents:
-      | Name          | Email                 | Confirmed? | Role      | Races | Shirt |
-      | Admin Account | admin@riverwest24.com | Yes        | Superuser |       |       |
-      | Micah Geisel  | micah@botandrose.com  | Yes        |           |       | ML    |
+      | Name          | Email                 | Confirmed? | Role  | Races | Shirt |
+      | Admin Account | admin@riverwest24.com | Yes        | Admin |       |       |
+      | Micah Geisel  | micah@botandrose.com  | Yes        |       |       | ML    |
 
   Scenario: Same email can't be used to create profile
     Given the following users exist:
@@ -168,9 +168,9 @@ Feature: Riders can create user accounts that persist beyond races
     And I am logged in as an admin
     When I follow "Users"
     Then I should see the following users:
-      | NAME              | EMAIL                 | CONFIRMED? | ROLE      | RACES | SHIRT |
-      | Admin Account     | admin@riverwest24.com | Yes        | Superuser |       |       |
-      | Micah Geisel      | micah@botandrose.com  | Resend     |           |       | ML    |
+      | NAME          | EMAIL                 | CONFIRMED? | ROLE  | RACES | SHIRT |
+      | Admin Account | admin@riverwest24.com | Yes        | Admin |       |       |
+      | Micah Geisel  | micah@botandrose.com  | Resend     |       |       | ML    |
     When I follow "Resend"
     Then I should see "Confirmation email resent to micah@botandrose.com"
     And "micah@botandrose.com" should receive an email from "info@riverwest24.com"
@@ -294,16 +294,16 @@ Feature: Riders can create user accounts that persist beyond races
 
     When I follow "Users"
     Then I should see the following users:
-      | NAME              | EMAIL                 | CONFIRMED? | ROLE      | RACES | SHIRT |
-      | Admin Account     | admin@riverwest24.com | Yes        | Superuser |       |       |
-      | Micah Geisel      | micah@botandrose.com  | Yes        |           | 2020  | ML    |
-      | Michael Gubitosa  | gubs@botandrose.com   | Yes        |           | 2020  | MXL   |
+      | NAME             | EMAIL                 | CONFIRMED? | ROLE  | RACES | SHIRT |
+      | Admin Account    | admin@riverwest24.com | Yes        | Admin |       |       |
+      | Micah Geisel     | micah@botandrose.com  | Yes        |       | 2020  | ML    |
+      | Michael Gubitosa | gubs@botandrose.com   | Yes        |       | 2020  | MXL   |
 
   # Scenario: Admin can download all users
     When I follow "Download users"
     Then I should download a CSV named "rw24-users-2020-06-19.csv" with the following contents:
-      | Name              | Email                 | Confirmed? | Role      | Races | Shirt |
-      | Admin Account     | admin@riverwest24.com | Yes        | Superuser |       |       |
-      | Micah Geisel      | micah@botandrose.com  | Yes        |           | 2020  | ML    |
-      | Michael Gubitosa  | gubs@botandrose.com   | Yes        |           | 2020  | MXL   |
+      | Name             | Email                 | Confirmed? | Role  | Races | Shirt |
+      | Admin Account    | admin@riverwest24.com | Yes        | Admin |       |       |
+      | Micah Geisel     | micah@botandrose.com  | Yes        |       | 2020  | ML    |
+      | Michael Gubitosa | gubs@botandrose.com   | Yes        |       | 2020  | MXL   |
 

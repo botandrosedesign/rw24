@@ -1,24 +1,4 @@
 GIT
-  remote: https://github.com/botandrose/adva_cms.git
-  revision: 55b511aa872ee1679aac8a00592afe9569fe6729
-  specs:
-    adva_activity (0.0.1)
-      rails-observers
-    adva_cells (0.0.1)
-      cells
-      tilt
-    adva_cms (0.0.1)
-      actionpack-page_caching
-      awesome_nested_set
-      friendly_id (~> 5.1.0)
-      will_paginate
-    adva_fckeditor (0.0.3)
-      non-stupid-digest-assets
-    adva_meta_tags (0.0.1)
-    adva_rbac (0.0.1)
-    adva_user (0.0.1)
-
-GIT
   remote: https://github.com/botandrose/cuprite.git
   revision: ad1c3d72119aa5c701a54b5ffd3023c9db720e30
   branch: drag_and_drop
@@ -95,6 +75,12 @@ GEM
       activerecord (>= 4.2)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    adva (0.1.0)
+      actionpack-page_caching
+      awesome_nested_set
+      friendly_id (~> 5.1.0)
+      rails-observers
+      will_paginate
     auto_strip_attributes (2.6.0)
       activerecord (>= 4.0)
     awesome_nested_set (3.5.0)
@@ -278,13 +264,15 @@ GEM
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
     mysql2 (0.5.4)
+    nacelle (0.4.0)
+      cells (~> 3.0)
+      rails
+      sprockets-rails
     newrelic_rpm (8.8.0)
     nio4r (2.5.8)
     nokogiri (1.13.7)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
-    non-stupid-digest-assets (1.0.9)
-      sprockets (>= 2.0)
     parallel (1.22.1)
     parallel_tests (3.9.1)
       parallel
@@ -423,13 +411,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_list
-  adva_activity!
-  adva_cells!
-  adva_cms!
-  adva_fckeditor!
-  adva_meta_tags!
-  adva_rbac!
-  adva_user!
+  adva
   auto_strip_attributes
   awesome_nested_set (~> 3.0)
   bard
@@ -439,7 +421,6 @@ DEPENDENCIES
   bootsnap
   byebug
   capybara-screenshot
-  cells (~> 3.0)
   chop
   cocoon
   csv_builder
@@ -468,6 +449,7 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   mysql2
+  nacelle
   newrelic_rpm
   nokogiri
   parallel_tests (~> 3.9.0)

@@ -1,9 +1,9 @@
 %h2 #{@race.year} Teams
 
-= form_tag send_confirmation_emails_admin_site_race_teams_path(@site, @race) do
+= form_tag send_confirmation_emails_admin_race_teams_path(@race) do
   %header
     %input.send(type="submit" value="Send Confirmation Emails to Selected")
-    = link_to "Edit Confirmation Email", edit_admin_site_confirmation_email_path(@site), class: "edit-button"
+    = link_to "Edit Confirmation Email", edit_admin_confirmation_email_path, class: "edit-button"
 
   %table.team-list
     %thead
@@ -38,7 +38,7 @@
               .not_emailed No
           %td= team.position
           %td=h team.category_initial
-          %td= link_to h(team.name), [:edit, :admin, @site, @race, team]
+          %td= link_to h(team.name), [:edit, :admin, @race, team]
           %td= team.riders.count
           %td{ class: "#{"missing-shirts" if team.riders.count != team.shirt_sizes.total }"}= team.shirt_sizes.total
           %td
@@ -47,8 +47,8 @@
             - else
               = team.name
           %td.actions
-            = link_to "Edit", [:edit, :admin, @site, @race, team], :class => "edit"
-            = link_to "Delete", [:admin, @site, @race, team], :class => 'delete', :method => :delete, :data => { :confirm => 'Are you sure you want to delete this team and all its riders?' }
+            = link_to "Edit", [:edit, :admin, @race, team], :class => "edit"
+            = link_to "Delete", [:admin, @race, team], :class => 'delete', :method => :delete, :data => { :confirm => 'Are you sure you want to delete this team and all its riders?' }
 
   %input(type="submit" value="Send Confirmation Emails to Selected")
 

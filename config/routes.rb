@@ -18,24 +18,22 @@ Rails.application.routes.draw do
 
   match "/admin/jobs" => DelayedJobWeb, anchor: false, via: [:get, :post]
 
-  get "admin" => redirect("/admin/sites/1")
+  get "admin" => redirect("/admin/site")
 
   namespace :admin do
-    resources :sites do
-      resource :confirmation_email
-      resources :races do
-        resources :bonuses do
-          put :reposition, on: :collection
-          post :delete_all, on: :collection
-        end
-        resources :teams, except: :show do
-          post :send_confirmation_emails, :on => :collection
-        end
+    resource :confirmation_email
+    resources :races do
+      resources :bonuses do
+        put :reposition, on: :collection
+        post :delete_all, on: :collection
       end
-      resources :users do
-        post :resend_confirmation
+      resources :teams, except: :show do
+        post :send_confirmation_emails, :on => :collection
       end
-      resource :database
     end
+    resources :users do
+      post :resend_confirmation
+    end
+    resource :database
   end
 end
