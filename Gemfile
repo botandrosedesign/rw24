@@ -2,6 +2,8 @@ source "https://rubygems.org"
 
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}.git" }
 
+gem "strscan", "1.0.3" # remove after upgrading to ruby 3.0
+
 gem "bootsnap", require: false
 gem "rails", "~>7.0.0"
 gem "mysql2"
