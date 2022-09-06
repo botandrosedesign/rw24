@@ -7,7 +7,7 @@ Capybara.register_driver(:cuprite) do |app|
   Capybara::Cuprite::Driver.new(app, window_size: [1200, 2048], timeout: 10, js_errors: true)
 end
 
-Capybara.server = :webrick
+Capybara.server = :puma, { Silent: true }
 Capybara.default_driver = :cuprite
 Capybara.default_normalize_ws = true
 

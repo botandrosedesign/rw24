@@ -59,6 +59,7 @@ group :test do
   gem "diff-lcs", "1.3" # 1.4 breaks #changes
   gem "cuprite", github: "botandrose/cuprite", branch: "drag_and_drop"
   gem "cuprite-downloads"
+  gem "puma"
   gem "capybara-screenshot"
   gem "database_cleaner"
   gem "email_spec"
