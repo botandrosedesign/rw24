@@ -10,7 +10,7 @@ class Race < ActiveRecord::Base
   end
 
   def self.current
-    find_by_year(Date.today.year) || published.last
+    last
   end
 
   def running?
