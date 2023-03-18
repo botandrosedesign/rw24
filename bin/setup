@@ -1,10 +1,12 @@
 #!/usr/bin/env ruby
+require_relative './apt_dependencies'
 require_relative './specified_ruby'
 require_relative './specified_bundler'
 require_relative './specified_node'
 
 Dir.chdir File.expand_path("..", __dir__) do
   exec [
+    AptDependencies.ensure!,
     SpecifiedRuby.ensure!,
     SpecifiedBundler.ensure!,
     SpecifiedNode.ensure!,

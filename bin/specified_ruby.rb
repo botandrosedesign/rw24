@@ -1,15 +1,27 @@
-require 'rvm'
-
 module SpecifiedRuby
   extend self
 
   def ensure!
+    return "true" if native?
     install unless installed?
     restart unless current?
     "true"
   end
 
   private
+
+  def native?
+    begin
+      require "rvm"
+      false
+    rescue LoadError
+      native_version == version
+    end
+  end
+
+  def native_version
+    "ruby-#{`ruby -e 'puts RUBY_VERSION'`.chomp}"
+  end
 
   def version
     File.read(".ruby-version").chomp
@@ -29,6 +41,7 @@ module SpecifiedRuby
   end
 
   def current?
+    require "rvm"
     RVM.use_from_path!(".")
     RVM.current.environment_name == [version, gemset].join("@")
   rescue RVM::IncompatibleRubyError
@@ -36,7 +49,7 @@ module SpecifiedRuby
   end
 
   def restart
-    exec "rvm-exec #{$0} && rvm-exec $SHELL"
+    exec "rvm-exec #{$0} #{"&& rvm-exec $SHELL" if ENV["RAILS_ENV"] == "development"}"
   end
 end
 

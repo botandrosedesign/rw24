@@ -1,4 +1,4 @@
-module HtmlSelectorsHelpers
+module WithinHelpers
   # Maps a name to a selector. Used primarily by the
   #
   #   When /^(.+) within (.+)$/ do |step, scope|
@@ -46,6 +46,26 @@ module HtmlSelectorsHelpers
         "Now, go and add a mapping in #{__FILE__}"
     end
   end
+
+  def element_for(locator)
+    args = Array(selector_for(locator))
+    find(args.shift, **(args.shift || {}))
+  end
+
+  def with_scope(locator)
+    args = Array(selector_for(locator))
+    within(args.shift, **(args.shift || {})) { yield }
+  end
+end
+World(WithinHelpers)
+
+# Single-line step scoper
+When /^(.*) within (.*[^:])$/ do |step_fragment, parent|
+  with_scope(parent) { step step_fragment }
 end
 
-World(HtmlSelectorsHelpers)
+# Multi-line step scoper
+When /^(.*) within (.*[^:]):$/ do |step_fragment, parent, table_or_string|
+  with_scope(parent) { step "#{step_fragment}:", table_or_string }
+end
+

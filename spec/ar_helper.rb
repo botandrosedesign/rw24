@@ -23,9 +23,13 @@ ActiveRecord::Base.establish_connection adapter: "sqlite3", database: ":memory:"
 ActiveRecord::Migration.class_eval do
   def add_index *; end
 
-  def create_table name, options
+  def create_table name, **options
     options.delete(:options)
-    super name, options
+    super
+  end
+
+  def add_column (*)
+    super
   end
 end
 
