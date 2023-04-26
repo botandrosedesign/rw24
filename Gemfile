@@ -21,7 +21,7 @@ gem "validates_email_format_of"
 gem "auto_strip_attributes"
 gem "awesome_nested_set", "~> 3.0"
 gem "nacelle"
-gem "adva", github: "botandrose/adva_cms", branch: "rails-7"
+gem "adva", github: "botandrose/adva_cms", branch: "integrate-ckeditor"
 
 gem "delayed_job_active_record"
 gem "delayed_job_web"

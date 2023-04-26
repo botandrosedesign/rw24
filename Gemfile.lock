@@ -1,12 +1,14 @@
 GIT
   remote: https://github.com/botandrose/adva_cms.git
-  revision: ee94057ff80519f17e9f4520582f65ceb028bd65
-  branch: rails-7
+  revision: 9d3548a3677a41de95bf8eeba81b477c6f08fa0f
+  branch: integrate-ckeditor
   specs:
     adva (0.1.4)
       actionpack-page_caching
       awesome_nested_set
+      ckeditor
       friendly_id (~> 5.1.0)
+      nacelle
       rails-observers
       will_paginate
 
@@ -136,6 +138,8 @@ GEM
       activerecord
       capybara
       cucumber
+    ckeditor (5.1.1)
+      orm_adapter (~> 0.5.0)
     cliver (0.3.2)
     cocoon (1.2.15)
     concurrent-ruby (1.2.2)
@@ -279,7 +283,7 @@ GEM
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
     mysql2 (0.5.4)
-    nacelle (0.4.0)
+    nacelle (0.4.2)
       cells (~> 3.0)
       rails
       sprockets-rails
@@ -297,6 +301,7 @@ GEM
     nokogiri (1.14.3)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
+    orm_adapter (0.5.0)
     parallel (1.22.1)
     parallel_tests (3.9.1)
       parallel
