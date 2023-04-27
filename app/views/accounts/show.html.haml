@@ -28,11 +28,10 @@
     .flex
       .field
         = form.label :password
-        = form.password_field :password, required: true
+        = form.password_field :password
       .field
         = form.label :confirm_password
-        = form.password_field :confirm_password, required: true
+        = form.password_field :confirm_password
 
     .actions-field
       = form.submit "Save My Account"
-
