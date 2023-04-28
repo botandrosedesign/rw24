@@ -454,6 +454,7 @@ DEPENDENCIES
   byebug
   capybara-screenshot
   chop
+  ckeditor
   cocoon
   csv_builder
   cucumber (~> 3.0)
