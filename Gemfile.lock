@@ -320,6 +320,10 @@ GEM
       rack
     rack-test (2.1.0)
       rack (>= 1.3)
+    rack-tracker (1.13.0)
+      activesupport (>= 3.0)
+      rack (>= 1.4)
+      tilt (>= 1.4)
     rack-utf8_sanitizer (1.7.0)
       rack (>= 1.0, < 3.0)
     rack-www (2.3.0)
@@ -494,6 +498,7 @@ DEPENDENCIES
   parallel_tests (~> 3.9.0)
   puma
   rack-cache
+  rack-tracker
   rack-www
   rails (~> 7.0.4)
   rspec-rails

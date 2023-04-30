@@ -73,6 +73,6 @@ group :production do
   gem "foreman-export-systemd_user"
   gem "rack-www"
   gem "rack-cache"
+  gem "rack-tracker"
   gem "handle_invalid_percent_encoding_requests" # chinese spiders are polluting the internet
 end
-
