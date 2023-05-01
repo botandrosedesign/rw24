@@ -1,5 +1,11 @@
 // tables and images
 
+img
+  max-width: 100vw
+  +handheld
+    height: auto !important
+    object-fit: contain
+
 table, img
   border-collapse: none
   margin-bottom: 6px
@@ -20,7 +26,6 @@ table, img
   th
     font-size: .8em
     text-transform: uppercase
-      
+
 .hidden
   display: none
-

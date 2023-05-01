@@ -11,10 +11,11 @@
 
     = stylesheet_link_tag "application"
     = yield :css
-    %meta{:name => "viewport", :content => "width=device-width"}
+    %meta{:name => "viewport", :content => "width=device-width,initial-scale=1"}
     %link(rel="shortcut icon" href="#{image_path("/favicon.png")}" type="image/png")
 
   %body
+    %input(type="checkbox" id="toggle-nav")
     %header
       .header-top
         .logo-container
@@ -23,7 +24,6 @@
             %h1 Riverwest 24
             %h2 Hour Bike Race
             %span.countstart= start_time_format start_time
-
         .countdown{data: { controller: "countdown", countdown_starts_at_value: start_time&.to_fs(:rfc822) }}
           %p
             %waiting(data-countdown-target="waiting") The ride starts in:
@@ -41,7 +41,10 @@
             %seconds(data-countdown-target="seconds")
             %span sec
 
+        %label.mobile-bars(for="toggle-nav")
+
       %nav(data-controller="account-nav")
+        %label.close-mobile(for="toggle-nav")
         %ul.main-nav
           - @site.sections.select(&:published?).each_with_index do |section, index|
             - if index == 1
@@ -97,4 +100,3 @@
     = javascript_importmap_tags :importmap_application
     = javascript_include_tag "application"
     = yield :js
-

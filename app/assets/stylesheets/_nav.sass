@@ -66,3 +66,79 @@ nav
       font-size: 0.7em
       padding: 5px
       text-transform: none
+
+// MOBILE NAV
+
+header
+  position: relative
+#toggle-nav
+  display: none
+  &:checked
+    & ~ header nav
+      left: 0vw
+      .close-mobile
+        display: block
+.mobile-bars
+  display: none
+  @extend .fa
+  @extend .fa-bars
+  color: #fff
+  font-size: 2.1em
+  position: absolute
+  right: 10px
+  top: 0
+  height: 100%
+  align-items: center
+  width: auto
+  z-index: 1
+  +handheld
+    display: flex
+
+.close-mobile
+  @extend .fa
+  @extend .fa-times
+  color: #fff
+  font-size: 1.8em
+  position: fixed
+  right: 10px
+  top: 10px
+  z-index: 1
+  display: none
+
+@media screen and (max-device-width: 767px), (max-width: 767px)
+  nav
+    position: fixed
+    z-index: 999
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: flex-start
+    overflow: auto
+    background: rgba($primaryColor, 0.96)
+    top: 0
+    left: -100vw
+    width: 100vw
+    height: 100vh
+    padding: 30px 0 40px
+    transition: left 0.125s cubic-bezier(.85,.55,.67,1.19)
+    a
+      text-align: center
+    & > ul
+      flex-direction: column
+      align-items: center
+      flex: 1 0
+      font-size: 1.8em
+      & > li
+        & > a
+          border-bottom: 3px solid #fff
+          margin: 12px 0 3px
+      ul
+        display: flex !important
+        font-size: 0.5em
+        flex-direction: column
+        position: relative !important
+        background: none !important
+        box-shadow: none !important
+        a
+          border: none !important
+          color: rgba(#fff, 0.8) !important
