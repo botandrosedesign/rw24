@@ -108,7 +108,7 @@ Rails.application.configure do
   config.middleware.use Rack::WWW
 
   config.middleware.use(Rack::Tracker) do
-    handler :google_tag_manager, { container: "G-29DJ2KZZTB" }
+    handler :google_analytics_4, { tracker: "G-29DJ2KZZTB" }
   end
-
 end
+
