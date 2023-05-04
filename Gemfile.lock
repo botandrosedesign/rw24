@@ -119,7 +119,7 @@ GEM
       activerecord (>= 4.0.0, < 7.1)
     backhoe (0.6.1)
       activerecord
-    bard (0.51.0)
+    bard (0.51.1)
       bard-rake (>= 0.19.0)
       rvm
       term-ansicolor (>= 1.0.3)
