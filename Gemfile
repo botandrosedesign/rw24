@@ -19,7 +19,7 @@ gem "acts_as_list"
 gem "cocoon"
 gem "validates_email_format_of"
 gem "auto_strip_attributes"
-gem "awesome_nested_set", "~> 3.0"
+gem "awesome_nested_set"
 gem "nacelle"
 gem "ckeditor"
 gem "image_processing"
@@ -31,7 +31,6 @@ gem "daemons"
 gem "exception_notification"
 gem "newrelic_rpm"
 
-gem "sprockets", "~>3.0" # 4.0 requires local changes
 gem "sass-rails"
 gem "font-awesome-rails"
 
@@ -55,8 +54,7 @@ end
 
 group :test do
   gem "cucumber-rails", require: false
-  gem "cucumber", "~>3.0" # 4.0 breaks CLI runner line option
-  gem "diff-lcs", "1.3" # 1.4 breaks #changes
+  gem "cucumber", require: false, github: "botandrose/cucumber", branch: "restore_looser_line_numbers"
   gem "cuprite", github: "botandrose/cuprite", branch: "drag_and_drop"
   gem "cuprite-downloads"
   gem "puma"
@@ -74,5 +72,4 @@ group :production do
   gem "rack-www"
   gem "rack-cache"
   gem "rack-tracker"
-  gem "handle_invalid_percent_encoding_requests" # chinese spiders are polluting the internet
 end
