@@ -1,4 +1,7 @@
+require "active_record/json_associations"
+
 class Race < ActiveRecord::Base
+  belongs_to_many :categories, class_name: "TeamCategory"
   has_many :teams
   has_many :riders, :through => :teams
   has_many :points

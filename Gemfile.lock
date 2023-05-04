@@ -99,6 +99,8 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
+    active_record-json_associations (0.11.0)
+      activerecord
     activejob (7.0.4.3)
       activesupport (= 7.0.4.3)
       globalid (>= 0.3.6)
@@ -481,6 +483,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_record-json_associations
   acts_as_list
   adva!
   auto_strip_attributes

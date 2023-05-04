@@ -18,7 +18,7 @@ class Admin::RacesController < Admin::BaseController
   end
 
   def create
-    @race = Race.new(params[:race])
+    @race = Race.new(params[:race].merge(category_ids: Race.last&.category_ids))
     if @race.save
       @site.touch # expire all cached pages
       redirect_to [:admin, @race, :teams], notice: "Race created!"

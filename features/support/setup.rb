@@ -7,3 +7,4 @@ Before do
   @home = FactoryBot.create :page, :site => @site, :title => "Home"
   FactoryBot.create :article, section: @home, title: "Home", body: "Wecome to RW24", author: @admin
 end
+

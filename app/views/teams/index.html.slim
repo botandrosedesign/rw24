@@ -6,18 +6,23 @@ div data-controller="leaderboard"
 
   p.toggle-categories
     = link_to "All", "#", class: "first current", data: { action: "leaderboard#select", leaderboard_target: "button" }
-    = link_to "A Team", "#", data: { leaderboard_initial_param: "A", action: "leaderboard#select", leaderboard_target: "button" }
-    = link_to "B Team", "#", data: { leaderboard_initial_param: "B", action: "leaderboard#select", leaderboard_target: "button" }
-    - if @race.year >= 2018
-      = link_to "Convoy", "#", data: { leaderboard_initial_param: "C", action: "leaderboard#select", leaderboard_target: "button" }
-      = link_to "Elder", "#", data: { leaderboard_initial_param: "E", action: "leaderboard#select", leaderboard_target: "button" }
-    = link_to "Solo", "#", data: { leaderboard_initial_param: "S", action: "leaderboard#select", leaderboard_target: "button" }
-    - if @race.year > 2009
-      = link_to "Solo (M)", "#", data: { leaderboard_initial_param: "M", action: "leaderboard#select", leaderboard_target: "button" }
-      = link_to "Solo (F)", "#", data: { leaderboard_initial_param: "F", action: "leaderboard#select", leaderboard_target: "button" }
-    = link_to "Tandem", "#", class: "last", data: { leaderboard_initial_param: "T", action: "leaderboard#select", leaderboard_target: "button" }
-    - if @race.year >= 2019
-      = link_to raw("Perfect <br/>Strangers"), "#", data: { leaderboard_initial_param: "P", action: "leaderboard#select", leaderboard_target: "button" }
+    - if @race.year >= 2023
+      - @race.categories.each do |category|
+        = link_to category.name, "#", data: { leaderboard_initial_param: category.initial, action: "leaderboard#select", leaderboard_target: "button" }
+
+    - else
+      = link_to "A Team", "#", data: { leaderboard_initial_param: "A", action: "leaderboard#select", leaderboard_target: "button" }
+      = link_to "B Team", "#", data: { leaderboard_initial_param: "B", action: "leaderboard#select", leaderboard_target: "button" }
+      - if @race.year >= 2018
+        = link_to "Convoy", "#", data: { leaderboard_initial_param: "C", action: "leaderboard#select", leaderboard_target: "button" }
+        = link_to "Elder", "#", data: { leaderboard_initial_param: "E", action: "leaderboard#select", leaderboard_target: "button" }
+      = link_to "Solo", "#", data: { leaderboard_initial_param: "S", action: "leaderboard#select", leaderboard_target: "button" }
+      - if @race.year >= 2010
+        = link_to "Solo (M)", "#", data: { leaderboard_initial_param: "M", action: "leaderboard#select", leaderboard_target: "button" }
+        = link_to "Solo (F)", "#", data: { leaderboard_initial_param: "F", action: "leaderboard#select", leaderboard_target: "button" }
+      = link_to "Tandem", "#", class: "last", data: { leaderboard_initial_param: "T", action: "leaderboard#select", leaderboard_target: "button" }
+      - if @race.year >= 2019
+        = link_to raw("Perfect <br/>Strangers"), "#", data: { leaderboard_initial_param: "P", action: "leaderboard#select", leaderboard_target: "button" }
   .clear
 
   p
@@ -58,36 +63,44 @@ div data-controller="leaderboard"
     h3 Winners
 
   #leaders
-    p data-controller="ranker" data-ranker-initial-value="A"
-      span A Team:
-      br
-      span data-ranker-target="leaders"
-
-    p data-controller="ranker" data-ranker-initial-value="B"
-      span B Team:
-      br
-      span data-ranker-target="leaders"
-
-    - if @race.year > 2009
-      p data-controller="ranker" data-ranker-initial-value="M"
-        span Solo (male):
-        br
-        span data-ranker-target="leaders"
-      p data-controller="ranker" data-ranker-initial-value="F"
-        span Solo (female):
-        br
-        span data-ranker-target="leaders"
+    - if @race.year >= 2023
+      - @race.categories.each do |category|
+        p data-controller="ranker" data-ranker-initial-value=category.initial
+          span = "#{category.name}:"
+          br
+          span data-ranker-target="leaders"
 
     - else
-      p data-controller="ranker" data-ranker-initial-value="S"
-        span Solo:
+      p data-controller="ranker" data-ranker-initial-value="A"
+        span A Team:
         br
         span data-ranker-target="leaders"
 
-    p data-controller="ranker" data-ranker-initial-value="T"
-      span Tandem:
-      br
-      span data-ranker-target="leaders"
+      p data-controller="ranker" data-ranker-initial-value="B"
+        span B Team:
+        br
+        span data-ranker-target="leaders"
+
+      - if @race.year >= 2010
+        p data-controller="ranker" data-ranker-initial-value="M"
+          span Solo (male):
+          br
+          span data-ranker-target="leaders"
+        p data-controller="ranker" data-ranker-initial-value="F"
+          span Solo (female):
+          br
+          span data-ranker-target="leaders"
+
+      - else
+        p data-controller="ranker" data-ranker-initial-value="S"
+          span Solo:
+          br
+          span data-ranker-target="leaders"
+
+      p data-controller="ranker" data-ranker-initial-value="T"
+        span Tandem:
+        br
+        span data-ranker-target="leaders"
 
   = render "shared/sidebar"
 

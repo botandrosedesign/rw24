@@ -66,7 +66,7 @@
   {
     id: 9,
     name: "Convoy",
-    min: 3,
+    min: 2,
     max: 6,
     initial: "C",
   },
@@ -76,6 +76,42 @@
     min: 2,
     max: 2,
     initial: "P"
+  },
+
+  {
+    id: 11,
+    initial: "S",
+    name: "Solo (open)",
+    min: 1,
+    max: 1,
+  },
+  {
+    id: 12,
+    initial: "M",
+    name: "Solo (M/T/NB)",
+    min: 1,
+    max: 1,
+  },
+  { 
+    id: 13,
+    initial: "F",
+    name: "Solo (F/T/NB)",
+    min: 1,
+    max: 1,
+  },
+  {
+    id: 14,
+    initial: "B",
+    name: "Team",
+    min: 2,
+    max: 6,
+  },
+  {
+    id: 15,
+    initial: "E",
+    name: "Elder",
+    min: 1,
+    max: 6,
   },
 ].each do |attributes|
   TeamCategory.where(id: attributes[:id]).first_or_initialize.update!(attributes)

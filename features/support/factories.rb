@@ -60,6 +60,7 @@ FactoryBot.define do
     year { Date.today.year }
     start_time { Time.parse("#{year}-07-25 19:00:00 CDT") }
     published { true }
+    categories { TeamCategory.all }
   end
 
   factory :team do

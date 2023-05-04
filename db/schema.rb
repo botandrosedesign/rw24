@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_28_104417) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_04_164611) do
   create_table "accounts", id: :integer, charset: "utf8mb4", collation: "utf8mb4_unicode_ci", options: "ENGINE=InnoDB ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: nil
@@ -256,6 +256,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_28_104417) do
     t.text "description"
     t.boolean "published"
     t.text "settings"
+    t.string "category_ids"
   end
 
   create_table "riders", id: :integer, charset: "utf8mb4", collation: "utf8mb4_unicode_ci", options: "ENGINE=InnoDB ROW_FORMAT=DYNAMIC", force: :cascade do |t|
