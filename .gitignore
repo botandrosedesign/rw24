@@ -19,3 +19,4 @@ public/userfiles/*
 !public/userfiles/.gitignore
 
 /config/master.key
+/storage
