@@ -203,6 +203,10 @@ body
     font-weight: bold !important
     font-size: 1em
     padding-top: 9px
+    +bp_mobile
+      font-size: 13px
+      padding-left: 8px
+      padding-right: 8px
   li
     margin-bottom: 0px
     &>ul
@@ -243,18 +247,30 @@ body
   margin-top: -30px
   display: flex
   justify-content: space-between
+  +bp_mobile
+    flex-wrap: wrap
   li
+    a
+      +bp_mobile
+        font-size: 14px
     &>a:hover, &.active>a
       background: #ccc
       color: #000 !important
   ul.actions
     vertical-align: top
+    +bp_mobile
+      width: 100vw
+      justify-content: flex-end
     li
       +bp_mobile
         margin: 0
       &:nth-of-type(1), &:nth-of-type(2)
         +bp_mobile
           display: none
+      a
+        +bp_mobile
+          font-size: 14px
+          padding: 0 3px
     .delete
       background: none
       width: auto
@@ -434,6 +450,7 @@ textarea
     tr
       counter-increment: bonusNumber
   td, th
+    padding: 3px
     &:nth-child(1)
       width: 10%
       text-align: center
@@ -468,12 +485,24 @@ textarea
   display: flex
   margin-left: 10px
   .field
-    display: inline-block
+    display: inline-flex
     float: none
     margin: 0
     flex: 1 0 50px
+    text-align: center
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    +bp_mobile
+      padding: 0
     input
       width: 50px
+    label
+      text-align: center
+      margin: 0
+      font-size: 15px
+
+
 
 
 .shirts-count
