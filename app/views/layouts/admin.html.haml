@@ -1,0 +1,45 @@
+!!! Strict
+%html{ :xmlns => "http://www.w3.org/1999/xhtml" }
+  %head
+    %meta{ :content => "text/html; charset=utf-8", "http-equiv" => "Content-Type" }
+    %meta{ :name => "generator", :content => "adva-cms - Open source content management platform" }
+    %meta{:name => "viewport", :content => "width=device-width,initial-scale=1"}
+    %title
+      \#{@site.name}: Admin
+      = controller.controller_name
+
+    = stylesheet_link_tag "adva_cms/admin"
+
+    = stylesheet_link_tag "admin.css" # super project can put override styles here
+
+    = yield :css
+
+    = yield :before_javascript_include
+
+    = javascript_include_tag "adva_cms/application"
+    = javascript_include_tag "admin"
+
+    - unless Rails.env.test? # ckeditor screws up tests
+      = javascript_include_tag Ckeditor.cdn_url unless Rails.env.test?
+
+    = javascript_tag "window._auth_token = #{form_authenticity_token.inspect}"
+    = csrf_meta_tags
+
+    = yield :js
+
+    = yield :head
+
+  %body
+    = menu.build(self).root.render(:id => 'top')
+    = render :partial => 'admin/shared/header'
+    #page
+      = yield :form if content_for :form
+      .main
+        = menu.root.find(:main).try(:render, :id => 'main_menu')
+        = render :partial => 'shared/flash'
+        #content
+          = yield
+      #sidebar.right
+        = yield :sidebar
+      = raw('</form>') if content_for :form
+      #left.collapsed
