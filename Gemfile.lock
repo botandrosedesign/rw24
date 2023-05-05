@@ -1,14 +1,4 @@
 GIT
-  remote: https://github.com/ad-zaitsev/rack-tracker.git
-  revision: 2aa103b242805aa043febbeeeb764baec92ba5bb
-  branch: improvement-for-GA4
-  specs:
-    rack-tracker (1.13.0)
-      activesupport (>= 3.0)
-      rack (>= 1.4)
-      tilt (>= 1.4)
-
-GIT
   remote: https://github.com/botandrose/adva_cms.git
   revision: 9d3548a3677a41de95bf8eeba81b477c6f08fa0f
   branch: integrate-ckeditor
@@ -48,6 +38,16 @@ GIT
     cuprite (0.13)
       capybara (~> 3.0)
       ferrum (~> 0.11.0)
+
+GIT
+  remote: https://github.com/botandrose/rack-tracker.git
+  revision: 2aa103b242805aa043febbeeeb764baec92ba5bb
+  branch: ga4
+  specs:
+    rack-tracker (1.13.0)
+      activesupport (>= 3.0)
+      rack (>= 1.4)
+      tilt (>= 1.4)
 
 GEM
   remote: https://rubygems.org/

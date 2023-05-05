@@ -72,6 +72,6 @@ group :production do
   gem "foreman-export-systemd_user"
   gem "rack-www"
   gem "rack-cache"
-  gem "rack-tracker", github: "ad-zaitsev/rack-tracker", branch: "improvement-for-GA4"
+  gem "rack-tracker", github: "botandrose/rack-tracker", branch: "ga4"
 end
 
