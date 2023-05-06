@@ -5,11 +5,31 @@ module Menus
       define do
         namespace :admin
         menu :left, :class => 'main' do
-          if current_race = Race.last
-            item :current_race, content: link_to("Current Race", [:admin, current_race, :teams])
+          if current_race = Race.current
+            item :current_race, action: :index, url: [:admin, current_race, :teams], type: CurrentRaceItem
           end
-          item :races, content: link_to("Races", [:admin, :races])
+          item :races, action: :index, url: [:admin, :races], type: RacesItem
         end
+      end
+    end
+
+    class CurrentRaceItem < Menu::Item
+      def activate path
+        self.active = path.starts_with?("/admin/races/#{Race.current.id}")
+      end
+    end
+
+    class RacesItem < Menu::Item
+      def activate path
+        self.active = path.starts_with?("/admin/races")
+
+        if current_race = Race.current
+          self.active = false if path.starts_with?("/admin/races/#{current_race.id}")
+        end
+      end
+
+      def active= value
+        super if value === true
       end
     end
 
