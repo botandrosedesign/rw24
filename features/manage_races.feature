@@ -27,8 +27,8 @@ Feature: Admins can manage races
     When I follow "Races" within the admin nav
     Then I should see the following races:
       | YEAR |
-      | 2010 |
       | 2011 |
+      | 2010 |
 
   Scenario: Admin updates an existing race
     When I follow "Edit Race"

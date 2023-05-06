@@ -1,6 +1,6 @@
 class Admin::RacesController < Admin::BaseController
   def index
-    @races = Race.all
+    @races = Race.order(year: :desc)
     if @races.none?
       redirect_to action: :new
     end
