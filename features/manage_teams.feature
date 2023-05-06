@@ -7,17 +7,16 @@ Feature: Admins can manage teams
       | 001  | BARD | Solo (male)   | Micah       | micah@riverwest24.com |
       | 002  | BORG | Solo (male)   | Michael     | gubs@riverwest24.com  |
     And I am logged in as an admin
+    When I follow "Current Race"
 
   Scenario: An Admin views all teams
-    When I follow "Races"
     Then I should see the following teams:
       | PAID | EMAILED | POS# | CLASS | TEAM NAME | RIDERS | T-SHIRTS | LEADER NAME |
       | No   | No      | 1    | S     | BARD      | 1      | 0        | Micah       |
       | No   | No      | 2    | S     | BORG      | 1      | 0        | Michael     |
 
   Scenario: An admin creates a new team with three members
-    When I follow "Races"
-    And I follow "New Team"
+    When I follow "New Team"
 
     When I fill in "Team Name" with "Bot and Rose Design"
     And I select "A Team" from "Category"
@@ -39,7 +38,7 @@ Feature: Admins can manage teams
     And I press "Save"
     Then I should see "The team has been created."
 
-    When I follow "Races" within the admin nav
+    When I follow "Current Race" within the admin nav
     Then I should see the following teams:
       | PAID | EMAILED | POS# | CLASS | TEAM NAME           | RIDERS | T-SHIRTS | LEADER NAME  |
       | No   | No      | 1    | S     | BARD                | 1      | 0        | Micah        |
@@ -61,8 +60,7 @@ Feature: Admins can manage teams
       | Womens Xxx Large | 0 |
 
   Scenario: An Admin edits a team
-    When I follow "Races"
-    And I follow "Edit" within the "BARD" team
+    When I follow "Edit" within the "BARD" team
 
     And I fill in "Team Name" with "Bog and Rat Defeat"
     And I select "Tandem" from "Category"
@@ -72,23 +70,21 @@ Feature: Admins can manage teams
     And I press "Save"
     Then I should see "The team has been updated."
 
-    When I follow "Races" within the admin nav
+    When I follow "Current Race" within the admin nav
     Then I should see the following teams:
       | PAID | EMAILED | POS# | CLASS | TEAM NAME          | RIDERS | T-SHIRTS | LEADER NAME |
       | No   | No      | 1    | T     | Bog and Rat Defeat | 2      | 2        | Micah       |
       | No   | No      | 2    | S     | BORG               | 1      | 0        | Michael     |
 
   Scenario: An Admin deletes a team
-    When I follow "Races"
-    And I follow and confirm "Delete" within the "BARD" team
+    When I follow and confirm "Delete" within the "BARD" team
     Then I should see the following teams:
       | PAID | EMAILED | POS# | CLASS | TEAM NAME          | RIDERS | T-SHIRTS | LEADER NAME |
       | No   | No      | 2    | S     | BORG               | 1      | 0        | Michael     |
 
   Scenario: An Admin deletes a team from the edit page
-    When I follow "Races"
-    And I follow "Edit" within the "BARD" team
-    When I follow "Delete Team"
+    When I follow "Edit" within the "BARD" team
+    And I follow "Delete Team"
     Then I should see the following teams:
       | PAID | EMAILED | POS# | CLASS | TEAM NAME          | RIDERS | T-SHIRTS | LEADER NAME |
       | No   | No      | 2    | S     | BORG               | 1      | 0        | Michael     |

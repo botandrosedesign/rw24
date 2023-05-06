@@ -12,8 +12,7 @@ Given "there are no races" do
 end
 
 Then "I should see the following races:" do |table|
-  actual = [all("races li").map(&:text)]
-  table.diff! actual
+  table.diff! ".race-list"
 end
 
 Then "I should see the following shirts count:" do |table|

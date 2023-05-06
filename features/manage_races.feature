@@ -12,6 +12,7 @@ Feature: Admins can manage races
 
   Scenario: Admin sees all races
     Then I should see the following races:
+      | YEAR |
       | 2010 |
 
   Scenario: Admin creates a new race
@@ -22,8 +23,12 @@ Feature: Admins can manage races
     And I fill in "Description" with "Biggest race yet!"
     And I press "Save"
     Then I should see "Race created!"
-    And I should see the following races:
-      | 2010 | 2011 |
+
+    When I follow "Races" within the admin nav
+    Then I should see the following races:
+      | YEAR |
+      | 2010 |
+      | 2011 |
 
   Scenario: Admin updates an existing race
     When I follow "Edit Race"
@@ -33,6 +38,9 @@ Feature: Admins can manage races
     And I fill in "Description" with "Biggest race yet!"
     And I press "Save"
     Then I should see "Race updated!"
-    And I should see the following races:
+
+    When I follow "Races" within the admin nav
+    Then I should see the following races:
+      | YEAR |
       | 2011 |
 

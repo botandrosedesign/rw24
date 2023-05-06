@@ -1,9 +1,8 @@
 class Admin::RacesController < Admin::BaseController
   def index
-    if @race = Race.last
-      redirect_to [:admin, @race, :teams]
-    else
-      redirect_to [:new, :admin, :race]
+    @races = Race.all
+    if @races.none?
+      redirect_to action: :new
     end
   end
 
@@ -13,7 +12,7 @@ class Admin::RacesController < Admin::BaseController
   end
 
   def edit
-    @race = Race.find(params[:id])
+    race
     render :form
   end
 
@@ -28,8 +27,7 @@ class Admin::RacesController < Admin::BaseController
   end
 
   def update
-    @race = Race.find(params[:id])
-    if @race.update(params[:race])
+    if race.update(params[:race])
       @site.touch # expire all cached pages
       redirect_to [:admin, @race, :teams], notice: "Race updated!"
     else
@@ -39,7 +37,11 @@ class Admin::RacesController < Admin::BaseController
 
   private
 
+  def race
+    @race ||= Race.find_by_id(params[:id])
+  end
+
   def set_menu
-    @menu = Menus::Admin::Teams.new
+    @menu = Menus::Admin::Races.new
   end
 end

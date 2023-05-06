@@ -78,3 +78,6 @@
               %dt= size.titleize
               %dd= count
 
+      %p= button_to "Download Database", [:admin, :database, format: :sql], method: :get
+      %p= button_to "Export Teams", [:admin, @race, :teams, format: :csv], method: :get
+

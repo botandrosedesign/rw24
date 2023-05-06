@@ -12,7 +12,7 @@ Feature: Admins can batch send confirmation emails to teams
       | Micah               | Solo (male) | Micah Diesel | originofstorms@gmail.com |                      |                     |             |
     And I am logged in as an admin
 
-    When I follow "Races"
+    When I follow "Current Race"
     Then I should see the following teams:
       | PAID | EMAILED | POS# | CLASS | TEAM NAME           | RIDERS | LEADER NAME  |
       | No   | No      | 1    | A     | Bot and Rose Design | 3      | Micah Geisel |
@@ -28,7 +28,6 @@ Feature: Admins can batch send confirmation emails to teams
       """
 
     And I press "Save Confirmation Email"
-
     Then I should see "CONFIRMATION EMAIL UPDATED"
 
     When I check "Bot and Rose Design"

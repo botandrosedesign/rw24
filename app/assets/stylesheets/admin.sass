@@ -264,9 +264,6 @@ body
     li
       +bp_mobile
         margin: 0
-      &:nth-of-type(1), &:nth-of-type(2)
-        +bp_mobile
-          display: none
       a
         +bp_mobile
           font-size: 14px
@@ -281,13 +278,6 @@ races.left
   display: flex
   flex-direction: column
   height: 36px
-  overflow: scroll
-  &:before
-    content: "Scroll to select race:"
-    position: sticky
-    z-index: 1
-    top: 1px
-    height: 0
   li
     line-height: 24px
     text-align: right

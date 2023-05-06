@@ -16,8 +16,7 @@ Feature: Admin can manage team bonuses
 
     Given I am logged in as an admin
     When I follow "Races"
-    And I follow "2020"
-    And I follow "Edit Race" within the admin subnav
+    And I follow "Edit Race" within the "2020" race
 
   Scenario: Admin can see a list of bonus checkpoints
     Then I should see the following bonus checkpoints:
@@ -86,8 +85,7 @@ Feature: Admin can manage team bonuses
 
     Given I am on the admin overview page
     When I follow "Races"
-    And I follow "2020"
-    And I follow "Edit Race" within the admin subnav
+    And I follow "Edit Race" within the "2020" race
     And I follow "First Bonus"
     Then I should see "BONUS #1 - FIRST BONUS"
     And I should see the following team bonuses:
@@ -131,8 +129,7 @@ Feature: Admin can manage team bonuses
 
     Given I am on the admin overview page
     When I follow "Races"
-    And I follow "2020"
-    And I follow "Edit Race" within the admin subnav
+    And I follow "Edit Race" within the "2020" race
 
     When I follow "Bonus Form" within the "Second Bonus" checkpoint
     And I check "1"
@@ -157,8 +154,7 @@ Feature: Admin can manage team bonuses
 
     Given I am on the admin overview page
     When I follow "Races"
-    And I follow "2020"
-    And I follow "Edit Race" within the admin subnav
+    And I follow "Edit Race" within the "2020" race
 
     When I follow "Bonus Form" within the "Third Bonus" checkpoint
     And I check "1"

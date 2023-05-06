@@ -176,7 +176,7 @@ Feature: Riders can create user accounts that persist beyond races
     And "micah@botandrose.com" should receive an email from "info@riverwest24.com"
 
     Given a clear email queue
-    When I follow "Races"
+    When I follow "Current Race"
     And I follow "New Team"
 
     When I fill in the following form:
@@ -210,7 +210,7 @@ Feature: Riders can create user accounts that persist beyond races
       | gubs@botandrose.com  | Michael    | Gubitosa  | 267.664.0528 | MXL        |
 
     Given I am logged in as an admin
-    When I follow "Races"
+    When I follow "Current Race"
     And I follow "New Team"
 
     When I fill in the following form:
@@ -263,7 +263,7 @@ Feature: Riders can create user accounts that persist beyond races
     When I press "Save"
     Then I should see "The team has been created."
 
-    When I follow "2020"
+    When I follow "Current Race"
     Then I should see the following teams:
       | PAID | EMAILED | POS# | CLASS | TEAM NAME    | RIDERS | T-SHIRTS | LEADER NAME  |
       | No   | No      | 1    | T     | Bot and Rose | 2      | 2        | Micah Geisel |

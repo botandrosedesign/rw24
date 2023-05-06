@@ -14,7 +14,7 @@ module WithinHelpers
     when "the admin nav"
       "#top"
 
-    when /the "(.+?)" team/
+    when /the "(.+?)" (team|race)/
       ["tr", text: $1]
 
     when /the (first|second|third) rider form/
