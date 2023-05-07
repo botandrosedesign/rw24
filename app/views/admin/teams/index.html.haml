@@ -5,6 +5,13 @@
     %input.send(type="submit" value="Send Confirmation Emails to Selected")
     = link_to "Edit Confirmation Email", edit_admin_confirmation_email_path, class: "edit-button"
 
+  %p
+    Teams:
+    %b= @race.teams.count
+    &nbsp;
+    Racers:
+    %b= @race.riders.count
+
   %table.team-list
     %thead
       %tr
@@ -80,4 +87,3 @@
 
       %p= button_to "Download Database", [:admin, :database, format: :sql], method: :get
       %p= button_to "Export Teams", [:admin, @race, :teams, format: :csv], method: :get
-
