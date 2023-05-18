@@ -7,19 +7,19 @@
     |  Team
 
   h4 Team Information
-  - if form.object.persisted?
-    .field = form.number_field :position, label: "POS#", class: "xlarge"
+  .flex
+    - if form.object.persisted?
+      .field = form.number_field :position, label: "POS#", class: "xlarge"
 
-  .field
-    = form.label :category_id, "Category"
-    = form.select :category_id, {}, { prompt: form.object.new_record? }, data: { "team_category_select" => ".nested-fields" }, required: true do
-      - @race.categories.each do |category|
-        = content_tag :option, category.name, value: category.id, data: { min: category.min, max: category.max }, selected: form.object.category_id == category.id
+    .field
+      = form.label :category_id, "Category"
+      = form.select :category_id, {}, { prompt: form.object.new_record? }, data: { "team_category_select" => ".nested-fields" }, required: true do
+        - @race.categories.each do |category|
+          = content_tag :option, category.name, value: category.id, data: { min: category.min, max: category.max }, selected: form.object.category_id == category.id
 
   .field = form.text_field :name, label: "Team Name", class: "xlarge"
 
   fieldset
-    .info-text To remove riders, highlight the <i class="fa fa-trash"></i> icon and press Save.
     .rider-flex
       = form.fields_for :riders do |rider_form|
         = render "rider_fields", form: rider_form
@@ -33,4 +33,3 @@
 
   .field
     - save_or_cancel_links form, cancel_url: [:admin, @race, :teams]
-
