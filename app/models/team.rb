@@ -51,18 +51,7 @@ class Team < ActiveRecord::Base
     end.reverse
   end
 
-  def self.send_confirmation_email_by_ids team_ids
-    Team.where(id: team_ids).each do |team|
-      team.delay.send_confirmation_email!
-    end
-  end
-
   delegate :year, to: :race, prefix: true
-
-  def send_confirmation_email!
-    Mailer.confirmation_email(self).deliver_now
-    update_attribute :confirmation_sent_at, Time.now
-  end
 
   def laps_total
     points.laps.sum(:qty)
@@ -128,10 +117,6 @@ class Team < ActiveRecord::Base
 
   def partially_paid?
     not paid? and riders.any?(&:paid)
-  end
-
-  def emailed?
-    confirmation_sent_at.present?
   end
 
   def has_bonus? bonus

@@ -265,8 +265,8 @@ Feature: Riders can create user accounts that persist beyond races
 
     When I follow "Current Race"
     Then I should see the following teams:
-      | PAID | EMAILED | POS# | CLASS | TEAM NAME    | RIDERS | T-SHIRTS | LEADER NAME  |
-      | No   | No      | 1    | T     | Bot and Rose | 2      | 2        | Micah Geisel |
+      | PAID | POS# | CLASS | TEAM NAME    | RIDERS | T-SHIRTS | LEADER NAME  |
+      | No   | 1    | T     | Bot and Rose | 2      | 2        | Micah Geisel |
 
     And I should see the following shirts count:
       | Mens Small       | 0 |

@@ -1,65 +1,52 @@
 %h2 #{@race.year} Teams
 
-= form_tag send_confirmation_emails_admin_race_teams_path(@race) do
-  %header
-    %input.send(type="submit" value="Send Confirmation Emails to Selected")
-    = link_to "Edit Confirmation Email", edit_admin_confirmation_email_path, class: "edit-button"
+%p
+  Teams:
+  %b= @race.teams.count
+  &nbsp;
+  Racers:
+  %b= @race.riders.count
 
-  %p
-    Teams:
-    %b= @race.teams.count
-    &nbsp;
-    Racers:
-    %b= @race.riders.count
-
-  %table.team-list
-    %thead
+%table.team-list
+  %thead
+    %tr
+      %th
+      %th Paid
+      %th POS#
+      %th Class
+      %th Team Name
+      %th Riders
+      %th T-Shirts
+      %th Leader Name
+      %th
+  %tbody
+    - @teams.each do |team|
       %tr
-        %th
-        %th Paid
-        %th Emailed
-        %th POS#
-        %th Class
-        %th Team Name
-        %th Riders
-        %th T-Shirts
-        %th Leader Name
-        %th
-    %tbody
-      - @teams.each do |team|
-        %tr
-          %td
-            %label{ :for => "team_#{team.id}", :style => "display: none" }= team.name
-            %input{ :type => "checkbox", :name => "team_ids[]", :value => team.id, :id => "team_#{team.id}" }
-          %td
-            - if team.paid?
-              .paid Yes
-            - elsif team.partially_paid?
-              == #{team.riders.paid.count}/#{team.riders.count}
-            - else
-              .unpaid No
-          %td
-            - if team.emailed?
-              .emailed Yes
-            - else
-              .not_emailed No
-          %td= team.position
-          %td=h team.category_initial
-          %td= link_to h(team.name), [:edit, :admin, @race, team]
-          %td= team.riders.count
-          %td{ class: "#{"missing-shirts" if team.riders.count != team.shirt_sizes.total }"}= team.shirt_sizes.total
-          %td
-            - if team.captain
-              = mail_to team.captain.email, h(team.captain.name), :cc => team.lieutenant_emails, :subject => team.position_and_name
-            - else
-              = team.name
-          %td.actions
-            = link_to "Edit", [:edit, :admin, @race, team], :class => "edit"
-            = link_to "Delete", [:admin, @race, team], :class => 'delete', :method => :delete, :data => { :confirm => 'Are you sure you want to delete this team and all its riders?' }
+        %td
+          %label{ :for => "team_#{team.id}", :style => "display: none" }= team.name
+          %input{ :type => "checkbox", :name => "team_ids[]", :value => team.id, :id => "team_#{team.id}" }
+        %td
+          - if team.paid?
+            .paid Yes
+          - elsif team.partially_paid?
+            == #{team.riders.paid.count}/#{team.riders.count}
+          - else
+            .unpaid No
+        %td= team.position
+        %td=h team.category_initial
+        %td= link_to h(team.name), [:edit, :admin, @race, team]
+        %td= team.riders.count
+        %td{ class: "#{"missing-shirts" if team.riders.count != team.shirt_sizes.total }"}= team.shirt_sizes.total
+        %td
+          - if team.captain
+            = mail_to team.captain.email, h(team.captain.name), :cc => team.lieutenant_emails, :subject => team.position_and_name
+          - else
+            = team.name
+        %td.actions
+          = link_to "Edit", [:edit, :admin, @race, team], :class => "edit"
+          = link_to "Delete", [:admin, @race, team], :class => 'delete', :method => :delete, :data => { :confirm => 'Are you sure you want to delete this team and all its riders?' }
 
-  %input(type="submit" value="Send Confirmation Emails to Selected")
-
-- content_for :sidebar do
+= content_for :sidebar do
   .tabs
     .tab.active
       %h3 Totals
@@ -87,3 +74,4 @@
 
       %p= button_to "Download Database", [:admin, :database, format: :sql], method: :get
       %p= button_to "Export Teams", [:admin, @race, :teams, format: :csv], method: :get
+
