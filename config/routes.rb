@@ -22,12 +22,15 @@ Rails.application.routes.draw do
   get "admin" => redirect("/admin/site")
 
   namespace :admin do
+    resource :confirmation_email
     resources :races do
       resources :bonuses do
         put :reposition, on: :collection
         post :delete_all, on: :collection
       end
-      resources :teams, except: :show
+      resources :teams, except: :show do
+        post :send_confirmation_emails, :on => :collection
+      end
     end
     resources :users do
       post :resend_confirmation

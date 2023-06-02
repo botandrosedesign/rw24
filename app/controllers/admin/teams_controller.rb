@@ -46,6 +46,11 @@ class Admin::TeamsController < Admin::BaseController
     redirect_to [:admin, @race, :teams], notice: "The team has been destroyed."
   end
 
+  def send_confirmation_emails
+    Team.send_confirmation_email_by_ids params[:team_ids]
+    redirect_to [:admin, @race, :teams], notice: "Confirmation emails sending!"
+  end
+
   private
 
   def set_menu

@@ -11,9 +11,9 @@ Feature: Admins can manage teams
 
   Scenario: An Admin views all teams
     Then I should see the following teams:
-      | PAID | POS# | CLASS | TEAM NAME | RIDERS | T-SHIRTS | LEADER NAME |
-      | No   | 1    | S     | BARD      | 1      | 0        | Micah       |
-      | No   | 2    | S     | BORG      | 1      | 0        | Michael     |
+      | PAID | EMAILED | POS# | CLASS | TEAM NAME | RIDERS | T-SHIRTS | LEADER NAME |
+      | No   | No      | 1    | S     | BARD      | 1      | 0        | Micah       |
+      | No   | No      | 2    | S     | BORG      | 1      | 0        | Michael     |
 
   Scenario: An admin creates a new team with three members
     When I follow "New Team"
@@ -40,10 +40,10 @@ Feature: Admins can manage teams
 
     When I follow "Current Race" within the admin nav
     Then I should see the following teams:
-      | PAID | POS# | CLASS | TEAM NAME           | RIDERS | T-SHIRTS | LEADER NAME  |
-      | No   | 1    | S     | BARD                | 1      | 0        | Micah        |
-      | No   | 2    | S     | BORG                | 1      | 0        | Michael      |
-      | 1/3  | 3    | A     | Bot and Rose Design | 3      | 4        | Micah Geisel |
+      | PAID | EMAILED | POS# | CLASS | TEAM NAME           | RIDERS | T-SHIRTS | LEADER NAME  |
+      | No   | No      | 1    | S     | BARD                | 1      | 0        | Micah        |
+      | No   | No      | 2    | S     | BORG                | 1      | 0        | Michael      |
+      | 1/3  | No      | 3    | A     | Bot and Rose Design | 3      | 4        | Micah Geisel |
 
     And I should see the following shirts count:
       | Mens Small       | 0 |
@@ -72,20 +72,20 @@ Feature: Admins can manage teams
 
     When I follow "Current Race" within the admin nav
     Then I should see the following teams:
-      | PAID | POS# | CLASS | TEAM NAME          | RIDERS | T-SHIRTS | LEADER NAME |
-      | No   | 1    | T     | Bog and Rat Defeat | 2      | 2        | Micah       |
-      | No   | 2    | S     | BORG               | 1      | 0        | Michael     |
+      | PAID | EMAILED | POS# | CLASS | TEAM NAME          | RIDERS | T-SHIRTS | LEADER NAME |
+      | No   | No      | 1    | T     | Bog and Rat Defeat | 2      | 2        | Micah       |
+      | No   | No      | 2    | S     | BORG               | 1      | 0        | Michael     |
 
   Scenario: An Admin deletes a team
     When I follow and confirm "Delete" within the "BARD" team
     Then I should see the following teams:
-      | PAID | POS# | CLASS | TEAM NAME          | RIDERS | T-SHIRTS | LEADER NAME |
-      | No   | 2    | S     | BORG               | 1      | 0        | Michael     |
+      | PAID | EMAILED | POS# | CLASS | TEAM NAME          | RIDERS | T-SHIRTS | LEADER NAME |
+      | No   | No      | 2    | S     | BORG               | 1      | 0        | Michael     |
 
   Scenario: An Admin deletes a team from the edit page
     When I follow "Edit" within the "BARD" team
     And I follow "Delete Team"
     Then I should see the following teams:
-      | PAID | POS# | CLASS | TEAM NAME          | RIDERS | T-SHIRTS | LEADER NAME |
-      | No   | 2    | S     | BORG               | 1      | 0        | Michael     |
+      | PAID | EMAILED | POS# | CLASS | TEAM NAME          | RIDERS | T-SHIRTS | LEADER NAME |
+      | No   | No      | 2    | S     | BORG               | 1      | 0        | Michael     |
 

@@ -1,0 +1,21 @@
+%h2 Edit Confirmation Email
+
+%hr
+
+%p
+  %b All confirmation emails will have the following team info above the editable message:<br />
+  Team name: TEAM NAME<br />
+  Position: ###<br />
+  Class: CATEGORY<br />
+  Shirt sizes: SIZES<br />
+  \---
+
+= form_for @site, url: admin_confirmation_email_path do |form|
+  .field
+    = form.label :confirmation_email_body, "Message"
+    = form.text_area :confirmation_email_body, class: "confirmation-message"
+
+  .actions-field
+    %input.save(type="submit" value="Save Confirmation Email")
+    = link_to "Cancel", :back, class: "cancel"
+
