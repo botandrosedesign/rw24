@@ -3,7 +3,7 @@ class Admin::TeamsController < Admin::BaseController
   before_action :set_race
 
   def index
-    @teams = @race.teams
+    @teams = @race.teams.includes(:category, :riders)
   end
 
   def new

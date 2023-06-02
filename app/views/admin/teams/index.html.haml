@@ -35,7 +35,7 @@
             - if team.paid?
               .paid Yes
             - elsif team.partially_paid?
-              == #{team.riders.paid.count}/#{team.riders.count}
+              == #{team.riders.select(&:paid?).size}/#{team.riders.size}
             - else
               .unpaid No
           %td
@@ -46,8 +46,8 @@
           %td= team.position
           %td=h team.category_initial
           %td= link_to h(team.name), [:edit, :admin, @race, team]
-          %td= team.riders.count
-          %td{ class: "#{"missing-shirts" if team.riders.count != team.shirt_sizes.total }"}= team.shirt_sizes.total
+          %td= team.riders.size
+          %td{ class: "#{"missing-shirts" if team.riders.size != team.shirt_sizes.total }"}= team.shirt_sizes.total
           %td
             - if team.captain
               = mail_to team.captain.email, h(team.captain.name), :cc => team.lieutenant_emails, :subject => team.position_and_name
