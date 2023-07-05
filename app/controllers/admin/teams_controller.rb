@@ -24,6 +24,9 @@ class Admin::TeamsController < Admin::BaseController
       flash.now.alert = errors_for(@team)
       render :form
     end
+  # teams.position uniqueness constraint can fail at db level, so just try again
+  rescue ActiveRecord::StatementInvalid
+    retry
   end
 
   def update

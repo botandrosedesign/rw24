@@ -1,4 +1,12 @@
 namespace :data do
+  task :fix_duplicate_team_positions => :environment do
+    { 16 => 197 }.each do |race_id, position|
+      race = Race.find(race_id)
+      team = race.teams.where(position: position).last
+      team.update!(position: race.teams.maximum(:position) + 1)
+    end
+  end
+
   task :populate_team_categories => :environment do
     # EXISTING
     #  [1, "A", "A Team"],
