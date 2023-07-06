@@ -32,4 +32,7 @@
   hr
 
   .field
-    - save_or_cancel_links form, cancel_url: [:admin, @race, :teams]
+    = submit_tag "Save", id: "commit", data: { disable_with: "Saving..." }
+    | or&nbsp;
+    = link_to "Cancel", [:admin, @race, :teams]
+
