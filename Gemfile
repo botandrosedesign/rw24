@@ -73,5 +73,6 @@ group :production do
   gem "rack-www"
   gem "rack-cache"
   gem "rack-tracker", github: "botandrose/rack-tracker", branch: "ga4"
+  gem "whenever"
 end
 
