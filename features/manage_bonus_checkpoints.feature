@@ -27,15 +27,16 @@ Feature: Admin can manage team bonuses
       |   | Third Bonus  | 24     |
       |   | All Bonuses! | 5      |
 
-  Scenario: Admin can reorder bonus checkpoints
-    When I drag the "Third Bonus" bonus above the "First Bonus" bonus
-    Then I should see the following bonus checkpoints:
-      | # | NAME         | POINTS |
-      |   | Tattoo       | 5      |
-      |   | Third Bonus  | 24     |
-      |   | First Bonus  | 1      |
-      |   | Second Bonus | 10     |
-      |   | All Bonuses! | 5      |
+# FIXME: Can Chrome test HTML5 drag-and-drop yet? https://bugs.chromium.org/p/chromium/issues/detail?id=850071
+# Scenario: Admin can reorder bonus checkpoints
+#   When I drag the "Third Bonus" bonus above the "First Bonus" bonus
+#   Then I should see the following bonus checkpoints:
+#     | # | NAME         | POINTS |
+#     |   | Tattoo       | 5      |
+#     |   | Third Bonus  | 24     |
+#     |   | First Bonus  | 1      |
+#     |   | Second Bonus | 10     |
+#     |   | All Bonuses! | 5      |
 
   Scenario: Admin can add bonus checkpoints
     When I follow "+ Add a Checkpoint"

@@ -1,14 +1,14 @@
 class Admin::BonusesController < Admin::BaseController
   before_action :set_race
 
-  def reposition
-    new_bonuses = params[:ids].map do |json|
+  def sortable
+    new_bonuses = params[:bonuses].map do |json|
       bonus = JSON.parse(json).to_hash
       bonus.delete("id")
       bonus
     end
     @race.update! bonuses: new_bonuses
-    head :no_content
+    render json: true
   end
 
   def show
