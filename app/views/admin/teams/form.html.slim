@@ -13,7 +13,7 @@
 
     .field
       = form.label :category_id, "Category"
-      = form.select :category_id, {}, { prompt: form.object.new_record? }, data: { "team_category_select" => ".nested-fields" }, required: true do
+      = form.select :category_id, {}, { prompt: form.object.new_record? }, data: { controller: "team-category-selector" }, required: true do
         - @race.categories.each do |category|
           = content_tag :option, category.name, value: category.id, data: { min: category.min, max: category.max }, selected: form.object.category_id == category.id
 

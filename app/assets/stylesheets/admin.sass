@@ -1,8 +1,5 @@
 @charset "UTF-8"
 @import "constant"
-@import "jquery-ui/core"
-@import "jquery-ui/theme"
-@import "jquery-ui/autocomplete"
 
 *
   position: relative
@@ -79,12 +76,20 @@ textarea
   input, textarea
     font-size: 12px
     box-sizing: border-box
-  input.ui-autocomplete-input
+  input.autocomplete-input
     @extend %generic-input
   textarea
     max-width: 100%
     min-width: initial
     width: 100%
+
+ul.autocomplete
+  background: white
+  border: 1px solid black
+  li
+    cursor: pointer
+  li:hover
+    background: $teal
 
 .remove-rider
   position: absolute

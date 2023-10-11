@@ -98,5 +98,6 @@
           = mail_to "info@riverwest24.com"
 
     = javascript_importmap_tags :importmap_application
+    = javascript_tag "window.sizeMap = '#{ShirtSizes.new.sizes.invert.to_json}'"
     = javascript_include_tag "application"
     = yield :js
