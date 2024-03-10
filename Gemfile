@@ -1,6 +1,7 @@
 source "https://rubygems.org"
-
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}.git" }
+
+gem "base64", "0.1.1" # 0.2.0 conflicts with ruby 3.2 default gem?
 
 gem "bootsnap", require: false
 gem "rails", "~>7.1.0"

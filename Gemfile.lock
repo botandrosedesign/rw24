@@ -149,7 +149,7 @@ GEM
     bard-staging_banner (0.4.0)
       letter_opener_web
     bard-static (3.1.3)
-    base64 (0.2.0)
+    base64 (0.1.1)
     bigdecimal (3.1.6)
     bindex (0.8.1)
     bootsnap (1.18.3)
@@ -515,6 +515,7 @@ DEPENDENCIES
   bard-rake
   bard-staging_banner
   bard-static
+  base64 (= 0.1.1)
   bootsnap
   byebug
   capybara-screenshot
