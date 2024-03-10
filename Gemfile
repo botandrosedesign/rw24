@@ -3,7 +3,7 @@ source "https://rubygems.org"
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}.git" }
 
 gem "bootsnap", require: false
-gem "rails", "~>7.0.8"
+gem "rails", "~>7.1.0"
 gem "mysql2"
 gem "bard-rake"
 gem "bard-static"
@@ -24,7 +24,7 @@ gem "active_record-json_associations"
 gem "nacelle"
 gem "ckeditor"
 gem "image_processing"
-gem "adva", github: "botandrose/adva_cms", branch: "integrate-ckeditor"
+gem "adva", github: "botandrose/adva_cms"
 
 gem "delayed_job_active_record"
 gem "delayed_job_web"
@@ -32,11 +32,12 @@ gem "daemons"
 gem "exception_notification"
 gem "newrelic_rpm"
 
-gem "sass-rails"
+gem "sprockets-rails"
+gem "dartsass-sprockets"
 gem "font-awesome-rails"
 
 gem "jquery-rails"
-gem "importmap-rails"
+gem "importmap-rails", "~>1.0" # 2.0 requires vendoring
 gem "stimulus-rails"
 
 group :development do
