@@ -3,6 +3,8 @@ pin_all_from "app/javascript"
 pin "importmap_application", preload: true
 pin "@hotwired/stimulus", to: "https://ga.jspm.io/npm:@hotwired/stimulus@3.0.1/dist/stimulus.js"
 pin "@hotwired/stimulus-loading", to: "stimulus-loading.js", preload: true
+pin "stimulus-use-actions", to: "https://ga.jspm.io/npm:stimulus-use-actions@0.1.0/index.js"
+pin "@rails/ujs", to: "https://ga.jspm.io/npm:@rails/ujs@7.1.2/app/assets/javascripts/rails-ujs.esm.js"
 
 pin "sortablejs", to: "https://ga.jspm.io/npm:sortablejs@1.15.0/Sortable.js"
 pin "rails-request-json", to: "https://ga.jspm.io/npm:rails-request-json@0.0.1/index.js"

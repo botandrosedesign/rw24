@@ -23,7 +23,7 @@ gem "active_record-json_associations"
 gem "nacelle"
 gem "ckeditor"
 gem "image_processing"
-gem "adva", github: "botandrose/adva_cms"
+gem "adva", github: "botandrose/adva_cms", branch: "rm-jquery"
 
 gem "delayed_job_active_record"
 gem "delayed_job_web"

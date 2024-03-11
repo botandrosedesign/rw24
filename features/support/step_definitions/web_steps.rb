@@ -1,8 +1,3 @@
-# FIXME WTF why doesn't the default step work
-When 'I press "OK" within the new lap form' do
-  execute_script "$('#new_lap').submit()"
-end
-
 Given /^(?:|I )am on (.+)$/ do |page_name|
   visit path_to(page_name)
 end

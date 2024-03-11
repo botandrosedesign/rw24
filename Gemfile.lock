@@ -1,11 +1,15 @@
 GIT
   remote: https://github.com/botandrose/adva_cms.git
-  revision: 4e17d345224e97bdf0b434b31f162b45a5d9040e
+  revision: 058ed1dc955723709482cb50fbdd14f796751fd8
+  branch: rm-jquery
   specs:
     adva (0.1.4)
       actionpack-page_caching
       awesome_nested_set
+      ckeditor
       friendly_id (~> 5.1.0)
+      jquery-rails
+      nacelle
       rails-observers
       will_paginate
 

@@ -1,4 +1,4 @@
-= form_for @point do |form|
+= form_for @point, data: { remote: true, controller: "edit-points" } do |form|
   = hidden_field_tag "backup_id", params[:id]
   = form.hidden_field :id
   .field

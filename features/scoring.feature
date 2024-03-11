@@ -98,7 +98,6 @@ Feature: Admin can manage team scoring
       | 002  | F     | BORG      | --      | --         | --    | --      | --    |
       |      |       |           | 1 LAPS! | 4.6 MILES! |       |         |       |
 
-
   Scenario: Admin splits a lap
     When I wait for 1800 seconds
     And I fill in "Input Team Number:" with "1"
@@ -129,9 +128,9 @@ Feature: Admin can manage team scoring
     And I fill in "Input Team Number:" with "10"
     And I press "OK" within the new lap form
     Then I should see the following laps:
-      | POS# | WHEN        | SINCE    | TYPE | AMT | TOT       | TEAM NAME                   |
-      | 010  | NaN:NaN:NaN |          | Lap  | 1   | Saving... | Team position doesn't exist |
-      | 001  | 00:15:00    | 00:15:00 | Lap  | 1   | 1         | BARD                        |
+      | POS# | WHEN     | SINCE    | TYPE | AMT | TOT       | TEAM NAME                   |
+      | 010  |          |          | Lap  | 1   | Saving... | Team position doesn't exist |
+      | 001  | 00:15:00 | 00:15:00 | Lap  | 1   | 1         | BARD                        |
 
     When I follow "Edit" within the first lap
     And I fill in "POS#" with "1" within the popup

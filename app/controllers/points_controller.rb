@@ -59,10 +59,16 @@ class PointsController < BaseController
 
     respond_to do |wants|
       if @point.save
-        wants.js { render @point }
+        wants.js do
+          response.headers["Content-Type"] = "text/plain"
+          render @point
+        end
         wants.html { redirect_to point_path(@point.team.position) }
       else
-        wants.js { render plain: @point.errors.full_messages.join(", "), status: 406 }
+        wants.js do
+          response.headers["Content-Type"] = "text/plain"
+          render plain: @point.errors.full_messages.join(", "), status: 406
+        end
         wants.html { render :new }
       end
     end
@@ -79,10 +85,16 @@ class PointsController < BaseController
 
     respond_to do |wants|
       if @point.update(params[:point])
-        wants.js { render @point }
+        wants.js do
+          response.headers["Content-Type"] = "text/plain"
+          render @point
+        end
         wants.html { redirect_to point_path(@point.team.position) }
       else
-        wants.js { render text: @point.errors.full_messages.join(", "), status: 407 }
+        wants.js do
+          response.headers["Content-Type"] = "text/plain"
+          render text: @point.errors.full_messages.join(", "), status: 407
+        end
         wants.html { render :form }
       end
     end

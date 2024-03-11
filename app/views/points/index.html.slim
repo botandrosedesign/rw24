@@ -1,34 +1,31 @@
-%table#teams.point-tracker
-  %thead
-    %tr
-      %th.center_align POS#
-      %th.center_align When
-      %th.center_align Since
-      %th.center_align Type
-      %th.center_align Amt
-      %th.center_align Tot
-      %th Team Name
-      %th
-  %tbody.stripe#points
+table#teams.point-tracker
+  thead
+    tr
+      th.center_align POS#
+      th.center_align When
+      th.center_align Since
+      th.center_align Type
+      th.center_align Amt
+      th.center_align Tot
+      th Team Name
+      th
+  tbody.stripe#points
     = render @points
  
-:plain
-  <script type="text/x-jquery-template" title="pointRow">
-    <tr class="pending" id="<%= self.id %>">
-      <td class="center_align"><%= fixed_number_or_empty(self['point[team_position]']) %></td>
-      <td class="center_align sort"><%= self['point[since_start]'] %></td>
-      <td class="center_align"></td>
-      <td class="center_align"><%= self['point[category]'] %></td>
-      <td class="center_align"><%= self['point[qty]'] %></td>
-      <td>Saving...</td>
-      <td></td>
-      <td></td>
-    </tr>
-  </script>
+template#point_template
+  tr.pending id="{{id}}"
+    td.center_align {{team_position}}
+    td.center_align.sort {{point[since_start]}}
+    td.center_align 
+    td.center_align {{point[category]}}
+    td.center_align {{point[qty]}}
+    td Saving...
+    td
+    td
 
 = content_for :sidebar do
-  %h4 Lap Logger
-  = form_for @lap, :html => { :id => "new_lap", :autocomplete => "off" } do |form|
+  h4 Lap Logger
+  = form_for @lap, html: { id: "new_lap", autocomplete: "off" }, data: { remote: true, controller: "points" } do |form|
     .calculator#laps
       = form.hidden_field :qty
       = form.hidden_field :category
@@ -40,11 +37,10 @@
         .ok-wrapper
           = form.submit "OK", data: { disable_with: false }
   
-  %h4
-    Bonus Points
-    \-
+  h4
+    Bonus Points -&nbsp;
     = link_to "Forms", bonuses_points_path, class: "ceebox"
-  = form_for @bonus, :html => { :id => "new_bonus", :autocomplete => "off" } do |form|
+  = form_for @bonus, html: { id: "new_bonus", autocomplete: "off" }, data: { remote: true, controller: "points" } do |form|
     .calculator#bonus
       = form.hidden_field :category
       = form.hidden_field :since_start
@@ -60,10 +56,11 @@
           .ok-wrapper
             = form.submit "OK", data: { disable_with: false }
 
-  .field= button_to "Assign All Bonuses Bonuses", assign_all_bonuses_bonuses_points_path, "data-confirm" => "This will assign the all bonus checkpoints bonus to all teams that have completed every bonus checkpoint, but haven't gotten the tattoo. This operation is idempotent, so push this button as many times as you like."
+  .field
+    = button_to "Assign All Bonuses Bonuses", assign_all_bonuses_bonuses_points_path, "data-confirm" => "This will assign the all bonus checkpoints bonus to all teams that have completed every bonus checkpoint, but haven't gotten the tattoo. This operation is idempotent, so push this button as many times as you like."
   
-  %h4 Penalty Points
-  = form_for @penalty, :html => { :id => "new_penalty", :autocomplete => "off" } do |form|
+  h4 Penalty Points
+  = form_for @penalty, html: { id: "new_penalty", autocomplete: "off" }, data: { remote: true, controller: "points" } do |form|
     .calculator#penalty
       = form.hidden_field :category
       = form.hidden_field :since_start
@@ -79,14 +76,12 @@
             = form.submit "OK", data: { disable_with: false }
 
 = content_for :js do
-  = javascript_include_tag "points"
-  :erb
-    <script type="text/javascript">
+  script type="text/javascript"
+    |
       window.raceStart = new Date($(".countstart").attr("data-countstart")).valueOf();
       window.bonuses = {
-        store: <%= raw @race.bonuses.to_json %>,
+        store: #{raw @race.bonuses.to_json},
         qty_for_id: function(bonus_id) {
           return parseInt(this.store[bonus_id].points);
         }
       };
-    </script>

@@ -4,7 +4,12 @@ require "cuprite/downloads/cucumber"
 require 'capybara-screenshot/cucumber' unless ENV["CI"]
 
 Capybara.register_driver(:cuprite) do |app|
-  Capybara::Cuprite::Driver.new(app, window_size: [1200, 2048], timeout: 10, js_errors: true)
+  Capybara::Cuprite::Driver.new(app, {
+    window_size: [1200, 2048],
+    timeout: 20,
+    js_errors: true,
+    headless: true,
+  })
 end
 
 Capybara.server = :puma, { Silent: true }

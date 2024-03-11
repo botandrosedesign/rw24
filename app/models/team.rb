@@ -28,7 +28,7 @@ class Team < ActiveRecord::Base
 
   has_many :points
 
-  serialize :shirt_sizes, ShirtSizes
+  serialize :shirt_sizes, coder: ShirtSizes
   def shirt_sizes= value
     value = ShirtSizes.new(value) if value.is_a?(Hash)
     super
