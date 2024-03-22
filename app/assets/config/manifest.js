@@ -5,6 +5,5 @@
 //= link bonus_logger.css
 //= link ckeditor.css
 
-//= link_tree ../javascripts .js
 //= link_tree ../../javascript .js
 

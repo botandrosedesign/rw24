@@ -41,6 +41,7 @@ module Menus
 
         menu :actions, :class => 'actions' do
           if @team or @teams
+            item :edit, :content => link_to_current("Edit Race", [:edit, :admin, @race])
             item :new, :content => link_to_current("New Team", [:new, :admin, @race, :team])
             if @team and !@team.new_record?
               item :delete, :content => link_to("Delete Team", [:admin, @race, @team], :method => :delete)

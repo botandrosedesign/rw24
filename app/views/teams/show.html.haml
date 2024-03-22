@@ -41,7 +41,7 @@
           - if current_user&.admin?
             %td
               = link_to "Split", [:split, lap], title: "Split Lap", class: "split-icon", method: "post", data: { confirm: "Are you sure you want to split this lap into two?" }
-              = link_to "Edit", [:edit, lap], title: "Edit Score", rel: "width:500 height:400", class: "edit-icon ceebox"
+              = link_to "Edit", [:edit, lap], title: "Edit Score", class: "edit-icon", rel: "ceebox"
               = link_to "Delete", lap, class: "delete-icon", title: "Delete Score", method: :delete, data: { confirm: "Are you sure?" }
         - last_lap = lap
 
@@ -72,7 +72,7 @@
               %i.points= bonus.qty
             %td
               - if current_user&.admin?
-                = link_to "Edit", [:edit, bonus], title: "Edit Score", rel: "width:500 height:400", class: "edit-icon ceebox"
+                = link_to "Edit", [:edit, bonus], title: "Edit Score", class: "edit-icon", rel: "ceebox"
                 = link_to "Delete", bonus, class: "delete-icon", title: "Delete Score", method: :delete, data: { confirm: "Are you sure?" }
 
 
@@ -92,7 +92,7 @@
           %td= penalty.qty
           %td
             - if current_user&.admin?
-              = link_to "Edit", [:edit, penalty], title: "Edit Score", rel: "width:500 height:400", class: "edit-icon ceebox"
+              = link_to "Edit", [:edit, penalty], title: "Edit Score", class: "edit-icon", rel: "ceebox"
               = link_to "Delete", penalty, class: "delete-icon", method: :delete, data: { confirm: "Are you sure?" }
 
 %hr.clear

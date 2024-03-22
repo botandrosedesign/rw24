@@ -1,7 +1,7 @@
 pin_all_from "app/javascript"
 
-pin "importmap_application", preload: true
-pin "@hotwired/stimulus", to: "https://ga.jspm.io/npm:@hotwired/stimulus@3.0.1/dist/stimulus.js"
+pin "application", preload: true
+pin "@hotwired/stimulus", to: "https://ga.jspm.io/npm:@hotwired/stimulus@3.2.1/dist/stimulus.js", preload: true
 pin "@hotwired/stimulus-loading", to: "stimulus-loading.js", preload: true
 pin "stimulus-use-actions", to: "https://ga.jspm.io/npm:stimulus-use-actions@0.1.0/index.js"
 pin "@rails/ujs", to: "https://ga.jspm.io/npm:@rails/ujs@7.1.2/app/assets/javascripts/rails-ujs.esm.js"

@@ -547,7 +547,6 @@ DEPENDENCIES
   importmap-rails (~> 1.0)
   input_css
   invisible_captcha
-  jquery-rails
   mysql2
   nacelle
   newrelic_rpm

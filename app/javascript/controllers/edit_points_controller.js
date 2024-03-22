@@ -10,36 +10,46 @@ export default class extends Controller {
       ],
     })
     this.id = this.element.elements.backup_id.value 
-    this.buttonTarget = document.getElementById("cee_closeBtn")
+    this.dialogTarget = this.element.closest("dialog")
   }
 
   // retry: true,
 
   success(event) {
-    const html = event.detail[0]
-    this.rowTarget.outerHTML = html
-    this.id = html.match(/point_\d+/)[0]
-    sortLoop(this.rowTarget)
-    this.buttonTarget.click()
+    if(this.rowTarget) {
+      const html = event.detail[0]
+      this.rowTarget.outerHTML = html
+      this.id = html.match(/point_(\d+)/)[1]
+      sortLoop(this.rowTarget)
+      this.dialogTarget.close()
+    } else {
+      window.location.reload()
+    }
   }
 
   error(event) {
-    this.rowTarget.classList.add("failed")
-    this.buttonTarget.click()
+    if(this.rowTarget) {
+      this.rowTarget.classList.add("failed")
+      this.dialogTarget.close()
+    } else {
+      window.location.reload()
+    } 
   }
 
   get rowTarget() {
-    return document.getElementById(this.id)
+    return document.getElementById(`point_${this.id}`)
   }
 }
 
 function sortLoop(el) {
-  var next = el.nextElementSibling
-  var a = el.querySelector(".sort").innerText
-  var b = next.querySelector(".sort").innerText
-  if(a < b) {
-    next.parentNode.insertBefore(next, el)
-    sortLoop(el)
+  const next = el.nextElementSibling
+  if(next) {
+    const a = el.querySelector(".sort").innerText
+    const b = next.querySelector(".sort").innerText
+    if(a < b) {
+      next.parentNode.insertBefore(next, el)
+      sortLoop(el)
+    }
   }
 }
 

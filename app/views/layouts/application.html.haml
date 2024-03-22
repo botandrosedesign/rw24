@@ -97,7 +97,14 @@
         %p
           = mail_to "info@riverwest24.com"
 
-    = javascript_importmap_tags :importmap_application
+    %dialog(data-controller="dialog" hidden="hidden")
+      .dialog-close
+        %form(method="dialog")
+          %button.close
+          %button.dialog-bg
+
+      %div(data-dialog-target="content")
+    = javascript_importmap_tags :application
     = javascript_tag "window.sizeMap = '#{ShirtSizes.new.sizes.invert.to_json}'"
-    = javascript_include_tag "application"
     = yield :js
+

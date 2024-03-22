@@ -35,7 +35,6 @@ gem "sprockets-rails"
 gem "dartsass-sprockets"
 gem "font-awesome-rails"
 
-gem "jquery-rails"
 gem "importmap-rails", "~>1.0" # 2.0 requires vendoring
 gem "stimulus-rails"
 

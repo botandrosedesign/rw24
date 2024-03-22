@@ -6,20 +6,5 @@ table#bonus-view
       th = bonus.team_position
       td = bonus.team_name
       td = bonus.qty
-      td = link_to "Delete", point_path(bonus), class: "delete-icon", remote: true, method: :delete, data: { type: "text", confirm: "Are you sure?", "delete-bonus": true }
-
-javascript:
-  $(function() {
-    $(document).on("ajax:success", "[data-delete-bonus]", function(data, status, xhr) {
-      const id = $(this).parents("tr").attr("id")
-      $("#"+id).remove()
-    })
-
-    $(document).on("ajax:error", "[data-delete-bonus]", function(data, status, xhr) {
-      const id = $(this).parents("tr").attr("id")
-      $("#"+id).addClass("failed")
-        .find("td:last-child").html(`<a href="#" onclick="$(this).parents('tr').remove(); return false;">Clear</a>`)
-        .prev().prev().html("Couldn't delete")
-    })
-  })
+      td = link_to "Delete", point_path(bonus), class: "delete-icon", remote: true, method: :delete, data: { type: "text", confirm: "Are you sure?", controller: "delete-bonus" }
 

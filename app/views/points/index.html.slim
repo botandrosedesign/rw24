@@ -39,7 +39,7 @@ template#point_template
   
   h4
     Bonus Points -&nbsp;
-    = link_to "Forms", bonuses_points_path, class: "ceebox"
+    = link_to "Forms", bonuses_points_path, rel: "ceebox"
   = form_for @bonus, html: { id: "new_bonus", autocomplete: "off" }, data: { remote: true, controller: "points" } do |form|
     .calculator#bonus
       = form.hidden_field :category
@@ -78,7 +78,8 @@ template#point_template
 = content_for :js do
   script type="text/javascript"
     |
-      window.raceStart = new Date($(".countstart").attr("data-countstart")).valueOf();
+      const value = document.querySelector(".countstart").dataset.countstart
+      window.raceStart = new Date(value).valueOf()
       window.bonuses = {
         store: #{raw @race.bonuses.to_json},
         qty_for_id: function(bonus_id) {

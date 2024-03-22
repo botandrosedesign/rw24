@@ -11,6 +11,6 @@
   %td.center_align= point.total_laps + point.team.penalties_total
   %td= link_to point.team_name, leader_board_laps_path(current_race.year, point.team_position), target: "_blank"
   %td
-    = link_to "Edit", [:edit, point], title: "Edit Score", rel: "width:500 height:400", class: "edit-icon ceebox"
+    = link_to "Edit", [:edit, point], title: "Edit Score", class: "edit-icon", rel: "ceebox"
     = link_to "Delete", point_path(point, key: params[:key]), class: "delete-icon", method: :delete, data: { remote: true, confirm: "Are you sure?", controller: "delete-points", id: point.id }
 

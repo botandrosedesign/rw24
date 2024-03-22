@@ -59,7 +59,7 @@
 
   %input(type="submit" value="Send Confirmation Emails to Selected")
 
-- content_for :sidebar do
+= content_for :sidebar do
   .tabs
     .tab.active
       %h3 Totals
@@ -87,3 +87,4 @@
 
       %p= button_to "Download Database", [:admin, :database, format: :sql], method: :get
       %p= button_to "Export Teams", [:admin, @race, :teams, format: :csv], method: :get
+

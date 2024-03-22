@@ -1,0 +1,32 @@
+dialog
+  position: fixed
+  top: 110px
+  z-index: 999
+  max-width: 95vw
+  max-height: calc(100vh - 220px)
+  box-shadow: 0px 0px 16px #1a1a1a
+  border: none
+
+.dialog-close
+  button.close
+    background: transparent image_url("facebox-close.png") no-repeat 0 0
+    background-size: contain
+    z-index: 999
+    position: absolute
+    top: -16px
+    right: -16px
+    width: 32px
+    height: 32px
+    display: block
+    border: none
+    &:hover
+      background-image: image_url("facebox-close_hover.png")
+  button.dialog-bg
+    position: fixed
+    top: 0
+    left: 0
+    width: 100vw
+    height: 100vh
+    background: transparent
+    border: none
+    z-index: -1

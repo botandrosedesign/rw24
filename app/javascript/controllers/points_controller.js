@@ -60,7 +60,7 @@ export default class extends Controller {
     row.classList.add("failed")
     const td = row.querySelector("td:last-child")
     td.innerHTML = `
-      <a href="/points/new?id=${this.id}&${this.queryString}" class="ceebox edit" title="New Score" rel="modal: true width:500 height:325">Edit</a>
+      <a href="/points/new?id=${this.id}&${this.queryString}" class="edit" title="New Score" rel="ceebox">Edit</a>
       <a href="#" onclick="this.closest('tr').remove(); return false" class="delete">Delete</a>
     `
     td.previousElementSibling.innerText = event.detail[0]
