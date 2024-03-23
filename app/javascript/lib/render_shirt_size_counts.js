@@ -1,13 +1,13 @@
 export default function renderShirtSizeCounts() {
-  $(".all-shirt-fields input").val(0)
+  Array.from(document.querySelectorAll(".all-shirt-fields input")).forEach(e => e.value = 0)
   const sizeMap = JSON.parse(window.sizeMap)
-  const selectedSizes = $("select[name$='[shirt_size]']").toArray().map(e => $(e).val())
-  selectedSizes.forEach(function(size) {
+  const selectedSizes = Array.from(document.querySelectorAll("select[name$='[shirt_size]']")).map(e => e.value)
+  selectedSizes.forEach(size => {
     if(size.length == 0) return
-    const $field = $(`input[name$='[${sizeMap[size]}]']`)
-    let count = parseInt($field.val()) || 0
+    const field = document.querySelector(`input[name$='[${sizeMap[size]}]']`)
+    let count = parseInt(field.value) || 0
     count += 1
-    $field.val(count)
+    field.value = count
   })
 }
 

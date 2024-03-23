@@ -1,5 +1,5 @@
 - form ||= f
-.field.nested-fields.rider-field
+fieldset.field.nested-fields.rider-field data-controller="autocomplete" data-autocomplete-users-value=form.object.autocomplete_options_for_race(@race).to_json
   div
     .remove-rider
       = link_to_remove_association form do
@@ -8,7 +8,7 @@
     h4 Rider
     .field
       label for="team_riders_attributes_#{form.index}_search" Search
-      input.autocomplete-input id="team_riders_attributes_#{form.index}_search" data-controller="autocomplete" data-autocomplete=form.object.autocomplete_options_for_race(@race).to_json
+      input.autocomplete-input id="team_riders_attributes_#{form.index}_search" data-autocomplete-target="field"
       = form.hidden_field :user_id
     .field = form.check_box :paid, label: "Paid?"
     .field = form.text_field :name, label: true
