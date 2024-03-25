@@ -52,8 +52,6 @@ end
 
 group :test do
   gem "cucumber-rails", require: false
-  gem "cucumber", require: false, github: "botandrose/cucumber", branch: "restore_looser_line_numbers"
-  gem "cuprite", github: "botandrose/cuprite", branch: "drag_and_drop"
   gem "cuprite-downloads"
   gem "puma"
   gem "capybara-screenshot"
