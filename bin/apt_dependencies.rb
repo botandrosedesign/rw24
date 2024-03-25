@@ -7,7 +7,7 @@ module AptDependencies
       $stderr.puts "sudo requires password! cannot install #{deps_to_install.join(' ')}"
       exit 1
     else
-      "sudo apt install -y #{deps_to_install.join(' ')}"
+      "sudo apt update && sudo apt install -y #{deps_to_install.join(' ')}"
     end
   end
 

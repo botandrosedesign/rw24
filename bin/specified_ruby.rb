@@ -49,7 +49,11 @@ module SpecifiedRuby
   end
 
   def restart
-    exec "rvm-exec #{$0} #{"&& rvm-exec $SHELL" if ENV["RAILS_ENV"] == "development"}"
+    command = "rvm-exec #{$0}"
+    unless %w[staging production].include?(ENV["RAILS_ENV"])
+      command += " && rvm-exec $SHELL"
+    end
+    exec command
   end
 end
 
