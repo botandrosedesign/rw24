@@ -165,6 +165,6 @@ class Team < ActiveRecord::Base
   end
 
   def assign_site
-    self.site = Site.first
+    self.site_id = Site.first&.id || 1
   end
 end

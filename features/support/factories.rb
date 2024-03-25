@@ -64,7 +64,7 @@ FactoryBot.define do
   end
 
   factory :team do
-    race { Race.find_by_year! Date.today.year }
+    race { Race.where(year: Date.today.year).first_or_create! }
     name
     address
     city
