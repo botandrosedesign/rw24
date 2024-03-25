@@ -1,14 +1,13 @@
 require "ar_helper"
 require "team"
+require "race"
 require "team_category"
 require "support/factories"
 require_relative "../../db/seeds"
 
 describe Team do
   # stubbing #race is a bitch
-  subject { FactoryBot.build(:team, race: nil) }
-  let(:race) { double(marked_for_destruction?: false) }
-  before { subject.stub(race: race) }
+  subject { FactoryBot.build(:team) }
 
   context "of category 'A Team'" do
     before { subject.category = TeamCategory.find_by_name("A Team") }
