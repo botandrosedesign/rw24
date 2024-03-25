@@ -70,9 +70,8 @@
     %section.main
       .container
         #flash_notice= flash.notice
-        #flash_error
-          = flash[:error]
-          = flash.alert
+        #flash_error= flash[:error]
+        #flash_alert= flash.alert
 
         - if content_for? :sidebar
           %article

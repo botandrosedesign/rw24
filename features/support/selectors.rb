@@ -39,7 +39,7 @@ module WithinHelpers
       "#bonus"
 
     when /the popup/
-      "#cee_box"
+      "dialog"
 
     else
       raise "Can't find mapping from \"#{locator}\" to a selector.\n" +

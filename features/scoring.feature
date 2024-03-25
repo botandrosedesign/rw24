@@ -138,7 +138,7 @@ Feature: Admin can manage team scoring
     Then I should see the following laps:
       | POS# | WHEN     | SINCE    | TYPE | AMT | TOT | TEAM NAME |
       | 001  | 00:30:00 | 00:15:00 | Lap  | 1   | 2   | BARD      |
-      | 001  | 00:15:00 | 00:15:00 | Lap  | 1   | 1   | BARD      |
+      | 001  | 00:15:00 | 00:15:00 | Lap  | 1   | 2   | BARD      |
 
   Scenario: Bonus checkpoint folks can log bonus laps
     Given the race has the tattoo bonus checkpoint

@@ -17,10 +17,11 @@ Feature: Admins can manage races
 
   Scenario: Admin creates a new race
     When I follow "New Race"
-    And I fill in "Year" with "2011"
-    And I select "July 31, 2011 7:00pm" as the "Start time" date and time
-    And I check "Show race in leaderboards dropdown menu?"
-    And I fill in "Description" with "Biggest race yet!"
+    And I fill in the following form:
+      | Year                                     | 2011                 |
+      | Start time                               | July 31, 2011 7:00pm |
+      | Show race in leaderboards dropdown menu? | 1                    |
+      | Description                              | Biggest race yet!    |
     And I press "Save"
     Then I should see "Race created!"
 
@@ -32,10 +33,11 @@ Feature: Admins can manage races
 
   Scenario: Admin updates an existing race
     When I follow "Edit Race"
-    And I fill in "Year" with "2011"
-    And I select "July 31, 2011 7:00pm" as the "Start time" date and time
-    And I check "Show race in leaderboards dropdown menu?"
-    And I fill in "Description" with "Biggest race yet!"
+    And I fill in the following form:
+      | Year                                     | 2011                 |
+      | Start time                               | July 31, 2011 7:00pm |
+      | Show race in leaderboards dropdown menu? | 1                    |
+      | Description                              | Biggest race yet!    |
     And I press "Save"
     Then I should see "Race updated!"
 

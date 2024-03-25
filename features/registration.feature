@@ -186,14 +186,14 @@ Feature: Riders can create user accounts that persist beyond races
     When I type "botandrose.com" into "Search" within the first rider form
     Then I should see the following autocomplete options:
       | UNCONFIRMED Micah Geisel ‹micah@botandrose.com›    |
-    When I select the autocomplete option "UNCONFIRMED Micah Geisel ‹micah@botandrose.com›"
+    When I select and accept the autocomplete option "UNCONFIRMED Micah Geisel ‹micah@botandrose.com›" with the following alert dialog:
+      | Confirmation email resent to micah@botandrose.com |
     Then I should see the first rider form filled out with the following:
       | Paid?      |                      |
       | Name       |                      |
       | Email      |                      |
       | Phone      |                      |
       | Shirt size |                      |
-    And I should see "Confirmation email resent to micah@botandrose.com"
     And "micah@botandrose.com" should receive an email from "info@riverwest24.com" with the subject "Welcome to Riverwest24" and the following body:
       """
       Dear Micah Geisel,<br />
