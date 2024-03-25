@@ -14,6 +14,7 @@ Given /^the following race teams exist:/ do |table|
   table.create! factory_bot: :team do
     underscore_keys
 
+    field(:site) { Site.first }
     field(:race) { Race.last }
 
     rename :pos => :position

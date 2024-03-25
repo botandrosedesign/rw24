@@ -5,7 +5,6 @@ Given "the race has the tattoo bonus checkpoint" do
 end
 
 Then "I should see the following laps:" do |table|
-  wait_for_ajax
   table.diff! ".point-tracker"
 end
 
@@ -14,7 +13,6 @@ Then "I should see the following leaderboard:" do |table|
 end
 
 Then "I should see the following bonuses:" do |table|
-  wait_for_ajax
   table.diff! ".bonuses" do
     field(:bonuses) do |cell|
       row_classes = (cell.query_scope[:class] || "").split(" ")
@@ -25,14 +23,12 @@ Then "I should see the following bonuses:" do |table|
 end
 
 Then "I should see the following team bonuses:" do |table|
-  wait_for_ajax
   table.diff! do
     header { ["POS#", "TEAM NAME", "POINTS"] }
   end
 end
 
 Then "I should see the following bonus entries:" do |table|
-  wait_for_ajax
   table.diff!
 end
 

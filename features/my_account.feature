@@ -47,11 +47,11 @@ Feature: Update my account
     When I follow "Logout"
     And I follow "Login"
     And I follow "Reset your password"
-    And I fill in "E-Mail" with "micah@botandrose.com"
+    And I fill in "Email" with "micah@botandrose.com"
     And I press "Reset password"
     And "micah@botandrose.com" should receive an email
 
-    When I open the email with subject "Forgotton Password"
+    When I open the email with subject "Forgotten Password"
     And I follow the first link in the email
     And I fill in "New password" with "newpassword"
     And I press "Save"
