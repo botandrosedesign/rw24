@@ -2,10 +2,13 @@ class Point < ActiveRecord::Base
   CATEGORIES = %w(Lap Bonus Penalty)
   default_scope -> { order(:created_at) }
 
-  belongs_to :team
+  belongs_to :team, required: false
+  validate def position_must_exist
+    errors.add(:team_position, "doesn't exist") unless team_id
+  end
+
   belongs_to :race
 
-  validate :position_must_exist
   validate :uniqueness_of_bonus
   validates_inclusion_of :category, :in => CATEGORIES
   validates_numericality_of :qty
@@ -144,9 +147,6 @@ class Point < ActiveRecord::Base
     end
   end
 
-  def position_must_exist
-    errors.add(:team_position, "doesn't exist") unless team_id
-  end
 
   def uniqueness_of_bonus
     if Point.where(:category => "Bonus", :team_id => team_id, :race_id => race_id, :bonus_id => bonus_id).count > 0
