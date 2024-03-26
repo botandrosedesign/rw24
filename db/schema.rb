@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_07_05_181206) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_26_175930) do
   create_table "accounts", id: :integer, charset: "utf8mb4", collation: "utf8mb4_unicode_ci", options: "ENGINE=InnoDB ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: nil
@@ -383,7 +383,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_07_05_181206) do
     t.string "city"
     t.string "state"
     t.string "zip"
-    t.integer "site_id"
     t.integer "position"
     t.integer "race_id"
     t.datetime "confirmation_sent_at", precision: nil
@@ -391,7 +390,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_07_05_181206) do
     t.integer "category_id"
     t.index ["position", "race_id"], name: "index_teams_on_position_and_race_id", unique: true
     t.index ["race_id"], name: "index_teams_on_race_id"
-    t.index ["site_id"], name: "index_teams_on_site_id"
   end
 
   create_table "users", id: :integer, charset: "utf8mb4", collation: "utf8mb4_unicode_ci", options: "ENGINE=InnoDB ROW_FORMAT=DYNAMIC", force: :cascade do |t|

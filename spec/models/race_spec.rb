@@ -9,9 +9,6 @@ require "support/factories"
 load "db/seeds.rb"
 
 describe Race do
-  before { Team.any_instance.stub(assign_site: nil) }
-  before { stub_const "Site", double }
-
   describe "#assign_all_bonuses_bonuses" do
     subject do
       FactoryBot.create(:race, bonuses: [

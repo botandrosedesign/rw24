@@ -20,7 +20,6 @@ class Team < ActiveRecord::Base
 
   attr_accessor :phone
 
-  belongs_to :site
   belongs_to :race
   belongs_to :category, class_name: "TeamCategory"
   has_many :riders, dependent: :delete_all, inverse_of: :team
@@ -42,7 +41,7 @@ class Team < ActiveRecord::Base
 
   acts_as_list :scope => :race_id
 
-  before_save :assign_phone_to_captain, :assign_site
+  before_save :assign_phone_to_captain
 
   def self.leader_board
     includes(:points).sort do |a,b|
@@ -162,9 +161,5 @@ class Team < ActiveRecord::Base
 
   def assign_phone_to_captain
     captain.phone = self.phone if self.phone
-  end
-
-  def assign_site
-    self.site_id = Site.first&.id || 1
   end
 end
