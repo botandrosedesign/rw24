@@ -1,8 +1,8 @@
 # RW24
 
-[![Build Status](https://travis-ci.org/botandrose/rw24.svg?branch=master)](https://travis-ci.org/botandrose/rw24)
-[![Coverage Status](https://coveralls.io/repos/botandrose/rw24/badge.svg?branch=master&service=github)](https://coveralls.io/github/botandrose/rw24?branch=master)
-[![Code Climate](https://codeclimate.com/github/botandrose/rw24/badges/gpa.svg)](https://codeclimate.com/github/botandrose/rw24)
+[![Build Status](https://travis-ci.org/botandrosedesign/rw24.svg?branch=master)](https://travis-ci.org/botandrosedesign/rw24)
+[![Coverage Status](https://coveralls.io/repos/botandrosedesign/rw24/badge.svg?branch=master&service=github)](https://coveralls.io/github/botandrosedesign/rw24?branch=master)
+[![Code Climate](https://codeclimate.com/github/botandrosedesign/rw24/badges/gpa.svg)](https://codeclimate.com/github/botandrosedesign/rw24)
 
 Riverwest 24 Website and Scoring System
 
@@ -16,7 +16,7 @@ Riverwest 24 Website and Scoring System
 
 ## Get Started
 ```bash
-git clone git@github.com:botandrose/rw24.git
+git clone git@github.com:botandrosedesign/rw24.git
 cd rw24
 bin/setup
 bin/rails server
@@ -36,7 +36,7 @@ View the site at [http://localhost:3000](http://localhost:3000) and follow the i
 
 ## Contributing
 
-1. Fork it ( https://github.com/botandrose/rw24/fork )
+1. Fork it ( https://github.com/botandrosedesign/rw24/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

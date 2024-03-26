@@ -9,7 +9,7 @@ on:
         required: true
 jobs:
   test:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-20.04-16core
     env:
       RAILS_ENV: test
       RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
