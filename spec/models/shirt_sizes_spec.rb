@@ -4,9 +4,9 @@ require "shirt_sizes"
 describe ShirtSizes do
   describe "#summary" do
     it "works" do
-      subject.mens_small = 3
-      subject.mens_xxx_large = 1
-      subject.summary.should == "MS, MS, MS, MXXXL"
+      subject.small = 3
+      subject.xxx_large = 1
+      subject.summary.should == "S, S, S, XXXL"
     end
   end
 end

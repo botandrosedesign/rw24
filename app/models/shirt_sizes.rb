@@ -3,29 +3,11 @@ class ShirtSizes
 
   def self.load json
     attrs = JSON.load(json || "{}")
-    if attrs.keys.include?("small")
-      new_with_old_sizes(attrs)
-    else
-      new(attrs)
-    end
+    new(attrs)
   end
 
   def self.options
     new.sizes.values
-  end
-
-  def self.new_with_old_sizes(attrs)
-    new.tap do |shirt_sizes|
-      shirt_sizes.instance_variable_set :"@sizes", {
-        small: "S",
-        medium: "M",
-        large: "L",
-        x_large: "XL",
-        xx_large: "XXL",
-        xxx_large: "XXXL",
-      }
-      shirt_sizes.attributes = attrs
-    end
   end
 
   def self.dump obj
@@ -38,19 +20,13 @@ class ShirtSizes
 
   def sizes
     @sizes ||= {
-      mens_small: "MS",
-      mens_medium: "MM",
-      mens_large: "ML",
-      mens_x_large: "MXL",
-      mens_xx_large: "MXXL",
-      mens_xxx_large: "MXXXL",
-
-      womens_small: "WS",
-      womens_medium: "WM",
-      womens_large: "WL",
-      womens_x_large: "WXL",
-      womens_xx_large: "WXXL",
-      womens_xxx_large: "WXXXL",
+      x_small: "XS",
+      small: "S",
+      medium: "M",
+      large: "L",
+      x_large: "XL",
+      xx_large: "XXL",
+      xxx_large: "XXXL",
     }
   end
 
@@ -93,4 +69,3 @@ class ShirtSizes
 
   attr_accessor :errors
 end
-

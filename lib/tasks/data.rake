@@ -1,4 +1,9 @@
 namespace :data do
+  task :clear_shirt_sizes => :environment do
+    User.update_all shirt_size: nil
+    Team.update_all shirt_sizes: nil
+  end
+
   task :fix_duplicate_team_positions => :environment do
     { 16 => 197 }.each do |race_id, position|
       race = Race.find(race_id)
