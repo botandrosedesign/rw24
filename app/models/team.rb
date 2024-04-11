@@ -28,9 +28,22 @@ class Team < ActiveRecord::Base
   has_many :points
 
   serialize :shirt_sizes, coder: ShirtSizes
+  def shirt_sizes
+    if shirt_sizes_before_type_cast.nil?
+      self.shirt_sizes = default_shirt_sizes
+      super
+    else
+      super
+    end
+  end
+
   def shirt_sizes= value
-    value = ShirtSizes.new(value) if value.is_a?(Hash)
+    value = ShirtSizes.new(value.transform_values(&:to_i)) if value.is_a?(Hash)
     super
+  end
+
+  def default_shirt_sizes
+    race.shirt_sizes.reduce({}) { |h,k| h[k]=0; h }
   end
 
   validates_presence_of :race, :name, :category

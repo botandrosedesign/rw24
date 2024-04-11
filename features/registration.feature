@@ -11,7 +11,7 @@ Feature: Riders can create user accounts that persist beyond races
       | First name            | Micah                |
       | Last name             | Geisel               |
       | Phone                 | 937.269.2023         |
-      | Shirt size            | ML                   |
+      | Shirt size            | L                    |
       | Password              | secret               |
       | Confirm password      | secret               |
 
@@ -39,7 +39,7 @@ Feature: Riders can create user accounts that persist beyond races
       | First name            | Micah                |
       | Last name             | Geisel               |
       | Phone                 | 937.269.2023         |
-      | Shirt size            | ML                   |
+      | Shirt size            | L                    |
       | Password              |                      |
       | Confirm password      |                      |
 
@@ -52,14 +52,14 @@ Feature: Riders can create user accounts that persist beyond races
     Then I should see the following users:
       | NAME          | EMAIL                 | CONFIRMED? | ROLE  | RACES | SHIRT |
       | Admin Account | admin@riverwest24.com | Yes        | Admin |       |       |
-      | Micah Geisel  | micah@botandrose.com  | Yes        |       |       | ML    |
+      | Micah Geisel  | micah@botandrose.com  | Yes        |       |       | L     |
 
   # Scenario: Admin can download all users
     When I follow "Download users"
     Then I should download a CSV named "rw24-users-2020-06-19.csv" with the following contents:
       | Name          | Email                 | Confirmed? | Role  | Races | Shirt |
       | Admin Account | admin@riverwest24.com | Yes        | Admin |       |       |
-      | Micah Geisel  | micah@botandrose.com  | Yes        |       |       | ML    |
+      | Micah Geisel  | micah@botandrose.com  | Yes        |       |       | L     |
 
   Scenario: Same email can't be used to create profile
     Given the following users exist:
@@ -73,7 +73,7 @@ Feature: Riders can create user accounts that persist beyond races
       | First name            | Micah                |
       | Last name             | Geisel               |
       | Phone                 | 937.269.2023         |
-      | Shirt size            | ML                   |
+      | Shirt size            | L                    |
       | Password              | abc123               |
       | Confirm password      | abc123               |
 
@@ -88,7 +88,7 @@ Feature: Riders can create user accounts that persist beyond races
       | First name            | Micah                |
       | Last name             | Geisel               |
       | Phone                 | 937.269.2023         |
-      | Shirt size            | ML                   |
+      | Shirt size            | L                    |
       | Password              | secret               |
       | Confirm password      | secret               |
 
@@ -104,7 +104,7 @@ Feature: Riders can create user accounts that persist beyond races
       | First name            | Micah                |
       | Last name             | Geisel               |
       | Phone                 | 937.269.2023         |
-      | Shirt size            | ML                   |
+      | Shirt size            | L                    |
       | Password              | secret               |
       | Confirm password      | secret               |
 
@@ -127,7 +127,7 @@ Feature: Riders can create user accounts that persist beyond races
       | First name            | Micah                |
       | Last name             | Geisel               |
       | Phone                 | 937.269.2023         |
-      | Shirt size            | ML                   |
+      | Shirt size            | L                    |
       | Password              | secret               |
       | Confirm password      | secret               |
 
@@ -156,7 +156,7 @@ Feature: Riders can create user accounts that persist beyond races
       | First name            | Micah                |
       | Last name             | Geisel               |
       | Phone                 | 937.269.2023         |
-      | Shirt size            | ML                   |
+      | Shirt size            | L                    |
       | Password              | secret               |
       | Confirm password      | secret               |
 
@@ -170,7 +170,7 @@ Feature: Riders can create user accounts that persist beyond races
     Then I should see the following users:
       | NAME          | EMAIL                 | CONFIRMED? | ROLE  | RACES | SHIRT |
       | Admin Account | admin@riverwest24.com | Yes        | Admin |       |       |
-      | Micah Geisel  | micah@botandrose.com  | Resend     |       |       | ML    |
+      | Micah Geisel  | micah@botandrose.com  | Resend     |       |       | L     |
     When I follow "Resend"
     Then I should see "Confirmation email resent to micah@botandrose.com"
     And "micah@botandrose.com" should receive an email from "info@riverwest24.com"
@@ -206,8 +206,8 @@ Feature: Riders can create user accounts that persist beyond races
   Scenario: Admin creates a new team from existing user profiles
     Given the following users exist:
       | email                | first_name | last_name | phone        | shirt_size |
-      | micah@botandrose.com | Micah      | Geisel    | 937.269.2023 | ML         |
-      | gubs@botandrose.com  | Michael    | Gubitosa  | 267.664.0528 | MXL        |
+      | micah@botandrose.com | Micah      | Geisel    | 937.269.2023 | L          |
+      | gubs@botandrose.com  | Michael    | Gubitosa  | 267.664.0528 | XL         |
 
     Given I am logged in as an admin
     When I follow "Current Race"
@@ -233,15 +233,16 @@ Feature: Riders can create user accounts that persist beyond races
       | Name       | Micah Geisel         |
       | Email      | micah@botandrose.com |
       | Phone      | 937.269.2023         |
-      | Shirt size | ML                   |
+      | Shirt size | L                    |
 
-    And I should see the following mens shirt sizes:
-      | Mens small      | 0 |
-      | Mens medium     | 0 |
-      | Mens large      | 1 |
-      | Mens x large    | 0 |
-      | Mens xx large   | 0 |
-      | Mens xxx large  | 0 |
+    And I should see the following shirt sizes:
+      | XS   | 0 |
+      | S    | 0 |
+      | M    | 0 |
+      | L    | 1 |
+      | XL   | 0 |
+      | XXL  | 0 |
+      | XXXL | 0 |
 
     When I type "gubs" into "Search" within the second rider form
     And I select the autocomplete option "gubs@botandrose.com"
@@ -250,15 +251,16 @@ Feature: Riders can create user accounts that persist beyond races
       | Name       | Michael Gubitosa    |
       | Email      | gubs@botandrose.com |
       | Phone      | 267.664.0528        |
-      | Shirt size | MXL                 |
+      | Shirt size | XL                  |
 
-    And I should see the following mens shirt sizes:
-      | Mens small      | 0 |
-      | Mens medium     | 0 |
-      | Mens large      | 1 |
-      | Mens x large    | 1 |
-      | Mens xx large   | 0 |
-      | Mens xxx large  | 0 |
+    And I should see the following shirt sizes:
+      | XS   | 0 |
+      | S    | 0 |
+      | M    | 0 |
+      | L    | 1 |
+      | XL   | 1 |
+      | XXL  | 0 |
+      | XXXL | 0 |
 
     When I press "Save"
     Then I should see "The team has been created."
@@ -269,18 +271,13 @@ Feature: Riders can create user accounts that persist beyond races
       | No   | No      | 1    | T     | Bot and Rose | 2      | 2        | Micah Geisel |
 
     And I should see the following shirts count:
-      | Mens Small       | 0 |
-      | Mens Medium      | 0 |
-      | Mens Large       | 1 |
-      | Mens X Large     | 1 |
-      | Mens Xx Large    | 0 |
-      | Mens Xxx Large   | 0 |
-      | Womens Small     | 0 |
-      | Womens Medium    | 0 |
-      | Womens Large     | 0 |
-      | Womens X Large   | 0 |
-      | Womens Xx Large  | 0 |
-      | Womens Xxx Large | 0 |
+      | XS   | 0 |
+      | S    | 0 |
+      | M    | 0 |
+      | L    | 1 |
+      | XL   | 1 |
+      | XXL  | 0 |
+      | XXXL | 0 |
 
     When I follow "New Team"
     And I fill in the following form:
@@ -296,14 +293,14 @@ Feature: Riders can create user accounts that persist beyond races
     Then I should see the following users:
       | NAME             | EMAIL                 | CONFIRMED? | ROLE  | RACES | SHIRT |
       | Admin Account    | admin@riverwest24.com | Yes        | Admin |       |       |
-      | Micah Geisel     | micah@botandrose.com  | Yes        |       | 2020  | ML    |
-      | Michael Gubitosa | gubs@botandrose.com   | Yes        |       | 2020  | MXL   |
+      | Micah Geisel     | micah@botandrose.com  | Yes        |       | 2020  | L     |
+      | Michael Gubitosa | gubs@botandrose.com   | Yes        |       | 2020  | XL    |
 
   # Scenario: Admin can download all users
     When I follow "Download users"
     Then I should download a CSV named "rw24-users-2020-06-19.csv" with the following contents:
       | Name             | Email                 | Confirmed? | Role  | Races | Shirt |
       | Admin Account    | admin@riverwest24.com | Yes        | Admin |       |       |
-      | Micah Geisel     | micah@botandrose.com  | Yes        |       | 2020  | ML    |
-      | Michael Gubitosa | gubs@botandrose.com   | Yes        |       | 2020  | MXL   |
+      | Micah Geisel     | micah@botandrose.com  | Yes        |       | 2020  | L     |
+      | Michael Gubitosa | gubs@botandrose.com   | Yes        |       | 2020  | XL    |
 

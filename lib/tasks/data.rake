@@ -1,7 +1,61 @@
 namespace :data do
+  task :populate_race_shirt_sizes => :environment do
+    Race.find_each do |race|
+      case race.year
+      when 2010..2017
+        shirt_sizes = %w[S M L XL]
+        key_map = {
+          "small" => "S",
+          "medium" => "M",
+          "large" => "L",
+          "x_large" => "XL",
+        }
+
+      when 2020..2023
+        shirt_sizes = \
+          %w[MS MM ML MXL MXXL MXXXL] +
+          %w[WS WM WL WXL WXXL WXXXL]
+        key_map = {
+          "mens_small" => "MS",
+          "mens_medium" => "MM",
+          "mens_large" => "ML",
+          "mens_x_large" => "MXL",
+          "mens_xx_large" => "MXXL",
+          "mens_xxx_large" => "MXXXL",
+          "womens_small" => "WS",
+          "womens_medium" => "WM",
+          "womens_large" => "WL",
+          "womens_x_large" => "WXL",
+          "womens_xx_large" => "WXXL",
+          "womens_xxx_large" => "WXXXL",
+        }
+
+      when 2024
+        shirt_sizes = %w[XS S M L XL XXL XXXL]
+        key_map = {}
+
+      else
+        shirt_sizes = []
+        key_map = {}
+      end
+
+      puts "#{race.year}: #{shirt_sizes}"
+      race.update! shirt_sizes: shirt_sizes
+
+      race.teams.find_each do |team|
+        team_shirt_sizes = JSON.load(team.shirt_sizes_before_type_cast).transform_keys(key_map).slice(*key_map.values)
+        team_shirt_sizes.reverse_merge!(team.default_shirt_sizes)
+        team.connection.update(<<~SQL)
+          UPDATE teams SET
+          shirt_sizes='#{team_shirt_sizes.to_json}'
+          WHERE id=#{team.id}
+        SQL
+      end
+    end
+  end
+
   task :clear_shirt_sizes => :environment do
     User.update_all shirt_size: nil
-    Team.update_all shirt_sizes: nil
   end
 
   task :fix_duplicate_team_positions => :environment do

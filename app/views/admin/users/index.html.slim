@@ -28,12 +28,3 @@ table.users-table
           = link_to "Delete user", [:admin, user], method: "delete", class: "delete-icon", title: "Delete user",
             data: { confirm: "Are you sure you want to delete this user?" }
 
-= content_for :sidebar do
-  .tabs
-    .tab.active
-      h3 ALL Shirt Sizes:
-      table.shirts-table
-        - ShirtSizes.options.each do |size|
-          tr
-            td = "#{size}  "
-            td = User.where(shirt_size: size).count

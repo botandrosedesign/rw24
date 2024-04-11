@@ -32,20 +32,26 @@ Given /^the following race teams exist:/ do |table|
       ].compact)
     end
 
-    field(:shirt_sizes) do |value|
+    transformation do |attributes|
+      value = attributes["shirt_sizes"]
+      default_shirt_sizes = attributes[:race].teams.build.default_shirt_sizes
+      attributes["shirt_sizes"] = default_shirt_sizes
+
       if value.present?
-        if value == "MM, MM, MM"
-          ShirtSizes.new(mens_medium: 3)
+        if value == "M, M, M"
+          attributes["shirt_sizes"].merge!("M" => 3)
         else
           raise NotImplementedError
         end
       end
+
+      attributes
     end
   end
 end
 
 Then "I should see the following teams:" do |table|
-  table.diff!
+  table.diff! ".team-list"
 end
 
 Then /^I should see (\d+|no) teams?$/ do |count|

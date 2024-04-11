@@ -5,7 +5,6 @@ Feature: Update my account
       | first_name            | Micah                |
       | last_name             | Geisel               |
       | phone                 | 555.111.1111         |
-      | shirt_size            | MXL                  |
       | password              | secret               |
 
     Given I am logged in as "micah@botandrose.com"
@@ -16,7 +15,6 @@ Feature: Update my account
       | First name            | Edit                 |
       | Last name             | Name                 |
       | Phone                 | 937.269.2023         |
-      | Shirt size            | ML                   |
       | Password              | abc123               |
       | Confirm password      | abc123               |
     And I press "Save My Account"
@@ -27,7 +25,6 @@ Feature: Update my account
       | First name            | Edit                 |
       | Last name             | Name                 |
       | Phone                 | 937.269.2023         |
-      | Shirt size            | ML                   |
       | Password              |                      |
       | Confirm password      |                      |
 
@@ -63,3 +60,4 @@ Feature: Update my account
     And I fill in "Password" with "newpassword"
     And I press "Login"
     Then I should see "Logged in successfully."
+

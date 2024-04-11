@@ -105,5 +105,4 @@
       %div(data-dialog-target="content")
 
     = javascript_importmap_tags :application
-    = javascript_tag "window.sizeMap = '#{ShirtSizes.new.sizes.invert.to_json}'"
     = yield :js

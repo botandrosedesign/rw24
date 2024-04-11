@@ -16,7 +16,6 @@
 
     = yield :before_javascript_include
 
-    = javascript_tag "window.sizeMap = '#{ShirtSizes.new.sizes.invert.to_json}'"
     = javascript_include_tag "adva_cms"
     = javascript_include_tag "admin"
     - unless Rails.env.test? # ckeditor screws up tests

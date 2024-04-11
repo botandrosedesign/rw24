@@ -8,8 +8,10 @@ class Race < ActiveRecord::Base
 
   store :settings
 
+  serialize :shirt_sizes, coder: JSON, type: Array, default: %w[XS S M L XL XXL XXXL]
+
   def self.published
-    where(:published => true).order("year desc")
+    where(published: true).order(year: :desc)
   end
 
   def self.current

@@ -20,9 +20,11 @@
       .field
         = form.label :phone
         = form.text_field :phone
-      .field
-        = form.label :shirt_size
-        = form.select :shirt_size, ShirtSizes.options, include_blank: true
+
+      - if current_race
+        .field
+          = form.label :shirt_size
+          = form.select :shirt_size, current_race.shirt_sizes, include_blank: true
 
     .help-text Leave the below fields blank to keep your existing password
     .flex

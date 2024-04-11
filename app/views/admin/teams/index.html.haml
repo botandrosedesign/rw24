@@ -47,7 +47,8 @@
           %td=h team.category_initial
           %td= link_to h(team.name), [:edit, :admin, @race, team]
           %td= team.riders.size
-          %td{ class: "#{"missing-shirts" if team.riders.size != team.shirt_sizes.total }"}= team.shirt_sizes.total
+          %td{ class: "#{"missing-shirts" if team.riders.size != team.shirt_sizes.total }"}
+            = team.shirt_sizes.total
           %td
             - if team.captain
               = mail_to team.captain.email, h(team.captain.name), :cc => team.lieutenant_emails, :subject => team.position_and_name
@@ -78,12 +79,13 @@
               = category.name
               %b= @race.teams.by_category(category).count
 
-        %dl.shirts-count
-          Shirts:
+        Shirts:
+        %table.shirts-count
           - @race.shirt_size_counts.each do |size, count|
-            %dfn
-              %dt= size.titleize
-              %dd= count
+            %tr
+              %td(style="padding-right: 5px")
+                %b= size
+              %td= count
 
       %p= button_to "Download Database", [:admin, :database, format: :sql], method: :get
       %p= button_to "Export Teams", [:admin, @race, :teams, format: :csv], method: :get

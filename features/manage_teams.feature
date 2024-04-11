@@ -20,9 +20,9 @@ Feature: Admins can manage teams
 
     When I fill in "Team Name" with "Bot and Rose Design"
     And I select "A Team" from "Category"
-    And I fill in "Mens large" with "2"
-    And I fill in "Mens xx large" with "1"
-    And I fill in "Womens small" with "1"
+    And I fill in "S" with "1"
+    And I fill in "L" with "2"
+    And I fill in "XXL" with "1"
 
     And I check "Paid?" within the first rider form
     And I fill in "Name" with "Micah Geisel" within the first rider form
@@ -46,25 +46,20 @@ Feature: Admins can manage teams
       | 1/3  | No      | 3    | A     | Bot and Rose Design | 3      | 4        | Micah Geisel |
 
     And I should see the following shirts count:
-      | Mens Small       | 0 |
-      | Mens Medium      | 0 |
-      | Mens Large       | 2 |
-      | Mens X Large     | 0 |
-      | Mens Xx Large    | 1 |
-      | Mens Xxx Large   | 0 |
-      | Womens Small     | 1 |
-      | Womens Medium    | 0 |
-      | Womens Large     | 0 |
-      | Womens X Large   | 0 |
-      | Womens Xx Large  | 0 |
-      | Womens Xxx Large | 0 |
+      | XS   | 0 |
+      | S    | 1 |
+      | M    | 0 |
+      | L    | 2 |
+      | XL   | 0 |
+      | XXL  | 1 |
+      | XXXL | 0 |
 
   Scenario: An Admin edits a team
     When I follow "Edit" within the "BARD" team
 
     And I fill in "Team Name" with "Bog and Rat Defeat"
     And I select "Tandem" from "Category"
-    And I fill in "Mens small" with "2"
+    And I fill in "S" with "2"
     And I fill in "Name" with "Michael Gubitosa" within the second rider form
     And I fill in "Email" with "gubs@botandrose.com" within the second rider form
     And I press "Save"

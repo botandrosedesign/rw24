@@ -21,7 +21,7 @@
         = form.text_field :phone
       .field
         = form.label :shirt_size
-        = form.select :shirt_size, ShirtSizes.options, include_blank: true
+        = form.select :shirt_size, current_race.shirt_sizes, include_blank: true
 
     .flex
       .field

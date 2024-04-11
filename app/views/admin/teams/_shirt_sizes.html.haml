@@ -4,31 +4,8 @@
     .field
       %h4 Sizes
       .shirt-fields
-        .field
-          = shirt_sizes_form.label :x_small, class: "hidden"
-          = shirt_sizes_form.label :x_small, "XS"
-          = shirt_sizes_form.number_field :x_small
-        .field
-          = shirt_sizes_form.label :small, class: "hidden"
-          = shirt_sizes_form.label :small, "S"
-          = shirt_sizes_form.number_field :small
-        .field
-          = shirt_sizes_form.label :medium, class: "hidden"
-          = shirt_sizes_form.label :medium, "M"
-          = shirt_sizes_form.number_field :medium
-        .field
-          = shirt_sizes_form.label :large, class: "hidden"
-          = shirt_sizes_form.label :large, "L"
-          = shirt_sizes_form.number_field :large
-        .field
-          = shirt_sizes_form.label :x_large, class: "hidden"
-          = shirt_sizes_form.label :x_large, "XL"
-          = shirt_sizes_form.number_field :x_large
-        .field
-          = shirt_sizes_form.label :xx_large, class: "hidden"
-          = shirt_sizes_form.label :xx_large, "XXL"
-          = shirt_sizes_form.number_field :xx_large
-        .field
-          = shirt_sizes_form.label :xxx_large, class: "hidden"
-          = shirt_sizes_form.label :xxx_large, "XXXL"
-          = shirt_sizes_form.number_field :xxx_large
+        - @race.shirt_sizes.each do |size|
+          .field
+            = shirt_sizes_form.label size.to_sym, size
+            = shirt_sizes_form.number_field size.to_sym
+

@@ -7,7 +7,7 @@ Feature: Admins can batch send confirmation emails to teams
 
     Given the following race teams exist:
       | Name                | Class       | Leader Name  | Leader Email             | Rider 1 Email        | Rider 2 Email       | Shirt Sizes |
-      | Bot and Rose Design | A Team      | Micah Geisel | info@botandrose.com      | micah@botandrose.com | gubs@botandrose.com | MM, MM, MM  |
+      | Bot and Rose Design | A Team      | Micah Geisel | info@botandrose.com      | micah@botandrose.com | gubs@botandrose.com | M, M, M     |
       | Bog and Rat Defeat  | B Team      | Hacim Leseig | info@bogandrat.com       | micah@bogandrat.com  | gubs@bogandrat.com  |             |
       | Micah               | Solo (male) | Micah Diesel | originofstorms@gmail.com |                      |                     |             |
     And I am logged in as an admin
@@ -51,13 +51,13 @@ Feature: Admins can batch send confirmation emails to teams
 
     And "originofstorms@gmail.com" should receive an email
 
-    When "info@botandrose.com" opens the email with subject "RW24 2010 Confirmation: Bot and Rose Design (#1) - A Team - Shirts: MM, MM, MM"
+    When "info@botandrose.com" opens the email with subject "RW24 2010 Confirmation: Bot and Rose Design (#1) - A Team - Shirts: M, M, M"
     Then they should see the following in the email body:
       """
       Team name: Bot and Rose Design
       Position: 1
       Class: A Team
-      Shirt sizes: MM, MM, MM
+      Shirt sizes: M, M, M
 
       ---
 

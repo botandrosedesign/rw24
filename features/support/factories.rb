@@ -91,6 +91,5 @@ FactoryBot.define do
     name
     email
     phone
-    shirt { "M" }
   end
 end

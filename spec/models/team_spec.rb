@@ -101,15 +101,7 @@ describe Team do
       subject.shirt_sizes = {"small" => "1"}
       subject.shirt_sizes.small.should == 1
       subject.save(validate: false)
-      subject.shirt_sizes.attributes.should == {
-        x_small: 0,
-        small: 1,
-        medium: 0,
-        large: 0,
-        x_large: 0,
-        xx_large: 0,
-        xxx_large: 0,
-      }
+      subject.shirt_sizes.attributes.should == { "small" => 1 }
       subject.shirt_sizes.small.should == 1
     end
   end
