@@ -1,4 +1,17 @@
 namespace :data do
+  task :fix_ckeditor_assets => :environment do
+    system "cp public/userfiles/*.jpg public/userfiles/image/"
+    system "cp public/userfiles/*.JPG public/userfiles/image/"
+    system "cp public/userfiles/image/AroundTheHorn/*.jpg public/userfiles/image/"
+    system "cp public/userfiles/image/AroundTheHorn/*.JPG public/userfiles/image/"
+
+    Ckeditor::Picture.where(id: [32, 33, 35, 36]).destroy_all
+
+    ENV["CLASS"] = "Ckeditor::Picture"
+    Rake::Task["paperclip:clean"].invoke
+    Rake::Task["paperclip:refresh"].invoke
+  end
+
   task :populate_race_shirt_sizes => :environment do
     Race.find_each do |race|
       case race.year
