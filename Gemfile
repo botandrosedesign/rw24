@@ -22,7 +22,7 @@ gem "awesome_nested_set"
 gem "active_record-json_associations"
 gem "nacelle"
 gem "ckeditor"
-gem "image_processing"
+gem "kt-paperclip"
 gem "adva", github: "botandrose/adva_cms", branch: "rm-jquery"
 
 gem "delayed_job_active_record"
