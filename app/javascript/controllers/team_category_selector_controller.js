@@ -1,12 +1,10 @@
 import { Controller } from "@hotwired/stimulus"
 import useActions from "stimulus-use-actions"
-import renderShirtSizeCounts from "lib/render_shirt_size_counts"
 
 export default class extends Controller {
   connect() {
     useActions(this, {
       element: "change",
-      window: "cocoon:after-remove->renderShirtSizeCounts",
     })
   }
 
@@ -30,12 +28,6 @@ export default class extends Controller {
         }, 10 * x)
       })
     }
-
-    renderShirtSizeCounts()
-  }
-
-  renderShirtSizeCounts() {
-    renderShirtSizeCounts()
   }
 }
 

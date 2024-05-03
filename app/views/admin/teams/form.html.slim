@@ -1,6 +1,6 @@
 = error_messages_for @team
 
-= form_for [:admin, @race, @team] do |form|
+= form_for [:admin, @race, @team], data: { controller: "shirt-sizes" } do |form|
   = form.hidden_field :race_id
   h2
     = form.object.new_record? ? "New" : "Edit"
@@ -26,8 +26,17 @@
       .add-rider-link = link_to_add_association "Add rider", form, :riders
 
   - if @race.year >= 2018
-    .field = render "shirt_sizes", form: form
-
+    .field
+      = form.label :shirt_sizes
+      = form.fields_for :shirt_sizes, form.object.shirt_sizes do |shirt_sizes_form|
+        .all-shirt-fields
+          .field
+            h4 Sizes
+            .shirt-fields
+              - @race.shirt_sizes.each do |size|
+                .field
+                  = shirt_sizes_form.label size.to_sym, size
+                  = shirt_sizes_form.number_field size.to_sym, data: { shirt_sizes_target: "output" }
 
   hr
 

@@ -1,7 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 import "@kollegorna/cocoon-vanilla-js"
 import autocomplete from 'autocompleter'
-import renderShirtSizeCounts from "lib/render_shirt_size_counts"
 import { post } from "rails-request-json"
 
 export default class extends Controller {
@@ -37,8 +36,9 @@ export default class extends Controller {
           this.element.querySelector("input[name$='[name]']").value = user.name
           this.element.querySelector("input[name$='[email]']").value = user.email
           this.element.querySelector("input[name$='[phone]']").value = user.phone
-          this.element.querySelector("select[name$='[shirt_size]']").value = user.shirt_size
-          renderShirtSizeCounts()
+          const e = this.element.querySelector("select[name$='[shirt_size]']")
+          e.value = user.shirt_size
+          e.dispatchEvent(new Event('change'))
         } else {
           post(`/admin/users/${user.user_id}/resend_confirmation.js`).then(() => {
             alert(`Confirmation email resent to ${user.email}`)
