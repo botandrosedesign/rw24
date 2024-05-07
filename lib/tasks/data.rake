@@ -1,4 +1,13 @@
 namespace :data do
+  task :fix_team_numbers => :environment do
+    Race.last.teams.where("position >= 493").each do |team|
+      team.update position: team.position - 72
+    end
+    Race.last.teams.where("position >= 531").each do |team|
+      team.update position: team.position - 18
+    end
+  end
+
   task :fix_ckeditor_assets => :environment do
     system "cp public/userfiles/*.jpg public/userfiles/image/"
     system "cp public/userfiles/*.JPG public/userfiles/image/"
