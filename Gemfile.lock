@@ -503,6 +503,7 @@ DEPENDENCIES
   adva!
   auto_strip_attributes
   awesome_nested_set
+  backhoe
   bard
   bard-rake
   bard-staging_banner

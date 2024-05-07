@@ -1,7 +1,7 @@
 class Admin::DatabasesController < Admin::BaseController
   def show
-    Backhoe.dump({
-      file_path: temp_path,
+    Backhoe.dump(
+      temp_path,
       skip_tables: [
         :accounts,
         :activities,
@@ -22,7 +22,7 @@ class Admin::DatabasesController < Admin::BaseController
           :line_2,
         ],
       }
-    })
+    )
     send_file temp_path,
       filename: filename,
       type: "application/sql"
