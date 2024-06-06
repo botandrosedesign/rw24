@@ -7,6 +7,11 @@ on:
         description: Git Ref
         default: master
         required: true
+
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   test:
     runs-on: ubuntu-20.04-16core
@@ -30,4 +35,22 @@ jobs:
         run: bin/setup
       - name: Run tests
         run: bin/ci
+
+  automerge-dependabot-prs:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.actor == 'dependabot[bot]'
+    steps:
+      - name: Authenticate GitHub CLI
+        run: echo "${{secrets.PERSONAL_ACCESS_TOKEN}}" | gh auth login --with-token
+        env:
+          GH_TOKEN: ${{secrets.PERSONAL_ACCESS_TOKEN}}
+      - name: Verify Authenticated User
+        run: gh auth status
+        env:
+          GH_TOKEN: ${{secrets.PERSONAL_ACCESS_TOKEN}}
+      - name: Merge Dependabot PR
+        run: gh pr merge ${{github.event.pull_request.number}} --rebase --repo ${{github.repository}}
+        env:
+          GH_TOKEN: ${{secrets.PERSONAL_ACCESS_TOKEN}}
 
