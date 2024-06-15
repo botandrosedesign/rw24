@@ -7,6 +7,10 @@ class AccountsController < BaseController
     @user = User.new
   end
 
+  def show
+    @team = current_user.team_for(Race.current)
+  end
+
   def create
     @user = User.new(create_user_params)
     if @user.save

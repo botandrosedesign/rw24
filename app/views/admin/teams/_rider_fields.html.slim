@@ -1,19 +1,24 @@
 - form ||= f
-fieldset.field.nested-fields.rider-field data-controller="autocomplete" data-autocomplete-users-value=form.object.autocomplete_options_for_race(@race).to_json
+fieldset.field.nested-fields.rider-field data-controller="autocomplete" data-autocomplete-users-value=form.object.autocomplete_options_for_race(form.object.team.race).to_json
   div
-    .remove-rider
-      = link_to_remove_association form do
-        span Removes rider
+    - if @menu # is backend
+      .remove-rider
+        = link_to_remove_association form do
+          span Removes rider
 
     h4 Rider
-    .field
-      label for="team_riders_attributes_#{form.index}_search" Search
-      input.autocomplete-input id="team_riders_attributes_#{form.index}_search" data-autocomplete-target="field"
-      = form.hidden_field :user_id
+    - if @menu # is backend
+      .field
+        label for="team_riders_attributes_#{form.index}_search" Search
+        input.autocomplete-input id="team_riders_attributes_#{form.index}_search" data-autocomplete-target="field"
+        = form.hidden_field :user_id
+    - else
+        input type="hidden" data-autocomplete-target="field"
+
     .field = form.check_box :paid, label: "Paid?"
     .field = form.text_field :name, label: true
     .field = form.text_field :email, label: true
     .field = form.text_field :phone, label: true
-    .field = form.select :shirt_size, @race.shirt_sizes, { include_blank: true}, { label: "Shirt size", data: { shirt_sizes_target: "input", action: "shirt-sizes#render" } }
+    .field = form.select :shirt_size, form.object.team.race.shirt_sizes, { include_blank: true}, { label: "Shirt size", data: { shirt_sizes_target: "input", action: "shirt-sizes#render" } }
     .field = form.text_area :notes, label: true
 

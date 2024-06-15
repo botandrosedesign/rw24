@@ -1,13 +1,13 @@
-%h2 My Account
+h2 My Account
 
 = form_for current_user, url: account_path do |form|
-  %fieldset.registration-form
+  fieldset.registration-form
     .flex
       .field
         = form.label :email
-        %br
-        %p
-          %b= form.object.email
+        br
+        p
+          b = form.object.email
 
       .field
         = form.label :first_name
@@ -37,3 +37,11 @@
 
     .actions-field
       = form.submit "Save My Account"
+
+- if @team
+
+  h2 Team for #{current_race.year}
+  hr
+  fieldset.view-team disabled=true
+    = fields_for @team do |form|
+      = render "admin/teams/fields", form: form

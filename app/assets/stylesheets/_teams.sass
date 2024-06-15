@@ -183,3 +183,46 @@
 .missing-shirts
   background: lighten(pink, 8%)
   color: red
+
+//
+
+.view-team
+  .rider-flex
+    display: flex
+    padding: 0 0
+    +bp_mobile
+      flex-wrap: wrap
+  label
+    text-align: left
+    width: auto
+  & > fieldset
+    padding: 0
+    border: none
+
+  .rider-field
+    display: inline-block
+    flex: 1 0
+    float: none
+    font-size: 1em
+    padding: 0 10px 0 0
+    +bp_mobile
+      flex: 1 0 100%
+    .field
+      clear: none
+      float: none
+      display: inline-block
+      padding-right: 0px
+      position: relative
+      margin: 0 0 5px 0
+    label
+      font-size: 12px
+      margin: 0 0 3px
+    input, textarea
+      font-size: 12px
+      box-sizing: border-box
+    input.autocomplete-input
+      @extend %generic-input
+    textarea
+      max-width: 100%
+      min-width: initial
+      width: 100%

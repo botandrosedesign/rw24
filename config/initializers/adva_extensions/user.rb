@@ -18,6 +18,12 @@ ActiveSupport::Reloader.to_prepare do
     end
 
     auto_strip_attributes :first_name, :last_name, :email, :phone
+
+    def team_for race
+      if race
+        teams.find_by(race: race)
+      end
+    end
   end
 end
 
