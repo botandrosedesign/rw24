@@ -13,6 +13,9 @@ h4 Team Information
 
 fieldset
   .rider-flex
+    - if @menu # is backend
+      javascript:
+        window.riderAutocompleteOptions = #{raw form.object.race.rider_autocomplete_options.to_json};
     = form.fields_for :riders do |rider_form|
       = render "admin/teams/rider_fields", form: rider_form
     - if @menu # is backend

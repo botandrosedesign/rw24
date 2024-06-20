@@ -1,5 +1,5 @@
 - form ||= f
-fieldset.field.nested-fields.rider-field data-controller="autocomplete" data-autocomplete-users-value=form.object.autocomplete_options_for_race(form.object.team.race).to_json
+fieldset.field.nested-fields.rider-field data-controller=("autocomplete" if @menu)
   div
     - if @menu # is backend
       .remove-rider

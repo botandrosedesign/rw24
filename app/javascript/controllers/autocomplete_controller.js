@@ -8,17 +8,13 @@ export default class extends Controller {
     "field",
   ]
 
-  static values = {
-    users: Array,
-  }
-
   connect() {
     autocomplete({
       input: this.fieldTarget,
       container: document.createElement("ul"),
       className: "autocomplete",
       fetch: (text, update) => {
-        const matchedUsers = this.usersValue.filter(user => {
+        const matchedUsers = window.riderAutocompleteOptions.filter(user => {
           return user.label.toLowerCase().includes(text.toLowerCase())
         })
         update(matchedUsers)
