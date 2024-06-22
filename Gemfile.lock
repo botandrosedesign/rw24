@@ -112,7 +112,7 @@ GEM
       activerecord (>= 4.0)
     awesome_nested_set (3.6.0)
       activerecord (>= 4.0.0, < 7.2)
-    backhoe (0.7.0)
+    backhoe (0.8.2)
       activerecord
     bard (0.61.0)
       bard-rake (>= 0.19.0)
