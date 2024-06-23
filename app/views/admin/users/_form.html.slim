@@ -1,0 +1,12 @@
+fieldset
+  .col
+    = f.text_field :first_name, label: "First name"
+    = f.email_field :email, label: "Email"
+    = f.password_field :password, label: "Password"
+    = f.check_box :admin, label: " Admin?"
+
+  .col
+    = f.text_field :last_name, label: "Last name"
+    = f.text_field :homepage, label: "Homepage"
+
+- save_or_cancel_links f, cancel_url: admin_users_path
