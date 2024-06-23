@@ -1,0 +1,25 @@
+shirt_sizes = @race.shirt_sizes
+csv @teams.flat_map(&:riders), filename: "rw24-teams-#{@race.year}-#{Time.zone.now.strftime("%Y-%m-%d")}.csv", stream: false do
+  column("Pos") { |rider| rider.team.position }
+  column("Team Name") { |rider| rider.team.name }
+  column("Category") { |rider| rider.team.category_name }
+  column("Address") { |rider| rider.team.address }
+  column("Address 2") { |rider| rider.team.line_2 }
+  column("City") { |rider| rider.team.city }
+  column("State") { |rider| rider.team.state }
+  column("Zip") { |rider| rider.team.zip }
+
+  column("Shirt Total") { |rider| rider.team.shirt_sizes.total }
+  shirt_sizes.each do |size|
+    column(size) { |rider| rider.team.shirt_sizes.attributes[size] }
+  end
+
+  column "Rider Pos", :position
+  column("Rider Name") { |rider| rider.name.strip.gsub(/\s+/, ' ') }
+  column "Email"
+  column "Phone"
+  column "Paid"
+  column "Payment type"
+  column "Notes"
+end
+
