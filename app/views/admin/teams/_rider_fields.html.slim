@@ -21,4 +21,3 @@ fieldset.field.nested-fields.rider-field data-controller=("autocomplete" if @men
     .field = form.text_field :phone, label: true
     .field = form.select :shirt_size, form.object.team.race.shirt_sizes, { include_blank: true}, { label: "Shirt size", data: { shirt_sizes_target: "input", action: "shirt-sizes#render" } }
     .field = form.text_area :notes, label: true
-
