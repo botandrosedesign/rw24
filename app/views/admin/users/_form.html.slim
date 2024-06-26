@@ -1,23 +1,28 @@
-fieldset
-  .col
-    = f.text_field :first_name, label: "First name"
-    = f.email_field :email, label: "Email"
+fieldset.-padded
+  .flex
+    .field
+      = f.label :email
+      p
+        b = f.object.email
+    .field
+      = f.check_box :admin, label: " Admin?"
+
+  .flex
+    .field = f.text_field :first_name, label: "First name"
+    .field = f.text_field :last_name, label: "Last name"
+  .flex
+    .field = f.email_field :email, label: "Email"
+    .field = f.text_field :phone, label: "Phone"
+
+  .flex
+    - if current_race
+      .field
+        /= form.label :shirt_size
+        = f.select :shirt_size, current_race.shirt_sizes, include_blank: true, label: "Shirt size"
+    .field
+      = f.text_field :homepage, label: "Homepage"
+  .help-text Leave Password blank to keep existing
+  .field
     = f.password_field :password, label: "Password"
-    = f.check_box :admin, label: " Admin?"
-
-  .col
-    = f.text_field :last_name, label: "Last name"
-    = f.text_field :homepage, label: "Homepage"
-
-hr
-
-= mockup_form_for do |form|
-  fieldset disabled=true
-    h2 Team for #{current_race.year}
-    .field = form.check_box :paid, label: "Paid?"
-    .field = form.text_field :name, label: true
-    .field = form.text_field :phone, label: true
-    .field = form.select :shirt_size, form.object.team.race.shirt_sizes, { include_blank: true}, { label: "Shirt size", data: { shirt_sizes_target: "input", action: "shirt-sizes#render" } }
-    .field = form.text_area :notes, label: true
 
 - save_or_cancel_links f, cancel_url: admin_users_path
