@@ -1,0 +1,27 @@
+<h2><%= @user.name %></h2>
+
+<h3>Details</h3>
+<p>
+  Email:
+  <%= @user.email %>
+</p>
+
+<% if @user.homepage %>
+  <p>
+    Homepage:
+    <%= link_to @user.homepage, @user.homepage %>
+  </p>
+<% end %>
+
+<h3>Events</h3>
+<p>
+  Created at:
+  <%= @user.created_at %>
+</p>
+
+<p>
+  Updated at:
+  <%= @user.updated_at %>
+</p>
+
+<%= render :partial => 'sidebar' %>
