@@ -20,7 +20,7 @@ fieldset.-padded
         /= form.label :shirt_size
         = f.select :shirt_size, current_race.shirt_sizes, include_blank: true, label: "Shirt size"
     .field
-      = f.text_field :homepage, label: "Homepage"
+      / = f.text_field :homepage, label: "Homepage"
   .help-text Leave Password blank to keep existing
   .field
     = f.password_field :password, label: "Password"
