@@ -1,0 +1,32 @@
+h3 Details
+h2 = @user.name
+
+p
+  | Email:&nbsp;
+  = @user.email
+
+p
+  | Phone:&nbsp;
+  = @user.phone
+
+p
+  | Shirt size:&nbsp;
+  = @user.shirt_size
+
+- if @user.homepage
+  p
+    | Homepage:&nbsp;
+    = link_to @user.homepage, @user.homepage, target: "_blank"
+
+hr
+h3 Events
+p
+  | Created at:&nbsp;
+  = @user.created_at
+
+p
+  | Updated at:&nbsp;
+  = @user.updated_at
+
+
+= render :partial => 'sidebar'
