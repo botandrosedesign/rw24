@@ -24,7 +24,7 @@ gem "backhoe"
 gem "nacelle"
 gem "ckeditor"
 gem "kt-paperclip"
-gem "adva", github: "botandrose/adva_cms", branch: "rm-jquery"
+gem "adva", github: "botandrose/adva_cms"
 
 gem "delayed_job_active_record"
 gem "delayed_job_web"
