@@ -74,7 +74,7 @@
     id: 10,
     name: "Perfect Strangers",
     min: 2,
-    max: 2,
+    max: 6,
     initial: "P"
   },
 
