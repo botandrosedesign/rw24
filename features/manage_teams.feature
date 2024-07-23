@@ -3,9 +3,9 @@ Feature: Admins can manage teams
     Given today is "2020-06-19"
     And a race exists for 2020
     And the following race teams exist:
-      | POS# | Name | Class         | Leader Name | Leader Email          |
-      | 001  | BARD | Solo (male)   | Micah       | micah@riverwest24.com |
-      | 002  | BORG | Solo (male)   | Michael     | gubs@riverwest24.com  |
+      | POS# | Name | Class       | Leader Name | Leader Email          | Address               | City       | State | Zip   |
+      | 001  | BARD | Solo (male) | Micah       | micah@riverwest24.com | 214 Rainbow Drive     | Livingston | TX    | 77399 |
+      | 002  | BORG | Solo (male) | Michael     | gubs@riverwest24.com  | 625 NW Everett Street | Portland   | OR    | 97209 |
     And I am logged in as an admin
     When I follow "Current Race"
 
@@ -54,6 +54,15 @@ Feature: Admins can manage teams
       | XXL  | 1 |
       | XXXL | 0 |
 
+    When I press "Export Teams"
+    Then I should download a CSV named "rw24-teams-2020-2020-06-19.csv" with the following contents:
+      | Pos | Team Name           | Category    | Address               | Address 2 | City       | State | Zip   | Shirt Total | XS | S | M | L | XL | XXL | XXXL | Rider Pos | Rider Name       | Rider List                                 | Email                 | Phone        | Paid  | Payment type | Notes |
+      | 1   | BARD                | Solo (male) | 214 Rainbow Drive     |           | Livingston | TX    | 77399 | 0           | 0  | 0 | 0 | 0 | 0  | 0   | 0    | 1         | Micah            | Micah                                      | micah@riverwest24.com |              | false |              |       |
+      | 2   | BORG                | Solo (male) | 625 NW Everett Street |           | Portland   | OR    | 97209 | 0           | 0  | 0 | 0 | 0 | 0  | 0   | 0    | 1         | Michael          | Michael                                    | gubs@riverwest24.com  |              | false |              |       |
+      | 3   | Bot and Rose Design | A Team      |                       |           |            |       |       | 4           | 0  | 1 | 0 | 2 | 0  | 1   | 0    | 1         | Micah Geisel     | Micah Geisel, Michael Gubitosa, Nick Hogle | micah@botandrose.com  | 937.269.2023 | true  |              |       |
+      | 3   | Bot and Rose Design | A Team      |                       |           |            |       |       | 4           | 0  | 1 | 0 | 2 | 0  | 1   | 0    | 2         | Michael Gubitosa | Micah Geisel, Michael Gubitosa, Nick Hogle | gubs@botandrose.com   |              | false |              |       |
+      | 3   | Bot and Rose Design | A Team      |                       |           |            |       |       | 4           | 0  | 1 | 0 | 2 | 0  | 1   | 0    | 3         | Nick Hogle       | Micah Geisel, Michael Gubitosa, Nick Hogle | nick@botandrose.com   |              | false |              |       |
+
   Scenario: An Admin edits a team
     When I follow "Edit" within the "BARD" team
 
@@ -83,4 +92,3 @@ Feature: Admins can manage teams
     Then I should see the following teams:
       | PAID | EMAILED | POS# | CLASS | TEAM NAME          | RIDERS | T-SHIRTS | LEADER NAME |
       | No   | No      | 2    | S     | BORG               | 1      | 0        | Michael     |
-

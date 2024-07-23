@@ -16,6 +16,7 @@ csv @teams.flat_map(&:riders), filename: "rw24-teams-#{@race.year}-#{Time.zone.n
 
   column "Rider Pos", :position
   column("Rider Name") { |rider| rider.name.strip.gsub(/\s+/, ' ') }
+  column("Rider List") { |rider| rider.team.riders.map(&:name).join(", ") }
   column "Email"
   column "Phone"
   column "Paid"
