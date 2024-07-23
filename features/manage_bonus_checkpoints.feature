@@ -78,11 +78,23 @@ Feature: Admin can manage team bonuses
 
   Scenario: Log bonuses for teams
     When I follow "Bonus Form" within the "First Bonus" checkpoint
-    And I check "1"
-    And I press "Save"
-    Then I should see "Bonuses updated!"
-    And I should see the following form:
-      | 1 |
+    Then I should see the following bonus form:
+      | MANUAL TEAM INPUT |   |
+      | 1                 |   |
+      | 2                 |   |
+
+    When I check "1"
+    Then I should see the following bonus form:
+      | MANUAL TEAM INPUT |   |
+      | 1                 | ✓ |
+      | 2                 |   |
+
+    When I fill in "Manual team input" with "2"
+    And I press "→"
+    Then I should see the following bonus form:
+      | MANUAL TEAM INPUT |   |
+      | 1                 | ✓ |
+      | 2                 | ✓ |
 
     Given I am on the admin overview page
     When I follow "Races"
@@ -92,12 +104,13 @@ Feature: Admin can manage team bonuses
     And I should see the following team bonuses:
       | POS# | TEAM NAME | POINTS |
       | 1    | BARD      | 1      |
+      | 2    | BORG      | 1      |
 
     Given I am on the leaderboard page
     Then I should see the following leaderboard:
       | POS# | CLASS  | TEAM NAME | LAPS    | MILES      | BONUS | PENALTY | TOTAL |
+      | 002  | F      | BORG      | --      | --         | 01    | --      | 01    |
       | 001  | M      | BARD      | --      | --         | 01    | --      | 01    |
-      | 002  | F      | BORG      | --      | --         | --    | --      | --    |
       |      |        |           | 0 LAPS! | 0.0 MILES! |       |         |       |
 
     When I follow "BARD"
@@ -125,8 +138,10 @@ Feature: Admin can manage team bonuses
   Scenario: Getting all bonuses except Tattoo awards All Bonuses! bonus
     When I follow "Bonus Form" within the "First Bonus" checkpoint
     And I check "1"
-    And I press "Save"
-    Then I should see "Bonuses updated!"
+    Then I should see the following bonus form:
+      | MANUAL TEAM INPUT |   |
+      | 1                 | ✓ |
+      | 2                 |   |
 
     Given I am on the admin overview page
     When I follow "Races"
@@ -134,8 +149,10 @@ Feature: Admin can manage team bonuses
 
     When I follow "Bonus Form" within the "Second Bonus" checkpoint
     And I check "1"
-    And I press "Save"
-    Then I should see "Bonuses updated!"
+    Then I should see the following bonus form:
+      | MANUAL TEAM INPUT |   |
+      | 1                 | ✓ |
+      | 2                 |   |
 
     Given I am on the leaderboard page
     Then I should see the following leaderboard:
@@ -159,8 +176,10 @@ Feature: Admin can manage team bonuses
 
     When I follow "Bonus Form" within the "Third Bonus" checkpoint
     And I check "1"
-    And I press "Save"
-    Then I should see "Bonuses updated!"
+    Then I should see the following bonus form:
+      | MANUAL TEAM INPUT |   |
+      | 1                 | ✓ |
+      | 2                 |   |
 
     Given I am on the points page
     When I press and confirm "Assign All Bonuses Bonus"

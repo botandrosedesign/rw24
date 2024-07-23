@@ -149,8 +149,9 @@ Feature: Admin can manage team scoring
 
     When I follow "Bonus Form"
     And I check "1"
-    And I press "Save"
-    Then I should see "Bonuses updated!"
-    And I should see the following form:
-      | 1 |
+    Then I should see the following bonus form:
+      | MANUAL TEAM INPUT |   |
+      | 1                 | ✓ |
+      | 2                 |   |
+
 

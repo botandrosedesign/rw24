@@ -1,3 +1,6 @@
+@charset "UTF-8"
+@import "constant"
+
 h3
   white-space: nowrap
   text-overflow: ellipsis
@@ -34,14 +37,20 @@ h3
     vertical-align: middle
 
 .bonus-fields
+  clear: both
   display: flex
   flex-wrap: wrap
   margin-bottom: 10px
   .field
     display: inline-flex
-    flex: 0 0 10%
+    flex: 0 0 8%
     position: relative
     margin: 0
+    padding: 0 10px 10px 0
+    float: none
+    +bp_mobile
+      flex: 0 0 20%
+      padding-right: 10px
   input
     position: absolute
     z-index: 1
@@ -55,17 +64,15 @@ h3
     float: none
     display: inline-block
     line-height: 40px
-    margin: auto
+    margin: 0 !important
     flex: 1 0
     text-align: center
     padding-left: 5px
     font-size: 1.5em
     border: 1px dotted #e0e0e0
-    margin: 3px
     padding: 0 10px
     color: #ccc
     cursor: pointer
     &:hover
       color: #999
       border-style: solid
-

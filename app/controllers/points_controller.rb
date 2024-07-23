@@ -22,17 +22,23 @@ class PointsController < BaseController
   end
 
   def update_bonuses
-    @checkpoint = Bonus.find_by_key(params[:key])
-    @race = @checkpoint.race
-    attributes = { race: @race, category: "Bonus", qty: @checkpoint.points, bonus_id: @checkpoint.id }
+    checkpoint = Bonus.find_by_key(params[:key])
+    race = checkpoint.race
+    team = race.teams.find(params[:team_id])
 
-    @race.teams.find(params[:team_ids]).each do |team|
-      team.points.where(attributes).first_or_create!
+    scope = team.points.where({
+      race: race,
+      category: "Bonus",
+      qty: checkpoint.points,
+      bonus_id: checkpoint.id,
+    })
+
+    if params[:checked] == "1"
+      scope.first_or_create!
+    else
+      scope.destroy_all
     end
-
-    team_ids_without = @race.team_ids.map(&:to_s) - params[:team_ids]
-    Point.where(attributes.merge(team_id: team_ids_without)).destroy_all
-    redirect_to({ action: :bonus, key: params[:key] }, notice: "Bonuses updated!")
+    render json: true
   end
 
   def show
