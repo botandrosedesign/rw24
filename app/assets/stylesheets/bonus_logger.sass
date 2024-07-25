@@ -36,14 +36,30 @@ h3
     padding: 0
     vertical-align: middle
 
+.manual-input-field
+  position: relative
+  .number
+    width: calc(100% - 50px) !important
+  .submit
+    position: absolute
+    right: 0px
+    bottom: 4px
+    z-index: 1
+
+@keyframes spin
+  from
+    transform: rotate(0deg)
+  to
+    transform: rotate(360deg)
+
 .bonus-fields
   clear: both
   display: flex
   flex-wrap: wrap
   margin-bottom: 10px
-  .field
+  form
     display: inline-flex
-    flex: 0 0 8%
+    flex: 0 0 6%
     position: relative
     margin: 0
     padding: 0 10px 10px 0
@@ -51,6 +67,9 @@ h3
     +bp_mobile
       flex: 0 0 20%
       padding-right: 10px
+  .field
+    padding: 0
+    margin: 0
   input
     position: absolute
     z-index: 1
@@ -60,7 +79,23 @@ h3
         color: #fff
         background: #ff6400
         border: 1px solid #ff6400
+    &:indeterminate
+      & + label
+        background: yellow
+        color: yellow
+        &::after
+          content: "\f013"
+          font-family: fontawesome
+          font-size: 2em
+          color: rgba(#000, 0.1)
+          position: absolute
+          width: calc( 100% - 12px)
+          top: 1px
+          left: 1px
+          transform-origin: 50% 50%
+          animation: spin 1.5s linear infinite
   label
+    width: 100%
     float: none
     display: inline-block
     line-height: 40px

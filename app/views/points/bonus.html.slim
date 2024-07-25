@@ -6,15 +6,15 @@ h3 Bonus Logger - #{@checkpoint.name}
 #bonus-form
   .field.-nowrap
     form data-controller="bonus-manual-input"
-      = label_tag :manual_team_input
-      = number_field_tag :manual_team_input, nil, data: { bonus_manual_input_target: "field" }
-      input.submit type="submit" value="→"
+      .field.manual-input-field
+        = label_tag :manual_team_input
+        = number_field_tag :manual_team_input, nil, data: { bonus_manual_input_target: "field" }
+        input.submit type="submit" value="→"
 
   .bonus-fields
     - @race.teams.each do |team|
-      = form_tag nil, method: :put, data: { remote: true } do
+      = form_tag nil, method: :put, data: { remote: true, controller: "bonus-team-form" } do
         = hidden_field_tag :team_id, team.id, id: nil
         .field
-          = check_box_tag "checked", 1, team.has_bonus?(@checkpoint), id: "team_#{team.position}", onchange: "this.form.requestSubmit()"
+          = check_box_tag "checked", 1, team.has_bonus?(@checkpoint), id: "team_#{team.position}", data: { bonus_team_form_target: "field" }
           = label_tag "team_#{team.position}", team.position
-

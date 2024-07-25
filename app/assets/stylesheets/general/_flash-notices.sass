@@ -7,6 +7,10 @@
   padding: 0
   z-index: 2
   flex: 1 0 100%
+  position: absolute
+  left: 0
+  width: 100%
+  top: -20px
 
 #flash_notice
   background: $primaryColor
@@ -15,3 +19,7 @@
   background: darken( $red, 5% )
   background-image: linear-gradient( $red 0%, darken( $red, 5% ) 20%, darken( $red, 5% ) 80%, darken( $red, 10% ) 100% )
 
+#flash_notice:not(:empty)
+  #flash_alert, #flash_error
+    &:not(:empty)
+      top: 0

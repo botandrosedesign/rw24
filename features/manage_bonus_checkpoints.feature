@@ -84,14 +84,16 @@ Feature: Admin can manage team bonuses
       | 2                 |   |
 
     When I check "1"
-    Then I should see the following bonus form:
+    Then I should see "Bonus assigned to team 1"
+    And I should see the following bonus form:
       | MANUAL TEAM INPUT |   |
       | 1                 | ✓ |
       | 2                 |   |
 
     When I fill in "Manual team input" with "2"
     And I press "→"
-    Then I should see the following bonus form:
+    Then I should see "Bonus assigned to team 2"
+    And I should see the following bonus form:
       | MANUAL TEAM INPUT |   |
       | 1                 | ✓ |
       | 2                 | ✓ |
@@ -138,10 +140,7 @@ Feature: Admin can manage team bonuses
   Scenario: Getting all bonuses except Tattoo awards All Bonuses! bonus
     When I follow "Bonus Form" within the "First Bonus" checkpoint
     And I check "1"
-    Then I should see the following bonus form:
-      | MANUAL TEAM INPUT |   |
-      | 1                 | ✓ |
-      | 2                 |   |
+    Then I should see "Bonus assigned to team 1"
 
     Given I am on the admin overview page
     When I follow "Races"
@@ -149,10 +148,7 @@ Feature: Admin can manage team bonuses
 
     When I follow "Bonus Form" within the "Second Bonus" checkpoint
     And I check "1"
-    Then I should see the following bonus form:
-      | MANUAL TEAM INPUT |   |
-      | 1                 | ✓ |
-      | 2                 |   |
+    Then I should see "Bonus assigned to team 1"
 
     Given I am on the leaderboard page
     Then I should see the following leaderboard:
@@ -176,10 +172,7 @@ Feature: Admin can manage team bonuses
 
     When I follow "Bonus Form" within the "Third Bonus" checkpoint
     And I check "1"
-    Then I should see the following bonus form:
-      | MANUAL TEAM INPUT |   |
-      | 1                 | ✓ |
-      | 2                 |   |
+    Then I should see "Bonus assigned to team 1"
 
     Given I am on the points page
     When I press and confirm "Assign All Bonuses Bonus"
