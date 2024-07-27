@@ -24,7 +24,7 @@ end
 
 desc "statically cache leaderboard"
 task :cache_leaderboard => :environment do
-  @race = Race.curent
+  @race = Race.current
   body = ApplicationController.render template: "teams/index", assigns: {
     site: Site.first,
     section: Section.first,
