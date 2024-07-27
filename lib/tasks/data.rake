@@ -1,4 +1,11 @@
 namespace :data do
+  task :fix_tattoo_bonus_points => :environment do
+    race = Race.current
+    race.points.bonuses
+      .where(bonus_id: 0, qty: 2)
+      .update_all(qty: 5)
+  end
+
   task :fix_team_numbers => :environment do
     Race.last.teams.where("position >= 493").each do |team|
       team.update position: team.position - 72
