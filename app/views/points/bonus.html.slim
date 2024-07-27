@@ -19,12 +19,12 @@ h3 Bonus Logger - #{@checkpoint.name}
           = check_box_tag "checked", 1, team.has_bonus?(@checkpoint), id: "team_#{team.position}", data: { bonus_team_form_target: "field" }
           = label_tag "team_#{team.position}", team.position
 
-  .field.-nowrap
-    = form_tag nil, method: :post do
-      = hidden_field_tag :checked, 1
-      input.submit type="submit" value="AWARD to every team!" data-confirm="Are you sure you want to AWARD this bonus to every team?"
-  .field.-nowrap
-    = form_tag nil, method: :post do
-      = hidden_field_tag :checked, 0
-      input.submit type="submit" value="REMOVE from every team!" data-confirm="Are you sure you want to REMOVE this bonus from every team?"
-
+  .flex.-between
+    .field.-nowrap
+      = form_tag nil, method: :post do
+        = hidden_field_tag :checked, 1
+        input.submit.-green type="submit" value="AWARD to every team!" data-confirm="Are you sure you want to AWARD this bonus to every team?"
+    .field.-nowrap
+      = form_tag nil, method: :post do
+        = hidden_field_tag :checked, 0
+        input.submit.-red type="submit" value="REMOVE from every team!" data-confirm="Are you sure you want to REMOVE this bonus from every team?"
