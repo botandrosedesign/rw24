@@ -24,7 +24,7 @@ end
 
 desc "statically cache leaderboard"
 task :cache_leaderboard => :environment do
-  @race = Race.find_by_year!(2023)
+  @race = Race.curent
   body = ApplicationController.render template: "teams/index", assigns: {
     site: Site.first,
     section: Section.first,
@@ -33,6 +33,6 @@ task :cache_leaderboard => :environment do
   }
   
   FileUtils.mkdir_p "public/leader-board"
-  File.write "public/leader-board/2023.html", body
+  File.write "public/leader-board/#{@race.year}.html", body
 end
 
