@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       get "bonus", action: :bonuses, as: "bonuses"
       get "bonus/:key", :action => :bonus, :key => /[a-z0-9]+/, :as => "bonus"
       put "bonus/:key", :action => :update_bonuses, :key => /[a-z0-9]+/, :as => "update_bonuses"
+      post "bonus/:key", :action => :award_bonus_to_all, :key => /[a-z0-9]+/, :as => "award_bonus_to_all"
       post "assign_all_bonuses_bonuses"
     end
     post :split, on: :member

@@ -18,3 +18,8 @@ h3 Bonus Logger - #{@checkpoint.name}
         .field
           = check_box_tag "checked", 1, team.has_bonus?(@checkpoint), id: "team_#{team.position}", data: { bonus_team_form_target: "field" }
           = label_tag "team_#{team.position}", team.position
+
+  .field.-nowrap
+    = form_tag nil, method: :post do
+      input.submit type="submit" value="Award to every team!" data-confirm="Are you sure you want to assign this bonus to every team?"
+

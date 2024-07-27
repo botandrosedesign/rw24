@@ -124,6 +124,19 @@ Feature: Admin can manage team bonuses
       | - 3 - Third Bonus 24  |
       | - 4 - All Bonuses! 5  |
 
+  Scenario: Award bonus to every team
+    When I follow "Bonus Form" within the "First Bonus" checkpoint
+    Then I should see the following bonus form:
+      | MANUAL TEAM INPUT |   |
+      | 1                 |   |
+      | 2                 |   |
+    When I press and confirm "Award to every team!"
+    Then I should see "Bonus awarded to every team!"
+    And I should see the following bonus form:
+      | MANUAL TEAM INPUT |   |
+      | 1                 | ✓ |
+      | 2                 | ✓ |
+
 # Scenario: Admin can delete a bonus lap
 #   When I follow and confirm "Delete Score" within the "0 - Example Bonus" checkpoint
 #   Then I should see the following bonuses:

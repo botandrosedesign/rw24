@@ -41,6 +41,20 @@ class PointsController < BaseController
     render json: true
   end
 
+  def award_bonus_to_all
+    checkpoint = Bonus.find_by_key(params[:key])
+    race = checkpoint.race
+    race.teams.each do |team|
+      team.points.where({
+        race: race,
+        category: "Bonus",
+        qty: checkpoint.points,
+        bonus_id: checkpoint.id,
+      }).first_or_create!
+    end
+    redirect_to({ action: :bonus, key: params[:key] }, notice: "Bonus awarded to every team!")
+  end
+
   def show
     @team = @race.teams.find_by_position(params[:id])
     render "teams/show"
