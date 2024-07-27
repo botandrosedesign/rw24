@@ -21,5 +21,10 @@ h3 Bonus Logger - #{@checkpoint.name}
 
   .field.-nowrap
     = form_tag nil, method: :post do
-      input.submit type="submit" value="Award to every team!" data-confirm="Are you sure you want to assign this bonus to every team?"
+      = hidden_field_tag :checked, 1
+      input.submit type="submit" value="AWARD to every team!" data-confirm="Are you sure you want to AWARD this bonus to every team?"
+  .field.-nowrap
+    = form_tag nil, method: :post do
+      = hidden_field_tag :checked, 0
+      input.submit type="submit" value="REMOVE from every team!" data-confirm="Are you sure you want to REMOVE this bonus from every team?"
 

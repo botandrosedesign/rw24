@@ -44,15 +44,25 @@ class PointsController < BaseController
   def award_bonus_to_all
     checkpoint = Bonus.find_by_key(params[:key])
     race = checkpoint.race
-    race.teams.each do |team|
-      team.points.where({
-        race: race,
+
+    if params[:checked] == "1"
+      race.teams.each do |team|
+        team.points.where({
+          race: race,
+          category: "Bonus",
+          qty: checkpoint.points,
+          bonus_id: checkpoint.id,
+        }).first_or_create!
+      end
+      flash.notice = "Bonus awarded to every team!"
+    else
+      race.points.where({
         category: "Bonus",
-        qty: checkpoint.points,
         bonus_id: checkpoint.id,
-      }).first_or_create!
+      }).destroy_all
+      flash.notice = "Bonus removed from every team!"
     end
-    redirect_to({ action: :bonus, key: params[:key] }, notice: "Bonus awarded to every team!")
+    redirect_to action: :bonus, key: params[:key]
   end
 
   def show

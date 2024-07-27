@@ -130,12 +130,20 @@ Feature: Admin can manage team bonuses
       | MANUAL TEAM INPUT |   |
       | 1                 |   |
       | 2                 |   |
-    When I press and confirm "Award to every team!"
+    When I press and confirm "AWARD to every team!"
     Then I should see "Bonus awarded to every team!"
     And I should see the following bonus form:
       | MANUAL TEAM INPUT |   |
       | 1                 | ✓ |
       | 2                 | ✓ |
+
+  # Scenario: Remove bonus from every team
+    When I press and confirm "REMOVE from every team!"
+    Then I should see "Bonus removed from every team!"
+    And I should see the following bonus form:
+      | MANUAL TEAM INPUT |   |
+      | 1                 |   |
+      | 2                 |   |
 
 # Scenario: Admin can delete a bonus lap
 #   When I follow and confirm "Delete Score" within the "0 - Example Bonus" checkpoint
