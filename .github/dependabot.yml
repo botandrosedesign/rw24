@@ -1,0 +1,17 @@
+version: 2
+updates:
+  - package-ecosystem: "bundler"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    allow:
+      - dependency-type: "all"
+    rebase-strategy: "disabled"
+    versioning-strategy: "lockfile-only"
+    groups:
+      semver_updates:
+        applies-to: "version-updates"
+        update-types:
+          - "minor"
+          - "patch"
+
