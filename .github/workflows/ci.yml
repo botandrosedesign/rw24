@@ -13,6 +13,7 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-22.04-16core
+    timeout-minutes: 30
     env:
       RAILS_ENV: test
       RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
@@ -37,6 +38,7 @@ jobs:
   autodeploy-dependabot-prs:
     needs: test
     runs-on: ubuntu-22.04
+    timeout-minutes: 30
     if: github.actor == 'dependabot[bot]'
     steps:
       - name: Merge Dependabot PR
