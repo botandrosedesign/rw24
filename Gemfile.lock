@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/botandrose/adva_cms.git
-  revision: 9d1d35fcedc446eedb27aaaa1707a5bf1d453b2f
+  revision: 881fcd09dc956c9bf84ec3247c92c95f0e4ef212
   specs:
-    adva (0.1.4)
+    adva (0.2.0)
       actionpack-page_caching
       awesome_nested_set
       ckeditor
