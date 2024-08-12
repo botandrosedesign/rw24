@@ -3,7 +3,7 @@ git_source(:github) { |repo_name| "https://github.com/#{repo_name}.git" }
 
 gem "bootsnap", require: false
 gem "rails", "~>7.1.0"
-gem "mysql2"
+gem "trilogy"
 gem "bard-rake"
 gem "bard-static"
 gem "bard-staging_banner"
@@ -47,7 +47,7 @@ end
 group :development, :test do
   gem "byebug"
   gem "parallel_tests", "~>3.9.0" # 3.10 pegs cpu
-  gem "sqlite3"
+  gem "sqlite3", "~>1.0" # 2.0 breaks stuff until rails 7.2
   gem "rspec-rails"
 end
 

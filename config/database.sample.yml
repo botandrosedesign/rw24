@@ -1,5 +1,5 @@
 login: &login
-  adapter: mysql2
+  adapter: trilogy
   database: rw24
   username: root
   password:
