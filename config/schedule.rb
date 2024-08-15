@@ -25,7 +25,3 @@ every 1.minute do
   rake "cache_leaderboard"
 end
 
-every 1.day do
-  rake "db:backup"
-end
-
