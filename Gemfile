@@ -3,14 +3,11 @@ git_source(:github) { |repo_name| "https://github.com/#{repo_name}.git" }
 
 gem "bootsnap", require: false
 gem "rails", "~>7.1.0"
+gem "bard-rails"
 gem "trilogy"
-gem "bard-rake"
-gem "bard-static"
-gem "bard-staging_banner"
 gem "haml-rails"
-gem "slim-rails"
 gem "decisive"
-gem "input_css"
+gem "input_css" # FIXME
 gem "invisible_captcha"
 gem "csv_builder"
 gem "nokogiri"
@@ -40,7 +37,6 @@ gem "importmap-rails", "~>1.0" # 2.0 requires vendoring
 gem "stimulus-rails"
 
 group :development do
-  gem "bard"
   gem "web-console"
 end
 

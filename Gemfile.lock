@@ -130,8 +130,7 @@ GEM
       aws-eventstream (~> 1, >= 1.0.2)
     backhoe (0.10.0)
       activerecord
-    bard (0.68.0)
-      bard-rake (>= 0.19.0)
+    bard (0.69.2)
       rvm
       term-ansicolor (>= 1.0.3)
       thor (>= 0.19.0)
@@ -140,6 +139,17 @@ GEM
       aws-sdk-s3 (~> 1.0)
       backhoe
       rexml
+    bard-file_field (0.1.4)
+      activestorage (>= 7.1.0)
+    bard-rails (0.1.0)
+      bard
+      bard-file_field
+      bard-rake
+      bard-staging_banner
+      bard-static
+      labelled_form
+      rack-disable_css_animations
+      slim-rails
     bard-rake (0.24.0)
       backhoe (>= 0.6.0)
       bard-backup
@@ -241,7 +251,7 @@ GEM
       rubyXL
     delayed_job (4.1.12)
       activesupport (>= 3.0, < 8.0)
-    delayed_job_active_record (4.1.9)
+    delayed_job_active_record (4.1.10)
       activerecord (>= 3.0, < 8.0)
       delayed_job (>= 3.0, < 5)
     delayed_job_web (1.4.4)
@@ -319,6 +329,8 @@ GEM
       marcel (~> 1.0.1)
       mime-types
       terrapin (>= 0.6.0, < 2.0)
+    labelled_form (0.3.2)
+      actionview
     launchy (3.0.1)
       addressable (~> 2.8)
       childprocess (~> 5.0)
@@ -380,6 +392,8 @@ GEM
     rack (2.2.9)
     rack-cache (1.17.0)
       rack (>= 0.4)
+    rack-disable_css_animations (0.4.0)
+      rack
     rack-protection (3.2.0)
       base64 (>= 0.1.0)
       rack (~> 2.2, >= 2.2.4)
@@ -531,10 +545,7 @@ DEPENDENCIES
   auto_strip_attributes
   awesome_nested_set
   backhoe
-  bard
-  bard-rake
-  bard-staging_banner
-  bard-static
+  bard-rails
   bootsnap
   byebug
   capybara-screenshot
@@ -571,7 +582,6 @@ DEPENDENCIES
   rack-www
   rails (~> 7.1.0)
   rspec-rails
-  slim-rails
   sprockets-rails
   sqlite3 (~> 1.0)
   stimulus-rails
