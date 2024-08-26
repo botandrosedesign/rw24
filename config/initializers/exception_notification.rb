@@ -21,7 +21,7 @@ end
 Delayed::Worker.prepend Module.new {
   def handle_failed_job job, error
     super
-    ExceptionNotifier::Notifier.background_exception_notification(error).deliver if job.attempts + 1 == max_attempts(job)
+    ExceptionNotifier.notify_exception(error) if job.attempts + 1 == max_attempts(job)
   end
 }
 
