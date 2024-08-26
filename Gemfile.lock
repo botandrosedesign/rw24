@@ -131,7 +131,7 @@ GEM
       aws-eventstream (~> 1, >= 1.0.2)
     backhoe (0.10.0)
       activerecord
-    bard (1.0.5)
+    bard (1.0.8)
       rvm
       term-ansicolor (>= 1.0.3)
       thor (>= 0.19.0)
