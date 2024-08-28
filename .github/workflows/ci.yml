@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   test:
-    runs-on: ubuntu-22.04-16core
+    runs-on: ubuntu-22.04${{ github.actor != 'dependabot[bot]' && '-16core' || '' }}
     timeout-minutes: 30
     env:
       RAILS_ENV: test
