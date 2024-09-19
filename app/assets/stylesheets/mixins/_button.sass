@@ -16,7 +16,8 @@
   cursor: default
   text-transform: uppercase
   @if $hover
-    cursor: pointer
+    &
+      cursor: pointer
     &:hover
       background: darken( $bg, 4% )
       box-shadow: 0 0 5px 0 inset darken( $bg, 10% )
@@ -31,9 +32,10 @@
 
 =input-button($bg: $primaryColor, $text-color: #fcfcfc, $fa: false, $size: 1.4em, $fa-size: 1.2em)
   +button($bg, $text-color)
-  padding: 0
-  line-height: 1
-  font-size: $size
+  &
+    padding: 0
+    line-height: 1
+    font-size: $size
   input, button
     font-size: 1.1em
     border: none
@@ -56,4 +58,3 @@
       margin-top: -0.5em
       left: 20px
       font-size: $fa-size
-

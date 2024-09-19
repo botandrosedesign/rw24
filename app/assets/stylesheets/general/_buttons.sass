@@ -15,7 +15,8 @@
   margin: 0px
   cursor: default
   @if $hover
-    cursor: pointer
+    &
+      cursor: pointer
     &:hover
       background-image: linear-gradient( darken( $bg, 10% ), $bg )
       box-shadow: darken( $bg, 20% ) 0 0 5px 0 inset
@@ -37,7 +38,8 @@
 
 =input-button($bg: $primaryColor, $text-color: #fcfcfc, $fa: false)
   +button($bg, $text-color)
-  padding: 0
+  &
+    padding: 0
   input
     font-size: 1em
     border: none
@@ -53,9 +55,9 @@
 
 .ok-wrapper
   +input-button(#fff, #333)
-  margin-top: 23px
+  &
+    margin-top: 23px
   input
     line-height: 50px
   &.top_align
     margin-top: 5px
-
