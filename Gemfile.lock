@@ -393,7 +393,7 @@ GEM
     puma (6.4.3)
       nio4r (~> 2.0)
     racc (1.8.1)
-    rack (2.2.9)
+    rack (2.2.10)
     rack-cache (1.17.0)
       rack (>= 0.4)
     rack-disable_css_animations (0.4.0)
