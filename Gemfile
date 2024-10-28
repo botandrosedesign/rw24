@@ -50,7 +50,7 @@ end
 group :test do
   gem "cucumber-rails", require: false
   gem "cuprite-downloads"
-  gem "puma"
+  gem "puma", github: "puma/puma"
   gem "capybara-screenshot"
   gem "database_cleaner"
   gem "email_spec"
