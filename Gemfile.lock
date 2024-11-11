@@ -296,8 +296,8 @@ GEM
       webrick (~> 1.7)
       websocket-driver (~> 0.7)
     ffi (1.17.0-x86_64-linux-gnu)
-    font-awesome-rails (4.7.0.8)
-      railties (>= 3.2, < 8.0)
+    font-awesome-rails (4.7.0.9)
+      railties (>= 3.2, < 9.0)
     foreman (0.88.1)
     foreman-export-systemd_user (0.1.2)
       foreman
