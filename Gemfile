@@ -2,7 +2,7 @@ source "https://rubygems.org"
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}.git" }
 
 gem "bootsnap", require: false
-gem "rails", "~>7.1.0"
+gem "rails", "~>7.2.0"
 gem "bard-rails"
 gem "trilogy"
 gem "haml-rails"
@@ -33,7 +33,7 @@ gem "sprockets-rails"
 gem "dartsass-sprockets"
 gem "font-awesome-rails"
 
-gem "importmap-rails", "~>1.0" # 2.0 requires vendoring
+gem "importmap-rails"
 gem "stimulus-rails"
 
 group :development do
@@ -43,7 +43,7 @@ end
 group :development, :test do
   gem "byebug"
   gem "parallel_tests", "~>3.9.0" # 3.10 pegs cpu
-  gem "sqlite3", "~>1.0" # 2.0 breaks stuff until rails 7.2
+  gem "sqlite3"
   gem "rspec-rails"
 end
 
