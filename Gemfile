@@ -2,10 +2,11 @@ source "https://rubygems.org"
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}.git" }
 
 gem "bootsnap", require: false
-gem "rails", "~>7.2.0"
+gem "rails", "~>8.0.0"
 gem "bard-rails"
 gem "trilogy"
 gem "haml-rails"
+gem "slim-rails"
 gem "decisive"
 gem "input_css" # FIXME
 gem "invisible_captcha"
@@ -15,7 +16,7 @@ gem "acts_as_list"
 gem "cocoon"
 gem "validates_email_format_of"
 gem "auto_strip_attributes"
-gem "awesome_nested_set"
+gem "awesome_nested_set", github: "collectiveidea/awesome_nested_set"
 gem "active_record-json_associations"
 gem "backhoe"
 gem "nacelle"
@@ -26,8 +27,8 @@ gem "adva", github: "botandrose/adva_cms"
 gem "delayed_job_active_record"
 gem "delayed_job_web"
 gem "daemons"
-gem "exception_notification"
 gem "newrelic_rpm"
+gem "exception_notification", github: "andynu/exception_notification", branch: "rails-8-0"
 
 gem "sprockets-rails"
 gem "dartsass-sprockets"
@@ -48,7 +49,7 @@ group :development, :test do
 end
 
 group :test do
-  gem "cucumber-rails", require: false
+  gem "cucumber-rails", github: "tagliala/cucumber-rails", branch: "feature/589-rails-8", require: false
   gem "cuprite-downloads"
   gem "puma", github: "puma/puma"
   gem "capybara-screenshot"

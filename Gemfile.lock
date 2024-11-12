@@ -1,4 +1,13 @@
 GIT
+  remote: https://github.com/andynu/exception_notification.git
+  revision: 4496c1f4df6245659fadd9a10dd1066e4183ad7a
+  branch: rails-8-0
+  specs:
+    exception_notification (4.5.0)
+      actionmailer (>= 5.2, < 9)
+      activesupport (>= 5.2, < 9)
+
+GIT
   remote: https://github.com/botandrose/adva_cms.git
   revision: 3c573632d1998ce6bf15d6d0ad4429fbfb9fa121
   specs:
@@ -24,41 +33,57 @@ GIT
       tilt (>= 1.4)
 
 GIT
+  remote: https://github.com/collectiveidea/awesome_nested_set.git
+  revision: 8ad6f3c1ab4fcafaabd019bb50823ee733038337
+  specs:
+    awesome_nested_set (3.7.0)
+      activerecord (>= 4.0.0, < 8.1)
+
+GIT
   remote: https://github.com/puma/puma.git
   revision: 0255efd3b3ebd90ad658abf7eb949675b12f45f4
   specs:
     puma (6.4.3)
       nio4r (~> 2.0)
 
+GIT
+  remote: https://github.com/tagliala/cucumber-rails.git
+  revision: f1b892e5a78882e51b875f414355e347cc72151a
+  branch: feature/589-rails-8
+  specs:
+    cucumber-rails (3.0.1)
+      capybara (>= 3.11, < 4)
+      cucumber (>= 5, < 10)
+      railties (>= 5.2, < 8.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
-    actioncable (7.2.2)
-      actionpack (= 7.2.2)
-      activesupport (= 7.2.2)
+    actioncable (8.0.0)
+      actionpack (= 8.0.0)
+      activesupport (= 8.0.0)
       nio4r (~> 2.0)
       websocket-driver (>= 0.6.1)
       zeitwerk (~> 2.6)
-    actionmailbox (7.2.2)
-      actionpack (= 7.2.2)
-      activejob (= 7.2.2)
-      activerecord (= 7.2.2)
-      activestorage (= 7.2.2)
-      activesupport (= 7.2.2)
+    actionmailbox (8.0.0)
+      actionpack (= 8.0.0)
+      activejob (= 8.0.0)
+      activerecord (= 8.0.0)
+      activestorage (= 8.0.0)
+      activesupport (= 8.0.0)
       mail (>= 2.8.0)
-    actionmailer (7.2.2)
-      actionpack (= 7.2.2)
-      actionview (= 7.2.2)
-      activejob (= 7.2.2)
-      activesupport (= 7.2.2)
+    actionmailer (8.0.0)
+      actionpack (= 8.0.0)
+      actionview (= 8.0.0)
+      activejob (= 8.0.0)
+      activesupport (= 8.0.0)
       mail (>= 2.8.0)
       rails-dom-testing (~> 2.2)
-    actionpack (7.2.2)
-      actionview (= 7.2.2)
-      activesupport (= 7.2.2)
+    actionpack (8.0.0)
+      actionview (= 8.0.0)
+      activesupport (= 8.0.0)
       nokogiri (>= 1.8.5)
-      racc
-      rack (>= 2.2.4, < 3.2)
+      rack (>= 2.2.4)
       rack-session (>= 1.0.1)
       rack-test (>= 0.6.3)
       rails-dom-testing (~> 2.2)
@@ -66,37 +91,37 @@ GEM
       useragent (~> 0.16)
     actionpack-page_caching (1.2.4)
       actionpack (>= 4.0.0)
-    actiontext (7.2.2)
-      actionpack (= 7.2.2)
-      activerecord (= 7.2.2)
-      activestorage (= 7.2.2)
-      activesupport (= 7.2.2)
+    actiontext (8.0.0)
+      actionpack (= 8.0.0)
+      activerecord (= 8.0.0)
+      activestorage (= 8.0.0)
+      activesupport (= 8.0.0)
       globalid (>= 0.6.0)
       nokogiri (>= 1.8.5)
-    actionview (7.2.2)
-      activesupport (= 7.2.2)
+    actionview (8.0.0)
+      activesupport (= 8.0.0)
       builder (~> 3.1)
       erubi (~> 1.11)
       rails-dom-testing (~> 2.2)
       rails-html-sanitizer (~> 1.6)
     active_record-json_associations (0.12.0)
       activerecord
-    activejob (7.2.2)
-      activesupport (= 7.2.2)
+    activejob (8.0.0)
+      activesupport (= 8.0.0)
       globalid (>= 0.3.6)
-    activemodel (7.2.2)
-      activesupport (= 7.2.2)
-    activerecord (7.2.2)
-      activemodel (= 7.2.2)
-      activesupport (= 7.2.2)
+    activemodel (8.0.0)
+      activesupport (= 8.0.0)
+    activerecord (8.0.0)
+      activemodel (= 8.0.0)
+      activesupport (= 8.0.0)
       timeout (>= 0.4.0)
-    activestorage (7.2.2)
-      actionpack (= 7.2.2)
-      activejob (= 7.2.2)
-      activerecord (= 7.2.2)
-      activesupport (= 7.2.2)
+    activestorage (8.0.0)
+      actionpack (= 8.0.0)
+      activejob (= 8.0.0)
+      activerecord (= 8.0.0)
+      activesupport (= 8.0.0)
       marcel (~> 1.0)
-    activesupport (7.2.2)
+    activesupport (8.0.0)
       base64
       benchmark (>= 0.3)
       bigdecimal
@@ -108,6 +133,7 @@ GEM
       minitest (>= 5.1)
       securerandom (>= 0.3)
       tzinfo (~> 2.0, >= 2.0.5)
+      uri (>= 0.13.1)
     acts_as_list (1.2.3)
       activerecord (>= 6.1)
       activesupport (>= 6.1)
@@ -115,8 +141,6 @@ GEM
       public_suffix (>= 2.0.2, < 7.0)
     auto_strip_attributes (2.6.0)
       activerecord (>= 4.0)
-    awesome_nested_set (3.7.0)
-      activerecord (>= 4.0.0, < 8.0)
     aws-eventstream (1.3.0)
     aws-partitions (1.1004.0)
     aws-sdk-core (3.212.0)
@@ -225,10 +249,6 @@ GEM
     cucumber-html-formatter (21.7.0)
       cucumber-messages (> 19, < 27)
     cucumber-messages (22.0.0)
-    cucumber-rails (3.0.1)
-      capybara (>= 3.11, < 4)
-      cucumber (>= 5, < 10)
-      railties (>= 5.2, < 8)
     cucumber-tag-expressions (6.1.1)
     cuprite (0.15.1)
       capybara (~> 3.0)
@@ -270,9 +290,6 @@ GEM
       launchy (>= 2.1, < 4.0)
       mail (~> 2.7)
     erubi (1.13.0)
-    exception_notification (4.5.0)
-      actionmailer (>= 5.2, < 8)
-      activesupport (>= 5.2, < 8)
     factory_bot (6.5.0)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.4.4)
@@ -407,20 +424,20 @@ GEM
     rackup (1.0.1)
       rack (< 3)
       webrick
-    rails (7.2.2)
-      actioncable (= 7.2.2)
-      actionmailbox (= 7.2.2)
-      actionmailer (= 7.2.2)
-      actionpack (= 7.2.2)
-      actiontext (= 7.2.2)
-      actionview (= 7.2.2)
-      activejob (= 7.2.2)
-      activemodel (= 7.2.2)
-      activerecord (= 7.2.2)
-      activestorage (= 7.2.2)
-      activesupport (= 7.2.2)
+    rails (8.0.0)
+      actioncable (= 8.0.0)
+      actionmailbox (= 8.0.0)
+      actionmailer (= 8.0.0)
+      actionpack (= 8.0.0)
+      actiontext (= 8.0.0)
+      actionview (= 8.0.0)
+      activejob (= 8.0.0)
+      activemodel (= 8.0.0)
+      activerecord (= 8.0.0)
+      activestorage (= 8.0.0)
+      activesupport (= 8.0.0)
       bundler (>= 1.15.0)
-      railties (= 7.2.2)
+      railties (= 8.0.0)
     rails-dom-testing (2.2.0)
       activesupport (>= 5.0.0)
       minitest
@@ -430,9 +447,9 @@ GEM
       nokogiri (~> 1.14)
     rails-observers (0.1.5)
       activemodel (>= 4.0)
-    railties (7.2.2)
-      actionpack (= 7.2.2)
-      activesupport (= 7.2.2)
+    railties (8.0.0)
+      actionpack (= 8.0.0)
+      activesupport (= 8.0.0)
       irb (~> 1.13)
       rackup (>= 1.0.0)
       rake (>= 12.2)
@@ -515,6 +532,7 @@ GEM
     trilogy (2.9.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    uri (1.0.1)
     useragent (0.16.10)
     validates_email_format_of (1.8.2)
       i18n (>= 0.8.0)
@@ -543,7 +561,7 @@ DEPENDENCIES
   acts_as_list
   adva!
   auto_strip_attributes
-  awesome_nested_set
+  awesome_nested_set!
   backhoe
   bard-rails
   bootsnap
@@ -553,7 +571,7 @@ DEPENDENCIES
   ckeditor
   cocoon
   csv_builder
-  cucumber-rails
+  cucumber-rails!
   cuprite-downloads
   daemons
   dartsass-sprockets
@@ -562,7 +580,7 @@ DEPENDENCIES
   delayed_job_active_record
   delayed_job_web
   email_spec
-  exception_notification
+  exception_notification!
   factory_bot_rails
   faker
   font-awesome-rails
@@ -580,8 +598,9 @@ DEPENDENCIES
   rack-cache
   rack-tracker!
   rack-www
-  rails (~> 7.2.0)
+  rails (~> 8.0.0)
   rspec-rails
+  slim-rails
   sprockets-rails
   sqlite3
   stimulus-rails
