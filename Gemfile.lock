@@ -48,7 +48,7 @@ GIT
 
 GIT
   remote: https://github.com/tagliala/cucumber-rails.git
-  revision: f1b892e5a78882e51b875f414355e347cc72151a
+  revision: b750833e104bf39354d4a4077413a5847241d249
   branch: feature/589-rails-8
   specs:
     cucumber-rails (3.0.1)
@@ -532,7 +532,7 @@ GEM
     trilogy (2.9.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    uri (1.0.1)
+    uri (1.0.2)
     useragent (0.16.10)
     validates_email_format_of (1.8.2)
       i18n (>= 0.8.0)
