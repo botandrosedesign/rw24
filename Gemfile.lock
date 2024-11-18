@@ -34,9 +34,9 @@ GIT
 
 GIT
   remote: https://github.com/collectiveidea/awesome_nested_set.git
-  revision: 8ad6f3c1ab4fcafaabd019bb50823ee733038337
+  revision: 3d321417b6c288f26a598de6a0f64cde1192b489
   specs:
-    awesome_nested_set (3.7.0)
+    awesome_nested_set (3.8.0)
       activerecord (>= 4.0.0, < 8.1)
 
 GIT
@@ -532,7 +532,7 @@ GEM
     trilogy (2.9.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    uri (1.0.1)
+    uri (1.0.2)
     useragent (0.16.10)
     validates_email_format_of (1.8.2)
       i18n (>= 0.8.0)
