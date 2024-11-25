@@ -48,13 +48,13 @@ GIT
 
 GIT
   remote: https://github.com/tagliala/cucumber-rails.git
-  revision: b750833e104bf39354d4a4077413a5847241d249
+  revision: c7e99c41b53a790be47c30e9e609e97e782d2134
   branch: feature/589-rails-8
   specs:
     cucumber-rails (3.0.1)
       capybara (>= 3.11, < 4)
       cucumber (>= 5, < 10)
-      railties (>= 5.2, < 8.1)
+      railties (>= 5.2, < 9)
 
 GEM
   remote: https://rubygems.org/
