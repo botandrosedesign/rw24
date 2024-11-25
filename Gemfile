@@ -49,7 +49,7 @@ group :development, :test do
 end
 
 group :test do
-  gem "cucumber-rails", github: "tagliala/cucumber-rails", branch: "feature/589-rails-8", require: false
+  gem "cucumber-rails"
   gem "cuprite-downloads"
   gem "puma", github: "puma/puma"
   gem "capybara-screenshot"

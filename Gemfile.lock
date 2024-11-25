@@ -46,16 +46,6 @@ GIT
     puma (6.5.0)
       nio4r (~> 2.0)
 
-GIT
-  remote: https://github.com/tagliala/cucumber-rails.git
-  revision: c7e99c41b53a790be47c30e9e609e97e782d2134
-  branch: feature/589-rails-8
-  specs:
-    cucumber-rails (3.0.1)
-      capybara (>= 3.11, < 4)
-      cucumber (>= 5, < 10)
-      railties (>= 5.2, < 9)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -249,6 +239,10 @@ GEM
     cucumber-html-formatter (21.7.0)
       cucumber-messages (> 19, < 27)
     cucumber-messages (22.0.0)
+    cucumber-rails (3.1.0)
+      capybara (>= 3.11, < 4)
+      cucumber (>= 5, < 10)
+      railties (>= 5.2, < 9)
     cucumber-tag-expressions (6.1.1)
     cuprite (0.15.1)
       capybara (~> 3.0)
@@ -571,7 +565,7 @@ DEPENDENCIES
   ckeditor
   cocoon
   csv_builder
-  cucumber-rails!
+  cucumber-rails
   cuprite-downloads
   daemons
   dartsass-sprockets
