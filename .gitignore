@@ -1,17 +1,13 @@
 .bundle
-log/*.log
-tmp/*
+log/
+tmp/
 !tmp/.gitignore
 .DS_Store
 public/cache/**/*
-doc/api
-doc/app
-doc/spec/*
 db/data.*
 db/*.sqlite3
 config/database.yml
 coverage/**/*
-public/stylesheets/*.css
 *[~]
 .byebug_history
 
