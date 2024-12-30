@@ -38,13 +38,6 @@ GIT
     awesome_nested_set (3.8.0)
       activerecord (>= 4.0.0, < 8.1)
 
-GIT
-  remote: https://github.com/puma/puma.git
-  revision: 52757c8bf96bdc07044b7243c0851a46c06c5fec
-  specs:
-    puma (6.5.0)
-      nio4r (~> 2.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -396,6 +389,8 @@ GEM
       date
       stringio
     public_suffix (6.0.1)
+    puma (6.5.0)
+      nio4r (~> 2.0)
     racc (1.8.1)
     rack (2.2.10)
     rack-cache (1.17.0)
@@ -584,7 +579,7 @@ DEPENDENCIES
   newrelic_rpm
   nokogiri
   parallel_tests (~> 3.9.0)
-  puma!
+  puma
   rack-cache
   rack-tracker!
   rack-www

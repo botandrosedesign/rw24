@@ -51,7 +51,7 @@ end
 group :test do
   gem "cucumber-rails"
   gem "cuprite-downloads"
-  gem "puma", github: "puma/puma"
+  gem "puma"
   gem "capybara-screenshot"
   gem "database_cleaner"
   gem "email_spec"
