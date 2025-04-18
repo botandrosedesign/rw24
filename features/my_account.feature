@@ -40,6 +40,31 @@ Feature: Update my account
 
     Then I should see "Logged in successfully."
 
+  Scenario: User can change their email address
+    When I follow "change"
+    And I fill in "New email address" with "originofstorms@gmail.com"
+    And I press "Send Confirmation Email"
+
+    Then I should see "A CONFIRMATION EMAIL HAS BEEN SENT TO ORIGINOFSTORMS@GMAIL.COM"
+    And "originofstorms@gmail.com" should receive an email
+
+    When I open the email with subject "Request to change riverwest24.com email address"
+    And I follow the first link in the email
+    Then I should see "Welcome, originofstorms@gmail.com! You have successfully changed your email address."
+
+    When I follow "Logout"
+    And I follow "Login"
+    And I fill in "Email" with "micah@botandrose.com"
+    And I fill in "Password" with "secret"
+    And I press "Login"
+
+    Then I should see "Could not login with this email and password"
+    When I fill in "Email" with "originofstorms@gmail.com"
+    And I fill in "Password" with "secret"
+    And I press "Login"
+
+    Then I should see "Logged in successfully."
+
   Scenario: User resets password
     When I follow "Logout"
     And I follow "Login"

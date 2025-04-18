@@ -11,6 +11,13 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def self.expose *methods
+    methods.each do |method|
+      attr_reader method
+      helper_method method
+    end
+  end
+
   def errors_for *records, preamble: "There were error(s):"
     [
       preamble,

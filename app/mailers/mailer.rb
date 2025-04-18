@@ -16,4 +16,10 @@ class Mailer < ActionMailer::Base
     @link = account_confirmation_url(id: key, host: host)
     mail from: "info@riverwest24.com", to: user.email, subject: "Welcome to Riverwest24"
   end
+
+  def change_email user, token, host
+    @user = user
+    @confirmation_url = confirmation_account_email_url(token: token, host: host)
+    mail from: "info@riverwest24.com", to: user.new_email, subject: "Request to change riverwest24.com email address"
+  end
 end

@@ -8,6 +8,7 @@ h2 My Account
         br
         p
           b = form.object.email
+          =< link_to "change", [:account, :email]
 
       .field
         = form.label :first_name

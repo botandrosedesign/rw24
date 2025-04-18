@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   resource :account do
+    resource :email do
+      get :confirmation, on: :member
+    end
     resources :confirmations
   end
 
