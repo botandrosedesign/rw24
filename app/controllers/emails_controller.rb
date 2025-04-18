@@ -11,7 +11,8 @@ class EmailsController < BaseController
     @user = current_user
     PreparesUpdatesUserEmailAddress.execute @user, params[:new_email], request.host_with_port
   rescue PreparesUpdatesUserEmailAddress::Error => e
-    redirect_to action: :show, alert: e.message
+    flash.alert = e.message
+    redirect_to action: :show
   end
 
   def confirmation
@@ -20,12 +21,13 @@ class EmailsController < BaseController
       if @user.update email: @user.new_email, new_email: nil, verification_key: nil
         session[:uid] = user.id
         set_user_cookie!(user)
-        redirect_to root_path, notice: "Welcome, #{@user.email}! You have successfully changed your email address."
+        flash.notice = "Welcome, #{@user.email}! You have successfully changed your email address."
       else
-        redirect_to root_path, alert: "There is already an user with this email address!"
+        flash.alert = "There is already an user with this email address!"
       end
     else
-      redirect_to root_path, alert: "Bad confirmation token!"
+      flase.alert = "Bad confirmation token!"
     end
+    redirect_to root_path
   end
 end
