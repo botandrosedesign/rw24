@@ -11,7 +11,7 @@ class EmailsController < BaseController
     @user = current_user
     PreparesUpdatesUserEmailAddress.execute @user, params[:new_email], request.host_with_port
   rescue PreparesUpdatesUserEmailAddress::Error => e
-    redirect_to :show, alert: e.message
+    redirect_to action: :show, alert: e.message
   end
 
   def confirmation
