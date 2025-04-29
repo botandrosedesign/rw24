@@ -1,5 +1,7 @@
 = error_messages_for @team
 
+= content_for :body_class, "team-edit-body"
+
 = form_for [:admin, @race, @team], data: { controller: "shirt-sizes" } do |form|
   = form.hidden_field :race_id
   h2
@@ -14,4 +16,3 @@
     = submit_tag "Save", id: "commit", data: { disable_with: "Saving..." }
     | or&nbsp;
     = link_to "Cancel", [:admin, @race, :teams]
-

@@ -7,6 +7,7 @@
 
 textarea
   &.big, &.wysiwyg
+    clear: both
     width: 723px
     height: 600px !important
   &.sidebar, #article_sidebar
@@ -214,9 +215,12 @@ body
   li
     margin-bottom: 0px
     &>ul
+      font-size: 0.8em
       box-shadow: transparent 0 0 0
       border: none
       top: 28px
+      left: 0
+      margin: 0
       padding-bottom: 3px
       background-color: transparent !important
       li
@@ -228,7 +232,7 @@ body
           border-top: 1px solid #333
           padding-top: 6px
           padding-bottom: 6px
-          font-size: 1em
+          font-size: 0.8em
           &:hover
             background-color: $primaryColor
     &:hover
@@ -479,6 +483,24 @@ textarea
         width: 30
         text-align: center
 
+// Teams
+
+.team-edit-body
+  ul.actions
+    float: none
+    display: flex !important
+    width: 100%
+    justify-content: space-between
+    li
+      &:nth-of-type(1)
+        display: none !important
+      &:nth-of-type(2)
+        order: 2
+      &:nth-of-type(3)
+        order: 1
+
+
+
 // Shirts
 .all-shirt-fields
   display: flex
@@ -508,9 +530,6 @@ textarea
       text-align: center
       margin: 0
       font-size: 15px
-
-
-
 
 .shirts-count
   dfn

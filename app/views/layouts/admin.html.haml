@@ -30,7 +30,7 @@
 
     = yield :head
 
-  %body
+  %body{class: content_for(:body_class)}
     = menu.build(self).root.render(:id => 'top')
     = render :partial => 'admin/shared/header'
     #page
