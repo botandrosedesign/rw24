@@ -17,6 +17,7 @@ Feature: Riders can create user accounts that persist beyond races
 
     And I press "Create Rider Profile"
     Then I should see "A confirmation email has been sent to micah@botandrose.com"
+    And I should see "WE JUST EMAILED YOU!"
 
     And "micah@botandrose.com" should receive an email from "info@riverwest24.com" with the subject "Welcome to Riverwest24" and the following body:
       """
@@ -303,4 +304,3 @@ Feature: Riders can create user accounts that persist beyond races
       | Admin Account    | admin@riverwest24.com | Yes        | Admin |       |       |
       | Micah Geisel     | micah@botandrose.com  | Yes        |       | 2020  | L     |
       | Michael Gubitosa | gubs@botandrose.com   | Yes        |       | 2020  | XL    |
-
