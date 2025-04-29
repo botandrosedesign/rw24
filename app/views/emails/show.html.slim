@@ -1,23 +1,17 @@
 h2 Change Email Address
-
-hr
-
-p
-  | To update your email address, submit your new email below and press <b>Send Confirmation Email</b>.
-  | An email will be sent to the new address with an link to confirm your new email.
+.help-text To update your email address, submit your new email below and press <b>Send Confirmation Email</b>. An email will be sent to the new address with an link to confirm your new email.
 
 = form_with url: [:account, :email] do |form|
-  .field
-    label Existing email address
-    b = user.email
+  fieldset.stacked-form
+    .field
+      label Existing email address
+      p
+        b = user.email
+
+    .field
+      = form.label :new_email, "New email address"
+      = form.email_field :new_email
 
   .field
-    = form.label :new_email, "New email address"
-    = form.email_field :new_email
-
-  hr
-
-  .field
-    label &nbsp;
     input.save type="submit" value="Send Confirmation Email"
     = link_to "Cancel", :back, class: "cancel"
