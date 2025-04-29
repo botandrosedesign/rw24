@@ -1,25 +1,64 @@
-#flash_notice, #flash_alert, #flash_error
+@keyframes fadeOut
+  0%
+    opacity: 1
+  100%
+    opacity: 0
+
+@keyframes slideOut
+  0%
+    transform: translateY(220px)
+  100%
+    transform: translateY(0px)
+
+.alerts-container
+  position: fixed
+  z-index: 9999
+  top: -100px
+  width: 600px
+  left: calc( 50vw - 300px)
+  left: calc( 50dvw - 300px)
+  +bp_mobile
+    width: 300px
+    left: calc( 50vw - 150px)
+    left: calc( 50dvw - 150px)
+
+.notice, .alert, .error
+  position: relative
+  height: auto
   width: 100%
-  font: 700 1.2em $default
+  font: 700 1em $default
+  border-radius: 6px
+  border: none
   color: #fff
   text-align: center
-  line-height: 1.8em
-  padding: 0
+  line-height: 1.1
+  padding: 10px 0
   z-index: 2
-  flex: 1 0 100%
-  position: absolute
-  left: 0
-  width: 100%
-  top: -20px
+  opacity: 1
+  will-change: opacity
+  overflow: hidden
+  &:empty
+    padding: 0
+    opacity: 0
+  &.-hide
+    animation: fadeOut 0.2s ease-in 8s forwards
+  a
+    color: inherit
+    &:hover
+      border-bottom-style: solid
+  &[open]
+    transform: translateY(220px)
+    animation: slideOut 0.2s ease-in 5s forwards
 
-#flash_notice
-  background: $primaryColor
-  background: linear-gradient( lighten( $primaryColor, 5% ) 0%, $primaryColor 20%, $primaryColor 80%, darken( $primaryColor, 5% ) 100% )
-#flash_alert, #flash_error
-  background: darken( $red, 5% )
-  background-image: linear-gradient( $red 0%, darken( $red, 5% ) 20%, darken( $red, 5% ) 80%, darken( $red, 10% ) 100% )
+.notice
+  background: $green
+  color: #fff
+  a
+    color: #fff
+    border-bottom: 1px dashed #fff
 
-#flash_notice:not(:empty)
-  #flash_alert, #flash_error
-    &:not(:empty)
-      top: 0
+.alert, .error
+  background: $yellow
+  color: #101010
+  a
+    border-bottom: 1px dashed #101010

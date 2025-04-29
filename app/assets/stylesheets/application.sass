@@ -83,20 +83,26 @@ header
   align-self: start
   +handheld
     display: none
-  p
+  & > p
+    width: 100%
+    text-align: left
     margin: 0 0 0px 10px
+.countdown-flex
+  display: flex
   #day, #hrs, #min, #sec
-    float: left
-    display: inline-block
+    display: inline-flex
+    flex-direction: column
     width: 50px
+    flex: 0 0 50px
     text-align: right
     line-height: .9
     margin: 2px 14px 6px 0
     color: #fff
   #day
     width: 80px
+    flex: 0 0 80px
     margin-left: 6px
-  days, hours, minutes, seconds
+  strong
     float: right
     color: #fff
     font-size: 3em
