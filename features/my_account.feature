@@ -5,9 +5,8 @@ Feature: Update my account
       | first_name            | Micah                |
       | last_name             | Geisel               |
       | phone                 | 555.111.1111         |
-      | password              | secret               |
-
-    Given I am logged in as "micah@botandrose.com"
+      | password              | abc123def456!        |
+    Given I am logged in as "micah@botandrose.com" with password "abc123def456!"
     When I follow "My account"
 
   Scenario: User can update their account
@@ -15,8 +14,8 @@ Feature: Update my account
       | First name            | Edit                 |
       | Last name             | Name                 |
       | Phone                 | 937.269.2023         |
-      | Password              | abc123               |
-      | Confirm password      | abc123               |
+      | Password              | ABC123DEF456!        |
+      | Confirm password      | ABC123DEF456!        |
     And I press "Save My Account"
     Then I should see "Account updated"
 
@@ -31,11 +30,11 @@ Feature: Update my account
     When I follow "Logout"
     And I follow "Login"
     And I fill in "Email" with "micah@botandrose.com"
-    And I fill in "Password" with "secret"
+    And I fill in "Password" with "abc123def456!"
     And I press "Login"
 
     Then I should see "Could not login with this email and password"
-    When I fill in "Password" with "abc123"
+    When I fill in "Password" with "ABC123DEF456!"
     And I press "Login"
 
     Then I should see "Logged in successfully."
@@ -55,12 +54,12 @@ Feature: Update my account
     When I follow "Logout"
     And I follow "Login"
     And I fill in "Email" with "micah@botandrose.com"
-    And I fill in "Password" with "secret"
+    And I fill in "Password" with "abc123def456!"
     And I press "Login"
 
     Then I should see "Could not login with this email and password"
     When I fill in "Email" with "originofstorms@gmail.com"
-    And I fill in "Password" with "secret"
+    And I fill in "Password" with "abc123def456!"
     And I press "Login"
 
     Then I should see "Logged in successfully."
@@ -75,14 +74,14 @@ Feature: Update my account
 
     When I open the email with subject "Forgotten Password"
     And I follow the first link in the email
-    And I fill in "New password" with "newpassword"
+    And I fill in "New password" with "ABC123DEF456!"
     And I press "Save"
     Then I should see "Your password was changed successfully."
 
     When I follow "Logout"
     And I follow "Login"
     And I fill in "Email" with "micah@botandrose.com"
-    And I fill in "Password" with "newpassword"
+    And I fill in "Password" with "ABC123DEF456!"
     And I press "Login"
     Then I should see "Logged in successfully."
 

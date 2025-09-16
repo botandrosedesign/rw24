@@ -28,7 +28,7 @@ FactoryBot.define do
     last_name
     email
     homepage { generate(:url) }
-    password { "password" }
+    password { SecureRandom.hex(12) + "!" }
     verified_at { Time.zone.now }
   end
 

@@ -12,8 +12,8 @@ Feature: Riders can create user accounts that persist beyond races
       | Last name             | Geisel               |
       | Phone                 | 937.269.2023         |
       | Shirt size            | L                    |
-      | Password              | secret               |
-      | Confirm password      | secret               |
+      | Password              | abc123def456!        |
+      | Confirm password      | abc123def456!        |
 
     And I press "Create Rider Profile"
     Then I should see "A confirmation email has been sent to micah@botandrose.com"
@@ -90,8 +90,8 @@ Feature: Riders can create user accounts that persist beyond races
       | Last name             | Geisel               |
       | Phone                 | 937.269.2023         |
       | Shirt size            | L                    |
-      | Password              | secret               |
-      | Confirm password      | secret               |
+      | Password              | abc123def456!        |
+      | Confirm password      | abc123def456!        |
 
     And I press "Create Rider Profile"
     Then I should see "A confirmation email has been sent to micah@botandrose.com"
@@ -106,8 +106,8 @@ Feature: Riders can create user accounts that persist beyond races
       | Last name             | Geisel               |
       | Phone                 | 937.269.2023         |
       | Shirt size            | L                    |
-      | Password              | secret               |
-      | Confirm password      | secret               |
+      | Password              | abc123def456!        |
+      | Confirm password      | abc123def456!        |
 
     And I press "Create Rider Profile"
     Then I should see "Profile already exists but is unconfirmed. A confirmation email has been sent to micah@botandrose.com"
@@ -129,15 +129,15 @@ Feature: Riders can create user accounts that persist beyond races
       | Last name             | Geisel               |
       | Phone                 | 937.269.2023         |
       | Shirt size            | L                    |
-      | Password              | secret               |
-      | Confirm password      | secret               |
+      | Password              | abc123def456!        |
+      | Confirm password      | abc123def456!        |
 
     And I press "Create Rider Profile"
     Then I should see "A confirmation email has been sent to micah@botandrose.com"
 
     And I follow "Login"
     And I fill in "Email" with "micah@botandrose.com"
-    And I fill in "Password" with "secret"
+    And I fill in "Password" with "abc123def456!"
     And I press "Login"
     Then I should see "Profile already exists but is unconfirmed. A confirmation email has been sent to micah@botandrose.com"
     And "micah@botandrose.com" should receive an email from "info@riverwest24.com" with the subject "Welcome to Riverwest24" and the following body:
@@ -158,8 +158,8 @@ Feature: Riders can create user accounts that persist beyond races
       | Last name             | Geisel               |
       | Phone                 | 937.269.2023         |
       | Shirt size            | L                    |
-      | Password              | secret               |
-      | Confirm password      | secret               |
+      | Password              | abc123def456!        |
+      | Confirm password      | abc123def456!        |
 
     And I press "Create Rider Profile"
     Then I should see "A confirmation email has been sent to micah@botandrose.com"
