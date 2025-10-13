@@ -118,7 +118,7 @@ GEM
     awesome_nested_set (3.8.0)
       activerecord (>= 4.0.0, < 8.1)
     aws-eventstream (1.4.0)
-    aws-partitions (1.1168.0)
+    aws-partitions (1.1172.0)
     aws-sdk-core (3.233.0)
       aws-eventstream (~> 1, >= 1.3.0)
       aws-partitions (~> 1, >= 1.992.0)
@@ -171,7 +171,7 @@ GEM
       ostruct
     base64 (0.3.0)
     benchmark (0.4.1)
-    bigdecimal (3.2.3)
+    bigdecimal (3.3.1)
     bindex (0.8.1)
     bootsnap (1.18.6)
       msgpack (~> 1.2)
@@ -206,7 +206,7 @@ GEM
     csv (3.3.5)
     csv_builder (2.1.3)
       actionpack (>= 3.0.0)
-    cucumber (10.1.0)
+    cucumber (10.1.1)
       base64 (~> 0.2)
       builder (~> 3.2)
       cucumber-ci-environment (> 9, < 11)
@@ -274,7 +274,7 @@ GEM
       htmlentities (~> 4.3.3)
       launchy (>= 2.1, < 4.0)
       mail (~> 2.7)
-    erb (5.0.2)
+    erb (5.1.1)
     erubi (1.13.1)
     factory_bot (6.5.5)
       activesupport (>= 6.1.0)
@@ -365,7 +365,7 @@ GEM
       mime-types-data (~> 3.2025, >= 3.2025.0507)
     mime-types-data (3.2025.0924)
     mini_mime (1.1.5)
-    minitest (5.25.5)
+    minitest (5.26.0)
     mize (0.6.1)
     msgpack (1.8.0)
     multi_test (1.1.0)
@@ -374,7 +374,7 @@ GEM
     nacelle (0.6.0)
       rails
       sprockets-rails
-    net-imap (0.5.11)
+    net-imap (0.5.12)
       date
       net-protocol
     net-pop (0.1.2)
@@ -383,7 +383,7 @@ GEM
       timeout
     net-smtp (0.5.1)
       net-protocol
-    newrelic_rpm (9.21.0)
+    newrelic_rpm (9.22.0)
     nio4r (2.7.4)
     nokogiri (1.18.10-x86_64-linux-gnu)
       racc (~> 1.4)
@@ -392,7 +392,7 @@ GEM
     parallel (1.27.0)
     parallel_tests (3.9.1)
       parallel
-    pp (0.6.2)
+    pp (0.6.3)
       prettyprint
     prettyprint (0.2.0)
     psych (5.2.6)
@@ -536,7 +536,7 @@ GEM
     tsort (0.2.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    uri (1.0.3)
+    uri (1.0.4)
     useragent (0.16.11)
     validates_email_format_of (1.8.2)
       i18n (>= 0.8.0)
