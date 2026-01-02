@@ -306,8 +306,8 @@ GEM
       railties (>= 3.2, < 9.0)
     foreman (0.90.0)
       thor (~> 1.4)
-    foreman-export-systemd_user (0.1.2)
-      foreman
+    foreman-export-systemd_user (0.2.1)
+      foreman (>= 0.90.0)
     friendly_id (5.1.0)
       activerecord (>= 4.0.0)
     globalid (1.3.0)
