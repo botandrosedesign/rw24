@@ -155,7 +155,17 @@ namespace :data do
   end
 
   task :remove_spam_accounts => :environment do
-    User.where(verified_at: nil).where(shirt_size: "WXXXL").delete_all
+    transitions = ->(str) {
+      str.to_s.chars.each_cons(2).count { |a, b|
+        (a =~ /[a-z]/ && b =~ /[A-Z]/) || (a =~ /[A-Z]/ && b =~ /[a-z]/)
+      }
+    }
+    User.where(verified_at: nil).where.missing(:riders).select { |u|
+      transitions.(u.first_name) + transitions.(u.last_name) >= 5
+    }.each do |u|
+      puts "Deleting ##{u.id} #{u.first_name} #{u.last_name} <#{u.email}>"
+      u.destroy
+    end
   end
 
   task :migrate_shirt_sizes => :environment do
