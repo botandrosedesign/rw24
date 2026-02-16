@@ -1,0 +1,21 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://challenges.cloudflare.com/turnstile/v0/siteverify
+    body:
+      encoding: UTF-8
+      string: ""
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"success":true}'
+  recorded_at: Thu, 01 Jan 2026 00:00:00 GMT
+recorded_with: VCR 6.0.0

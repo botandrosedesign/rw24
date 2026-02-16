@@ -3,6 +3,7 @@ Feature: Riders can create user accounts that persist beyond races
     Given today is "2020-06-19"
     And a race exists for 2020
 
+  @turnstile
   Scenario: A rider creates a user account
     Given I am on the homepage
     When I follow "Create profile"
@@ -62,10 +63,10 @@ Feature: Riders can create user accounts that persist beyond races
       | Admin Account | admin@riverwest24.com | Yes        | Admin |       |       |
       | Micah Geisel  | micah@botandrose.com  | Yes        |       |       | L     |
 
+  @turnstile_reject
   Scenario: Bot is rejected by CAPTCHA
     Given I am on the homepage
     When I follow "Create profile"
-    And Turnstile will reject the next submission
     And I fill in the following form:
       | Email address         | bot@example.com |
       | First name            | Bot             |
@@ -74,9 +75,10 @@ Feature: Riders can create user accounts that persist beyond races
       | Password              | abc123def456!   |
       | Confirm password      | abc123def456!   |
     And I press "Create Rider Profile"
-    Then I should see "CAPTCHA verification failed. Please try again."
+    Then I should see "We could not verify that you're human. Please try again."
     And I should see "CREATE PROFILE"
 
+  @turnstile
   Scenario: Same email can't be used to create profile
     Given the following users exist:
       | email                |
@@ -96,6 +98,7 @@ Feature: Riders can create user accounts that persist beyond races
     And I press "Create Rider Profile"
     Then I should see "Email has already been taken"
 
+  @turnstile
   Scenario: Trying to create a profile with unconfirmed email resends link
     Given I am on the homepage
     When I follow "Create profile"
@@ -135,6 +138,7 @@ Feature: Riders can create user accounts that persist beyond races
       Please visit the link below to confirm your account.<br />
       """
 
+  @turnstile
   Scenario: Trying to login with unconfirmed email resends link
     Given I am on the homepage
     When I follow "Create profile"
@@ -164,6 +168,7 @@ Feature: Riders can create user accounts that persist beyond races
       Please visit the link below to confirm your account.<br />
       """
 
+  @turnstile
   Scenario: Admin can resend confirmation
     Given I am on the homepage
     When I follow "Create profile"

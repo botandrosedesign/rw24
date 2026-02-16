@@ -29,7 +29,7 @@
         = form.label :confirm_password
         = form.password_field :confirm_password, required: true
 
-    .cf-turnstile{"data-sitekey" => Rails.application.config.turnstile_site_key}
+    = cloudflare_turnstile_tag
 
     .actions-field
       = form.submit "Create Rider Profile"

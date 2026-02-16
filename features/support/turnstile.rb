@@ -1,19 +1,15 @@
-$turnstile_test_success = true
-
-Net::HTTP.singleton_class.prepend(Module.new do
-  def post_form(uri, params = {})
-    if uri.to_s == "https://challenges.cloudflare.com/turnstile/v0/siteverify"
-      Struct.new(:body).new(%({"success":#{$turnstile_test_success}}))
-    else
-      super
-    end
-  end
-end)
-
-Before do
-  $turnstile_test_success = true
+Before("@turnstile") do
+  VCR.insert_cassette("turnstile_pass", allow_playback_repeats: true)
 end
 
-Given("Turnstile will reject the next submission") do
-  $turnstile_test_success = false
+After("@turnstile") do |scenario|
+  VCR.eject_cassette(skip_no_unused_interactions_assertion: scenario.failed?)
+end
+
+Before("@turnstile_reject") do
+  VCR.insert_cassette("turnstile_fail")
+end
+
+After("@turnstile_reject") do |scenario|
+  VCR.eject_cassette(skip_no_unused_interactions_assertion: scenario.failed?)
 end

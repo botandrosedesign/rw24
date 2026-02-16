@@ -9,6 +9,7 @@ gem "haml-rails"
 gem "slim-rails"
 gem "decisive"
 gem "input_css" # FIXME
+gem "cloudflare-turnstile-rails"
 gem "csv_builder"
 gem "nokogiri"
 gem "acts_as_list"
@@ -60,6 +61,8 @@ group :test do
   gem "faker"
   gem "chop"
   gem "timecop"
+  gem "vcr"
+  gem "webmock"
 end
 
 group :production do

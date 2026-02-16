@@ -45,8 +45,4 @@ Rails.application.configure do
 
   # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true
-
-  # Cloudflare Turnstile always-passes test keys
-  config.turnstile_site_key = "1x00000000000000000000AA"
-  config.turnstile_secret_key = "1x0000000000000000000000000000000AA"
 end
