@@ -30,7 +30,7 @@ gem "delayed_job_active_record"
 gem "delayed_job_web"
 gem "daemons"
 gem "newrelic_rpm"
-gem "exception_notification", github: "andynu/exception_notification", branch: "rails-8-0"
+gem "exception_notification"
 
 gem "sprockets-rails"
 gem "dartsass-sprockets"
