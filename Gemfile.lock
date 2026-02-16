@@ -615,7 +615,6 @@ DEPENDENCIES
   haml-rails
   importmap-rails
   input_css
-  invisible_captcha
   kt-paperclip
   nacelle
   newrelic_rpm

@@ -2,8 +2,6 @@
 
 %fieldset.registration-form
   = form_for @user, url: account_path do |form|
-    = form.invisible_captcha :homepage
-
     .flex
       .field
         = form.label :email, "Email address"
@@ -30,6 +28,8 @@
       .field
         = form.label :confirm_password
         = form.password_field :confirm_password, required: true
+
+    .cf-turnstile{"data-sitekey" => Rails.application.config.turnstile_site_key}
 
     .actions-field
       = form.submit "Create Rider Profile"

@@ -62,6 +62,21 @@ Feature: Riders can create user accounts that persist beyond races
       | Admin Account | admin@riverwest24.com | Yes        | Admin |       |       |
       | Micah Geisel  | micah@botandrose.com  | Yes        |       |       | L     |
 
+  Scenario: Bot is rejected by CAPTCHA
+    Given I am on the homepage
+    When I follow "Create profile"
+    And Turnstile will reject the next submission
+    And I fill in the following form:
+      | Email address         | bot@example.com |
+      | First name            | Bot             |
+      | Last name             | Spammer         |
+      | Phone                 | 555.555.5555    |
+      | Password              | abc123def456!   |
+      | Confirm password      | abc123def456!   |
+    And I press "Create Rider Profile"
+    Then I should see "CAPTCHA verification failed. Please try again."
+    And I should see "CREATE PROFILE"
+
   Scenario: Same email can't be used to create profile
     Given the following users exist:
       | email                |

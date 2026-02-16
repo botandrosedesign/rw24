@@ -9,7 +9,6 @@ gem "haml-rails"
 gem "slim-rails"
 gem "decisive"
 gem "input_css" # FIXME
-gem "invisible_captcha"
 gem "csv_builder"
 gem "nokogiri"
 gem "acts_as_list"

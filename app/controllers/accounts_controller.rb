@@ -1,6 +1,5 @@
 class AccountsController < BaseController
-  invisible_captcha only: :create, honeypot: :homepage, scope: :user
-
+  before_action :verify_turnstile, only: :create
   before_action :guess_section
 
   def new
@@ -54,6 +53,19 @@ class AccountsController < BaseController
 
   def update_user_params
     create_user_params.tap { |p| p.delete(:email) }
+  end
+
+  def verify_turnstile
+    response = Net::HTTP.post_form(
+      URI("https://challenges.cloudflare.com/turnstile/v0/siteverify"),
+      "secret" => Rails.application.config.turnstile_secret_key,
+      "response" => params["cf-turnstile-response"],
+    )
+    return if JSON.parse(response.body)["success"]
+
+    @user = User.new(create_user_params)
+    flash.now.alert = "CAPTCHA verification failed. Please try again."
+    render action: :new, status: :unprocessable_entity
   end
 end
 
