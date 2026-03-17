@@ -1,6 +1,10 @@
 class ApplicationController < ActionController::Base
   # include ExceptionNotification::Notifiable
 
+  rescue_from ActionView::MissingTemplate do
+    head :not_acceptable
+  end
+
   helper :all # include all helpers, all the time
   helper_method :current_user, :start_time, :current_race
 
