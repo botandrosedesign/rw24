@@ -1,0 +1,21 @@
+h3 Categories
+
+table.categories.list
+  thead
+    tr
+      th Name
+      th Initial
+      th Min
+      th Max
+      th
+  tbody
+    - @race.categories.each do |category|
+      tr
+        td = category.name
+        td = category.initial
+        td = category.min
+        td = category.max
+        td
+          - unless @race.teams.any?
+            = link_to "Edit", [:edit, :admin, @race, category], class: "edit"
+            = link_to "Remove", [:admin, @race, category], method: :delete, data: { confirm: "Remove this category from the race?" }

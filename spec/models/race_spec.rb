@@ -9,6 +9,60 @@ require "support/factories"
 load "db/seeds.rb"
 
 describe Race do
+  describe "#update_category" do
+    let(:race) { FactoryBot.create(:race, year: 2026) }
+    let(:category) { TeamCategory.find_by_name!("Solo (open)") }
+
+    context "when the category is exclusive to this race" do
+      before do
+        race.update! category_ids: [category.id]
+      end
+
+      it "mutates the category in place" do
+        expect {
+          race.update_category(category, name: "Solo (Non-Binary)", initial: "N", min: 1, max: 1)
+        }.not_to change(TeamCategory, :count)
+        category.reload.name.should == "Solo (Non-Binary)"
+      end
+
+      it "keeps the same category ID in the race" do
+        race.update_category(category, name: "Solo (Non-Binary)", initial: "N", min: 1, max: 1)
+        race.reload.category_ids.should include(category.id)
+      end
+    end
+
+    context "when the category is shared with another race" do
+      let(:other_race) { FactoryBot.create(:race, year: 2025, category_ids: [category.id]) }
+
+      before do
+        other_race
+        race.update! category_ids: [category.id]
+      end
+
+      it "creates a new category record" do
+        expect {
+          race.update_category(category, name: "Solo (Non-Binary)", initial: "N", min: 1, max: 1)
+        }.to change(TeamCategory, :count).by(1)
+      end
+
+      it "replaces the old category ID with the new one in this race" do
+        new_category = race.update_category(category, name: "Solo (Non-Binary)", initial: "N", min: 1, max: 1)
+        race.reload.category_ids.should include(new_category.id)
+        race.reload.category_ids.should_not include(category.id)
+      end
+
+      it "does not modify the original category" do
+        race.update_category(category, name: "Solo (Non-Binary)", initial: "N", min: 1, max: 1)
+        category.reload.name.should == "Solo (open)"
+      end
+
+      it "leaves the other race's categories unchanged" do
+        race.update_category(category, name: "Solo (Non-Binary)", initial: "N", min: 1, max: 1)
+        other_race.reload.category_ids.should include(category.id)
+      end
+    end
+  end
+
   describe "#assign_all_bonuses_bonuses" do
     subject do
       FactoryBot.create(:race, bonuses: [

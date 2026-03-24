@@ -1,7 +1,7 @@
 .col.half
-  %h3 Basic Information
+  h3 Basic Information
 
-  %hr
+  hr
 
   = form_for [:admin, @race] do |form|
 
@@ -16,23 +16,28 @@
     .field
       = form.check_box :published, label: "Show race in leaderboards dropdown menu?"
 
-    %hr
-
+    hr
 
     .field#description
       = form.label :description
-      %p This will be shown at the top of the leaderboard.
+      p This will be shown at the top of the leaderboard.
       .clear
       = form.text_area :description, class: "wysiwyg"
 
     .field
-      %input.save(type="submit" value="Save")
+      input.save type="submit" value="Save"
       = link_to "cancel", :back, class: "cancel"
 
 - if @race.persisted?
   = content_for :sidebar do
     .tabs
       .tab.active
+        = render "categories"
+        - unless @race.teams.any?
+          p.right_align.clear = link_to "+ Add a Category", [:new, :admin, @race, :category]
+
+        hr
+
         = render "bonuses"
-        %p.right_align.clear= link_to "+ Add a Checkpoint", [:new, :admin, @race, :bonus]
-        %p= button_to "Delete All Bonuses", [:delete_all, :admin, @race, :bonuses], data: { confirm: "Are you sure you want to remove all the bonuses?" }
+        p.right_align.clear = link_to "+ Add a Checkpoint", [:new, :admin, @race, :bonus]
+        p = button_to "Delete All Bonuses", [:delete_all, :admin, @race, :bonuses], data: { confirm: "Are you sure you want to remove all the bonuses?" }

@@ -2,6 +2,11 @@ Given /^a race exists for (\d+)$/ do |year|
   FactoryBot.create :race, year: year.to_int
 end
 
+Given "a race exists for {int} with the following categories:" do |year, table|
+  categories = table.raw.flatten.map { |name| TeamCategory.find_by_name!(name) }
+  FactoryBot.create :race, year: year, categories: categories
+end
+
 Given "a race exists for {int} with the following bonus checkpoints:" do |year, table|
   bonuses = table.hashes.map { |hash| { name: hash["Name"], points: hash["Points"].to_i, key: SecureRandom.hex(8) } }
   race = FactoryBot.create :race, year: year.to_i, bonuses: bonuses
@@ -9,6 +14,10 @@ end
 
 Given "there are no races" do
   Race.destroy_all
+end
+
+Then "I should see the following categories:" do |table|
+  table.diff! ".categories"
 end
 
 Then "I should see the following races:" do |table|

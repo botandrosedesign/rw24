@@ -1,0 +1,26 @@
+h2
+  = params[:action].titleize
+  |  Category
+
+= form_for [:admin, @race, @category] do |form|
+  p
+    = form.label :name
+    = form.text_field :name, autofocus: true
+
+  p
+    = form.label :initial
+    = form.text_field :initial
+
+  p
+    = form.label :min
+    = form.number_field :min
+
+  p
+    = form.label :max
+    = form.number_field :max
+
+  br
+
+  p
+    input type="submit" value=(@category.new_record? ? "Create Category" : "Update Category")
+    = link_to "cancel", [:edit, :admin, @race]

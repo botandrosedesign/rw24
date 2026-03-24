@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resource :confirmation_email
     resources :races do
+      resources :categories, only: [:new, :create, :edit, :update, :destroy]
       resources :bonuses do
         put "", action: :sortable, on: :collection
         post :delete_all, on: :collection

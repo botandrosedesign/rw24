@@ -86,6 +86,24 @@ class Race < ActiveRecord::Base
     end
   end
 
+  def update_category(category, attributes)
+    if other_race_uses_category?(category)
+      new_category = TeamCategory.new(attributes)
+      if new_category.save
+        self.category_ids = category_ids.map { |id| id == category.id ? new_category.id : id }
+        save!
+      end
+      new_category
+    else
+      category.update(attributes)
+      category
+    end
+  end
+
+  def other_race_uses_category?(category)
+    Race.where.not(id: id).any? { |race| race.category_ids.include?(category.id) }
+  end
+
   def rider_autocomplete_options
     user_team_map = riders.includes(:team).inject({}) do |map, rider|
       if rider.user_id
