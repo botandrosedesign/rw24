@@ -423,8 +423,6 @@ GEM
       nio4r (~> 2.0)
     racc (1.8.1)
     rack (3.2.5)
-    rack-cache (1.17.0)
-      rack (>= 0.4)
     rack-disable_css_animations (0.4.0)
       rack
     rack-protection (4.2.1)
@@ -637,7 +635,6 @@ DEPENDENCIES
   nokogiri
   parallel_tests (~> 3.9.0)
   puma
-  rack-cache
   rack-tracker!
   rails (~> 8.0.0)
   rspec-rails

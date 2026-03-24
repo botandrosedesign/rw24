@@ -18,16 +18,9 @@ Rails.application.configure do
   # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
   # config.require_master_key = true
 
-  # Enable Rack::Cache to put a simple HTTP cache in front of your application
-  # Add `rack-cache` to your Gemfile before enabling this.
-  # For large-scale production use, consider using a caching reverse proxy like
-  # NGINX, varnish or squid.
-  config.action_dispatch.rack_cache = {
-    verbose:      true,
-    metastore:    'file:tmp/cache/rack/meta',
-    entitystore:  'file:tmp/cache/rack/body',
-    allow_reload: false,
-  }
+  # Rack::Cache removed — Cloudflare handles CDN caching. Rack::Cache's
+  # default ignore_headers: ["set-cookie"] can strip session cookies from
+  # cached responses, causing CSRF failures.
 
   # Disable serving static files from the `/public` folder by default since
   # Apache or NGINX already handles this.

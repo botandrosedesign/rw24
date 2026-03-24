@@ -1,4 +1,6 @@
 class AccountsController < BaseController
+  rescue_from ActionController::InvalidAuthenticityToken, with: :handle_csrf_failure
+
   before_action :require_turnstile, only: :create
   before_action :guess_section
 
@@ -53,6 +55,12 @@ class AccountsController < BaseController
 
   def update_user_params
     create_user_params.tap { |p| p.delete(:email) }
+  end
+
+  def handle_csrf_failure
+    @user = User.new(create_user_params)
+    flash.now.alert = "Your form session has expired. Please try submitting again."
+    render action: :new, status: :unprocessable_entity
   end
 
   def require_turnstile
