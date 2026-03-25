@@ -1,3 +1,8 @@
+@use "variables" as *
+@use "sass:color"
+@use "mixins/global" as *
+@use "general/lists"
+@use "font-awesome"
 
 // MAIN NAV
 
@@ -52,10 +57,10 @@ nav
       font-size: 1em
       text-align: center
       padding: 5px
-      border-top: 1px solid lighten($primaryColor, 5%)
-      border-bottom: 1px solid darken($primaryColor, 5%)
+      border-top: 1px solid color.scale($primaryColor, $lightness: 5%)
+      border-bottom: 1px solid color.scale($primaryColor, $blackness: 5%)
       &:hover
-        background: darken($primaryColor, 5%)
+        background: color.scale($primaryColor, $blackness: 5%)
 
 .main-nav, .account-nav
   +handheld

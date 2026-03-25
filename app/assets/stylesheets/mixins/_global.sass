@@ -1,0 +1,26 @@
+=handheld
+  @media screen and (max-device-width: 767px), (max-width: 767px)
+    @content
+
+=bp_tablet
+  @media screen and (max-width: 1024px)
+    @content
+
+=bp_mobile
+  @media screen and (max-width: 767px)
+    @content
+
+@mixin constant-width( $width )
+  width: $width
+  min-width: $width
+  max-width: $width
+
+@mixin constant-height( $height )
+  height: $height
+  min-height: $height
+  max-height: $height
+
+@mixin variable-height( $h1: 300px, $h2: 800px)
+  height: $h1
+  min-height: $h1
+  max-height: $h2

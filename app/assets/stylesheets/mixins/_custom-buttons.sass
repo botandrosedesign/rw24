@@ -1,3 +1,8 @@
+@use "variables" as *
+@use "sass:color"
+@use "button" as *
+@use "font-awesome"
+
 =custom-buttons
   label
     +button(rgba(20,20,20,20.8), #fcfcfc, 1.8em)
@@ -29,6 +34,6 @@
       & ~ span
         &:before
           background: $primaryColor
-          box-shadow: darken($primaryColor, 30%) 0 1px 3px 0 inset
+          box-shadow: color.scale($primaryColor, $blackness: 30%) 0 1px 3px 0 inset
           color: #fff
 

@@ -1,3 +1,8 @@
+@use "variables" as *
+@use "sass:color"
+@use "mixins/global" as *
+@use "general/form"
+
 #team-members
   float: left
   list-style: inside disc
@@ -37,7 +42,7 @@
 #teams, #bonus-points
   width: 100%
   tbody tr:hover
-    background: lighten(yellow, 45%)
+    background: color.scale(yellow, $lightness: 45%)
 
 #teams
   th, td
@@ -181,7 +186,7 @@
     border-right: 1px dotted #e0e0e0 !important
 
 .missing-shirts
-  background: lighten(pink, 8%)
+  background: color.scale(pink, $lightness: 8%)
   color: red
 
 //

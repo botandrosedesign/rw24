@@ -1,59 +1,26 @@
-// Fonts
+@use "font-awesome"
 
-@import font-awesome
+@use "mixins/button"
+@use "mixins/chart"
+@use "mixins/checkbox-columns"
+@use "mixins/custom-buttons"
+@use "mixins/expanding-sections"
+@use "mixins/icons" as mixins-icons
+@use "mixins/notification-test"
+@use "mixins/table"
 
-// BREAKPOINTS
+@use "general/buttons"
+@use "general/facebox"
+@use "general/flash-notices"
+@use "general/flex"
+@use "general/form"
+@use "general/general"
+@use "general/help-text"
+@use "general/icons"
+@use "general/lists"
+@use "general/tables"
+@use "general/text"
 
-=handheld
-  @media screen and (max-device-width: 767px), (max-width: 767px)
-    @content
-
-//
-
-$headerColor: #323232
-$primaryColor: #ff6400
-$secondaryColor: darken($primaryColor, 4%)
-
-
-$teal: #95E0E5
-$green: #398927
-$red: #CC0000
-$yellow: #e5c105
-$peach: #FED1BF
-
-$default: Futura, Helvetica, Arial, sans-serif
-$font: $default
-
-// BREAKPOINTS
-
-=bp_tablet
-  @media screen and (max-width: 1024px)
-    @content
-=bp_mobile
-  @media screen and (max-width: 767px)
-    @content
-
-// Global Mixins
-
-@mixin constant-width( $width )
-  width: $width
-  min-width: $width
-  max-width: $width
-
-@mixin constant-height( $height )
-  height: $height
-  min-height: $height
-  max-height: $height
-
-@mixin variable-height( $h1: 300px, $h2: 800px)
-  height: $h1
-  min-height: $h1
-  max-height: $h2
-
-// IMPORTS
-
-@import "mixins/*"
-@import "general/*"
-@import "nav"
-@import "scoring"
-@import "teams"
+@use "nav"
+@use "scoring"
+@use "teams"

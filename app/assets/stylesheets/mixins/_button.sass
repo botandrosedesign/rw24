@@ -1,12 +1,16 @@
+@use "variables" as *
+@use "sass:color"
+@use "font-awesome"
+
 @mixin button( $bg: $primaryColor, $text-color: #fcfcfc, $font-size: 1.4em, $hover: true, $fa: false )
   display: inline-block
   font-size: $font-size
   font-weight: 400
   line-height: 3.0em
   color: $text-color
-  border: 1px solid darken( $bg, 6% )
+  border: 1px solid color.scale( $bg, $blackness: 6% )
   background-color: $bg
-  background: linear-gradient( $bg, darken( $bg, 5% ) )
+  background: linear-gradient( $bg, color.scale( $bg, $blackness: 5% ) )
   border-radius: 2px
   padding: 0 15px
   cursor: pointer
@@ -19,9 +23,9 @@
     &
       cursor: pointer
     &:hover
-      background: darken( $bg, 4% )
-      box-shadow: 0 0 5px 0 inset darken( $bg, 10% )
-      color:  lighten( $text-color, 6% )
+      background: color.scale( $bg, $blackness: 4% )
+      box-shadow: 0 0 5px 0 inset color.scale( $bg, $blackness: 10% )
+      color: color.scale( $text-color, $lightness: 6% )
   @if $fa
     @extend .fa-#{$fa}
     &:before

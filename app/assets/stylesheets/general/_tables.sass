@@ -1,3 +1,11 @@
+@use "variables" as *
+@use "sass:color"
+@use "mixins/global" as *
+@use "mixins/table" as *
+@use "general/buttons" as *
+@use "general/form"
+@use "font-awesome"
+
 table
   max-width: 100%
 
@@ -51,7 +59,7 @@ table
   tbody
     tr
       &:hover
-        background: lighten(yellow, 45%) !important
+        background: color.scale(yellow, $lightness: 45%) !important
       &:nth-child(even)
         background: #f9f9f9
 
@@ -97,14 +105,14 @@ table
   .incomplete
     td
       color: #1a1a1a
-      background: lighten(red, 45%)
+      background: color.scale(red, $lightness: 45%)
     span
       color: red
       @extend .fa-times
 
 .penalties
   td
-    background: lighten(red, 45%)
+    background: color.scale(red, $lightness: 45%)
 
 // USERS
 

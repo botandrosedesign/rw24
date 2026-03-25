@@ -1,3 +1,8 @@
+@use "variables" as *
+@use "sass:color"
+@use "mixins/global" as *
+@use "mixins/checkbox-columns"
+
 // forms
 
 .-nowrap
@@ -339,7 +344,7 @@ textarea
   input
     border-color: $yellow
     box-shadow: $yellow 0 0 4px 0
-    background: lighten($yellow, 50%)
+    background: color.scale($yellow, $lightness: 50%)
   & + label
     @extend %inline-label
     margin: 0 15px 0 0

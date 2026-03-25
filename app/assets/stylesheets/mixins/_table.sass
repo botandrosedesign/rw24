@@ -1,3 +1,6 @@
+@use "variables" as *
+@use "sass:color"
+
 =actions-table
   text-align: left
   width:  100%
@@ -21,7 +24,7 @@
       &:nth-child(even)
         background: #fbfbfb
       &:hover
-        background: lighten($yellow, 50%)
+        background: color.scale($yellow, $lightness: 50%)
     th
       &:after
         position: absolute
