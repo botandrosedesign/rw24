@@ -23,7 +23,8 @@ Feature: Admins can manage race categories
       | Year       | 2026                 |
       | Start time | July 25, 2026 7:00pm |
     And I press "Save"
-    And I follow "Edit Race"
+    And I follow "Races" within the admin nav
+    And I follow "Edit Race" within the "2026" race
 
   Scenario: New race has same categories as most recent race
     Then I should see the following categories:
