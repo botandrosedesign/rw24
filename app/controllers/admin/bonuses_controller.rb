@@ -38,9 +38,11 @@ class Admin::BonusesController < Admin::BaseController
   end
 
   def update
-    @race.bonuses[params[:id].to_i][:name] = params[:bonus][:name]
-    @race.bonuses[params[:id].to_i][:points] = params[:bonus][:points]
+    bonus_id = params[:id].to_i
+    @race.bonuses[bonus_id][:name] = params[:bonus][:name]
+    @race.bonuses[bonus_id][:points] = params[:bonus][:points]
     @race.save
+    @race.points.bonuses.where(bonus_id: bonus_id).update_all(qty: params[:bonus][:points].to_i)
     redirect_to [:edit, :admin, @race], notice: "Bonus updated!"
   end
 

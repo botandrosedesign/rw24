@@ -76,6 +76,33 @@ Feature: Admin can manage team bonuses
       |   | Third Bonus   | 24     |
       |   | All Bonuses!  | 5      |
 
+  Scenario: Editing a bonus point amount updates existing bonus points
+    When I follow "Bonus Form" within the "First Bonus" checkpoint
+    And I check "1"
+    Then I should see "Bonus assigned to team 1"
+
+    Given I am on the leaderboard page
+    Then I should see the following leaderboard:
+      | POS# | CLASS  | TEAM NAME | LAPS    | MILES      | BONUS | PENALTY | TOTAL |
+      | 001  | M      | BARD      | --      | --         | 01    | --      | 01    |
+      | 002  | F      | BORG      | --      | --         | --    | --      | --    |
+      |      |        |           | 0 LAPS! | 0.0 MILES! |       |         |       |
+
+    Given I am on the admin overview page
+    When I follow "Races"
+    And I follow "Edit Race" within the "2020" race
+    And I follow "Edit" within the "First Bonus" checkpoint
+    And I fill in "Points" with "5"
+    And I press "Update Bonus"
+    Then I should see "Bonus updated!"
+
+    Given I am on the leaderboard page
+    Then I should see the following leaderboard:
+      | POS# | CLASS  | TEAM NAME | LAPS    | MILES      | BONUS | PENALTY | TOTAL |
+      | 001  | M      | BARD      | --      | --         | 05    | --      | 05    |
+      | 002  | F      | BORG      | --      | --         | --    | --      | --    |
+      |      |        |           | 0 LAPS! | 0.0 MILES! |       |         |       |
+
   Scenario: Log bonuses for teams
     When I follow "Bonus Form" within the "First Bonus" checkpoint
     Then I should see the following bonus form:
