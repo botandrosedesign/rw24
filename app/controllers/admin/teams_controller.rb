@@ -6,6 +6,10 @@ class Admin::TeamsController < Admin::BaseController
     @teams = @race.teams.includes(:category, :riders)
   end
 
+  def rider_autocomplete_options
+    render json: @race.rider_autocomplete_options
+  end
+
   def new
     @team = @race.teams.build
     render :form

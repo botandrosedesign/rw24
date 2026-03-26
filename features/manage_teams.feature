@@ -86,6 +86,18 @@ Feature: Admins can manage teams
       | PAID | EMAILED | POS# | CLASS | TEAM NAME          | RIDERS | T-SHIRTS | LEADER NAME |
       | No   | No      | 2    | S     | BORG               | 1      | 0        | Michael     |
 
+  Scenario: Rider autocomplete finds users who registered after page load
+    When I follow "New Team"
+    And I select "Solo (male)" from "Category"
+
+    Given the following users exist:
+      | email                | first_name | last_name |
+      | micah@botandrose.com | Micah      | Geisel    |
+
+    When I type "micah" into "Search" within the first rider form
+    Then I should see the following autocomplete options:
+      | Micah Geisel ‹micah@botandrose.com› |
+
   Scenario: An Admin deletes a team from the edit page
     When I follow "Edit" within the "BARD" team
     And I follow "Delete Team"

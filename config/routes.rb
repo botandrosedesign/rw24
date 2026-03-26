@@ -34,7 +34,8 @@ Rails.application.routes.draw do
         post :delete_all, on: :collection
       end
       resources :teams, except: :show do
-        post :send_confirmation_emails, :on => :collection
+        get :rider_autocomplete_options, on: :collection
+        post :send_confirmation_emails, on: :collection
       end
     end
     resources :users do

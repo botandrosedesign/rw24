@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 import "@kollegorna/cocoon-vanilla-js"
 import autocomplete from 'autocompleter'
-import { post } from "rails-request-json"
+import { get, post } from "rails-request-json"
 
 export default class extends Controller {
   static targets = [
@@ -13,12 +13,14 @@ export default class extends Controller {
       input: this.fieldTarget,
       container: document.createElement("ul"),
       className: "autocomplete",
-      fetch: (text, update) => {
-        const matchedUsers = window.riderAutocompleteOptions.filter(user => {
+      fetch: async (text, update) => {
+        const users = await get(window.riderAutocompleteUrl)
+        const matchedUsers = users.filter(user => {
           return user.label.toLowerCase().includes(text.toLowerCase())
         })
         update(matchedUsers)
       },
+      debounceWaitMs: 300,
       render: user => {
         let text = user.label
         if(!user.verified) { text = `<span style='color: red'>UNCONFIRMED</span> ${text}` }
