@@ -6,5 +6,5 @@ table#bonus-view
       th = bonus.team_position
       td = bonus.team_name
       td = bonus.qty
-      td = link_to "Delete", point_path(bonus), class: "delete-icon", remote: true, method: :delete, data: { type: "text", confirm: "Are you sure?", controller: "delete-bonus" }
+      td = link_to "Delete", point_path(bonus), class: "delete-icon", data: { type: "text", confirm: "Are you sure?", controller: "delete-bonus", action: "click->delete-bonus#click" }
 

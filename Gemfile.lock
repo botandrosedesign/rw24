@@ -565,6 +565,9 @@ GEM
     trilogy (2.11.0)
       bigdecimal
     tsort (0.2.0)
+    turbo-rails (2.0.23)
+      actionpack (>= 7.1.0)
+      railties (>= 7.1.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     uri (1.1.1)
@@ -644,6 +647,7 @@ DEPENDENCIES
   stimulus-rails
   timecop
   trilogy
+  turbo-rails
   validates_email_format_of
   vcr
   web-console

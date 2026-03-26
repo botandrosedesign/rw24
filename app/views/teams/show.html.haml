@@ -40,9 +40,9 @@
           %td= lap.since_start
           - if current_user&.admin?
             %td
-              = link_to "Split", [:split, lap], title: "Split Lap", class: "split-icon", method: "post", data: { confirm: "Are you sure you want to split this lap into two?" }
+              = link_to "Split", [:split, lap], title: "Split Lap", class: "split-icon", data: { turbo: true, turbo_method: :post, turbo_confirm: "Are you sure you want to split this lap into two?" }
               = link_to "Edit", [:edit, lap], title: "Edit Score", class: "edit-icon", rel: "ceebox"
-              = link_to "Delete", lap, class: "delete-icon", title: "Delete Score", method: :delete, data: { confirm: "Are you sure?" }
+              = link_to "Delete", lap, class: "delete-icon", title: "Delete Score", data: { turbo: true, turbo_method: :delete, turbo_confirm: "Are you sure?" }
         - last_lap = lap
 
 .col-bonuses
@@ -62,7 +62,7 @@
               %i.points= bonus.points
             %td
               - if bonus_lap && current_user&.admin?
-                = link_to "Delete", bonus_lap, class: "delete-icon", title: "Delete Score", method: :delete, data: { confirm: "Are you sure?" }
+                = link_to "Delete", bonus_lap, class: "delete-icon", title: "Delete Score", data: { turbo: true, turbo_method: :delete, turbo_confirm: "Are you sure?" }
 
       - else
         - @team.points.bonuses.sort_by {|p| p.bonus_id || 0}.each_with_index do |bonus, i|
@@ -73,7 +73,7 @@
             %td
               - if current_user&.admin?
                 = link_to "Edit", [:edit, bonus], title: "Edit Score", class: "edit-icon", rel: "ceebox"
-                = link_to "Delete", bonus, class: "delete-icon", title: "Delete Score", method: :delete, data: { confirm: "Are you sure?" }
+                = link_to "Delete", bonus, class: "delete-icon", title: "Delete Score", data: { turbo: true, turbo_method: :delete, turbo_confirm: "Are you sure?" }
 
 
 .col-penalties
@@ -93,7 +93,7 @@
           %td
             - if current_user&.admin?
               = link_to "Edit", [:edit, penalty], title: "Edit Score", class: "edit-icon", rel: "ceebox"
-              = link_to "Delete", penalty, class: "delete-icon", method: :delete, data: { confirm: "Are you sure?" }
+              = link_to "Delete", penalty, class: "delete-icon", data: { turbo: true, turbo_method: :delete, turbo_confirm: "Are you sure?" }
 
 %hr.clear
 

@@ -1,41 +1,44 @@
 import { Controller } from "@hotwired/stimulus"
-import { withActions } from "stimulus-use-actions"
 
-export default class extends withActions(Controller) {
-  static actions = {
-    element: [
-      "ajax:success->success",
-      "ajax:error->error",
-    ],
-  }
-
+export default class extends Controller {
   connect() {
-    super.connect()
     this.id = this.element.elements.backup_id.value
     this.dialogTarget = this.element.closest("dialog")
   }
 
-  // retry: true,
+  async submit(event) {
+    event.preventDefault()
 
-  success(event) {
-    if(this.rowTarget) {
-      const html = event.detail[0]
-      this.rowTarget.outerHTML = html
-      this.id = html.match(/point_(\d+)/)[1]
-      sortLoop(this.rowTarget)
-      this.dialogTarget.close()
-    } else {
-      window.location.reload()
+    try {
+      const response = await fetch(this.element.action, {
+        method: this.element.method,
+        body: new FormData(this.element),
+        headers: {
+          "X-CSRF-Token": document.querySelector("meta[name='csrf-token']")?.content,
+          "Accept": "text/javascript"
+        }
+      })
+
+      if (!response.ok) throw new Error()
+
+      const html = await response.text()
+
+      if (this.rowTarget) {
+        this.rowTarget.outerHTML = html
+        this.id = html.match(/point_(\d+)/)[1]
+        sortLoop(this.rowTarget)
+        this.dialogTarget.close()
+      } else {
+        window.location.reload()
+      }
+    } catch {
+      if (this.rowTarget) {
+        this.rowTarget.classList.add("failed")
+        this.dialogTarget.close()
+      } else {
+        window.location.reload()
+      }
     }
-  }
-
-  error(event) {
-    if(this.rowTarget) {
-      this.rowTarget.classList.add("failed")
-      this.dialogTarget.close()
-    } else {
-      window.location.reload()
-    } 
   }
 
   get rowTarget() {
@@ -54,4 +57,3 @@ function sortLoop(el) {
     }
   }
 }
-

@@ -1,41 +1,39 @@
 import { Controller } from "@hotwired/stimulus"
-import { withActions } from "stimulus-use-actions"
 
-export default class extends withActions(Controller) {
-  static targets = [
-    "field",
-  ]
+export default class extends Controller {
+  static targets = ["field"]
 
-  static actions = {
-    element: [
-      "submit->submit",
-      "ajax:success->success",
-      "ajax:error->error",
-    ],
-    fieldTarget: "click",
-  }
+  async submit(event) {
+    event.preventDefault()
 
-  submit() {
     this.fieldTarget.indeterminate = true
     document.getElementById("flash_notice").innerText = ""
     document.getElementById("flash_alert").innerText = ""
-  }
 
-  success() {
-    this.fieldTarget.indeterminate = false
-    const verb = this.fieldTarget.checked ? "assigned to" : "removed from"
-    const teamId = this.fieldTarget.id.split("_").at(-1)
-    document.getElementById("flash_notice").innerText = `Bonus ${verb} team ${teamId}`
-  }
+    try {
+      const response = await fetch(this.element.action, {
+        method: this.element.method,
+        body: new FormData(this.element),
+        headers: {
+          "X-CSRF-Token": document.querySelector("meta[name='csrf-token']")?.content,
+          "Accept": "text/javascript"
+        }
+      })
 
-  error() {
-    const verb = this.fieldTarget.checked ? "assign bonus to" : "removed bonus from"
-    const teamId = this.fieldTarget.id.split("_").at(-1)
-    document.getElementById("flash_alert").innerText = `Couldn't ${verb} team ${teamId}! Check your internet connection?`
+      if (!response.ok) throw new Error()
+
+      this.fieldTarget.indeterminate = false
+      const verb = this.fieldTarget.checked ? "assigned to" : "removed from"
+      const teamId = this.fieldTarget.id.split("_").at(-1)
+      document.getElementById("flash_notice").innerText = `Bonus ${verb} team ${teamId}`
+    } catch {
+      const verb = this.fieldTarget.checked ? "assign bonus to" : "removed bonus from"
+      const teamId = this.fieldTarget.id.split("_").at(-1)
+      document.getElementById("flash_alert").innerText = `Couldn't ${verb} team ${teamId}! Check your internet connection?`
+    }
   }
 
   click() {
     this.element.requestSubmit()
   }
 }
-

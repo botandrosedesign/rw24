@@ -13,10 +13,10 @@ h3 Bonus Logger - #{@checkpoint.name}
 
   .bonus-fields
     - @race.teams.each do |team|
-      = form_tag nil, method: :put, data: { remote: true, controller: "bonus-team-form" } do
+      = form_tag nil, method: :put, data: { controller: "bonus-team-form", action: "submit->bonus-team-form#submit" } do
         = hidden_field_tag :team_id, team.id, id: nil
         .field
-          = check_box_tag "checked", 1, team.has_bonus?(@checkpoint), id: "team_#{team.position}", data: { bonus_team_form_target: "field" }
+          = check_box_tag "checked", 1, team.has_bonus?(@checkpoint), id: "team_#{team.position}", data: { bonus_team_form_target: "field", action: "click->bonus-team-form#click" }
           = label_tag "team_#{team.position}", team.position
 
   .flex.-between

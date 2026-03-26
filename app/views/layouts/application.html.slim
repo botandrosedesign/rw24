@@ -66,7 +66,7 @@ html lang="en-US"
           li= link_to "Login", :login
         ul.account-nav#logged_in style="display: none" data-account-nav-target="loggedIn"
           li= link_to "My account", :account
-          li= link_to "Logout", :logout, method: :delete
+          li= link_to "Logout", :logout, data: { turbo: true, turbo_method: :delete }
 
     section.main
       .container

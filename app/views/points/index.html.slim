@@ -25,7 +25,7 @@ template#point_template
 
 = content_for :sidebar do
   h4 Lap Logger
-  = form_for @lap, html: { id: "new_lap", autocomplete: "off" }, data: { remote: true, controller: "points" } do |form|
+  = form_for @lap, html: { id: "new_lap", autocomplete: "off" }, data: { controller: "points", action: "submit->points#submit" } do |form|
     .calculator#laps
       = form.hidden_field :qty
       = form.hidden_field :category
@@ -40,7 +40,7 @@ template#point_template
   h4
     Bonus Points -&nbsp;
     = link_to "Forms", bonuses_points_path, rel: "ceebox"
-  = form_for @bonus, html: { id: "new_bonus", autocomplete: "off" }, data: { remote: true, controller: "points" } do |form|
+  = form_for @bonus, html: { id: "new_bonus", autocomplete: "off" }, data: { controller: "points", action: "submit->points#submit" } do |form|
     .calculator#bonus
       = form.hidden_field :category
       = form.hidden_field :since_start
@@ -60,7 +60,7 @@ template#point_template
     = button_to "Assign All Bonuses Bonuses", assign_all_bonuses_bonuses_points_path, "data-confirm" => "This will assign the all bonus checkpoints bonus to all teams that have completed every bonus checkpoint, but haven't gotten the tattoo. This operation is idempotent, so push this button as many times as you like."
   
   h4 Penalty Points
-  = form_for @penalty, html: { id: "new_penalty", autocomplete: "off" }, data: { remote: true, controller: "points" } do |form|
+  = form_for @penalty, html: { id: "new_penalty", autocomplete: "off" }, data: { controller: "points", action: "submit->points#submit" } do |form|
     .calculator#penalty
       = form.hidden_field :category
       = form.hidden_field :since_start

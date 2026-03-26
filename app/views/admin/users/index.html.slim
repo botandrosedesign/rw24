@@ -16,7 +16,7 @@ table.users-table
       tr
         td = link_to user.name, [:admin, user]
         td = user.email
-        td = user.verified? ? "Yes" : link_to("Resend", [:admin, user, :resend_confirmation], method: :post)
+        td = user.verified? ? "Yes" : link_to("Resend", [:admin, user, :resend_confirmation], data: { method: :post })
         td = "Admin" if user.admin?
         td = user.shirt_size
         td
@@ -25,6 +25,6 @@ table.users-table
             = link_to year, edit_admin_race_team_path(race_id, team_id), class: "user-race"
         td
           = link_to "Edit user", [:edit, :admin, user], class: "edit-icon", title: "Edit user"
-          = link_to "Delete user", [:admin, user], method: "delete", class: "delete-icon", title: "Delete user",
-            data: { confirm: "Are you sure you want to delete this user?" }
+          = link_to "Delete user", [:admin, user], class: "delete-icon", title: "Delete user",
+            data: { method: :delete, confirm: "Are you sure you want to delete this user?" }
 

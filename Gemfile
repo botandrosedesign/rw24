@@ -36,6 +36,7 @@ gem "font-awesome-rails"
 
 gem "importmap-rails"
 gem "stimulus-rails"
+gem "turbo-rails"
 
 group :development do
   gem "web-console"

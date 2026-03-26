@@ -1,20 +1,25 @@
 import { Controller } from "@hotwired/stimulus"
-import { withActions } from "stimulus-use-actions"
 
-export default class extends withActions(Controller) {
-  static actions = {
-    element: [
-      "ajax:success->success",
-      "ajax:error->error",
-    ],
-  }
+export default class extends Controller {
+  async click(event) {
+    event.preventDefault()
 
-  success(event) {
-    this.element.closest("tr").remove()
-  }
+    if (!confirm(this.element.dataset.confirm)) return
 
-  error(event) {
-    alert("Couldn't delete")
+    try {
+      const response = await fetch(this.element.href, {
+        method: "DELETE",
+        headers: {
+          "X-CSRF-Token": document.querySelector("meta[name='csrf-token']")?.content,
+          "Accept": "text/javascript"
+        }
+      })
+
+      if (!response.ok) throw new Error()
+
+      this.element.closest("tr").remove()
+    } catch {
+      alert("Couldn't delete")
+    }
   }
 }
-

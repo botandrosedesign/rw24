@@ -1,22 +1,14 @@
 import { Controller } from "@hotwired/stimulus"
-import { withActions } from "stimulus-use-actions"
 
-export default class extends withActions(Controller) {
-  static actions = {
-    element: [
-      "ajax:before->before",
-      "ajax:beforeSend->beforeSend",
-      "ajax:success->success",
-      "ajax:error->error",
-    ],
-  }
-
+export default class extends Controller {
   connect() {
-    super.connect()
     this.pointsTarget = document.getElementById("points")
   }
 
-  before(event) {
+  async submit(event) {
+    event.preventDefault()
+
+    // Fill in computed fields
     const now = new Date().valueOf()
     const start = window.raceStart
     const since_start = now - start
@@ -28,9 +20,8 @@ export default class extends withActions(Controller) {
     if(bonus_id) {
       this.element.elements['point[qty]'].value = window.bonuses.qty_for_id(bonus_id)
     }
-  }
 
-  beforeSend(event) {
+    // Capture form data and add pending row
     const formData = new FormData(this.element)
     this.queryString = new URLSearchParams(formData).toString()
     this.addPendingRow(Object.fromEntries(formData))
@@ -39,6 +30,30 @@ export default class extends withActions(Controller) {
 
     this.element.reset()
     this.element.querySelector("input[type=number]")?.focus()
+
+    // Submit via fetch
+    try {
+      const response = await fetch(this.element.action, {
+        method: this.element.method,
+        body: formData,
+        headers: {
+          "X-CSRF-Token": document.querySelector("meta[name='csrf-token']")?.content,
+          "Accept": "text/javascript"
+        }
+      })
+
+      if (!response.ok) {
+        const text = await response.text()
+        this.handleError(text)
+        return
+      }
+
+      const html = await response.text()
+      const row = document.getElementById(this.id)
+      row.outerHTML = html
+    } catch {
+      this.handleError("Network error")
+    }
   }
 
   addPendingRow(data) {
@@ -49,12 +64,7 @@ export default class extends withActions(Controller) {
     this.pointsTarget.insertAdjacentHTML("afterBegin", html)
   }
 
-  success(event) {
-    const row = document.getElementById(this.id)
-    row.outerHTML = event.detail[0]
-  }
-
-  error(event) {
+  handleError(text) {
     const row = document.getElementById(this.id)
     row.classList.remove("pending")
     row.classList.add("failed")
@@ -63,7 +73,7 @@ export default class extends withActions(Controller) {
       <a href="/points/new?id=${this.id}&${this.queryString}" class="edit" title="New Score" rel="ceebox">Edit</a>
       <a href="#" onclick="this.closest('tr').remove(); return false" class="delete">Delete</a>
     `
-    td.previousElementSibling.innerText = event.detail[0]
+    td.previousElementSibling.innerText = text
   }
 }
 
@@ -81,4 +91,3 @@ function format_time_diff(diff) {
 }
 
 function Mu(e,t){return e.replace(/@(\w+)="([^"]+)"/g,(e,o,t)=>`on${o}="${t.replace(/\bthis\b/g,"getRootNode().host")}"`).replace(/{{([^}]+)}}/g,(e,o)=>t[o])}
-
