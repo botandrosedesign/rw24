@@ -26,7 +26,7 @@ class EmailsController < BaseController
         flash.alert = "There is already an user with this email address!"
       end
     else
-      flase.alert = "Bad confirmation token!"
+      flash.alert = "Bad confirmation token!"
     end
     redirect_to root_path
   end
