@@ -10,7 +10,7 @@ export default class extends withActions(Controller) {
   }
 
   success(event) {
-    this.closest("tr").remove()
+    this.element.closest("tr").remove()
   }
 
   error(event) {

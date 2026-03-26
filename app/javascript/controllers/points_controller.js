@@ -25,10 +25,8 @@ export default class extends withActions(Controller) {
 
     this.element.elements['point[since_start]'].value = since_start_formatted
     const bonus_id = this.element.elements['point[bonus_id]']?.value
-    let qty = this.element.elements['point[qty]']?.value
     if(bonus_id) {
-      let qty = window.bonuses.qty_for_id(bonus_id)
-      this.element.elements['point[qty]'].value = qty
+      this.element.elements['point[qty]'].value = window.bonuses.qty_for_id(bonus_id)
     }
   }
 
@@ -77,9 +75,9 @@ function format_time_diff(diff) {
   const minutes = diff % oneHour / oneMinute
   const seconds = diff % oneMinute / 1000
 
-  return [hours, minutes, seconds].filter(e=>e).map(n => {
+  return [hours, minutes, seconds].filter(e=>e).map(n =>
     Math.floor(n).toString().padStart(2, '0')
-  }).join(":")
+  ).join(":")
 }
 
 function Mu(e,t){return e.replace(/@(\w+)="([^"]+)"/g,(e,o,t)=>`on${o}="${t.replace(/\bthis\b/g,"getRootNode().host")}"`).replace(/{{([^}]+)}}/g,(e,o)=>t[o])}
