@@ -1,42 +1,17 @@
-class Bonus
-  include ActiveModel::AttributeMethods
-  include ActiveModel::Conversion
-  extend ActiveModel::Naming
+require "positioning"
 
-  def self.find_by_race_and_id race, id
-    race.bonus_checkpoints.find do |bonus|
-      bonus.id == id.to_i
-    end
+class Bonus < ActiveRecord::Base
+  self.table_name = "bonuses"
+
+  belongs_to :race
+
+  positioned on: :race
+
+  def self.find_by_key(key)
+    find_by!(key: key)
   end
 
-  def self.find_by_race_and_key race, key
-    race.bonus_checkpoints.find do |bonus|
-      bonus.key == key
-    end
-  end
-
-  def self.find_by_key key
-    bonus = nil
-    race = Race.all.find do |race|
-      bonus = find_by_race_and_key(race, key)
-    end
-    bonus.race = race
-    bonus
-  end
-
-  attr_accessor :id, :name, :points, :key, :race
-
-  def initialize(attributes = {})
-    attributes.each do |name, value|
-      send("#{name}=", value)
-    end
-  end
-
-  def persisted?
-    id.present?
-  end
-
-  def new_record?
-    !persisted?
+  def as_json(options = {})
+    super(only: [:id, :name, :points, :key, :position])
   end
 end

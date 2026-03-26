@@ -1,7 +1,6 @@
 Given "the race has the tattoo bonus checkpoint" do
   race = Race.last
-  race.bonuses[0] = { name: "Tattoo", points: 5, key: SecureRandom.hex(8) }
-  race.save!
+  race.bonuses.create!(name: "Tattoo", points: 5, key: SecureRandom.hex(8))
 end
 
 Then "I should see the following laps:" do |table|

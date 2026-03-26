@@ -23,11 +23,10 @@ class PointsController < BaseController
 
   def update_bonuses
     checkpoint = Bonus.find_by_key(params[:key])
-    race = checkpoint.race
-    team = race.teams.find(params[:team_id])
+    team = checkpoint.race.teams.find(params[:team_id])
 
     scope = team.points.where({
-      race: race,
+      race: checkpoint.race,
       category: "Bonus",
       qty: checkpoint.points,
       bonus_id: checkpoint.id,
@@ -153,7 +152,7 @@ class PointsController < BaseController
 
   def authorize_access
     return true if current_user&.admin?
-    return true if Bonus.find_by_race_and_key(@race, params[:key])
+    return true if @race.bonuses.find_by(key: params[:key])
     redirect_to admin_sites_url
   end
 

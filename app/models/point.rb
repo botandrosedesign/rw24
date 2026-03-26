@@ -8,6 +8,7 @@ class Point < ActiveRecord::Base
   end
 
   belongs_to :race
+  belongs_to :bonus, optional: true
 
   validate :uniqueness_of_bonus
   validates_inclusion_of :category, :in => CATEGORIES

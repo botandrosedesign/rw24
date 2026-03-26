@@ -2,18 +2,16 @@ class Admin::BonusesController < Admin::BaseController
   before_action :set_race
 
   def sortable
-    new_bonuses = params[:bonuses].map do |json|
-      bonus = JSON.parse(json).to_hash
-      bonus.delete("id")
-      bonus
+    params[:bonuses].each_with_index do |json, index|
+      attrs = JSON.parse(json)
+      @race.bonuses.find(attrs["id"]).update_column(:position, index + 1)
     end
-    @race.update! bonuses: new_bonuses
     render json: true
   end
 
   def show
-    @bonus = Bonus.find_by_race_and_id(@race, params[:id])
-    @bonuses = Point.bonuses.where(bonus_id: params[:id], race_id: @race.id).includes(:team).reorder("teams.position")
+    @bonus = @race.bonuses.find(params[:id])
+    @bonuses = Point.bonuses.where(bonus_id: @bonus.id, race_id: @race.id).includes(:team).reorder("teams.position")
   end
 
   def new
@@ -22,7 +20,7 @@ class Admin::BonusesController < Admin::BaseController
   end
 
   def edit
-    @bonus = Bonus.find_by_race_and_id(@race, params[:id])
+    @bonus = @race.bonuses.find(params[:id])
     render :form
   end
 
@@ -30,25 +28,27 @@ class Admin::BonusesController < Admin::BaseController
     if params[:id].present?
       update
     else
-      params[:bonus][:key] = SecureRandom.hex(8)
-      @race.bonuses << params[:bonus]
-      @race.save
+      @race.bonuses.create!(
+        name: params[:bonus][:name],
+        points: params[:bonus][:points],
+        key: SecureRandom.hex(8),
+      )
       redirect_to [:new, :admin, @race, :bonus], notice: "Bonus added! Add another?"
     end
   end
 
   def update
-    bonus_id = params[:id].to_i
-    @race.bonuses[bonus_id][:name] = params[:bonus][:name]
-    @race.bonuses[bonus_id][:points] = params[:bonus][:points]
-    @race.save
-    @race.points.bonuses.where(bonus_id: bonus_id).update_all(qty: params[:bonus][:points].to_i)
+    bonus = @race.bonuses.find(params[:id])
+    bonus.update!(
+      name: params[:bonus][:name],
+      points: params[:bonus][:points],
+    )
+    @race.points.bonuses.where(bonus_id: bonus.id).update_all(qty: bonus.points)
     redirect_to [:edit, :admin, @race], notice: "Bonus updated!"
   end
 
   def delete_all
-    @race.bonuses = []
-    @race.save
+    @race.bonuses.destroy_all
     redirect_to [:edit, :admin, @race], notice: "All Bonuses deleted!"
   end
 

@@ -53,12 +53,12 @@
         %th
     %tbody
       - if @race.year >= 2012
-        - @race.bonus_checkpoints.each do |bonus|
+        - @race.bonuses.each do |bonus|
           - bonus_lap = @team.points.bonuses.where(bonus_id: bonus.id).first
           %tr{class: ("complete" if bonus_lap)}
             %td
               %span
-              #{bonus.id} - #{bonus.name}
+              #{bonus.position - 1} - #{bonus.name}
               %i.points= bonus.points
             %td
               - if bonus_lap && current_user&.admin?

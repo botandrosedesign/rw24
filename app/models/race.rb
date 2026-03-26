@@ -2,6 +2,7 @@ require "active_record/json_associations"
 
 class Race < ActiveRecord::Base
   belongs_to_many :categories, class_name: "TeamCategory"
+  has_many :bonuses, -> { order(:position) }, class_name: "Bonus", dependent: :destroy
   has_many :teams
   has_many :riders, :through => :teams
   has_many :points
@@ -34,36 +35,25 @@ class Race < ActiveRecord::Base
     start_time + 24.hours
   end
 
-  def bonuses
-    settings[:bonuses] ||= []
-  end
-
-  def bonuses= value
-    settings[:bonuses] = value
-  end
-
-  def bonus_checkpoints
-    bonuses.map.with_index do |attributes, index|
-      Bonus.new(attributes.merge(id: index))
-    end
-  end
-
   def assign_all_bonuses_bonuses
-    tattoo_points = bonus_checkpoints.first.points.to_i
-    raise AllBonusesException, "The first bonus needs to be a five point tattoo bonus" unless tattoo_points == 5
-    all_bonuses_points = bonus_checkpoints.last.points.to_i
-    raise AllBonusesException, "The last bonus needs to be a five point all bonuses bonus" unless all_bonuses_points == 5
+    tattoo_bonus = bonuses.first
+    raise AllBonusesException, "The first bonus needs to be a five point tattoo bonus" unless tattoo_bonus.points == 5
+    all_bonuses_bonus = bonuses.last
+    raise AllBonusesException, "The last bonus needs to be a five point all bonuses bonus" unless all_bonuses_bonus.points == 5
+
+    middle_bonus_ids = bonuses.where.not(id: [tattoo_bonus.id, all_bonuses_bonus.id]).pluck(:id)
 
     teams.find_each do |team|
-      assigned_bonuses = team.points.bonuses.map(&:bonus_id).sort
-      before = (1..bonus_checkpoints.count-2).to_a
-      after = (1..bonus_checkpoints.count-1).to_a
-      all_bonuses_bonus = team.points.where(qty: 5, category: "Bonus", race: self, bonus_id: bonus_checkpoints.last.id)
+      assigned_bonus_ids = team.points.bonuses.pluck(:bonus_id)
+      has_all_middle = (middle_bonus_ids - assigned_bonus_ids).empty?
+      has_tattoo = assigned_bonus_ids.include?(tattoo_bonus.id)
 
-      if [before, after].include?(assigned_bonuses)
-        all_bonuses_bonus.first_or_create!
+      scope = team.points.where(qty: all_bonuses_bonus.points, category: "Bonus", race: self, bonus_id: all_bonuses_bonus.id)
+
+      if has_all_middle && !has_tattoo
+        scope.first_or_create!
       else
-        all_bonuses_bonus.destroy_all
+        scope.destroy_all
       end
     end
   end

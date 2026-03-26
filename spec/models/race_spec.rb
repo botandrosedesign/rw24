@@ -65,58 +65,64 @@ describe Race do
 
   describe "#assign_all_bonuses_bonuses" do
     subject do
-      FactoryBot.create(:race, bonuses: [
-        { name: "tattoo", points: "5" },
-        { name: "bonus 1", points: "2" },
-        { name: "bonus 2", points: "2" },
-        { name: "bonus 3", points: "2" },
-        { name: "all bonuses", points: "5" },
-      ])
+      FactoryBot.create(:race).tap do |race|
+        race.bonuses.create!(name: "tattoo", points: 5, key: SecureRandom.hex(8))
+        race.bonuses.create!(name: "bonus 1", points: 2, key: SecureRandom.hex(8))
+        race.bonuses.create!(name: "bonus 2", points: 2, key: SecureRandom.hex(8))
+        race.bonuses.create!(name: "bonus 3", points: 2, key: SecureRandom.hex(8))
+        race.bonuses.create!(name: "all bonuses", points: 5, key: SecureRandom.hex(8))
+      end
     end
+
+    let(:tattoo) { subject.bonuses[0] }
+    let(:bonus1) { subject.bonuses[1] }
+    let(:bonus2) { subject.bonuses[2] }
+    let(:bonus3) { subject.bonuses[3] }
+    let(:all_bonuses) { subject.bonuses[4] }
 
     let(:team) { FactoryBot.create(:team_solo, name: "Han Solo") }
 
     it "assigns the all bonuses bonus to teams that have attended every bonus" do
-      Point.create! race: subject, team: team, category: "Bonus", qty: 2, bonus_id: 1
-      Point.create! race: subject, team: team, category: "Bonus", qty: 2, bonus_id: 2
-      Point.create! race: subject, team: team, category: "Bonus", qty: 2, bonus_id: 3
+      Point.create! race: subject, team: team, category: "Bonus", qty: 2, bonus_id: bonus1.id
+      Point.create! race: subject, team: team, category: "Bonus", qty: 2, bonus_id: bonus2.id
+      Point.create! race: subject, team: team, category: "Bonus", qty: 2, bonus_id: bonus3.id
       team.bonuses_total.should == 6
       subject.assign_all_bonuses_bonuses
       team.points.reload
       team.bonuses_total.should == 11
-      team.points.bonuses.map(&:bonus_id).should == [1,2,3,4]
+      team.points.bonuses.map(&:bonus_id).sort.should == [bonus1.id, bonus2.id, bonus3.id, all_bonuses.id].sort
     end
 
     it "does not assign the bonus to teams that have attended every bonus and have a tattoo" do
-      Point.create! race: subject, team: team, category: "Bonus", qty: 5, bonus_id: 0
-      Point.create! race: subject, team: team, category: "Bonus", qty: 2, bonus_id: 1
-      Point.create! race: subject, team: team, category: "Bonus", qty: 2, bonus_id: 2
-      Point.create! race: subject, team: team, category: "Bonus", qty: 2, bonus_id: 3
+      Point.create! race: subject, team: team, category: "Bonus", qty: 5, bonus_id: tattoo.id
+      Point.create! race: subject, team: team, category: "Bonus", qty: 2, bonus_id: bonus1.id
+      Point.create! race: subject, team: team, category: "Bonus", qty: 2, bonus_id: bonus2.id
+      Point.create! race: subject, team: team, category: "Bonus", qty: 2, bonus_id: bonus3.id
       team.bonuses_total.should == 11
       subject.assign_all_bonuses_bonuses
       team.bonuses_total.should == 11
-      team.points.bonuses.map(&:bonus_id).should == [0,1,2,3]
+      team.points.bonuses.map(&:bonus_id).sort.should == [tattoo.id, bonus1.id, bonus2.id, bonus3.id].sort
     end
 
     it "does not assign the bonus to teams that have not attended every bonus" do
-      Point.create! race: subject, team: team, category: "Bonus", qty: 2, bonus_id: 1
-      Point.create! race: subject, team: team, category: "Bonus", qty: 2, bonus_id: 3
+      Point.create! race: subject, team: team, category: "Bonus", qty: 2, bonus_id: bonus1.id
+      Point.create! race: subject, team: team, category: "Bonus", qty: 2, bonus_id: bonus3.id
       team.bonuses_total.should == 4
       subject.assign_all_bonuses_bonuses
       team.bonuses_total.should == 4
-      team.points.bonuses.map(&:bonus_id).should == [1,3]
+      team.points.bonuses.map(&:bonus_id).sort.should == [bonus1.id, bonus3.id].sort
     end
 
     it "complains if there is no all bonuses bonus" do
-      subject.bonuses.pop
-      subject.save!
+      subject.bonuses.last.destroy!
+      subject.bonuses.reload
       -> { subject.assign_all_bonuses_bonuses }.should \
         raise_error("The last bonus needs to be a five point all bonuses bonus")
     end
 
     it "complains if there is no tattoo bonus" do
-      subject.bonuses.shift
-      subject.save!
+      subject.bonuses.first.destroy!
+      subject.bonuses.reload
       -> { subject.assign_all_bonuses_bonuses }.should \
         raise_error("The first bonus needs to be a five point tattoo bonus")
     end
@@ -204,40 +210,20 @@ describe Race do
   end
 
   describe "#bonuses" do
-    it "returns empty array by default" do
+    it "returns empty collection by default" do
       race = FactoryBot.create(:race)
-      race.bonuses.should == []
+      race.bonuses.should be_empty
     end
 
-    it "returns stored bonuses" do
-      race = FactoryBot.create(:race, bonuses: [{ "name" => "Test", "points" => "5" }])
-      race.bonuses.length.should == 1
-      race.bonuses.first["name"].should == "Test"
-    end
-  end
-
-  describe "#bonuses=" do
-    it "stores bonuses in settings" do
+    it "returns associated bonus records ordered by position" do
       race = FactoryBot.create(:race)
-      race.bonuses = [{ "name" => "New", "points" => "3" }]
-      race.save!
-      race.reload.bonuses.first["name"].should == "New"
-    end
-  end
-
-  describe "#bonus_checkpoints" do
-    it "returns Bonus objects with sequential ids" do
-      race = FactoryBot.create(:race, bonuses: [
-        { "name" => "First", "points" => "5" },
-        { "name" => "Second", "points" => "2" },
-      ])
-      checkpoints = race.bonus_checkpoints
-      checkpoints.length.should == 2
-      checkpoints.first.should be_a(Bonus)
-      checkpoints.first.id.should == 0
-      checkpoints.first.name.should == "First"
-      checkpoints.last.id.should == 1
-      checkpoints.last.name.should == "Second"
+      second = race.bonuses.create!(name: "Second", points: 2, key: SecureRandom.hex(8))
+      first = race.bonuses.create!(name: "First", points: 5, key: SecureRandom.hex(8))
+      first.update_column(:position, 1)
+      second.update_column(:position, 2)
+      race.bonuses.reload
+      race.bonuses.first.name.should == "First"
+      race.bonuses.last.name.should == "Second"
     end
   end
 

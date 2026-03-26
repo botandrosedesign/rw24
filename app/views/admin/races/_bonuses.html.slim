@@ -9,7 +9,7 @@ table#bonuses.list
       th
       th
   tbody data-controller="sortable"
-    - @race.bonus_checkpoints.each do |bonus|
+    - @race.bonuses.each do |bonus|
       tr data-attributes=bonus.to_json
         td
           span

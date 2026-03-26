@@ -81,8 +81,5 @@ template#point_template
       const value = document.querySelector(".countstart").dataset.countstart
       window.raceStart = new Date(value).valueOf()
       window.bonuses = {
-        store: #{raw @race.bonuses.to_json},
-        qty_for_id: function(bonus_id) {
-          return parseInt(this.store[bonus_id].points);
-        }
+        store: #{raw @race.bonuses.to_json}
       };

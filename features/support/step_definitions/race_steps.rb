@@ -8,8 +8,10 @@ Given "a race exists for {int} with the following categories:" do |year, table|
 end
 
 Given "a race exists for {int} with the following bonus checkpoints:" do |year, table|
-  bonuses = table.hashes.map { |hash| { name: hash["Name"], points: hash["Points"].to_i, key: SecureRandom.hex(8) } }
-  race = FactoryBot.create :race, year: year.to_i, bonuses: bonuses
+  race = FactoryBot.create :race, year: year.to_i
+  table.hashes.each do |hash|
+    race.bonuses.create!(name: hash["Name"], points: hash["Points"].to_i, key: SecureRandom.hex(8))
+  end
 end
 
 Given "there are no races" do

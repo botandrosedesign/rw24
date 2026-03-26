@@ -333,17 +333,17 @@ describe Team do
 
   describe "#has_bonus?" do
     it "returns true when team has the given bonus" do
-      race = FactoryBot.create(:race, bonuses: [{ "name" => "Test", "points" => "5" }])
+      race = FactoryBot.create(:race)
+      bonus = race.bonuses.create!(name: "Test", points: 5, key: SecureRandom.hex(8))
       team = FactoryBot.create(:team_solo, race: race)
-      bonus = race.bonus_checkpoints.first
       Point.create! race: race, team: team, category: "Bonus", qty: 5, bonus_id: bonus.id
       team.has_bonus?(bonus).should be true
     end
 
     it "returns false when team does not have the bonus" do
-      race = FactoryBot.create(:race, bonuses: [{ "name" => "Test", "points" => "5" }])
+      race = FactoryBot.create(:race)
+      bonus = race.bonuses.create!(name: "Test", points: 5, key: SecureRandom.hex(8))
       team = FactoryBot.create(:team_solo, race: race)
-      bonus = race.bonus_checkpoints.first
       team.has_bonus?(bonus).should be false
     end
   end

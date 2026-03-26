@@ -16,9 +16,11 @@ export default class extends Controller {
     this.id = `point_${now}`
 
     this.element.elements['point[since_start]'].value = since_start_formatted
-    const bonus_id = this.element.elements['point[bonus_id]']?.value
-    if(bonus_id) {
-      this.element.elements['point[qty]'].value = window.bonuses.qty_for_id(bonus_id)
+    const bonus_position = this.element.elements['point[bonus_id]']?.value
+    if(bonus_position !== undefined && bonus_position !== "") {
+      let bonus = window.bonuses.store[bonus_position]
+      this.element.elements['point[qty]'].value = parseInt(bonus.points)
+      this.element.elements['point[bonus_id]'].value = bonus.id
     }
 
     // Capture form data and add pending row
