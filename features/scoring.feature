@@ -129,7 +129,7 @@ Feature: Admin can manage team scoring
     And I press "OK" within the new lap form
     Then I should see the following laps:
       | POS# | WHEN     | SINCE    | TYPE | AMT | TOT       | TEAM NAME                   |
-      | 010  |          |          | Lap  | 1   | Saving... | Team position doesn't exist |
+      | 010  | 00:30:00 |          | Lap  | 1   | Saving... | Team position doesn't exist |
       | 001  | 00:15:00 | 00:15:00 | Lap  | 1   | 1         | BARD                        |
 
     When I follow "Edit" within the first lap

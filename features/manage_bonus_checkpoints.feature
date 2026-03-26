@@ -151,6 +151,20 @@ Feature: Admin can manage team bonuses
       | - 3 - Third Bonus 24  |
       | - 4 - All Bonuses! 5  |
 
+  Scenario: Admin can delete a team's bonus from the bonus detail page
+    When I follow "Bonus Form" within the "First Bonus" checkpoint
+    And I check "1"
+    Then I should see "Bonus assigned to team 1"
+    Given I am on the admin overview page
+    When I follow "Races"
+    And I follow "Edit Race" within the "2020" race
+    And I follow "First Bonus"
+    Then I should see the following team bonuses:
+      | POS# | TEAM NAME | POINTS |
+      | 1    | BARD      | 1      |
+    When I follow and confirm "Delete"
+    Then I should not see "BARD"
+
   Scenario: Award bonus to every team
     When I follow "Bonus Form" within the "First Bonus" checkpoint
     Then I should see the following bonus form:

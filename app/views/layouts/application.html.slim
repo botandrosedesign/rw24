@@ -23,7 +23,7 @@ html lang="en-US"
           .title
             h1 Riverwest 24
             h2 Hour Bike Race
-            span.countstart= start_time_format start_time
+            span.countstart data-countstart=start_time&.to_fs(:rfc822) = start_time_format start_time
         .countdown data-controller="countdown" data-countdown-starts-at-value=start_time&.to_fs(:rfc822)
           p
             span data-countdown-target="waiting" The ride starts in:
