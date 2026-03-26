@@ -82,6 +82,7 @@ describe Race do
       Point.create! race: subject, team: team, category: "Bonus", qty: 2, bonus_id: 3
       team.bonuses_total.should == 6
       subject.assign_all_bonuses_bonuses
+      team.points.reload
       team.bonuses_total.should == 11
       team.points.bonuses.map(&:bonus_id).should == [1,2,3,4]
     end

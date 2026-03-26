@@ -25,15 +25,30 @@ end
 
 desc "statically cache leaderboard"
 task :cache_leaderboard => :environment do
-  @race = Race.current
-  body = ApplicationController.render template: "teams/index", assigns: {
-    site: Site.first,
-    section: Section.first,
-    race: @race,
-    teams: @race.teams.leader_board,
+  race = Race.current
+  site = Site.first
+  section = Section.first
+  teams = race.teams.leader_board
+
+  index_body = ApplicationController.render template: "teams/index", assigns: {
+    site: site,
+    section: section,
+    race: race,
+    teams: teams,
   }
-  
-  FileUtils.mkdir_p "public/leader-board"
-  File.write "public/leader-board/#{@race.year}.html", body
+
+  FileUtils.mkdir_p "public/leader-board/#{race.year}"
+  File.write "public/leader-board/#{race.year}.html", index_body
+  File.write "public/leader-board/index.html", index_body
+
+  teams.each do |team|
+    show_body = ApplicationController.render template: "teams/show", assigns: {
+      site: site,
+      section: section,
+      race: race,
+      team: team,
+    }
+    File.write "public/leader-board/#{race.year}/#{team.position}.html", show_body
+  end
 end
 

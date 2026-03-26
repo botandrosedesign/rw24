@@ -77,7 +77,7 @@ class Team < ActiveRecord::Base
   end
 
   def laps_total
-    points.laps.sum(:qty)
+    points.select(&:lap?).sum(&:qty)
   end
 
   def miles_total
@@ -85,15 +85,15 @@ class Team < ActiveRecord::Base
   end
 
   def bonuses_total
-    points.bonuses.sum(:qty)
+    points.select(&:bonus?).sum(&:qty)
   end
 
   def penalties_total
-    points.penalties.sum(:qty)
+    points.select(&:penalty?).sum(&:qty)
   end
 
   def points_total
-    points.sum(:qty)
+    points.sum(&:qty)
   end
 
   def allowed_range

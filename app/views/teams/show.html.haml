@@ -32,7 +32,7 @@
         - if current_user&.admin?
           %th
     %tbody
-      - last_lap = nil
+      - last_lap = Point::NullLap.new(@race.start_time)
       - @team.points.select(&:lap?).each_with_index do |lap, i|
         %tr
           %td= i+1
