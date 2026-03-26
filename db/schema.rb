@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_01_21_145822) do
+ActiveRecord::Schema[8.0].define(version: 2026_03_26_200105) do
   create_table "accounts", id: :integer, charset: "utf8mb4", collation: "utf8mb4_unicode_ci", options: "ENGINE=InnoDB ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: nil
@@ -62,6 +62,18 @@ ActiveRecord::Schema[8.0].define(version: 2026_01_21_145822) do
     t.index ["object_id"], name: "index_activities_on_object_id"
     t.index ["section_id"], name: "index_activities_on_section_id"
     t.index ["site_id"], name: "index_activities_on_site_id"
+  end
+
+  create_table "bonuses", id: :integer, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "race_id", null: false
+    t.string "name", null: false
+    t.integer "points", null: false
+    t.string "key", null: false
+    t.integer "position", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["key"], name: "index_bonuses_on_key", unique: true
+    t.index ["race_id"], name: "index_bonuses_on_race_id"
   end
 
   create_table "cached_page_references", id: :integer, charset: "utf8mb4", collation: "utf8mb4_unicode_ci", options: "ENGINE=InnoDB ROW_FORMAT=DYNAMIC", force: :cascade do |t|
@@ -384,7 +396,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_01_21_145822) do
     t.string "city"
     t.string "state"
     t.string "zip"
-    t.integer "position"
+    t.integer "position", null: false
     t.integer "race_id"
     t.datetime "confirmation_sent_at", precision: nil
     t.text "shirt_sizes"
@@ -422,6 +434,5 @@ ActiveRecord::Schema[8.0].define(version: 2026_01_21_145822) do
     t.index ["account_id"], name: "index_users_on_account_id"
   end
 
-  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
 end

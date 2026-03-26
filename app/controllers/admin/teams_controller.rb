@@ -24,9 +24,6 @@ class Admin::TeamsController < Admin::BaseController
       flash.now.alert = errors_for(@team)
       render :form
     end
-  # teams.position uniqueness constraint can fail at db level, so just try again
-  rescue ActiveRecord::StatementInvalid
-    retry
   end
 
   def update
@@ -41,11 +38,8 @@ class Admin::TeamsController < Admin::BaseController
 
   def destroy
     @team = @race.teams.find(params[:id])
-    # prevent positions from being updated
-    # TODO: replace acts_as_list with autopopulating position column and call it a day?
-    Team.acts_as_list_no_update do
-      @team.destroy
-    end
+    @team.riders.delete_all
+    @team.delete
     redirect_to [:admin, @race, :teams], notice: "The team has been destroyed."
   end
 

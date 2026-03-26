@@ -17,6 +17,7 @@ Given /^the following race teams exist:/ do |table|
     field(:race) { Race.last }
 
     rename :pos => :position
+    field(:position) { |value| value.to_i if value.present? }
 
     belongs_to({ :class => :category }, TeamCategory)
 

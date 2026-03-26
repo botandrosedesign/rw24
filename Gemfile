@@ -12,7 +12,7 @@ gem "input_css" # FIXME
 gem "cloudflare-turnstile-rails"
 gem "csv_builder"
 gem "nokogiri"
-gem "acts_as_list"
+gem "positioning"
 gem "cocoon"
 gem "validates_email_format_of"
 gem "auto_strip_attributes"

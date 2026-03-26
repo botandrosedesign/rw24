@@ -100,9 +100,6 @@ GEM
       securerandom (>= 0.3)
       tzinfo (~> 2.0, >= 2.0.5)
       uri (>= 0.13.1)
-    acts_as_list (1.2.6)
-      activerecord (>= 6.1)
-      activesupport (>= 6.1)
     addressable (2.8.9)
       public_suffix (>= 2.0.2, < 8.0)
     auto_strip_attributes (2.6.0)
@@ -411,6 +408,9 @@ GEM
     parallel (1.27.0)
     parallel_tests (3.9.1)
       parallel
+    positioning (0.4.7)
+      activerecord (>= 6.1)
+      activesupport (>= 6.1)
     pp (0.6.3)
       prettyprint
     prettyprint (0.2.0)
@@ -598,7 +598,6 @@ PLATFORMS
 
 DEPENDENCIES
   active_record-json_associations
-  acts_as_list
   adva!
   auto_strip_attributes
   awesome_nested_set
@@ -634,6 +633,7 @@ DEPENDENCIES
   newrelic_rpm
   nokogiri
   parallel_tests (~> 3.9.0)
+  positioning
   puma
   rack-tracker!
   rails (~> 8.0.0)

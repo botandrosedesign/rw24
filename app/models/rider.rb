@@ -1,5 +1,5 @@
+require "positioning"
 require "validates_email_format_of"
-require "acts_as_list"
 require "team"
 
 class Rider < ActiveRecord::Base
@@ -9,7 +9,7 @@ class Rider < ActiveRecord::Base
 
   belongs_to :team
   belongs_to :user, required: false
-  acts_as_list scope: :team_id
+  positioned on: :team
 
   validates_email_format_of :email, allow_blank: true
 

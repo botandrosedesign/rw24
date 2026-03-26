@@ -1,4 +1,4 @@
-require "acts_as_list"
+require "positioning"
 require "shirt_sizes"
 
 class Team < ActiveRecord::Base
@@ -46,13 +46,13 @@ class Team < ActiveRecord::Base
     race.shirt_sizes.reduce({}) { |h,k| h[k]=0; h }
   end
 
+  positioned on: :race
+
   validates_presence_of :race, :name, :category
-  validates_uniqueness_of :position, :scope => :race_id
+  validates_uniqueness_of :position, scope: :race_id
   validates_each :riders do |record, attr, value|
     record.errors.add attr, "count is incorrect." unless record.allowed_range.include?(value.length)
   end
-
-  acts_as_list :scope => :race_id
 
   before_save :assign_phone_to_captain
 
