@@ -71,12 +71,12 @@ function format_time_diff(diff) {
   const oneMinute = 60 * 1000
   const oneHour = oneMinute * 60
 
-  const hours = diff / oneHour
-  const minutes = diff % oneHour / oneMinute
-  const seconds = diff % oneMinute / 1000
+  const hours = Math.floor(diff / oneHour)
+  const minutes = Math.floor(diff % oneHour / oneMinute)
+  const seconds = Math.floor(diff % oneMinute / 1000)
 
-  return [hours, minutes, seconds].filter(e=>e).map(n =>
-    Math.floor(n).toString().padStart(2, '0')
+  return [hours, minutes, seconds].map(n =>
+    n.toString().padStart(2, '0')
   ).join(":")
 }
 

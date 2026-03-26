@@ -10,6 +10,7 @@ Capybara.register_driver(:cuprite) do |app|
     process_timeout: 20,
     js_errors: true,
     logger: FerrumLogger.new,
+    url_blacklist: [/challenges\.cloudflare\.com/],
     # headless: false,
   })
 end
