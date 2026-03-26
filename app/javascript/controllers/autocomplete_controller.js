@@ -24,7 +24,7 @@ export default class extends Controller {
       render: user => {
         let text = user.label
         if(!user.verified) { text = `<span style='color: red'>UNCONFIRMED</span> ${text}` }
-        if(user.team_pos) { text = `<span style='color: red'>#${user.team_pos}</span> ${text}` }
+        if(user.team_name) { text = `<span style='color: blue'>${user.team_name} #${user.team_pos}</span> ${text}` }
         return h(`<li><div>${text}</div></li>`)
       },
       onSelect: user => {

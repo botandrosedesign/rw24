@@ -97,13 +97,14 @@ class Race < ActiveRecord::Base
   def rider_autocomplete_options
     user_team_map = riders.includes(:team).inject({}) do |map, rider|
       if rider.user_id
-        map.merge rider.user_id => rider.team.position
+        map.merge rider.user_id => { pos: rider.team.position, name: rider.team.name }
       else
         map
       end
     end
 
     User.all.map do |user|
+      team_info = user_team_map[user.id]
       {
         verified: user.verified?,
         label: "#{user.name} ‹#{user.email}›",
@@ -113,7 +114,8 @@ class Race < ActiveRecord::Base
         email: user.email,
         phone: user.phone,
         shirt_size: user.shirt_size,
-        team_pos: user_team_map[user.id],
+        team_pos: team_info&.dig(:pos),
+        team_name: team_info&.dig(:name),
       }
     end
   end

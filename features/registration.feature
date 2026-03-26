@@ -307,8 +307,8 @@ Feature: Riders can create user accounts that persist beyond races
 
     When I type "botandrose.com" into "Search" within the first rider form
     Then I should see the following autocomplete options:
-      | #1 Micah Geisel ‹micah@botandrose.com›    |
-      | #1 Michael Gubitosa ‹gubs@botandrose.com› |
+      | Bot and Rose #1 Micah Geisel ‹micah@botandrose.com›    |
+      | Bot and Rose #1 Michael Gubitosa ‹gubs@botandrose.com› |
 
     When I follow "Users"
     Then I should see the following users:
