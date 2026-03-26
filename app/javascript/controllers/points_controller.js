@@ -1,16 +1,18 @@
 import { Controller } from "@hotwired/stimulus"
-import useActions from "stimulus-use-actions"
+import { withActions } from "stimulus-use-actions"
 
-export default class extends Controller {
+export default class extends withActions(Controller) {
+  static actions = {
+    element: [
+      "ajax:before->before",
+      "ajax:beforeSend->beforeSend",
+      "ajax:success->success",
+      "ajax:error->error",
+    ],
+  }
+
   connect() {
-    useActions(this, {
-      element: [
-        "ajax:before->before",
-        "ajax:beforeSend->beforeSend",
-        "ajax:success->success",
-        "ajax:error->error",
-      ],
-    })
+    super.connect()
     this.pointsTarget = document.getElementById("points")
   }
 

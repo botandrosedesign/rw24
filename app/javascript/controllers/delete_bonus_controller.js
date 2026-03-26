@@ -1,14 +1,12 @@
 import { Controller } from "@hotwired/stimulus"
-import useActions from "stimulus-use-actions"
+import { withActions } from "stimulus-use-actions"
 
-export default class extends Controller {
-  connect() {
-    useActions(this, {
-      element: [
-        "ajax:success->success",
-        "ajax:error->error",
-      ],
-    })
+export default class extends withActions(Controller) {
+  static actions = {
+    element: [
+      "ajax:success->success",
+      "ajax:error->error",
+    ],
   }
 
   success(event) {

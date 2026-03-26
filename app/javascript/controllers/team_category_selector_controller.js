@@ -1,11 +1,9 @@
 import { Controller } from "@hotwired/stimulus"
-import useActions from "stimulus-use-actions"
+import { withActions } from "stimulus-use-actions"
 
-export default class extends Controller {
-  connect() {
-    useActions(this, {
-      element: "change",
-    })
+export default class extends withActions(Controller) {
+  static actions = {
+    element: "change",
   }
 
   change() {

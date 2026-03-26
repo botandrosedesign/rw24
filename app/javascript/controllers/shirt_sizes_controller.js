@@ -1,18 +1,16 @@
 import { Controller } from "@hotwired/stimulus"
-import useActions from "stimulus-use-actions"
+import { withActions } from "stimulus-use-actions"
 
-export default class extends Controller {
+export default class extends withActions(Controller) {
   static targets = [
     "input",
     "output",
   ]
 
-  connect() {
-    useActions(this, {
-      // FIXME doesn't work with targets added after initialization
-      // inputTargets: "render",
-      window: "cocoon:after-remove->render",
-    })  
+  static actions = {
+    // FIXME doesn't work with targets added after initialization
+    // inputTargets: "render",
+    window: "cocoon:after-remove->render",
   }
 
   render() {

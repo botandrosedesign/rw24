@@ -1,15 +1,17 @@
 import { Controller } from "@hotwired/stimulus"
-import useActions from "stimulus-use-actions"
+import { withActions } from "stimulus-use-actions"
 
-export default class extends Controller {
+export default class extends withActions(Controller) {
+  static actions = {
+    element: [
+      "ajax:success->success",
+      "ajax:error->error",
+    ],
+  }
+
   connect() {
-    useActions(this, {
-      element: [
-        "ajax:success->success",
-        "ajax:error->error",
-      ],
-    })
-    this.id = this.element.elements.backup_id.value 
+    super.connect()
+    this.id = this.element.elements.backup_id.value
     this.dialogTarget = this.element.closest("dialog")
   }
 
