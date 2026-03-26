@@ -2,7 +2,6 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
   static targets = ["button", "count", "team"]
-  static values = {}
 
   connect() {
     this.buttonTargets[0].click()

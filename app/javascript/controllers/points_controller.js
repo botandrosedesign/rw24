@@ -44,8 +44,8 @@ export default class extends Controller {
   addPendingRow(data) {
     data.id = this.id
     data.team_position = data['point[team_position]'].padStart(3, '0')
-    var template = document.querySelector("#point_template").innerHTML
-    var html = Mu(template, data)
+    const template = document.querySelector("#point_template").innerHTML
+    const html = Mu(template, data)
     this.pointsTarget.insertAdjacentHTML("afterBegin", html)
   }
 
@@ -68,12 +68,12 @@ export default class extends Controller {
 }
 
 function format_time_diff(diff) {
-  var oneMinute = 60 * 1000
-  var oneHour = oneMinute * 60
+  const oneMinute = 60 * 1000
+  const oneHour = oneMinute * 60
 
-  var hours = diff / oneHour
-  var minutes = diff % oneHour / oneMinute
-  var seconds = diff % oneMinute / 1000
+  const hours = diff / oneHour
+  const minutes = diff % oneHour / oneMinute
+  const seconds = diff % oneMinute / 1000
 
   return [hours, minutes, seconds].filter(e=>e).map(n => {
     Math.floor(n).toString().padStart(2, '0')

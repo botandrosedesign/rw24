@@ -12,9 +12,7 @@ export default class extends Controller {
   }
 
   #cookieUID() {
-    const name = "uid"
-    const cookie = document.cookie.match(new RegExp('(^|;)\\s*' + escape(name) + '=([^;\\s]+)'))
-    return !!cookie
+    return document.cookie.match(/(^|;)\s*uid=([^;\s]+)/)
   }
 }
 
