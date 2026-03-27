@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/botandrose/adva_cms.git
-  revision: 76f261e6794e0dfbbf4aed102fcb95481157b61e
+  revision: f9e08561c2119b3ac92235b96f71ae7a044b0985
   specs:
     adva (0.3.3)
       actionpack-page_caching

@@ -24,6 +24,8 @@ table.users-table
             - year = @user_teams.race_year_map[race_id]
             = link_to year, edit_admin_race_team_path(race_id, team_id), class: "user-race"
         td
+          - if current_user.admin? && user != current_user
+            = link_to "Login as", token_login_path(token: Rails.application.message_verifier("login_as").generate(user.id, expires_in: 5.minutes)), data: { turbo_confirm: "This will log you out and log you in as #{user.name}. Continue?" }
           = link_to "Edit user", [:edit, :admin, user], class: "edit-icon", title: "Edit user"
           = link_to "Delete user", [:admin, user], class: "delete-icon", title: "Delete user",
             data: { method: :delete, confirm: "Are you sure you want to delete this user?" }
