@@ -7,7 +7,7 @@ pin "stimulus-use-actions", to: "https://ga.jspm.io/npm:stimulus-use-actions@0.3
 pin "@hotwired/turbo-rails", to: "turbo.min.js"
 
 pin "sortablejs", to: "https://ga.jspm.io/npm:sortablejs@1.15.0/Sortable.js"
-pin "rails-request-json", to: "https://ga.jspm.io/npm:rails-request-json@0.0.1/index.js"
+pin "rails-request-json", to: "https://esm.sh/rails-request-json@0.2.1?external=@rails/request.js"
 pin "@rails/request.js", to: "https://ga.jspm.io/npm:@rails/request.js@0.0.8/src/index.js"
 
 pin "autocompleter", to: "https://ga.jspm.io/npm:autocompleter@8.0.3/autocomplete.js"
