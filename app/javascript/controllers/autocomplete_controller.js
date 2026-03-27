@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 import "@kollegorna/cocoon-vanilla-js"
 import autocomplete from 'autocompleter'
-import { get, post } from "rails-request-json"
+import { post } from "rails-request-json"
 
 export default class extends Controller {
   static targets = [
@@ -14,7 +14,7 @@ export default class extends Controller {
       container: document.createElement("ul"),
       className: "autocomplete",
       fetch: async (text, update) => {
-        const users = await get(window.riderAutocompleteUrl)
+        const users = await fetch(window.riderAutocompleteUrl, { headers: { Accept: "application/json" } }).then(r => r.json())
         const matchedUsers = users.filter(user => {
           return user.label.toLowerCase().includes(text.toLowerCase())
         })
