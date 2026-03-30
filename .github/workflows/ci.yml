@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   test:
-    runs-on: ubuntu-22.04${{ github.actor != 'dependabot[bot]' && '-8core' || '' }}
+    runs-on: ubuntu-24.04${{ github.actor != 'dependabot[bot]' && '-8core' || '' }}
     timeout-minutes: 30
     env:
       RAILS_ENV: test
@@ -37,7 +37,7 @@ jobs:
 
   autodeploy-dependabot-prs:
     needs: test
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     if: github.actor == 'dependabot[bot]'
     steps:
