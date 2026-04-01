@@ -58,6 +58,8 @@ class AccountsController < BaseController
   end
 
   def handle_csrf_failure
+    set_site
+    guess_section
     @user = User.new(create_user_params)
     flash.now.alert = "Your form session has expired. Please try submitting again."
     render action: :new, status: :unprocessable_entity
