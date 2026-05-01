@@ -2,6 +2,10 @@
 
 = content_for :body_class, "team-edit-body"
 
+.team-actions
+  = link_to "← Back", [:admin, @race, :teams]
+  = link_to "New Team", [:new, :admin, @race, :team]
+
 = form_for [:admin, @race, @team], data: { controller: "shirt-sizes" } do |form|
   = form.hidden_field :race_id
   h2
