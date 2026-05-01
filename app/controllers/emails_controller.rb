@@ -1,6 +1,8 @@
 class EmailsController < BaseController
   include Authentication::HashHelper
 
+  before_action :require_authentication, only: [:show, :create]
+
   expose :user
 
   def show

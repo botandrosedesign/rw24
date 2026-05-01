@@ -64,6 +64,12 @@ Feature: Update my account
 
     Then I should see "Logged in successfully."
 
+  Scenario: Anonymous user attempting to change email is redirected to login
+    When I follow "Logout"
+    And I go to the change email page
+    Then I should see "Reset your password"
+    And I should not see "Change Email Address"
+
   Scenario: User resets password
     When I follow "Logout"
     And I follow "Login"

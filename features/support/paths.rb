@@ -25,6 +25,9 @@ module NavigationHelpers
     
     when /the leaderboard page/
       "/leader-board/#{Time.now.year}"
+
+    when /the change email page/
+      "/account/email"
     
     # Add more mappings here.
     # Here is a more fancy example:
