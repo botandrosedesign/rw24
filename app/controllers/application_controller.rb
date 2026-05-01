@@ -39,6 +39,10 @@ class ApplicationController < ActionController::Base
     @current_race ||= Race.current
   end
 
+  def current_user
+    nil
+  end
+
   def start_time
     @start_time ||= current_race.try(:start_time)
   end

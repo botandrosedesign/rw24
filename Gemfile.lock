@@ -1,10 +1,12 @@
 GIT
   remote: https://github.com/botandrose/adva_cms.git
-  revision: f9e08561c2119b3ac92235b96f71ae7a044b0985
+  revision: 3c842db1a4bdbfd9a7dc5d4c5384fd1d9d09bed6
   specs:
     adva (0.3.3)
       actionpack-page_caching
+      acts-as-taggable-on (>= 10.0)
       awesome_nested_set
+      bard-tag_field
       friendly_id (>= 5.4)
       nacelle
       rails-observers
@@ -100,6 +102,9 @@ GEM
       securerandom (>= 0.3)
       tzinfo (~> 2.0, >= 2.0.5)
       uri (>= 0.13.1)
+    acts-as-taggable-on (13.0.0)
+      activerecord (>= 7.1, < 8.2)
+      zeitwerk (>= 2.4, < 3.0)
     addressable (2.9.0)
       public_suffix (>= 2.0.2, < 8.0)
     auto_strip_attributes (2.6.0)
@@ -380,7 +385,7 @@ GEM
       mime-types-data (~> 3.2025, >= 3.2025.0507)
     mime-types-data (3.2026.0414)
     mini_mime (1.1.5)
-    minitest (6.0.5)
+    minitest (6.0.6)
       drb (~> 2.0)
       prism (~> 1.5)
     mize (0.6.1)
@@ -402,7 +407,7 @@ GEM
     newrelic_rpm (10.4.0)
       logger
     nio4r (2.7.5)
-    nokogiri (1.19.2-x86_64-linux-gnu)
+    nokogiri (1.19.3-x86_64-linux-gnu)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     ostruct (0.6.3)

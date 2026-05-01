@@ -1,5 +1,6 @@
 import "@hotwired/turbo-rails"
 import "controllers"
+import "input-tag"
 
 // Disable Turbo Drive globally — the app isn't ready for SPA-style navigation.
 // Turbo is still used for data-turbo-method and data-turbo-confirm on opted-in links.
