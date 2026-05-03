@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2026_03_26_200105) do
+ActiveRecord::Schema[8.0].define(version: 2026_05_03_145333) do
   create_table "accounts", id: :integer, charset: "utf8mb4", collation: "utf8mb4_unicode_ci", options: "ENGINE=InnoDB ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: nil
@@ -50,8 +50,8 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_26_200105) do
     t.integer "section_id"
     t.integer "author_id"
     t.string "author_type"
-    t.string "author_name", limit: 40
-    t.string "author_email", limit: 40
+    t.string "author_name", limit: 128
+    t.string "author_email", limit: 128
     t.string "author_homepage"
     t.string "actions"
     t.integer "object_id"
@@ -64,7 +64,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_26_200105) do
     t.index ["site_id"], name: "index_activities_on_site_id"
   end
 
-  create_table "bonuses", id: :integer, charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "bonuses", id: :integer, charset: "utf8mb4", collation: "utf8mb4_unicode_ci", force: :cascade do |t|
     t.integer "race_id", null: false
     t.string "name", null: false
     t.integer "points", null: false
@@ -103,6 +103,8 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_26_200105) do
     t.string "title"
     t.string "path"
     t.string "permalink"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
     t.index ["parent_id"], name: "index_categories_on_parent_id"
     t.index ["section_id"], name: "index_categories_on_section_id"
   end
@@ -370,12 +372,24 @@ ActiveRecord::Schema[8.0].define(version: 2026_03_26_200105) do
     t.integer "taggable_id"
     t.string "taggable_type"
     t.datetime "created_at", precision: nil
+    t.string "context", limit: 128
+    t.string "tagger_type"
+    t.bigint "tagger_id"
+    t.string "tenant", limit: 128
+    t.index ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true
     t.index ["tag_id"], name: "index_taggings_on_tag_id"
+    t.index ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
     t.index ["taggable_id", "taggable_type"], name: "index_taggings_on_taggable_id_and_taggable_type"
+    t.index ["tagger_type", "tagger_id"], name: "index_taggings_on_tagger"
+    t.index ["tenant"], name: "index_taggings_on_tenant"
   end
 
   create_table "tags", id: :integer, charset: "utf8mb4", collation: "utf8mb4_unicode_ci", options: "ENGINE=InnoDB ROW_FORMAT=DYNAMIC", force: :cascade do |t|
     t.string "name"
+    t.integer "taggings_count", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
   create_table "team_categories", charset: "utf8mb4", collation: "utf8mb4_unicode_ci", options: "ENGINE=InnoDB ROW_FORMAT=DYNAMIC", force: :cascade do |t|
