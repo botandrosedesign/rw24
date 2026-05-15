@@ -138,7 +138,7 @@ GEM
       rvm
       term-ansicolor (>= 1.0.3)
       thor (>= 0.19.0)
-    bard-api (0.3.2)
+    bard-api (0.4.0)
       backhoe
       bard
       bard-backup
