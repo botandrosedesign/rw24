@@ -16,13 +16,13 @@ GIT
 
 GIT
   remote: https://github.com/botandrose/bard-api.git
-  revision: 7b3431c4b12143f6261020aa1ee3328b6efb62ec
+  revision: 327387602307bf424fba409092d0a07dc5207ba8
   branch: bard-v2.0
   specs:
     bard-api (0.5.0)
       backhoe
       bard (>= 2.0)
-      bard-backup (>= 0.10)
+      bard-backup (>= 0.11)
       jwt
       rack
 
