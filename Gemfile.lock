@@ -155,19 +155,24 @@ GEM
       aws-eventstream (~> 1, >= 1.0.2)
     backhoe (0.11.0)
       activerecord
-    bard-backup (0.11.3)
+    bard-attachment_field (0.5.3)
+      activestorage (>= 7.1.0)
+    bard-backup (0.11.4)
       aws-sdk-s3 (~> 1.0)
       backhoe
       bard
       rails
       rexml
-    bard-file_field (0.1.6)
-      activestorage (>= 7.1.0)
-    bard-rails (0.2.1)
+    bard-new (0.1.0)
       bard
+    bard-rails (0.3.2)
+      bard (> 1)
       bard-api
-      bard-file_field
+      bard-attachment_field
+      bard-backup
+      bard-new
       bard-rake
+      bard-sass
       bard-staging_banner
       bard-static
       bard-tag_field
@@ -179,18 +184,19 @@ GEM
       bard-backup
       railties
       rake
+    bard-sass (0.5.2)
     bard-staging_banner (0.4.1)
       letter_opener_web
       rexml
     bard-static (3.2.0)
       ostruct
-    bard-tag_field (0.7.0)
+    bard-tag_field (0.7.1)
       rails (>= 7.1)
     base64 (0.3.0)
     benchmark (0.5.0)
     bigdecimal (4.1.2)
     bindex (0.8.1)
-    bootsnap (1.24.3)
+    bootsnap (1.24.4)
       msgpack (~> 1.2)
     builder (3.3.0)
     byebug (13.0.0)
@@ -217,8 +223,10 @@ GEM
     ckeditor (5.1.3)
       orm_adapter (~> 0.5.0)
     climate_control (1.2.0)
-    cloudflare-turnstile-rails (1.0.0)
-      rails (>= 5.0)
+    cloudflare-turnstile-rails (1.0.1)
+      actionpack (>= 5.0)
+      actionview (>= 5.0)
+      railties (>= 5.0)
     cocoon (1.2.15)
     concurrent-ruby (1.3.6)
     connection_pool (3.0.2)
@@ -414,7 +422,7 @@ GEM
       timeout
     net-smtp (0.5.1)
       net-protocol
-    newrelic_rpm (10.4.0)
+    newrelic_rpm (10.5.0)
       logger
     nio4r (2.7.5)
     nokogiri (1.19.3-x86_64-linux-gnu)
@@ -567,7 +575,7 @@ GEM
     tilt (2.7.0)
     timecop (0.9.11)
     timeout (0.6.1)
-    trilogy (2.12.4)
+    trilogy (2.12.5)
       bigdecimal
     tsort (0.2.0)
     turbo-rails (2.0.23)
