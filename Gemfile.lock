@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/botandrose/adva_cms.git
-  revision: 3c842db1a4bdbfd9a7dc5d4c5384fd1d9d09bed6
+  revision: fba3e2fddfc96cb5432b12ff10bc9e11f5956d84
   specs:
     adva (0.3.3)
       actionpack-page_caching
@@ -607,7 +607,7 @@ GEM
     will_paginate (4.0.1)
     xpath (3.2.0)
       nokogiri (~> 1.8)
-    zeitwerk (2.7.5)
+    zeitwerk (2.8.2)
 
 PLATFORMS
   x86_64-linux
