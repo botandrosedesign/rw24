@@ -15,29 +15,6 @@ GIT
       will_paginate
 
 GIT
-  remote: https://github.com/botandrose/bard-api.git
-  revision: 327387602307bf424fba409092d0a07dc5207ba8
-  branch: bard-v2.0
-  specs:
-    bard-api (0.5.0)
-      backhoe
-      bard (>= 2.0)
-      bard-backup (>= 0.11)
-      jwt
-      rack
-
-GIT
-  remote: https://github.com/botandrose/bard.git
-  revision: 0ad82e5397019b4419b14ffd9ed9705dbf726016
-  branch: v2.0
-  specs:
-    bard (2.0.0)
-      base64
-      rbnacl
-      rvm
-      thor (>= 0.19.0)
-
-GIT
   remote: https://github.com/botandrose/rack-tracker.git
   revision: 2aa103b242805aa043febbeeeb764baec92ba5bb
   branch: ga4
@@ -155,6 +132,17 @@ GEM
       aws-eventstream (~> 1, >= 1.0.2)
     backhoe (0.11.0)
       activerecord
+    bard (2.0.0)
+      base64
+      rbnacl
+      rvm
+      thor (>= 0.19.0)
+    bard-api (0.5.0)
+      backhoe
+      bard (>= 2.0)
+      bard-backup (>= 0.10)
+      jwt
+      rack
     bard-attachment_field (0.5.3)
       activestorage (>= 7.1.0)
     bard-backup (0.11.4)
@@ -618,8 +606,6 @@ DEPENDENCIES
   auto_strip_attributes
   awesome_nested_set
   backhoe
-  bard!
-  bard-api!
   bard-rails
   bootsnap
   byebug

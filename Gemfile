@@ -4,8 +4,6 @@ git_source(:github) { |repo_name| "https://github.com/#{repo_name}.git" }
 gem "bootsnap", require: false
 gem "rails", "~>8.0.0"
 gem "bard-rails"
-gem "bard-api", github: "botandrose/bard-api", branch: "bard-v2.0"
-gem "bard", github: "botandrose/bard", branch: "v2.0"
 gem "trilogy"
 gem "haml-rails"
 gem "slim-rails"
