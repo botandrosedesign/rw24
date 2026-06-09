@@ -407,7 +407,7 @@ GEM
     nacelle (0.6.2)
       rails
       sprockets-rails
-    net-imap (0.6.4)
+    net-imap (0.6.4.1)
       date
       net-protocol
     net-pop (0.1.2)
