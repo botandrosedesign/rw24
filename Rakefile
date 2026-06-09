@@ -13,8 +13,10 @@ end
 if Rails.env.production?
   task :restart => :clear_cache do
     sh "bundle exec whenever --update-crontab rw24"
-    sh "bundle exec foreman export systemd-user --app rw24"
-    sh "systemctl --user restart rw24.target"
+  end
+
+  Rake::Task[:restart].enhance do
+    sh "bundle exec procsd create --or-restart"
   end
 end
 

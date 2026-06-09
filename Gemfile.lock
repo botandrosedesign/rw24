@@ -15,6 +15,15 @@ GIT
       will_paginate
 
 GIT
+  remote: https://github.com/botandrose/procsd.git
+  revision: 607ba6a815b1898463cf49484a880b35461b1889
+  branch: user-mode
+  specs:
+    procsd (0.5.5)
+      dotenv
+      thor
+
+GIT
   remote: https://github.com/botandrose/rack-tracker.git
   revision: 2aa103b242805aa043febbeeeb764baec92ba5bb
   branch: ga4
@@ -290,6 +299,7 @@ GEM
       rack-protection (>= 1.5.5)
       sinatra (>= 1.4.4)
     diff-lcs (1.6.2)
+    dotenv (3.2.0)
     drb (2.2.3)
     email_spec (2.3.1)
       htmlentities (~> 4.3)
@@ -316,10 +326,6 @@ GEM
     ffi (1.17.4-x86_64-linux-gnu)
     font-awesome-rails (4.7.0.9)
       railties (>= 3.2, < 9.0)
-    foreman (0.90.0)
-      thor (~> 1.4)
-    foreman-export-systemd_user (0.2.1)
-      foreman (>= 0.90.0)
     friendly_id (5.7.0)
       activerecord (>= 4.0.0)
     globalid (1.3.0)
@@ -628,7 +634,6 @@ DEPENDENCIES
   factory_bot_rails
   faker
   font-awesome-rails
-  foreman-export-systemd_user
   haml-rails
   importmap-rails
   input_css
@@ -638,6 +643,7 @@ DEPENDENCIES
   nokogiri
   parallel_tests (~> 3.9.0)
   positioning
+  procsd!
   puma
   rack-tracker!
   rails (~> 8.0.0)

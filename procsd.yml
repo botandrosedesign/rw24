@@ -1,0 +1,15 @@
+app: rw24
+user_mode: true
+formation: web=1,worker=1
+environment:
+  RAILS_ENV: production
+  RACK_ENV: production
+  RAILS_MAX_THREADS: 5
+  WEB_CONCURRENCY: 2
+  PORT: 3000
+processes:
+  web:
+    ExecStart: bin/rvm bundle exec puma -C config/puma.rb
+    ExecReload: /bin/kill -USR2 $MAINPID
+  worker:
+    ExecStart: bin/rvm bin/delayed_job run production

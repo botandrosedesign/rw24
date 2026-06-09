@@ -4,6 +4,8 @@ git_source(:github) { |repo_name| "https://github.com/#{repo_name}.git" }
 gem "bootsnap", require: false
 gem "rails", "~>8.0.0"
 gem "bard-rails"
+gem "puma"
+gem "procsd", github: "botandrose/procsd", branch: "user-mode"
 gem "trilogy"
 gem "haml-rails"
 gem "slim-rails"
@@ -52,7 +54,6 @@ end
 group :test do
   gem "cucumber-rails"
   gem "cuprite-downloads"
-  gem "puma"
   gem "capybara-screenshot"
   gem "database_cleaner"
   gem "email_spec"
@@ -65,7 +66,6 @@ group :test do
 end
 
 group :production do
-  gem "foreman-export-systemd_user"
   gem "rack-tracker", github: "botandrose/rack-tracker", branch: "ga4"
   gem "whenever"
 end
