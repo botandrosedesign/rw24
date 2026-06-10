@@ -1,4 +1,3 @@
-require "positioning"
 require "shirt_sizes"
 
 class Team < ActiveRecord::Base
@@ -46,7 +45,7 @@ class Team < ActiveRecord::Base
     race.shirt_sizes.reduce({}) { |h,k| h[k]=0; h }
   end
 
-  positioned on: :race
+  before_create :assign_next_position
 
   validates_presence_of :race, :name, :category
   validates_uniqueness_of :position, scope: :race_id
@@ -171,6 +170,12 @@ class Team < ActiveRecord::Base
   end
 
   private
+
+  def assign_next_position
+    return if position.present?
+    race.lock! # serialize concurrent inserts so positions don't collide
+    self.position = (Team.where(race_id: race_id).maximum(:position) || 0) + 1
+  end
 
   def assign_phone_to_captain
     captain.phone = self.phone if self.phone

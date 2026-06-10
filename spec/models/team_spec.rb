@@ -134,6 +134,53 @@ describe Team do
     end
   end
 
+  describe "position" do
+    it "auto-assigns sequential positions within a race on create" do
+      race = FactoryBot.create(:race)
+      team1 = FactoryBot.create(:team_solo, race: race)
+      team2 = FactoryBot.create(:team_solo, race: race)
+      team1.position.should == 1
+      team2.position.should == 2
+    end
+
+    it "assigns the next position from the highest existing one, leaving gaps intact" do
+      race = FactoryBot.create(:race)
+      FactoryBot.create(:team_solo, race: race)
+      FactoryBot.create(:team_solo, race: race).update!(position: 25)
+      FactoryBot.create(:team_solo, race: race).position.should == 26
+    end
+
+    it "is an identifier: changing a team's number doesn't renumber other teams or get clamped" do
+      race = FactoryBot.create(:race)
+      team1 = FactoryBot.create(:team_solo, race: race)
+      team2 = FactoryBot.create(:team_solo, race: race)
+
+      team1.update!(position: 25)
+
+      team1.position.should == 25
+      team2.reload.position.should == 2
+    end
+
+    it "rejects a number already used by another team in the same race" do
+      race = FactoryBot.create(:race)
+      FactoryBot.create(:team_solo, race: race)
+      team2 = FactoryBot.create(:team_solo, race: race)
+
+      team2.position = 1
+
+      team2.should_not be_valid
+      team2.errors[:position].should include("has already been taken")
+    end
+
+    it "allows the same number in different races" do
+      team1 = FactoryBot.create(:team_solo, race: FactoryBot.create(:race, year: 2020))
+      team2 = FactoryBot.create(:team_solo, race: FactoryBot.create(:race, year: 2021))
+      team1.position.should == 1
+      team2.position.should == 1
+      team2.should be_valid
+    end
+  end
+
   describe "#laps_total" do
     it "sums lap quantities" do
       race = FactoryBot.create(:race)
